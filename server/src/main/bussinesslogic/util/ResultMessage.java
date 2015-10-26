@@ -1,4 +1,4 @@
-package main.bussinesslogic.util;
+package src.main.bussinesslogic.util;
 
 /**
  * Created by Away

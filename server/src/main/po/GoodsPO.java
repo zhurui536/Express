@@ -1,4 +1,4 @@
-package main.po;
+package src.main.po;
 
 /**
  * Created by Away

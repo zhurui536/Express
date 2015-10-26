@@ -1,4 +1,4 @@
-package main.bussinesslogicservice.storeblservice;
+package src.main.bussinesslogicservice.storeblservice;
 
 /**
  * Created by Away
