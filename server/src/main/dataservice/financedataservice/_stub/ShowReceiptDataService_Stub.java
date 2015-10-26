@@ -1,5 +1,6 @@
 package main.dataservice.financedataservice._stub;
 
+import main.bussinesslogic.util.BillType;
 import main.dataservice.financedataservice.ShowReceiptDataService;
 import main.po.BillPO;
 
@@ -16,6 +17,6 @@ public class ShowReceiptDataService_Stub implements ShowReceiptDataService {
     @Override
     public BillPO find(long time, long id) throws RemoteException {
         System.out.println("find success");
-        return null;
+        return new BillPO("123456789", BillType.DELIVERY);
     }
 }

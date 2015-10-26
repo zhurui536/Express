@@ -16,7 +16,7 @@ public class BankAccountVO {
     // 账户账号
     private String id;
 
-    public BankAccountVO(String name, long balance, String id) {
+    public BankAccountVO(String name, double balance, String id) {
         this.name = name;
         this.balance = balance;
         this.id = id;
