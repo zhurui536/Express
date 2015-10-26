@@ -9,7 +9,10 @@ import main.bussinesslogicservice.storeblservice.StoreBLService;
 import main.po.StorePlacePO;
 import main.po.VerificationPO;
 import main.vo.IORecordVO;
-
+/**
+ * Created By ZHR
+ * 2015/10/26
+ */
 public class StoreBLService_Stub implements StoreBLService {
 
 	@Override

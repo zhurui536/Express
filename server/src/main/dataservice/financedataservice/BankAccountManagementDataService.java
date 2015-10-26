@@ -7,6 +7,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
+ * 银行账户管理数据层
  * Created by Away
  * 2015/10/26
  */

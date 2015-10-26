@@ -13,5 +13,5 @@ public interface ShowStatementBLService {
      * 显示经营情况表
      * @return ResultMessage
      */
-    ResultMessage showStatement();
+    ResultMessage showStatement(long startTime, long endTime);
 }

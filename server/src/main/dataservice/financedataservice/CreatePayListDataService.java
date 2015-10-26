@@ -1,5 +1,9 @@
 package main.dataservice.financedataservice;
 
+import main.po.BillPO;
+
+import java.rmi.RemoteException;
+
 /**
  * 创建付款单数据层
  * Created by Away
@@ -7,5 +11,7 @@ package main.dataservice.financedataservice;
  */
 
 public interface CreatePayListDataService {
-    
+
+    // TODO 单据
+    void insert(BillPO po) throws RemoteException;
 }

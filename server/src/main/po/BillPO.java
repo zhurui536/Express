@@ -1,9 +1,8 @@
 package main.po;
 
 import main.bussinesslogic.util.BillState;
-import java.io.Serializable;
-
 import main.bussinesslogic.util.BillType;
+import java.io.Serializable;
 
 /*
  * Created By ZHR
