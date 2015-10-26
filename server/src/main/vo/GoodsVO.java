@@ -34,6 +34,8 @@ public class GoodsVO {
         private String recipient;
         //货物的快递单号
         private long id;
+      //货物的接受时间
+        private long time;
         
         public GoodsVO(long id, String name, String departurePlace,
                         String destination ,int weight,
@@ -52,6 +54,18 @@ public class GoodsVO {
                        this.goodsDeliveryState = GoodsDeliveryState.TRANSPORT;
         }      
         
+        public void setTime(long time) {
+                this.time = time;
+        }
+        
+        public String getRecipient() {
+                return recipient;
+        }
+
+        public long getTime() {
+                return time;
+        }
+
         public long getId() {
                 return id;
         }

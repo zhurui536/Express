@@ -1,8 +1,10 @@
 package main.bussinesslogicservice.logisticsblservice._stub;
 
+import main.bussinesslogic.util.ExpressType;
+import main.bussinesslogic.util.PackageType;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.DeliveryBLService;
-import main.dataservice.logisticsdataservice.DeliveryDataService;
+import main.po.GoodsPO;
 
 /**
  * @author zhuding
@@ -10,16 +12,17 @@ import main.dataservice.logisticsdataservice.DeliveryDataService;
  */
 public class DeliveryBLService_Stub implements DeliveryBLService{
 
-        private DeliveryDataService deliveryDataService;
-        
-        public DeliveryBLService_Stub(DeliveryDataService deliveryDataService) {
-                this.deliveryDataService = deliveryDataService;
+        public DeliveryBLService_Stub() {
         }
         
         @Override
         public ResultMessage addRecMessage(String Recipients, long id, long time) {
-                
-                return null;
+                GoodsPO goodsPO = new GoodsPO(0000000000,"核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
+                goodsPO.setRecipient(Recipients);
+                goodsPO.setTime(time);
+                System.out.println(goodsPO.getRecipient());
+                System.out.println(goodsPO.getTime());
+                return new ResultMessage("success", null);
         }
 
         @Override

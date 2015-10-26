@@ -7,5 +7,5 @@ import main.po.BillPO;
  *
  */
 public interface BillQueryDataService {
-        public BillPO find(long id) ;
+        public BillPO find(String id) ;
 }
