@@ -6,7 +6,10 @@ import main.bussinesslogic.util.ResultMessage;
 import main.dataservice.billdataservice.BilldataService;
 import main.dataservice.billdataservice._stub.BilldataService_Stub;
 import main.po.BillPO;
-
+/*
+ * Created By ZHR
+ * 2015/10/26
+ */
 public class BilldataService_Driver {
 	public static void main(String[] args){
 		BilldataService bds = new BilldataService_Stub();

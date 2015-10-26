@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.billblservice.BillBLService;
 import main.vo.BillVO;
-
+/**
+ * Created By ZHR
+ * 2015/10/26
+ */
 public class BillBLService_Stub implements BillBLService {
 
 	@Override
