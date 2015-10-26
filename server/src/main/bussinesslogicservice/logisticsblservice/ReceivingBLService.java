@@ -19,6 +19,7 @@ public interface ReceivingBLService {
          * 获取快递到达时间
          */
         public long getTime(String destination);
+        //TODO
         //参数可以去掉
         
         /**

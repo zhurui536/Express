@@ -2,22 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df707e08-8df3-4511-9f4e-7ebff1dc9706" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/CreateAccountingDataService_Stub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/CreatePayListService_Stub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/po/ProfitListPO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowProfitListDataService_Stub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowReceiptDataService_Stub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/po/StatementPO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/BankAccountManagementDataService.java" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/BankAccountManagementDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/BankAccountManagementDataService_Stub.java" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/BankAccountManagementDataService_Stub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/CreatePayListDataService.java" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/CreatePayListDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/ShowProfitListDataService.java" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/ShowProfitListDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/ShowReceiptDataService.java" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/ShowReceiptDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/financeblservice/ShowStatementBLService.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/financeblservice/ShowStatementBLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/financeblservice/_driver/ShowStatementBLService_Driver.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/financeblservice/_driver/ShowStatementBLService_Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/financeblservice/_stub/ShowStatementBLService_Stub.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/financeblservice/_stub/ShowStatementBLService_Stub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/ShowStatementDataService.java" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/ShowStatementDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_driver/DeliveryBLService_Driver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_driver/GoodsReceiptBLService_Driver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_stub/GoodsReceiptBLService_Stub.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_driver/ReceiptBillProduceBLService_Driver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_stub/ReceiptBillProduceBLService_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/main/po/GoodsPO.class" afterPath="$PROJECT_DIR$/bin/main/po/GoodsPO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/main/vo/GoodsVO.class" afterPath="$PROJECT_DIR$/bin/main/vo/GoodsVO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/po/BillPO.java" afterPath="$PROJECT_DIR$/server/src/main/po/BillPO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/BillQueryBLService.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/BillQueryBLService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_driver/BillQueryBLService_Driver.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_driver/BillQueryBLService_Driver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_stub/BillQueryBLService_Stub.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_stub/BillQueryBLService_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/dataservice/logisticsdataservice/BillQueryDataService.java" afterPath="$PROJECT_DIR$/server/src/main/dataservice/logisticsdataservice/BillQueryDataService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/dataservice/logisticsdataservice/_stub/BillQueryDataService_Stub.java" afterPath="$PROJECT_DIR$/server/src/main/dataservice/logisticsdataservice/_stub/BillQueryDataService_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogic/util/BillType.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogic/util/BillType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_stub/DeliveryBLService_Stub.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_stub/DeliveryBLService_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/dataservice/logisticsdataservice/_stub/DeliveryDataService_Stub.java" afterPath="$PROJECT_DIR$/server/src/main/dataservice/logisticsdataservice/_stub/DeliveryDataService_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/po/GoodsPO.java" afterPath="$PROJECT_DIR$/server/src/main/po/GoodsPO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/GoodsReceiptBLService.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/GoodsReceiptBLService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/vo/GoodsVO.java" afterPath="$PROJECT_DIR$/server/src/main/vo/GoodsVO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/ReceivingBLService.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/ReceivingBLService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_driver/ReceivingBLService_Driver.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/logisticsblservice/_driver/ReceivingBLService_Driver.java" />
+      <change type="MOVED" beforePath="D:\code\Express\Express\server\src\main\bussinesslogicservice\billblservice\_stub\BillBLService_stub.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/billblservice/_stub/BillBLService_Stub.java" />
     </list>
     <ignored path="express-all.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,13 +59,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowReceiptDataService_Stub.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShowReceiptDataService_Stub.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowReceiptDataService_Stub.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49021628">
+            <state vertical-scroll-proportion="0.0">
               <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BillPO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/src/main/po/BillPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.54479915">
+              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#174#201#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,6 +148,7 @@
         <option value="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/CreatePayListService_Stub.java" />
         <option value="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowProfitListDataService_Stub.java" />
         <option value="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowReceiptDataService_Stub.java" />
+        <option value="$PROJECT_DIR$/server/src/main/po/BillPO.java" />
       </list>
     </option>
   </component>
@@ -794,12 +814,12 @@
       <workItem from="1445794655591" duration="10000" />
       <workItem from="1445794801820" duration="2226000" />
       <workItem from="1445820485460" duration="20977000" />
-      <workItem from="1445856277365" duration="6631000" />
+      <workItem from="1445856277365" duration="6730000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32051000" />
+    <option name="totallyTimeSpent" value="32150000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
@@ -1071,26 +1091,26 @@
         <state vertical-scroll-proportion="0.89495367">
           <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
           <folding>
-            <element signature="e#771#772#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#849#850#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#921#922#0" expanded="true" />
-            <element signature="e#951#952#0" expanded="true" />
-            <element signature="e#986#987#0" expanded="true" />
-            <element signature="e#1016#1017#0" expanded="true" />
-            <element signature="e#1063#1064#0" expanded="true" />
-            <element signature="e#1099#1100#0" expanded="true" />
-            <element signature="e#1171#1172#0" expanded="true" />
-            <element signature="e#1221#1222#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
-            <element signature="e#1313#1314#0" expanded="true" />
-            <element signature="e#1367#1368#0" expanded="true" />
-            <element signature="e#1405#1406#0" expanded="true" />
-            <element signature="e#1452#1453#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
-            <element signature="e#1555#1556#0" expanded="true" />
-            <element signature="e#1605#1606#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="false" />
+            <element signature="e#807#808#0" expanded="false" />
+            <element signature="e#849#850#0" expanded="false" />
+            <element signature="e#879#880#0" expanded="false" />
+            <element signature="e#921#922#0" expanded="false" />
+            <element signature="e#951#952#0" expanded="false" />
+            <element signature="e#986#987#0" expanded="false" />
+            <element signature="e#1016#1017#0" expanded="false" />
+            <element signature="e#1063#1064#0" expanded="false" />
+            <element signature="e#1099#1100#0" expanded="false" />
+            <element signature="e#1171#1172#0" expanded="false" />
+            <element signature="e#1221#1222#0" expanded="false" />
+            <element signature="e#1275#1276#0" expanded="false" />
+            <element signature="e#1313#1314#0" expanded="false" />
+            <element signature="e#1367#1368#0" expanded="false" />
+            <element signature="e#1405#1406#0" expanded="false" />
+            <element signature="e#1452#1453#0" expanded="false" />
+            <element signature="e#1490#1491#0" expanded="false" />
+            <element signature="e#1555#1556#0" expanded="false" />
+            <element signature="e#1605#1606#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1321,20 +1341,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/po/BillPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1400618">
-          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowReceiptDataService_Stub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49021628">
+        <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/po/BillPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54479915">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#174#201#0" expanded="true" />
           </folding>
         </state>
       </provider>

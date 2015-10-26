@@ -1,10 +1,10 @@
 package main.bussinesslogicservice.logisticsblservice._driver;
 
+import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.ExpressType;
 import main.bussinesslogic.util.PackageType;
 import main.bussinesslogicservice.logisticsblservice.ReceivingBLService;
 import main.bussinesslogicservice.logisticsblservice._stub.ReceivingBLService_Stub;
-import main.po.BillPO;
 import main.vo.BillVO;
 import main.vo.GoodsVO;
 
@@ -27,7 +27,7 @@ public class ReceivingBLService_Driver {
         }
          
          public void drive() {
-                BillVO billVO = new BillVO();
+                BillVO billVO = new BillVO("00000",BillType.SEND);
                 System.out.println(receivingBLService.addMessage(billVO).getKey());
                 GoodsVO goodsVO = new GoodsVO(0000000000,"核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
                 System.out.println(receivingBLService.getCharge(goodsVO));
