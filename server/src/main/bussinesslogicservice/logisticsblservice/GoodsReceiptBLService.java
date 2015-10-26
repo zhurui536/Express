@@ -1,7 +1,7 @@
 package main.bussinesslogicservice.logisticsblservice;
 
 import main.bussinesslogic.util.GoodsState;
-import main.po.BillPO;
+import main.vo.BillVO;
 
 /**
  * @author zhuding

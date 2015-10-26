@@ -1,6 +1,7 @@
 package main.bussinesslogicservice.logisticsblservice;
 
 import main.bussinesslogic.util.ResultMessage;
+import main.vo.BillVO;
 import main.vo.GoodsVO;
 
 
@@ -18,6 +19,7 @@ public interface ReceivingBLService {
          * 获取快递到达时间
          */
         public long getTime(String destination);
+        //参数可以去掉
         
         /**
          * 获取快递所需费用

@@ -1,5 +1,7 @@
 package main.bussinesslogicservice.logisticsblservice;
 
+import main.vo.BillVO;
+
 /**
  * @author zhuding
  *
