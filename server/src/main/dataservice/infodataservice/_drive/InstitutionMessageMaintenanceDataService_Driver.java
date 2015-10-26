@@ -21,9 +21,9 @@ public class InstitutionMessageMaintenanceDataService_Driver {
         public void drive() {
                 try {
                         institutionMessageMaintenanceDataService.find(00000);
-                        institutionMessageMaintenanceDataService.insert(new InstitutionMessagePO());
+                        institutionMessageMaintenanceDataService.insert(new InstitutionMessagePO(null,null));
                         institutionMessageMaintenanceDataService.delete(00000);
-                        institutionMessageMaintenanceDataService.update(new InstitutionMessagePO());
+                        institutionMessageMaintenanceDataService.update(new InstitutionMessagePO(null,null));
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();

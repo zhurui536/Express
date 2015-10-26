@@ -14,7 +14,7 @@ public class StaffMessageMaintenanceDataService_Stub implements StaffMessageMain
         public StaffMessagePO find(long id) throws RemoteException {
                 // TODO Auto-generated method stub
                 System.out.println("find it");
-                return new StaffMessagePO();
+                return new StaffMessagePO(null,null);
         }
 
         @Override

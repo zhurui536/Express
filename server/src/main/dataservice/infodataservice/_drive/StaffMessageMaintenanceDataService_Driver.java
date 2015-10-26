@@ -21,9 +21,9 @@ public class StaffMessageMaintenanceDataService_Driver {
         public void drive() {
                 try {
                         staffMessageMaintenanceDataService.find(00000);
-                        staffMessageMaintenanceDataService.insert(new StaffMessagePO());
+                        staffMessageMaintenanceDataService.insert(new StaffMessagePO(null,null));
                         staffMessageMaintenanceDataService.delete(00000);
-                        staffMessageMaintenanceDataService.update(new StaffMessagePO());
+                        staffMessageMaintenanceDataService.update(new StaffMessagePO(null,null));
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();

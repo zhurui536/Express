@@ -14,7 +14,7 @@ public class TruckMessageMaintenanceDataService_Stub implements TruckMessageMain
         public TruckMessagePO find(long id) throws RemoteException {
                 // TODO Auto-generated method stub
                 System.out.println("find it");
-                return new TruckMessagePO();
+                return new TruckMessagePO(null,null,10);
         }
 
         @Override

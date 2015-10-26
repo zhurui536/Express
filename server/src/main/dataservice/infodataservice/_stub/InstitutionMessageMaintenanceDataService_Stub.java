@@ -14,7 +14,7 @@ public class InstitutionMessageMaintenanceDataService_Stub implements Institutio
         public InstitutionMessagePO find(long id) throws RemoteException {
                 // TODO Auto-generated method stub
                 System.out.println("find it");
-                return new InstitutionMessagePO();
+                return new InstitutionMessagePO(null,null);
         }
 
         @Override

@@ -21,9 +21,9 @@ public class TruckMessageMaintenanceDataService_Driver {
         public void drive() {
                 try {
                         truckMessageMaintenanceDataService.find(00000);
-                        truckMessageMaintenanceDataService.insert(new TruckMessagePO());
+                        truckMessageMaintenanceDataService.insert(new TruckMessagePO(null,null,10));
                         truckMessageMaintenanceDataService.delete(00000);
-                        truckMessageMaintenanceDataService.update(new TruckMessagePO());
+                        truckMessageMaintenanceDataService.update(new TruckMessagePO(null,null,10));
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
