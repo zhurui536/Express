@@ -10,7 +10,7 @@ import main.po.GoodsPO;
 import main.po.IORecordPO;
 import main.po.InStorePO;
 import main.po.OutStorePO;
-import main.po.StorePlace;
+import main.po.StorePlacePO;
 import main.po.VerificationPO;
 
 
@@ -24,11 +24,11 @@ public interface StoreDataService {
 	
 	public ArrayList<IORecordPO> finds(Time start, Time end) throws RemoteException;
 	
-	public ResultMessage find(StorePlace place) throws RemoteException;
+	public ResultMessage find(StorePlacePO place) throws RemoteException;
 	
 	public ResultMessage delete(GoodsPO po) throws RemoteException;
 	
-	public ResultMessage update(StorePlace place, GoodsPO po) throws RemoteException;
+	public ResultMessage update(StorePlacePO place, GoodsPO po) throws RemoteException;
 	
 	public ResultMessage saveInStore(ArrayList<InStorePO>  po) throws RemoteException;
 	

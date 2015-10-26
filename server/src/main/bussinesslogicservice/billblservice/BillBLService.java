@@ -12,7 +12,7 @@ import main.vo.BillVO;
 
 public interface BillBLService {
 	//获得所有未审批的单据
-	public ArrayList<BillVO> getBills();
+	public ResultMessage getBills();
 	
 	//返回被选择的单据的详细信息
 	public BillVO chooseBill(String id);

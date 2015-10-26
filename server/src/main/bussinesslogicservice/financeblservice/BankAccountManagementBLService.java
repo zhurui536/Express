@@ -13,28 +13,28 @@ public interface BankAccountManagementBLService {
     /**
      * 增加账户
      * @param vo
-     * @return
+     * @return ResultMessage
      */
     ResultMessage createMember(BankAccountVO vo);
 
     /**
      * 删除账户
      * @param vo
-     * @return
+     * @return ResultMessage
      */
     ResultMessage deleteMember(BankAccountVO vo);
 
     /**
      * 更新账户
      * @param vo
-     * @return
+     * @return ResultMessage
      */
     ResultMessage updateMember(BankAccountVO vo);
 
     /**
      * 查询账户信息
      * @param vo
-     * @return
+     * @return ResultMessage
      */
     ResultMessage inquireMember(BankAccountVO vo);
 }
