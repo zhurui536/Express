@@ -11,7 +11,7 @@ import java.rmi.RemoteException;
  * 2015/10/26
  */
 
-public class CreatePayListService_Stub implements CreatePayListDataService {
+public class CreatePayListDataService_Stub implements CreatePayListDataService {
 
     @Override
     public void insert(BillPO po) throws RemoteException {

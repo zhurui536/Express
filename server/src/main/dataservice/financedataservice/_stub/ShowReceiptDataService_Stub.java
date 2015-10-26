@@ -16,7 +16,7 @@ public class ShowReceiptDataService_Stub implements ShowReceiptDataService {
 
     @Override
     public BillPO find(long time, long id) throws RemoteException {
-        System.out.println("find success");
+        System.out.println("receipt find success");
         return new BillPO("123456789", BillType.DELIVERY);
     }
 }

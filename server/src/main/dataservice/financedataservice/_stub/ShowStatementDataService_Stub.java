@@ -17,7 +17,7 @@ public class ShowStatementDataService_Stub implements ShowStatementDataService {
 
     @Override
     public StatementPO find(long startTime, long endTime) throws RemoteException {
-        System.out.println("find success");
+        System.out.println("statement find success");
         // TODO
         ArrayList<BillPO> receipt = new ArrayList<>();
         ArrayList<BillPO> payList = new ArrayList<>();
