@@ -1,5 +1,7 @@
 package main.dataservice.logisticsdataservice._stub;
 
+import java.rmi.RemoteException;
+
 import main.bussinesslogic.util.ExpressType;
 import main.bussinesslogic.util.PackageType;
 import main.dataservice.logisticsdataservice.DeliveryDataService;
@@ -18,12 +20,12 @@ public class DeliveryDataService_Stub implements DeliveryDataService{
         }
         
         @Override
-        public GoodsPO findGoods(long id) {
+        public GoodsPO findGoods(long id) throws RemoteException {
                 return goodsPO;
         }
 
         @Override
-        public void updateGoods(GoodsPO goodsPO) {
+        public void updateGoods(GoodsPO goodsPO) throws RemoteException {
                 this.goodsPO = goodsPO;
                 System.out.println(this.goodsPO.getRecipient());
                 System.out.println(this.goodsPO.getTime());

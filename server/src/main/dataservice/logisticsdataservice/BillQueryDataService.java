@@ -1,5 +1,7 @@
 package main.dataservice.logisticsdataservice;
 
+import java.rmi.RemoteException;
+
 import main.po.BillPO;
 
 /**
@@ -7,5 +9,5 @@ import main.po.BillPO;
  *
  */
 public interface BillQueryDataService {
-        public BillPO find(String id) ;
+        public BillPO findBill(String id) throws RemoteException ;
 }

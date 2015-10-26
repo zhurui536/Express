@@ -1,5 +1,7 @@
 package main.dataservice.logisticsdataservice;
 
+import java.rmi.RemoteException;
+
 import main.po.GoodsPO;
 
 /**
@@ -7,8 +9,8 @@ import main.po.GoodsPO;
  *
  */
 public interface DeliveryDataService {
-        public GoodsPO findGoods(long id);
+        public GoodsPO findGoods(long id) throws RemoteException;
         
-        public void updateGoods(GoodsPO goodsPO);
+        public void updateGoods(GoodsPO goodsPO) throws RemoteException;
 
 }

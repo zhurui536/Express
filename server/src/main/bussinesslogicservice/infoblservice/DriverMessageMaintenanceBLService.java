@@ -10,11 +10,11 @@ import main.vo.DriverMessageVO;
 public interface DriverMessageMaintenanceBLService {
         public ResultMessage addDriverMessage(DriverMessageVO driverMessage);
         
-        public ResultMessage delDriverMessage(long driverId);
-        
+        public ResultMessage delDriverMessage(String driverId);
+        //long to String
         public ResultMessage modDriverMessage(DriverMessageVO driverMessage);
         
-        public ResultMessage showDriverMessage(long driverId);
+        public ResultMessage showDriverMessage(String driverId);
         
         public void endDriverMessageMaintenance();
 }
