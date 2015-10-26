@@ -50,8 +50,12 @@ public class StoreBLService_Stub implements StoreBLService {
 	@Override
 	public void endIntStore(int condition) {
 		// TODO Auto-generated method stub
-
-		System.out.println("The InStore task ended!");
+		if(condition == 0){
+			System.out.println("The InStore task ended!");
+		}
+		if(condition == 1){
+			System.out.println("The InStore task is cancled!");
+		}
 	}
 
 	@Override
@@ -83,14 +87,18 @@ public class StoreBLService_Stub implements StoreBLService {
 		else{
 			return new ResultMessage("noexist", null);
 		}
-		
+
 	}
 
 	@Override
 	public void endOutStore(int condition) {
 		// TODO Auto-generated method stub
-
-		System.out.println("The OutStore task ended!");
+		if(condition == 0){
+			System.out.println("The OutStore task ended!");
+		}
+		if(condition == 1){
+			System.out.println("The OutStore task is cancled!");
+		}
 	}
 
 	@Override
@@ -104,7 +112,12 @@ public class StoreBLService_Stub implements StoreBLService {
 	@Override
 	public void endVerification(int condition) {
 		// TODO Auto-generated method stub
-		System.out.println("The verification task is ended!");
+		if(condition == 0){
+			System.out.println("The verification task is ended!");
+		}
+		if(condition == 1){
+			System.out.println("The verification task is cancled!");
+		}
 	}
 
 	@Override
@@ -146,7 +159,12 @@ public class StoreBLService_Stub implements StoreBLService {
 	@Override
 	public void endAdjust(int condition) {
 		// TODO Auto-generated method stub
-		System.out.println("The adjust task is ended!");
+		if(condition == 0){
+			System.out.println("The adjust task is ended!");
+		}
+		if(condition == 1){
+			System.out.println("The adjust task is cancled!");
+		}
 	}
 
 }
