@@ -7,12 +7,11 @@ import main.bussinesslogic.util.ResultMessage;
  * 2015/10/26
  */
 
-public interface CreatePayListBLService {
+public interface ShowStatementBLService {
 
     /**
-     * 创建付款单
+     * 显示经营情况表
      * @return ResultMessage
      */
-    ResultMessage createPayList();
-
+    ResultMessage showStatement();
 }
