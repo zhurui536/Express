@@ -7,12 +7,13 @@ import main.bussinesslogic.util.ResultMessage;
  * 2015/10/26
  */
 
-public interface CreatePayListBLService {
+public interface ShowReceiptBLService {
 
     /**
-     * 创建付款单
+     * 显示收款单
+     * @param time 时间
+     * @param id 营业厅号码
      * @return ResultMessage
      */
-    ResultMessage createPayList();
-
+    ResultMessage showReceipt(long time, long id);
 }
