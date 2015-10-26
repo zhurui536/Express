@@ -1,4 +1,4 @@
-package src.main.bussinesslogicservice.infoblservice;
+package main.bussinesslogicservice.infoblservice;
 
 /**
  * @author zhuding

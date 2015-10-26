@@ -1,4 +1,4 @@
-package src.main.bussinesslogicservice.storeblservice;
+package main.bussinesslogicservice.storeblservice;
 /*
  * Created By ZHR
  * 2015/10/26

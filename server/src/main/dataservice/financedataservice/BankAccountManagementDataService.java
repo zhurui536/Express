@@ -1,4 +1,4 @@
-package src.main.dataservice.financedataservice;
+package main.dataservice.financedataservice;
 
 /**
  * Created by Away

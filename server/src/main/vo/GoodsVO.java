@@ -1,4 +1,4 @@
-package src.main.vo;
+package main.vo;
 
 /**
  * Created by Away

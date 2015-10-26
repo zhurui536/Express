@@ -1,4 +1,4 @@
-package src.main.presentation;
+package main.presentation;
 
 /**
  * Created by Away
