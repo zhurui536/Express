@@ -1,4 +1,4 @@
-package main.bussinesslogicservice.financeblservice;
+package src.main.bussinesslogicservice.financeblservice;
 
 /**
  * Created by Away
