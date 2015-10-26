@@ -41,10 +41,10 @@ public class BillBLService_Stub implements BillBLService {
 	public ResultMessage approve(String id) {
 		// TODO Auto-generated method stub
 		if(id.equals("10010")||id.equals("10086")){
-			return new ResultMessage("success", null);
+			return new ResultMessage("success", back());
 		}
 		else{
-			return new ResultMessage("fail", null);
+			return new ResultMessage("fail", back());
 		}
 	}
 
