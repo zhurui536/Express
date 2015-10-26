@@ -2,41 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df707e08-8df3-4511-9f4e-7ebff1dc9706" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_driver/BankAccountManagementDataService_Driver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_driver/CreateAccountingDataService_Driver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowStatementDataService_Stub.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/jone.xml" />
-      <change type="DELETED" beforePath="D:\code\Express\Express\target\classes\main\po\Trans.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_driver/BankAccountManagementBLService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_driver/BankAccountManagementBLService_Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/dataservice/financedataservice/BankAccountManagementDataService.class" afterPath="$PROJECT_DIR$/target/classes/main/dataservice/financedataservice/BankAccountManagementDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/BankAccountVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/BankAccountVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/billblservice/BillBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/billblservice/BillBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/po/BillPO.class" afterPath="$PROJECT_DIR$/target/classes/main/po/BillPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/BillQueryBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/BillQueryBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/BillVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/BillVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/dataservice/financedataservice/CreatePayListDataService.class" afterPath="$PROJECT_DIR$/target/classes/main/dataservice/financedataservice/CreatePayListDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/DeliveryBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/DeliveryBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/infoblservice/DriverMessageMaintenanceBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/infoblservice/DriverMessageMaintenanceBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/po/GoodsPO.class" afterPath="$PROJECT_DIR$/target/classes/main/po/GoodsPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/GoodsReceiptBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/GoodsReceiptBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/GoodsVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/GoodsVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/infoblservice/InstitutionMessageMaintenanceBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/infoblservice/InstitutionMessageMaintenanceBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/storeblservice/OutStoreBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/storeblservice/OutStoreBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/ReceiptBillProduceBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/ReceiptBillProduceBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/ReceivingBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/ReceivingBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/ShowStatementBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/ShowStatementBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_driver/ShowStatementBLService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_driver/ShowStatementBLService_Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_stub/ShowStatementBLService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_stub/ShowStatementBLService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/infoblservice/StaffMessageMaintenanceBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/infoblservice/StaffMessageMaintenanceBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/storeblservice/_stub/StoreBLService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/storeblservice/_stub/StoreBLService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/infoblservice/SystemlogMaintenanceBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/infoblservice/SystemlogMaintenanceBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/infoblservice/TruckMessageMaintenanceBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/infoblservice/TruckMessageMaintenanceBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/vo/BankAccountVO.java" afterPath="$PROJECT_DIR$/server/src/main/vo/BankAccountVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/po/InstitutionMessagePO.java" afterPath="$PROJECT_DIR$/server/src/main/po/InstitutionMessagePO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowReceiptDataService_Stub.java" afterPath="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowReceiptDataService_Stub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/po/StaffMessagePO.java" afterPath="$PROJECT_DIR$/server/src/main/po/StaffMessagePO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/po/TruckMessagePO.java" afterPath="$PROJECT_DIR$/server/src/main/po/TruckMessagePO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/dataservice/billdataservice/_driver/BilldataService_Driver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/dataservice/billdataservice/_stub/BilldataService_Stub.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/po/StaffPO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/strategyblservice/StrategyConstantBLService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/strategyblservice/_driver/StrategyConstantBLService_Driver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/strategyblservice/_stub/StrategyConstantBLService_Stub.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/dataservice/strategydataservice/StrategyDataService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/strategyblservice/StrategySalaryBLService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/strategyblservice/_driver/StrategySalaryBLService_Driver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/strategyblservice/_stub/StrategySalaryBLService_Stub.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/userblservice/UserBLService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/userblservice/_driver/UserBLService_Driver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/userblservice/_stub/UserBLService_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/billblservice/_stub/BillBLService_Stub.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/billblservice/_stub/BillBLService_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/po/BillPO.java" afterPath="$PROJECT_DIR$/server/src/main/po/BillPO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/storeblservice/_stub/StoreBLService_Stub.java" afterPath="$PROJECT_DIR$/server/src/main/bussinesslogicservice/storeblservice/_stub/StoreBLService_Stub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/dataservice/storedataservice/_stub/StoreDataService_Stub.java" afterPath="$PROJECT_DIR$/server/src/main/dataservice/storedataservice/_stub/StoreDataService_Stub.java" />
     </list>
     <ignored path="express-all.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,11 +54,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateAccountingDataService_Driver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreateAccountingDataService_Driver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_driver/CreateAccountingDataService_Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64984554">
+            <state vertical-scroll-proportion="0.0">
               <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BillPO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/src/main/po/BillPO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.24510814">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -178,7 +172,6 @@
         <option value="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/CreateAccountingDataService_Stub.java" />
         <option value="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/CreatePayListService_Stub.java" />
         <option value="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowProfitListDataService_Stub.java" />
-        <option value="$PROJECT_DIR$/server/src/main/po/BillPO.java" />
         <option value="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowReceiptDataService_Stub.java" />
         <option value="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_stub/ShowStatementDataService_Stub.java" />
         <option value="$PROJECT_DIR$/server/src/main/vo/BankAccountVO.java" />
@@ -187,6 +180,7 @@
         <option value="$PROJECT_DIR$/server/src/main/po/StaffMessagePO.java" />
         <option value="$PROJECT_DIR$/server/src/main/po/TruckMessagePO.java" />
         <option value="$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_driver/CreateAccountingDataService_Driver.java" />
+        <option value="$PROJECT_DIR$/server/src/main/po/BillPO.java" />
       </list>
     </option>
   </component>
@@ -312,6 +306,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="po" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -847,12 +867,12 @@
       <workItem from="1445794801820" duration="2226000" />
       <workItem from="1445820485460" duration="20977000" />
       <workItem from="1445856277365" duration="9537000" />
-      <workItem from="1445867717769" duration="405000" />
+      <workItem from="1445867717769" duration="477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35362000" />
+    <option name="totallyTimeSpent" value="35434000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
@@ -1177,13 +1197,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/po/BillPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40473738">
-          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/po/StatementPO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3347065">
@@ -1324,8 +1337,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/dataservice/financedataservice/_driver/CreateAccountingDataService_Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64984554">
+        <state vertical-scroll-proportion="0.0">
           <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/po/BillPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24510814">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

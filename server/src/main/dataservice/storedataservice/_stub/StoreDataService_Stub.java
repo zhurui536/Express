@@ -46,7 +46,7 @@ public class StoreDataService_Stub implements StoreDataService {
 	public ResultMessage delete(GoodsPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Delete a goods!");
-		return null;
+		return new ResultMessage("success", null);
 	}
 
 	@Override
