@@ -11,8 +11,14 @@ import main.bussinesslogicservice.financeblservice.ShowStatementBLService;
 public class ShowStatementBLService_Stub implements ShowStatementBLService {
 
     @Override
-    public ResultMessage showStatement() {
-        System.out.println("Show Statement success");
-        return new ResultMessage("success", null);
+    public ResultMessage showStatement(long startTime, long endTime) {
+        if (startTime >= endTime) {
+            System.out.println("Show Statement success");
+            return new ResultMessage("success", null);
+        }
+        else {
+            System.out.println("Show Statement fail");
+            return new ResultMessage("fail", null);
+        }
     }
 }
