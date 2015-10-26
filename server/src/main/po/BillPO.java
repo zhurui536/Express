@@ -1,5 +1,6 @@
 package main.po;
 
+import main.bussinesslogic.util.BillState;
 import main.bussinesslogic.util.BillType;
 
 /*
@@ -9,10 +10,12 @@ import main.bussinesslogic.util.BillType;
 public class BillPO {
 	private String id;
 	private BillType bt;
+	private BillState bs;
 	
 	public BillPO(String id, BillType bt){
 		this.id = id;
 		this.bt = bt;
+		bs = BillState.draft;
 	}
 	
 	public String getID(){
@@ -21,6 +24,10 @@ public class BillPO {
 	
 	public BillType getBillType(){
 		return bt;
+	}
+	
+	public void setBillState(BillState bs){
+		this.bs = bs;
 	}
 
 }
