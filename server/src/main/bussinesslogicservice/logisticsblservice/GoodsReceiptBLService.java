@@ -21,6 +21,7 @@ public interface GoodsReceiptBLService {
          * @param deliverManId 快递员id
          */
         public BillVO produceSendBill( BillVO arrivalBillVO, long deliverManId);
-        
+        //TODO
+        //send改为delivery
         public void endGoodsreceipt();
 }

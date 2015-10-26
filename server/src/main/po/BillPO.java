@@ -1,12 +1,15 @@
 package main.po;
 
+import java.io.Serializable;
+
 import main.bussinesslogic.util.BillType;
 
 /*
  * Created By ZHR
  * 2015/10/26
  */
-public class BillPO {
+@SuppressWarnings("serial")
+public class BillPO implements Serializable{
 	private String id;
 	private BillType bt;
 	

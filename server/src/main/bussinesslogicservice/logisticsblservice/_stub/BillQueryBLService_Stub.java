@@ -1,7 +1,7 @@
 package main.bussinesslogicservice.logisticsblservice._stub;
 
+import main.bussinesslogic.util.BillType;
 import main.bussinesslogicservice.logisticsblservice.BillQueryBLService;
-import main.dataservice.logisticsdataservice.BillQueryDataService;
 import main.po.BillPO;
 import main.vo.BillVO;
 
@@ -11,17 +11,12 @@ import main.vo.BillVO;
  */
 public class BillQueryBLService_Stub implements BillQueryBLService{
         
-        private BillQueryDataService billQueryDataService ;
-        
-        public BillQueryBLService_Stub(BillQueryDataService billQueryDataService) {
-                this.billQueryDataService = billQueryDataService;
-        }
         
         @Override
-        public BillVO queryBill(long id) {
-                BillPO billPO = billQueryDataService.find(id);
+        public BillVO queryBill(String  id) {
+                BillPO billPO =  new BillPO("0000000000",BillType.SEND);
                 //将PO对象转为VO对象
-                return new BillVO();
+                return new BillVO(billPO.getID(), billPO.getBillType());
         }
 
         @Override

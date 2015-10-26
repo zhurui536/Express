@@ -1,5 +1,6 @@
 package main.dataservice.logisticsdataservice._stub;
 
+import main.bussinesslogic.util.BillType;
 import main.dataservice.logisticsdataservice.BillQueryDataService;
 import main.po.BillPO;
 
@@ -10,9 +11,9 @@ import main.po.BillPO;
 public class BillQueryDataService_Stub implements BillQueryDataService {
 
         @Override
-        public BillPO find(long id) {
+        public BillPO find(String id) {
                
-                return new BillPO();
+                return new BillPO("0000000000",BillType.SEND);
         }
 
 }
