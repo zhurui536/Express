@@ -1,8 +1,9 @@
 
-/*
- * Created By ZHR
- * 2015/10/26
+/**
+ *Created by ZHR
+ *2015年10月26日
  */
-public interface BilldataService {
+
+public interface BillDataService {
 
 }
