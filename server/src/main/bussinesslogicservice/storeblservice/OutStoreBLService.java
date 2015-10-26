@@ -1,7 +1,7 @@
 package main.bussinesslogicservice.storeblservice;
 
 import main.bussinesslogic.util.ResultMessage;
-import main.po.Trans;
+import main.bussinesslogic.util.Trans;
 
 public interface OutStoreBLService {
 	
