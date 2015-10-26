@@ -11,12 +11,12 @@ public class BankAccountPO {
     private String name;
 
     // 账户余额
-    private long balance;
+    private double balance;
 
     // 账户账号
-    private long id;
+    private String id;
 
-    public BankAccountPO(String name, long balance, long id) {
+    public BankAccountPO(String name, double balance, String id) {
         this.name = name;
         this.balance = balance;
         this.id = id;
@@ -26,11 +26,11 @@ public class BankAccountPO {
         return name;
     }
 
-    public long getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -38,7 +38,7 @@ public class BankAccountPO {
         this.name = name;
     }
 
-    public void setBalance(long balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
