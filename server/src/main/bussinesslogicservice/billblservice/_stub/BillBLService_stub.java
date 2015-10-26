@@ -6,16 +6,16 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.billblservice.BillBLService;
 import main.vo.BillVO;
 
-public class BillBLService_stub implements BillBLService {
+public class BillBLService_Stub implements BillBLService {
 
 	@Override
-	public ArrayList<BillVO> getBills() {
+	public ResultMessage getBills() {
 		// TODO Auto-generated method stub
 		System.out.println("Asking for bills!");
 		ArrayList<BillVO> bvo = new ArrayList<BillVO>();
 		
 		bvo.add(new BillVO("10010", null));
-		return bvo;
+		return new ResultMessage("success", bvo);
 	}
 
 	@Override
