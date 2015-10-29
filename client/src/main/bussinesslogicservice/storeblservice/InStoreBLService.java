@@ -1,7 +1,7 @@
 package main.bussinesslogicservice.storeblservice;
 
 import main.bussinesslogic.util.ResultMessage;
-import main.po.StorePlacePO;
+import main.po.storepo.StorePlacePO;
 
 /**
  * Created by ZHR

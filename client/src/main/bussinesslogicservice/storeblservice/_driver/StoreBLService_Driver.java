@@ -3,7 +3,7 @@ package main.bussinesslogicservice.storeblservice._driver;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.StoreBLService;
 import main.bussinesslogicservice.storeblservice._stub.StoreBLService_Stub;
-import main.po.StorePlacePO;
+import main.po.storepo.StorePlacePO;
 
 /**
  * Created By ZHR

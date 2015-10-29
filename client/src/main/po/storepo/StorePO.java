@@ -1,4 +1,4 @@
-package main.po;
+package main.po.storepo;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -2,6 +2,8 @@ package main.po;
 
 import java.io.Serializable;
 
+import main.po.storepo.StorePO;
+
 /**
  * 账本PO
  * Created by Away

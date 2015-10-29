@@ -1,6 +1,8 @@
-package main.po;
+package main.po.storepo;
 
 import java.util.Calendar;
+
+import main.po.GoodsPO;
 
 /*
  * Created By ZHR

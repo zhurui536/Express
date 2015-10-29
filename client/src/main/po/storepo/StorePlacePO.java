@@ -1,4 +1,6 @@
-package main.po;
+package main.po.storepo;
+
+import main.po.GoodsPO;
 
 /**
  * Created by ZHR

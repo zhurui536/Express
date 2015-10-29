@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.dataservice.storedataservice.StoreDataService;
-import main.po.AdjustPO;
 import main.po.GoodsPO;
-import main.po.IORecordPO;
-import main.po.InStorePO;
-import main.po.OutStorePO;
-import main.po.StorePlacePO;
-import main.po.VerificationPO;
+import main.po.storepo.AdjustPO;
+import main.po.storepo.IORecordPO;
+import main.po.storepo.InStorePO;
+import main.po.storepo.OutStorePO;
+import main.po.storepo.StorePlacePO;
+import main.po.storepo.VerificationPO;
 
 public class StoreDataService_Stub implements StoreDataService {
 

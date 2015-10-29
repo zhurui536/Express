@@ -1,10 +1,11 @@
-package main.po;
+package main.po.storepo;
 
 import main.bussinesslogic.util.Trans;
 /*
  * Created By ZHR
  * 2015/10/26
  */
+import main.po.GoodsPO;
 
 public class OutStorePO extends IORecordPO{
 
