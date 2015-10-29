@@ -10,14 +10,17 @@ import java.io.Serializable;
  */
 @SuppressWarnings("serial")
 public class BillPO implements Serializable{
+	//单据编号
 	private String id;
+	//单据类型
 	private BillType bt;
+	//单据状态
 	private BillState bs;
 	
 	public BillPO(String id, BillType bt){
 		this.id = id;
 		this.bt = bt;
-		bs = BillState.draft;
+		bs = BillState.DRAFT;
 	}
 	
 	public String getID(){
