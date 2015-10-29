@@ -18,7 +18,7 @@ public class CreateAccountingDataService_Driver {
         InstitutionMessagePO institution = new InstitutionMessagePO("hell", "003006");
         StaffMessagePO staff = new StaffMessagePO("韩梅梅", "000111");
         TruckMessagePO truck = new TruckMessagePO("13246578979", "苏A2001", 1);
-        StorePO store = new StorePO();
+        StorePO store = new StorePO(2, 3, 3, 3);
         BankAccountPO bankAccount = new BankAccountPO("kkk", 123465, "465456555");
         try {
             createAccountingDataService.initInsert(
