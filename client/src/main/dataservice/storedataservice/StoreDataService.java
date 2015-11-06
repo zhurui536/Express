@@ -20,7 +20,7 @@ import main.po.storepo.VerificationPO;
  */
 
 public interface StoreDataService {
-	public ResultMessage find(long id) throws RemoteException;
+	public ResultMessage find(String id) throws RemoteException;
 	
 	public ArrayList<IORecordPO> finds(Time start, Time end) throws RemoteException;
 	

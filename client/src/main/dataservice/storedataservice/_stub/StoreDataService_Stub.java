@@ -17,9 +17,9 @@ import main.po.storepo.VerificationPO;
 public class StoreDataService_Stub implements StoreDataService {
 
 	@Override
-	public ResultMessage find(long id) throws RemoteException {
+	public ResultMessage find(String id) throws RemoteException {
 		// TODO Auto-generated method stub
-		if(id>=1000000000&&id<=Long.MAX_VALUE){
+		if(id.equals("111111111")){
 			return new ResultMessage("exist", null);
 		}
 		else{

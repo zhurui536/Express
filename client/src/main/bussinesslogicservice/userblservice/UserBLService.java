@@ -6,5 +6,5 @@ import main.bussinesslogic.util.ResultMessage;
  * 2015/10/26
  */
 public interface UserBLService {
-	public ResultMessage login(long id, String password);
+	public ResultMessage login(String id, String password);
 }

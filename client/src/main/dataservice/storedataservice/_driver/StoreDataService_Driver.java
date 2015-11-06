@@ -26,7 +26,7 @@ public class StoreDataService_Driver {
 	public static void drive(StoreDataService sds) throws RemoteException{
 		ResultMessage result = null;
 		
-		result = sds.find(1111111111);
+		result = sds.find("1111111111");
 		System.out.println(result.getKey());
 		
 		result = sds.find(new StorePlacePO(1, 1, 2, 2));

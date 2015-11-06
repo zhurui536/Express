@@ -6,11 +6,10 @@ import main.bussinesslogicservice.userblservice.UserBLService;
 public class UserBLService_Stub implements UserBLService{
 
 	@Override
-	public ResultMessage login(long id, String password) {
+	public ResultMessage login(String id, String password) {
 		// TODO Auto-generated method stub
-		long passwords = Long.parseLong(password);
 		
-		if(passwords-id == 1){
+		if(password.equals("10010")&&id.equals("10086")){
 			System.out.println("correct password!");
 			return new ResultMessage("success", null);
 		}

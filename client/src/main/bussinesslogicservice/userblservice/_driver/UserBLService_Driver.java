@@ -14,10 +14,10 @@ public class UserBLService_Driver {
 	public static void drive(UserBLService ubs){
 		ResultMessage result = null;
 		
-		result = ubs.login(10010, "10011");
+		result = ubs.login("10010", "10011");
 		System.out.println(result.getKey());
 		
-		result = ubs.login(10086, "10086");
+		result = ubs.login("10086", "10086");
 		System.out.println(result.getKey());
 	}
 }
