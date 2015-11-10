@@ -17,7 +17,7 @@ public class DeliveryBLService_Stub implements DeliveryBLService{
         
         @Override
         public ResultMessage addRecMessage(String Recipients, long id, long time) {
-                GoodsPO goodsPO = new GoodsPO(0000000000,"核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
+                GoodsPO goodsPO = new GoodsPO("0000000000","核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
                 goodsPO.setRecipient(Recipients);
                 goodsPO.setTime(time);
                 System.out.println(goodsPO.getRecipient());

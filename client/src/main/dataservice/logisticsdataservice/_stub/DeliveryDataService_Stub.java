@@ -16,7 +16,7 @@ public class DeliveryDataService_Stub implements DeliveryDataService{
         private GoodsPO goodsPO;
         
         public DeliveryDataService_Stub() {
-                goodsPO = new GoodsPO(0000000000,"核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
+                goodsPO = new GoodsPO("0000000000","核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
         }
         
         @Override

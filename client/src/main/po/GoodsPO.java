@@ -35,11 +35,11 @@ public class GoodsPO implements Serializable{
         //货物实际收件人
         private String recipient;
         //货物的快递单号
-        private long id;
+        private String id;
         //货物的接受时间
         private long time;
         
-        public GoodsPO(long id, String name, String departurePlace,
+        public GoodsPO(String id, String name, String departurePlace,
                         String destination ,int weight,
                         int volume, PackageType packageType,
                         ExpressType expressType) {
@@ -69,11 +69,11 @@ public class GoodsPO implements Serializable{
                 this.time = time;
         }
 
-        public long getId() {
+        public String getId() {
                 return id;
         }
 
-        public void setId(long id) {
+        public void setId(String id) {
                 this.id = id;
         }
 

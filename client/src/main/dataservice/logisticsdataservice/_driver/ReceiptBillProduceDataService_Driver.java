@@ -21,7 +21,7 @@ public class ReceiptBillProduceDataService_Driver {
         
         public void drive(){
                 try {
-                        receiptBillProduceDataService.insertGoods(new GoodsPO(0000000000,"核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS));
+                        receiptBillProduceDataService.insertGoods(new GoodsPO("0000000000","核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS));
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
