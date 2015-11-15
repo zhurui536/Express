@@ -14,7 +14,7 @@ public class BillQueryBLService_Stub implements BillQueryBLService{
         
         @Override
         public BillVO queryBill(String  id) {
-                BillPO billPO =  new BillPO("0000000000",BillType.SEND);
+                BillPO billPO =  new BillPO("0000000000",BillType.SEND, "zhuding");
                 //将PO对象转为VO对象
                 return new BillVO(billPO.getID(), billPO.getBillType());
         }
