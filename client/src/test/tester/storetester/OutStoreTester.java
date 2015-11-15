@@ -1,13 +1,11 @@
 package test.tester.storetester;
 
-import static org.junit.Assert.assertEquals;
 import main.bussinesslogic.storebl.StoreBLController;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
-
 import org.junit.Test;
 
-import test.mockObject.mockstoreobject.MockStorePlacePO;
+import static org.junit.Assert.assertEquals;
 
 public class OutStoreTester {
 	@Test
