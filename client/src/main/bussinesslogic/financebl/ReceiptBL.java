@@ -4,6 +4,7 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.ShowReceiptBLService;
 
 /**
+ * 收款单
  * Created by Away
  * 2015/11/15
  */

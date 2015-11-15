@@ -5,6 +5,7 @@ import main.bussinesslogicservice.financeblservice.BankAccountManagementBLServic
 import main.vo.BankAccountVO;
 
 /**
+ * 银行账户管理
  * Created by Away
  * 2015/11/15
  */

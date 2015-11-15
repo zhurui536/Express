@@ -4,6 +4,7 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.ShowStatementBLService;
 
 /**
+ * 经营情况表
  * Created by Away
  * 2015/11/15
  */
