@@ -20,8 +20,8 @@ public class OutStoreTester {
 		result = sc.addOutStoreGoods("002", Trans.TRUCK, "beijing");
 		assertEquals("success", result.getKey());
 		
-		result = sc.delOutStoreGoods("10010");
-		assertEquals("noexist", result.getKey());
+		result = sc.delOutStoreGoods("001");
+		assertEquals("success", result.getKey());
 		
 		result = sc.delOutStoreGoods("002");
 		assertEquals("success", result.getKey());
