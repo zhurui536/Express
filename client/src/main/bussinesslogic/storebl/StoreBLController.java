@@ -2,6 +2,7 @@ package main.bussinesslogic.storebl;
 
 import java.util.Calendar;
 
+import test.mockObject.mockstoreobject.MockStorePlacePO;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
 import main.bussinesslogicservice.storeblservice.StoreBLService;
@@ -99,6 +100,19 @@ public class StoreBLController implements StoreBLService {
 	public void endVerification(int condition) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public ResultMessage addInStoreGoods(String id, MockStorePlacePO place,
+			String destination) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage addAdjust(MockStorePlacePO start, MockStorePlacePO end) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

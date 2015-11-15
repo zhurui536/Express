@@ -4,7 +4,7 @@ import test.mockObject.MockGoodsPO;
 import main.po.GoodsPO;
 import main.po.storepo.StorePlacePO;
 
-public class MockStorePlacePO {
+public class MockStorePlacePO{
 
 		//区号
 		private int area;

@@ -3,6 +3,7 @@ package main.bussinesslogicservice.storeblservice._stub;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import test.mockObject.mockstoreobject.MockStorePlacePO;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
 import main.bussinesslogicservice.storeblservice.StoreBLService;
@@ -169,6 +170,19 @@ public class StoreBLService_Stub implements StoreBLService {
 		if(condition == 1){
 			System.out.println("The adjust task is cancled!");
 		}
+	}
+
+	@Override
+	public ResultMessage addInStoreGoods(String id, MockStorePlacePO place,
+			String destination) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage addAdjust(MockStorePlacePO start, MockStorePlacePO end) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

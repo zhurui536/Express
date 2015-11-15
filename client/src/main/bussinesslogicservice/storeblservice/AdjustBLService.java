@@ -1,5 +1,6 @@
 package main.bussinesslogicservice.storeblservice;
 
+import test.mockObject.mockstoreobject.MockStorePlacePO;
 import main.bussinesslogic.util.ResultMessage;
 import main.po.storepo.StorePlacePO;
 
@@ -15,7 +16,7 @@ public interface AdjustBLService {
 	 * ResultMessage
 	 */
 	public ResultMessage addAdjust(StorePlacePO start, StorePlacePO end);
-	
+	public ResultMessage addAdjust(MockStorePlacePO start, MockStorePlacePO end);
 	/*结束调整
 	 * condition
 	 * 无
