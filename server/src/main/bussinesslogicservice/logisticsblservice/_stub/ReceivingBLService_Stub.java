@@ -12,6 +12,7 @@ import main.vo.BillVO;
  */
 public class ReceivingBLService_Stub implements ReceivingBLService{
 
+        @SuppressWarnings("unused")
         private BillVO billVO;
         
         private GoodsVO goodsVO;
