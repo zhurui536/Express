@@ -27,7 +27,10 @@ public class StorePlacePO {
 	}
 
 	public boolean ifEmpty(){
-		return true;
+		if(goods==null)
+			return true;
+		else
+			return false;
 	}
 	
 	public GoodsPO getGoods(){

@@ -19,13 +19,13 @@ public interface InStoreBLService {
 	 * id place destination
 	 * ResultMessage
 	 */
-	public ResultMessage addInStoreGoods(long id, StorePlacePO place, String destination);
+	public ResultMessage addInStoreGoods(String id, StorePlacePO place, String destination);
 	
 	/*删除之前输入的货物
 	 * id
 	 * ResultMessage
 	 */
-	public ResultMessage delInStoreGoods(long id);
+	public ResultMessage delInStoreGoods(String id);
 	
 	/*结束入库任务
 	 * condition

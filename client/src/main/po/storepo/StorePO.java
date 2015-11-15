@@ -27,7 +27,7 @@ public class StorePO implements Serializable {
 		this.rows = rows;
 		this.shelfs = shelfs;
 		this.places = places;
-		
+		store = new ArrayList<StorePlacePO>();
 		for(int area=1;area<=areas;area++){
 			for(int row=1;row<=rows;row++){
 				for(int shelf=1;shelf<=shelfs;shelf++){

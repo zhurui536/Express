@@ -22,10 +22,10 @@ public class StoreBLService_Stub implements StoreBLService {
 	}
 
 	@Override
-	public ResultMessage addInStoreGoods(long id, StorePlacePO place,
+	public ResultMessage addInStoreGoods(String id, StorePlacePO place,
 			String destination) {
 		// TODO Auto-generated method stub
-		if(id >= 1000000000 && id <= Long.MAX_VALUE){
+		if(id.equals("111111111") || id.equals("100000000")){
 			if(place.ifEmpty()){
 				return new ResultMessage("success", null);
 			}
@@ -39,9 +39,9 @@ public class StoreBLService_Stub implements StoreBLService {
 	}
 
 	@Override
-	public ResultMessage delInStoreGoods(long id) {
+	public ResultMessage delInStoreGoods(String id) {
 		// TODO Auto-generated method stub
-		if(id == 1111111111){
+		if(id.equals("111111111")){
 			return new ResultMessage("success", null);
 		}
 		else{
@@ -69,10 +69,10 @@ public class StoreBLService_Stub implements StoreBLService {
 	}
 
 	@Override
-	public ResultMessage addOutStoreGoods(long id, Trans trans,
+	public ResultMessage addOutStoreGoods(String id, Trans trans,
 			String Destination) {
 		// TODO Auto-generated method stub
-		if(id == 1111111111){
+		if(id.equals("111111111")){
 			return new ResultMessage("success", null);
 		}
 		else{
@@ -82,9 +82,9 @@ public class StoreBLService_Stub implements StoreBLService {
 	}
 
 	@Override
-	public ResultMessage delOutStoreGoods(long id) {
+	public ResultMessage delOutStoreGoods(String id) {
 		// TODO Auto-generated method stub
-		if(id == 1111111111){
+		if(id.equals("111111111")){
 			return new ResultMessage("success", null);
 		}
 		else{

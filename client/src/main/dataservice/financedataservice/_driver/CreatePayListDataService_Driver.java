@@ -17,7 +17,7 @@ public class CreatePayListDataService_Driver {
 
     public void drive(CreatePayListDataService createPayListDataService) {
         try {
-            createPayListDataService.insert(new BillPO("000000001", BillType.DELIVERY));
+            createPayListDataService.insert(new BillPO("000000001", BillType.DELIVERY, "away"));
         } catch (RemoteException e) {
             e.printStackTrace();
         }

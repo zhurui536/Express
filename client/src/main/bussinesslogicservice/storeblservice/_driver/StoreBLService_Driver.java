@@ -22,10 +22,10 @@ public class StoreBLService_Driver {
 		//入库部分
 		sbls.newInStore();
 		
-		result = sbls.addInStoreGoods(1000000000, new StorePlacePO(1, 1, 1, 1), "北京");
+		result = sbls.addInStoreGoods("1000000000", new StorePlacePO(1, 1, 1, 1), "北京");
 		System.out.println(result.getKey());
 		
-		result = sbls.delInStoreGoods(1111111111);
+		result = sbls.delInStoreGoods("1111111111");
 		System.out.println(result.getKey());
 		
 		sbls.endIntStore(0);
@@ -33,10 +33,10 @@ public class StoreBLService_Driver {
 		//出库部分
 		sbls.newOutStore();
 		
-		result = sbls.addOutStoreGoods(1000000000, null, "北京");
+		result = sbls.addOutStoreGoods("1000000000", null, "北京");
 		System.out.println(result.getKey());
 		
-		result = sbls.delOutStoreGoods(1111111111);
+		result = sbls.delOutStoreGoods("1111111111");
 		System.out.println(result.getKey());
 		
 		sbls.endOutStore(0);

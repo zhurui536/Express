@@ -16,10 +16,13 @@ public class BillPO implements Serializable{
 	private BillType bt;
 	//单据状态
 	private BillState bs;
+	//单据编写者
+	private String writer;
 	
-	public BillPO(String id, BillType bt){
+	public BillPO(String id, BillType bt, String writer){
 		this.id = id;
 		this.bt = bt;
+		this.writer = writer;
 		bs = BillState.DRAFT;
 	}
 	
@@ -29,6 +32,10 @@ public class BillPO implements Serializable{
 	
 	public BillType getBillType(){
 		return bt;
+	}
+	
+	public String getWriter(){
+		return writer;
 	}
 	
 	public void setBillState(BillState bs){

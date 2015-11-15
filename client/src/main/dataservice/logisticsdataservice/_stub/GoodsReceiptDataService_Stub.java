@@ -15,7 +15,7 @@ public class GoodsReceiptDataService_Stub implements GoodsReceiptDataService {
         @Override
         public BillPO findBill(long id) throws RemoteException {
                 // TODO Auto-generated method stub
-                return new BillPO("0000", BillType.TRANSIT);
+                return new BillPO("0000", BillType.TRANSIT, "zhuding");
         }
 
         @Override

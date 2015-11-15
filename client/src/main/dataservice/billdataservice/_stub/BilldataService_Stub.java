@@ -16,7 +16,7 @@ public class BilldataService_Stub implements BilldataService {
 		// TODO Auto-generated method stub
 		System.out.println("asking for bills of "+id+"!");
 		
-		return new BillPO(id, null);
+		return new BillPO(id, null, "10010");
 	}
 
 	@Override
@@ -33,8 +33,8 @@ public class BilldataService_Stub implements BilldataService {
 		System.out.println("Asking for all bills!");
 		
 		ArrayList<BillPO> bpo = new ArrayList<BillPO>();
-		bpo.add(new BillPO("10086", null));
-		bpo.add(new BillPO("10010", null));
+		bpo.add(new BillPO("10086", null, "10010"));
+		bpo.add(new BillPO("10010", null, "12135"));
 		
 		return bpo;
 	}

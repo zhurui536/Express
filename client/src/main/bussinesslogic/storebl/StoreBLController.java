@@ -1,0 +1,104 @@
+package main.bussinesslogic.storebl;
+
+import java.sql.Time;
+
+import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Trans;
+import main.bussinesslogicservice.storeblservice.StoreBLService;
+import main.po.storepo.StorePlacePO;
+
+public class StoreBLController implements StoreBLService {
+
+	@Override
+	public void newInStore() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public ResultMessage addInStoreGoods(String id, StorePlacePO place,
+			String destination) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage delInStoreGoods(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void endIntStore(int condition) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void newOutStore() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public ResultMessage addOutStoreGoods(String id, Trans trans,
+			String Destination) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage delOutStoreGoods(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void endOutStore(int condition) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void newAdjust() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public ResultMessage addAdjust(StorePlacePO start, StorePlacePO end) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void endAdjust(int condition) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void newCheck() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public ResultMessage check(Time start, Time end) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage verification() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void endVerification(int condition) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

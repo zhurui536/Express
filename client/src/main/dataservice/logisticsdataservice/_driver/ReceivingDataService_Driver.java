@@ -20,7 +20,7 @@ public class ReceivingDataService_Driver {
         
         public void drive(){
                 try {
-                        receivingDataService.insertBill(new BillPO("00000", BillType.SEND));
+                        receivingDataService.insertBill(new BillPO("00000", BillType.SEND, "zhuding"));
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
