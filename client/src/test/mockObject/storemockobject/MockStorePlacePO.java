@@ -1,5 +1,6 @@
 package test.mockObject.storemockobject;
 
+import test.mockObject.MockGoodsPO;
 import main.po.GoodsPO;
 import main.po.storepo.StorePlacePO;
 
@@ -14,7 +15,7 @@ public class MockStorePlacePO {
 		//位号
 		private int place;
 		//该位置存放的货物
-		private GoodsPO goods;
+		private MockGoodsPO goods;
 		
 		public MockStorePlacePO(int area, int row, int shelf, int place){
 			this.area = area;
@@ -28,11 +29,11 @@ public class MockStorePlacePO {
 			return true;
 		}
 		
-		public GoodsPO getGoods(){
+		public MockGoodsPO getGoods(){
 			return this.goods;
 		}
 		
-		public boolean setGoods(GoodsPO goods){
+		public boolean setGoods(MockGoodsPO goods){
 			this.goods = goods;
 			
 			return true;
