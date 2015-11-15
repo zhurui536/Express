@@ -6,7 +6,7 @@ import main.bussinesslogic.util.ResultMessage;
 
 import org.junit.Test;
 
-public class VerifcationTester {
+public class VerificationTester {
 	@Test
 	public void test(){
 		

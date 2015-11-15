@@ -20,13 +20,13 @@ public class StoreBLController implements StoreBLService {
 	public ResultMessage addInStoreGoods(String id, StorePlacePO place,
 			String destination) {
 		// TODO Auto-generated method stub
-		return null;
+		return new ResultMessage("success", null);
 	}
 
 	@Override
 	public ResultMessage delInStoreGoods(String id) {
 		// TODO Auto-generated method stub
-		return null;
+		return new ResultMessage("success", null);
 	}
 
 	@Override
@@ -45,13 +45,13 @@ public class StoreBLController implements StoreBLService {
 	public ResultMessage addOutStoreGoods(String id, Trans trans,
 			String Destination) {
 		// TODO Auto-generated method stub
-		return null;
+		return new ResultMessage("success", null);
 	}
 
 	@Override
 	public ResultMessage delOutStoreGoods(String id) {
 		// TODO Auto-generated method stub
-		return null;
+		return new ResultMessage("success", null);
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public class StoreBLController implements StoreBLService {
 	@Override
 	public ResultMessage addAdjust(StorePlacePO start, StorePlacePO end) {
 		// TODO Auto-generated method stub
-		return null;
+		return new ResultMessage("success", null);
 	}
 
 	@Override
@@ -87,13 +87,13 @@ public class StoreBLController implements StoreBLService {
 	@Override
 	public ResultMessage check(Calendar start, Calendar end) {
 		// TODO Auto-generated method stub
-		return null;
+		return new ResultMessage("success", null);
 	}
 
 	@Override
 	public ResultMessage verification() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ResultMessage("success", null);
 	}
 
 	@Override
@@ -106,13 +106,13 @@ public class StoreBLController implements StoreBLService {
 	public ResultMessage addInStoreGoods(String id, MockStorePlacePO place,
 			String destination) {
 		// TODO Auto-generated method stub
-		return null;
+		return new ResultMessage("success", null);
 	}
 
 	@Override
 	public ResultMessage addAdjust(MockStorePlacePO start, MockStorePlacePO end) {
 		// TODO Auto-generated method stub
-		return null;
+		return new ResultMessage("success", null);
 	}
 
 }
