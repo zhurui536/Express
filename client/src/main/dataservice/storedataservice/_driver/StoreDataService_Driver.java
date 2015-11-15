@@ -13,6 +13,7 @@ import main.po.GoodsPO;
 import main.po.storepo.AdjustPO;
 import main.po.storepo.InStorePO;
 import main.po.storepo.OutStorePO;
+import main.po.storepo.StorePO;
 import main.po.storepo.StorePlacePO;
 import main.po.storepo.VerificationPO;
 
@@ -55,7 +56,7 @@ public class StoreDataService_Driver {
 		result = sds.saveAdjust(new AdjustPO());
 		System.out.println(result.getKey());
 		
-		result = sds.saveVerification(new VerificationPO());
+		result = sds.saveVerification(new VerificationPO(new StorePO(2, 3, 4, 5)));
 		System.out.println(result.getKey());
 	}
 

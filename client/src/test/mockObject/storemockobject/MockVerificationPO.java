@@ -1,28 +1,25 @@
-package main.po.storepo;
+package test.mockObject.storemockobject;
 
 import java.util.ArrayList;
 
-/*
- * Created By ZHR
- * 2015/10/26
- */
-public class VerificationPO {
-	/*库存中现有货物的列表*/
-	private ArrayList<StorePlacePO> goodslist;
+import main.po.storepo.StorePlacePO;
+
+public class MockVerificationPO {
+	private ArrayList<MockStorePlacePO> goodslist;
 	
-	public VerificationPO(StorePO store){
+	public MockVerificationPO(MockStorePO store){
+		goodslist = new ArrayList<MockStorePlacePO>();
+		
 		int area = store.getArea();
 		int row = store.getRow();
 		int shelf = store.getShelf();
 		int place = store.getPlace();
 		
-		goodslist = new ArrayList<StorePlacePO>();
-		
 		for(int a=0;a<area;a++){
 			for(int r=0;r<row;r++){
 				for(int s=0;s<shelf;s++){
 					for(int p=0;p<place;p++){
-						StorePlacePO temp = store.getStorePlace(a, r, s, p);
+						MockStorePlacePO temp = store.getStorePlace(a, r, s, p);
 						if(temp.getGoods()!=null){
 							goodslist.add(temp);
 						}
@@ -33,8 +30,7 @@ public class VerificationPO {
 		
 	}
 	
-	/*获得现有货物列表*/
-	public ArrayList<StorePlacePO> getGoodslist(){
+	public ArrayList<MockStorePlacePO> getGoodslist(){
 		return this.goodslist;
 	}
 }

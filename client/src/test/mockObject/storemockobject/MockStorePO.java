@@ -2,6 +2,7 @@ package test.mockObject.storemockobject;
 
 import java.util.ArrayList;
 
+import test.mockObject.MockGoodsPO;
 import main.po.storepo.StorePlacePO;
 
 
@@ -9,7 +10,7 @@ import main.po.storepo.StorePlacePO;
 public class MockStorePO{
 
 	//将所有库存位置整合到一起成为一个仓库对象
-		private ArrayList<StorePlacePO> store = new ArrayList<StorePlacePO>();
+		private ArrayList<MockStorePlacePO> store = new ArrayList<MockStorePlacePO>();
 		//区数
 		private int areas = 2;
 		//排数
@@ -25,8 +26,11 @@ public class MockStorePO{
 				for(int row=1;row<=rows;row++){
 					for(int shelf=1;shelf<=shelfs;shelf++){
 						for(int place=1;place<=places;place++){
-							StorePlacePO storeplace = new StorePlacePO(area, row, shelf, place);
+							MockStorePlacePO storeplace = new MockStorePlacePO(area, row, shelf, place);
 							
+							if((area+row+shelf+place)%2==0){
+								storeplace.setGoods(new MockGoodsPO(""+area+" "+row+" "+shelf+" "+place));
+							}
 							store.add(storeplace);
 						}
 					}
@@ -36,7 +40,7 @@ public class MockStorePO{
 		}
 		
 		/*获得在某一位置上的库存信息*/
-		public StorePlacePO getStorePlace(int area, int row, int shelf, int place){
+		public MockStorePlacePO getStorePlace(int area, int row, int shelf, int place){
 			int index = 0;
 			index = areas*(area-1) + rows*(row-1) + shelfs*(shelf-1) + place - 1;
 			
@@ -44,7 +48,7 @@ public class MockStorePO{
 		}
 		
 		/*改变某一位置上的库存状态*/
-		public boolean setStorePlace(StorePlacePO storeplace){
+		public boolean setStorePlace(MockStorePlacePO storeplace){
 			int area = storeplace.getArea();
 			int row = storeplace.getRow();
 			int shelf = storeplace.getShelf();
@@ -56,5 +60,21 @@ public class MockStorePO{
 			store.set(index, storeplace);
 			return true;
 		}
-
+		
+		/*获得关于库存的参数*/
+		public int getArea(){
+			return this.areas;
+		}
+		
+		public int getRow(){
+			return this.rows;
+		}
+		
+		public int getShelf(){
+			return this.shelfs;
+		}
+		
+		public int getPlace(){
+			return this.places;
+		}
 }

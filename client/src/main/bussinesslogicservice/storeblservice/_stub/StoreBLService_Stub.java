@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
 import main.bussinesslogicservice.storeblservice.StoreBLService;
+import main.po.storepo.StorePO;
 import main.po.storepo.StorePlacePO;
 import main.po.storepo.VerificationPO;
 import main.vo.IORecordVO;
@@ -109,7 +110,7 @@ public class StoreBLService_Stub implements StoreBLService {
 		// TODO Auto-generated method stub
 		System.out.println("A new verification task is created!");
 		
-		return new ResultMessage("success", new VerificationPO());
+		return new ResultMessage("success", new VerificationPO(new StorePO(2, 3, 4, 5)));
 	}
 
 	@Override

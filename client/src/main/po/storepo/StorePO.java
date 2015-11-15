@@ -63,4 +63,21 @@ public class StorePO implements Serializable {
 		store.set(index, storeplace);
 		return true;
 	}
+	
+	/*获得关于库存的参数*/
+	public int getArea(){
+		return this.areas;
+	}
+	
+	public int getRow(){
+		return this.rows;
+	}
+	
+	public int getShelf(){
+		return this.shelfs;
+	}
+	
+	public int getPlace(){
+		return this.places;
+	}
 }
