@@ -9,7 +9,7 @@ import main.vo.BankAccountVO;
  * 2015/11/15
  */
 
-public class BankAccountManagement implements BankAccountManagementBLService {
+public class BankAccountManagementBL implements BankAccountManagementBLService {
     @Override
     public ResultMessage createMember(BankAccountVO vo) {
         return null;

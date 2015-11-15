@@ -8,7 +8,7 @@ import main.bussinesslogicservice.financeblservice.CreateAccountingBLService;
  * 2015/11/15
  */
 
-public class CreateAccounting implements CreateAccountingBLService {
+public class AccountingBL implements CreateAccountingBLService {
     @Override
     public ResultMessage createAccounting() {
         return null;

@@ -8,7 +8,7 @@ import main.bussinesslogicservice.financeblservice.CreatePayListBLService;
  * 2015/11/15
  */
 
-public class CreatePayList implements CreatePayListBLService {
+public class PayListBL implements CreatePayListBLService {
     @Override
     public ResultMessage createPayList() {
         return null;

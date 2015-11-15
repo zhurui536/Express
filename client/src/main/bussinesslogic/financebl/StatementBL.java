@@ -8,7 +8,7 @@ import main.bussinesslogicservice.financeblservice.ShowStatementBLService;
  * 2015/11/15
  */
 
-public class ShowStatement implements ShowStatementBLService {
+public class StatementBL implements ShowStatementBLService {
     @Override
     public ResultMessage showStatement(long startTime, long endTime) {
         return null;

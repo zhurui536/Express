@@ -8,7 +8,7 @@ import main.bussinesslogicservice.financeblservice.ShowReceiptBLService;
  * 2015/11/15
  */
 
-public class ShowReceipt implements ShowReceiptBLService {
+public class ReceiptBL implements ShowReceiptBLService {
     @Override
     public ResultMessage showReceipt(long time, long id) {
         return null;
