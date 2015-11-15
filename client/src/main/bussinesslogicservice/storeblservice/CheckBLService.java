@@ -1,6 +1,7 @@
 package main.bussinesslogicservice.storeblservice;
 
 import java.sql.Time;
+import java.util.Calendar;
 
 import main.bussinesslogic.util.ResultMessage;
 
@@ -15,5 +16,5 @@ public interface CheckBLService {
 	 * start end
 	 * ResultMessage
 	 */
-	public ResultMessage check(Time start, Time end);
+	public ResultMessage check(Calendar start, Calendar end);
 }

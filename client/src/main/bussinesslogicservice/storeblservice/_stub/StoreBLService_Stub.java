@@ -1,7 +1,7 @@
 package main.bussinesslogicservice.storeblservice._stub;
 
-import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
@@ -131,7 +131,7 @@ public class StoreBLService_Stub implements StoreBLService {
 	}
 
 	@Override
-	public ResultMessage check(Time start, Time end) {
+	public ResultMessage check(Calendar start, Calendar end) {
 		// TODO Auto-generated method stub
 		ArrayList<IORecordVO> ior = new ArrayList();
 		

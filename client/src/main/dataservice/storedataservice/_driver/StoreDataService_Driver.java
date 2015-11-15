@@ -53,7 +53,7 @@ public class StoreDataService_Driver {
 		result = sds.saveOutStore(opo);
 		System.out.println(result.getKey());
 		
-		result = sds.saveAdjust(new AdjustPO());
+//		result = sds.saveAdjust(new AdjustPO());
 		System.out.println(result.getKey());
 		
 		result = sds.saveVerification(new VerificationPO(new StorePO(2, 3, 4, 5)));

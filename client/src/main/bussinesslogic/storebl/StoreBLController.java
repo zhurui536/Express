@@ -1,6 +1,6 @@
 package main.bussinesslogic.storebl;
 
-import java.sql.Time;
+import java.util.Calendar;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
@@ -84,7 +84,7 @@ public class StoreBLController implements StoreBLService {
 	}
 
 	@Override
-	public ResultMessage check(Time start, Time end) {
+	public ResultMessage check(Calendar start, Calendar end) {
 		// TODO Auto-generated method stub
 		return null;
 	}

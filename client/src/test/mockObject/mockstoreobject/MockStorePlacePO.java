@@ -1,4 +1,4 @@
-package test.mockObject.storemockobject;
+package test.mockObject.mockstoreobject;
 
 import test.mockObject.MockGoodsPO;
 import main.po.GoodsPO;
