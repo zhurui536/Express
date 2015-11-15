@@ -7,8 +7,6 @@ import main.bussinesslogic.util.Trans;
 
 import org.junit.Test;
 
-import test.mockObject.mockstoreobject.MockStorePlacePO;
-
 public class OutStoreTester {
 	@Test
 	public void test(){
