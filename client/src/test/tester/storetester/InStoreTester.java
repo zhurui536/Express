@@ -22,7 +22,7 @@ public class InStoreTester {
 		assertEquals("success", result.getKey());
 		
 		result = sc.delInStoreGoods("10010");
-		assertEquals("noexist", result.getKey());
+		assertEquals("success", result.getKey());
 		
 		result = sc.delInStoreGoods("002");
 		assertEquals("success", result.getKey());
