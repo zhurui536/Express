@@ -3,7 +3,7 @@ package main.bussinesslogic.storebl;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.VerificationBLService;
 
-public class VerificationBLImpl implements VerificationBLService {
+public class VerificationBL implements VerificationBLService {
 
 	@Override
 	public ResultMessage verification() {

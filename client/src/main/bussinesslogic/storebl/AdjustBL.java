@@ -5,7 +5,7 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.AdjustBLService;
 import main.po.storepo.StorePlacePO;
 
-public class AdjustBLImpl implements AdjustBLService {
+public class AdjustBL implements AdjustBLService {
 
 	@Override
 	public void newAdjust() {

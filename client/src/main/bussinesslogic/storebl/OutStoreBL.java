@@ -4,7 +4,7 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
 import main.bussinesslogicservice.storeblservice.OutStoreBLService;
 
-public class OutStoreBLImpl implements OutStoreBLService {
+public class OutStoreBL implements OutStoreBLService {
 
 	@Override
 	public void newOutStore() {

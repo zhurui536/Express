@@ -5,7 +5,7 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.InStoreBLService;
 import main.po.storepo.StorePlacePO;
 
-public class InStoreBLImpl implements InStoreBLService {
+public class InStoreBL implements InStoreBLService {
 
 	@Override
 	public void newInStore() {

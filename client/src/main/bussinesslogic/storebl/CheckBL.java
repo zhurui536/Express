@@ -5,7 +5,7 @@ import java.util.Calendar;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.CheckBLService;
 
-public class CheckBLImpl implements CheckBLService {
+public class CheckBL implements CheckBLService {
 
 	@Override
 	public void newCheck() {
