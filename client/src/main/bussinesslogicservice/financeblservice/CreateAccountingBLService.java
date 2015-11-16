@@ -1,6 +1,7 @@
 package main.bussinesslogicservice.financeblservice;
 
 import main.bussinesslogic.util.ResultMessage;
+import main.vo.AccountVO;
 
 /**
  * Created by Away
@@ -13,5 +14,5 @@ public interface CreateAccountingBLService {
      * 期初建账
      * @return ResultMessage
      */
-    ResultMessage createAccounting();
+    ResultMessage createAccounting(AccountVO accountVO);
 }

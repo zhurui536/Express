@@ -2,6 +2,7 @@ package main.bussinesslogic.financebl;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.CreateAccountingBLService;
+import main.vo.AccountVO;
 
 /**
  * 账本
@@ -11,7 +12,7 @@ import main.bussinesslogicservice.financeblservice.CreateAccountingBLService;
 
 public class AccountingBL implements CreateAccountingBLService {
     @Override
-    public ResultMessage createAccounting() {
+    public ResultMessage createAccounting(AccountVO accountVO) {
         return null;
     }
 }
