@@ -1,0 +1,5 @@
+package main.bussinesslogicservice.logisticsblservice;
+
+public interface LogisticsBLService extends ReceivingBLService,BillQueryBLService,DeliveryBLService,GoodsLoadBLService,GoodsReceiptBLService,ReceiptBillProduceBLService{
+
+}
