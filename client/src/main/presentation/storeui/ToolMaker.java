@@ -4,8 +4,13 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class ToolMaker {
-	public static JPanel getTool(){
-		return instore();
+	public static JPanel getTool(int i){
+		if(i==0)
+			return instore();
+		else if(i==1)
+			return outstore();
+		else
+			return null;
 	}
 	
 	public static JPanel instore(){

@@ -94,8 +94,12 @@ public class StoreFrame extends JFrame{
 		return buttons[i];
 	}
 	
-	public void removeTool(){
+	public void replaceTool(JPanel newtool){
 		this.remove(tool);
+		this.tool = newtool;
+		this.getContentPane().add(tool);
+		this.validate();
+		this.repaint();
 	}
 	
 	private final String[] names = {"入库", "出库", "库存查看", "库存盘点", "库存调整", "退出"};

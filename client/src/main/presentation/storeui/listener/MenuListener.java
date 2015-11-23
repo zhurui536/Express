@@ -26,30 +26,9 @@ public class MenuListener implements ActionListener {
 			}
 		}
 		
-		switch(i){
-		case 0:
-			System.out.println("instore is clicked!");
-			storeui.removeTool();
-			storeui.getContentPane().add(ToolMaker.getTool());
-			storeui.validate();
-			storeui.repaint();
-			
-			break;
-		case 1:
-			System.out.println("outstore is clicked!");
-			break;
-		case 2:
-			System.out.println("check is clicked!");
-			break;
-		case 3:
-			System.out.println("verification is clicked!");
-			break;
-		case 4:
-			System.out.println("adjust is clicked!");
-			break;
-		default:
-			System.out.println("exit is clicked!");
-			break;
+		if(i>=0&&i<=4){
+			System.out.println(i);
+			storeui.replaceTool(ToolMaker.getTool(i));
 		}
 	}
 
