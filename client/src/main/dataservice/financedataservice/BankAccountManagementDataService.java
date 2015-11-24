@@ -3,6 +3,7 @@ package main.dataservice.financedataservice;
 import main.po.BankAccountPO;
 import main.vo.BankAccountVO;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * 2015/10/26
  */
 
-public interface BankAccountManagementDataService {
+public interface BankAccountManagementDataService extends Remote {
 
     ArrayList<BankAccountPO> find(BankAccountVO vo) throws RemoteException;
 

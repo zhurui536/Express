@@ -1,11 +1,13 @@
 package main.po;
 
+import java.io.Serializable;
+
 /**
  * Created by Away
  * 2015/10/26
  */
 
-public class BankAccountPO {
+public class BankAccountPO implements Serializable {
 
     // 账户名称
     private String name;
