@@ -3,7 +3,6 @@ package main.presentation.storeui;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 public class InStoreInputFrame extends JFrame {

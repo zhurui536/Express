@@ -102,5 +102,9 @@ public class StoreFrame extends JFrame{
 		this.repaint();
 	}
 	
+	public void close(){
+		
+	}
+	
 	private final String[] names = {"入库", "出库", "库存查看", "库存盘点", "库存调整", "退出"};
 }
