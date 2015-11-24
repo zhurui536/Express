@@ -30,16 +30,38 @@ public class MenuListener implements ActionListener {
 			}
 		}
 		
-		if(i==0)
-			storeui.replaceTool(new InStoreTool());
-		else if(i==1)
-			storeui.replaceTool(new OutStoreTool());
-		else if(i==2)
-			storeui.replaceTool(new CheckTool());
-		else if(i==3)
-			storeui.replaceTool(new VerificationTool());
-		else if(i==4)
-			storeui.replaceTool(new AdjustTool());
+		ToolListener tl = new ToolListener(storeui); 
+		
+		if(i==0){
+			InStoreTool tool = new InStoreTool(tl);
+			tl.setTool(tool);
+			storeui.setToolListener(tl);
+			storeui.replaceTool(tool);
+		}
+		else if(i==1){
+			OutStoreTool tool = new OutStoreTool(tl);
+			tl.setTool(tool);
+			storeui.replaceTool(tool);
+			storeui.setToolListener(tl);
+		}
+		else if(i==2){
+			CheckTool tool = new CheckTool(tl);
+			storeui.replaceTool(tool);
+			tl.setTool(tool);
+			storeui.setToolListener(tl);
+		}
+		else if(i==3){
+			VerificationTool tool = new VerificationTool(tl);
+			storeui.replaceTool(tool);
+			tl.setTool(tool);
+			storeui.setToolListener(tl);
+		}
+		else if(i==4){
+			AdjustTool tool = new AdjustTool(tl);
+			storeui.replaceTool(tool);
+			tl.setTool(tool);
+			storeui.setToolListener(tl);
+		}
 		else
 			storeui.close();
 	}

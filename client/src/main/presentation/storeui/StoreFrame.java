@@ -9,6 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import main.presentation.storeui.listener.MenuListener;
+import main.presentation.storeui.listener.ToolListener;
 
 
 public class StoreFrame extends JFrame{
@@ -20,6 +21,7 @@ public class StoreFrame extends JFrame{
 	private JScrollPane scroll;
 	
 	private MenuListener menulistener;
+	private ToolListener toollistener;
 	
 	public StoreFrame(){
 		this.setLayout(null);
@@ -97,9 +99,14 @@ public class StoreFrame extends JFrame{
 	public void replaceTool(JPanel newtool){
 		this.remove(tool);
 		this.tool = newtool;
+		
 		this.getContentPane().add(tool);
 		this.validate();
 		this.repaint();
+	}
+	
+	public void setToolListener(ToolListener tl){
+		this.toollistener = tl;
 	}
 	
 	public void close(){
