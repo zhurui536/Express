@@ -6,22 +6,23 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
+import main.bussinesslogic.storebl.StoreBLController;
 import main.presentation.storeui.listener.MenuListener;
-import main.presentation.storeui.listener.ToolListener;
 
 
 public class StoreFrame extends JFrame{
+	//处理窗口事件的对象
+	private StoreBLController sc = new StoreBLController();
+	
+	//窗口中的成员组件，窗口分为菜单、工具和数据三个部分
 	private JPanel menu;
+	private MenuListener menulistener;
 	private JButton[] buttons;
 	private JPanel tool;
 	
 	private JPanel data;
 	private JScrollPane scroll;
-	
-	private MenuListener menulistener;
-	private ToolListener toollistener;
 	
 	public StoreFrame(){
 		this.setLayout(null);
@@ -105,12 +106,12 @@ public class StoreFrame extends JFrame{
 		this.repaint();
 	}
 	
-	public void setToolListener(ToolListener tl){
-		this.toollistener = tl;
-	}
-	
 	public void close(){
 		
+	}
+	
+	public StoreBLController getController(){
+		return this.sc;
 	}
 	
 	private final String[] names = {"入库", "出库", "库存查看", "库存盘点", "库存调整", "退出"};
