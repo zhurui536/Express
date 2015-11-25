@@ -2,7 +2,7 @@ package main.bussinesslogicservice.logisticsblservice._stub;
 
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogicservice.logisticsblservice.BillQueryBLService;
-import main.po.BillPO;
+import po.BillPO;
 import main.vo.BillVO;
 
 /**

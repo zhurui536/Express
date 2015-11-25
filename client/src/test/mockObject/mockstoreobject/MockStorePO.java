@@ -3,8 +3,6 @@ package test.mockObject.mockstoreobject;
 import java.util.ArrayList;
 
 import test.mockObject.MockGoodsPO;
-import main.po.storepo.StorePlacePO;
-
 
 
 public class MockStorePO{

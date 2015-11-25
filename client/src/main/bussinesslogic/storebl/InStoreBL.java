@@ -3,7 +3,7 @@ package main.bussinesslogic.storebl;
 import test.mockObject.mockstoreobject.MockStorePlacePO;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.InStoreBLService;
-import main.po.storepo.StorePlacePO;
+import po.storepo.StorePlacePO;
 
 public class InStoreBL implements InStoreBLService {
 

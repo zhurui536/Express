@@ -2,7 +2,7 @@ package main.bussinesslogicservice.storeblservice;
 
 import test.mockObject.mockstoreobject.MockStorePlacePO;
 import main.bussinesslogic.util.ResultMessage;
-import main.po.storepo.StorePlacePO;
+import po.storepo.StorePlacePO;
 
 public interface AdjustBLService {
 	/*新建新的调整任务

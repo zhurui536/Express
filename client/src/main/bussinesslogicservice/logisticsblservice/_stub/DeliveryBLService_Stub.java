@@ -4,7 +4,7 @@ import main.bussinesslogic.util.ExpressType;
 import main.bussinesslogic.util.PackageType;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.DeliveryBLService;
-import main.po.GoodsPO;
+import po.GoodsPO;
 
 /**
  * @author zhuding

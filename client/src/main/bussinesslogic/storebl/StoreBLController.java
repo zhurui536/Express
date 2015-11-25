@@ -6,7 +6,7 @@ import test.mockObject.mockstoreobject.MockStorePlacePO;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
 import main.bussinesslogicservice.storeblservice.StoreBLService;
-import main.po.storepo.StorePlacePO;
+import po.storepo.StorePlacePO;
 
 public class StoreBLController implements StoreBLService {
 

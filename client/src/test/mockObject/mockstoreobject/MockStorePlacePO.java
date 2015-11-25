@@ -1,8 +1,6 @@
 package test.mockObject.mockstoreobject;
 
 import test.mockObject.MockGoodsPO;
-import main.po.GoodsPO;
-import main.po.storepo.StorePlacePO;
 
 public class MockStorePlacePO{
 

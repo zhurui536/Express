@@ -2,8 +2,8 @@ package main.bussinesslogic.financebl;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.BankAccountManagementBLService;
-import main.dataservice.financedataservice.BankAccountManagementDataService;
-import main.po.BankAccountPO;
+import dataservice.financedataservice.BankAccountManagementDataService;
+import po.BankAccountPO;
 import main.vo.BankAccountVO;
 
 import java.net.MalformedURLException;

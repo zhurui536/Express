@@ -2,8 +2,6 @@ package test.mockObject.mockstoreobject;
 
 import java.util.ArrayList;
 
-import main.po.storepo.StorePlacePO;
-
 public class MockVerificationPO {
 	private ArrayList<MockStorePlacePO> goodslist;
 	

@@ -2,7 +2,7 @@ package main.bussinesslogicservice.storeblservice;
 
 import test.mockObject.mockstoreobject.MockStorePlacePO;
 import main.bussinesslogic.util.ResultMessage;
-import main.po.storepo.StorePlacePO;
+import po.storepo.StorePlacePO;
 
 /**
  * Created by ZHR
