@@ -3,7 +3,6 @@ package main.bussinesslogicservice.financeblservice._driver;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.CreateAccountingBLService;
 import main.bussinesslogicservice.financeblservice._stub.CreateAccountingBLService_Stub;
-import main.vo.*;
 
 /**
  * Created by Away
