@@ -21,7 +21,6 @@ public interface InStoreBLService {
 	 * ResultMessage
 	 */
 	public ResultMessage addInStoreGoods(String id, StorePlacePO place, String destination);
-	public ResultMessage addInStoreGoods(String id, MockStorePlacePO place, String destination);
 	/*删除之前输入的货物
 	 * id
 	 * ResultMessage

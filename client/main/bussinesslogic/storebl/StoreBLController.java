@@ -2,117 +2,123 @@ package main.bussinesslogic.storebl;
 
 import java.util.Calendar;
 
-import test.mockObject.mockstoreobject.MockStorePlacePO;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
 import main.bussinesslogicservice.storeblservice.StoreBLService;
+import po.UserPO;
 import po.storepo.StorePlacePO;
 
 public class StoreBLController implements StoreBLService {
+	private UserPO user;
+	private InStoreBL instore;
+	private OutStoreBL outstore;
+	private CheckBL check;
+	private VerificationBL verification;
+	private AdjustBL adjust;
+	
+	public StoreBLController(UserPO user){
+		this.user = user;
+	}
 
 	@Override
 	public void newInStore() {
 		// TODO Auto-generated method stub
-
+		instore = new InStoreBL();
 	}
 
 	@Override
 	public ResultMessage addInStoreGoods(String id, StorePlacePO place,
 			String destination) {
 		// TODO Auto-generated method stub
-		return new ResultMessage("success", null);
+		return instore.addInStoreGoods(id, place, destination);
 	}
 
 	@Override
 	public ResultMessage delInStoreGoods(String id) {
 		// TODO Auto-generated method stub
-		return new ResultMessage("success", null);
+		return instore.delInStoreGoods(id);
 	}
 
 	@Override
 	public void endIntStore(int condition) {
 		// TODO Auto-generated method stub
-
+		instore.endIntStore(condition);
+		instore = null;
 	}
 
 	@Override
 	public void newOutStore() {
 		// TODO Auto-generated method stub
-
+		outstore = new OutStoreBL();
 	}
 
 	@Override
 	public ResultMessage addOutStoreGoods(String id, Trans trans,
 			String Destination) {
 		// TODO Auto-generated method stub
-		return new ResultMessage("success", null);
+		return outstore.addOutStoreGoods(id, trans, Destination);
 	}
 
 	@Override
 	public ResultMessage delOutStoreGoods(String id) {
 		// TODO Auto-generated method stub
-		return new ResultMessage("success", null);
+		return outstore.delOutStoreGoods(id);
 	}
 
 	@Override
 	public void endOutStore(int condition) {
 		// TODO Auto-generated method stub
-
+		outstore.endOutStore(condition);
+		outstore = null;
 	}
 
 	@Override
 	public void newAdjust() {
 		// TODO Auto-generated method stub
-
+		adjust = new AdjustBL();
 	}
 
 	@Override
 	public ResultMessage addAdjust(StorePlacePO start, StorePlacePO end) {
 		// TODO Auto-generated method stub
-		return new ResultMessage("success", null);
+		return adjust.addAdjust(start, end);
 	}
 
 	@Override
 	public void endAdjust(int condition) {
 		// TODO Auto-generated method stub
-
+		adjust.endAdjust(condition);
+		adjust = null;
 	}
 
 	@Override
 	public void newCheck() {
 		// TODO Auto-generated method stub
-
+		check = new CheckBL();
 	}
 
 	@Override
 	public ResultMessage check(Calendar start, Calendar end) {
 		// TODO Auto-generated method stub
-		return new ResultMessage("success", null);
+		return check.check(start, end);
 	}
 
 	@Override
 	public ResultMessage verification() {
 		// TODO Auto-generated method stub
-		return new ResultMessage("success", null);
+		return verification.verification();
 	}
 
 	@Override
 	public void endVerification(int condition) {
 		// TODO Auto-generated method stub
-
+		verification.endVerification(condition);
 	}
 
 	@Override
-	public ResultMessage addInStoreGoods(String id, MockStorePlacePO place,
-			String destination) {
+	public ResultMessage delAdjust(int i) {
 		// TODO Auto-generated method stub
-		return new ResultMessage("success", null);
-	}
-
-	@Override
-	public ResultMessage addAdjust(MockStorePlacePO start, MockStorePlacePO end) {
-		// TODO Auto-generated method stub
-		return new ResultMessage("success", null);
+		return adjust.delAdjust(i);
 	}
 
 }

@@ -10,7 +10,7 @@ public class VerificationTester {
 	@Test
 	public void test(){
 		
-		StoreBLController sc = new StoreBLController();
+		StoreBLController sc = new StoreBLController(null);
 		ResultMessage result;
 		
 		result = sc.verification();

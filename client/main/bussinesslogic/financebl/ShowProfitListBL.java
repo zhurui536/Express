@@ -9,7 +9,7 @@ import main.bussinesslogicservice.financeblservice.ShowProfitListBLService;
  * 2015/11/15
  */
 
-public class ProfitListBL implements ShowProfitListBLService {
+public class ShowProfitListBL implements ShowProfitListBLService {
     @Override
     public ResultMessage showProfitList() {
         return null;

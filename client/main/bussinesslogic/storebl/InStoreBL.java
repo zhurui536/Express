@@ -1,11 +1,11 @@
 package main.bussinesslogic.storebl;
 
-import test.mockObject.mockstoreobject.MockStorePlacePO;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.InStoreBLService;
 import po.storepo.StorePlacePO;
 
 public class InStoreBL implements InStoreBLService {
+	
 
 	@Override
 	public void newInStore() {
@@ -30,13 +30,6 @@ public class InStoreBL implements InStoreBLService {
 	public void endIntStore(int condition) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public ResultMessage addInStoreGoods(String id, MockStorePlacePO place,
-			String destination) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

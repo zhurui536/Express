@@ -10,7 +10,7 @@ import main.vo.AccountVO;
  * 2015/11/15
  */
 
-public class AccountingBL implements CreateAccountingBLService {
+public class CreateAccountingBL implements CreateAccountingBLService {
     @Override
     public ResultMessage createAccounting(AccountVO accountVO) {
         return null;

@@ -13,7 +13,7 @@ import main.presentation.storeui.listener.MenuListener;
 
 public class StoreFrame extends JFrame{
 	//处理窗口事件的对象
-	private StoreBLController sc = new StoreBLController();
+	private StoreBLController sc = new StoreBLController(null);
 	
 	//窗口中的成员组件，窗口分为菜单、工具和数据三个部分
 	private JPanel menu;
