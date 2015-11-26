@@ -9,7 +9,7 @@ import main.bussinesslogicservice.storeblservice.StoreBLService;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
 import po.storepo.VerificationPO;
-import main.vo.IORecordVO;
+import main.vo.CheckVO;
 /**
  * Created By ZHR
  * 2015/10/26
@@ -135,7 +135,7 @@ public class StoreBLService_Stub implements StoreBLService {
 	@Override
 	public ResultMessage check(Calendar start, Calendar end) {
 		// TODO Auto-generated method stub
-		ArrayList<IORecordVO> ior = new ArrayList<IORecordVO>();
+		ArrayList<CheckVO> ior = new ArrayList<CheckVO>();
 		
 		if(start.compareTo(end)<0){
 			return new ResultMessage("success", ior);

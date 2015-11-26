@@ -69,7 +69,7 @@ public class InStoreBL implements InStoreBLService {
 		if(condition == 0){
 			for(int i=0;i<goodslist.size();i++){
 				try {
-					dataservice.update(goodslist.get(i).getPlace(), goodslist.get(i).getGoods());
+					dataservice.update(goodslist.get(i).getStorePlace(), goodslist.get(i).getGoods());
 				} catch (RemoteException e) {
 					e.printStackTrace();
 					return new ResultMessage("internet error", null);
