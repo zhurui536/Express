@@ -6,13 +6,14 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.ReceivingBLService;
 import main.vo.GoodsVO;
 import main.vo.BillVO;
+import main.vo.logisticvo.SendBillVO;
 /**
  * @author zhuding
  *
  */
 public class ReceivingBLService_Stub implements ReceivingBLService{
 
-        private BillVO billVO;
+        private SendBillVO billVO;
         
         private GoodsVO goodsVO;
         
@@ -22,16 +23,16 @@ public class ReceivingBLService_Stub implements ReceivingBLService{
         
         
         @Override
-        public ResultMessage addMessage(BillVO billVO) {
+        public ResultMessage addMessage(SendBillVO billVO) {
                 this.billVO = billVO;
                 return new ResultMessage("success", null);
         }
 
         @Override
-        public long getTime(String destination) {
-                String departurePlace = this.goodsVO.getDeparturePlace();
+        public long getTime() {
+                String departurePlace = this.goodsVO.departurePlace;
                 //通过destination和departurePlace查文件获取平均时间
-                System.out.println(departurePlace +" to "+ destination);
+//                System.out.println(departurePlace +" to "+ destination);
                 return 100;
         }
 
@@ -40,7 +41,7 @@ public class ReceivingBLService_Stub implements ReceivingBLService{
                 //实际应从billVO中获得
                 this.goodsVO = goods;
                 int tempDistance = 900;
-                return PackageType.typeToCost(goods.getPackageType()) + goods.getWeight() * ExpressType.typeToCost(goodsVO.getExpressType(), tempDistance);
+                return PackageType.typeToCost(goods.packageType) + goods.weight * ExpressType.typeToCost(goodsVO.expressType, tempDistance);
         }
 
         @Override

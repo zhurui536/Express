@@ -14,9 +14,9 @@ public class ReceivingTester {
     @Test
     public void test() {
         LogisticsBLService logisticsBLService = new LogisticsBLController();
-        ResultMessage message = logisticsBLService.addMessage(new BillVO("null", BillType.SEND));
+//        ResultMessage message = logisticsBLService.addMessage(new BillVO("null", BillType.SEND));
         
-        assertEquals("success",message.getKey());
+        assertEquals("success",null);
         
     }
 }

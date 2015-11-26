@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import main.bussinesslogic.util.ExpressType;
 import main.bussinesslogic.util.GoodsDeliveryState;
 import main.bussinesslogic.util.PackageType;
+import main.vo.GoodsVO;
 
 /**
  * Created by Away
  * 2015/10/26
  */
 
+@SuppressWarnings("serial")
 public class GoodsPO implements Serializable{
         
         //货物名称
@@ -56,6 +58,26 @@ public class GoodsPO implements Serializable{
                        this.track.add(departurePlace);
                        this.goodsDeliveryState = GoodsDeliveryState.TRANSPORT;
         }      
+        
+        public GoodsVO poToVo() {
+                GoodsVO goodsVO = new GoodsVO();
+                
+                goodsVO.departurePlace = this.departurePlace;
+                goodsVO.destination = this.destination;
+                goodsVO.expressType = this.expressType;
+                goodsVO.goodsDeliveryState = this.goodsDeliveryState;
+                goodsVO.id = this.id;
+                goodsVO.name = this.name;
+                goodsVO.packageType = this.packageType;
+                goodsVO.recipient = this.recipient;
+                goodsVO.time = this.time;
+                goodsVO.track = new ArrayList<>();
+                track.addAll(this.track);
+                goodsVO.volume = this.volume;
+                goodsVO.weight = this.weight;
+                
+                return goodsVO;
+        }
        
         public String getRecipient() {
                 return recipient;

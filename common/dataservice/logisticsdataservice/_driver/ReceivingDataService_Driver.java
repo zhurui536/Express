@@ -6,6 +6,7 @@ import dataservice.logisticsdataservice.ReceivingDataService;
 import dataservice.logisticsdataservice._stub.ReceivingDataService_Stub;
 import main.bussinesslogic.util.BillType;
 import po.BillPO;
+import po.logisticpo.SendBillPO;
 
 /**
  * @author zhuding
@@ -19,12 +20,12 @@ public class ReceivingDataService_Driver {
         }
         
         public void drive(){
-                try {
-                        receivingDataService.insertBill(new BillPO("00000", BillType.SEND, "zhuding"));
-                } catch (RemoteException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                }
+//                try {
+//                        receivingDataService.insertBill(new SendBillPO("00000", BillType.SEND, "zhuding"));
+//                } catch (RemoteException e) {
+//                        // TODO Auto-generated catch block
+//                        e.printStackTrace();
+//                }
         }
         
         public static void main(String[] args) {

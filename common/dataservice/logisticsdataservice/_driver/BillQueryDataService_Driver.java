@@ -24,11 +24,11 @@ public class BillQueryDataService_Driver {
         }
         
         public void drive() {
-                try {
-                        System.out.println(billQueryDataService.findBill("00000").getBillType());
-                } catch (RemoteException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                }
+//                try {
+//                        System.out.println(billQueryDataService.findBill("00000").getBillType());
+//                } catch (RemoteException e) {
+//                        // TODO Auto-generated catch block
+//                        e.printStackTrace();
+//                }
         }
 }

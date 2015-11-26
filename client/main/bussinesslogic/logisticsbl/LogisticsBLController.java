@@ -2,95 +2,133 @@ package main.bussinesslogic.logisticsbl;
 
 import main.bussinesslogic.util.GoodsState;
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogicservice.logisticsblservice.BillQueryBLService;
+import main.bussinesslogicservice.logisticsblservice.DeliveryBLService;
+import main.bussinesslogicservice.logisticsblservice.GoodsLoadBLService;
+import main.bussinesslogicservice.logisticsblservice.GoodsReceiptBLService;
 import main.bussinesslogicservice.logisticsblservice.LogisticsBLService;
+import main.bussinesslogicservice.logisticsblservice.ReceiptBillProduceBLService;
+import main.bussinesslogicservice.logisticsblservice.ReceivingBLService;
 import main.vo.BillVO;
 import main.vo.GoodsVO;
+import main.vo.logisticvo.SendBillVO;
 
-public class LogisticsBLController implements LogisticsBLService{
+public class LogisticsBLController implements LogisticsBLService {
 
-    @Override
-    public ResultMessage addMessage(BillVO billVO) {
-        // TODO Auto-generated method stub
-        return new ResultMessage("success", null);
-    }
-
-    @Override
-    public long getTime(String destination) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public double getCharge(GoodsVO goods) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public void endReceipt() {
-        // TODO Auto-generated method stub
+        private BillQueryBLService billQueryBLService;
         
-    }
-
-    @Override
-    public BillVO queryBill(String id) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void endQueryBill() {
-        // TODO Auto-generated method stub
+        private DeliveryBLService deliveryBLService;
         
-    }
-
-    @Override
-    public ResultMessage addRecMessage(String Recipients, long id, long time) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void endDelivery() {
-        // TODO Auto-generated method stub
+        private GoodsLoadBLService goodsLoadBLService;
         
-    }
-
-    @Override
-    public ResultMessage produceLoadBill(BillVO billVO) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void endGoodsLoad() {
-        // TODO Auto-generated method stub
+        private GoodsReceiptBLService goodsReceiptBLService;
         
-    }
-
-    @Override
-    public BillVO produceArrivalBill(BillVO transferBillVO,
-            GoodsState goodsState) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public BillVO produceSendBill(BillVO arrivalBillVO, long deliverManId) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void endGoodsreceipt() {
-        // TODO Auto-generated method stub
+        private ReceiptBillProduceBLService receiptBillProduceBLService;
         
-    }
+        private ReceivingBLService receivingBLService;
+        
+        @Override
+        public ResultMessage addMessage(SendBillVO billVO) {
+                return receivingBLService.addMessage(billVO);
+        }
 
-    @Override
-    public ResultMessage produceReceiptBill() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+        @Override
+        public long getTime() {
+                return receivingBLService.getTime();
+        }
 
+        @Override
+        public double getCharge(GoodsVO goods) {
+                return receivingBLService.getCharge(goods);
+        }
+
+        @Override
+        public void endReceipt() {
+                receivingBLService.endReceipt();
+        }
+
+        @Override
+        public SendBillVO queryBill(String id) {
+                return billQueryBLService.queryBill(id);
+        }
+
+        @Override
+        public void endQueryBill() {
+                billQueryBLService.endQueryBill();
+        }
+
+        @Override
+        public ResultMessage addRecMessage(String Recipients, String id, long time) {
+                return deliveryBLService.addRecMessage(Recipients, id, time);
+        }
+
+        @Override
+        public void endDelivery() {
+                deliveryBLService.endDelivery();
+        }
+
+        @Override
+        public ResultMessage produceLoadBill(BillVO billVO) {
+                return goodsLoadBLService.produceLoadBill(billVO);
+        }
+
+        @Override
+        public void endGoodsLoad() {
+                goodsLoadBLService.endGoodsLoad();
+        }
+
+        @Override
+        public BillVO produceArrivalBill(BillVO transferBillVO,
+                        GoodsState goodsState) {
+                return goodsReceiptBLService.produceArrivalBill(transferBillVO, goodsState);
+        }
+
+        @Override
+        public BillVO produceSendBill(BillVO arrivalBillVO, long deliverManId) {
+                return goodsReceiptBLService.produceSendBill(arrivalBillVO, deliverManId);
+        }
+
+        @Override
+        public void endGoodsreceipt() {
+                goodsReceiptBLService.endGoodsreceipt();
+        }
+
+        @Override
+        public ResultMessage produceReceiptBill() {
+                return receiptBillProduceBLService.produceReceiptBill();
+        }
+
+        @Override
+        public void setBillQueryBLService(BillQueryBLService billQueryBLService) {
+                this.billQueryBLService = billQueryBLService;
+        }
+
+        @Override
+        public void setDeliveryBLService(DeliveryBLService deliveryBLService) {
+                this.deliveryBLService = deliveryBLService;
+        }
+
+        @Override
+        public void setGoodsLoadBLService(GoodsLoadBLService goodsLoadBLService) {
+                this.goodsLoadBLService = goodsLoadBLService;
+        }
+
+        @Override
+        public void setGoodsReceiptBLService(GoodsReceiptBLService goodsReceiptBLService) {
+                this.goodsReceiptBLService = goodsReceiptBLService;
+        }
+
+        @Override
+        public void setReceiptBillProduceBLService(
+                        ReceiptBillProduceBLService receiptBillProduceBLService) {
+                this.receiptBillProduceBLService = receiptBillProduceBLService;
+        }
+
+        @Override
+        public void setReceivingBLService(ReceivingBLService receivingBLService) {
+                this.receivingBLService = receivingBLService;
+        }
+
+        
+        
 }

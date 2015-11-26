@@ -27,7 +27,7 @@ public class DeliveryDataService_Driver {
         public void drive() {
                 GoodsPO goodsPO = null;
                 try {
-                        goodsPO = deliveryDataService.findGoods(000000);
+                        goodsPO = deliveryDataService.findGoods("000000");
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();

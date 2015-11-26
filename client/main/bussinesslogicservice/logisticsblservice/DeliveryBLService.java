@@ -13,7 +13,7 @@ public interface DeliveryBLService {
          * @param id 单据编号
          * @param time 收件时间
          */
-        public ResultMessage addRecMessage(String Recipients,long id, long time) ;
+        public ResultMessage addRecMessage(String Recipients,String id, long time) ;
         
         public void endDelivery();
 }

@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import dataservice.logisticsdataservice.BillQueryDataService;
 import main.bussinesslogic.util.BillType;
 import po.BillPO;
+import po.logisticpo.SendBillPO;
 
 /**
  * @author zhuding
@@ -13,9 +14,10 @@ import po.BillPO;
 public class BillQueryDataService_Stub implements BillQueryDataService {
 
         @Override
-        public BillPO findBill(String id) throws RemoteException {
+        public SendBillPO findBill(String id) throws RemoteException {
                 System.out.println("find it");
-                return new BillPO("0000000000",BillType.SEND, "zhuding");
+//                return new BillPO("0000000000",BillType.SEND, "zhuding");
+                return null;
         }
 
 }

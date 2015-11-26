@@ -4,6 +4,7 @@ import main.bussinesslogic.util.BillType;
 import main.bussinesslogicservice.logisticsblservice.BillQueryBLService;
 import po.BillPO;
 import main.vo.BillVO;
+import main.vo.logisticvo.SendBillVO;
 
 /**
  * @author zhuding
@@ -13,10 +14,10 @@ public class BillQueryBLService_Stub implements BillQueryBLService{
         
         
         @Override
-        public BillVO queryBill(String  id) {
+        public SendBillVO queryBill(String  id) {
                 BillPO billPO =  new BillPO("0000000000",BillType.SEND, "zhuding");
                 //将PO对象转为VO对象
-                return new BillVO(billPO.getID(), billPO.getBillType());
+                return null;
         }
 
         @Override

@@ -20,7 +20,7 @@ public class DeliveryDataService_Stub implements DeliveryDataService {
         }
         
         @Override
-        public GoodsPO findGoods(long id) throws RemoteException {
+        public GoodsPO findGoods(String id) throws RemoteException {
                 return goodsPO;
         }
 

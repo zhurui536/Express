@@ -28,10 +28,10 @@ public class ReceivingBLService_Driver {
          
          public void drive() {
                 BillVO billVO = new BillVO("00000",BillType.SEND);
-                System.out.println(receivingBLService.addMessage(billVO).getKey());
-                GoodsVO goodsVO = new GoodsVO(0000000000,"核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
-                System.out.println(receivingBLService.getCharge(goodsVO));
-                receivingBLService.getTime(goodsVO.getDestination());
+//                System.out.println(receivingBLService.addMessage(billVO).getKey());
+//                GoodsVO goodsVO = new GoodsVO(0000000000,"核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
+//                System.out.println(receivingBLService.getCharge(goodsVO));
+                receivingBLService.getTime();
                 receivingBLService.endReceipt();
                 
         }

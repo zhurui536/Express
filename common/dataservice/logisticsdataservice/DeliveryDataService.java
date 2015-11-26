@@ -6,10 +6,10 @@ import po.GoodsPO;
 
 /**
  * @author zhuding
- *
  */
 public interface DeliveryDataService {
-        public GoodsPO findGoods(long id) throws RemoteException;
+        
+        public GoodsPO findGoods(String id) throws RemoteException;
         
         public void updateGoods(GoodsPO goodsPO) throws RemoteException;
 
