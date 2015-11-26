@@ -17,8 +17,10 @@ public interface ReceivingBLService {
         
         /**
          * 获取快递到达时间
+         * @param departurePlace TODO
+         * @param destination TODO
          */
-        public long getTime();
+        public long getTime(String departurePlace, String destination);
         
         /**
          * 获取快递所需费用

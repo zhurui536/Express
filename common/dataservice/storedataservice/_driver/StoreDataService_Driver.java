@@ -39,7 +39,7 @@ public class StoreDataService_Driver {
 		System.out.println(result.getKey());
 
 		//为出库和入库创建货物
-		GoodsPO goods = new GoodsPO("10010", "zhr", "nanjing", "sihong", 1, 3, PackageType.CARTONS, ExpressType.ECONOMIC);
+		GoodsPO goods = new GoodsPO("10010", "zhr", "nanjing", "sihong", 1, 3, PackageType.CARTONS, ExpressType.ECONOMIC,0);
 		StorePlacePO place = new StorePlacePO(1, 1, 1, 1);
 		
 		ArrayList<InStorePO> ipo = new ArrayList<InStorePO>();

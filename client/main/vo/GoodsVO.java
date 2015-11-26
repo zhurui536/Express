@@ -34,8 +34,10 @@ public class GoodsVO {
         public String recipient;
         //货物的快递单号
         public String id;
-      //货物的接受时间
-        public long time;
+        //货物的出发时间
+        public long startTime;
+        // 货物的接受时间
+        public long receiveTime;
         //金额
         public double price;
 //        

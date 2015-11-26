@@ -9,61 +9,62 @@ import main.bussinesslogic.util.PackageType;
 import main.vo.GoodsVO;
 
 /**
- * Created by Away
- * 2015/10/26
+ * Created by Away 2015/10/26
  */
 
 @SuppressWarnings("serial")
-public class GoodsPO implements Serializable{
-        
-        //货物名称
+public class GoodsPO implements Serializable {
+
+        // 货物名称
         private String name;
-        //货物出发地
+        // 货物出发地
         private String departurePlace;
-        //货物目的地
+        // 货物目的地
         private String destination;
-        //货物轨迹
+        // 货物轨迹
         private ArrayList<String> track;
-        //货物重量
+        // 货物重量
         private int weight;
-        //货物体积
+        // 货物体积
         private int volume;
-        //货物包装类型
+        // 货物包装类型
         private PackageType packageType;
-        //快递类型
+        // 快递类型
         private ExpressType expressType;
-        //货物运转状态
+        // 货物运转状态
         private GoodsDeliveryState goodsDeliveryState;
-        //货物实际收件人
+        // 货物实际收件人
         private String recipient;
-        //货物的快递单号
+        // 货物的快递单号
         private String id;
-        //货物的接受时间
-        private long time;
-        //金额
+        //货物的出发时间
+        private long startTime;
+        // 货物的接受时间
+        private long receiveTime;
+        // 金额
         private double price;
-        
+
         public GoodsPO(String id, String name, String departurePlace,
-                        String destination ,int weight,
-                        int volume, PackageType packageType,
-                        ExpressType expressType) {
-                
-                       this.id = id;
-                       this.name = name;
-                       this.departurePlace = departurePlace;
-                       this.destination = destination;
-                       this.weight = weight;
-                       this.volume = volume;
-                       this.packageType = packageType;
-                       this.expressType = expressType;
-                       this.track = new ArrayList<>();
-                       this.track.add(departurePlace);
-                       this.goodsDeliveryState = GoodsDeliveryState.TRANSPORT;
-        }      
-        
+                        String destination, int weight, int volume,
+                        PackageType packageType, ExpressType expressType, long startTime) {
+
+                this.id = id;
+                this.name = name;
+                this.departurePlace = departurePlace;
+                this.destination = destination;
+                this.weight = weight;
+                this.volume = volume;
+                this.packageType = packageType;
+                this.expressType = expressType;
+                this.track = new ArrayList<>();
+                this.track.add(departurePlace);
+                this.startTime = startTime;
+                this.goodsDeliveryState = GoodsDeliveryState.TRANSPORT;
+        }
+
         public GoodsVO poToVo() {
                 GoodsVO goodsVO = new GoodsVO();
-                
+
                 goodsVO.departurePlace = this.departurePlace;
                 goodsVO.destination = this.destination;
                 goodsVO.expressType = this.expressType;
@@ -72,7 +73,8 @@ public class GoodsPO implements Serializable{
                 goodsVO.name = this.name;
                 goodsVO.packageType = this.packageType;
                 goodsVO.recipient = this.recipient;
-                goodsVO.time = this.time;
+                goodsVO.startTime = this.startTime;
+                goodsVO.receiveTime = this.receiveTime;
                 goodsVO.track = new ArrayList<>();
                 track.addAll(this.track);
                 goodsVO.volume = this.volume;
@@ -80,7 +82,14 @@ public class GoodsPO implements Serializable{
                 goodsVO.price = this.price;
                 return goodsVO;
         }
-       
+
+        public static GoodsPO voToPo(GoodsVO goodsVO) {
+                return new GoodsPO(goodsVO.id, goodsVO.name,
+                                goodsVO.departurePlace, goodsVO.destination,
+                                goodsVO.weight, goodsVO.volume,
+                                goodsVO.packageType, goodsVO.expressType,goodsVO.startTime);
+        }
+
         public double getPrice() {
                 return price;
         }
@@ -93,12 +102,20 @@ public class GoodsPO implements Serializable{
                 return recipient;
         }
 
-        public long getTime() {
-                return time;
+        public long getStartTime() {
+                return startTime;
         }
-        
-        public void setTime(long time) {
-                this.time = time;
+
+        public void setStartTime(long startTime) {
+                this.startTime = startTime;
+        }
+
+        public long getReceiveTime() {
+                return receiveTime;
+        }
+
+        public void setReceiveTime(long receiveTime) {
+                this.receiveTime = receiveTime;
         }
 
         public String getId() {
@@ -113,7 +130,7 @@ public class GoodsPO implements Serializable{
                 this.recipient = recipient;
         }
 
-        public void addLocation(String location){
+        public void addLocation(String location) {
                 this.track.add(location);
         }
 
@@ -184,5 +201,5 @@ public class GoodsPO implements Serializable{
         public ArrayList<String> getTrack() {
                 return track;
         }
-        
+
 }

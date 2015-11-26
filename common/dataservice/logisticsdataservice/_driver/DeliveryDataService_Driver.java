@@ -33,7 +33,7 @@ public class DeliveryDataService_Driver {
                         e.printStackTrace();
                 }
                 goodsPO.setRecipient("NULL");
-                goodsPO.setTime(10);
+//                goodsPO.setTime(10);
                 try {
                         deliveryDataService.updateGoods(goodsPO);
                 } catch (RemoteException e) {

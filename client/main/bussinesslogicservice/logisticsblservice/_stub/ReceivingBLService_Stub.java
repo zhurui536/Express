@@ -29,8 +29,8 @@ public class ReceivingBLService_Stub implements ReceivingBLService{
         }
 
         @Override
-        public long getTime() {
-                String departurePlace = this.goodsVO.departurePlace;
+        public long getTime(String departurePlace, String destination) {
+//                String departurePlace = this.goodsVO.departurePlace;
                 //通过destination和departurePlace查文件获取平均时间
 //                System.out.println(departurePlace +" to "+ destination);
                 return 100;

@@ -31,7 +31,7 @@ public class ReceivingBLService_Driver {
 //                System.out.println(receivingBLService.addMessage(billVO).getKey());
 //                GoodsVO goodsVO = new GoodsVO(0000000000,"核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
 //                System.out.println(receivingBLService.getCharge(goodsVO));
-                receivingBLService.getTime();
+                receivingBLService.getTime(null, null);
                 receivingBLService.endReceipt();
                 
         }

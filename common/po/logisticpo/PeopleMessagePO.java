@@ -3,20 +3,21 @@ package po.logisticpo;
 import java.io.Serializable;
 
 import main.vo.logisticvo.PeopleMessageVO;
+
 /**
  * @author zhuding
  */
 @SuppressWarnings("serial")
-public class PeopleMessagePO implements Serializable{
-        //姓名
+public class PeopleMessagePO implements Serializable {
+        // 姓名
         private String name;
-        //住址
+        // 住址
         private String location;
-        //单位
+        // 单位
         private String institution;
-        //电话
+        // 电话
         private String telephoneNum;
-        //手机
+        // 手机
         private String mobliephoneNum;
 
         public PeopleMessagePO(String name, String location,
@@ -39,11 +40,15 @@ public class PeopleMessagePO implements Serializable{
                 peopleMessageVO.telephoneNum = this.telephoneNum;
                 return peopleMessageVO;
         }
-        
-//        public static PeopleMessagePO name() {
-//                
-//        }
-        
+
+        public static PeopleMessagePO voToPo(PeopleMessageVO peopleMessageVO) {
+                return new PeopleMessagePO(peopleMessageVO.name,
+                                peopleMessageVO.location,
+                                peopleMessageVO.institution,
+                                peopleMessageVO.telephoneNum,
+                                peopleMessageVO.mobliephoneNum);
+        }
+
         public String getName() {
                 return name;
         }
@@ -83,6 +88,5 @@ public class PeopleMessagePO implements Serializable{
         public void setMobliephoneNum(String mobliephoneNum) {
                 this.mobliephoneNum = mobliephoneNum;
         }
-        
-        
+
 }

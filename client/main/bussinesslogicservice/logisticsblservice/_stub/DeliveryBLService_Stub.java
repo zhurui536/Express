@@ -17,11 +17,11 @@ public class DeliveryBLService_Stub implements DeliveryBLService{
         
         @Override
         public ResultMessage addRecMessage(String Recipients, String id, long time) {
-                GoodsPO goodsPO = new GoodsPO("0000000000","核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
-                goodsPO.setRecipient(Recipients);
-                goodsPO.setTime(time);
-                System.out.println(goodsPO.getRecipient());
-                System.out.println(goodsPO.getTime());
+//                GoodsPO goodsPO = new GoodsPO("0000000000","核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
+//                goodsPO.setRecipient(Recipients);
+//                goodsPO.setTime(time);
+//                System.out.println(goodsPO.getRecipient());
+//                System.out.println(goodsPO.getTime());
                 return new ResultMessage("success", null);
         }
 

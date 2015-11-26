@@ -20,7 +20,7 @@ public class DeliveryBL implements DeliveryBLService{
                         return new ResultMessage("NOT_FOUND", null);
                 }
                 goodsPO.setRecipient(Recipients);
-                goodsPO.setTime(time);
+                goodsPO.setReceiveTime(time);
                 try {
                         deliveryDataService.updateGoods(goodsPO);
                 } catch (RemoteException e) {

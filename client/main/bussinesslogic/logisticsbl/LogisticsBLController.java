@@ -33,8 +33,8 @@ public class LogisticsBLController implements LogisticsBLService {
         }
 
         @Override
-        public long getTime() {
-                return receivingBLService.getTime();
+        public long getTime(String departurePlace, String destination) {
+                return receivingBLService.getTime(null, null);
         }
 
         @Override
