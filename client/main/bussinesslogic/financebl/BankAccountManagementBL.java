@@ -19,12 +19,12 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
     BankAccountManagementDataService bankAccountManagementData;
 
     public BankAccountManagementBL() {
-        this.bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementData");
+        this.bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementDataServiceImpl");
     }
 
     @Override
     public ResultMessage createMember(BankAccountVO vo) {
-        BankAccountPO bankAccountPO = new BankAccountPO(vo.getName(), vo.getId());
+        BankAccountPO bankAccountPO = new BankAccountPO(vo.name, vo.id);
         try {
             bankAccountManagementData.insert(bankAccountPO);
             return new ResultMessage("create success", null);
@@ -47,7 +47,7 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
     @Override
     public ResultMessage inquireMember(BankAccountVO vo) {
 //        try {
-//            BankAccountManagementDataService bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementData");
+//            BankAccountManagementDataService bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementDataServiceImpl");
 //            ArrayList<BankAccountPO> list =  bankAccountManagementData.find(null);
 //            System.out.println(list.get(0).getName());
 //        } catch (RemoteException e) {

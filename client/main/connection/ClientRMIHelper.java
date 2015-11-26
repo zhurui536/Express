@@ -37,7 +37,7 @@ public class ClientRMIHelper {
 
     private static void initObjects() throws MalformedURLException, RemoteException, NotBoundException {
         String urlPrefix = "rmi://" + IP + ":" + PORT + "/";
-        OBJECT_MAP.put("BankAccountManagementData", Naming.lookup(urlPrefix + "BankAccountManagementData"));
+        OBJECT_MAP.put("BankAccountManagementDataServiceImpl", Naming.lookup(urlPrefix + "BankAccountManagementDataServiceImpl"));
     }
 
     public static Object getServiceByName(String name) {

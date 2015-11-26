@@ -8,30 +8,17 @@ package main.vo;
 public class BankAccountVO {
 
     // 账户名称
-    private String name;
+    public String name;
 
     // 账户余额
-    private double balance;
+    public double balance;
 
     // 账户账号
-    private String id;
+    public String id;
 
     public BankAccountVO(String name, double balance, String id) {
         this.name = name;
         this.balance = balance;
         this.id = id;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    public String getId() {
-        return id;
-    }
-
 }

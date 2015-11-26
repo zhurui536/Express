@@ -14,38 +14,36 @@ import java.util.ArrayList;
  * 2015/11/26
  */
 
-public class BankAccountManagementData extends UnicastRemoteObject implements BankAccountManagementDataService {
+public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject implements BankAccountManagementDataService {
 
-    private static final String PATH = "server/save/financedata/";
+    private static final String PATH = "server/save/financedata/bankAccountPO.dat";
 
     private Database database;
 
-    public BankAccountManagementData() throws RemoteException {
+    private ArrayList<BankAccountPO> bankAccountPOs;
+
+    public BankAccountManagementDataServiceImpl() throws RemoteException {
         super();
         database = new Database();
     }
 
     @Override
+    // TODO 改文档
     public ArrayList<BankAccountPO> find(BankAccountVO vo) throws RemoteException {
-        BankAccountPO bankAccount = new BankAccountPO("test", 123, "313");
-        ArrayList<BankAccountPO> list = new ArrayList<>();
-        list.add(bankAccount);
-        return list;
+        read();
+        return null;
     }
 
     @Override
     public void insert(BankAccountPO po) throws RemoteException {
-        String filepath = PATH + "bankAccountPO.dat";
-        ArrayList<BankAccountPO> bankAccountPOs = (ArrayList<BankAccountPO>) database.load(filepath);
-        if (bankAccountPOs == null)
-            bankAccountPOs = new ArrayList<>();
+        read();
         bankAccountPOs.add(po);
-        database.save(filepath, bankAccountPOs);
+        database.save(PATH, bankAccountPOs);
     }
 
     @Override
     public void delete(BankAccountPO po) throws RemoteException {
-
+        read();
     }
 
     @Override
@@ -61,5 +59,11 @@ public class BankAccountManagementData extends UnicastRemoteObject implements Ba
     @Override
     public void finish() throws RemoteException {
 
+    }
+
+    private void read() {
+        bankAccountPOs = (ArrayList<BankAccountPO>) database.load(PATH);
+        if (bankAccountPOs == null)
+            bankAccountPOs = new ArrayList<>();
     }
 }

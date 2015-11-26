@@ -1,6 +1,6 @@
 package main.connection;
 
-import main.data.financedata.BankAccountManagementData;
+import main.data.financedata.BankAccountManagementDataServiceImpl;
 
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
@@ -26,7 +26,7 @@ public class ServerRMIHelper {
     private static boolean init = false;
 
     static {
-        NAMING_MAP.put("BankAccountManagementData", BankAccountManagementData.class);
+        NAMING_MAP.put("BankAccountManagementDataServiceImpl", BankAccountManagementDataServiceImpl.class);
     }
 
     public synchronized static void init() throws ServerInitException {
