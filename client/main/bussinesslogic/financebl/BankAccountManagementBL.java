@@ -1,14 +1,12 @@
 package main.bussinesslogic.financebl;
 
+import dataservice.financedataservice.BankAccountManagementDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.BankAccountManagementBLService;
-import dataservice.financedataservice.BankAccountManagementDataService;
-import po.BankAccountPO;
+import main.connection.ClientRMIHelper;
 import main.vo.BankAccountVO;
+import po.BankAccountPO;
 
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -37,17 +35,12 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
     @Override
     public ResultMessage inquireMember(BankAccountVO vo) {
         try {
-            BankAccountManagementDataService bankAccountManagementData = (BankAccountManagementDataService) Naming.lookup("rmi://127.0.0.1:6600/bankAccountManagementData");
+            BankAccountManagementDataService bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementData");
             ArrayList<BankAccountPO> list =  bankAccountManagementData.find(null);
             System.out.println(list.get(0).getName());
-        } catch (NotBoundException | RemoteException | MalformedURLException e) {
+        } catch (RemoteException e) {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public static void main(String[] args) {
-        BankAccountManagementBL bankAccountManagementBL = new BankAccountManagementBL();
-        bankAccountManagementBL.inquireMember(null);
     }
 }

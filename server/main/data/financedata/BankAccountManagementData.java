@@ -1,7 +1,8 @@
-package dataservice.financedataservice;
+package main.data.financedata;
 
-import po.BankAccountPO;
+import dataservice.financedataservice.BankAccountManagementDataService;
 import main.vo.BankAccountVO;
+import po.BankAccountPO;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -9,12 +10,12 @@ import java.util.ArrayList;
 
 /**
  * Created by Away
- * 2015/11/25
+ * 2015/11/26
  */
 
 public class BankAccountManagementData extends UnicastRemoteObject implements BankAccountManagementDataService {
 
-    public BankAccountManagementData() throws RemoteException {
+    protected BankAccountManagementData() throws RemoteException {
         super();
     }
 

@@ -4,6 +4,8 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Away
@@ -12,9 +14,13 @@ import java.rmi.RemoteException;
 
 public class ClientRMIHelper {
 
-    private static final String IP = "localhost"; //Can be read from config file
+    private static final String IP = "127.0.0.1"; //Can be read from config file
+
+    private static final String PORT = "1099";
 
     private static boolean init = false;
+
+    private static Map<String, Object> OBJECT_MAP = new HashMap<>();
 
     public synchronized static void init() throws ClientInitException {
         if (init) {
@@ -30,11 +36,12 @@ public class ClientRMIHelper {
     }
 
     private static void initObjects() throws MalformedURLException, RemoteException, NotBoundException {
-        String urlPrefix = "rmi://" + IP + "/";
-        Naming.lookup(urlPrefix + "order-businessLogic");
+        String urlPrefix = "rmi://" + IP + ":" + PORT + "/";
+        OBJECT_MAP.put("BankAccountManagementData", Naming.lookup(urlPrefix + "BankAccountManagementData"));
     }
 
     public static Object getServiceByName(String name) {
-        return null;
+        System.out.println(OBJECT_MAP.get(name));
+        return OBJECT_MAP.get(name);
     }
 }
