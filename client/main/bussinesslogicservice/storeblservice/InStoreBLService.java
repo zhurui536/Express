@@ -1,6 +1,5 @@
 package main.bussinesslogicservice.storeblservice;
 
-import test.mockObject.mockstoreobject.MockStorePlacePO;
 import main.bussinesslogic.util.ResultMessage;
 import po.storepo.StorePlacePO;
 

@@ -24,7 +24,7 @@ public interface OutStoreBLService {
 	
 	/*结束出库任务
 	 * condition
-	 * 无
+	 * 返回结束的结果
 	 */
-	public void endOutStore(int condition);
+	public ResultMessage endOutStore(int condition);
 }

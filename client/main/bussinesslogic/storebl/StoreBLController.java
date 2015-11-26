@@ -67,10 +67,11 @@ public class StoreBLController implements StoreBLService {
 	}
 
 	@Override
-	public void endOutStore(int condition) {
+	public ResultMessage endOutStore(int condition) {
 		// TODO Auto-generated method stub
 		outstore.endOutStore(condition);
 		outstore = null;
+		return null;
 	}
 
 	@Override

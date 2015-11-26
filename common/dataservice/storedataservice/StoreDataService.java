@@ -1,8 +1,8 @@
 package dataservice.storedataservice;
 
 import java.rmi.RemoteException;
-import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import main.bussinesslogic.util.ResultMessage;
 import po.GoodsPO;
@@ -29,7 +29,7 @@ public interface StoreDataService {
 	 * start end
 	 * 返回查找结果和货物出入库记录的列表
 	 */
-	public ResultMessage finds(Time start, Time end) throws RemoteException;
+	public ResultMessage finds(Calendar start, Calendar end) throws RemoteException;
 	
 	/*根据位置查看库存上的货物情况
 	 * place

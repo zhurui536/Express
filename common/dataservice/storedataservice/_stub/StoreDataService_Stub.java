@@ -1,8 +1,8 @@
 package dataservice.storedataservice._stub;
 
 import java.rmi.RemoteException;
-import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import dataservice.storedataservice.StoreDataService;
 import main.bussinesslogic.util.ResultMessage;
@@ -24,13 +24,6 @@ public class StoreDataService_Stub implements StoreDataService {
 		else{
 			return new ResultMessage("noexist", null);
 		}
-	}
-
-	@Override
-	public ResultMessage finds(Time start, Time end)
-			throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -90,6 +83,13 @@ public class StoreDataService_Stub implements StoreDataService {
 
 	@Override
 	public ResultMessage getGoods(String id) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage finds(Calendar start, Calendar end)
+			throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
