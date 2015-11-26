@@ -37,6 +37,11 @@ public class SendBillPO implements Serializable{
                 return sendBillVO;
         }
         
+//        public static SendBillPO voToPo(SendBillVO sendBillVO) {
+////                String name = sendBillVO.
+////                PeopleMessagePO peopleMessagePO = new PeopleMessagePO(name, location, institution, telephoneNum, mobliephoneNum)
+//        }
+        
         public PeopleMessagePO getSenderPO() {
                 return senderPO;
         }

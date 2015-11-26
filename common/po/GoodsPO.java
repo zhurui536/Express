@@ -40,6 +40,8 @@ public class GoodsPO implements Serializable{
         private String id;
         //货物的接受时间
         private long time;
+        //金额
+        private double price;
         
         public GoodsPO(String id, String name, String departurePlace,
                         String destination ,int weight,
@@ -75,10 +77,18 @@ public class GoodsPO implements Serializable{
                 track.addAll(this.track);
                 goodsVO.volume = this.volume;
                 goodsVO.weight = this.weight;
-                
+                goodsVO.price = this.price;
                 return goodsVO;
         }
        
+        public double getPrice() {
+                return price;
+        }
+
+        public void setPrice(double price) {
+                this.price = price;
+        }
+
         public String getRecipient() {
                 return recipient;
         }
@@ -169,6 +179,10 @@ public class GoodsPO implements Serializable{
 
         public void setDeparturePlace(String departurePlace) {
                 this.departurePlace = departurePlace;
+        }
+
+        public ArrayList<String> getTrack() {
+                return track;
         }
         
 }

@@ -36,6 +36,8 @@ public class GoodsVO {
         public String id;
       //货物的接受时间
         public long time;
+        //金额
+        public double price;
 //        
 //        public GoodsVO(long id, String name, String departurePlace,
 //                        String destination ,int weight,

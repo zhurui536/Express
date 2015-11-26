@@ -1,5 +1,8 @@
 package main.bussinesslogic.logisticsbl;
 
+
+import po.logisticpo.PeopleMessagePO;
+import po.logisticpo.SendBillPO;
 import dataservice.logisticsdataservice.ReceivingDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.ReceivingBLService;
@@ -12,7 +15,7 @@ public class ReceivingBL implements ReceivingBLService{
         
         @Override
         public ResultMessage addMessage(SendBillVO billVO) {
-                // TODO Auto-generated method stub
+                //SendBillPO sendBillPO = new SendBillPO(senderPO, recipientPO, goodsPO, id)
                 return null;
         }
 

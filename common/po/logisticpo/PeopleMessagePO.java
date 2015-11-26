@@ -40,6 +40,10 @@ public class PeopleMessagePO implements Serializable{
                 return peopleMessageVO;
         }
         
+//        public static PeopleMessagePO name() {
+//                
+//        }
+        
         public String getName() {
                 return name;
         }
