@@ -48,7 +48,7 @@ public class StoreDataService_Driver {
 		System.out.println(result.getKey());
 		
 		ArrayList<OutStorePO> opo = new ArrayList<OutStorePO>();
-		opo.add(new OutStorePO(goods, goods.getDestination(), null, Trans.TRAIN, "1008610010"));
+		opo.add(new OutStorePO(goods, place, goods.getDestination(), null, Trans.TRAIN, "1008610010"));
 		result = sds.saveOutStore(opo);
 		System.out.println(result.getKey());
 		

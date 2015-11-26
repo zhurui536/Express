@@ -36,7 +36,7 @@ public class OutStoreBL implements OutStoreBLService {
 			ResultMessage result = dataservice.find(id);
 			if(result.getKey().equals("exist")){
 				GoodsPO thegoods = (GoodsPO) result.getValue();
-				goodslist.add(new OutStorePO(thegoods, Destination, user, trans, Destination));
+				goodslist.add(new OutStorePO(thegoods, null, Destination, user, trans, Destination));
 				
 				return new ResultMessage("success", goodslist);
 			}

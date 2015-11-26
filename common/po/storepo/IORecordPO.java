@@ -1,44 +1,29 @@
 package po.storepo;
 
-import java.util.Calendar;
+import java.util.ArrayList;
 
-import po.GoodsPO;
-import po.UserPO;
+import main.vo.CheckVO;
 
 public class IORecordPO {
-	//出入库的货物
-	private GoodsPO goods;
-	//出入库的时间
-	private Calendar date;
-	//出入库货物的目的地
-	private String destination;
-	//出入库的管理员
-	private UserPO user;
+	private ArrayList<InStorePO> in;
+	private ArrayList<OutStorePO> out;
 	
-	public IORecordPO(GoodsPO goods, String destination, UserPO user){
-		this.goods = goods;
-		this.destination = destination;
-		this.date = Calendar.getInstance();
-		this.user = user;
+	public IORecordPO(ArrayList<InStorePO> in, ArrayList<OutStorePO> out){
+		this.in = in;
+		this.out = out;
 	}
 	
-	public GoodsPO getGoods(){
-		return this.goods;
-	}
-	
-	public String getGoodsID(){
-		return this.goods.getId();
-	}
-	
-	public Calendar getDate(){
-		return this.date;
-	}
-	
-	public String getDestination(){
-		return this.destination;
-	}
-	
-	public UserPO getUser(){
-		return this.user;
+	public void setCheckVO(CheckVO cv){
+		int ni = in.size();
+		int no = out.size();
+		double vi, vo;
+		
+		for(int i=0;i<ni;i++){
+			
+		}
+		
+		for(int i=0;i<no;i++){
+			
+		}
 	}
 }
