@@ -1,10 +1,10 @@
 package main.data.financedata;
 
 import dataservice.financedataservice.BankAccountManagementDataService;
+import main.dao.Database;
 import main.vo.BankAccountVO;
 import po.BankAccountPO;
 
-import java.io.*;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -16,8 +16,13 @@ import java.util.ArrayList;
 
 public class BankAccountManagementData extends UnicastRemoteObject implements BankAccountManagementDataService {
 
+    private static final String PATH = "server/save/financedata/";
+
+    private Database database;
+
     public BankAccountManagementData() throws RemoteException {
         super();
+        database = new Database();
     }
 
     @Override
@@ -30,19 +35,12 @@ public class BankAccountManagementData extends UnicastRemoteObject implements Ba
 
     @Override
     public void insert(BankAccountPO po) throws RemoteException {
-        String filepath = "server/save/financedata/bankAccountPO.dat";
-        try {
-//            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filepath));
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filepath));
-            ArrayList<BankAccountPO> bankAccountPOs = (ArrayList<BankAccountPO>) ois.readObject();
-//            ArrayList<BankAccountPO> bankAccountPOs = new ArrayList<>();
-            System.out.println(bankAccountPOs.get(0).getName() + " " + bankAccountPOs.get(0).getId());
-//            oos.writeObject(bankAccountPOs);
-//            oos.close();
-            ois.close();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        String filepath = PATH + "bankAccountPO.dat";
+        ArrayList<BankAccountPO> bankAccountPOs = (ArrayList<BankAccountPO>) database.load(filepath);
+        if (bankAccountPOs == null)
+            bankAccountPOs = new ArrayList<>();
+        bankAccountPOs.add(po);
+        database.save(filepath, bankAccountPOs);
     }
 
     @Override
