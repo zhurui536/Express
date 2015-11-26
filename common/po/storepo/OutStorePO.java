@@ -6,6 +6,7 @@ import main.bussinesslogic.util.Trans;
  * 2015/10/26
  */
 import po.GoodsPO;
+import po.UserPO;
 
 public class OutStorePO extends IORecordPO{
 
@@ -14,8 +15,8 @@ public class OutStorePO extends IORecordPO{
 	//中转单货号或者汽运编号
 	private String billid;
 	
-	public OutStorePO(GoodsPO goods, String destination, Trans trans, String billid) {
-		super(goods, destination);
+	public OutStorePO(GoodsPO goods, String destination, UserPO user, Trans trans, String billid) {
+		super(goods, destination, user);
 		// TODO Auto-generated constructor stub
 		
 		this.trans = trans;

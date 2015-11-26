@@ -7,6 +7,7 @@ import javax.swing.JTextArea;
 
 import main.presentation.storeui.listener.ToolListener;
 
+@SuppressWarnings("serial")
 public class CheckTool extends JPanel implements GetButtonOfTool{
 	private JButton buttons[] = new JButton[2];
 	private JTextArea startt;

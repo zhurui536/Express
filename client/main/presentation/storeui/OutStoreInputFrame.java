@@ -6,10 +6,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+@SuppressWarnings("serial")
 public class OutStoreInputFrame extends JFrame {
 	private JButton confirm, cancle;
 	private JTextArea number, destination;
-	private JComboBox trans;
+	private JComboBox<String> trans;
 	
 	private JLabel[] list;
 	private JLabel title;
@@ -61,7 +62,7 @@ public class OutStoreInputFrame extends JFrame {
 		destination.setLocation(110, 130);
 		this.getContentPane().add(destination);
 		
-		trans = new JComboBox();
+		trans = new JComboBox<String>();
 		for(int i=0;i<transport.length;i++){
 			trans.addItem(transport[i]);
 		}

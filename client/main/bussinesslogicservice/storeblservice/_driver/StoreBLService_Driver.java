@@ -28,7 +28,7 @@ public class StoreBLService_Driver {
 		result = sbls.delInStoreGoods("1111111111");
 		System.out.println(result.getKey());
 		
-		sbls.endIntStore(0);
+		sbls.endInStore(0);
 		
 		//出库部分
 		sbls.newOutStore();
