@@ -1,6 +1,7 @@
 package po.storepo;
 
 import po.GoodsPO;
+import po.UserPO;
 
 /*
  * Created By ZHR
@@ -11,8 +12,8 @@ public class InStorePO extends IORecordPO{
 	//货物的存储位置
 	private StorePlacePO place;
 	
-	public InStorePO(GoodsPO goods, String destination, StorePlacePO place) {
-		super(goods, destination);
+	public InStorePO(GoodsPO goods, String destination, StorePlacePO place, UserPO user) {
+		super(goods, destination, user);
 		// TODO Auto-generated constructor stub
 		
 		this.place = place;

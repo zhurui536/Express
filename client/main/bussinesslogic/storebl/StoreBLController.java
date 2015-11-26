@@ -23,7 +23,7 @@ public class StoreBLController implements StoreBLService {
 	@Override
 	public void newInStore() {
 		// TODO Auto-generated method stub
-		instore = new InStoreBL();
+		instore = new InStoreBL(user);
 	}
 
 	@Override
@@ -40,16 +40,17 @@ public class StoreBLController implements StoreBLService {
 	}
 
 	@Override
-	public void endIntStore(int condition) {
+	public ResultMessage endInStore(int condition) {
 		// TODO Auto-generated method stub
-		instore.endIntStore(condition);
+		ResultMessage result = instore.endInStore(condition);
 		instore = null;
+		return result;
 	}
 
 	@Override
 	public void newOutStore() {
 		// TODO Auto-generated method stub
-		outstore = new OutStoreBL();
+		outstore = new OutStoreBL(user);
 	}
 
 	@Override

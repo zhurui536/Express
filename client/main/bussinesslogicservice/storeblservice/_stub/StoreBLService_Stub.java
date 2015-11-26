@@ -53,7 +53,7 @@ public class StoreBLService_Stub implements StoreBLService {
 	}
 
 	@Override
-	public void endIntStore(int condition) {
+	public ResultMessage endInStore(int condition) {
 		// TODO Auto-generated method stub
 		if(condition == 0){
 			System.out.println("The InStore task ended!");
@@ -61,6 +61,7 @@ public class StoreBLService_Stub implements StoreBLService {
 		if(condition == 1){
 			System.out.println("The InStore task is cancled!");
 		}
+		return null;
 	}
 
 	@Override

@@ -31,5 +31,5 @@ public interface InStoreBLService {
 	 * condition
 	 * 无
 	 */
-	public void endIntStore(int condition);
+	public ResultMessage endInStore(int condition);
 }
