@@ -173,14 +173,7 @@ public class StoreBLService_Stub implements StoreBLService {
 	}
 
 	@Override
-	public ResultMessage addInStoreGoods(String id, MockStorePlacePO place,
-			String destination) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ResultMessage addAdjust(MockStorePlacePO start, MockStorePlacePO end) {
+	public ResultMessage delAdjust(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}

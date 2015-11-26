@@ -1,6 +1,5 @@
 package main.bussinesslogic.storebl;
 
-import test.mockObject.mockstoreobject.MockStorePlacePO;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.AdjustBLService;
 import po.storepo.StorePlacePO;
@@ -26,7 +25,7 @@ public class AdjustBL implements AdjustBLService {
 	}
 
 	@Override
-	public ResultMessage addAdjust(MockStorePlacePO start, MockStorePlacePO end) {
+	public ResultMessage delAdjust(int i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
