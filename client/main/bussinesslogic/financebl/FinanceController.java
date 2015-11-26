@@ -1,19 +1,30 @@
 package main.bussinesslogic.financebl;
 
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogicservice.financeblservice.BankAccountManagementBLService;
 import main.bussinesslogicservice.financeblservice._stub.FinanceBLService;
+import main.connection.ClientInitException;
+import main.connection.ClientRMIHelper;
 import main.vo.AccountVO;
 import main.vo.BankAccountVO;
 
 /**
+ * 控制器，用于控制财务层的逻辑
  * Created by Away
  * 2015/11/16
  */
 
 public class FinanceController implements FinanceBLService {
+
+    BankAccountManagementBLService bankAccountManagement;
+
+    public FinanceController() {
+        bankAccountManagement = new BankAccountManagementBL();
+    }
+
     @Override
     public ResultMessage createMember(BankAccountVO vo) {
-        return null;
+        return bankAccountManagement.createMember(vo);
     }
 
     @Override
@@ -54,5 +65,17 @@ public class FinanceController implements FinanceBLService {
     @Override
     public ResultMessage showStatement(long startTime, long endTime) {
         return null;
+    }
+
+    // TODO
+    public static void main(String[] args) {
+        try {
+            ClientRMIHelper.init();
+        } catch (ClientInitException e) {
+            e.printStackTrace();
+        }
+        FinanceController financeController = new FinanceController();
+        BankAccountVO vo = new BankAccountVO("secondTest", -2.39, "123456789");
+        financeController.createMember(vo);
     }
 }

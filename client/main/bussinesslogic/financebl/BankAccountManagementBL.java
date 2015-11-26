@@ -8,7 +8,6 @@ import main.vo.BankAccountVO;
 import po.BankAccountPO;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 /**
  * 银行账户管理
@@ -17,9 +16,22 @@ import java.util.ArrayList;
  */
 
 public class BankAccountManagementBL implements BankAccountManagementBLService {
+    BankAccountManagementDataService bankAccountManagementData;
+
+    public BankAccountManagementBL() {
+        this.bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementData");
+    }
+
     @Override
     public ResultMessage createMember(BankAccountVO vo) {
-        return null;
+        BankAccountPO bankAccountPO = new BankAccountPO(vo.getName(), vo.getId());
+        try {
+            bankAccountManagementData.insert(bankAccountPO);
+            return new ResultMessage("create success", null);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return new ResultMessage("create fail", null);
+        }
     }
 
     @Override
@@ -34,13 +46,13 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
 
     @Override
     public ResultMessage inquireMember(BankAccountVO vo) {
-        try {
-            BankAccountManagementDataService bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementData");
-            ArrayList<BankAccountPO> list =  bankAccountManagementData.find(null);
-            System.out.println(list.get(0).getName());
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            BankAccountManagementDataService bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementData");
+//            ArrayList<BankAccountPO> list =  bankAccountManagementData.find(null);
+//            System.out.println(list.get(0).getName());
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//        }
         return null;
     }
 }

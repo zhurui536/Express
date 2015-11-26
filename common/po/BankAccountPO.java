@@ -24,6 +24,12 @@ public class BankAccountPO implements Serializable {
         this.id = id;
     }
 
+    public BankAccountPO(String name, String id) {
+        this.name = name;
+        this.id = id;
+        this.balance = 0;
+    }
+
     public String getName() {
         return name;
     }
