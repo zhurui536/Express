@@ -53,5 +53,9 @@ public class InStorePO{
 	public StorePlacePO getStorePlace(){
 		return this.place;
 	}
+	
+	public double getPrice(){
+		return goods.getPrice();
+	}
 
 }

@@ -67,5 +67,8 @@ public class OutStorePO{
 	public String getBillid(){
 		return this.billid;
 	}
-
+	
+	public double getPrice(){
+		return goods.getPrice();
+	}
 }

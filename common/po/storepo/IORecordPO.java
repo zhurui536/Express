@@ -13,17 +13,15 @@ public class IORecordPO {
 		this.out = out;
 	}
 	
-	public void setCheckVO(CheckVO cv){
-		int ni = in.size();
-		int no = out.size();
-		double vi, vo;
-		
-		for(int i=0;i<ni;i++){
-			
-		}
-		
-		for(int i=0;i<no;i++){
-			
-		}
+	public CheckVO setCheckVO(){
+		return new CheckVO(this);
+	}
+	
+	public ArrayList<InStorePO> getIn(){
+		return in;
+	}
+	
+	public ArrayList<OutStorePO> getOut(){
+		return out;
 	}
 }
