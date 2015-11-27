@@ -78,4 +78,10 @@ public interface StoreDataService {
 	 * 返回查找结果以及货物的信息包
 	 */
 	public ResultMessage getGoods(String id) throws RemoteException;
+	
+	/*获得当前库存情况
+	 * 
+	 * 返回结果以及库存的对象
+	 */
+	public ResultMessage getStore();
 }

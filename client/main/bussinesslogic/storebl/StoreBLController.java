@@ -106,6 +106,12 @@ public class StoreBLController implements StoreBLService {
 	}
 
 	@Override
+	public void endCheck() {
+		check = null;
+		
+	}
+	
+	@Override
 	public ResultMessage verification() {
 		// TODO Auto-generated method stub
 		return verification.verification();

@@ -1,5 +1,7 @@
 package main.vo;
 
+import main.vo.storevo.StoreVO;
+
 
 /**
  * 账本VO

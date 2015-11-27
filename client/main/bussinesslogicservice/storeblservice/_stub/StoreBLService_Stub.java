@@ -9,7 +9,7 @@ import main.bussinesslogicservice.storeblservice.StoreBLService;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
 import po.storepo.VerificationPO;
-import main.vo.CheckVO;
+import main.vo.storevo.CheckVO;
 /**
  * Created By ZHR
  * 2015/10/26
@@ -177,6 +177,12 @@ public class StoreBLService_Stub implements StoreBLService {
 	public ResultMessage delAdjust(int i) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void endCheck() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

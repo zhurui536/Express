@@ -11,6 +11,7 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
 import main.bussinesslogicservice.storeblservice.OutStoreBLService;
 import main.data.storedata.StoreDataServiceImpl;
+import main.vo.storevo.OutStoreVO;
 
 public class OutStoreBL implements OutStoreBLService {
 	
@@ -38,10 +39,10 @@ public class OutStoreBL implements OutStoreBLService {
 				GoodsPO thegoods = (GoodsPO) result.getValue();
 				goodslist.add(new OutStorePO(thegoods, null, Destination, user, trans, Destination));
 				
-				return new ResultMessage("success", goodslist);
+				return new ResultMessage("success", new OutStoreVO(goodslist));
 			}
 			else{
-				return new ResultMessage("noexist", goodslist);
+				return new ResultMessage("noexist", new OutStoreVO(goodslist));
 			}
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -55,10 +56,10 @@ public class OutStoreBL implements OutStoreBLService {
 		for(int i=0;i<goodslist.size();i++){
 			if(id.equals(goodslist.get(i).getGoodsID())){
 				goodslist.remove(i);
-				return new ResultMessage("success", goodslist);
+				return new ResultMessage("success", new OutStoreVO(goodslist));
 			}
 		}
-		return new ResultMessage("noexist", goodslist);
+		return new ResultMessage("noexist", new OutStoreVO(goodslist));
 	}
 
 	@Override

@@ -16,4 +16,10 @@ public interface CheckBLService {
 	 * ResultMessage
 	 */
 	public ResultMessage check(Calendar start, Calendar end);
+	
+	/*结束查看
+	 * 
+	 * 
+	 */
+	public void endCheck();
 }

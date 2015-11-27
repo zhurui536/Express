@@ -94,4 +94,10 @@ public class StoreDataService_Stub implements StoreDataService {
 		return null;
 	}
 
+	@Override
+	public ResultMessage getStore() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

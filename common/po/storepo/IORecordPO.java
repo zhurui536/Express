@@ -2,7 +2,7 @@ package po.storepo;
 
 import java.util.ArrayList;
 
-import main.vo.CheckVO;
+import main.vo.storevo.CheckVO;
 
 public class IORecordPO {
 	private ArrayList<InStorePO> in;

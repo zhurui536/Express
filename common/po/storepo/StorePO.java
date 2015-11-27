@@ -81,4 +81,26 @@ public class StorePO implements Serializable {
 	public int getPlace(){
 		return this.places;
 	}
+	
+	public int getNumOfEmpty(){
+		int ne = 0;
+		for(int i=0;i<store.size();i++){
+			if(store.get(i).ifEmpty()){
+				ne++;
+			}
+		}
+		
+		return ne;
+	}
+	
+	public int getNumOfUsed(){
+		int nu = 0;
+		for(int i=0;i<store.size();i++){
+			if(!store.get(i).ifEmpty()){
+				nu++;
+			}
+		}
+		
+		return nu;
+	}
 }

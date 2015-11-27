@@ -1,4 +1,4 @@
-package main.vo;
+package main.vo.storevo;
 
 import java.util.ArrayList;
 

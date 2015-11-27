@@ -80,4 +80,10 @@ public class StoreDataServiceImpl implements StoreDataService {
 		return null;
 	}
 
+	@Override
+	public ResultMessage getStore() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
