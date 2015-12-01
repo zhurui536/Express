@@ -2,7 +2,6 @@ package main.data.financedata;
 
 import dataservice.financedataservice.BankAccountManagementDataService;
 import main.dao.Database;
-import main.vo.BankAccountVO;
 import po.BankAccountPO;
 
 import java.rmi.RemoteException;
@@ -29,8 +28,12 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     @Override
     // TODO 改文档
-    public ArrayList<BankAccountPO> find(BankAccountVO vo) throws RemoteException {
+    public BankAccountPO find(BankAccountPO po) throws RemoteException {
         read();
+        for (BankAccountPO bankAccountPO : bankAccountPOs) {
+            if (po.equals(bankAccountPO))
+                return bankAccountPO;
+        }
         return null;
     }
 
@@ -43,7 +46,11 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     @Override
     public void delete(BankAccountPO po) throws RemoteException {
-        read();
+        BankAccountPO bankAccountPO = find(po);
+        if (bankAccountPO != null) {
+            bankAccountPOs.remove(bankAccountPO);
+            database.save(PATH, bankAccountPOs);
+        }
     }
 
     @Override
@@ -66,4 +73,5 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
         if (bankAccountPOs == null)
             bankAccountPOs = new ArrayList<>();
     }
+
 }

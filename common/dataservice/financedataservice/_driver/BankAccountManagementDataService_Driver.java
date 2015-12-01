@@ -3,7 +3,6 @@ package dataservice.financedataservice._driver;
 import dataservice.financedataservice.BankAccountManagementDataService;
 import dataservice.financedataservice._stub.BankAccountManagementDataService_Stub;
 import po.BankAccountPO;
-import main.vo.BankAccountVO;
 
 import java.rmi.RemoteException;
 
@@ -19,7 +18,7 @@ public class BankAccountManagementDataService_Driver {
         try {
             bankAccountManagementDataService.init();
             bankAccountManagementDataService.insert(new BankAccountPO("sleep", 12345, "1023879989"));
-            bankAccountManagementDataService.find(new BankAccountVO("killer", 231423, "1232131654"));
+            bankAccountManagementDataService.find(new BankAccountPO("killer", 231423, "1232131654"));
             bankAccountManagementDataService.delete(new BankAccountPO("null", 424324, "3320215578"));
             bankAccountManagementDataService.update(new BankAccountPO("none", 424324, "3320215578"));
             bankAccountManagementDataService.finish();

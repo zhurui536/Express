@@ -1,11 +1,9 @@
 package dataservice.financedataservice;
 
 import po.BankAccountPO;
-import main.vo.BankAccountVO;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 /**
  * 银行账户管理数据层
@@ -15,7 +13,7 @@ import java.util.ArrayList;
 
 public interface BankAccountManagementDataService extends Remote {
 
-    ArrayList<BankAccountPO> find(BankAccountVO vo) throws RemoteException;
+    BankAccountPO find(BankAccountPO po) throws RemoteException;
 
     void insert(BankAccountPO po) throws RemoteException;
 
