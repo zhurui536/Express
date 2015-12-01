@@ -62,7 +62,7 @@ public class StoreDataServiceImpl implements StoreDataService {
 	}
 
 	@Override
-	public ResultMessage saveAdjust(AdjustPO po) throws RemoteException {
+	public ResultMessage saveAdjust(ArrayList<AdjustPO> po) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

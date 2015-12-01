@@ -1,5 +1,7 @@
 package po.storepo;
 
+import java.util.Calendar;
+
 import po.GoodsPO;
 
 /**
@@ -17,6 +19,8 @@ public class StorePlacePO {
 	private int place;
 	//该位置存放的货物
 	private GoodsPO goods;
+	//货物的存放日期
+	private Calendar date;
 	
 	public StorePlacePO(int area, int row, int shelf, int place){
 		this.area = area;
@@ -24,6 +28,7 @@ public class StorePlacePO {
 		this.shelf = shelf;
 		this.place = place;
 		this.goods = null;
+		this.date = Calendar.getInstance();
 	}
 
 	public boolean ifEmpty(){
@@ -39,6 +44,7 @@ public class StorePlacePO {
 	
 	public boolean setGoods(GoodsPO goods){
 		this.goods = goods;
+		this.date = Calendar.getInstance();
 		
 		return true;
 	}
@@ -57,5 +63,9 @@ public class StorePlacePO {
 	
 	public int getPlace(){
 		return this.place;
+	}
+	
+	public Calendar getDate(){
+		return this.date;
 	}
 }

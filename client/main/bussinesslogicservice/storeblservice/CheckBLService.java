@@ -9,7 +9,7 @@ public interface CheckBLService {
 	 * 无
 	 * 无
 	 */
-	public void newCheck();
+	public ResultMessage newCheck();
 	
 	/*查看时间段内的出入库记录
 	 * start end

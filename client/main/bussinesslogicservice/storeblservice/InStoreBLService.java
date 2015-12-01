@@ -11,9 +11,9 @@ public interface InStoreBLService {
 
 	/*新建入库任务
 	 * 无
-	 * 无
+	 * ResultMessage
 	 */
-	public void newInStore();
+	public ResultMessage newInStore();
 	
 	/*增加入库货物
 	 * id place destination

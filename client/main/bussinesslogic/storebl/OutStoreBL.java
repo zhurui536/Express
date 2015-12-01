@@ -26,8 +26,9 @@ public class OutStoreBL implements OutStoreBLService {
 	}
 	
 	@Override
-	public void newOutStore() {
+	public ResultMessage newOutStore() {
 		goodslist = new ArrayList<OutStorePO>();
+		return new ResultMessage("success", goodslist);
 	}
 
 	@Override

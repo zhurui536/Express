@@ -55,7 +55,7 @@ public class StoreDataService_Driver {
 //		result = sds.saveAdjust(new AdjustPO());
 		System.out.println(result.getKey());
 		
-		result = sds.saveVerification(new VerificationPO(new StorePO(2, 3, 4, 5)));
+		result = sds.saveVerification(new VerificationPO(new StorePO(2, 3, 4, 5), null));
 		System.out.println(result.getKey());
 	}
 

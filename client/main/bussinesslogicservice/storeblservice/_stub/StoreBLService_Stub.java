@@ -17,9 +17,10 @@ import main.vo.storevo.CheckVO;
 public class StoreBLService_Stub implements StoreBLService {
 
 	@Override
-	public void newInStore() {
+	public ResultMessage newInStore() {
 		// TODO Auto-generated method stub
 		System.out.println("A new InStore Task Created!");
+		return null;
 	}
 
 	@Override
@@ -64,9 +65,10 @@ public class StoreBLService_Stub implements StoreBLService {
 	}
 
 	@Override
-	public void newOutStore() {
+	public ResultMessage newOutStore() {
 		// TODO Auto-generated method stub
 		System.out.println("A new OutStore Task Created!");
+		return null;
 
 	}
 
@@ -112,11 +114,11 @@ public class StoreBLService_Stub implements StoreBLService {
 		// TODO Auto-generated method stub
 		System.out.println("A new verification task is created!");
 		
-		return new ResultMessage("success", new VerificationPO(new StorePO(2, 3, 4, 5)));
+		return new ResultMessage("success", new VerificationPO(new StorePO(2, 3, 4, 5), null));
 	}
 
 	@Override
-	public void endVerification(int condition) {
+	public ResultMessage endVerification(int condition) {
 		// TODO Auto-generated method stub
 		if(condition == 0){
 			System.out.println("The verification task is ended!");
@@ -124,12 +126,14 @@ public class StoreBLService_Stub implements StoreBLService {
 		if(condition == 1){
 			System.out.println("The verification task is cancled!");
 		}
+		return null;
 	}
 
 	@Override
-	public void newCheck() {
+	public ResultMessage newCheck() {
 		// TODO Auto-generated method stub
 		System.out.println("A new check task is created!");
+		return null;
 	}
 
 	@Override
@@ -146,9 +150,10 @@ public class StoreBLService_Stub implements StoreBLService {
 	}
 
 	@Override
-	public void newAdjust() {
+	public ResultMessage newAdjust() {
 		// TODO Auto-generated method stub
 		System.out.println("A new adjust task is created!");
+		return null;
 	}
 
 	@Override
@@ -163,7 +168,7 @@ public class StoreBLService_Stub implements StoreBLService {
 	}
 
 	@Override
-	public void endAdjust(int condition) {
+	public ResultMessage endAdjust(int condition) {
 		// TODO Auto-generated method stub
 		if(condition == 0){
 			System.out.println("The adjust task is ended!");
@@ -171,6 +176,7 @@ public class StoreBLService_Stub implements StoreBLService {
 		if(condition == 1){
 			System.out.println("The adjust task is cancled!");
 		}
+		return null;
 	}
 
 	@Override

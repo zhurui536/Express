@@ -2,6 +2,8 @@ package po.storepo;
 
 import java.util.ArrayList;
 
+import po.UserPO;
+
 /*
  * Created By ZHR
  * 2015/10/26
@@ -9,8 +11,11 @@ import java.util.ArrayList;
 public class VerificationPO {
 	/*库存中现有货物的列表*/
 	private ArrayList<StorePlacePO> goodslist;
+	/*盘点的用户*/
+	private UserPO user;
 	
-	public VerificationPO(StorePO store){
+	public VerificationPO(StorePO store, UserPO user){
+		this.user = user;
 		int area = store.getArea();
 		int row = store.getRow();
 		int shelf = store.getShelf();

@@ -75,7 +75,7 @@ public class StoreDataService_Stub implements StoreDataService {
 	}
 
 	@Override
-	public ResultMessage saveAdjust(AdjustPO po) throws RemoteException {
+	public ResultMessage saveAdjust(ArrayList<AdjustPO> po) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Saving adjust records!");
 		return new ResultMessage("success", null);

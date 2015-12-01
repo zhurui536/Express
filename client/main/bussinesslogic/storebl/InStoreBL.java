@@ -24,8 +24,9 @@ public class InStoreBL implements InStoreBLService {
 	}
 
 	@Override
-	public void newInStore() {
+	public ResultMessage newInStore() {
 		goodslist = new ArrayList<InStorePO>();
+		return new ResultMessage("success", goodslist);
 	}
 
 	@Override

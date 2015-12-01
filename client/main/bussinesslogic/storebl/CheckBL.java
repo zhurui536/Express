@@ -20,7 +20,9 @@ public class CheckBL implements CheckBLService {
 	}
 	
 	@Override
-	public void newCheck() {
+	public ResultMessage newCheck() {
+		vo = null;
+		return new ResultMessage("success", vo);
 		
 	}
 
