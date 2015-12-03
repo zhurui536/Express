@@ -1,6 +1,7 @@
 package dataservice.financedataservice._stub;
 
 import dataservice.financedataservice.BankAccountManagementDataService;
+import main.bussinesslogic.util.ResultMessage;
 import po.BankAccountPO;
 
 import java.rmi.RemoteException;
@@ -14,33 +15,32 @@ import java.rmi.RemoteException;
 public class BankAccountManagementDataService_Stub implements BankAccountManagementDataService {
 
     @Override
-    public BankAccountPO find(BankAccountPO po) throws RemoteException {
+    public ResultMessage find(String id) throws RemoteException {
         System.out.println("find success");
-        return new BankAccountPO(null, null);
+        return null;
     }
 
     @Override
-    public void insert(BankAccountPO po) throws RemoteException {
+    public ResultMessage findAll() throws RemoteException {
+        System.out.println("find success");
+        return null;
+    }
+
+    @Override
+    public ResultMessage insert(BankAccountPO po) throws RemoteException {
         System.out.println("insert success");
+        return null;
     }
 
     @Override
-    public void delete(BankAccountPO po) throws RemoteException {
+    public ResultMessage delete(String id) throws RemoteException {
         System.out.println("delete success");
+        return null;
     }
 
     @Override
-    public void update(BankAccountPO po) throws RemoteException {
+    public ResultMessage update(BankAccountPO po) throws RemoteException {
         System.out.println("update success");
-    }
-
-    @Override
-    public void init() throws RemoteException {
-        System.out.println("init success");
-    }
-
-    @Override
-    public void finish() throws RemoteException {
-        System.out.println("finish success");
+        return null;
     }
 }

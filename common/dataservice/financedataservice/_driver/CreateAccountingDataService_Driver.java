@@ -5,6 +5,7 @@ import dataservice.financedataservice._stub.CreateAccountingDataService_Stub;
 import po.*;
 import po.storepo.StorePO;
 
+import java.math.BigDecimal;
 import java.rmi.RemoteException;
 
 /**
@@ -20,7 +21,7 @@ public class CreateAccountingDataService_Driver {
         StaffMessagePO staff = new StaffMessagePO("韩梅梅", "000111");
         TruckMessagePO truck = new TruckMessagePO("13246578979", "苏A2001", 1);
         StorePO store = new StorePO(2, 3, 3, 3);
-        BankAccountPO bankAccount = new BankAccountPO("kkk", 123465, "465456555");
+        BankAccountPO bankAccount = new BankAccountPO("kkk", BigDecimal.valueOf(123465), "465456555");
         try {
             createAccountingDataService.initInsert(
                     new AccountPO(institution, staff, truck, store, bankAccount));

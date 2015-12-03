@@ -1,6 +1,7 @@
 package main.data.financedata;
 
 import dataservice.financedataservice.BankAccountManagementDataService;
+import main.bussinesslogic.util.ResultMessage;
 import main.dao.Database;
 import po.BankAccountPO;
 
@@ -15,63 +16,77 @@ import java.util.ArrayList;
 
 public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject implements BankAccountManagementDataService {
 
-    private static final String PATH = "server/save/financedata/bankAccountPO.dat";
+    private static final long serialVersionUID = -7775445166515308020L;
 
-    private Database database;
+    private static final String PATH = "server/save/financedata/bankAccountPO.dat";
 
     private ArrayList<BankAccountPO> bankAccountPOs;
 
     public BankAccountManagementDataServiceImpl() throws RemoteException {
         super();
-        database = new Database();
     }
 
     @Override
     // TODO 改文档
-    public BankAccountPO find(BankAccountPO po) throws RemoteException {
+    public ResultMessage find(String id) throws RemoteException {
         read();
         for (BankAccountPO bankAccountPO : bankAccountPOs) {
-            if (po.equals(bankAccountPO))
-                return bankAccountPO;
+            if (bankAccountPO.getId().equals(id))
+                return new ResultMessage("success", bankAccountPO);
         }
-        return null;
+        return new ResultMessage("fail");
     }
 
     @Override
-    public void insert(BankAccountPO po) throws RemoteException {
+    public ResultMessage findAll() throws RemoteException {
+        read();
+        return new ResultMessage("success", bankAccountPOs);
+    }
+
+    @Override
+    public ResultMessage insert(BankAccountPO po) throws RemoteException {
+        ResultMessage message = find(po.getId());
+        // 插入的 id 已存在，插入失败
+        if (message.getKey().equals("success"))
+            return new ResultMessage("fail");
         read();
         bankAccountPOs.add(po);
-        database.save(PATH, bankAccountPOs);
+        Database.save(PATH, bankAccountPOs);
+        return new ResultMessage("success");
     }
 
+    // TODO 改文档
     @Override
-    public void delete(BankAccountPO po) throws RemoteException {
-        BankAccountPO bankAccountPO = find(po);
-        if (bankAccountPO != null) {
+    public ResultMessage delete(String id) throws RemoteException {
+        ResultMessage message = find(id);
+
+        if (message.getKey().equals("success")) {
+            BankAccountPO bankAccountPO = (BankAccountPO) message.getValue();
             bankAccountPOs.remove(bankAccountPO);
-            database.save(PATH, bankAccountPOs);
+            Database.save(PATH, bankAccountPOs);
+            return new ResultMessage("success");
+        } else {
+            return new ResultMessage("fail");
         }
     }
 
     @Override
-    public void update(BankAccountPO po) throws RemoteException {
+    public ResultMessage update(BankAccountPO po) throws RemoteException {
+        ResultMessage message = find(po.getId());
 
-    }
-
-    @Override
-    public void init() throws RemoteException {
-
-    }
-
-    @Override
-    public void finish() throws RemoteException {
-
+        if (message.getKey().equals("success")) {
+            BankAccountPO bankAccountPO = (BankAccountPO) message.getValue();
+            bankAccountPO.setPO(po);
+            Database.save(PATH, bankAccountPOs);
+            return new ResultMessage("success");
+        } else {
+            return new ResultMessage("fail");
+        }
     }
 
     private void read() {
-        bankAccountPOs = (ArrayList<BankAccountPO>) database.load(PATH);
+        bankAccountPOs = (ArrayList<BankAccountPO>) Database.load(PATH);
         if (bankAccountPOs == null)
             bankAccountPOs = new ArrayList<>();
     }
-
 }

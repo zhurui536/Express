@@ -7,13 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import po.UserPO;
 import main.bussinesslogic.storebl.StoreBLController;
 import main.presentation.storeui.listener.MenuListener;
 
 
 public class StoreFrame extends JFrame{
 	//处理窗口事件的对象
-	private StoreBLController sc = new StoreBLController(null);
+	private StoreBLController sc = new StoreBLController(new UserPO("10010", "10086"));
 	
 	//窗口中的成员组件，窗口分为菜单、工具和数据三个部分
 	private JPanel menu;
@@ -98,16 +99,23 @@ public class StoreFrame extends JFrame{
 	}
 	
 	public void replaceTool(JPanel newtool){
-		this.remove(tool);
+		if(this.tool != null){
+			this.remove(tool);	
+		}
+		
 		this.tool = newtool;
 		
-		this.getContentPane().add(tool);
+		if(newtool != null){
+			this.getContentPane().add(tool);
+		}
 		this.validate();
 		this.repaint();
 	}
 	
 	public void close(){
-		
+		if(tool == null){
+			this.setVisible(false);
+		}
 	}
 	
 	public StoreBLController getController(){

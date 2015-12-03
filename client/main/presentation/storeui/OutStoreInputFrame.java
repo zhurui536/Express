@@ -1,13 +1,18 @@
 package main.presentation.storeui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import main.presentation.storeui.listener.toollistener.OutStoreToolListener;
+
 @SuppressWarnings("serial")
-public class OutStoreInputFrame extends JFrame {
+public class OutStoreInputFrame extends JFrame implements ActionListener{
 	private JButton confirm, cancle;
 	private JTextArea number, destination;
 	private JComboBox<String> trans;
@@ -15,17 +20,17 @@ public class OutStoreInputFrame extends JFrame {
 	private JLabel[] list;
 	private JLabel title;
 	
-	public static void main(String[] args){
-		OutStoreInputFrame test = new OutStoreInputFrame();
-		test.setVisible(true);
-	}
 	
-	public OutStoreInputFrame(){
+	private OutStoreToolListener listener;
+	
+	public OutStoreInputFrame(OutStoreToolListener listener){
 		this.setName("出库货物输入");
 		this.setLayout(null);
 		this.setSize(430, 275);
 		this.setLocation(400, 250);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		this.listener = listener;
 		initialize();
 	}
 	
@@ -41,6 +46,8 @@ public class OutStoreInputFrame extends JFrame {
 		cancle.setSize(60, 25);
 		confirm.setLocation(250, 190);
 		cancle.setLocation(330, 190);
+		confirm.addActionListener(this);
+		cancle.addActionListener(this);
 		this.getContentPane().add(confirm);
 		this.getContentPane().add(cancle);
 		
@@ -73,4 +80,18 @@ public class OutStoreInputFrame extends JFrame {
 	
 	private final String[] listname = {"货物编号：", "装运方式", "目的地："};
 	private final String[] transport = {"飞机", "火车", "货车"};
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == confirm){
+			boolean result = listener.getInput(number.getText(), destination.getText(), trans.getToolTipText());
+			if(true){
+				this.setVisible(false);
+			}
+		}
+		if(e.getSource() == cancle){
+			this.setVisible(false);
+		}
+		
+	}
 }

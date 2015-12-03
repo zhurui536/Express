@@ -18,7 +18,7 @@ public class BankAccountManagementBLService_Stub implements BankAccountManagemen
         return new ResultMessage("success", null);
     }
 
-    public ResultMessage deleteMember(BankAccountVO vo) {
+    public ResultMessage deleteMember(String id) {
         System.out.println("Delete Success");
         return new ResultMessage("success", null);
     }

@@ -6,6 +6,8 @@ import main.bussinesslogicservice.financeblservice._stub.CreateAccountingBLServi
 import main.vo.*;
 import main.vo.storevo.StoreVO;
 
+import java.math.BigDecimal;
+
 /**
  * Created by Away
  * 2015/10/26
@@ -18,7 +20,7 @@ public class CreateAccountingBLService_Driver {
         StaffMessageVO staff = new StaffMessageVO();
         TruckMessageVO truck = new TruckMessageVO();
         StoreVO store = new StoreVO(null);
-        BankAccountVO bankAccount = new BankAccountVO("kkk", 123465, "465456555");
+        BankAccountVO bankAccount = new BankAccountVO("kkk", BigDecimal.valueOf(123465), "465456555");
 
         ResultMessage result = createAccountingBLService.createAccounting(new AccountVO(institution, staff, truck, store, bankAccount));
         if (result.getKey().equals("success"))

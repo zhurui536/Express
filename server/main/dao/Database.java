@@ -12,10 +12,9 @@ public class Database {
 
     /**
      * 根据路径读出序列化对象，文件为空时返回 null
-     * @param path 所读文件的路径
      * @return 读到的对象
      */
-    public Object load(String path) {
+    public static Object load(String path) {
         ObjectInputStream ois = null;
         try {
             File file = new File(path);
@@ -26,6 +25,7 @@ public class Database {
             return ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
+            return null;
         } finally {
             if (ois != null) {
                 try {
@@ -35,16 +35,16 @@ public class Database {
                 }
             }
         }
-        return null;
     }
 
-    public void save(String path, Object object) {
+    public static void save(String path, Object object) {
         ObjectOutputStream oos = null;
         try {
             oos = new ObjectOutputStream(new FileOutputStream(path));
             oos.writeObject(object);
         } catch (IOException e) {
             e.printStackTrace();
+            System.err.println(path + " save error!");
         } finally {
             if (oos != null) {
                 try {

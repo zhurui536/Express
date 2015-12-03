@@ -1,6 +1,9 @@
 package po;
 
+import main.vo.BankAccountVO;
+
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * Created by Away
@@ -9,16 +12,18 @@ import java.io.Serializable;
 
 public class BankAccountPO implements Serializable {
 
+    private static final long serialVersionUID = 3224827812751327454L;
+
     // 账户名称
     private String name;
 
     // 账户余额
-    private double balance;
+    private BigDecimal balance;
 
     // 账户账号
     private String id;
 
-    public BankAccountPO(String name, double balance, String id) {
+    public BankAccountPO(String name, BigDecimal balance, String id) {
         this.name = name;
         this.balance = balance;
         this.id = id;
@@ -27,14 +32,14 @@ public class BankAccountPO implements Serializable {
     public BankAccountPO(String name, String id) {
         this.name = name;
         this.id = id;
-        this.balance = 0;
+        this.balance = BigDecimal.ZERO;
     }
 
     public String getName() {
         return name;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
@@ -46,11 +51,17 @@ public class BankAccountPO implements Serializable {
         this.name = name;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
-    public boolean equals(BankAccountPO po) {
-        return id.equals(po.id);
+    public void setPO(BankAccountPO po) {
+        this.name = po.name;
+        this.balance = po.balance;
+        this.id = po.id;
+    }
+
+    public BankAccountVO poToVO() {
+        return new BankAccountVO(name, balance, id);
     }
 }

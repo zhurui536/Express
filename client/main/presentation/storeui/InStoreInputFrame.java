@@ -1,32 +1,36 @@
 package main.presentation.storeui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
-public class InStoreInputFrame extends JFrame {
+import main.presentation.storeui.listener.toollistener.InStoreToolListener;
+
+public class InStoreInputFrame extends JFrame implements ActionListener{
 	private JButton confirm, cancle;
 	private JTextArea number, destination;
 	private JTextArea[] place;
 	private JLabel[] list;
 	private JLabel title;
 	
-	public static void main(String[] args){
-		InStoreInputFrame test = new InStoreInputFrame();
-		test.setVisible(true);
-	}
+	//上一级的窗口并不是监听者，而是动作的执行者
+	private InStoreToolListener listener;
 	
-	public InStoreInputFrame(){
+	public InStoreInputFrame(InStoreToolListener listener){
 		this.setName("入库货物输入");
 		this.setLayout(null);
 		this.setSize(430, 275);
 		this.setLocation(400, 250);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.listener = listener;
 		initialize();
-		
 	}
 	
+	//设置按钮的同时将自身作为监听者
 	private void initialize(){
 		title = new JLabel("入库货物输入");
 		title.setSize(90, 30);
@@ -39,6 +43,8 @@ public class InStoreInputFrame extends JFrame {
 		cancle.setSize(60, 25);
 		confirm.setLocation(250, 190);
 		cancle.setLocation(330, 190);
+		confirm.addActionListener(this);
+		cancle.addActionListener(this);
 		this.getContentPane().add(confirm);
 		this.getContentPane().add(cancle);
 		
@@ -71,4 +77,30 @@ public class InStoreInputFrame extends JFrame {
 	}
 	
 	private final String[] listname = {"货物编号：", "存储位置：", "目的地："};
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		//将输入委托给上一级进行处理
+		if(e.getSource() == confirm){
+			String number = this.number.getText();
+			String destination = this.destination.getText();
+			int[] place = new int[4];
+			
+			for(int i=0;i<4;i++){
+				place[i] = Integer.parseInt(this.place[i].getText());
+			}
+			
+			boolean result = listener.getInput(number, destination, place);
+			if(result){
+				this.setVisible(false);
+			}
+			else{
+				//提示输入错误或者网络错误
+			}
+		}
+		else if(e.getSource() == cancle){
+			this.setVisible(false);
+		}
+		
+	}
 }

@@ -4,10 +4,12 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.storedataservice.StoreDataService;
+import dataservice.storedataservice._stub.StoreDataService_Stub;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.InStoreBLService;
 import main.data.storedata.StoreDataServiceImpl;
 import main.vo.storevo.InStoreVO;
+import main.vo.storevo.StorePlaceVO;
 import po.GoodsPO;
 import po.UserPO;
 import po.storepo.InStorePO;
@@ -20,7 +22,7 @@ public class InStoreBL implements InStoreBLService {
 	
 	public InStoreBL(UserPO user){
 		this.user = user;
-		dataservice = new StoreDataServiceImpl();
+		dataservice = new StoreDataService_Stub();
 	}
 
 	@Override
@@ -30,8 +32,9 @@ public class InStoreBL implements InStoreBLService {
 	}
 
 	@Override
-	public ResultMessage addInStoreGoods(String id, StorePlacePO place,
+	public ResultMessage addInStoreGoods(String id, StorePlaceVO p,
 			String destination) {
+		StorePlacePO place = new StorePlacePO(p.getArea(), p.getRow(), p.getShelf(), p.getPlace());
 		try {
 			ResultMessage result = dataservice.getGoods(id);
 			if(result.getKey().equals("noexist")){

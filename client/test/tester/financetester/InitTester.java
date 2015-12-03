@@ -6,6 +6,8 @@ import main.vo.storevo.StoreVO;
 
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -21,7 +23,7 @@ public class InitTester {
         StaffMessageVO staff = new StaffMessageVO();
         TruckMessageVO truck = new TruckMessageVO();
         StoreVO store = new StoreVO(null);
-        BankAccountVO bankAccount = new BankAccountVO("kkk", 123465, "465456555");
+        BankAccountVO bankAccount = new BankAccountVO("kkk", BigDecimal.valueOf(123465), "465456555");
         AccountVO accountVO = new AccountVO(institution, staff, truck, store, bankAccount);
         FinanceController controller = new FinanceController();
         assertEquals("success", controller.createAccounting(accountVO).getKey());

@@ -6,8 +6,11 @@ import java.util.Calendar;
 
 import dataservice.storedataservice.StoreDataService;
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Trans;
 import po.GoodsPO;
+import po.UserPO;
 import po.storepo.AdjustPO;
+import po.storepo.IORecordPO;
 import po.storepo.InStorePO;
 import po.storepo.OutStorePO;
 import po.storepo.StorePlacePO;
@@ -31,7 +34,7 @@ public class StoreDataService_Stub implements StoreDataService {
 		// TODO Auto-generated method stub
 		System.out.println("checking for the place "+place.getArea()+" "+place.getRow()+" "+place.getShelf()+" "+place.getPlace());
 		
-		return new ResultMessage("success", null);
+		return new ResultMessage("success", place);
 	}
 
 	@Override
@@ -84,14 +87,22 @@ public class StoreDataService_Stub implements StoreDataService {
 	@Override
 	public ResultMessage getGoods(String id) throws RemoteException {
 		// TODO Auto-generated method stub
-		return null;
+		return new ResultMessage("success", new GoodsPO("111111111", "袁阳阳", "南京", "南京", 0, 0, null, null, 0));
 	}
 
 	@Override
 	public ResultMessage finds(Calendar start, Calendar end)
 			throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		GoodsPO goods = new GoodsPO("111111111", "袁阳阳", "南京", "南京", 0, 0, null, null, 0);
+		StorePlacePO place = new StorePlacePO(0, 0, 0 ,0);
+		InStorePO in = new InStorePO(goods, goods.getDestination(), place, new UserPO("10086", "10010"));
+		OutStorePO out = new OutStorePO(goods, place, goods.getDestination(), new UserPO("10086", "10010"), Trans.PLANE, "10010");
+		ArrayList<InStorePO> listin = new ArrayList<InStorePO>();
+		listin.add(in);
+		ArrayList<OutStorePO> listout = new ArrayList<OutStorePO>();
+		listout.add(out);
+		
+		return new ResultMessage("success", new IORecordPO(listin, listout));
 	}
 
 	@Override

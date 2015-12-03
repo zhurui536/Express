@@ -4,9 +4,11 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.storedataservice.StoreDataService;
+import dataservice.storedataservice._stub.StoreDataService_Stub;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.AdjustBLService;
 import main.data.storedata.StoreDataServiceImpl;
+import main.vo.storevo.StorePlaceVO;
 import po.GoodsPO;
 import po.UserPO;
 import po.storepo.AdjustPO;
@@ -18,7 +20,7 @@ public class AdjustBL implements AdjustBLService {
 	private UserPO user;
 	
 	public AdjustBL(UserPO user){
-		dataservice = new StoreDataServiceImpl();
+		dataservice = new StoreDataService_Stub();
 		this.user = user;
 	}
 
@@ -30,7 +32,9 @@ public class AdjustBL implements AdjustBLService {
 	}
 
 	@Override
-	public ResultMessage addAdjust(StorePlacePO start, StorePlacePO end) {
+	public ResultMessage addAdjust(StorePlaceVO s, StorePlaceVO e) {
+		StorePlacePO start = new StorePlacePO(s.getArea(), s.getRow(), s.getShelf(), s.getPlace());
+		StorePlacePO end = new StorePlacePO(e.getArea(), e.getRow(), e.getShelf(), e.getPlace());
 		try {
 			ResultMessage result = dataservice.find(start);
 			GoodsPO goodsOfStart = (GoodsPO) result.getValue();
@@ -46,9 +50,9 @@ public class AdjustBL implements AdjustBLService {
 			adjusts.add(new AdjustPO(start, end, user));
 			
 			return new ResultMessage("success", adjusts);
-		} catch (RemoteException e) {
+		} catch (RemoteException exception) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			exception.printStackTrace();
 			return new ResultMessage("internet error", null);
 		}
 	}

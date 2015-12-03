@@ -67,7 +67,7 @@ public interface StoreDataService {
 	 */
 	public ResultMessage saveVerification(VerificationPO po) throws RemoteException;
 	
-	/*保存库存调整记录
+	/*保存库存调整记录，并根据记录更新库存
 	 * po
 	 * 返回存储结果
 	 */
