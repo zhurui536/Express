@@ -14,7 +14,7 @@ import java.rmi.RemoteException;
 public class BankAccountManagementDataService_Stub implements BankAccountManagementDataService {
 
     @Override
-    public BankAccountPO find(BankAccountPO po) throws RemoteException {
+    public BankAccountPO find(String id) throws RemoteException {
         System.out.println("find success");
         return new BankAccountPO(null, null);
     }
@@ -25,7 +25,7 @@ public class BankAccountManagementDataService_Stub implements BankAccountManagem
     }
 
     @Override
-    public void delete(BankAccountPO po) throws RemoteException {
+    public void delete(String id) throws RemoteException {
         System.out.println("delete success");
     }
 

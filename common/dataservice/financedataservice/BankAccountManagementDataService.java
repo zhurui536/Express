@@ -1,5 +1,6 @@
 package dataservice.financedataservice;
 
+import main.bussinesslogic.util.ResultMessage;
 import po.BankAccountPO;
 
 import java.rmi.Remote;
@@ -13,15 +14,15 @@ import java.rmi.RemoteException;
 
 public interface BankAccountManagementDataService extends Remote {
 
-    BankAccountPO find(BankAccountPO po) throws RemoteException;
+    ResultMessage find(String id) throws RemoteException;
 
-    void insert(BankAccountPO po) throws RemoteException;
+    ResultMessage insert(BankAccountPO po) throws RemoteException;
 
-    void delete(BankAccountPO po) throws RemoteException;
+    ResultMessage delete(String id) throws RemoteException;
 
-    void update(BankAccountPO po) throws RemoteException;
+    ResultMessage update(BankAccountPO po) throws RemoteException;
 
-    void init() throws RemoteException;
+    ResultMessage init() throws RemoteException;
 
-    void finish() throws RemoteException;
+    ResultMessage finish() throws RemoteException;
 }

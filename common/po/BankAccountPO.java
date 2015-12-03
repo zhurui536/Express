@@ -50,7 +50,4 @@ public class BankAccountPO implements Serializable {
         this.balance = balance;
     }
 
-    public boolean equals(BankAccountPO po) {
-        return id.equals(po.id);
-    }
 }

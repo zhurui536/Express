@@ -18,8 +18,8 @@ public class BankAccountManagementDataService_Driver {
         try {
             bankAccountManagementDataService.init();
             bankAccountManagementDataService.insert(new BankAccountPO("sleep", 12345, "1023879989"));
-            bankAccountManagementDataService.find(new BankAccountPO("killer", 231423, "1232131654"));
-            bankAccountManagementDataService.delete(new BankAccountPO("null", 424324, "3320215578"));
+            bankAccountManagementDataService.find("1232131654");
+            bankAccountManagementDataService.delete("3320215578");
             bankAccountManagementDataService.update(new BankAccountPO("none", 424324, "3320215578"));
             bankAccountManagementDataService.finish();
         } catch (RemoteException e) {

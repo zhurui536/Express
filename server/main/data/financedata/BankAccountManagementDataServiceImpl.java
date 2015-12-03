@@ -1,8 +1,10 @@
 package main.data.financedata;
 
 import dataservice.financedataservice.BankAccountManagementDataService;
+import main.bussinesslogic.util.ResultMessage;
 import main.dao.Database;
 import po.BankAccountPO;
+import utility.ResultState;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -28,13 +30,13 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     @Override
     // TODO 改文档
-    public BankAccountPO find(BankAccountPO po) throws RemoteException {
+    public ResultMessage find(String id) throws RemoteException {
         read();
         for (BankAccountPO bankAccountPO : bankAccountPOs) {
-            if (po.equals(bankAccountPO))
-                return bankAccountPO;
+            if (bankAccountPO.getId().equals(id))
+                return new ResultMessage("success", bankAccountPO);
         }
-        return null;
+        return new ResultMessage("fail");
     }
 
     @Override
@@ -44,9 +46,10 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
         database.save(PATH, bankAccountPOs);
     }
 
+    // TODO 改文档
     @Override
-    public void delete(BankAccountPO po) throws RemoteException {
-        BankAccountPO bankAccountPO = find(po);
+    public void delete(String id) throws RemoteException {
+        BankAccountPO bankAccountPO = find(id);
         if (bankAccountPO != null) {
             bankAccountPOs.remove(bankAccountPO);
             database.save(PATH, bankAccountPOs);
@@ -55,7 +58,8 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     @Override
     public void update(BankAccountPO po) throws RemoteException {
-
+        BankAccountPO bankAccountPO = find(po.getId());
+        bankAccountPO = po;
     }
 
     @Override
@@ -73,5 +77,4 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
         if (bankAccountPOs == null)
             bankAccountPOs = new ArrayList<>();
     }
-
 }
