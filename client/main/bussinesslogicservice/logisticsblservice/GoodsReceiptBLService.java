@@ -1,7 +1,7 @@
 package main.bussinesslogicservice.logisticsblservice;
 
-import main.bussinesslogic.util.GoodsState;
-import main.vo.BillVO;
+import main.bussinesslogic.util.ResultMessage;
+import main.vo.logisticvo.ArrivalBillVO;
 
 /**
  * @author zhuding
@@ -10,17 +10,15 @@ import main.vo.BillVO;
 public interface GoodsReceiptBLService {
         /**
          * 营业厅业务员或中转中心业务员要求生成相应的到达单时调用
-         * @param transferBillVO 中转单
-         * @param goodsState 货物状态
+         * @param arrivalBillVO 中转单
          */
-        public BillVO produceArrivalBill(BillVO transferBillVO,GoodsState goodsState) ;
+        public ResultMessage produceArrivalBill(ArrivalBillVO arrivalBillVO) ;
         
         /**
          * 营业厅业务员要求生成派件单时调用
-         * @param arrivalBillVO 到达单
          * @param deliverManId 快递员id
          */
-        public BillVO produceSendBill( BillVO arrivalBillVO, long deliverManId);
+        public ResultMessage produceSendBill( String deliverManId);
         //TODO
         //send改为delivery
         public void endGoodsreceipt();

@@ -2,23 +2,22 @@ package main.bussinesslogic.logisticsbl;
 
 
 import dataservice.logisticsdataservice.GoodsReceiptDataService;
-import main.bussinesslogic.util.GoodsState;
+import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.GoodsReceiptBLService;
-import main.vo.BillVO;
+import main.vo.logisticvo.ArrivalBillVO;
 
 public class GoodsReceiptBL implements GoodsReceiptBLService{
 
         private GoodsReceiptDataService goodsReceiptDataService;
 
         @Override
-        public BillVO produceArrivalBill(BillVO transferBillVO,
-                        GoodsState goodsState) {
+        public ResultMessage produceArrivalBill(ArrivalBillVO arrivalBillVO) {
                 // TODO Auto-generated method stub
                 return null;
         }
 
         @Override
-        public BillVO produceSendBill(BillVO arrivalBillVO, long deliverManId) {
+        public ResultMessage produceSendBill(String deliverManId) {
                 // TODO Auto-generated method stub
                 return null;
         }

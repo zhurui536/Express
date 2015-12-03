@@ -1,6 +1,7 @@
 package main.bussinesslogic.logisticsbl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import po.GoodsPO;
 import dataservice.logisticsdataservice.DeliveryDataService;
@@ -11,6 +12,14 @@ public class DeliveryBL implements DeliveryBLService{
 
         private DeliveryDataService deliveryDataService;
         
+        private ArrayList<GoodsPO> goodsPOsList;
+        
+        public DeliveryBL() {
+                super();
+//                this.deliveryDataService = deliveryDataService;
+                goodsPOsList = new ArrayList<>();
+        }
+
         @Override
         public ResultMessage addRecMessage(String Recipients, String id, long time) {
                 GoodsPO goodsPO = null;
@@ -21,17 +30,21 @@ public class DeliveryBL implements DeliveryBLService{
                 }
                 goodsPO.setRecipient(Recipients);
                 goodsPO.setReceiveTime(time);
-                try {
-                        deliveryDataService.updateGoods(goodsPO);
-                } catch (RemoteException e) {
-                        return new ResultMessage("NOT_FOUND", null);
-                }
+                goodsPOsList.add(goodsPO);
+               
                 return new ResultMessage("SUCCESS", null);
         }
 
         @Override
         public void endDelivery() {
-                // TODO Auto-generated method stub
+                for (GoodsPO goodsPO : goodsPOsList) {
+                        try {
+                                deliveryDataService.updateGoods(goodsPO);
+                        } catch (RemoteException e) {
+                                e.printStackTrace();
+                        }
+                }
+                goodsPOsList.clear();
         }
 
 }

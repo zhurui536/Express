@@ -1,6 +1,5 @@
 package main.bussinesslogic.logisticsbl;
 
-import main.bussinesslogic.util.GoodsState;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.BillQueryBLService;
 import main.bussinesslogicservice.logisticsblservice.DeliveryBLService;
@@ -9,8 +8,9 @@ import main.bussinesslogicservice.logisticsblservice.GoodsReceiptBLService;
 import main.bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import main.bussinesslogicservice.logisticsblservice.ReceiptBillProduceBLService;
 import main.bussinesslogicservice.logisticsblservice.ReceivingBLService;
-import main.vo.BillVO;
 import main.vo.GoodsVO;
+import main.vo.logisticvo.ArrivalBillVO;
+import main.vo.logisticvo.LoadingBillVO;
 import main.vo.logisticvo.SendBillVO;
 
 public class LogisticsBLController implements LogisticsBLService {
@@ -27,6 +27,15 @@ public class LogisticsBLController implements LogisticsBLService {
         
         private ReceivingBLService receivingBLService;
         
+        public LogisticsBLController() {
+                this.billQueryBLService = new BillQueryBL();
+                this.deliveryBLService = new DeliveryBL();
+                this.goodsLoadBLService = new GoodsLoadBL();
+                this.goodsReceiptBLService = new GoodsReceiptBL();
+                this.receiptBillProduceBLService = new ReceiptBillProduceBL();
+                this.receivingBLService = new ReceivingBL();
+        }
+
         @Override
         public ResultMessage addMessage(SendBillVO billVO) {
                 return receivingBLService.addMessage(billVO);
@@ -68,24 +77,18 @@ public class LogisticsBLController implements LogisticsBLService {
         }
 
         @Override
-        public ResultMessage produceLoadBill(BillVO billVO) {
-                return goodsLoadBLService.produceLoadBill(billVO);
-        }
-
-        @Override
         public void endGoodsLoad() {
                 goodsLoadBLService.endGoodsLoad();
         }
 
         @Override
-        public BillVO produceArrivalBill(BillVO transferBillVO,
-                        GoodsState goodsState) {
-                return goodsReceiptBLService.produceArrivalBill(transferBillVO, goodsState);
+        public ResultMessage produceArrivalBill(ArrivalBillVO arrivalBillVO) {
+                return goodsReceiptBLService.produceArrivalBill(arrivalBillVO);
         }
 
         @Override
-        public BillVO produceSendBill(BillVO arrivalBillVO, long deliverManId) {
-                return goodsReceiptBLService.produceSendBill(arrivalBillVO, deliverManId);
+        public ResultMessage produceSendBill(String deliverManId) {
+                return goodsReceiptBLService.produceSendBill(deliverManId);
         }
 
         @Override
@@ -99,34 +102,13 @@ public class LogisticsBLController implements LogisticsBLService {
         }
 
         @Override
-        public void setBillQueryBLService(BillQueryBLService billQueryBLService) {
-                this.billQueryBLService = billQueryBLService;
+        public ResultMessage produceLoadBill(LoadingBillVO billVO) {
+                return goodsLoadBLService.produceLoadBill(billVO);
         }
 
         @Override
-        public void setDeliveryBLService(DeliveryBLService deliveryBLService) {
-                this.deliveryBLService = deliveryBLService;
-        }
-
-        @Override
-        public void setGoodsLoadBLService(GoodsLoadBLService goodsLoadBLService) {
-                this.goodsLoadBLService = goodsLoadBLService;
-        }
-
-        @Override
-        public void setGoodsReceiptBLService(GoodsReceiptBLService goodsReceiptBLService) {
-                this.goodsReceiptBLService = goodsReceiptBLService;
-        }
-
-        @Override
-        public void setReceiptBillProduceBLService(
-                        ReceiptBillProduceBLService receiptBillProduceBLService) {
-                this.receiptBillProduceBLService = receiptBillProduceBLService;
-        }
-
-        @Override
-        public void setReceivingBLService(ReceivingBLService receivingBLService) {
-                this.receivingBLService = receivingBLService;
+        public ResultMessage produceTransferBill() {
+                return goodsLoadBLService.produceTransferBill();
         }
 
         

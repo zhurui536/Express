@@ -18,18 +18,20 @@ public class ReceivingBL implements ReceivingBLService{
 
         private ReceivingDataService receivingDataService;
         
+        private ArrayList<SendBillPO> sendBillPOs;
+        
+        public ReceivingBL() {
+                // TODO Auto-generated constructor stub
+                this.sendBillPOs = new ArrayList<>();
+        }
+        
         @Override
         public ResultMessage addMessage(SendBillVO billVO) {
                 SendBillPO sendBillPO = SendBillPO.voToPo(billVO);
                 GoodsVO goodsVO = billVO.goodsVO;
                 goodsVO.price = getCharge(goodsVO);
                 sendBillPO.setGoodsPO(GoodsPO.voToPo(goodsVO));
-                
-                try {
-                        receivingDataService.insertBill(sendBillPO);
-                } catch (RemoteException e) {
-                        return new ResultMessage("INSERT_FAIL", null);
-                }
+                sendBillPOs.add(sendBillPO);
                 return new ResultMessage("SUCCESS", null);
         }
 
@@ -72,7 +74,14 @@ public class ReceivingBL implements ReceivingBLService{
 
         @Override
         public void endReceipt() {
-                // TODO Auto-generated method stub
+                for (SendBillPO sendBillPO : sendBillPOs) {
+                        try {
+                                receivingDataService.insertBill(sendBillPO);
+                        } catch (RemoteException e) {
+                                e.printStackTrace();
+                        }
+                }
+                sendBillPOs.clear();
         }
 
 }

@@ -1,9 +1,10 @@
 package main.bussinesslogicservice.logisticsblservice._stub;
 
 import main.bussinesslogic.util.BillType;
-import main.bussinesslogic.util.GoodsState;
+import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.GoodsReceiptBLService;
 import main.vo.BillVO;
+import main.vo.logisticvo.ArrivalBillVO;
 
 /**
  * @author zhuding
@@ -12,18 +13,19 @@ import main.vo.BillVO;
 public class GoodsReceiptBLService_Stub implements GoodsReceiptBLService{
 
         @Override
-        public BillVO produceArrivalBill(BillVO transferBillVO,
-                        GoodsState goodsState) {
+        public ResultMessage produceArrivalBill(ArrivalBillVO arrivalBillVO) {
                 //TODO
                 //调数据层操作
-                return new BillVO(transferBillVO.getID(), BillType.ARRIVAL);
+//                return new BillVO(arrivalBillVO.getID(), BillType.ARRIVAL);
+                return null;
         }
 
         @Override
-        public BillVO produceSendBill(BillVO arrivalBillVO, long deliverManId) {
+        public ResultMessage produceSendBill(String deliverManId) {
                 //TODO
                 //调数据层操作
-                return new BillVO(arrivalBillVO.getID(), BillType.DELIVERY);
+                return null;
+//                return new BillVO(arrivalBillVO.getID(), BillType.DELIVERY);
         }
 
         @Override

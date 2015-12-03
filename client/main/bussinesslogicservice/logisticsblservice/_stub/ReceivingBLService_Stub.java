@@ -5,7 +5,6 @@ import main.bussinesslogic.util.PackageType;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.ReceivingBLService;
 import main.vo.GoodsVO;
-import main.vo.BillVO;
 import main.vo.logisticvo.SendBillVO;
 /**
  * @author zhuding
@@ -13,8 +12,6 @@ import main.vo.logisticvo.SendBillVO;
  */
 public class ReceivingBLService_Stub implements ReceivingBLService{
 
-        private SendBillVO billVO;
-        
         private GoodsVO goodsVO;
         
         public ReceivingBLService_Stub() {
@@ -24,7 +21,6 @@ public class ReceivingBLService_Stub implements ReceivingBLService{
         
         @Override
         public ResultMessage addMessage(SendBillVO billVO) {
-                this.billVO = billVO;
                 return new ResultMessage("success", null);
         }
 

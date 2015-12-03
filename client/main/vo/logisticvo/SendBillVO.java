@@ -1,5 +1,6 @@
 package main.vo.logisticvo;
 
+import main.bussinesslogic.util.BillState;
 import main.vo.GoodsVO;
 
 public class SendBillVO {
@@ -11,4 +12,6 @@ public class SendBillVO {
         public GoodsVO goodsVO;
         //订单条形码号
         public String id;
+        //单据审批状态
+        public BillState billState;
 }

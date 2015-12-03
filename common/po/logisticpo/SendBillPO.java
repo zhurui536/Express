@@ -2,6 +2,7 @@ package po.logisticpo;
 
 import java.io.Serializable;
 
+import main.bussinesslogic.util.BillState;
 import main.vo.logisticvo.SendBillVO;
 
 import po.GoodsPO;
@@ -16,6 +17,8 @@ public class SendBillPO implements Serializable {
         private GoodsPO goodsPO;
         // 订单条形码号
         private String id;
+        //单据审批状态
+        private BillState billState;
 
         public SendBillPO(PeopleMessagePO senderPO,
                         PeopleMessagePO recipientPO, GoodsPO goodsPO, String id) {
@@ -24,6 +27,7 @@ public class SendBillPO implements Serializable {
                 this.recipientPO = recipientPO;
                 this.goodsPO = goodsPO;
                 this.id = id;
+                this.billState = BillState.DRAFT;
         }
 
         public SendBillVO poToVo() {
@@ -33,16 +37,29 @@ public class SendBillPO implements Serializable {
                 sendBillVO.id = this.id;
                 sendBillVO.recipientVO = this.recipientPO.poToVo();
                 sendBillVO.senderVO = this.senderPO.poToVo();
+                sendBillVO.billState = this.billState;
 
                 return sendBillVO;
         }
 
+        
+        
         public static SendBillPO voToPo(SendBillVO sendBillVO) {
-                return new SendBillPO(
+                SendBillPO sendBillPO = new SendBillPO(
                                 PeopleMessagePO.voToPo(sendBillVO.senderVO),
                                 PeopleMessagePO.voToPo(sendBillVO.recipientVO),
                                 GoodsPO.voToPo(sendBillVO.goodsVO),
                                 sendBillVO.id);
+                sendBillPO.setBillState(sendBillVO.billState);
+                return sendBillPO;
+        }
+
+        public BillState getBillState() {
+                return billState;
+        }
+
+        public void setBillState(BillState billState) {
+                this.billState = billState;
         }
 
         public PeopleMessagePO getSenderPO() {
