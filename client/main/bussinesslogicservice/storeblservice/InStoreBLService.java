@@ -1,7 +1,7 @@
 package main.bussinesslogicservice.storeblservice;
 
 import main.bussinesslogic.util.ResultMessage;
-import po.storepo.StorePlacePO;
+import main.vo.storevo.StorePlaceVO;
 
 /**
  * Created by ZHR
@@ -19,7 +19,7 @@ public interface InStoreBLService {
 	 * id place destination
 	 * ResultMessage
 	 */
-	public ResultMessage addInStoreGoods(String id, StorePlacePO place, String destination);
+	public ResultMessage addInStoreGoods(String id, StorePlaceVO place, String destination);
 	/*删除之前输入的货物
 	 * id
 	 * ResultMessage

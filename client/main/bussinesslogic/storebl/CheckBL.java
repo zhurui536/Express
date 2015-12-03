@@ -6,6 +6,7 @@ import java.util.Calendar;
 import po.storepo.IORecordPO;
 import po.storepo.StorePO;
 import dataservice.storedataservice.StoreDataService;
+import dataservice.storedataservice._stub.StoreDataService_Stub;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.CheckBLService;
 import main.data.storedata.StoreDataServiceImpl;
@@ -16,7 +17,7 @@ public class CheckBL implements CheckBLService {
 	private CheckVO vo;
 	
 	public CheckBL(){
-		dataservice = new StoreDataServiceImpl();
+		dataservice = new StoreDataService_Stub();
 	}
 	
 	@Override

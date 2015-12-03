@@ -7,6 +7,7 @@ import po.GoodsPO;
 import po.UserPO;
 import po.storepo.OutStorePO;
 import dataservice.storedataservice.StoreDataService;
+import dataservice.storedataservice._stub.StoreDataService_Stub;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
 import main.bussinesslogicservice.storeblservice.OutStoreBLService;
@@ -20,7 +21,7 @@ public class OutStoreBL implements OutStoreBLService {
 	private ArrayList<OutStorePO> goodslist;
 	
 	public OutStoreBL(UserPO user){
-		dataservice = new StoreDataServiceImpl();
+		dataservice = new StoreDataService_Stub();
 		this.user = user;
 		
 	}

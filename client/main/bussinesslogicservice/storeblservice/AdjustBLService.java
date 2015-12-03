@@ -1,7 +1,7 @@
 package main.bussinesslogicservice.storeblservice;
 
 import main.bussinesslogic.util.ResultMessage;
-import po.storepo.StorePlacePO;
+import main.vo.storevo.StorePlaceVO;
 
 public interface AdjustBLService {
 	/*新建新的调整任务
@@ -14,7 +14,7 @@ public interface AdjustBLService {
 	 * start end
 	 * ResultMessage
 	 */
-	public ResultMessage addAdjust(StorePlacePO start, StorePlacePO end);
+	public ResultMessage addAdjust(StorePlaceVO start, StorePlaceVO end);
 	/*删除第i项调整项
 	 * i
 	 * ResultMessage

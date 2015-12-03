@@ -2,23 +2,24 @@ package main.bussinesslogic.storebl;
 
 import java.util.Calendar;
 
+import po.UserPO;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
 import main.bussinesslogicservice.storeblservice.StoreBLService;
-import po.UserPO;
-import po.storepo.StorePlacePO;
+import main.vo.storevo.StorePlaceVO;
 
 public class StoreBLController implements StoreBLService {
-	private UserPO user;
-	
-	//分别为库存方面的五个用例，由这个类统一控制
+	//以下为处理5种用例所用的逻辑处理对象
+	private AdjustBL adjust;
+	private CheckBL check;
 	private InStoreBL instore;
 	private OutStoreBL outstore;
-	private CheckBL check;
 	private VerificationBL verification;
-	private AdjustBL adjust;
 	
-	//表示目前处于的状态，0代表空闲，1代表入库，2代表出库，3代表查看，4代表盘点，5代表调整，1-5的状态必须先回到0才能变成新的1-5
+	//包含了创建该事件的用户的信息
+	private UserPO user;
+	
+	//表示当前的状态，0代表空闲
 	private int condition;
 	
 	public StoreBLController(UserPO user){
@@ -31,7 +32,6 @@ public class StoreBLController implements StoreBLService {
 		if(condition == 0){
 			instore = new InStoreBL(user);
 			condition = 1;
-			
 			return instore.newInStore();
 		}
 		else{
@@ -40,7 +40,7 @@ public class StoreBLController implements StoreBLService {
 	}
 
 	@Override
-	public ResultMessage addInStoreGoods(String id, StorePlacePO place,
+	public ResultMessage addInStoreGoods(String id, StorePlaceVO place,
 			String destination) {
 		return instore.addInStoreGoods(id, place, destination);
 	}
@@ -53,24 +53,24 @@ public class StoreBLController implements StoreBLService {
 	@Override
 	public ResultMessage endInStore(int condition) {
 		ResultMessage result = instore.endInStore(condition);
-		instore = null;
-		condition = 0;
-		
+		if(result.getKey().equals("success")){
+			instore = null;
+			this.condition = 0;
+		}
 		return result;
 	}
 
 	@Override
 	public ResultMessage newOutStore() {
+		System.out.println("condition is "+condition);
 		if(condition == 0){
 			outstore = new OutStoreBL(user);
 			condition = 2;
-			
 			return outstore.newOutStore();
 		}
 		else{
 			return new ResultMessage("busy", null);
 		}
-		
 	}
 
 	@Override
@@ -86,43 +86,50 @@ public class StoreBLController implements StoreBLService {
 
 	@Override
 	public ResultMessage endOutStore(int condition) {
-		outstore.endOutStore(condition);
-		outstore = null;
-		condition = 0;
-		
-		return null;
+		ResultMessage result = outstore.endOutStore(condition);
+		if(result.getKey().equals("success")){
+			outstore = null;
+			this.condition = 0;
+		}
+		return result;
 	}
 
 	@Override
 	public ResultMessage newAdjust() {
+		System.out.println("condition is "+condition);
 		if(condition == 0){
 			adjust = new AdjustBL(user);
 			condition = 5;
-			
 			return adjust.newAdjust();
 		}
 		else{
 			return new ResultMessage("busy", null);
 		}
-		
 	}
 
 	@Override
-	public ResultMessage addAdjust(StorePlacePO start, StorePlacePO end) {
+	public ResultMessage addAdjust(StorePlaceVO start, StorePlaceVO end) {
 		return adjust.addAdjust(start, end);
+	}
+
+	@Override
+	public ResultMessage delAdjust(int i) {
+		return adjust.delAdjust(i);
 	}
 
 	@Override
 	public ResultMessage endAdjust(int condition) {
 		ResultMessage result = adjust.endAdjust(condition);
-		adjust = null;
-		condition = 0;
-		
+		if(result.getKey().equals("success")){
+			this.condition = 0;
+			adjust = null;
+		}
 		return result;
 	}
 
 	@Override
 	public ResultMessage newCheck() {
+		System.out.println("condition is "+condition);
 		if(condition == 0){
 			check = new CheckBL();
 			condition = 3;
@@ -131,21 +138,20 @@ public class StoreBLController implements StoreBLService {
 		else{
 			return new ResultMessage("busy", null);
 		}
-		
 	}
 
 	@Override
 	public ResultMessage check(Calendar start, Calendar end) {
-		// TODO Auto-generated method stub
 		return check.check(start, end);
 	}
 
 	@Override
 	public void endCheck() {
+		check.endCheck();
 		check = null;
-		
+		condition = 0;
 	}
-	
+
 	@Override
 	public ResultMessage verification() {
 		if(condition == 0){
@@ -156,19 +162,16 @@ public class StoreBLController implements StoreBLService {
 		else{
 			return new ResultMessage("busy", null);
 		}
-		
 	}
 
 	@Override
 	public ResultMessage endVerification(int condition) {
-		condition = 0;
-		return verification.endVerification(condition);
-	}
-
-	@Override
-	public ResultMessage delAdjust(int i) {
-		
-		return adjust.delAdjust(i);
+		ResultMessage result = verification.endVerification(condition);
+		if(result.getKey().equals("success")){
+			verification = null;
+			this.condition = 0;
+		}
+		return result;
 	}
 
 }
