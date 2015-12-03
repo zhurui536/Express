@@ -1,10 +1,13 @@
 package main.bussinesslogic.util;
+
+import java.io.Serializable;
+
 /**
  * Created by Away
  * 2015/10/26
  */
 
-public class ResultMessage {
+public class ResultMessage implements Serializable {
 	private String key;
 	private Object value;
 	

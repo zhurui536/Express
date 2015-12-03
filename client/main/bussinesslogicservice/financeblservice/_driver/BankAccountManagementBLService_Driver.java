@@ -5,6 +5,8 @@ import main.bussinesslogicservice.financeblservice.BankAccountManagementBLServic
 import main.bussinesslogicservice.financeblservice._stub.BankAccountManagementBLService_Stub;
 import main.vo.BankAccountVO;
 
+import java.math.BigDecimal;
+
 /**
  * Created by Away
  * 2015/10/26
@@ -13,7 +15,7 @@ import main.vo.BankAccountVO;
 public class BankAccountManagementBLService_Driver {
 
     public void drive(BankAccountManagementBLService bankAccountManagementBLService) {
-        BankAccountVO vo = new BankAccountVO("Away", 2147483647, "6822222222");
+        BankAccountVO vo = new BankAccountVO("Away", BigDecimal.valueOf(2147483647), "6822222222");
 
         ResultMessage result = bankAccountManagementBLService.createMember(vo);
         if (result.getKey().equals("success"))
@@ -27,7 +29,7 @@ public class BankAccountManagementBLService_Driver {
         if (result.getKey().equals("success"))
             System.out.println("update pass");
 
-        result = bankAccountManagementBLService.deleteMember(vo);
+        result = bankAccountManagementBLService.deleteMember("6822222222");
         if (result.getKey().equals("success"))
             System.out.println("delete pass");
     }

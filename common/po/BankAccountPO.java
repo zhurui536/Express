@@ -1,5 +1,7 @@
 package po;
 
+import main.vo.BankAccountVO;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -9,6 +11,8 @@ import java.math.BigDecimal;
  */
 
 public class BankAccountPO implements Serializable {
+
+    private static final long serialVersionUID = 3224827812751327454L;
 
     // 账户名称
     private String name;
@@ -55,5 +59,9 @@ public class BankAccountPO implements Serializable {
         this.name = po.name;
         this.balance = po.balance;
         this.id = po.id;
+    }
+
+    public BankAccountVO poToVO() {
+        return new BankAccountVO(name, balance, id);
     }
 }

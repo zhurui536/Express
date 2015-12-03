@@ -2,29 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df707e08-8df3-4511-9f4e-7ebff1dc9706" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/test/MyPanel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/test/uiTester/UITester.java" />
+      <change type="DELETED" beforePath="D:\code\Express\Express\target\classes\main\bussinesslogicservice\storeblservice\_driver\StoreBLService_Driver.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\code\Express\Express\target\classes\main\bussinesslogicservice\storeblservice\_stub\StoreBLService_Stub.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/AdjustBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/AdjustBL.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/storeblservice/AdjustBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/storeblservice/AdjustBLService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/BankAccountManagementBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/BankAccountManagementBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/financedataservice/BankAccountManagementDataService.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/financedataservice/BankAccountManagementDataService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/BankAccountManagementBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/BankAccountManagementBLService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_driver/BankAccountManagementBLService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_driver/BankAccountManagementBLService_Driver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_stub/BankAccountManagementBLService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_stub/BankAccountManagementBLService_Stub.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/data/financedata/BankAccountManagementDataServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/main/data/financedata/BankAccountManagementDataServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/financedataservice/_driver/BankAccountManagementDataService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/financedataservice/_driver/BankAccountManagementDataService_Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/financedataservice/_stub/BankAccountManagementDataService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/financedataservice/_stub/BankAccountManagementDataService_Stub.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/BankAccountPO.class" afterPath="$PROJECT_DIR$/target/classes/po/BankAccountPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/financedataservice/_driver/CreateAccountingDataService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/financedataservice/_driver/CreateAccountingDataService_Driver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/BankAccountVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/BankAccountVO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/CheckBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/CheckBL.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_driver/CreateAccountingBLService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_driver/CreateAccountingBLService_Driver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/dao/Database.class" afterPath="$PROJECT_DIR$/target/classes/main/dao/Database.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/FinanceController.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/FinanceController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/InStoreBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/InStoreBL.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/storeblservice/InStoreBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/storeblservice/InStoreBLService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/InStoreInputFrame.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/InStoreInputFrame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/InStoreToolListener.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/InStoreToolListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/test/tester/financetester/InitTester.class" afterPath="$PROJECT_DIR$/target/classes/test/tester/financetester/InitTester.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/MenuListener.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/MenuListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/OutStoreBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/OutStoreBL.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/OutStoreInputFrame.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/OutStoreInputFrame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/OutStoreToolListener.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/OutStoreToolListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/util/ResultMessage.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/util/ResultMessage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/StoreBLController.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/StoreBLController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/storedataservice/_stub/StoreDataService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/storedataservice/_stub/StoreDataService_Stub.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/StoreFrame.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/StoreFrame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/Test.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/Test.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/financedata/bankAccountPO.dat" afterPath="$PROJECT_DIR$/server/save/financedata/bankAccountPO.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/financedata/bankAccountPO.dat" afterPath="$PROJECT_DIR$/target/classes/save/financedata/bankAccountPO.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/BankAccountManagementBL.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/BankAccountManagementBL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/BankAccountManagementBLService.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/BankAccountManagementBLService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/BankAccountManagementBLService_Driver.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/BankAccountManagementBLService_Driver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_stub/BankAccountManagementBLService_Stub.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_stub/BankAccountManagementBLService_Stub.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/dataservice/financedataservice/BankAccountManagementDataService.java" afterPath="$PROJECT_DIR$/common/dataservice/financedataservice/BankAccountManagementDataService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/main/data/financedata/BankAccountManagementDataServiceImpl.java" afterPath="$PROJECT_DIR$/server/main/data/financedata/BankAccountManagementDataServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/dataservice/financedataservice/_driver/BankAccountManagementDataService_Driver.java" afterPath="$PROJECT_DIR$/common/dataservice/financedataservice/_driver/BankAccountManagementDataService_Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/dataservice/financedataservice/_stub/BankAccountManagementDataService_Stub.java" afterPath="$PROJECT_DIR$/common/dataservice/financedataservice/_stub/BankAccountManagementDataService_Stub.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/po/BankAccountPO.java" afterPath="$PROJECT_DIR$/common/po/BankAccountPO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/dataservice/financedataservice/_driver/CreateAccountingDataService_Driver.java" afterPath="$PROJECT_DIR$/common/dataservice/financedataservice/_driver/CreateAccountingDataService_Driver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/vo/BankAccountVO.java" afterPath="$PROJECT_DIR$/client/main/vo/BankAccountVO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/CreateAccountingBLService_Driver.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/CreateAccountingBLService_Driver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/main/dao/Database.java" afterPath="$PROJECT_DIR$/server/main/dao/Database.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/FinanceController.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/FinanceController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/test/tester/financetester/InitTester.java" afterPath="$PROJECT_DIR$/client/test/tester/financetester/InitTester.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogic/util/ResultMessage.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogic/util/ResultMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/Test.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/Test.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="express-all.iws" />
@@ -55,32 +78,7 @@
         <entry file="file://$PROJECT_DIR$/server/main/data/financedata/BankAccountManagementDataServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="15" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/main/dao/Database.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-              <folding>
-                <element signature="e#191#192#0" expanded="true" />
-                <element signature="e#218#219#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="82" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -90,22 +88,10 @@
         <entry file="file://$PROJECT_DIR$/common/po/BankAccountPO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#619#620#0" expanded="true" />
-                <element signature="e#646#647#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BankAccountVO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/main/vo/BankAccountVO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -114,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/common/dataservice/financedataservice/BankAccountManagementDataService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="15" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
+              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -124,28 +110,49 @@
         <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/FinanceController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+              <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
               <folding>
-                <element signature="e#598#599#0" expanded="true" />
-                <element signature="e#667#668#0" expanded="true" />
-                <element signature="e#740#741#0" expanded="true" />
-                <element signature="e#801#802#0" expanded="true" />
-                <element signature="e#867#868#0" expanded="true" />
-                <element signature="e#928#929#0" expanded="true" />
-                <element signature="e#1001#1002#0" expanded="true" />
-                <element signature="e#1062#1063#0" expanded="true" />
-                <element signature="e#1136#1137#0" expanded="true" />
-                <element signature="e#1198#1199#0" expanded="true" />
+                <element signature="e#2273#2274#0" expanded="true" />
+                <element signature="e#2335#2336#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BankAccountManagementBL.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UITester.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/test/uiTester/UITester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3408857">
+              <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#271#272#0" expanded="true" />
+                <element signature="e#293#294#0" expanded="true" />
+                <element signature="e#895#896#0" expanded="true" />
+                <element signature="e#934#935#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/test/MyPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#98#122#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BankAccountManagementBL.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/BankAccountManagementBL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39747635">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -184,10 +191,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/main/bussinesslogic/financebl/ReceiptBL.java" />
-        <option value="$PROJECT_DIR$/client/src/main/bussinesslogic/financebl/ProfitListBL.java" />
-        <option value="$PROJECT_DIR$/client/src/test/tester/storetester/OutStoreTester.java" />
-        <option value="$PROJECT_DIR$/client/src/main/bussinesslogic/financebl/PayListBL.java" />
         <option value="$PROJECT_DIR$/client/src/main/bussinesslogicservice/billblservice/BillBLService.java" />
         <option value="$PROJECT_DIR$/client/src/main/bussinesslogicservice/financeblservice/_stub/FinanceBLService.java" />
         <option value="$PROJECT_DIR$/client/src/main/bussinesslogicservice/financeblservice/CreateAccountingBLService.java" />
@@ -206,9 +209,7 @@
         <option value="$PROJECT_DIR$/common/src/dataservice/financedataservice/_driver/CreateAccountingDataService_Driver.java" />
         <option value="$PROJECT_DIR$/client/src/main/bussinesslogic/financebl/BankAccountManagementBL.java" />
         <option value="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_stub/FinanceBLService.java" />
-        <option value="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/CreateAccountingBLService_Driver.java" />
         <option value="$PROJECT_DIR$/.classpath" />
-        <option value="$PROJECT_DIR$/client/test/tester/financetester/InitTester.java" />
         <option value="$PROJECT_DIR$/client/main/connection/ClientInitException.java" />
         <option value="$PROJECT_DIR$/client/main/connection/RMIHelper.java" />
         <option value="$PROJECT_DIR$/server/main/connection/RMIHelper.java" />
@@ -221,20 +222,26 @@
         <option value="$PROJECT_DIR$/server/save/storedata/space.java" />
         <option value="$PROJECT_DIR$/server/main/dao/database.java" />
         <option value="$PROJECT_DIR$/server/main/data/financedata/BankAccountManagementData.java" />
-        <option value="$PROJECT_DIR$/client/main/vo/BankAccountVO.java" />
         <option value="$PROJECT_DIR$/common/utility/ResultState.java" />
-        <option value="$PROJECT_DIR$/client/main/bussinesslogic/util/ResultMessage.java" />
-        <option value="$PROJECT_DIR$/server/main/dao/Database.java" />
-        <option value="$PROJECT_DIR$/common/dataservice/financedataservice/BankAccountManagementDataService.java" />
         <option value="$PROJECT_DIR$/common/dataservice/financedataservice/_stub/BankAccountManagementDataService_Stub.java" />
-        <option value="$PROJECT_DIR$/common/po/BankAccountPO.java" />
         <option value="$PROJECT_DIR$/common/dataservice/financedataservice/_driver/CreateAccountingDataService_Driver.java" />
         <option value="$PROJECT_DIR$/common/dataservice/financedataservice/_driver/BankAccountManagementDataService_Driver.java" />
         <option value="$PROJECT_DIR$/client/main/bussinesslogic/financebl/Test.java" />
-        <option value="$PROJECT_DIR$/server/main/data/financedata/BankAccountManagementDataServiceImpl.java" />
-        <option value="$PROJECT_DIR$/client/main/bussinesslogic/financebl/FinanceController.java" />
         <option value="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/BankAccountManagementBLService.java" />
+        <option value="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_stub/BankAccountManagementBLService_Stub.java" />
+        <option value="$PROJECT_DIR$/client/main/bussinesslogic/util/ResultMessage.java" />
+        <option value="$PROJECT_DIR$/common/dataservice/financedataservice/BankAccountManagementDataService.java" />
+        <option value="$PROJECT_DIR$/client/main/vo/BankAccountVO.java" />
+        <option value="$PROJECT_DIR$/client/test/tester/financetester/InitTester.java" />
+        <option value="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/CreateAccountingBLService_Driver.java" />
+        <option value="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/BankAccountManagementBLService_Driver.java" />
         <option value="$PROJECT_DIR$/client/main/bussinesslogic/financebl/BankAccountManagementBL.java" />
+        <option value="$PROJECT_DIR$/server/main/dao/Database.java" />
+        <option value="$PROJECT_DIR$/server/main/data/financedata/BankAccountManagementDataServiceImpl.java" />
+        <option value="$PROJECT_DIR$/common/po/BankAccountPO.java" />
+        <option value="$PROJECT_DIR$/client/main/bussinesslogic/financebl/FinanceController.java" />
+        <option value="$PROJECT_DIR$/client/test/MyPanel.java" />
+        <option value="$PROJECT_DIR$/client/test/uiTester/UITester.java" />
       </list>
     </option>
   </component>
@@ -253,10 +260,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
-    <option name="y" value="2" />
-    <option name="width" value="1918" />
-    <option name="height" value="1078" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1098" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -265,10 +272,19 @@
           <State>
             <id />
           </State>
+          <State>
+            <id>Google Web Toolkit issues</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Serialization issuesJava</id>
+          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>Android</id>
+            <id>SerializableHasSerialVersionUIDField</id>
           </State>
         </selected-state>
       </profile-state>
@@ -298,7 +314,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -330,22 +345,8 @@
               <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Express" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Express" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -363,11 +364,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bussinesslogic" />
+              <option name="myItemId" value="uiTester" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -382,28 +383,17 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bussinesslogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financebl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -435,33 +425,7 @@
       <recent name="main.bussinesslogic.financebl" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
-    <configuration default="false" name="InitTester" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="test.tester.financetester.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Express" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="test.tester.financetester" />
-      <option name="MAIN_CLASS_NAME" value="test.tester.financetester.InitTester" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.UITester">
     <configuration default="false" name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -530,6 +494,26 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="main.bussinesslogic.financebl.Test" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Express" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="UITester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.uiTester.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="test.uiTester.UITester" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -793,19 +777,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.InitTester" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Server" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Client" />
-      <item index="3" class="java.lang.String" itemvalue="Application.FinanceController" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Test" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Server" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Client" />
+      <item index="2" class="java.lang.String" itemvalue="Application.FinanceController" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Test" />
+      <item index="4" class="java.lang.String" itemvalue="Application.UITester" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Test" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Server" />
+        <item index="0" class="java.lang.String" itemvalue="Application.UITester" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Test" />
         <item index="2" class="java.lang.String" itemvalue="Application.FinanceController" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Client" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.InitTester" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Server" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Client" />
       </list>
     </recent_temporary>
   </component>
@@ -841,30 +825,32 @@
       <workItem from="1448535193021" duration="19407000" />
       <workItem from="1448864170505" duration="33000" />
       <workItem from="1448985182975" duration="2149000" />
-      <workItem from="1449106715297" duration="7810000" />
+      <workItem from="1449106715297" duration="14343000" />
+      <workItem from="1449139632555" duration="1807000" />
+      <workItem from="1449141574620" duration="3052000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136272000" />
+    <option name="totallyTimeSpent" value="147664000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="2" width="1918" height="1078" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756868" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38453713" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35094717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21052632" sideWeight="0.49651048" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15677084" sideWeight="0.49651048" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -874,6 +860,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295562" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -930,83 +917,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Express.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/dataservice/billdataservice/BilldataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29660144">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/dataservice/financedataservice/CreateAccountingDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33367664">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/dataservice/billdataservice/_driver/BilldataService_Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3707518">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/po/AccountPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2605561">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/presentation/storeui/tool/AdjustTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/presentation/storeui/listener/toollistener/AdjustToolListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/presentation/storeui/listener/toollistener/InStoreToolListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/presentation/storeui/listener/ToolListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3707518">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/CreateAccountingBLService_Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.project">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14830072">
@@ -1018,13 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33367664">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/test/tester/financetester/InitTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07415036">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1144,7 +1047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.887047">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1152,7 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.14922279">
           <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1168,15 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1735016">
           <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/storebl/AdjustBL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9684542">
-          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1184,15 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.340694">
           <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/util/ResultMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3347826">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1200,14 +1083,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="82" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
           <folding />
         </state>
       </provider>
@@ -1232,15 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="327" column="35" selection-start-line="327" selection-start-column="35" selection-end-line="327" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/vo/BankAccountVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1248,6 +1114,117 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.340694">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_stub/BankAccountManagementBLService_Stub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30866602">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/util/ResultMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main/vo/AccountVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/BankAccountManagementBLService_Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.17350158">
+          <caret line="17" column="82" selection-start-line="17" selection-start-column="82" selection-end-line="17" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/CreateAccountingBLService_Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="22" column="87" selection-start-line="22" selection-start-column="87" selection-end-line="22" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main/vo/BankAccountVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/java/jdk/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="1720" column="28" selection-start-line="1720" selection-start-column="28" selection-end-line="1720" selection-end-column="28" />
+          <folding>
+            <element signature="e#66593#66594#0" expanded="false" />
+            <element signature="e#66631#66632#0" expanded="false" />
+            <element signature="e#81771#81772#0" expanded="false" />
+            <element signature="e#81820#81821#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/test/tester/financetester/InitTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5457413">
+          <caret line="25" column="87" selection-start-line="25" selection-start-column="87" selection-end-line="25" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/storebl/AdjustBL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39432177">
+          <caret line="51" column="57" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/main/dao/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3564669">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/main/data/financedata/BankAccountManagementDataServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/po/BankAccountPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/dataservice/financedataservice/BankAccountManagementDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1260,43 +1237,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/main/dao/Database.java">
+    <entry file="jar://D:/java/jdk/src.zip!/java/awt/Container.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="e#191#192#0" expanded="true" />
-            <element signature="e#218#219#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/po/BankAccountPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/dataservice/financedataservice/BankAccountManagementDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="15" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
+        <state vertical-scroll-proportion="-1.7064881">
+          <caret line="1066" column="7" selection-start-line="1066" selection-start-column="7" selection-end-line="1066" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/main/data/financedata/BankAccountManagementDataServiceImpl.java">
+    <entry file="jar://D:/java/jdk/src.zip!/javax/swing/JRootPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33264676">
+          <caret line="633" column="21" selection-start-line="633" selection-start-column="21" selection-end-line="633" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/java/jdk/src.zip!/javax/swing/JFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36972195">
+          <caret line="666" column="37" selection-start-line="666" selection-start-column="37" selection-end-line="666" selection-end-column="37" />
+          <folding>
+            <element signature="e#23282#23283#0" expanded="false" />
+            <element signature="e#23335#23336#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/BankAccountManagementBL.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="15" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/test/MyPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#98#122#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1304,27 +1286,35 @@
     <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/FinanceController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
           <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="e#928#929#0" expanded="true" />
-            <element signature="e#1001#1002#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
-            <element signature="e#1136#1137#0" expanded="true" />
-            <element signature="e#1198#1199#0" expanded="true" />
+            <element signature="e#2273#2274#0" expanded="true" />
+            <element signature="e#2335#2336#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/BankAccountManagementBL.java">
+    <entry file="jar://D:/java/jdk/src.zip!/javax/swing/JTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39747635">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="-1.0751802">
+          <caret line="560" column="21" selection-start-line="560" selection-start-column="21" selection-end-line="560" selection-end-column="21" />
+          <folding>
+            <element signature="e#20575#20576#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/test/uiTester/UITester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3408857">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#271#272#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

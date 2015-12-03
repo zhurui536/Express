@@ -8,6 +8,7 @@ import main.vo.BankAccountVO;
 import po.BankAccountPO;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 /**
  * 银行账户管理
@@ -19,17 +20,12 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
     BankAccountManagementDataService bankAccountManagementData;
 
     public BankAccountManagementBL() {
-        this.bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementDataServiceImpl");
+        bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementDataServiceImpl");
     }
 
     @Override
     public ResultMessage createMember(BankAccountVO vo) {
         try {
-            ResultMessage message = bankAccountManagementData.find(vo.id);
-            // 新建的银行账户 id 已存在时，新增失败
-            if (message.getKey().equals("success"))
-                return new ResultMessage("fail");
-
             BankAccountPO bankAccountPO = new BankAccountPO(vo.name, vo.id);
             return bankAccountManagementData.insert(bankAccountPO);
         } catch (RemoteException e) {
@@ -61,13 +57,39 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
 
     @Override
     public ResultMessage inquireMember(BankAccountVO vo) {
-//        try {
-//            BankAccountManagementDataService bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementDataServiceImpl");
-//            ArrayList<BankAccountPO> list =  bankAccountManagementData.find(null);
-//            System.out.println(list.get(0).getName());
-//        } catch (RemoteException e) {
-//            e.printStackTrace();
-//        }
-        return null;
+        try {
+            // 根据 id 查找
+            if (vo.id != null) {
+                return bankAccountManagementData.find(vo.id);
+            }
+
+            // 根据名字模糊匹配
+            ResultMessage message = bankAccountManagementData.findAll();
+            if (message.getKey().equals("fail")) {
+                return message;
+            }
+
+            ArrayList<BankAccountPO> bankAccountPOs = (ArrayList<BankAccountPO>) message.getValue();
+            ArrayList<BankAccountVO> bankAccountVOs = matchName(bankAccountPOs, vo.name);
+            if (bankAccountVOs.size() == 0) {
+                return new ResultMessage("fail");
+            }
+
+            return new ResultMessage("success", bankAccountVOs);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return new ResultMessage("fail");
+        }
+    }
+
+    // TODO 模糊匹配
+    private ArrayList<BankAccountVO> matchName(ArrayList<BankAccountPO> bankAccountPOs, String name) {
+        ArrayList<BankAccountVO> bankAccountVOs = new ArrayList<>();
+        for (BankAccountPO bankAccountPO : bankAccountPOs) {
+            if (bankAccountPO.getName().contains(name)) {
+                bankAccountVOs.add(bankAccountPO.poToVO());
+            }
+        }
+        return bankAccountVOs;
     }
 }

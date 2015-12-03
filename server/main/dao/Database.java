@@ -10,21 +10,14 @@ import java.io.*;
 
 public class Database {
 
-    // 文件路径
-    private static String PATH;
-
-    public Database(String path) {
-        PATH = path;
-    }
-
     /**
      * 根据路径读出序列化对象，文件为空时返回 null
      * @return 读到的对象
      */
-    public Object load() {
+    public static Object load(String path) {
         ObjectInputStream ois = null;
         try {
-            File file = new File(PATH);
+            File file = new File(path);
             if (file.length() == 0) {
                 return null;
             }
@@ -32,6 +25,7 @@ public class Database {
             return ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
+            return null;
         } finally {
             if (ois != null) {
                 try {
@@ -41,16 +35,16 @@ public class Database {
                 }
             }
         }
-        return null;
     }
 
-    public void save(Object object) {
+    public static void save(String path, Object object) {
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream(PATH));
+            oos = new ObjectOutputStream(new FileOutputStream(path));
             oos.writeObject(object);
         } catch (IOException e) {
             e.printStackTrace();
+            System.err.println(path + " save error!");
         } finally {
             if (oos != null) {
                 try {

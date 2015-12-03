@@ -16,15 +16,14 @@ import java.util.ArrayList;
 
 public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject implements BankAccountManagementDataService {
 
-    private static final String PATH = "server/save/financedata/bankAccountPO.dat";
+    private static final long serialVersionUID = -7775445166515308020L;
 
-    private Database database;
+    private static final String PATH = "server/save/financedata/bankAccountPO.dat";
 
     private ArrayList<BankAccountPO> bankAccountPOs;
 
     public BankAccountManagementDataServiceImpl() throws RemoteException {
         super();
-        database = new Database(PATH);
     }
 
     @Override
@@ -46,9 +45,13 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     @Override
     public ResultMessage insert(BankAccountPO po) throws RemoteException {
+        ResultMessage message = find(po.getId());
+        // 插入的 id 已存在，插入失败
+        if (message.getKey().equals("success"))
+            return new ResultMessage("fail");
         read();
         bankAccountPOs.add(po);
-        database.save(bankAccountPOs);
+        Database.save(PATH, bankAccountPOs);
         return new ResultMessage("success");
     }
 
@@ -60,7 +63,7 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
         if (message.getKey().equals("success")) {
             BankAccountPO bankAccountPO = (BankAccountPO) message.getValue();
             bankAccountPOs.remove(bankAccountPO);
-            database.save(bankAccountPOs);
+            Database.save(PATH, bankAccountPOs);
             return new ResultMessage("success");
         } else {
             return new ResultMessage("fail");
@@ -74,7 +77,7 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
         if (message.getKey().equals("success")) {
             BankAccountPO bankAccountPO = (BankAccountPO) message.getValue();
             bankAccountPO.setPO(po);
-            database.save(bankAccountPOs);
+            Database.save(PATH, bankAccountPOs);
             return new ResultMessage("success");
         } else {
             return new ResultMessage("fail");
@@ -82,7 +85,7 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
     }
 
     private void read() {
-        bankAccountPOs = (ArrayList<BankAccountPO>) database.load();
+        bankAccountPOs = (ArrayList<BankAccountPO>) Database.load(PATH);
         if (bankAccountPOs == null)
             bankAccountPOs = new ArrayList<>();
     }

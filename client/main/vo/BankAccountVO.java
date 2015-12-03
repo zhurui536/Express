@@ -1,5 +1,7 @@
 package main.vo;
 
+import java.math.BigDecimal;
+
 /**
  * Created by Away
  * 2015/10/26
@@ -11,12 +13,12 @@ public class BankAccountVO {
     public String name;
 
     // 账户余额
-    public double balance;
+    public BigDecimal balance;
 
     // 账户账号
     public String id;
 
-    public BankAccountVO(String name, double balance, String id) {
+    public BankAccountVO(String name, BigDecimal balance, String id) {
         this.name = name;
         this.balance = balance;
         this.id = id;
