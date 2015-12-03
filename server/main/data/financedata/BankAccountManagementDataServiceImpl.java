@@ -3,7 +3,7 @@ package main.data.financedata;
 import dataservice.financedataservice.BankAccountManagementDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.dao.Database;
-import po.BankAccountPO;
+import po.financepo.BankAccountPO;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

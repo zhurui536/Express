@@ -3,6 +3,8 @@ package test.uiTester;
 import test.MyPanel;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Away
@@ -35,6 +37,16 @@ public class UITester {
 
         jButton = new JButton("test");
         jButton.setBounds(500, 600, 100, 40);
+        jButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(jTable.getValueAt(3, 4));
+                Object value = jTable.getValueAt(3, 4);
+                if (value instanceof String) {
+                    jTable.setValueAt("", 3, 4);
+                }
+            }
+        });
 
         jPanel.add(jTable);
         jPanel.add(jButton);
@@ -42,9 +54,11 @@ public class UITester {
     }
 
     private void initJTable() {
-        jTable = new JTable();
+        jTable = new JTable(5, 10);
+        jTable.setRowHeight(100);
         jTable.setBounds(100, 50, 1000, 500);
     }
+
 
     public void show() {
         jFrame.setVisible(true);

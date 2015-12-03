@@ -5,7 +5,7 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.BankAccountManagementBLService;
 import main.connection.ClientRMIHelper;
 import main.vo.BankAccountVO;
-import po.BankAccountPO;
+import po.financepo.BankAccountPO;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -17,6 +17,7 @@ import java.util.ArrayList;
  */
 
 public class BankAccountManagementBL implements BankAccountManagementBLService {
+
     BankAccountManagementDataService bankAccountManagementData;
 
     public BankAccountManagementBL() {
@@ -26,7 +27,7 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
     @Override
     public ResultMessage createMember(BankAccountVO vo) {
         try {
-            BankAccountPO bankAccountPO = new BankAccountPO(vo.name, vo.id);
+            BankAccountPO bankAccountPO = new BankAccountPO(vo.name, vo.balance, vo.id);
             return bankAccountManagementData.insert(bankAccountPO);
         } catch (RemoteException e) {
             e.printStackTrace();

@@ -9,8 +9,10 @@ import java.util.ArrayList;
  * 2015/10/26
  */
 
-@SuppressWarnings("serial")
 public class StorePO implements Serializable {
+
+	private static final long serialVersionUID = 6300225166368635096L;
+
 	//将所有库存位置整合到一起成为一个仓库对象
 	private ArrayList<StorePlacePO> store;
 	//区数

@@ -1,7 +1,7 @@
 package dataservice.financedataservice;
 
 import main.bussinesslogic.util.ResultMessage;
-import po.BankAccountPO;
+import po.financepo.BankAccountPO;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

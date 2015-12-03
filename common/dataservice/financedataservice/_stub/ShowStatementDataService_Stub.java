@@ -2,7 +2,7 @@ package dataservice.financedataservice._stub;
 
 import dataservice.financedataservice.ShowStatementDataService;
 import po.BillPO;
-import po.StatementPO;
+import po.financepo.StatementPO;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;

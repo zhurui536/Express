@@ -1,13 +1,17 @@
 package po;
 
+import java.io.Serializable;
+
 /**
  * 车辆信息PO
  * Created by Away
  * 2015/10/26
  */
 
-public class TruckMessagePO {
+public class TruckMessagePO implements Serializable {
 
+    private static final long serialVersionUID = -7361521750619540694L;
+    
     // 车辆编号
     String id;
 

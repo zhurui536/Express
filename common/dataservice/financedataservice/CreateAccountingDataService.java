@@ -1,6 +1,7 @@
 package dataservice.financedataservice;
 
-import po.AccountPO;
+import main.bussinesslogic.util.ResultMessage;
+import po.financepo.AccountPO;
 
 import java.rmi.RemoteException;
 
@@ -14,8 +15,10 @@ public interface CreateAccountingDataService {
 
     /**
      * 期初账本信息存储
-     * @param po
+     * @param po 账本
      * @throws RemoteException
      */
-    void initInsert(AccountPO po) throws RemoteException;
+    ResultMessage initInsert(AccountPO po) throws RemoteException;
+
+
 }

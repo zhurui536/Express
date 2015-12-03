@@ -1,12 +1,16 @@
 package po;
 
+import java.io.Serializable;
+
 /**
  * 机构信息PO
  * Created by Away
  * 2015/10/26
  */
 
-public class InstitutionMessagePO {
+public class InstitutionMessagePO implements Serializable {
+
+    private static final long serialVersionUID = 1374906017869308736L;
 
     // 机构名称
     String name;

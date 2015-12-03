@@ -1,7 +1,7 @@
 package dataservice.financedataservice._stub;
 
 import dataservice.financedataservice.CreateAccountingDataService;
-import po.AccountPO;
+import po.financepo.AccountPO;
 
 import java.rmi.RemoteException;
 

@@ -1,6 +1,6 @@
 package dataservice.financedataservice;
 
-import po.ProfitListPO;
+import po.financepo.ProfitListPO;
 
 import java.rmi.RemoteException;
 

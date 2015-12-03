@@ -3,6 +3,8 @@ package dataservice.financedataservice._driver;
 import dataservice.financedataservice.CreateAccountingDataService;
 import dataservice.financedataservice._stub.CreateAccountingDataService_Stub;
 import po.*;
+import po.financepo.AccountPO;
+import po.financepo.BankAccountPO;
 import po.storepo.StorePO;
 
 import java.math.BigDecimal;

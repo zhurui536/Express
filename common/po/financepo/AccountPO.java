@@ -1,5 +1,8 @@
-package po;
+package po.financepo;
 
+import po.InstitutionMessagePO;
+import po.StaffMessagePO;
+import po.TruckMessagePO;
 import po.storepo.StorePO;
 
 import java.io.Serializable;
@@ -11,6 +14,8 @@ import java.io.Serializable;
  */
 
 public class AccountPO implements Serializable {
+
+    private static final long serialVersionUID = 6264983247235154666L;
 
     // 机构
     InstitutionMessagePO institutionPO;
