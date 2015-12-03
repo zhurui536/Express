@@ -6,9 +6,9 @@ import po.storepo.StorePlacePO;
 public interface AdjustBLService {
 	/*新建新的调整任务
 	 * 无
-	 * 无
+	 * ResultMessage
 	 */
-	public void newAdjust();
+	public ResultMessage newAdjust();
 	
 	/*增加调整项
 	 * start end
@@ -24,5 +24,5 @@ public interface AdjustBLService {
 	 * condition
 	 * 无
 	 */
-	public void endAdjust(int condition);
+	public ResultMessage endAdjust(int condition);
 }

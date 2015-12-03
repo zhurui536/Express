@@ -75,7 +75,7 @@ public class StoreDataService_Stub implements StoreDataService {
 	}
 
 	@Override
-	public ResultMessage saveAdjust(AdjustPO po) throws RemoteException {
+	public ResultMessage saveAdjust(ArrayList<AdjustPO> po) throws RemoteException {
 		// TODO Auto-generated method stub
 		System.out.println("Saving adjust records!");
 		return new ResultMessage("success", null);
@@ -90,6 +90,12 @@ public class StoreDataService_Stub implements StoreDataService {
 	@Override
 	public ResultMessage finds(Calendar start, Calendar end)
 			throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage getStore() {
 		// TODO Auto-generated method stub
 		return null;
 	}

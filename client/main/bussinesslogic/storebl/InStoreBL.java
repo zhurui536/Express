@@ -7,6 +7,7 @@ import dataservice.storedataservice.StoreDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.InStoreBLService;
 import main.data.storedata.StoreDataServiceImpl;
+import main.vo.storevo.InStoreVO;
 import po.GoodsPO;
 import po.UserPO;
 import po.storepo.InStorePO;
@@ -23,8 +24,9 @@ public class InStoreBL implements InStoreBLService {
 	}
 
 	@Override
-	public void newInStore() {
+	public ResultMessage newInStore() {
 		goodslist = new ArrayList<InStorePO>();
+		return new ResultMessage("success", goodslist);
 	}
 
 	@Override
@@ -44,7 +46,7 @@ public class InStoreBL implements InStoreBLService {
 				}
 				else{
 					goodslist.add(new InStorePO(goods, destination, place, user));
-					return new ResultMessage("success", goodslist);
+					return new ResultMessage("success", new InStoreVO(goodslist));
 				}
 			}
 		} catch (RemoteException e) {
@@ -58,10 +60,10 @@ public class InStoreBL implements InStoreBLService {
 		for(int i=0;i<goodslist.size();i++){
 			if(id.equals(goodslist.get(i).getGoodsID())){
 				goodslist.remove(i);
-				return new ResultMessage("success", goodslist);
+				return new ResultMessage("success", new InStoreVO(goodslist));
 			}
 		}
-		return new ResultMessage("noexist", goodslist);
+		return new ResultMessage("noexist", new InStoreVO(goodslist));
 	}
 
 	@Override

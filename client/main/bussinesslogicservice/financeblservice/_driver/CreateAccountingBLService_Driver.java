@@ -4,6 +4,7 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.CreateAccountingBLService;
 import main.bussinesslogicservice.financeblservice._stub.CreateAccountingBLService_Stub;
 import main.vo.*;
+import main.vo.storevo.StoreVO;
 
 /**
  * Created by Away
@@ -16,7 +17,7 @@ public class CreateAccountingBLService_Driver {
         InstitutionMessageVO institution = new InstitutionMessageVO();
         StaffMessageVO staff = new StaffMessageVO();
         TruckMessageVO truck = new TruckMessageVO();
-        StoreVO store = new StoreVO();
+        StoreVO store = new StoreVO(null);
         BankAccountVO bankAccount = new BankAccountVO("kkk", 123465, "465456555");
 
         ResultMessage result = createAccountingBLService.createAccounting(new AccountVO(institution, staff, truck, store, bankAccount));

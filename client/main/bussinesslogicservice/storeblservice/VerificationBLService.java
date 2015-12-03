@@ -14,5 +14,5 @@ public interface VerificationBLService {
 	 * conditon
 	 * 无
 	 */
-	public void endVerification(int condition);
+	public ResultMessage endVerification(int condition);
 }

@@ -6,9 +6,9 @@ import main.bussinesslogic.util.Trans;
 public interface OutStoreBLService {
 	/*新建出库任务
 	 * 无
-	 * 无
+	 * ResultMessage
 	 */
-	public void newOutStore();
+	public ResultMessage newOutStore();
 	
 	/*增加出库货物
 	 * id trans Destination

@@ -2,10 +2,8 @@ package dataservice.financedataservice._stub;
 
 import dataservice.financedataservice.BankAccountManagementDataService;
 import po.BankAccountPO;
-import main.vo.BankAccountVO;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 /**
  * 银行账户管理数据层桩
@@ -16,10 +14,9 @@ import java.util.ArrayList;
 public class BankAccountManagementDataService_Stub implements BankAccountManagementDataService {
 
     @Override
-    public ArrayList<BankAccountPO> find(BankAccountVO vo) throws RemoteException {
-        ArrayList<BankAccountPO> bankAccountPOs = new ArrayList<>();
+    public BankAccountPO find(BankAccountPO po) throws RemoteException {
         System.out.println("find success");
-        return bankAccountPOs;
+        return new BankAccountPO(null, null);
     }
 
     @Override

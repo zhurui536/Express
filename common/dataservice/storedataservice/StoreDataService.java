@@ -71,11 +71,17 @@ public interface StoreDataService {
 	 * po
 	 * 返回存储结果
 	 */
-	public ResultMessage saveAdjust(AdjustPO po) throws RemoteException;
+	public ResultMessage saveAdjust(ArrayList<AdjustPO> po) throws RemoteException;
 	
 	/*根据id获得货物的所有信息
 	 * id
 	 * 返回查找结果以及货物的信息包
 	 */
 	public ResultMessage getGoods(String id) throws RemoteException;
+	
+	/*获得当前库存情况
+	 * 
+	 * 返回结果以及库存的对象
+	 */
+	public ResultMessage getStore() throws RemoteException;
 }
