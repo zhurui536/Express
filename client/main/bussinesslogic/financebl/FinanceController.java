@@ -28,18 +28,18 @@ public class FinanceController implements FinanceBLService {
     }
 
     @Override
-    public ResultMessage deleteMember(BankAccountVO vo) {
-        return null;
+    public ResultMessage deleteMember(String id) {
+        return bankAccountManagement.deleteMember(id);
     }
 
     @Override
     public ResultMessage updateMember(BankAccountVO vo) {
-        return null;
+        return bankAccountManagement.updateMember(vo);
     }
 
     @Override
     public ResultMessage inquireMember(BankAccountVO vo) {
-        return null;
+        return bankAccountManagement.inquireMember(vo);
     }
 
     @Override

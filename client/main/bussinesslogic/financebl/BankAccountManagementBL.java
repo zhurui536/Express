@@ -24,24 +24,39 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
 
     @Override
     public ResultMessage createMember(BankAccountVO vo) {
-        BankAccountPO bankAccountPO = new BankAccountPO(vo.name, vo.id);
         try {
-            bankAccountManagementData.insert(bankAccountPO);
-            return new ResultMessage("create success", null);
+            ResultMessage message = bankAccountManagementData.find(vo.id);
+            // 新建的银行账户 id 已存在时，新增失败
+            if (message.getKey().equals("success"))
+                return new ResultMessage("fail");
+
+            BankAccountPO bankAccountPO = new BankAccountPO(vo.name, vo.id);
+            return bankAccountManagementData.insert(bankAccountPO);
         } catch (RemoteException e) {
             e.printStackTrace();
-            return new ResultMessage("create fail", null);
+            return new ResultMessage("fail");
         }
     }
 
     @Override
-    public ResultMessage deleteMember(BankAccountVO vo) {
-        return null;
+    public ResultMessage deleteMember(String id) {
+        try {
+            return bankAccountManagementData.delete(id);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return new ResultMessage("fail");
+        }
     }
 
     @Override
     public ResultMessage updateMember(BankAccountVO vo) {
-        return null;
+        BankAccountPO bankAccountPO = new BankAccountPO(vo.name, vo.id);
+        try {
+            return bankAccountManagementData.update(bankAccountPO);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return new ResultMessage("fail");
+        }
     }
 
     @Override

@@ -4,6 +4,7 @@ import dataservice.financedataservice.BankAccountManagementDataService;
 import dataservice.financedataservice._stub.BankAccountManagementDataService_Stub;
 import po.BankAccountPO;
 
+import java.math.BigDecimal;
 import java.rmi.RemoteException;
 
 /**
@@ -16,12 +17,10 @@ public class BankAccountManagementDataService_Driver {
 
     public void drive(BankAccountManagementDataService bankAccountManagementDataService) {
         try {
-            bankAccountManagementDataService.init();
-            bankAccountManagementDataService.insert(new BankAccountPO("sleep", 12345, "1023879989"));
+            bankAccountManagementDataService.insert(new BankAccountPO("sleep", BigDecimal.valueOf(12345), "1023879989"));
             bankAccountManagementDataService.find("1232131654");
             bankAccountManagementDataService.delete("3320215578");
-            bankAccountManagementDataService.update(new BankAccountPO("none", 424324, "3320215578"));
-            bankAccountManagementDataService.finish();
+            bankAccountManagementDataService.update(new BankAccountPO("none", BigDecimal.valueOf(424324), "3320215578"));
         } catch (RemoteException e) {
             e.printStackTrace();
         }

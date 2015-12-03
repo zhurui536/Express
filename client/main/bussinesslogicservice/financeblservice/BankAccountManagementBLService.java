@@ -19,10 +19,10 @@ public interface BankAccountManagementBLService {
 
     /**
      * 删除账户
-     * @param vo
+     * @param id 账户 id
      * @return ResultMessage
      */
-    ResultMessage deleteMember(BankAccountVO vo);
+    ResultMessage deleteMember(String id);
 
     /**
      * 更新账户

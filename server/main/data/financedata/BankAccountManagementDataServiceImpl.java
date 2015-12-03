@@ -4,7 +4,6 @@ import dataservice.financedataservice.BankAccountManagementDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.dao.Database;
 import po.BankAccountPO;
-import utility.ResultState;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -25,7 +24,7 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     public BankAccountManagementDataServiceImpl() throws RemoteException {
         super();
-        database = new Database();
+        database = new Database(PATH);
     }
 
     @Override
@@ -40,40 +39,50 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
     }
 
     @Override
-    public void insert(BankAccountPO po) throws RemoteException {
+    public ResultMessage findAll() throws RemoteException {
+        read();
+        return new ResultMessage("success", bankAccountPOs);
+    }
+
+    @Override
+    public ResultMessage insert(BankAccountPO po) throws RemoteException {
         read();
         bankAccountPOs.add(po);
-        database.save(PATH, bankAccountPOs);
+        database.save(bankAccountPOs);
+        return new ResultMessage("success");
     }
 
     // TODO 改文档
     @Override
-    public void delete(String id) throws RemoteException {
-        BankAccountPO bankAccountPO = find(id);
-        if (bankAccountPO != null) {
+    public ResultMessage delete(String id) throws RemoteException {
+        ResultMessage message = find(id);
+
+        if (message.getKey().equals("success")) {
+            BankAccountPO bankAccountPO = (BankAccountPO) message.getValue();
             bankAccountPOs.remove(bankAccountPO);
-            database.save(PATH, bankAccountPOs);
+            database.save(bankAccountPOs);
+            return new ResultMessage("success");
+        } else {
+            return new ResultMessage("fail");
         }
     }
 
     @Override
-    public void update(BankAccountPO po) throws RemoteException {
-        BankAccountPO bankAccountPO = find(po.getId());
-        bankAccountPO = po;
-    }
+    public ResultMessage update(BankAccountPO po) throws RemoteException {
+        ResultMessage message = find(po.getId());
 
-    @Override
-    public void init() throws RemoteException {
-
-    }
-
-    @Override
-    public void finish() throws RemoteException {
-
+        if (message.getKey().equals("success")) {
+            BankAccountPO bankAccountPO = (BankAccountPO) message.getValue();
+            bankAccountPO.setPO(po);
+            database.save(bankAccountPOs);
+            return new ResultMessage("success");
+        } else {
+            return new ResultMessage("fail");
+        }
     }
 
     private void read() {
-        bankAccountPOs = (ArrayList<BankAccountPO>) database.load(PATH);
+        bankAccountPOs = (ArrayList<BankAccountPO>) database.load();
         if (bankAccountPOs == null)
             bankAccountPOs = new ArrayList<>();
     }
