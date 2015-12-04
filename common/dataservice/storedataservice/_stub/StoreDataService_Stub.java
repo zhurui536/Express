@@ -39,7 +39,7 @@ public class StoreDataService_Stub implements StoreDataService {
 	@Override
 	public ResultMessage find(StorePlacePO place) throws RemoteException {
 		System.out.println("checking for the place "+place.getArea()+" "+place.getRow()+" "+place.getShelf()+" "+place.getPlace());
-		
+		store.show();
 		return new ResultMessage("success", store.getStorePlace(place.getArea(), place.getRow(), place.getShelf(), place.getPlace()));
 	}
 
@@ -56,7 +56,7 @@ public class StoreDataService_Stub implements StoreDataService {
 						else if(temp.getGoods().getId().equals(po.getId())){
 							temp.setGoods(null);
 							store.setStorePlace(temp);
-							
+							store.show();
 							return new ResultMessage("success", null);
 						}
 					}
@@ -64,6 +64,7 @@ public class StoreDataService_Stub implements StoreDataService {
 			}
 		}
 		
+		store.show();
 		return new ResultMessage("noexist", null);
 	}
 
@@ -72,7 +73,7 @@ public class StoreDataService_Stub implements StoreDataService {
 			throws RemoteException {
 		place.setGoods(po);
 		store.setStorePlace(place);
-		System.out.println("Update the place "+place.getArea()+" "+place.getRow()+" "+place.getShelf()+" "+place.getPlace()+" with a goods");
+		store.show();
 		return new ResultMessage("success", null);
 	}
 
@@ -144,13 +145,14 @@ public class StoreDataService_Stub implements StoreDataService {
 							continue;
 						}
 						else if(temp.getGoods().getId().equals(id)){
+							store.show();
 							return new ResultMessage("exist", null);
 						}
 					}
 				}
 			}
 		}
-		
+		store.show();
 		return new ResultMessage("noexist", null);
 	}
 

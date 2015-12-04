@@ -105,4 +105,29 @@ public class StorePO implements Serializable {
 		
 		return nu;
 	}
+	
+	public void show(){
+		System.out.println();
+		
+		for(int a=0;a<areas;a++){
+			for(int r=0;r<rows;r++){
+				for(int s=0;s<shelfs;s++){
+					for(int p=0;p<places;p++){
+						if(this.getStorePlace(a, r, s, p).ifEmpty()){
+							System.out.print(0+" ");
+						}
+						else{
+							System.out.print(1+" ");
+						}
+					}
+					
+					System.out.println();
+				}
+			}
+		}
+		
+		System.out.println();
+	}
+	
+	
 }
