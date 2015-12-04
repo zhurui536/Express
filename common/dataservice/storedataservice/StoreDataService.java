@@ -83,5 +83,11 @@ public interface StoreDataService {
 	 * 
 	 * 返回结果以及库存的对象
 	 */
-	public ResultMessage getStore() throws RemoteException;
+	public ResultMessage getStore()  throws RemoteException;
+	
+	/*查看拥有该id的货物是否存在于库存中
+	 * 
+	 * 返回是或者否
+	 */
+	public ResultMessage ifInStore(String id)  throws RemoteException;
 }

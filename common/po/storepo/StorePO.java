@@ -48,7 +48,7 @@ public class StorePO implements Serializable {
 	/*获得在某一位置上的库存信息*/
 	public StorePlacePO getStorePlace(int area, int row, int shelf, int place){
 		int index = 0;
-		index = areas*(area-1) + rows*(row-1) + shelfs*(shelf-1) + place - 1;
+		index = areas*(area) + rows*(row) + shelfs*(shelf) + place;
 		
 		return store.get(index);
 	}
@@ -61,7 +61,7 @@ public class StorePO implements Serializable {
 		int place = storeplace.getPlace();
 		
 		int index = 0;
-		index = areas*(area-1) + rows*(row-1) + shelfs*(shelf-1) + place - 1;
+		index = areas*(area) + rows*(row) + shelfs*(shelf) + place;
 		
 		store.set(index, storeplace);
 		return true;

@@ -9,10 +9,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import main.bussinesslogic.util.Trans;
 import main.presentation.storeui.listener.toollistener.OutStoreToolListener;
 
 @SuppressWarnings("serial")
 public class OutStoreInputFrame extends JFrame implements ActionListener{
+	
 	private JButton confirm, cancle;
 	private JTextArea number, destination;
 	private JComboBox<String> trans;
@@ -28,7 +30,6 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 		this.setLayout(null);
 		this.setSize(430, 275);
 		this.setLocation(400, 250);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		this.listener = listener;
 		initialize();
@@ -84,8 +85,11 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == confirm){
-			boolean result = listener.getInput(number.getText(), destination.getText(), trans.getToolTipText());
-			if(true){
+			Trans trans;
+			trans = tran[this.trans.getSelectedIndex()];
+			
+			boolean result = listener.getInput(number.getText(), destination.getText(), trans);
+			if(result == true){
 				this.setVisible(false);
 			}
 		}
@@ -94,4 +98,6 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 		}
 		
 	}
+	
+	private Trans[] tran = {Trans.PLANE, Trans.TRAIN, Trans.TRUCK};
 }

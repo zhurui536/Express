@@ -86,4 +86,10 @@ public class StoreDataServiceImpl implements StoreDataService {
 		return null;
 	}
 
+	@Override
+	public ResultMessage ifInStore(String id) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

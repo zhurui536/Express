@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import main.presentation.storeui.listener.ToolListener;
 
 public class OutStoreTool extends JPanel implements GetButtonOfTool{
-	private JButton buttons[] = new JButton[4];
+	private JButton buttons[] = new JButton[3];
 	
 	public OutStoreTool(ToolListener tl){
 		this.setName("outstore");
@@ -20,23 +20,17 @@ public class OutStoreTool extends JPanel implements GetButtonOfTool{
 		buttons[0].addActionListener(tl);
 		this.add(buttons[0]);
 		
-		buttons[1] = new JButton("删除出库项");
-		buttons[1].setSize(105, 25);
-		buttons[1].setLocation(265, 40);
+		buttons[1]= new JButton("确定");
+		buttons[1].setSize(100, 30);
+		buttons[1].setLocation(770, 35);
 		buttons[1].addActionListener(tl);
 		this.add(buttons[1]);
 		
-		buttons[2]= new JButton("确定");
+		buttons[2] = new JButton("取消出库");
 		buttons[2].setSize(100, 30);
-		buttons[2].setLocation(770, 35);
+		buttons[2].setLocation(880, 35);
 		buttons[2].addActionListener(tl);
 		this.add(buttons[2]);
-		
-		buttons[3] = new JButton("取消出库");
-		buttons[3].setSize(100, 30);
-		buttons[3].setLocation(880, 35);
-		buttons[3].addActionListener(tl);
-		this.add(buttons[3]);
 	}
 	
 	@Override
