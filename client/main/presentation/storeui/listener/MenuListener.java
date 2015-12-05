@@ -26,7 +26,6 @@ public class MenuListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		int i=0;
 		while(true){
 			if(e.getSource() == storeui.getButton(i)){
@@ -64,7 +63,7 @@ public class MenuListener implements ActionListener {
 			}
 		}
 		else if(i==2){
-			ResultMessage result = sc.newOutStore();
+			ResultMessage result = sc.newCheck();
 			if(result.getKey().equals("success")){
 				CheckToolListener tl = new CheckToolListener(storeui);
 				CheckTool tool = new CheckTool(tl);
@@ -76,7 +75,7 @@ public class MenuListener implements ActionListener {
 			}
 		}
 		else if(i==3){
-			ResultMessage result = sc.newOutStore();
+			ResultMessage result = sc.verification();
 			if(result.getKey().equals("success")){
 				VerificationToolListener tl = new VerificationToolListener(storeui);
 				VerificationTool tool = new VerificationTool(tl);
@@ -88,7 +87,7 @@ public class MenuListener implements ActionListener {
 			}
 		}
 		else if(i==4){
-			ResultMessage result = sc.newOutStore();
+			ResultMessage result = sc.newAdjust();
 			if(result.getKey().equals("success")){
 				AdjustToolListener tl = new AdjustToolListener(storeui);
 				AdjustTool tool = new AdjustTool(tl);

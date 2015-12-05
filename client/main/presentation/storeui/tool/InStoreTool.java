@@ -37,4 +37,9 @@ public class InStoreTool extends JPanel implements GetButtonOfTool{
 	public JButton getButton(int i){
 		return buttons[i];
 	}
+
+	@Override
+	public int getNumOfButton() {
+		return 3;
+	}
 }

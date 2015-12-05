@@ -13,9 +13,11 @@ import main.presentation.storeui.listener.toollistener.InStoreToolListener;
 import main.vo.storevo.InStoreVO;
 
 public class InStoreDataPane extends JPanel implements ActionListener{
-	
+	//删除按钮
 	private ArrayList<JButton> deletes;
+	//保存了与删除按钮对应的货物编号作为删除依据
 	private ArrayList<String> goodslist;
+	//删除指令的执行者
 	private InStoreToolListener listener;
 	
 	public InStoreDataPane(InStoreVO list, InStoreToolListener listener){

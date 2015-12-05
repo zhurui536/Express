@@ -1,4 +1,4 @@
-package main.presentation.storeui;
+package main.presentation.storeui.inputframe;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

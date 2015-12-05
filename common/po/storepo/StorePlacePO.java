@@ -1,5 +1,6 @@
 package po.storepo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import po.GoodsPO;
@@ -8,7 +9,11 @@ import po.GoodsPO;
  * Created by ZHR
  * 2015/10/26
  */
-public class StorePlacePO {
+public class StorePlacePO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//区号
 	private int area;
 	//排号

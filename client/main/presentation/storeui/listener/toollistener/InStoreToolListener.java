@@ -4,9 +4,9 @@ import java.awt.event.ActionEvent;
 
 import main.bussinesslogic.storebl.StoreBLController;
 import main.bussinesslogic.util.ResultMessage;
-import main.presentation.storeui.InStoreInputFrame;
 import main.presentation.storeui.StoreFrame;
 import main.presentation.storeui.datapanel.InStoreDataPane;
+import main.presentation.storeui.inputframe.InStoreInputFrame;
 import main.presentation.storeui.listener.ToolListener;
 import main.presentation.storeui.tool.GetButtonOfTool;
 import main.vo.storevo.InStoreVO;

@@ -1,5 +1,9 @@
 package dataservice.storedataservice._stub;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,11 +24,24 @@ import po.storepo.StorePlacePO;
 import po.storepo.VerificationPO;
 
 public class StoreDataService_Stub implements StoreDataService {
-	private StorePO store;
+	private final static String filename = "common/dataservice/storedataservice/_stub/storedata.txt";
 	
 	public StoreDataService_Stub(){
-		store = new StorePO(2, 3, 5, 7);
+		
 	}
+	
+//	public static void main(String[] args){
+//		StorePO store = new StorePO(2, 3, 5, 6);
+//		try {
+//			FileOutputStream out = new FileOutputStream(filename);
+//			ObjectOutputStream objout = new ObjectOutputStream(out);
+//			objout.writeObject(store);
+//			objout.close();
+//		} catch (Exception e) {
+//			
+//			e.printStackTrace();
+//		}
+//	}
 
 	@Override
 	public ResultMessage find(String id) throws RemoteException {
@@ -37,7 +54,19 @@ public class StoreDataService_Stub implements StoreDataService {
 	}
 
 	@Override
-	public ResultMessage find(StorePlacePO place) throws RemoteException {
+	public ResultMessage find(StorePlacePO place) throws RemoteException{
+		StorePO store = null;
+		try {
+			FileInputStream in = new FileInputStream(filename);
+			ObjectInputStream objin = new ObjectInputStream(in);
+			store = (StorePO) objin.readObject();
+			
+			objin.close();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
 		System.out.println("checking for the place "+place.getArea()+" "+place.getRow()+" "+place.getShelf()+" "+place.getPlace());
 		store.show();
 		return new ResultMessage("success", store.getStorePlace(place.getArea(), place.getRow(), place.getShelf(), place.getPlace()));
@@ -45,6 +74,17 @@ public class StoreDataService_Stub implements StoreDataService {
 
 	@Override
 	public ResultMessage delete(GoodsPO po) throws RemoteException {
+		StorePO store = null;
+		try {
+			FileInputStream in = new FileInputStream(filename);
+			ObjectInputStream objin = new ObjectInputStream(in);
+			store = (StorePO) objin.readObject();
+			
+			objin.close();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 		for(int a=0;a<store.getArea();a++){
 			for(int r=0;r<store.getRow();r++){
 				for(int s=0;s<store.getShelf();s++){
@@ -64,6 +104,15 @@ public class StoreDataService_Stub implements StoreDataService {
 			}
 		}
 		
+		try {
+			FileOutputStream out = new FileOutputStream(filename);
+			ObjectOutputStream objout = new ObjectOutputStream(out);
+			objout.writeObject(store);
+			objout.close();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 		store.show();
 		return new ResultMessage("noexist", null);
 	}
@@ -71,8 +120,30 @@ public class StoreDataService_Stub implements StoreDataService {
 	@Override
 	public ResultMessage update(StorePlacePO place, GoodsPO po)
 			throws RemoteException {
+		StorePO store = null;
+		try {
+			FileInputStream in = new FileInputStream(filename);
+			ObjectInputStream objin = new ObjectInputStream(in);
+			store = (StorePO) objin.readObject();
+			
+			objin.close();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
 		place.setGoods(po);
 		store.setStorePlace(place);
+		
+		try {
+			FileOutputStream out = new FileOutputStream(filename);
+			ObjectOutputStream objout = new ObjectOutputStream(out);
+			objout.writeObject(store);
+			objout.close();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 		store.show();
 		return new ResultMessage("success", null);
 	}
@@ -131,11 +202,35 @@ public class StoreDataService_Stub implements StoreDataService {
 
 	@Override
 	public ResultMessage getStore() {
+		StorePO store = null;
+		try {
+			FileInputStream in = new FileInputStream(filename);
+			ObjectInputStream objin = new ObjectInputStream(in);
+			store = (StorePO) objin.readObject();
+			
+			objin.close();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
 		return new ResultMessage("success", store);
 	}
 
 	@Override
 	public ResultMessage ifInStore(String id) throws RemoteException {
+		StorePO store = null;
+		try {
+			FileInputStream in = new FileInputStream(filename);
+			ObjectInputStream objin = new ObjectInputStream(in);
+			store = (StorePO) objin.readObject();
+			
+			objin.close();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
 		for(int a=0;a<store.getArea();a++){
 			for(int r=0;r<store.getRow();r++){
 				for(int s=0;s<store.getShelf();s++){
@@ -146,7 +241,7 @@ public class StoreDataService_Stub implements StoreDataService {
 						}
 						else if(temp.getGoods().getId().equals(id)){
 							store.show();
-							return new ResultMessage("exist", null);
+							return new ResultMessage("exist", temp.getGoods());
 						}
 					}
 				}
