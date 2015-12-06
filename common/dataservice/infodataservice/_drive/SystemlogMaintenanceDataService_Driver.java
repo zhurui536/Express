@@ -19,18 +19,18 @@ public class SystemlogMaintenanceDataService_Driver {
         }
         
         public void drive() {
-                try {
-                        systemlogMaintenanceDataService.getSystemlog();
-                } catch (RemoteException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                }
-                try {
-                        systemlogMaintenanceDataService.insert(new SystemlogPO());
-                } catch (RemoteException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                }
+//                try {
+//                        systemlogMaintenanceDataService.getSystemlog();
+//                } catch (RemoteException e) {
+//                        // TODO Auto-generated catch block
+//                        e.printStackTrace();
+//                }
+//                try {
+//                        systemlogMaintenanceDataService.insert(new SystemlogPO());
+//                } catch (RemoteException e) {
+//                        // TODO Auto-generated catch block
+//                        e.printStackTrace();
+//                }
         }
         
         public static void main(String[] args) {

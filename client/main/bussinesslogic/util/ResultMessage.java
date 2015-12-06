@@ -7,6 +7,7 @@ import java.io.Serializable;
  * 2015/10/26
  */
 
+@SuppressWarnings("serial")
 public class ResultMessage implements Serializable {
 	private String key;
 	private Object value;
