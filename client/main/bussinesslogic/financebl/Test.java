@@ -1,6 +1,6 @@
 package main.bussinesslogic.financebl;
 
-import po.BankAccountPO;
+import po.financepo.BankAccountPO;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

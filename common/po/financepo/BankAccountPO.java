@@ -1,4 +1,4 @@
-package po;
+package po.financepo;
 
 import main.vo.BankAccountVO;
 

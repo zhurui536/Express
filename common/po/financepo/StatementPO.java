@@ -1,4 +1,6 @@
-package po;
+package po.financepo;
+
+import po.BillPO;
 
 import java.io.Serializable;
 import java.util.ArrayList;

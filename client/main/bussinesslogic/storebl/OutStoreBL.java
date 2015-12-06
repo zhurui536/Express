@@ -29,14 +29,14 @@ public class OutStoreBL implements OutStoreBLService {
 	@Override
 	public ResultMessage newOutStore() {
 		goodslist = new ArrayList<OutStorePO>();
-		return new ResultMessage("success", goodslist);
+		return new ResultMessage("success", new OutStoreVO(goodslist));
 	}
 
 	@Override
 	public ResultMessage addOutStoreGoods(String id, Trans trans,
 			String Destination) {
 		try {
-			ResultMessage result = dataservice.find(id);
+			ResultMessage result = dataservice.ifInStore(id);
 			if(result.getKey().equals("exist")){
 				GoodsPO thegoods = (GoodsPO) result.getValue();
 				goodslist.add(new OutStorePO(thegoods, null, Destination, user, trans, Destination));
@@ -49,7 +49,7 @@ public class OutStoreBL implements OutStoreBLService {
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return new ResultMessage("internet error", null);
+			return new ResultMessage("internet error", new OutStoreVO(goodslist));
 		}
 	}
 
@@ -72,7 +72,7 @@ public class OutStoreBL implements OutStoreBLService {
 					dataservice.delete(goodslist.get(i).getGoods());
 				} catch (RemoteException e) {
 					e.printStackTrace();
-					return new ResultMessage("internet error", null);
+					return new ResultMessage("internet error", new OutStoreVO(goodslist));
 				}
 			}
 			
@@ -81,16 +81,16 @@ public class OutStoreBL implements OutStoreBLService {
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				return new ResultMessage("internet error", null);
+				return new ResultMessage("internet error", new OutStoreVO(goodslist));
 			}
 			
-			return new ResultMessage("success", null);
+			return new ResultMessage("success", new OutStoreVO(goodslist));
 		}
 		else if(condition == 1){
-			return new ResultMessage("success", null);
+			return new ResultMessage("success", new OutStoreVO(goodslist));
 		}
 		
-		return new ResultMessage("unknown operation", null);
+		return new ResultMessage("unknown operation", new OutStoreVO(goodslist));
 
 	}
 

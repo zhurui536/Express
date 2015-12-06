@@ -9,8 +9,10 @@ import java.util.ArrayList;
  * 2015/10/26
  */
 
-@SuppressWarnings("serial")
 public class StorePO implements Serializable {
+
+	private static final long serialVersionUID = 6300225166368635096L;
+
 	//将所有库存位置整合到一起成为一个仓库对象
 	private ArrayList<StorePlacePO> store;
 	//区数
@@ -46,7 +48,7 @@ public class StorePO implements Serializable {
 	/*获得在某一位置上的库存信息*/
 	public StorePlacePO getStorePlace(int area, int row, int shelf, int place){
 		int index = 0;
-		index = areas*(area-1) + rows*(row-1) + shelfs*(shelf-1) + place - 1;
+		index = areas*(area) + rows*(row) + shelfs*(shelf) + place;
 		
 		return store.get(index);
 	}
@@ -59,7 +61,7 @@ public class StorePO implements Serializable {
 		int place = storeplace.getPlace();
 		
 		int index = 0;
-		index = areas*(area-1) + rows*(row-1) + shelfs*(shelf-1) + place - 1;
+		index = areas*(area) + rows*(row) + shelfs*(shelf) + place;
 		
 		store.set(index, storeplace);
 		return true;
@@ -103,4 +105,29 @@ public class StorePO implements Serializable {
 		
 		return nu;
 	}
+	
+	public void show(){
+		System.out.println();
+		
+		for(int a=0;a<areas;a++){
+			for(int r=0;r<rows;r++){
+				for(int s=0;s<shelfs;s++){
+					for(int p=0;p<places;p++){
+						if(this.getStorePlace(a, r, s, p).ifEmpty()){
+							System.out.print(0+" ");
+						}
+						else{
+							System.out.print(1+" ");
+						}
+					}
+					
+					System.out.println();
+				}
+			}
+		}
+		
+		System.out.println();
+	}
+	
+	
 }

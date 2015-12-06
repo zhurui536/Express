@@ -1,11 +1,12 @@
 package main.presentation.storeui;
 
 import java.awt.Color;
-
+import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 import po.UserPO;
 import main.bussinesslogic.storebl.StoreBLController;
@@ -22,8 +23,8 @@ public class StoreFrame extends JFrame{
 	private JButton[] buttons;
 	private JPanel tool;
 	
-	private JPanel data;
 	private JScrollPane scroll;
+	private JPanel data;
 	
 	public StoreFrame(){
 		this.setLayout(null);
@@ -43,7 +44,6 @@ public class StoreFrame extends JFrame{
 	private void paintframe(){
 		paintmenu();
 		painttool();
-		paintdata();
 	}
 	
 	private void paintmenu(){
@@ -73,18 +73,25 @@ public class StoreFrame extends JFrame{
 		this.getContentPane().add(tool);
 	}
 	
-	private void paintdata(){
+	public void paintdata(JPanel data){
+		if(scroll != null){
+			this.remove(scroll);
+			scroll = null;
+		}
 		
-		data = new JPanel();
-		data.setLocation(0, 0);
-		data.setLayout(null);
-		data.setSize(860, 100);
-		data.setBackground(Color.gray);
-		scroll = new JScrollPane(data);
-		scroll.setLocation(140, 100);
-		scroll.setSize(860, 500);
+		this.data = data;
 		
-		this.getContentPane().add(scroll);
+		if(data != null){
+			scroll = new JScrollPane(this.data);
+			scroll.setBounds(150, 100, 830, 500);
+			scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+			scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+			data.setPreferredSize(new Dimension(data.getWidth(), data.getHeight()));
+			this.add(scroll);
+		}
+		
+		this.validate();
+		this.repaint();
 	}
 	
 	private JButton createButton(int i){

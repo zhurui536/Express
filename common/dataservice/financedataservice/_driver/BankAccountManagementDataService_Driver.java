@@ -2,7 +2,7 @@ package dataservice.financedataservice._driver;
 
 import dataservice.financedataservice.BankAccountManagementDataService;
 import dataservice.financedataservice._stub.BankAccountManagementDataService_Stub;
-import po.BankAccountPO;
+import po.financepo.BankAccountPO;
 
 import java.math.BigDecimal;
 import java.rmi.RemoteException;

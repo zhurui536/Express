@@ -8,6 +8,7 @@ import dataservice.storedataservice._stub.StoreDataService_Stub;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.AdjustBLService;
 import main.data.storedata.StoreDataServiceImpl;
+import main.vo.storevo.AdjustVO;
 import main.vo.storevo.StorePlaceVO;
 import po.GoodsPO;
 import po.UserPO;
@@ -28,7 +29,7 @@ public class AdjustBL implements AdjustBLService {
 	public ResultMessage newAdjust() {
 		adjusts = new ArrayList<AdjustPO>();
 		
-		return new ResultMessage("success", null);
+		return new ResultMessage("success", new AdjustVO(adjusts));
 	}
 
 	@Override
@@ -37,23 +38,25 @@ public class AdjustBL implements AdjustBLService {
 		StorePlacePO end = new StorePlacePO(e.getArea(), e.getRow(), e.getShelf(), e.getPlace());
 		try {
 			ResultMessage result = dataservice.find(start);
-			GoodsPO goodsOfStart = (GoodsPO) result.getValue();
+			start = (StorePlacePO) result.getValue();
+			GoodsPO goodsOfStart = start.getGoods();
 			if(goodsOfStart == null){
-				return new ResultMessage("emptystart", adjusts);
+				return new ResultMessage("emptystart", new AdjustVO(adjusts));
 			}
 			result = dataservice.find(end);
-			GoodsPO goodsOfEnd = (GoodsPO) result.getValue();
+			end = (StorePlacePO) result.getValue();
+			GoodsPO goodsOfEnd = end.getGoods();
 			if(goodsOfEnd != null){
-				return new ResultMessage("usedend", adjusts);
+				return new ResultMessage("usedend", new AdjustVO(adjusts));
 			}
 			
 			adjusts.add(new AdjustPO(start, end, user));
 			
-			return new ResultMessage("success", adjusts);
+			return new ResultMessage("success", new AdjustVO(adjusts));
 		} catch (RemoteException exception) {
 			// TODO Auto-generated catch block
 			exception.printStackTrace();
-			return new ResultMessage("internet error", null);
+			return new ResultMessage("internet error", new AdjustVO(adjusts));
 		}
 	}
 	
@@ -61,7 +64,7 @@ public class AdjustBL implements AdjustBLService {
 	public ResultMessage delAdjust(int i) {
 		adjusts.remove(i);
 		
-		return new ResultMessage("success", adjusts);
+		return new ResultMessage("success", new AdjustVO(adjusts));
 	}
 
 	@Override
@@ -71,9 +74,9 @@ public class AdjustBL implements AdjustBLService {
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return new ResultMessage("internet error", null);
+			return new ResultMessage("internet error", new AdjustVO(adjusts));
 		}
-		return new ResultMessage("success", null);
+		return new ResultMessage("success", new AdjustVO(adjusts));
 
 	}
 }

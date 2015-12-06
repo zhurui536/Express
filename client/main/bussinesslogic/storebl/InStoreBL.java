@@ -38,14 +38,14 @@ public class InStoreBL implements InStoreBLService {
 		try {
 			ResultMessage result = dataservice.getGoods(id);
 			if(result.getKey().equals("noexist")){
-				return result;
+				return new ResultMessage("noexist", new InStoreVO(goodslist));
 			}
 			else{
 				GoodsPO goods = (GoodsPO) result.getValue();
 				result = dataservice.find(place);
 				StorePlacePO theplace = (StorePlacePO) result.getValue();
 				if(!theplace.ifEmpty()){
-					return new ResultMessage("usedplace", null);
+					return new ResultMessage("usedplace", new InStoreVO(goodslist));
 				}
 				else{
 					goodslist.add(new InStorePO(goods, destination, place, user));
@@ -54,7 +54,7 @@ public class InStoreBL implements InStoreBLService {
 			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
-			return new ResultMessage("internet error", null);
+			return new ResultMessage("internet error", new InStoreVO(goodslist));
 		}
 	}
 
@@ -86,7 +86,7 @@ public class InStoreBL implements InStoreBLService {
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				return new ResultMessage("internet error", null);
+				return new ResultMessage("internet error", new InStoreVO(goodslist));
 			}
 			
 			return new ResultMessage("success", null);

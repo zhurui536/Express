@@ -62,7 +62,6 @@ public class StoreBLController implements StoreBLService {
 
 	@Override
 	public ResultMessage newOutStore() {
-		System.out.println("condition is "+condition);
 		if(condition == 0){
 			outstore = new OutStoreBL(user);
 			condition = 2;
@@ -96,7 +95,6 @@ public class StoreBLController implements StoreBLService {
 
 	@Override
 	public ResultMessage newAdjust() {
-		System.out.println("condition is "+condition);
 		if(condition == 0){
 			adjust = new AdjustBL(user);
 			condition = 5;
@@ -119,6 +117,9 @@ public class StoreBLController implements StoreBLService {
 
 	@Override
 	public ResultMessage endAdjust(int condition) {
+		if(adjust == null){
+			System.out.println("adjust is null!");
+		}
 		ResultMessage result = adjust.endAdjust(condition);
 		if(result.getKey().equals("success")){
 			this.condition = 0;
@@ -129,7 +130,6 @@ public class StoreBLController implements StoreBLService {
 
 	@Override
 	public ResultMessage newCheck() {
-		System.out.println("condition is "+condition);
 		if(condition == 0){
 			check = new CheckBL();
 			condition = 3;

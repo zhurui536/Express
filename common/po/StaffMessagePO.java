@@ -1,12 +1,16 @@
 package po;
 
+import java.io.Serializable;
+
 /**
  * 人员PO
  * Created by Away
  * 2015/10/26
  */
 
-public class StaffMessagePO {
+public class StaffMessagePO implements Serializable {
+
+    private static final long serialVersionUID = 3927616662282852133L;
 
     // 员工编号
     String id;

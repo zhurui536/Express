@@ -60,4 +60,9 @@ public class CheckTool extends JPanel implements GetButtonOfTool{
 	public String getText(){
 		return startt.getText()+" "+endt.getText();
 	}
+
+	@Override
+	public int getNumOfButton() {
+		return 2;
+	}
 }

@@ -1,4 +1,4 @@
-package po;
+package po.financepo;
 
 /**
  * 成本收益表PO

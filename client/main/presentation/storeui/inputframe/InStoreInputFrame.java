@@ -1,4 +1,4 @@
-package main.presentation.storeui;
+package main.presentation.storeui.inputframe;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,7 +25,6 @@ public class InStoreInputFrame extends JFrame implements ActionListener{
 		this.setLayout(null);
 		this.setSize(430, 275);
 		this.setLocation(400, 250);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.listener = listener;
 		initialize();
 	}
@@ -87,7 +86,7 @@ public class InStoreInputFrame extends JFrame implements ActionListener{
 			int[] place = new int[4];
 			
 			for(int i=0;i<4;i++){
-				place[i] = Integer.parseInt(this.place[i].getText());
+				place[i] = Integer.parseInt(this.place[i].getText()) - 1;
 			}
 			
 			boolean result = listener.getInput(number, destination, place);

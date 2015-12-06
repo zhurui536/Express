@@ -4,11 +4,13 @@ import java.awt.event.ActionEvent;
 
 import main.bussinesslogic.storebl.StoreBLController;
 import main.bussinesslogic.util.ResultMessage;
-import main.presentation.storeui.InStoreInputFrame;
-import main.presentation.storeui.OutStoreInputFrame;
+import main.bussinesslogic.util.Trans;
 import main.presentation.storeui.StoreFrame;
+import main.presentation.storeui.datapanel.OutStoreDataPane;
+import main.presentation.storeui.inputframe.OutStoreInputFrame;
 import main.presentation.storeui.listener.ToolListener;
 import main.presentation.storeui.tool.GetButtonOfTool;
+import main.vo.storevo.OutStoreVO;
 
 public class OutStoreToolListener extends ToolListener {
 
@@ -25,7 +27,7 @@ public class OutStoreToolListener extends ToolListener {
 		int i;
 		GetButtonOfTool tool = super.getTool();
 		
-		for(i=0;i<4;i++){
+		for(i=0;i<3;i++){
 			if(e.getSource() == tool.getButton(i))
 				break;
 		}
@@ -35,26 +37,43 @@ public class OutStoreToolListener extends ToolListener {
 			frame.setVisible(true);
 		}
 		else if(i==1){
-			
-		}
-		else if(i==2){
 			ResultMessage result = sc.endOutStore(0);
 			if(result.getKey().equals("success")){
 				ui.replaceTool(null);
+				ui.paintdata(null);
 			}
 			else{
 				//提示错误
 			}
 		}
-		else if(i==3){
+		else if(i==2){
 			sc.endOutStore(1);
 			ui.replaceTool(null);
+			ui.paintdata(null);
 		}
 		
 	}
 	
-	public boolean getInput(String number, String destination, String trans){
-		return true;
+	public boolean getInput(String number, String destination, Trans trans){
+		ResultMessage result = sc.addOutStoreGoods(number, trans, destination);
 		
+		if(result.getKey().equals("success")){
+			ui.paintdata(new OutStoreDataPane((OutStoreVO) result.getValue(), this));
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public void delete(String id){
+		ResultMessage result = sc.delOutStoreGoods(id);
+		
+		if(result.getKey().equals("success")){
+			ui.paintdata(new OutStoreDataPane((OutStoreVO) result.getValue(), this));
+		}
+		else{
+			ui.paintdata(new OutStoreDataPane((OutStoreVO) result.getValue(), this));
+		}
 	}
 }
