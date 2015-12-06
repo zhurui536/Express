@@ -2,8 +2,10 @@ package main.bussinesslogic.financebl;
 
 import main.bussinesslogic.util.PayItem;
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.financeblservice.BankAccountManagementBLService;
 import main.bussinesslogicservice.financeblservice.CreatePayBillBLService;
+import main.bussinesslogicservice.financeblservice.ShowProfitListBLService;
 import main.bussinesslogicservice.financeblservice._stub.FinanceBLService;
 import main.connection.ClientInitException;
 import main.connection.ClientRMIHelper;
@@ -28,9 +30,12 @@ public class FinanceController implements FinanceBLService {
 
     private CreatePayBillBLService createPayBillBL;
 
+    private ShowProfitListBLService showProfitListBL;
+
     public FinanceController() {
         bankAccountManagement = new BankAccountManagementBL();
         createPayBillBL = new CreatePayBillBL();
+        showProfitListBL = new ShowProfitListBL();
     }
 
     // TODO
@@ -55,13 +60,13 @@ public class FinanceController implements FinanceBLService {
             System.out.println(bankAccountVO.name + " " + bankAccountVO.id);
         }
 
-//        Time time = new Time("2015-02-18");
+        Time time = new Time("2015-02-18");
         BigDecimal money = new BigDecimal(1000.50);
         StaffMessageVO staffMessageVO = new StaffMessageVO();
         String id = "41242";
         PayItem item = PayItem.SALARY;
         String remark = "test";
-        PayBillVO payBillVO = new PayBillVO(null, money, staffMessageVO, vo, id, item, remark);
+        PayBillVO payBillVO = new PayBillVO(time, money, staffMessageVO, vo, id, item, remark);
         financeController.createPayBill(payBillVO);
     }
 
@@ -106,12 +111,23 @@ public class FinanceController implements FinanceBLService {
     }
 
     @Override
+    public ResultMessage profitListToExcel() {
+        return null;
+    }
+
+    @Override
     public ResultMessage showReceipt(long time, long id) {
         return null;
     }
 
     @Override
-    public ResultMessage showStatement(long startTime, long endTime) {
+    // TODO
+    public ResultMessage showStatement(Time startTime, Time endTime) {
+        return null;
+    }
+
+    @Override
+    public ResultMessage statementToExcel() {
         return null;
     }
 }

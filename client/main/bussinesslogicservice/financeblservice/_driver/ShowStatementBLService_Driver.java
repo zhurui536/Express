@@ -13,11 +13,11 @@ public class ShowStatementBLService_Driver {
 
     public void drive(ShowStatementBLService showStatementBLService) {
 
-        ResultMessage result = showStatementBLService.showStatement(100, 1000);
+        ResultMessage result = showStatementBLService.showStatement(null, null);
         if (result.getKey().equals("success"))
             System.out.println("show statement pass");
 
-        result = showStatementBLService.showStatement(1000, 100);
+        result = showStatementBLService.showStatement(null, null);
         if (result.getKey().equals("fail"))
             System.out.println("show statement pass");
     }

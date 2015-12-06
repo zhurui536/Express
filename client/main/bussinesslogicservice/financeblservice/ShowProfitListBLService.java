@@ -14,4 +14,10 @@ public interface ShowProfitListBLService {
      * @return ResultMessage
      */
     ResultMessage showProfitList();
+
+    /**
+     * 导出为 excel 表
+     * @return ResultMessage 成功为 SUCCESS 失败为 FAIL
+     */
+    ResultMessage profitListToExcel();
 }

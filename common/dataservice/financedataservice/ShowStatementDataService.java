@@ -1,7 +1,8 @@
 package dataservice.financedataservice;
 
-import po.financepo.StatementPO;
+import main.bussinesslogic.util.ResultMessage;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
@@ -10,13 +11,20 @@ import java.rmi.RemoteException;
  * 2015/10/26
  */
 
-public interface ShowStatementDataService {
+public interface ShowStatementDataService extends Remote {
 
     /**
-     * 找出对应时间段内的经营情况表
-     * @param startTime 开始时间
-     * @param endTime 结束时间
-     * @return StatementPO
+     * TODO
+     * 返回所有收款单
+     * @return ResultMessage
      */
-    StatementPO find(long startTime, long endTime) throws RemoteException;
+    ResultMessage findAllReceiptBill() throws RemoteException;
+
+    /**
+     * TODO
+     * 返回所有付款单
+     * @return ResultMessage
+     * @throws RemoteException
+     */
+    ResultMessage findAllPayBill() throws RemoteException;
 }

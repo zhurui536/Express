@@ -14,4 +14,9 @@ public class ShowProfitListBL implements ShowProfitListBLService {
     public ResultMessage showProfitList() {
         return null;
     }
+
+    @Override
+    public ResultMessage profitListToExcel() {
+        return null;
+    }
 }

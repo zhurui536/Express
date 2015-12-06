@@ -24,7 +24,8 @@ public class ClientRMIHelper {
 
     private static String[] CLASS_NAMES = {
             "BankAccountManagementDataServiceImpl",
-            "CreatePayBillDataServiceImpl"
+            "CreatePayBillDataServiceImpl",
+            "ShowStatementDataServiceImpl"
     };
 
     public synchronized static void init() throws ClientInitException {
