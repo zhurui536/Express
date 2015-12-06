@@ -46,7 +46,7 @@ public class StoreDataService_Stub implements StoreDataService {
 	@Override
 	public ResultMessage find(String id) throws RemoteException {
 		if(Integer.parseInt(id)>=100000000&&Integer.parseInt(id)<=Integer.MAX_VALUE){
-			return new ResultMessage("exist", new GoodsPO(id, "sb", "南京", "北京", 1, 1, PackageType.CARTONS, ExpressType.COURIER,100));
+			return new ResultMessage("exist", new GoodsPO(id, "sb", "南京", "北京", 1, 1, PackageType.CARTONS, ExpressType.COURIER));
 		}
 		else{
 			return new ResultMessage("noexist", null);
@@ -177,7 +177,7 @@ public class StoreDataService_Stub implements StoreDataService {
 	@Override
 	public ResultMessage finds(Calendar start, Calendar end)
 			throws RemoteException {
-		GoodsPO goods = new GoodsPO("111111111", "袁阳阳", "南京", "南京", 0, 0, null, null, 0);
+		GoodsPO goods = new GoodsPO("111111111", "袁阳阳", "南京", "南京", 0, 0, null, null);
 		StorePlacePO place = new StorePlacePO(0, 0, 0 ,0);
 		InStorePO in = new InStorePO(goods, goods.getDestination(), place, new UserPO("10086", "10010"));
 		OutStorePO out = new OutStorePO(goods, place, goods.getDestination(), new UserPO("10086", "10010"), Trans.PLANE, "10010");
