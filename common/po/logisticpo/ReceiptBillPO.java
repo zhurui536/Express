@@ -1,10 +1,8 @@
 package po.logisticpo;
 
 import main.bussinesslogic.util.Time;
-import main.bussinesslogicservice.infoblservice._driver.InstitutionMessageMaintenanceBLService_Driver;
-import main.vo.StaffMessageVO;
 import main.vo.logisticvo.ReceiptBillVO;
-import po.StaffMessagePO;
+import main.vo.logisticvo.ReceiptLineItemVO;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -12,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 收款单PO
- * 2015/12/6
+ * 收款单PO 2015/12/6
  */
 
 public class ReceiptBillPO implements Serializable {
@@ -22,71 +19,66 @@ public class ReceiptBillPO implements Serializable {
 
         private Time time;
 
-    private BigDecimal money;
+        private BigDecimal totalMoney;
 
-    private String deliveryManID;
-    
-    private String institutionID;
+        private String institutionID;
 
-    private List<String> barCodes;
+        private List<ReceiptLineItemPO> receiptLineItemPOs;
 
-    
+        public ReceiptBillPO(Time time, BigDecimal totalMoney,
+                        String institutionID,
+                        List<ReceiptLineItemPO> receiptLineItemPOs) {
+                super();
+                this.time = time;
+                this.totalMoney = totalMoney;
+                this.institutionID = institutionID;
+                this.receiptLineItemPOs = receiptLineItemPOs;
+        }
+        
+        public ReceiptBillVO poToVo() {
+                List<ReceiptLineItemVO> receiptLineItemVOs = new ArrayList<>();
+                for (ReceiptLineItemPO receiptLineItemPO : receiptLineItemPOs) {
+                        receiptLineItemVOs.add(receiptLineItemPO.poToVo());
+                }
+                return new ReceiptBillVO(time, totalMoney, institutionID, receiptLineItemVOs);
+        }
 
-    public ReceiptBillPO(Time time, BigDecimal money, String deliveryManID,
-                String institutionID, List<String> barCodes) {
-        super();
-        this.time = time;
-        this.money = money;
-        this.deliveryManID = deliveryManID;
-        this.institutionID = institutionID;
-        this.barCodes = barCodes;
-}
+        public Time getTime() {
+                return time;
+        }
 
-public ReceiptBillVO poToVo() {
-        List<String> newBarCodes = new ArrayList<>(barCodes);
-        return new ReceiptBillVO(time, money, deliveryManID, institutionID,newBarCodes);
-    }
+        public void setTime(Time time) {
+                this.time = time;
+        }
 
-    public Time getTime() {
-        return time;
-    }
+        public BigDecimal getTotalMoney() {
+                return totalMoney;
+        }
 
-    public void setTime(Time time) {
-        this.time = time;
-    }
+        public void setTotalMoney(BigDecimal totalMoney) {
+                this.totalMoney = totalMoney;
+        }
 
-    public BigDecimal getMoney() {
-        return money;
-    }
+        public String getInstitutionID() {
+                return institutionID;
+        }
 
-    public void setMoney(BigDecimal money) {
-        this.money = money;
-    }
+        public void setInstitutionID(String institutionID) {
+                this.institutionID = institutionID;
+        }
 
-  
+        public List<ReceiptLineItemPO> getReceiptLineItemPOs() {
+                return receiptLineItemPOs;
+        }
 
-    public String getDeliveryManID() {
-        return deliveryManID;
-}
 
-public void setDeliveryManID(String deliveryManID) {
-        this.deliveryManID = deliveryManID;
-}
+        public void setReceiptLineItemPOs(
+                        List<ReceiptLineItemPO> receiptLineItemPOs) {
+                this.receiptLineItemPOs = receiptLineItemPOs;
+        }
 
-public String getInstitutionID() {
-        return institutionID;
-}
 
-public void setInstitutionID(String institutionID) {
-        this.institutionID = institutionID;
-}
 
-public List<String> getBarCodes() {
-        return barCodes;
-    }
 
-    public void setBarCodes(List<String> barCodes) {
-        this.barCodes = barCodes;
-    }
 
 }

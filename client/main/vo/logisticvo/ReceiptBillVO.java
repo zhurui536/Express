@@ -1,10 +1,10 @@
 package main.vo.logisticvo;
 
 import main.bussinesslogic.util.Time;
-import main.vo.StaffMessageVO;
 
 import java.math.BigDecimal;
 import java.util.List;
+
 
 /**
  * Created by Away
@@ -13,22 +13,23 @@ import java.util.List;
 
 public class ReceiptBillVO {
 
-    public Time time;
+        public Time time;
 
-    public BigDecimal money;
+        public BigDecimal totalMoney;
 
-    public String deliveryManID;
-    
-    public String institutionID;
+        public String institutionID;
 
-    public List<String> barCodes;
+        public List<ReceiptLineItemVO> receiptLineItemVOs;
 
-    public ReceiptBillVO(Time time, BigDecimal money,
-                    String deliveryManID, String institutionID,List<String> barCodes) {
-        this.time = time;
-        this.money = money;
-        this.deliveryManID = deliveryManID;
-        this.institutionID = institutionID;
-        this.barCodes = barCodes;
-    }
+        public ReceiptBillVO(Time time, BigDecimal totalMoney,
+                        String institutionID,
+                        List<ReceiptLineItemVO> receiptLineItemVOs) {
+                super();
+                this.time = time;
+                this.totalMoney = totalMoney;
+                this.institutionID = institutionID;
+                this.receiptLineItemVOs = receiptLineItemVOs;
+        }
+        
+        
 }
