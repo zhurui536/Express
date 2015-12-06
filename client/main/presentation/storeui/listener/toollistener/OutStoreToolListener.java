@@ -54,8 +54,8 @@ public class OutStoreToolListener extends ToolListener {
 		
 	}
 	
-	public boolean getInput(String number, String destination, Trans trans){
-		ResultMessage result = sc.addOutStoreGoods(number, trans, destination);
+	public boolean getInput(String number, String destination, Trans trans, String billid){
+		ResultMessage result = sc.addOutStoreGoods(number, trans, destination, billid);
 		
 		if(result.getKey().equals("success")){
 			ui.paintdata(new OutStoreDataPane((OutStoreVO) result.getValue(), this));

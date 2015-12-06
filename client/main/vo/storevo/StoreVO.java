@@ -27,10 +27,10 @@ public class StoreVO {
 						GoodsPO goods = temp.getGoods();
 						if(goods != null){
 							int[] places = new int[4];
-							places[0] = area;
-							places[1] = row;
-							places[2] = shelf;
-							places[3] = place;
+							places[0] = area + 1;
+							places[1] = row + 1;
+							places[2] = shelf + 1;
+							places[3] = place + 1;
 							storeplace.add(places);
 							
 							goodsid.add(goods.getId());

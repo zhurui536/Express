@@ -1,6 +1,7 @@
 package main.vo.storevo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import po.storepo.IORecordPO;
 import po.storepo.InStorePO;
@@ -8,43 +9,78 @@ import po.storepo.OutStorePO;
 import po.storepo.StorePlacePO;
 
 public class CheckVO {
-	private int numOfIn;
-	private int numOfOut;
 	private double valueOfIn;
 	private double valueOfOut;
 	private int numOfEmpty;
 	private int numOfUsed;
 	
-	private ArrayList<String> records;
+	private ArrayList<Calendar> timeOfIn;
+	private ArrayList<Calendar> timeOfOut;
+	private ArrayList<int[]> placeOfIn;
+	private ArrayList<int[]> placeOfOut;
+	private ArrayList<String> idOfIn;
+	private ArrayList<String> idOfOut;
+	
 	
 	public CheckVO(IORecordPO record){
 		ArrayList<InStorePO> in = record.getIn();
 		ArrayList<OutStorePO> out = record.getOut();
-		records = new ArrayList<String>();
-		numOfIn = in.size();
-		numOfOut = out.size();
+		idOfIn = new ArrayList<String>();
+		idOfOut = new ArrayList<String>();
+		placeOfIn = new ArrayList<int[]>();
+		placeOfOut = new ArrayList<int[]>();
+		timeOfIn = new ArrayList<Calendar>();
+		timeOfOut = new ArrayList<Calendar>();
 		valueOfIn = 0;
 		valueOfOut = 0;
 		
 		for(int i=0;i<in.size();i++){
 			valueOfIn += in.get(i).getPrice();
 			StorePlacePO place = in.get(i).getStorePlace();
-			records.add("入库："+" "+in.get(i).getGoodsID()+" "+place.getArea()+" "+place.getRow()+" "+place.getShelf()+" "+place.getPlace());
+			placeOfIn.add(new int[]{place.getArea()+1, place.getRow()+1, place.getShelf()+1, place.getPlace()+1});
+			idOfIn.add(place.getGoods().getId());
+			timeOfIn.add(in.get(i).getDate());
 		}
 		
 		for(int i=0;i<out.size();i++){
 			valueOfOut += out.get(i).getPrice();
 			StorePlacePO place = out.get(i).getStorePlace();
-			records.add("出库："+" "+out.get(i).getGoodsID()+" "+place.getArea()+" "+place.getRow()+" "+place.getShelf()+" "+place.getPlace());
+			placeOfOut.add(new int[]{place.getArea()+1, place.getRow()+1, place.getShelf()+1, place.getPlace()+1});
+			idOfOut.add(place.getGoods().getId());
+			timeOfOut.add(out.get(i).getDate());
 		}
 	}
 	
+	public ArrayList<Calendar> getTimeOfIn(){
+		return this.timeOfIn;
+	}
+	
+	public ArrayList<Calendar> getTimeOfOut(){
+		return this.timeOfOut;
+	}
+	
+	public ArrayList<int[]> getPlaceOfIn(){
+		return this.placeOfIn;
+	}
+	
+	public ArrayList<int[]> getPlaceOfOut(){
+		return this.placeOfOut;
+	}
+	
+	public ArrayList<String> getIDOfIn(){
+		return this.idOfIn;
+	}
+	
+	public ArrayList<String> getIDOfOut(){
+		return this.idOfOut;
+	}
+	
 	public int getNumOfIn(){
-		return this.numOfIn;
+		return this.idOfIn.size();
 	}
 	
 	public int getNumOfOut(){
-		return this.numOfOut;
+		return this.idOfOut.size();
 	}
 	
 	public double getValueOfIn(){

@@ -74,8 +74,8 @@ public class StoreBLController implements StoreBLService {
 
 	@Override
 	public ResultMessage addOutStoreGoods(String id, Trans trans,
-			String Destination) {
-		return outstore.addOutStoreGoods(id, trans, Destination);
+			String Destination, String billid) {
+		return outstore.addOutStoreGoods(id, trans, Destination, billid);
 	}
 
 	@Override

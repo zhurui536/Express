@@ -11,10 +11,10 @@ public interface OutStoreBLService {
 	public ResultMessage newOutStore();
 	
 	/*增加出库货物
-	 * id trans Destination
+	 * id trans Destination billid
 	 * ResultMessage
 	 */
-	public ResultMessage addOutStoreGoods(String id, Trans trans, String Destination);
+	public ResultMessage addOutStoreGoods(String id, Trans trans, String Destination, String billid);
 	
 	/*删除出库货物
 	 * id

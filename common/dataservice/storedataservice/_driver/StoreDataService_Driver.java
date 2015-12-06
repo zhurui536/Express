@@ -31,12 +31,6 @@ public class StoreDataService_Driver {
 		
 		result = sds.find(new StorePlacePO(1, 1, 2, 2));
 		System.out.println(result.getKey());
-		
-		result = sds.delete(null);
-		System.out.println(result.getKey());
-		
-		result = sds.update(new StorePlacePO(1, 1, 2, 2), null);
-		System.out.println(result.getKey());
 
 		//为出库和入库创建货物
 		GoodsPO goods = new GoodsPO("10010", "zhr", "nanjing", "sihong", 1, 3, PackageType.CARTONS, ExpressType.ECONOMIC,0);

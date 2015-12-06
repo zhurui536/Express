@@ -26,7 +26,7 @@ public class AdjustInputFrame extends JFrame implements ActionListener {
 	
 	public AdjustInputFrame(AdjustToolListener listener){
 		this.listener = listener;
-		this.setName("入库货物输入");
+		this.setName("货物调整输入");
 		this.setLayout(null);
 		this.setSize(430, 275);
 		this.setLocation(400, 250);

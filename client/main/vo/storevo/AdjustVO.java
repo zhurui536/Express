@@ -18,8 +18,8 @@ public class AdjustVO {
 			StorePlacePO start = temp.getStart();
 			StorePlacePO end = temp.getEnd();
 			
-			this.start.add(new int[]{start.getArea(), start.getRow(), start.getShelf(), start.getPlace()});
-			this.end.add(new int[]{end.getArea(), end.getRow(), end.getShelf(), end.getPlace()});
+			this.start.add(new int[]{start.getArea()+1, start.getRow()+1, start.getShelf()+1, start.getPlace()+1});
+			this.end.add(new int[]{end.getArea()+1, end.getRow()+1, end.getShelf()+1, end.getPlace()+1});
 		}
 	}
 	

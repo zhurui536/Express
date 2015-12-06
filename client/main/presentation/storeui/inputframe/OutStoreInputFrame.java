@@ -16,7 +16,7 @@ import main.presentation.storeui.listener.toollistener.OutStoreToolListener;
 public class OutStoreInputFrame extends JFrame implements ActionListener{
 	
 	private JButton confirm, cancle;
-	private JTextArea number, destination;
+	private JTextArea number, destination, billid;
 	private JComboBox<String> trans;
 	
 	private JLabel[] list;
@@ -45,15 +45,15 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 		cancle = new JButton("取消");
 		confirm.setSize(60, 25);
 		cancle.setSize(60, 25);
-		confirm.setLocation(250, 190);
-		cancle.setLocation(330, 190);
+		confirm.setLocation(250, 210);
+		cancle.setLocation(330, 210);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
 		this.getContentPane().add(confirm);
 		this.getContentPane().add(cancle);
 		
-		list = new JLabel[3];
-		for(int i=0;i<3;i++){
+		list = new JLabel[4];
+		for(int i=0;i<4;i++){
 			list[i] = new JLabel(listname[i]);
 			list[i].setSize(70, 30);
 			list[i].setLocation(15, 50+40*i);
@@ -70,6 +70,11 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 		destination.setLocation(110, 130);
 		this.getContentPane().add(destination);
 		
+		billid = new JTextArea();
+		billid.setSize(260, 30);
+		billid.setLocation(110, 170);
+		this.getContentPane().add(billid);
+		
 		trans = new JComboBox<String>();
 		for(int i=0;i<transport.length;i++){
 			trans.addItem(transport[i]);
@@ -79,7 +84,7 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 		this.getContentPane().add(trans);
 	}
 	
-	private final String[] listname = {"货物编号：", "装运方式", "目的地："};
+	private final String[] listname = {"货物编号：", "装运方式", "目的地：", "单据编号："};
 	private final String[] transport = {"飞机", "火车", "货车"};
 
 	@Override
@@ -88,7 +93,7 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 			Trans trans;
 			trans = tran[this.trans.getSelectedIndex()];
 			
-			boolean result = listener.getInput(number.getText(), destination.getText(), trans);
+			boolean result = listener.getInput(number.getText(), destination.getText(), trans, billid.getText());
 			if(result == true){
 				this.setVisible(false);
 			}

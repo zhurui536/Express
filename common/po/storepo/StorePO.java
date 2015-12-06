@@ -31,10 +31,10 @@ public class StorePO implements Serializable {
 		this.shelfs = shelfs;
 		this.places = places;
 		store = new ArrayList<StorePlacePO>();
-		for(int area=1;area<=areas;area++){
-			for(int row=1;row<=rows;row++){
-				for(int shelf=1;shelf<=shelfs;shelf++){
-					for(int place=1;place<=places;place++){
+		for(int area=0;area<areas;area++){
+			for(int row=0;row<rows;row++){
+				for(int shelf=0;shelf<shelfs;shelf++){
+					for(int place=0;place<places;place++){
 						StorePlacePO storeplace = new StorePlacePO(area, row, shelf, place);
 						
 						store.add(storeplace);
@@ -47,10 +47,15 @@ public class StorePO implements Serializable {
 	
 	/*获得在某一位置上的库存信息*/
 	public StorePlacePO getStorePlace(int area, int row, int shelf, int place){
-		int index = 0;
-		index = areas*(area) + rows*(row) + shelfs*(shelf) + place;
+		for(int i=0;i<store.size();i++){
+			StorePlacePO temp = store.get(i);
+			
+			if(temp.getArea() == area&&temp.getRow() == row&&temp.getShelf() == shelf&&temp.getPlace() == place){
+				return temp;
+			}
+		}
 		
-		return store.get(index);
+		return null;
 	}
 	
 	/*改变某一位置上的库存状态*/
@@ -60,11 +65,15 @@ public class StorePO implements Serializable {
 		int shelf = storeplace.getShelf();
 		int place = storeplace.getPlace();
 		
-		int index = 0;
-		index = areas*(area) + rows*(row) + shelfs*(shelf) + place;
+		for(int i=0;i<store.size();i++){
+			StorePlacePO temp = store.get(i);
+			if(temp.getArea() == area&&temp.getRow() == row&&temp.getShelf() == shelf&&temp.getPlace() == place){
+				temp.setGoods(storeplace.getGoods());
+				return true;
+			}
+		}
 		
-		store.set(index, storeplace);
-		return true;
+		return false;
 	}
 	
 	/*获得关于库存的参数*/
@@ -113,7 +122,10 @@ public class StorePO implements Serializable {
 			for(int r=0;r<rows;r++){
 				for(int s=0;s<shelfs;s++){
 					for(int p=0;p<places;p++){
-						if(this.getStorePlace(a, r, s, p).ifEmpty()){
+						if(this.getStorePlace(a, r, s, p)==null){
+							System.out.print("* ");
+						}
+						else if(this.getStorePlace(a, r, s, p).ifEmpty()){
 							System.out.print(0+" ");
 						}
 						else{

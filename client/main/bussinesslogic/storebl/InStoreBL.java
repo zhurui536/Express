@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import dataservice.storedataservice.StoreDataService;
-import dataservice.storedataservice._stub.StoreDataService_Stub;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.InStoreBLService;
 import main.data.storedata.StoreDataServiceImpl;
@@ -22,7 +21,7 @@ public class InStoreBL implements InStoreBLService {
 	
 	public InStoreBL(UserPO user){
 		this.user = user;
-		dataservice = new StoreDataService_Stub();
+		dataservice = new StoreDataServiceImpl();
 	}
 
 	@Override
@@ -34,27 +33,36 @@ public class InStoreBL implements InStoreBLService {
 	@Override
 	public ResultMessage addInStoreGoods(String id, StorePlaceVO p,
 			String destination) {
+		if(ifAppear(p)){
+			return new ResultMessage("usedplace", null);
+		}
 		StorePlacePO place = new StorePlacePO(p.getArea(), p.getRow(), p.getShelf(), p.getPlace());
 		try {
-			ResultMessage result = dataservice.getGoods(id);
-			if(result.getKey().equals("noexist")){
-				return new ResultMessage("noexist", new InStoreVO(goodslist));
+			ResultMessage result = dataservice.find(id);
+			if(result.getKey().equals("noexist")){//货物不存在时，返回不存在
+				return new ResultMessage("noexist", null);
 			}
-			else{
+			else{//货物存在时，继续检查该位置
 				GoodsPO goods = (GoodsPO) result.getValue();
 				result = dataservice.find(place);
-				StorePlacePO theplace = (StorePlacePO) result.getValue();
-				if(!theplace.ifEmpty()){
-					return new ResultMessage("usedplace", new InStoreVO(goodslist));
+				if(result.getKey().equals("success")){
+					StorePlacePO theplace = (StorePlacePO) result.getValue();
+					if(!theplace.ifEmpty()){//该位置有货物时，返回对应的结果
+						return new ResultMessage("usedplace", null);
+					}
+					else{//该位置没有货物时，返回输入成功
+						goodslist.add(new InStorePO(goods, destination, place, user));
+						return new ResultMessage("success", new InStoreVO(goodslist));
+					}
 				}
-				else{
-					goodslist.add(new InStorePO(goods, destination, place, user));
-					return new ResultMessage("success", new InStoreVO(goodslist));
+				else{//返回其他查找结果
+					return result;
 				}
+				
 			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
-			return new ResultMessage("internet error", new InStoreVO(goodslist));
+			return new ResultMessage("internet error", null);
 		}
 	}
 
@@ -71,32 +79,35 @@ public class InStoreBL implements InStoreBLService {
 
 	@Override
 	public ResultMessage endInStore(int condition) {
-		if(condition == 0){
-			for(int i=0;i<goodslist.size();i++){
-				try {
-					dataservice.update(goodslist.get(i).getStorePlace(), goodslist.get(i).getGoods());
-				} catch (RemoteException e) {
-					e.printStackTrace();
-					return new ResultMessage("internet error", null);
-				}
-			}
-			
+		if(condition == 0){//0表示确定结束入库
 			try {
 				dataservice.saveInStore(goodslist);
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-				return new ResultMessage("internet error", new InStoreVO(goodslist));
+				return new ResultMessage("internet error", null);
 			}
 			
 			return new ResultMessage("success", null);
 		}
-		else if(condition == 1){
+		else if(condition == 1){//1表示取消入库
 			return new ResultMessage("success", null);
 		}
 		
 		return new ResultMessage("unknown operation", null);
 
+	}
+	
+	//检查新的位置是否已经出现过
+	private boolean ifAppear(StorePlaceVO newplace){
+		for(int i=0;i<goodslist.size();i++){
+			InStorePO temp = goodslist.get(i);
+			StorePlacePO place = temp.getStorePlace();
+			
+			if(place.getArea()==newplace.getArea()&&place.getRow()==newplace.getRow()&&place.getShelf()==newplace.getShelf()&&place.getPlace()==newplace.getPlace())
+				return true;
+		}
+		
+		return false;
 	}
 
 }

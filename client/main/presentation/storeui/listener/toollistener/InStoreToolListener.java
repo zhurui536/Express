@@ -47,9 +47,14 @@ public class InStoreToolListener extends ToolListener {
 			}
 		}
 		else if(i==2){
-			sc.endInStore(1);
-			ui.replaceTool(null);
-			ui.paintdata(null);
+			ResultMessage result = sc.endInStore(1);
+			if(result.getKey().equals("success")){
+				ui.replaceTool(null);
+				ui.paintdata(null);
+			}
+			else{
+				//提示错误
+			}
 		}
 	}
 	
@@ -61,6 +66,7 @@ public class InStoreToolListener extends ToolListener {
 			return true;
 		}
 		else{
+			//提示错误
 			return false;
 		}
 	}

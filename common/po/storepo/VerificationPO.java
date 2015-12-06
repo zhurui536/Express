@@ -1,5 +1,6 @@
 package po.storepo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import po.UserPO;
@@ -8,7 +9,11 @@ import po.UserPO;
  * Created By ZHR
  * 2015/10/26
  */
-public class VerificationPO {
+public class VerificationPO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3037996975225884855L;
 	/*库存中现有货物的列表*/
 	private ArrayList<StorePlacePO> goodslist;
 	/*盘点的用户*/

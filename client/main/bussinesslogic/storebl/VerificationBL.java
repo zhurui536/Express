@@ -33,7 +33,6 @@ public class VerificationBL implements VerificationBLService {
 			
 			return new ResultMessage("success", this.store);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return new ResultMessage("internet error", null);
 		}
