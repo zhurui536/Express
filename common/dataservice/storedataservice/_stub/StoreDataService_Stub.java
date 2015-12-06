@@ -72,7 +72,6 @@ public class StoreDataService_Stub implements StoreDataService {
 		return new ResultMessage("success", store.getStorePlace(place.getArea(), place.getRow(), place.getShelf(), place.getPlace()));
 	}
 
-	@Override
 	public ResultMessage delete(GoodsPO po) throws RemoteException {
 		StorePO store = null;
 		try {
@@ -117,7 +116,6 @@ public class StoreDataService_Stub implements StoreDataService {
 		return new ResultMessage("noexist", null);
 	}
 
-	@Override
 	public ResultMessage update(StorePlacePO place, GoodsPO po)
 			throws RemoteException {
 		StorePO store = null;
@@ -151,7 +149,6 @@ public class StoreDataService_Stub implements StoreDataService {
 	@Override
 	public ResultMessage saveInStore(ArrayList<InStorePO> po)
 			throws RemoteException {
-		// TODO Auto-generated method stub
 		System.out.println("Saving " + po.size() + "InStore records!");
 		return new ResultMessage("success", null);
 	}
@@ -159,7 +156,6 @@ public class StoreDataService_Stub implements StoreDataService {
 	@Override
 	public ResultMessage saveOutStore(ArrayList<OutStorePO> po)
 			throws RemoteException {
-		// TODO Auto-generated method stub
 		System.out.println("Saving " + po.size() + "OutStore records!");
 		return new ResultMessage("success", null);
 	}
@@ -167,7 +163,6 @@ public class StoreDataService_Stub implements StoreDataService {
 	@Override
 	public ResultMessage saveVerification(VerificationPO po)
 			throws RemoteException {
-		// TODO Auto-generated method stub
 		System.out.println("Saving Verification records!");
 		
 		return new ResultMessage("success", null);
@@ -175,14 +170,8 @@ public class StoreDataService_Stub implements StoreDataService {
 
 	@Override
 	public ResultMessage saveAdjust(ArrayList<AdjustPO> po) throws RemoteException {
-		// TODO Auto-generated method stub
 		System.out.println("Saving adjust records!");
 		return new ResultMessage("success", null);
-	}
-
-	@Override
-	public ResultMessage getGoods(String id) throws RemoteException {
-		return new ResultMessage("success", new GoodsPO(id, "袁阳阳", "南京", "南京", 0, 0, null, null, 0));
 	}
 
 	@Override

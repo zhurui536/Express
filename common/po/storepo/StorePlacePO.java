@@ -13,7 +13,7 @@ public class StorePlacePO implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -1975714771845618135L;
 	//区号
 	private int area;
 	//排号

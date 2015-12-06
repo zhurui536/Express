@@ -1,5 +1,6 @@
 package po.storepo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import po.GoodsPO;
@@ -10,7 +11,11 @@ import po.UserPO;
  * 2015/10/26
  */
 
-public class InStorePO{
+public class InStorePO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -979063192905781325L;
 	//出入库的货物
 	private GoodsPO goods;
 	//出入库的时间

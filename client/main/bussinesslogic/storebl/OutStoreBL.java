@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import po.GoodsPO;
 import po.UserPO;
 import po.storepo.OutStorePO;
+import po.storepo.StorePlacePO;
 import dataservice.storedataservice.StoreDataService;
-import dataservice.storedataservice._stub.StoreDataService_Stub;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
 import main.bussinesslogicservice.storeblservice.OutStoreBLService;
@@ -21,7 +21,7 @@ public class OutStoreBL implements OutStoreBLService {
 	private ArrayList<OutStorePO> goodslist;
 	
 	public OutStoreBL(UserPO user){
-		dataservice = new StoreDataService_Stub();
+		dataservice = new StoreDataServiceImpl();
 		this.user = user;
 		
 	}
@@ -34,20 +34,29 @@ public class OutStoreBL implements OutStoreBLService {
 
 	@Override
 	public ResultMessage addOutStoreGoods(String id, Trans trans,
-			String Destination) {
-		try {
+			String Destination, String billid) {
+		//检查该货物的id是否已经输入
+		for(int i=0;i<goodslist.size();i++){
+			OutStorePO temp = goodslist.get(i);
+			if(temp.getGoodsID().equals(id)){
+				return new ResultMessage("inputedid", null);
+			}
+		}
+		try {//id无误之后检查该id是否在库存中
 			ResultMessage result = dataservice.ifInStore(id);
 			if(result.getKey().equals("exist")){
-				GoodsPO thegoods = (GoodsPO) result.getValue();
-				goodslist.add(new OutStorePO(thegoods, null, Destination, user, trans, Destination));
+				StorePlacePO place = (StorePlacePO) result.getValue();
+				goodslist.add(new OutStorePO(place.getGoods(), place, Destination, user, trans, billid));
 				
 				return new ResultMessage("success", new OutStoreVO(goodslist));
 			}
-			else{
+			else if(result.getKey().equals("noexist")){
 				return new ResultMessage("noexist", new OutStoreVO(goodslist));
 			}
+			else{
+				return result;
+			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return new ResultMessage("internet error", new OutStoreVO(goodslist));
 		}
@@ -55,7 +64,7 @@ public class OutStoreBL implements OutStoreBLService {
 
 	@Override
 	public ResultMessage delOutStoreGoods(String id) {
-		for(int i=0;i<goodslist.size();i++){
+		for(int i=0;i<goodslist.size();i++){//检查书否有该货物，如果有则删除
 			if(id.equals(goodslist.get(i).getGoodsID())){
 				goodslist.remove(i);
 				return new ResultMessage("success", new OutStoreVO(goodslist));
@@ -66,27 +75,18 @@ public class OutStoreBL implements OutStoreBLService {
 
 	@Override
 	public ResultMessage endOutStore(int condition) {
-		if(condition == 0){
-			for(int i=0;i<goodslist.size();i++){
-				try {
-					dataservice.delete(goodslist.get(i).getGoods());
-				} catch (RemoteException e) {
-					e.printStackTrace();
-					return new ResultMessage("internet error", new OutStoreVO(goodslist));
-				}
-			}
-			
+		if(condition == 0){//0代表确定结束出库
+			//保存出库记录
 			try {
 				dataservice.saveOutStore(goodslist);
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return new ResultMessage("internet error", new OutStoreVO(goodslist));
 			}
 			
 			return new ResultMessage("success", new OutStoreVO(goodslist));
 		}
-		else if(condition == 1){
+		else if(condition == 1){//1代表取消出库
 			return new ResultMessage("success", new OutStoreVO(goodslist));
 		}
 		

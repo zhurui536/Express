@@ -1,5 +1,6 @@
 package po.storepo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import main.bussinesslogic.util.Trans;
@@ -10,7 +11,11 @@ import main.bussinesslogic.util.Trans;
 import po.GoodsPO;
 import po.UserPO;
 
-public class OutStorePO{
+public class OutStorePO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -244095981845590252L;
 	//出入库的货物
 	private GoodsPO goods;
 	//出入库的时间

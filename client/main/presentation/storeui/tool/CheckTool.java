@@ -1,7 +1,6 @@
 package main.presentation.storeui.tool;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -30,26 +29,6 @@ public class CheckTool extends JPanel implements GetButtonOfTool{
 		buttons[1].setLocation(880, 35);
 		buttons[1].addActionListener(tl);
 		this.add(buttons[1]);
-		
-		JLabel starttime = new JLabel("起始时间：");
-		starttime.setSize(80, 40);
-		starttime.setLocation(145, 35);
-		this.add(starttime);
-		
-		startt = new JTextArea();
-		startt.setSize(100, 40);
-		startt.setLocation(235, 35);
-		this.add(startt);
-		
-		JLabel endtime = new JLabel("终止时间：");
-		endtime.setSize(80, 40);
-		endtime.setLocation(355, 35);
-		this.add(endtime);
-		
-		endt = new JTextArea();
-		endt.setSize(100, 40);
-		endt.setLocation(445, 35);
-		this.add(endt);
 	}
 	
 	@Override
@@ -63,6 +42,6 @@ public class CheckTool extends JPanel implements GetButtonOfTool{
 
 	@Override
 	public int getNumOfButton() {
-		return 2;
+		return buttons.length;
 	}
 }

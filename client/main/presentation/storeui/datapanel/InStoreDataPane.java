@@ -30,7 +30,7 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 		//将容器的大小设计为货物数量加1对应的大小
 		this.setSize(810, goodslist.size()*60 + 60);
 		this.setLayout(null);
-		 
+		
 		//第一行放置对应的目录
 		JPanel type = new JPanel();
 		type.setSize(810, 60);
@@ -77,7 +77,7 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 	}
 	
 	//制作入库项的panel的方法
-	public JPanel makeItem(String id, int[] place, String destination){
+	private JPanel makeItem(String id, int[] place, String destination){
 		JPanel item = new JPanel();
 		item.setSize(810, 60);
 		item.setLayout(null);
