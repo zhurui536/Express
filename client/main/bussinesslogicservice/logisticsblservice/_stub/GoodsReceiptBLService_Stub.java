@@ -5,6 +5,7 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.GoodsReceiptBLService;
 import main.vo.BillVO;
 import main.vo.logisticvo.ArrivalBillVO;
+import main.vo.logisticvo.LoadingBillVO;
 
 /**
  * @author zhuding

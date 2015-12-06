@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import main.vo.logisticvo.LoadingBillVO;
-
+/**
+ * 装车单
+ * @author zhuding
+ */
 public class LoadingBillPO implements Serializable {
 
         private static final long serialVersionUID = 1L;

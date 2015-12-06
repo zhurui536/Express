@@ -6,9 +6,13 @@ import main.bussinesslogic.util.BillState;
 import main.vo.logisticvo.SendBillVO;
 
 import po.GoodsPO;
-
-@SuppressWarnings("serial")
+/**
+ * 寄件单
+ * @author zhuding
+ */
 public class SendBillPO implements Serializable {
+        
+        private static final long serialVersionUID = 1L;
         // 寄件人信息
         private PeopleMessagePO senderPO;
         // 收件人信息

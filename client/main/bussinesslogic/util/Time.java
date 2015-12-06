@@ -1,6 +1,7 @@
 package main.bussinesslogic.util;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ public class Time implements Comparable<Time>,Serializable{
 
         private static final long serialVersionUID = 1L;
 
-        private static final SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        private static final SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         private Date date;
         
@@ -17,8 +18,14 @@ public class Time implements Comparable<Time>,Serializable{
                 date = new Date();
         }
         
-        public Date getDate() {
-                return date;
+        public Time(String time) {
+                SimpleDateFormat fmt =new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                        date = fmt.parse(time);
+                } catch (ParseException e) {
+                        e.printStackTrace();
+                        date = new Date();
+                }
         }
 
         @Override
@@ -28,10 +35,10 @@ public class Time implements Comparable<Time>,Serializable{
 
         @Override
         public int compareTo(Time o) {
-                if (date.before(o.getDate())) {
+                if (date.before(o.date)) {
                         return -1;
                 }
-                else if(o.getDate().before(date)){
+                else if(o.date.before(date)){
                         return 1;
                 }
                 return 0;

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import po.GoodsPO;
 import dataservice.logisticsdataservice.DeliveryDataService;
+import main.bussinesslogic.util.GoodsDeliveryState;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.DeliveryBLService;
 
@@ -30,6 +31,7 @@ public class DeliveryBL implements DeliveryBLService{
                 }
                 goodsPO.setRecipient(Recipients);
                 goodsPO.setReceiveTime(time);
+                goodsPO.setGoodsDeliveryState(GoodsDeliveryState.DELIVERED);
                 goodsPOsList.add(goodsPO);
                
                 return new ResultMessage("SUCCESS", null);

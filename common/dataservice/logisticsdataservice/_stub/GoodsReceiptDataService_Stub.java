@@ -2,9 +2,12 @@ package dataservice.logisticsdataservice._stub;
 
 import java.rmi.RemoteException;
 
+import po.logisticpo.ArrivalBillPO;
+import po.logisticpo.DeliveryBillPO;
+
 import dataservice.logisticsdataservice.GoodsReceiptDataService;
 import main.bussinesslogic.util.BillType;
-import po.BillPO;
+import main.bussinesslogic.util.ResultMessage;
 
 /**
  * @author zhuding
@@ -13,14 +16,23 @@ import po.BillPO;
 public class GoodsReceiptDataService_Stub implements GoodsReceiptDataService {
 
         @Override
-        public BillPO findBill(long id) throws RemoteException {
+        public ResultMessage findBill(String id) throws RemoteException {
                 // TODO Auto-generated method stub
-                return new BillPO("0000", BillType.TRANSIT, "zhuding");
+//                return new BillPO("0000", BillType.TRANSIT, "zhuding");
+                return null;
         }
 
         @Override
-        public void insertBill(BillPO bill) throws RemoteException {
+        public ResultMessage insertBill(DeliveryBillPO bill) throws RemoteException {
                 System.out.println("insert successfully");
+                return null;
+        }
+
+        @Override
+        public ResultMessage insertBill(ArrivalBillPO bill)
+                        throws RemoteException {
+                // TODO Auto-generated method stub
+                return null;
         }
 
 

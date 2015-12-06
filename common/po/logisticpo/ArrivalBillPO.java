@@ -3,7 +3,10 @@ package po.logisticpo;
 import java.io.Serializable;
 
 import main.bussinesslogic.util.GoodsState;
-
+/**
+ * 到达单
+ * @author zhuding
+ */
 public class ArrivalBillPO implements Serializable {
 
         private static final long serialVersionUID = 1L;

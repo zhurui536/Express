@@ -21,18 +21,18 @@ public class GoodsReceiptDataService_Driver {
       public void drive() {
                 BillPO billPO = null;
                 try {
-                        billPO = goodsReceiptDataService.findBill(00000);
+                        billPO = (BillPO) goodsReceiptDataService.findBill("00000").getValue();
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                 }
                 System.out.println(billPO.getBillType());
-                try {
-                        goodsReceiptDataService.insertBill(billPO);
-                } catch (RemoteException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                }
+//                try {
+//                        goodsReceiptDataService.insertBill(billPO);
+//                } catch (RemoteException e) {
+//                        // TODO Auto-generated catch block
+//                        e.printStackTrace();
+//                }
       }
       
       public static void main(String[] args) {
