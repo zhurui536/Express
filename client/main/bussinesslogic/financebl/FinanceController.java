@@ -1,12 +1,20 @@
 package main.bussinesslogic.financebl;
 
+import main.bussinesslogic.util.PayItem;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.BankAccountManagementBLService;
+import main.bussinesslogicservice.financeblservice.CreatePayBillBLService;
 import main.bussinesslogicservice.financeblservice._stub.FinanceBLService;
 import main.connection.ClientInitException;
 import main.connection.ClientRMIHelper;
 import main.vo.AccountVO;
 import main.vo.BankAccountVO;
+import main.vo.PayBillVO;
+import main.vo.StaffMessageVO;
+import po.financepo.BankAccountPO;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
 
 /**
  * 控制器，用于控制财务层的逻辑
@@ -16,10 +24,13 @@ import main.vo.BankAccountVO;
 
 public class FinanceController implements FinanceBLService {
 
-    BankAccountManagementBLService bankAccountManagement;
+    private BankAccountManagementBLService bankAccountManagement;
+
+    private CreatePayBillBLService createPayBillBL;
 
     public FinanceController() {
         bankAccountManagement = new BankAccountManagementBL();
+        createPayBillBL = new CreatePayBillBL();
     }
 
     // TODO
@@ -30,19 +41,28 @@ public class FinanceController implements FinanceBLService {
             e.printStackTrace();
         }
         FinanceController financeController = new FinanceController();
-//        BankAccountVO vo = new BankAccountVO("线性代数", null, "123456789");
-//        BankAccountVO vo2 = new BankAccountVO("微积分和线性代数", null, "123456789");
-//        BankAccountVO vo3 = new BankAccountVO("分和", null, null);
-//        financeController.createMember(vo);
-//        financeController.updateMember(vo2);
-//        ResultMessage message = financeController.inquireMember(vo2);
-//        ResultMessage message1 = financeController.inquireMember(vo3);
-//        ArrayList<BankAccountVO> bankAccountVOs = (ArrayList<BankAccountVO>) message1.getValue();
-//        System.out.println(message.getKey());
-//        System.out.println(((BankAccountPO)message.getValue()).getId());
-//        for (BankAccountVO bankAccountVO : bankAccountVOs) {
-//            System.out.println(bankAccountVO.name + " " + bankAccountVO.id);
-//        }
+        BankAccountVO vo = new BankAccountVO("线性代数", null, "123456789");
+        BankAccountVO vo2 = new BankAccountVO("微积分和线性代数", null, "123456789");
+        BankAccountVO vo3 = new BankAccountVO("分和", null, null);
+        financeController.createMember(vo);
+        financeController.updateMember(vo2);
+        ResultMessage message = financeController.inquireMember(vo2);
+        ResultMessage message1 = financeController.inquireMember(vo3);
+        ArrayList<BankAccountVO> bankAccountVOs = (ArrayList<BankAccountVO>) message1.getValue();
+        System.out.println(message.getKey());
+        System.out.println(((BankAccountPO)message.getValue()).getId());
+        for (BankAccountVO bankAccountVO : bankAccountVOs) {
+            System.out.println(bankAccountVO.name + " " + bankAccountVO.id);
+        }
+
+//        Time time = new Time("2015-02-18");
+        BigDecimal money = new BigDecimal(1000.50);
+        StaffMessageVO staffMessageVO = new StaffMessageVO();
+        String id = "41242";
+        PayItem item = PayItem.SALARY;
+        String remark = "test";
+        PayBillVO payBillVO = new PayBillVO(null, money, staffMessageVO, vo, id, item, remark);
+        financeController.createPayBill(payBillVO);
     }
 
     @Override
@@ -71,8 +91,13 @@ public class FinanceController implements FinanceBLService {
     }
 
     @Override
-    public ResultMessage createPayList() {
+    public ResultMessage inquireInitInfo() {
         return null;
+    }
+
+    @Override
+    public ResultMessage createPayBill(PayBillVO payBillVO) {
+        return createPayBillBL.createPayBill(payBillVO);
     }
 
     @Override

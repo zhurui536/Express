@@ -15,4 +15,10 @@ public interface CreateAccountingBLService {
      * @return ResultMessage
      */
     ResultMessage createAccounting(AccountVO accountVO);
+
+    /**
+     * 查看期初信息
+     * @return ResultMessage
+     */
+    ResultMessage inquireInitInfo();
 }

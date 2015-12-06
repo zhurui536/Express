@@ -1,8 +1,11 @@
 package main.bussinesslogic.financebl;
 
+import dataservice.financedataservice.CreateAccountingDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.CreateAccountingBLService;
+import main.connection.ClientRMIHelper;
 import main.vo.AccountVO;
+import po.financepo.AccountPO;
 
 /**
  * 账本
@@ -11,8 +14,21 @@ import main.vo.AccountVO;
  */
 
 public class CreateAccountingBL implements CreateAccountingBLService {
+
+    CreateAccountingDataService createAccountingData;
+
+    public CreateAccountingBL() {
+        createAccountingData = (CreateAccountingDataService) ClientRMIHelper.getServiceByName("CreateAccountingDataServiceImpl");
+    }
+
     @Override
     public ResultMessage createAccounting(AccountVO accountVO) {
+        AccountPO accountPO = new AccountPO(accountVO);
+        return null;
+    }
+
+    @Override
+    public ResultMessage inquireInitInfo() {
         return null;
     }
 }

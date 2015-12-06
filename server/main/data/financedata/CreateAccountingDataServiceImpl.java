@@ -19,13 +19,13 @@ public class CreateAccountingDataServiceImpl extends UnicastRemoteObject impleme
 
     private static final String PATH = "server/save/financedata/AccountPO.dat";
 
-    protected CreateAccountingDataServiceImpl() throws RemoteException {
+    public CreateAccountingDataServiceImpl() throws RemoteException {
         super();
     }
 
     @Override
     public ResultMessage initInsert(AccountPO po) throws RemoteException {
-
+        return null;
     }
 
 }

@@ -1,6 +1,7 @@
 package dataservice.financedataservice._stub;
 
 import dataservice.financedataservice.CreateAccountingDataService;
+import main.bussinesslogic.util.ResultMessage;
 import po.financepo.AccountPO;
 
 import java.rmi.RemoteException;
@@ -14,7 +15,8 @@ import java.rmi.RemoteException;
 public class CreateAccountingDataService_Stub implements CreateAccountingDataService {
 
     @Override
-    public void initInsert(AccountPO po) throws RemoteException {
+    public ResultMessage initInsert(AccountPO po) throws RemoteException {
         System.out.println("initInsert success");
+        return null;
     }
 }

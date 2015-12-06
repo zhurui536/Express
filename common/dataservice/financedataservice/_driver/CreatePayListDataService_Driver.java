@@ -1,9 +1,7 @@
 package dataservice.financedataservice._driver;
 
-import dataservice.financedataservice.CreatePayListDataService;
-import dataservice.financedataservice._stub.CreatePayListDataService_Stub;
-import main.bussinesslogic.util.BillType;
-import po.BillPO;
+import dataservice.financedataservice.CreatePayBillDataService;
+import dataservice.financedataservice._stub.CreatePayBillDataService_Stub;
 
 import java.rmi.RemoteException;
 
@@ -15,17 +13,17 @@ import java.rmi.RemoteException;
 
 public class CreatePayListDataService_Driver {
 
-    public void drive(CreatePayListDataService createPayListDataService) {
+    public void drive(CreatePayBillDataService createPayBillDataService) {
         try {
-            createPayListDataService.insert(new BillPO("000000001", BillType.DELIVERY, "away"));
+            createPayBillDataService.insert(null);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
-        CreatePayListDataService createPayListDataService = new CreatePayListDataService_Stub();
+        CreatePayBillDataService createPayBillDataService = new CreatePayBillDataService_Stub();
         CreatePayListDataService_Driver createPayListDataService_driver = new CreatePayListDataService_Driver();
-        createPayListDataService_driver.drive(createPayListDataService);
+        createPayListDataService_driver.drive(createPayBillDataService);
     }
 }
