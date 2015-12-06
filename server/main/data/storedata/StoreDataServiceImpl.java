@@ -101,7 +101,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	@Override
 	public ResultMessage find(String id) throws RemoteException {
 		if(Integer.parseInt(id)>=100000000&&Integer.parseInt(id)<=Integer.MAX_VALUE){
-			return new ResultMessage("exist", new GoodsPO(id, "sb", "南京", "北京", 1, 1, PackageType.CARTONS, ExpressType.COURIER, 100));
+			return new ResultMessage("exist", new GoodsPO(id, "sb", "南京", "北京", 1, 1, PackageType.CARTONS, ExpressType.COURIER));
 		}
 		else{
 			return new ResultMessage("noexist", null);
