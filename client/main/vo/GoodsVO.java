@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import main.bussinesslogic.util.ExpressType;
 import main.bussinesslogic.util.GoodsDeliveryState;
 import main.bussinesslogic.util.PackageType;
+import main.bussinesslogic.util.Time;
 
 /**
  * Created by Away
@@ -35,9 +36,9 @@ public class GoodsVO {
         //货物的快递单号
         public String id;
         //货物的出发时间
-        public long startTime;
+        public Time startTime;
         // 货物的接受时间
-        public long receiveTime;
+        public Time receiveTime;
         //金额
         public double price;
 //        

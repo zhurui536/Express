@@ -23,7 +23,7 @@ public class DeliveryBLService_Driver {
         }
         
         public void drive() {
-                deliveryBLService.addRecMessage("NULL", "0000000000", 10);
+//                deliveryBLService.addRecMessage("NULL", "0000000000", 10);
                 deliveryBLService.endDelivery();
         }
 }

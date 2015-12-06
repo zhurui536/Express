@@ -3,6 +3,7 @@ package main.bussinesslogicservice.logisticsblservice._stub;
 import main.bussinesslogic.util.ExpressType;
 import main.bussinesslogic.util.PackageType;
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.logisticsblservice.DeliveryBLService;
 import po.GoodsPO;
 
@@ -16,7 +17,7 @@ public class DeliveryBLService_Stub implements DeliveryBLService{
         }
         
         @Override
-        public ResultMessage addRecMessage(String Recipients, String id, long time) {
+        public ResultMessage addRecMessage(String Recipients, String id, Time time) {
 //                GoodsPO goodsPO = new GoodsPO("0000000000","核弹", "南京","北京" ,3, 40, PackageType.COURIER_BAG, ExpressType.EXPRESS);
 //                goodsPO.setRecipient(Recipients);
 //                goodsPO.setTime(time);

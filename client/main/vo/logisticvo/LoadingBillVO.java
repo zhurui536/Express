@@ -2,11 +2,13 @@ package main.vo.logisticvo;
 
 import java.util.ArrayList;
 
+import main.bussinesslogic.util.Time;
+
 public class LoadingBillVO {
         // 录入机构
         public String institution;
         // 装车日期
-        public String date;
+        public Time date;
         // 汽运编号（中转中心编号+日期+七位数字 或 营业厅编号 + 日期 + 五位数字）
         public String transferNum;
         // 到达地

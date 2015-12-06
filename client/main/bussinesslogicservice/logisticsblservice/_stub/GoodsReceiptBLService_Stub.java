@@ -22,7 +22,7 @@ public class GoodsReceiptBLService_Stub implements GoodsReceiptBLService{
         }
 
         @Override
-        public ResultMessage produceSendBill(String deliverManId) {
+        public ResultMessage produceDeliveryBill(String deliverManId) {
                 //TODO
                 //调数据层操作
                 return null;

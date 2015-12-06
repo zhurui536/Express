@@ -7,6 +7,7 @@ import po.GoodsPO;
 import dataservice.logisticsdataservice.DeliveryDataService;
 import main.bussinesslogic.util.GoodsDeliveryState;
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.logisticsblservice.DeliveryBLService;
 
 public class DeliveryBL implements DeliveryBLService{
@@ -22,7 +23,7 @@ public class DeliveryBL implements DeliveryBLService{
         }
 
         @Override
-        public ResultMessage addRecMessage(String Recipients, String id, long time) {
+        public ResultMessage addRecMessage(String Recipients, String id, Time time) {
                 GoodsPO goodsPO = null;
                 try {
                         goodsPO = deliveryDataService.findGoods(id);
