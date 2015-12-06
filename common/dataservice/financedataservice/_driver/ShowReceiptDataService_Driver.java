@@ -15,7 +15,7 @@ public class ShowReceiptDataService_Driver {
 
     public void drive(ShowReceiptDataService showReceiptDataService) {
         try {
-            showReceiptDataService.find(10000, 13213);
+            showReceiptDataService.findAll();
         } catch (RemoteException e) {
             e.printStackTrace();
         }

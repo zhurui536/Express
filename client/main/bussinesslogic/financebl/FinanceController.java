@@ -2,10 +2,7 @@ package main.bussinesslogic.financebl;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Time;
-import main.bussinesslogicservice.financeblservice.BankAccountManagementBLService;
-import main.bussinesslogicservice.financeblservice.CreatePayBillBLService;
-import main.bussinesslogicservice.financeblservice.ShowProfitListBLService;
-import main.bussinesslogicservice.financeblservice.ShowStatementBLService;
+import main.bussinesslogicservice.financeblservice.*;
 import main.bussinesslogicservice.financeblservice._stub.FinanceBLService;
 import main.connection.ClientInitException;
 import main.connection.ClientRMIHelper;
@@ -13,6 +10,8 @@ import main.vo.AccountVO;
 import main.vo.BankAccountVO;
 import main.vo.PayBillVO;
 import main.vo.StatementVO;
+import main.vo.logisticvo.ReceiptBillVO;
+import main.vo.logisticvo.ReceiptLineItemVO;
 import po.financepo.BankAccountPO;
 
 import java.util.ArrayList;
@@ -34,11 +33,14 @@ public class FinanceController implements FinanceBLService {
 
     private ShowStatementBLService showStatementBL;
 
+    private ShowReceiptBLService showReceiptBL;
+
     public FinanceController() {
         bankAccountManagement = new BankAccountManagementBL();
         createPayBillBL = new CreatePayBillBL();
         showProfitListBL = new ShowProfitListBL();
         showStatementBL = new ShowStatementBL();
+        showReceiptBL = new ShowReceiptBL();
     }
 
     // TODO
@@ -77,6 +79,14 @@ public class FinanceController implements FinanceBLService {
         List<PayBillVO> payBillVOs = statementVO.payBillVOs;
         for (PayBillVO t : payBillVOs) {
             System.out.println(t.staffMessageVO.name);
+        }
+
+        List<ReceiptBillVO> receiptBillVOs = (List<ReceiptBillVO>) financeController.showReceipt(time, "1234").getValue();
+        for (ReceiptBillVO vo1 : receiptBillVOs) {
+            List<ReceiptLineItemVO> receiptLineItemVOs = vo1.receiptLineItemVOs;
+            for (ReceiptLineItemVO vo4 : receiptLineItemVOs) {
+                System.out.println(vo4.barCode);
+            }
         }
     }
 
@@ -127,7 +137,7 @@ public class FinanceController implements FinanceBLService {
 
     @Override
     public ResultMessage showReceipt(Time time, String id) {
-        return null;
+        return showReceiptBL.showReceipt(time, id);
     }
 
     @Override

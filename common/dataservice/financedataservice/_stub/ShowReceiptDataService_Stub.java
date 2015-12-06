@@ -1,8 +1,7 @@
 package dataservice.financedataservice._stub;
 
 import dataservice.financedataservice.ShowReceiptDataService;
-import main.bussinesslogic.util.BillType;
-import po.BillPO;
+import main.bussinesslogic.util.ResultMessage;
 
 import java.rmi.RemoteException;
 
@@ -15,8 +14,8 @@ import java.rmi.RemoteException;
 public class ShowReceiptDataService_Stub implements ShowReceiptDataService {
 
     @Override
-    public BillPO find(long time, long id) throws RemoteException {
+    public ResultMessage findAll() throws RemoteException {
         System.out.println("receipt find success");
-        return new BillPO("123456789", BillType.DELIVERY, "away");
+        return null;
     }
 }

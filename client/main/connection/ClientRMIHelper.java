@@ -26,6 +26,7 @@ public class ClientRMIHelper {
             "BankAccountManagementDataServiceImpl",
             "CreatePayBillDataServiceImpl",
             "ShowStatementDataServiceImpl",
+            "ShowReceiptDataServiceImpl",
             "StoreDataServiceImpl"
     };
 

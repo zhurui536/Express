@@ -14,11 +14,6 @@ import java.rmi.RemoteException;
 public class ShowStatementDataService_Stub implements ShowStatementDataService {
 
     @Override
-    public ResultMessage findAllReceiptBill() throws RemoteException {
-        return null;
-    }
-
-    @Override
     public ResultMessage findAllPayBill() throws RemoteException {
         return null;
     }

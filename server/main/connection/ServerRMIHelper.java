@@ -1,9 +1,6 @@
 package main.connection;
 
-import main.data.financedata.BankAccountManagementDataServiceImpl;
-import main.data.financedata.CreateAccountingDataServiceImpl;
-import main.data.financedata.CreatePayBillDataServiceImpl;
-import main.data.financedata.ShowStatementDataServiceImpl;
+import main.data.financedata.*;
 import main.data.storedata.StoreDataServiceImpl;
 
 import java.rmi.Naming;
@@ -39,6 +36,7 @@ public class ServerRMIHelper {
         NAMING_MAP.put("CreateAccountingDataServiceImpl", CreateAccountingDataServiceImpl.class);
         NAMING_MAP.put("CreatePayBillDataServiceImpl", CreatePayBillDataServiceImpl.class);
         NAMING_MAP.put("ShowStatementDataServiceImpl", ShowStatementDataServiceImpl.class);
+        NAMING_MAP.put("ShowReceiptDataServiceImpl", ShowReceiptDataServiceImpl.class);
         NAMING_MAP.put("StoreDataServiceImpl", StoreDataServiceImpl.class);
 //        for (String name : CLASS_NAMES) {
 //            try {

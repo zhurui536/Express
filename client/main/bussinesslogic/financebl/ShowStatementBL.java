@@ -1,5 +1,6 @@
 package main.bussinesslogic.financebl;
 
+import dataservice.financedataservice.ShowReceiptDataService;
 import dataservice.financedataservice.ShowStatementDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Time;
@@ -25,6 +26,8 @@ public class ShowStatementBL implements ShowStatementBLService {
 
     private ShowStatementDataService showStatementDataServiceImpl;
 
+    private ShowReceiptDataService showReceiptDataServiceImpl;
+
     private StatementVO statementVO;
 
     // 导出前是否已更新过经营情况表
@@ -33,6 +36,8 @@ public class ShowStatementBL implements ShowStatementBLService {
     public ShowStatementBL() {
         showStatementDataServiceImpl = (ShowStatementDataService) ClientRMIHelper.
                 getServiceByName("ShowStatementDataServiceImpl");
+        showReceiptDataServiceImpl = (ShowReceiptDataService) ClientRMIHelper.
+                getServiceByName("ShowReceiptDataServiceImpl");
         isUpdated = false;
     }
 
@@ -44,7 +49,7 @@ public class ShowStatementBL implements ShowStatementBLService {
 
         try {
             ResultMessage payMsg = showStatementDataServiceImpl.findAllPayBill();
-            ResultMessage receiptMsg = showStatementDataServiceImpl.findAllReceiptBill();
+            ResultMessage receiptMsg = showReceiptDataServiceImpl.findAll();
             if (payMsg.getKey().equals("fail") || receiptMsg.getKey().equals("fail")) {
                 return new ResultMessage("fail");
             }
