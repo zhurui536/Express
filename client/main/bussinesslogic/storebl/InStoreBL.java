@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import dataservice.storedataservice.StoreDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.InStoreBLService;
-import main.data.storedata.StoreDataServiceImpl;
+import main.connection.ClientRMIHelper;
 import main.vo.storevo.InStoreVO;
 import main.vo.storevo.StorePlaceVO;
 import po.GoodsPO;
@@ -21,7 +21,7 @@ public class InStoreBL implements InStoreBLService {
 	
 	public InStoreBL(UserPO user){
 		this.user = user;
-		dataservice = new StoreDataServiceImpl();
+		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 	}
 
 	@Override

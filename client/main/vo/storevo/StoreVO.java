@@ -19,6 +19,11 @@ public class StoreVO {
 	private ArrayList<Calendar> date;
 	
 	public StoreVO(StorePO store){
+		storeplace = new ArrayList<int[]>();
+		goodsid = new ArrayList<String>();
+		destination = new ArrayList<String>();
+		date = new ArrayList<Calendar>();
+		
 		for(int area=0;area<store.getArea();area++){
 			for(int row=0;row<store.getRow();row++){
 				for(int shelf=0;shelf<store.getShelf();shelf++){

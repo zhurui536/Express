@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import dataservice.storedataservice.StoreDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.AdjustBLService;
-import main.data.storedata.StoreDataServiceImpl;
+import main.connection.ClientRMIHelper;
 import main.vo.storevo.AdjustVO;
 import main.vo.storevo.StorePlaceVO;
 import po.GoodsPO;
@@ -20,7 +20,7 @@ public class AdjustBL implements AdjustBLService {
 	private UserPO user;
 	
 	public AdjustBL(UserPO user){
-		dataservice = new StoreDataServiceImpl();
+		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 		this.user = user;
 	}
 

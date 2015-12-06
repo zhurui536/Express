@@ -1,11 +1,11 @@
 package dataservice.storedataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 import main.bussinesslogic.util.ResultMessage;
-import po.GoodsPO;
 import po.storepo.AdjustPO;
 import po.storepo.InStorePO;
 import po.storepo.OutStorePO;
@@ -18,7 +18,7 @@ import po.storepo.VerificationPO;
  *2015年10月26日
  */
 
-public interface StoreDataService {
+public interface StoreDataService extends Remote {
 	/*根据货物id查找货物是否存在
 	 * id
 	 * 返回查找结果和GoodsPO，不存在的返回结果和null

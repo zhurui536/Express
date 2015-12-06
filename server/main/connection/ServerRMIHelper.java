@@ -4,6 +4,7 @@ import main.data.financedata.BankAccountManagementDataServiceImpl;
 import main.data.financedata.CreateAccountingDataServiceImpl;
 import main.data.financedata.CreatePayBillDataServiceImpl;
 import main.data.financedata.ShowStatementDataServiceImpl;
+import main.data.storedata.StoreDataServiceImpl;
 
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
@@ -38,6 +39,7 @@ public class ServerRMIHelper {
         NAMING_MAP.put("CreateAccountingDataServiceImpl", CreateAccountingDataServiceImpl.class);
         NAMING_MAP.put("CreatePayBillDataServiceImpl", CreatePayBillDataServiceImpl.class);
         NAMING_MAP.put("ShowStatementDataServiceImpl", ShowStatementDataServiceImpl.class);
+        NAMING_MAP.put("StoreDataServiceImpl", StoreDataServiceImpl.class);
 //        for (String name : CLASS_NAMES) {
 //            try {
 //                NAMING_MAP.put(name, (Class<? extends UnicastRemoteObject>) Class.forName("main.data.financedata." + name));

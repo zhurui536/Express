@@ -49,6 +49,13 @@ public class VerificationDataPane extends JPanel {
 		for(int i=0;i<goodsid.size();i++){
 			JPanel item = makeItem(goodsid.get(i), place.get(i), time.get(i), destination.get(i));
 			item.setLocation(0, 60+60*i);
+			
+			if(i%2==0){
+				item.setBackground(Color.CYAN);
+			}
+			else{
+				item.setBackground(Color.PINK);
+			}
 			this.add(item);
 		}
 	}

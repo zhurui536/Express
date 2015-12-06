@@ -40,6 +40,6 @@ public class VerificationTool extends JPanel implements GetButtonOfTool{
 
 	@Override
 	public int getNumOfButton() {
-		return 2;
+		return buttons.length;
 	}
 }

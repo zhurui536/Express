@@ -12,10 +12,12 @@ import main.vo.GoodsVO;
  * Created by Away 2015/10/26
  */
 
-@SuppressWarnings("serial")
 public class GoodsPO implements Serializable {
-
-        // 货物名称
+        /**
+         * 
+         */
+		private static final long serialVersionUID = 6366213867793889079L;
+		// 货物名称
         private String name;
         // 货物出发地
         private String departurePlace;

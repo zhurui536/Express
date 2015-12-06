@@ -38,7 +38,7 @@ public class OutStoreDataPane extends JPanel implements ActionListener {
 		type.setSize(810, 60);
 		type.setLocation(0, 0);
 		type.setLayout(null);
-		 
+		type.setBackground(Color.MAGENTA);
 		 
 		JLabel number = new JLabel("货物编号");
 		number.setSize(150, 57);
@@ -60,7 +60,12 @@ public class OutStoreDataPane extends JPanel implements ActionListener {
 		for(int i=0;i<goodslist.size();i++){
 			JPanel temp = makeItem(goodslist.get(i), trans.get(i), destination.get(i));
 			temp.setLocation(10, 60*i+60);
-			
+			if(i%2==0){
+				temp.setBackground(Color.cyan);
+			}
+			else{
+				temp.setBackground(Color.LIGHT_GRAY);
+			}
 			this.add(temp);
 		}
 	}

@@ -2,6 +2,7 @@ package main.presentation.storeui;
 
 import java.awt.Color;
 import java.awt.Dimension;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,6 +11,8 @@ import javax.swing.ScrollPaneConstants;
 
 import po.UserPO;
 import main.bussinesslogic.storebl.StoreBLController;
+import main.connection.ClientInitException;
+import main.connection.ClientRMIHelper;
 import main.presentation.storeui.listener.MenuListener;
 
 
@@ -35,9 +38,9 @@ public class StoreFrame extends JFrame{
 		this.paintframe();
 	}
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws ClientInitException{
 		StoreFrame frame = new StoreFrame();
-		
+		ClientRMIHelper.init();
 		frame.setVisible(true);
 	}
 	

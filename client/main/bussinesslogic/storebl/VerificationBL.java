@@ -8,7 +8,7 @@ import po.storepo.VerificationPO;
 import dataservice.storedataservice.StoreDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.VerificationBLService;
-import main.data.storedata.StoreDataServiceImpl;
+import main.connection.ClientRMIHelper;
 import main.vo.storevo.StoreVO;
 
 public class VerificationBL implements VerificationBLService {
@@ -19,7 +19,7 @@ public class VerificationBL implements VerificationBLService {
 	
 	public VerificationBL(UserPO user){
 		this.user = user;
-		dataservice = new StoreDataServiceImpl();
+		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 	}
 	
 	@Override

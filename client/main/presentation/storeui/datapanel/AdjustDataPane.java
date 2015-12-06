@@ -51,12 +51,18 @@ public class AdjustDataPane extends JPanel implements ActionListener{
 			type.add(list2[i]);
 		}
 		
+		type.setBackground(Color.PINK);
 		this.add(type);
 		
 		for(int i=0;i<start.size();i++){
 			JPanel item = makeItem(start.get(i), end.get(i));
 			item.setLocation(0, 60*i+60);
-			
+			if(i%2==0){
+				item.setBackground(Color.CYAN);
+			}
+			else{
+				item.setBackground(Color.ORANGE);
+			}
 			this.add(item);
 		}
 	}
@@ -70,9 +76,9 @@ public class AdjustDataPane extends JPanel implements ActionListener{
 		JLabel[] list2 = new JLabel[4];
 		for(int i=0;i<4;i++){
 			list1[i] = new JLabel(start[i]+"");
-			list1[i].setBounds(160+60*i, 0, 50, 57);
+			list1[i].setBounds(160+50*i, 0, 50, 57);
 			list2[i] = new JLabel(end[i]+"");
-			list2[i].setBounds(440+60*i, 0, 50, 57);
+			list2[i].setBounds(440+50*i, 0, 50, 57);
 			item.add(list1[i]);
 			item.add(list2[i]);
 		}

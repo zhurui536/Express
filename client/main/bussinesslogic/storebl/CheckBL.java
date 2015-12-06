@@ -8,7 +8,7 @@ import po.storepo.StorePO;
 import dataservice.storedataservice.StoreDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.CheckBLService;
-import main.data.storedata.StoreDataServiceImpl;
+import main.connection.ClientRMIHelper;
 import main.vo.storevo.CheckVO;
 
 public class CheckBL implements CheckBLService {
@@ -16,7 +16,7 @@ public class CheckBL implements CheckBLService {
 	private CheckVO vo;
 	
 	public CheckBL(){
-		dataservice = new StoreDataServiceImpl();
+		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 	}
 	
 	@Override

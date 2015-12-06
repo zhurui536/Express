@@ -3,7 +3,6 @@ package main.bussinesslogic.storebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.GoodsPO;
 import po.UserPO;
 import po.storepo.OutStorePO;
 import po.storepo.StorePlacePO;
@@ -11,7 +10,7 @@ import dataservice.storedataservice.StoreDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
 import main.bussinesslogicservice.storeblservice.OutStoreBLService;
-import main.data.storedata.StoreDataServiceImpl;
+import main.connection.ClientRMIHelper;
 import main.vo.storevo.OutStoreVO;
 
 public class OutStoreBL implements OutStoreBLService {
@@ -21,7 +20,7 @@ public class OutStoreBL implements OutStoreBLService {
 	private ArrayList<OutStorePO> goodslist;
 	
 	public OutStoreBL(UserPO user){
-		dataservice = new StoreDataServiceImpl();
+		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 		this.user = user;
 		
 	}

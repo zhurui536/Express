@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -21,14 +22,14 @@ import po.storepo.StorePlacePO;
 import po.storepo.VerificationPO;
 import dataservice.storedataservice.StoreDataService;
 
-public class StoreDataServiceImpl implements StoreDataService {
+public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDataService {
 	private final String storerecord = "server/save/storedata/storePO.dat";
 	private final String instorerecord = "server/save/storedata/instorePO.dat";
 	private final String outstorerecord = "server/save/storedata/outstorePO.dat";
 	private final String adjustrecord = "server/save/storedata/adjustPO.dat";
 	private final String verificationrecord = "server/save/storedata/verificationPO.dat";
 	
-	public StoreDataServiceImpl(){
+	public StoreDataServiceImpl() throws RemoteException {
 		try {//将所有空文件进行初始化
 			FileInputStream in = new FileInputStream(storerecord);
 			//判断文档是否为空，如果是空的，那么新建一个对象，并将其写入文件中
@@ -316,8 +317,8 @@ public class StoreDataServiceImpl implements StoreDataService {
 			for(int i=0;i<po.size();i++){//改写库存
 				OutStorePO temp = po.get(i);
 				StorePlacePO place = temp.getStorePlace();
-				place.setGoods(null);
-				store.setStorePlace(place);
+				StorePlacePO newplace = new StorePlacePO(place.getArea(), place.getRow(), place.getShelf(), place.getPlace());
+				store.setStorePlace(newplace);
 			}
 			
 			//将新的库存写入文件

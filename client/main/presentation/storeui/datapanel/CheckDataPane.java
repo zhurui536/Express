@@ -25,6 +25,7 @@ public class CheckDataPane extends JPanel {
 		JPanel total = new JPanel();
 		total.setBounds(0, 0, 810, 80);
 		total.setLayout(null);
+		total.setBackground(Color.GREEN);
 		
 		JLabel numOfIn = new JLabel("入库数量："+IDOfIn.size());
 		numOfIn.setBounds(10, 0, 200, 40);
@@ -68,6 +69,7 @@ public class CheckDataPane extends JPanel {
 		type.setSize(810, 60);
 		type.setLocation(10, 0);
 		type.setLayout(null);
+		type.setBackground(Color.ORANGE);
 
 		//加入id
 		JLabel number = new JLabel("货物编号");
@@ -96,6 +98,12 @@ public class CheckDataPane extends JPanel {
 		for(int i=0;i<IDOfIn.size();i++){
 			JPanel item = makeItem(timeOfIn.get(i), placeOfIn.get(i), IDOfIn.get(i));
 			item.setLocation(10, 60*i+60);
+			if(i%2==0){
+				item.setBackground(Color.CYAN);
+			}
+			else{
+				item.setBackground(Color.PINK);
+			}
 			inrecord.add(item);
 		}
 		
@@ -140,6 +148,7 @@ public class CheckDataPane extends JPanel {
 		type.setSize(810, 60);
 		type.setLocation(10, 0);
 		type.setLayout(null);
+		type.setBackground(Color.ORANGE);
 
 		//加入id
 		JLabel number = new JLabel("货物编号");
@@ -168,6 +177,12 @@ public class CheckDataPane extends JPanel {
 		for(int i=0;i<IDOfOut.size();i++){
 			JPanel item = makeItem(timeOfOut.get(i), placeOfOut.get(i), IDOfOut.get(i));
 			item.setLocation(10, 60*i+60);
+			if(i%2==0){
+				item.setBackground(Color.CYAN);
+			}
+			else{
+				item.setBackground(Color.PINK);
+			}
 			outrecord.add(item);
 		}
 		
