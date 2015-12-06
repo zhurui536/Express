@@ -17,15 +17,18 @@ public class ReceiptBillVO {
 
     public BigDecimal money;
 
-    public StaffMessageVO staffMessageVO;
+    public String deliveryManID;
+    
+    public String institutionID;
 
     public List<String> barCodes;
 
     public ReceiptBillVO(Time time, BigDecimal money,
-                         StaffMessageVO staffMessageVO, List<String> barCodes) {
+                    String deliveryManID, String institutionID,List<String> barCodes) {
         this.time = time;
         this.money = money;
-        this.staffMessageVO = staffMessageVO;
+        this.deliveryManID = deliveryManID;
+        this.institutionID = institutionID;
         this.barCodes = barCodes;
     }
 }
