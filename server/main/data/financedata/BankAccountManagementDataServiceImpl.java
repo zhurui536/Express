@@ -8,6 +8,7 @@ import po.financepo.BankAccountPO;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Away
@@ -20,7 +21,7 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     private static final String PATH = "server/save/financedata/bankAccountPO.dat";
 
-    private ArrayList<BankAccountPO> bankAccountPOs;
+    private List<BankAccountPO> bankAccountPOs;
 
     public BankAccountManagementDataServiceImpl() throws RemoteException {
         super();

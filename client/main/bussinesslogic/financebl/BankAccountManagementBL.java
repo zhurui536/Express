@@ -18,17 +18,17 @@ import java.util.ArrayList;
 
 public class BankAccountManagementBL implements BankAccountManagementBLService {
 
-    BankAccountManagementDataService bankAccountManagementData;
+    BankAccountManagementDataService bankAccountManagementDataServiceImpl;
 
     public BankAccountManagementBL() {
-        bankAccountManagementData = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementDataServiceImpl");
+        bankAccountManagementDataServiceImpl = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementDataServiceImpl");
     }
 
     @Override
     public ResultMessage createMember(BankAccountVO vo) {
         try {
             BankAccountPO bankAccountPO = new BankAccountPO(vo.name, vo.balance, vo.id);
-            return bankAccountManagementData.insert(bankAccountPO);
+            return bankAccountManagementDataServiceImpl.insert(bankAccountPO);
         } catch (RemoteException e) {
             e.printStackTrace();
             return new ResultMessage("fail");
@@ -38,7 +38,7 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
     @Override
     public ResultMessage deleteMember(String id) {
         try {
-            return bankAccountManagementData.delete(id);
+            return bankAccountManagementDataServiceImpl.delete(id);
         } catch (RemoteException e) {
             e.printStackTrace();
             return new ResultMessage("fail");
@@ -49,7 +49,7 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
     public ResultMessage updateMember(BankAccountVO vo) {
         BankAccountPO bankAccountPO = new BankAccountPO(vo.name, vo.id);
         try {
-            return bankAccountManagementData.update(bankAccountPO);
+            return bankAccountManagementDataServiceImpl.update(bankAccountPO);
         } catch (RemoteException e) {
             e.printStackTrace();
             return new ResultMessage("fail");
@@ -61,11 +61,11 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
         try {
             // 根据 id 查找
             if (vo.id != null) {
-                return bankAccountManagementData.find(vo.id);
+                return bankAccountManagementDataServiceImpl.find(vo.id);
             }
 
             // 根据名字模糊匹配
-            ResultMessage message = bankAccountManagementData.findAll();
+            ResultMessage message = bankAccountManagementDataServiceImpl.findAll();
             if (message.getKey().equals("fail")) {
                 return message;
             }

@@ -1,18 +1,21 @@
 package main.bussinesslogicservice.financeblservice;
 
 import main.bussinesslogic.util.ResultMessage;
+import main.vo.PayBillVO;
 
 /**
+ * 新建付款单
  * Created by Away
  * 2015/10/26
  */
 
-public interface CreatePayListBLService {
+public interface CreatePayBillBLService {
 
     /**
+     * TODO 改文档
      * 创建付款单
      * @return ResultMessage
      */
-    ResultMessage createPayList();
+    ResultMessage createPayBill(PayBillVO payBillVO);
 
 }

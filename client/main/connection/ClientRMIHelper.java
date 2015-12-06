@@ -22,6 +22,11 @@ public class ClientRMIHelper {
 
     private static Map<String, Object> OBJECT_MAP = new HashMap<>();
 
+    private static String[] CLASS_NAMES = {
+            "BankAccountManagementDataServiceImpl",
+            "CreatePayBillDataServiceImpl"
+    };
+
     public synchronized static void init() throws ClientInitException {
         if (init) {
             return;
@@ -37,7 +42,9 @@ public class ClientRMIHelper {
 
     private static void initObjects() throws MalformedURLException, RemoteException, NotBoundException {
         String urlPrefix = "rmi://" + IP + ":" + PORT + "/";
-        OBJECT_MAP.put("BankAccountManagementDataServiceImpl", Naming.lookup(urlPrefix + "BankAccountManagementDataServiceImpl"));
+        for (String name : CLASS_NAMES) {
+            OBJECT_MAP.put(name, Naming.lookup(urlPrefix + name));
+        }
     }
 
     public static Object getServiceByName(String name) {

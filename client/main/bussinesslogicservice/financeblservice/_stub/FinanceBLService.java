@@ -7,6 +7,6 @@ import main.bussinesslogicservice.financeblservice.*;
  * 2015/11/16
  */
 
-public interface FinanceBLService extends BankAccountManagementBLService, CreateAccountingBLService, CreatePayListBLService, ShowProfitListBLService, ShowReceiptBLService, ShowStatementBLService {
+public interface FinanceBLService extends BankAccountManagementBLService, CreateAccountingBLService, CreatePayBillBLService, ShowProfitListBLService, ShowReceiptBLService, ShowStatementBLService {
 
 }

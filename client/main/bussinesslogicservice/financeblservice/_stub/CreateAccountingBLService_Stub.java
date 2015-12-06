@@ -16,4 +16,9 @@ public class CreateAccountingBLService_Stub implements CreateAccountingBLService
         System.out.println("Create Account Success");
         return new ResultMessage("success", null);
     }
+
+    @Override
+    public ResultMessage inquireInitInfo() {
+        return null;
+    }
 }

@@ -2,6 +2,7 @@ package main.connection;
 
 import main.data.financedata.BankAccountManagementDataServiceImpl;
 import main.data.financedata.CreateAccountingDataServiceImpl;
+import main.data.financedata.CreatePayBillDataServiceImpl;
 
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
@@ -26,9 +27,22 @@ public class ServerRMIHelper {
 
     private static boolean init = false;
 
+//    private static String[] CLASS_NAMES = {
+//            "BankAccountManagementDataServiceImpl",
+//            "CreatePayBillDataServiceImpl"
+//    };
+
     static {
         NAMING_MAP.put("BankAccountManagementDataServiceImpl", BankAccountManagementDataServiceImpl.class);
         NAMING_MAP.put("CreateAccountingDataServiceImpl", CreateAccountingDataServiceImpl.class);
+        NAMING_MAP.put("CreatePayBillDataServiceImpl", CreatePayBillDataServiceImpl.class);
+//        for (String name : CLASS_NAMES) {
+//            try {
+//                NAMING_MAP.put(name, (Class<? extends UnicastRemoteObject>) Class.forName("main.data.financedata." + name));
+//            } catch (ClassNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     public synchronized static void init() throws ServerInitException {
@@ -43,8 +57,8 @@ public class ServerRMIHelper {
                 Class<? extends UnicastRemoteObject> clazz = entry.getValue();
                 UnicastRemoteObject proxy = clazz.newInstance();
                 Naming.rebind(name, proxy);
-                System.out.println("Server started ...");
             }
+            System.out.println("Server started ...");
             init = true;
         } catch (Exception e) {
             throw new ServerInitException(e);
