@@ -1,6 +1,7 @@
 package main.bussinesslogicservice.financeblservice._stub;
 
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.financeblservice.ShowReceiptBLService;
 
 /**
@@ -12,7 +13,7 @@ public class ShowReceiptBLService_Stub implements ShowReceiptBLService {
 
 
     @Override
-    public ResultMessage showReceipt(long time, long id) {
+    public ResultMessage showReceipt(Time time, String id) {
         System.out.println("Show Receipt Success");
         return new ResultMessage("success", null);
     }

@@ -13,7 +13,7 @@ public class ShowReceiptBLService_Driver {
 
     public void drive(ShowReceiptBLService showReceiptBLService) {
 
-        ResultMessage result = showReceiptBLService.showReceipt(11111, 001);
+        ResultMessage result = showReceiptBLService.showReceipt(null, null);
         if (result.getKey().equals("success"))
             System.out.println("show receipt pass");
     }
