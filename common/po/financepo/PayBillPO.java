@@ -16,7 +16,7 @@ import java.math.BigDecimal;
  * 2015/12/6
  */
 
-public class PayBillPO implements Serializable {
+public class PayBillPO implements Serializable, Comparable<PayBillPO> {
 
     private static final long serialVersionUID = 2279200270601944748L;
 
@@ -54,11 +54,17 @@ public class PayBillPO implements Serializable {
         StaffMessageVO staffMessageVO = payBillVO.staffMessageVO;
         this.time = payBillVO.time;
         this.money = payBillVO.money;
-        this.staffMessagePO = new StaffMessagePO(bankAccountVO.id, bankAccountVO.name);
+        this.staffMessagePO = new StaffMessagePO(staffMessageVO.id, staffMessageVO.name);
         this.bankAccountPO = new BankAccountPO(bankAccountVO.name, bankAccountVO.balance, bankAccountVO.id);
         this.id = payBillVO.id;
         this.item = payBillVO.item;
         this.remark = payBillVO.remark;
+    }
+
+    public PayBillVO poToVo() {
+        BankAccountVO bankAccountVO = bankAccountPO.poToVO();
+        StaffMessageVO staffMessageVO = staffMessagePO.poToVo();
+        return new PayBillVO(time, money, staffMessageVO, bankAccountVO, id, item, remark);
     }
 
     public static long getSerialVersionUID() {
@@ -91,6 +97,11 @@ public class PayBillPO implements Serializable {
 
     public String getRemark() {
         return remark;
+    }
+
+    @Override
+    public int compareTo(PayBillPO po) {
+        return time.compareTo(po.time);
     }
 }
 

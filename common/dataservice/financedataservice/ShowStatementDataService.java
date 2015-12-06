@@ -16,14 +16,15 @@ public interface ShowStatementDataService extends Remote {
     /**
      * TODO
      * 返回所有收款单
-     * @return ResultMessage
+     * @return ResultMessage 成功返回 SUCCESS 和 收款单，失败返回 FAIL。
+     * @throws RemoteException
      */
     ResultMessage findAllReceiptBill() throws RemoteException;
 
     /**
      * TODO
      * 返回所有付款单
-     * @return ResultMessage
+     * @return ResultMessage 成功返回 SUCCESS 和 付款单，失败返回 FAIL。
      * @throws RemoteException
      */
     ResultMessage findAllPayBill() throws RemoteException;

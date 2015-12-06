@@ -19,7 +19,7 @@ public class CreatePayBillDataServiceImpl extends UnicastRemoteObject implements
 
     private static final long serialVersionUID = 4148855495653449673L;
 
-    private static final String PATH = "server/save/financedata/PayBillPO.dat";
+    private static final String PATH = "server/save/financedata/payBillPO.dat";
 
     private List<PayBillPO> payBillPOs;
 

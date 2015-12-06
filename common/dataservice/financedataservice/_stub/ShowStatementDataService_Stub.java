@@ -1,11 +1,9 @@
 package dataservice.financedataservice._stub;
 
 import dataservice.financedataservice.ShowStatementDataService;
-import po.BillPO;
-import po.financepo.StatementPO;
+import main.bussinesslogic.util.ResultMessage;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 /**
  * 查看经营情况表数据层的桩
@@ -16,11 +14,12 @@ import java.util.ArrayList;
 public class ShowStatementDataService_Stub implements ShowStatementDataService {
 
     @Override
-    public StatementPO find(long startTime, long endTime) throws RemoteException {
-        System.out.println("statement find success");
-        // TODO
-        ArrayList<BillPO> receipt = new ArrayList<>();
-        ArrayList<BillPO> payList = new ArrayList<>();
-        return new StatementPO(receipt, payList);
+    public ResultMessage findAllReceiptBill() throws RemoteException {
+        return null;
+    }
+
+    @Override
+    public ResultMessage findAllPayBill() throws RemoteException {
+        return null;
     }
 }

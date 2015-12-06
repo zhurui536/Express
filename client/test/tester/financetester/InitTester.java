@@ -20,7 +20,7 @@ public class InitTester {
     @Test
     public void test(){
         InstitutionMessageVO institution = new InstitutionMessageVO();
-        StaffMessageVO staff = new StaffMessageVO();
+        StaffMessageVO staff = new StaffMessageVO(null, null);
         TruckMessageVO truck = new TruckMessageVO();
         StoreVO store = new StoreVO(null);
         BankAccountVO bankAccount = new BankAccountVO("kkk", BigDecimal.valueOf(123465), "465456555");

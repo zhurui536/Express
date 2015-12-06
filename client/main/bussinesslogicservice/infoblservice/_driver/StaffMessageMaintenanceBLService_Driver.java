@@ -19,9 +19,9 @@ public class StaffMessageMaintenanceBLService_Driver {
         }
         
         public void drive() {
-                System.out.println(staffMessageMaintenanceBLService.addStaffMessage(new StaffMessageVO()).getKey());
+                System.out.println(staffMessageMaintenanceBLService.addStaffMessage(new StaffMessageVO(null, null)).getKey());
                 System.out.println(staffMessageMaintenanceBLService.delStaffMessage(000000000).getKey());
-                System.out.println(staffMessageMaintenanceBLService.modStaffMessage(new StaffMessageVO()).getKey());
+                System.out.println(staffMessageMaintenanceBLService.modStaffMessage(new StaffMessageVO(null, null)).getKey());
                 System.out.println(staffMessageMaintenanceBLService.showStaffMessage(000000000).getKey());
                 staffMessageMaintenanceBLService.endStaffMessageMaintenance();
         }
