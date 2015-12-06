@@ -23,14 +23,17 @@ public class SendBillPO implements Serializable {
         private String id;
         //单据审批状态
         private BillState billState;
+        //快递员
+        private String deliveryManID;
 
         public SendBillPO(PeopleMessagePO senderPO,
-                        PeopleMessagePO recipientPO, GoodsPO goodsPO, String id) {
+                        PeopleMessagePO recipientPO, GoodsPO goodsPO, String id,String deliveryManID) {
                 super();
                 this.senderPO = senderPO;
                 this.recipientPO = recipientPO;
                 this.goodsPO = goodsPO;
                 this.id = id;
+                this.deliveryManID = deliveryManID;
                 this.billState = BillState.DRAFT;
         }
 
@@ -42,7 +45,7 @@ public class SendBillPO implements Serializable {
                 sendBillVO.recipientVO = this.recipientPO.poToVo();
                 sendBillVO.senderVO = this.senderPO.poToVo();
                 sendBillVO.billState = this.billState;
-
+                sendBillVO.deliveryManID = this.deliveryManID;
                 return sendBillVO;
         }
 
@@ -53,9 +56,17 @@ public class SendBillPO implements Serializable {
                                 PeopleMessagePO.voToPo(sendBillVO.senderVO),
                                 PeopleMessagePO.voToPo(sendBillVO.recipientVO),
                                 GoodsPO.voToPo(sendBillVO.goodsVO),
-                                sendBillVO.id);
+                                sendBillVO.id,sendBillVO.deliveryManID);
                 sendBillPO.setBillState(sendBillVO.billState);
                 return sendBillPO;
+        }
+
+        public String getDeliveryManID() {
+                return deliveryManID;
+        }
+
+        public void setDeliveryManID(String deliveryManID) {
+                this.deliveryManID = deliveryManID;
         }
 
         public BillState getBillState() {

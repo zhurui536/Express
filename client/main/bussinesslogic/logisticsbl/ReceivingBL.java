@@ -9,6 +9,7 @@ import po.logisticpo.SendBillPO;
 import dataservice.logisticsdataservice.ReceivingDataService;
 import main.bussinesslogic.util.ExpressType;
 import main.bussinesslogic.util.PackageType;
+import main.bussinesslogic.util.PublicMessage;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.ReceivingBLService;
 import main.vo.GoodsVO;
@@ -30,7 +31,9 @@ public class ReceivingBL implements ReceivingBLService{
                 SendBillPO sendBillPO = SendBillPO.voToPo(billVO);
                 GoodsVO goodsVO = billVO.goodsVO;
                 goodsVO.price = getCharge(goodsVO);
-                sendBillPO.setGoodsPO(GoodsPO.voToPo(goodsVO));
+                GoodsPO goodsPO = GoodsPO.voToPo(goodsVO);
+                goodsPO.addLocation(PublicMessage.location);
+                sendBillPO.setGoodsPO(goodsPO);
                 sendBillPOs.add(sendBillPO);
                 return new ResultMessage("SUCCESS", null);
         }
@@ -53,8 +56,8 @@ public class ReceivingBL implements ReceivingBLService{
                         if (goodsPO.getDeparturePlace().equals(departurePlace)
                                         && destination.equals(goodsPO
                                                         .getDestination())) {
-                                sum += (goodsPO.getReceiveTime() - goodsPO
-                                                .getStartTime());
+                                sum += (goodsPO.getReceiveTime().sub(goodsPO
+                                                .getStartTime()));
                                 count++;
                         }
                 }

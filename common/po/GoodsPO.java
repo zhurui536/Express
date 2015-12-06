@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import main.bussinesslogic.util.ExpressType;
 import main.bussinesslogic.util.GoodsDeliveryState;
 import main.bussinesslogic.util.PackageType;
+import main.bussinesslogic.util.Time;
 import main.vo.GoodsVO;
 
 /**
@@ -40,15 +41,15 @@ public class GoodsPO implements Serializable {
         // 货物的快递单号
         private String id;
         //货物的出发时间
-        private long startTime;
+        private Time startTime;
         // 货物的接受时间
-        private long receiveTime;
+        private Time receiveTime;
         // 金额
         private double price;
 
         public GoodsPO(String id, String name, String departurePlace,
                         String destination, int weight, int volume,
-                        PackageType packageType, ExpressType expressType, long startTime) {
+                        PackageType packageType, ExpressType expressType) {
 
                 this.id = id;
                 this.name = name;
@@ -60,7 +61,7 @@ public class GoodsPO implements Serializable {
                 this.expressType = expressType;
                 this.track = new ArrayList<>();
                 this.track.add(departurePlace);
-                this.startTime = startTime;
+                this.startTime = new Time();
                 this.goodsDeliveryState = GoodsDeliveryState.TRANSPORT;
         }
 
@@ -86,10 +87,12 @@ public class GoodsPO implements Serializable {
         }
 
         public static GoodsPO voToPo(GoodsVO goodsVO) {
-                return new GoodsPO(goodsVO.id, goodsVO.name,
+                GoodsPO goodsPO =  new GoodsPO(goodsVO.id, goodsVO.name,
                                 goodsVO.departurePlace, goodsVO.destination,
                                 goodsVO.weight, goodsVO.volume,
-                                goodsVO.packageType, goodsVO.expressType,goodsVO.startTime);
+                                goodsVO.packageType, goodsVO.expressType);
+                goodsPO.setStartTime(goodsVO.startTime);
+                return goodsPO;
         }
 
         public double getPrice() {
@@ -104,20 +107,28 @@ public class GoodsPO implements Serializable {
                 return recipient;
         }
 
-        public long getStartTime() {
+        public Time getStartTime() {
                 return startTime;
         }
 
-        public void setStartTime(long startTime) {
+        public void setStartTime(Time startTime) {
                 this.startTime = startTime;
         }
 
-        public long getReceiveTime() {
+        public Time getReceiveTime() {
                 return receiveTime;
         }
 
-        public void setReceiveTime(long receiveTime) {
+        public void setReceiveTime(Time receiveTime) {
                 this.receiveTime = receiveTime;
+        }
+
+        public static long getSerialversionuid() {
+                return serialVersionUID;
+        }
+
+        public void setTrack(ArrayList<String> track) {
+                this.track = track;
         }
 
         public String getId() {

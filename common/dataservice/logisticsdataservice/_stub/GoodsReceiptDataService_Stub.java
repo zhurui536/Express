@@ -2,6 +2,7 @@ package dataservice.logisticsdataservice._stub;
 
 import java.rmi.RemoteException;
 
+import po.GoodsPO;
 import po.logisticpo.ArrivalBillPO;
 import po.logisticpo.DeliveryBillPO;
 
@@ -30,6 +31,19 @@ public class GoodsReceiptDataService_Stub implements GoodsReceiptDataService {
 
         @Override
         public ResultMessage insertBill(ArrivalBillPO bill)
+                        throws RemoteException {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
+        public GoodsPO findGoods(String id) throws RemoteException {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        @Override
+        public ResultMessage updateGoods(GoodsPO goodsPO)
                         throws RemoteException {
                 // TODO Auto-generated method stub
                 return null;

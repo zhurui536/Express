@@ -2,12 +2,16 @@ package dataservice.logisticsdataservice;
 
 import java.rmi.RemoteException;
 
-import po.GoodsPO;
+import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Time;
+
 
 /**
  * @author zhuding
  *
  */
 public interface ReceiptBillProduceDataService {
-        public void insertGoods(GoodsPO goods) throws RemoteException;
+        public ResultMessage findGoods(Time time) throws RemoteException;
+        
+        public ResultMessage insert() ;
 }

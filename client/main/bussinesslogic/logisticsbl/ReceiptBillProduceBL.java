@@ -2,6 +2,7 @@ package main.bussinesslogic.logisticsbl;
 
 import dataservice.logisticsdataservice.ReceiptBillProduceDataService;
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.logisticsblservice.ReceiptBillProduceBLService;
 
 public class ReceiptBillProduceBL implements ReceiptBillProduceBLService{
@@ -10,7 +11,8 @@ public class ReceiptBillProduceBL implements ReceiptBillProduceBLService{
         
         @Override
         public ResultMessage produceReceiptBill() {
-                // TODO Auto-generated method stub
+                Time today = new Time();
+                
                 return null;
         }
 

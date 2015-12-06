@@ -1,17 +1,9 @@
 package main.bussinesslogic.logisticsbl;
 
-import main.bussinesslogic.util.ResultMessage;
-import main.bussinesslogicservice.logisticsblservice.BillQueryBLService;
-import main.bussinesslogicservice.logisticsblservice.DeliveryBLService;
-import main.bussinesslogicservice.logisticsblservice.GoodsLoadBLService;
-import main.bussinesslogicservice.logisticsblservice.GoodsReceiptBLService;
-import main.bussinesslogicservice.logisticsblservice.LogisticsBLService;
-import main.bussinesslogicservice.logisticsblservice.ReceiptBillProduceBLService;
-import main.bussinesslogicservice.logisticsblservice.ReceivingBLService;
+import main.bussinesslogic.util.*;
+import main.bussinesslogicservice.logisticsblservice.*;
 import main.vo.GoodsVO;
-import main.vo.logisticvo.ArrivalBillVO;
-import main.vo.logisticvo.LoadingBillVO;
-import main.vo.logisticvo.SendBillVO;
+import main.vo.logisticvo.*;
 
 public class LogisticsBLController implements LogisticsBLService {
 
@@ -67,11 +59,6 @@ public class LogisticsBLController implements LogisticsBLService {
         }
 
         @Override
-        public ResultMessage addRecMessage(String Recipients, String id, long time) {
-                return deliveryBLService.addRecMessage(Recipients, id, time);
-        }
-
-        @Override
         public void endDelivery() {
                 deliveryBLService.endDelivery();
         }
@@ -87,8 +74,8 @@ public class LogisticsBLController implements LogisticsBLService {
         }
 
         @Override
-        public ResultMessage produceSendBill(String deliverManId) {
-                return goodsReceiptBLService.produceSendBill(deliverManId);
+        public ResultMessage produceDeliveryBill(String deliverManId) {
+                return goodsReceiptBLService.produceDeliveryBill(deliverManId);
         }
 
         @Override
@@ -106,10 +93,20 @@ public class LogisticsBLController implements LogisticsBLService {
                 return goodsLoadBLService.produceLoadBill(billVO);
         }
 
+
+
         @Override
-        public ResultMessage produceTransferBill() {
-                return goodsLoadBLService.produceTransferBill();
+        public ResultMessage addRecMessage(String Recipients, String id,
+                        Time time) {
+                return deliveryBLService.addRecMessage(Recipients, id, time);
         }
+
+        @Override
+        public ResultMessage produceTransferBill(TransferBillVO transferBillVO) {
+                return goodsLoadBLService.produceTransferBill(transferBillVO);
+        }
+
+        
 
         
         

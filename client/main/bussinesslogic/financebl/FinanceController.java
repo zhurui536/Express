@@ -126,7 +126,7 @@ public class FinanceController implements FinanceBLService {
     }
 
     @Override
-    public ResultMessage showReceipt(long time, long id) {
+    public ResultMessage showReceipt(Time time, String id) {
         return null;
     }
 

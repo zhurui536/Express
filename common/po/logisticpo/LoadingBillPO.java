@@ -3,9 +3,12 @@ package po.logisticpo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import main.bussinesslogic.util.Time;
 import main.vo.logisticvo.LoadingBillVO;
+
 /**
  * 装车单
+ * 
  * @author zhuding
  */
 public class LoadingBillPO implements Serializable {
@@ -14,7 +17,7 @@ public class LoadingBillPO implements Serializable {
         // 录入机构
         private String institution;
         // 装车日期
-        private String date;
+        private Time date;
         // 汽运编号（中转中心编号+日期+0000000七位数字 或 营业厅编号 + 日期 + 五位数字）
         private String transferNum;
         // 到达地
@@ -30,7 +33,7 @@ public class LoadingBillPO implements Serializable {
         // 运费
         private double charge;
 
-        public LoadingBillPO(String institution,String date, String transferNum,
+        public LoadingBillPO(String institution, Time date, String transferNum,
                         String arrivalPlace, String numOfTruck,
                         String supervisor, String supercargo,
                         ArrayList<String> ids) {
@@ -46,8 +49,9 @@ public class LoadingBillPO implements Serializable {
         }
 
         public static LoadingBillPO voToPo(LoadingBillVO loadingBillVO) {
-                LoadingBillPO loadingBillPO = new LoadingBillPO(loadingBillVO.institution,
-                                loadingBillVO.date, loadingBillVO.transferNum,
+                LoadingBillPO loadingBillPO = new LoadingBillPO(
+                                loadingBillVO.institution, loadingBillVO.date,
+                                loadingBillVO.transferNum,
                                 loadingBillVO.arrivalPlace,
                                 loadingBillVO.numOfTruck,
                                 loadingBillVO.supervisor,
@@ -64,12 +68,12 @@ public class LoadingBillPO implements Serializable {
                 this.institution = institution;
         }
 
-        public String getDate() {
-                return date;
+        public void setDate(Time date) {
+                this.date = date;
         }
 
-        public void setDate(String date) {
-                this.date = date;
+        public Time getDate() {
+                return date;
         }
 
         public String getTransferNum() {

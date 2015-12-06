@@ -16,7 +16,7 @@ import java.math.BigDecimal;
  * 2015/12/6
  */
 
-public class PayBillPO implements Serializable, Comparable<PayBillPO> {
+public class PayBillPO implements Serializable {
 
     private static final long serialVersionUID = 2279200270601944748L;
 
@@ -99,10 +99,6 @@ public class PayBillPO implements Serializable, Comparable<PayBillPO> {
         return remark;
     }
 
-    @Override
-    public int compareTo(PayBillPO po) {
-        return time.compareTo(po.time);
-    }
 }
 
 

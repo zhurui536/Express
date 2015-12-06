@@ -1,6 +1,7 @@
 package main.bussinesslogicservice.logisticsblservice;
 
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Time;
 
 /**
  * @author zhuding
@@ -13,7 +14,7 @@ public interface DeliveryBLService {
          * @param id 单据编号
          * @param time 收件时间
          */
-        public ResultMessage addRecMessage(String Recipients,String id, long time) ;
+        public ResultMessage addRecMessage(String Recipients,String id, Time time) ;
         
         public void endDelivery();
 }

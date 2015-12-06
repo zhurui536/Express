@@ -13,7 +13,6 @@ import po.logisticpo.ReceiptBillPO;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -71,8 +70,6 @@ public class ShowStatementBL implements ShowStatementBLService {
     private void updateStatementVO(Time startTime, Time endTime, List<PayBillPO> payBillPOs, List<ReceiptBillPO> receiptBillPOs) {
         List<PayBillVO> payBillVOs = new ArrayList<>();
         List<ReceiptBillVO> receiptBillVOs = new ArrayList<>();
-        Collections.sort(payBillPOs);
-        Collections.sort(receiptBillPOs);
 
         for (PayBillPO po : payBillPOs) {
             if (isBetween(po.getTime(), startTime, endTime)) {

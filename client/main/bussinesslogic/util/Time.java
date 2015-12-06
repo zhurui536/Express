@@ -28,6 +28,11 @@ public class Time implements Comparable<Time>,Serializable{
                 }
         }
 
+        public long sub(Time time) {
+                long diff = date.getTime() - time.date.getTime();
+                return diff / (1000 * 60 * 60 * 24);
+        }
+        
         @Override
         public String toString() {
                 return dateFormater.format(date);

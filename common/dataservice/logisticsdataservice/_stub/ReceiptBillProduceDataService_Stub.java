@@ -2,6 +2,9 @@ package dataservice.logisticsdataservice._stub;
 
 import java.rmi.RemoteException;
 
+import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Time;
+
 import dataservice.logisticsdataservice.ReceiptBillProduceDataService;
 import po.GoodsPO;
 
@@ -12,8 +15,17 @@ import po.GoodsPO;
 public class ReceiptBillProduceDataService_Stub implements ReceiptBillProduceDataService{
 
         @Override
-        public void insertGoods(GoodsPO goods) throws RemoteException {
-                System.out.println("insert successfully");
+        public ResultMessage findGoods(Time time) throws RemoteException {
+                // TODO Auto-generated method stub
+                return null;
         }
+
+        @Override
+        public ResultMessage insert() {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+        
 
 }

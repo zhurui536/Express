@@ -14,4 +14,6 @@ public class SendBillVO {
         public String id;
         //单据审批状态
         public BillState billState;
+      //快递员
+        public String deliveryManID;
 }

@@ -1,6 +1,7 @@
 package po.logisticpo;
 
 import main.bussinesslogic.util.Time;
+import main.bussinesslogicservice.infoblservice._driver.InstitutionMessageMaintenanceBLService_Driver;
 import main.vo.StaffMessageVO;
 import main.vo.logisticvo.ReceiptBillVO;
 import po.StaffMessagePO;
@@ -15,28 +16,35 @@ import java.util.List;
  * 2015/12/6
  */
 
-public class ReceiptBillPO implements Serializable, Comparable<ReceiptBillPO> {
+public class ReceiptBillPO implements Serializable {
 
-    private Time time;
+        private static final long serialVersionUID = 1526637956814486761L;
+
+        private Time time;
 
     private BigDecimal money;
 
-    private StaffMessagePO staffMessagePO;
+    private String deliveryManID;
+    
+    private String institutionID;
 
     private List<String> barCodes;
 
-    public ReceiptBillPO(Time time, BigDecimal money,
-                         StaffMessagePO staffMessagePO, List<String> barCodes) {
+    
+
+    public ReceiptBillPO(Time time, BigDecimal money, String deliveryManID,
+                String institutionID, List<String> barCodes) {
+        super();
         this.time = time;
         this.money = money;
-        this.staffMessagePO = staffMessagePO;
+        this.deliveryManID = deliveryManID;
+        this.institutionID = institutionID;
         this.barCodes = barCodes;
-    }
+}
 
-    public ReceiptBillVO poToVo() {
-        StaffMessageVO staffMessageVO = staffMessagePO.poToVo();
+public ReceiptBillVO poToVo() {
         List<String> newBarCodes = new ArrayList<>(barCodes);
-        return new ReceiptBillVO(time, money, staffMessageVO, newBarCodes);
+        return new ReceiptBillVO(time, money, deliveryManID, institutionID,newBarCodes);
     }
 
     public Time getTime() {
@@ -55,15 +63,25 @@ public class ReceiptBillPO implements Serializable, Comparable<ReceiptBillPO> {
         this.money = money;
     }
 
-    public StaffMessagePO getStaffMessagePO() {
-        return staffMessagePO;
-    }
+  
 
-    public void setStaffMessagePO(StaffMessagePO staffMessagePO) {
-        this.staffMessagePO = staffMessagePO;
-    }
+    public String getDeliveryManID() {
+        return deliveryManID;
+}
 
-    public List<String> getBarCodes() {
+public void setDeliveryManID(String deliveryManID) {
+        this.deliveryManID = deliveryManID;
+}
+
+public String getInstitutionID() {
+        return institutionID;
+}
+
+public void setInstitutionID(String institutionID) {
+        this.institutionID = institutionID;
+}
+
+public List<String> getBarCodes() {
         return barCodes;
     }
 
@@ -71,8 +89,4 @@ public class ReceiptBillPO implements Serializable, Comparable<ReceiptBillPO> {
         this.barCodes = barCodes;
     }
 
-    @Override
-    public int compareTo(ReceiptBillPO receiptBillPO) {
-        return time.compareTo(receiptBillPO.time);
-    }
 }
