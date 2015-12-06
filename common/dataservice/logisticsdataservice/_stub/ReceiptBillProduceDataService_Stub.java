@@ -7,6 +7,7 @@ import main.bussinesslogic.util.Time;
 
 import dataservice.logisticsdataservice.ReceiptBillProduceDataService;
 import po.GoodsPO;
+import po.logisticpo.ReceiptBillPO;
 
 /**
  * @author zhuding
@@ -21,7 +22,7 @@ public class ReceiptBillProduceDataService_Stub implements ReceiptBillProduceDat
         }
 
         @Override
-        public ResultMessage insert() {
+        public ResultMessage insert(ReceiptBillPO receiptBillPOm) {
                 // TODO Auto-generated method stub
                 return null;
         }
