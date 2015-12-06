@@ -1,6 +1,7 @@
 package main.bussinesslogicservice.financeblservice._stub;
 
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.financeblservice.ShowStatementBLService;
 
 /**
@@ -11,8 +12,8 @@ import main.bussinesslogicservice.financeblservice.ShowStatementBLService;
 public class ShowStatementBLService_Stub implements ShowStatementBLService {
 
     @Override
-    public ResultMessage showStatement(long startTime, long endTime) {
-        if (startTime >= endTime) {
+    public ResultMessage showStatement(Time startTime, Time endTime) {
+        if (startTime.compareTo(endTime) > 0) {
             System.out.println("Show Statement success");
             return new ResultMessage("success", null);
         }
@@ -20,5 +21,10 @@ public class ShowStatementBLService_Stub implements ShowStatementBLService {
             System.out.println("Show Statement fail");
             return new ResultMessage("fail", null);
         }
+    }
+
+    @Override
+    public ResultMessage statementToExcel() {
+        return null;
     }
 }

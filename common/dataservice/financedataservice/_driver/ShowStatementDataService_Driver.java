@@ -15,7 +15,8 @@ public class ShowStatementDataService_Driver {
 
     public void drive(ShowStatementDataService showStatementDataService) {
         try {
-            showStatementDataService.find(100, 1000);
+            showStatementDataService.findAllPayBill();
+            showStatementDataService.findAllReceiptBill();
         } catch (RemoteException e) {
             e.printStackTrace();
         }

@@ -1,20 +1,22 @@
 package main.bussinesslogic.financebl;
 
-import main.bussinesslogic.util.PayItem;
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.financeblservice.BankAccountManagementBLService;
 import main.bussinesslogicservice.financeblservice.CreatePayBillBLService;
+import main.bussinesslogicservice.financeblservice.ShowProfitListBLService;
+import main.bussinesslogicservice.financeblservice.ShowStatementBLService;
 import main.bussinesslogicservice.financeblservice._stub.FinanceBLService;
 import main.connection.ClientInitException;
 import main.connection.ClientRMIHelper;
 import main.vo.AccountVO;
 import main.vo.BankAccountVO;
 import main.vo.PayBillVO;
-import main.vo.StaffMessageVO;
+import main.vo.StatementVO;
 import po.financepo.BankAccountPO;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 控制器，用于控制财务层的逻辑
@@ -28,9 +30,15 @@ public class FinanceController implements FinanceBLService {
 
     private CreatePayBillBLService createPayBillBL;
 
+    private ShowProfitListBLService showProfitListBL;
+
+    private ShowStatementBLService showStatementBL;
+
     public FinanceController() {
         bankAccountManagement = new BankAccountManagementBL();
         createPayBillBL = new CreatePayBillBL();
+        showProfitListBL = new ShowProfitListBL();
+        showStatementBL = new ShowStatementBL();
     }
 
     // TODO
@@ -55,14 +63,21 @@ public class FinanceController implements FinanceBLService {
             System.out.println(bankAccountVO.name + " " + bankAccountVO.id);
         }
 
-//        Time time = new Time("2015-02-18");
-        BigDecimal money = new BigDecimal(1000.50);
-        StaffMessageVO staffMessageVO = new StaffMessageVO();
-        String id = "41242";
-        PayItem item = PayItem.SALARY;
-        String remark = "test";
-        PayBillVO payBillVO = new PayBillVO(null, money, staffMessageVO, vo, id, item, remark);
-        financeController.createPayBill(payBillVO);
+        Time time = new Time("2015-02-18");
+//        BigDecimal money = new BigDecimal(1000.50);
+//        StaffMessageVO staffMessageVO = new StaffMessageVO("31423", "hello");
+//        String id = "41242";
+//        PayItem item = PayItem.SALARY;
+//        String remark = "test";
+//        PayBillVO payBillVO = new PayBillVO(time, money, staffMessageVO, vo, id, item, remark);
+//        financeController.createPayBill(payBillVO);
+
+        ResultMessage resultMessage = financeController.showStatement(time, time);
+        StatementVO statementVO = (StatementVO) resultMessage.getValue();
+        List<PayBillVO> payBillVOs = statementVO.payBillVOs;
+        for (PayBillVO t : payBillVOs) {
+            System.out.println(t.staffMessageVO.name);
+        }
     }
 
     @Override
@@ -106,12 +121,23 @@ public class FinanceController implements FinanceBLService {
     }
 
     @Override
+    public ResultMessage profitListToExcel() {
+        return null;
+    }
+
+    @Override
     public ResultMessage showReceipt(long time, long id) {
         return null;
     }
 
     @Override
-    public ResultMessage showStatement(long startTime, long endTime) {
+    // TODO
+    public ResultMessage showStatement(Time startTime, Time endTime) {
+        return showStatementBL.showStatement(startTime, endTime);
+    }
+
+    @Override
+    public ResultMessage statementToExcel() {
         return null;
     }
 }

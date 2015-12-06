@@ -1,5 +1,7 @@
 package po;
 
+import main.vo.StaffMessageVO;
+
 import java.io.Serializable;
 
 /**
@@ -21,6 +23,10 @@ public class StaffMessagePO implements Serializable {
     public StaffMessagePO(String id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public StaffMessageVO poToVo() {
+        return new StaffMessageVO(id, name);
     }
 
     public String getId() {

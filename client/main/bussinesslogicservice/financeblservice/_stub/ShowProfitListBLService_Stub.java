@@ -15,4 +15,9 @@ public class ShowProfitListBLService_Stub implements ShowProfitListBLService {
         System.out.println("Show ProfitList Success");
         return new ResultMessage("success", null);
     }
+
+    @Override
+    public ResultMessage profitListToExcel() {
+        return null;
+    }
 }
