@@ -16,7 +16,7 @@ import java.util.List;
  * 2015/12/6
  */
 
-public class ReceiptBillPO implements Serializable, Comparable<ReceiptBillPO> {
+public class ReceiptBillPO implements Serializable {
 
         private static final long serialVersionUID = 1526637956814486761L;
 
@@ -89,8 +89,4 @@ public List<String> getBarCodes() {
         this.barCodes = barCodes;
     }
 
-    @Override
-    public int compareTo(ReceiptBillPO receiptBillPO) {
-        return time.compareTo(receiptBillPO.time);
-    }
 }
