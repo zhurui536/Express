@@ -1,89 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df707e08-8df3-4511-9f4e-7ebff1dc9706" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\code\Express\Express\target\classes\save\storedata\space.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/AdjustBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/AdjustBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/AdjustDataPane.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/AdjustDataPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/inputframe/AdjustInputFrame.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/inputframe/AdjustInputFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/storepo/AdjustPO.class" afterPath="$PROJECT_DIR$/target/classes/po/storepo/AdjustPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/storevo/AdjustVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/storevo/AdjustVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/CheckBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/CheckBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/tool/CheckTool.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/tool/CheckTool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/CheckToolListener.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/CheckToolListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/storevo/CheckVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/storevo/CheckVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/connection/ClientRMIHelper.class" afterPath="$PROJECT_DIR$/target/classes/main/connection/ClientRMIHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/DeliveryBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/DeliveryBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/DeliveryBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/DeliveryBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/_driver/DeliveryBLService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/_driver/DeliveryBLService_Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/_stub/DeliveryBLService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/_stub/DeliveryBLService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/logisticpo/DeliveryBillPO.class" afterPath="$PROJECT_DIR$/target/classes/po/logisticpo/DeliveryBillPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/logisticvo/DeliveryBillVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/logisticvo/DeliveryBillVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/FinanceController.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/FinanceController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/GoodsLoadBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/GoodsLoadBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/GoodsLoadBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/GoodsLoadBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/logisticsdataservice/GoodsLoadDataService.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/logisticsdataservice/GoodsLoadDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/GoodsPO.class" afterPath="$PROJECT_DIR$/target/classes/po/GoodsPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/GoodsReceiptBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/GoodsReceiptBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/GoodsReceiptBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/GoodsReceiptBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/_stub/GoodsReceiptBLService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/logisticsblservice/_stub/GoodsReceiptBLService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/logisticsdataservice/GoodsReceiptDataService.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/logisticsdataservice/GoodsReceiptDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/logisticsdataservice/_stub/GoodsReceiptDataService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/logisticsdataservice/_stub/GoodsReceiptDataService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/GoodsVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/GoodsVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/storepo/IORecordPO.class" afterPath="$PROJECT_DIR$/target/classes/po/storepo/IORecordPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/InStoreBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/InStoreBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/InStoreDataPane.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/InStoreDataPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/storepo/InStorePO.class" afterPath="$PROJECT_DIR$/target/classes/po/storepo/InStorePO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/InStoreToolListener.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/InStoreToolListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/logisticpo/LoadingBillPO.class" afterPath="$PROJECT_DIR$/target/classes/po/logisticpo/LoadingBillPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/logisticvo/LoadingBillVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/logisticvo/LoadingBillVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/LogisticsBLController.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/LogisticsBLController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/MenuListener.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/MenuListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/OutStoreBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/OutStoreBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/storeblservice/OutStoreBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/storeblservice/OutStoreBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/OutStoreDataPane.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/OutStoreDataPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/inputframe/OutStoreInputFrame.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/inputframe/OutStoreInputFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/storepo/OutStorePO.class" afterPath="$PROJECT_DIR$/target/classes/po/storepo/OutStorePO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/OutStoreToolListener.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/OutStoreToolListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/financepo/PayBillPO.class" afterPath="$PROJECT_DIR$/target/classes/po/financepo/PayBillPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/logisticpo/ReceiptBillPO.class" afterPath="$PROJECT_DIR$/target/classes/po/logisticpo/ReceiptBillPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/ReceiptBillProduceBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/ReceiptBillProduceBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/logisticsdataservice/ReceiptBillProduceDataService.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/logisticsdataservice/ReceiptBillProduceDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/logisticsdataservice/_stub/ReceiptBillProduceDataService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/logisticsdataservice/_stub/ReceiptBillProduceDataService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/logisticvo/ReceiptBillVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/logisticvo/ReceiptBillVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/ReceivingBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/logisticsbl/ReceivingBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/logisticpo/SendBillPO.class" afterPath="$PROJECT_DIR$/target/classes/po/logisticpo/SendBillPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/logisticvo/SendBillVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/logisticvo/SendBillVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/connection/ServerRMIHelper.class" afterPath="$PROJECT_DIR$/target/classes/main/connection/ServerRMIHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/ShowReceiptBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/ShowReceiptBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/ShowReceiptBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/ShowReceiptBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_driver/ShowReceiptBLService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_driver/ShowReceiptBLService_Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_stub/ShowReceiptBLService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/financeblservice/_stub/ShowReceiptBLService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/ShowStatementBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/ShowStatementBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/StoreBLController.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/StoreBLController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/storedataservice/StoreDataService.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/storedataservice/StoreDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/data/storedata/StoreDataServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/main/data/storedata/StoreDataServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/storedataservice/_driver/StoreDataService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/storedataservice/_driver/StoreDataService_Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/storedataservice/_stub/StoreDataService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/storedataservice/_stub/StoreDataService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/StoreFrame.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/StoreFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/storepo/StorePO.class" afterPath="$PROJECT_DIR$/target/classes/po/storepo/StorePO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/storepo/StorePlacePO.class" afterPath="$PROJECT_DIR$/target/classes/po/storepo/StorePlacePO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/storevo/StoreVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/storevo/StoreVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/util/Time.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/util/Time.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/UserPO.class" afterPath="$PROJECT_DIR$/target/classes/po/UserPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/VerificationBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/VerificationBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/storepo/VerificationPO.class" afterPath="$PROJECT_DIR$/target/classes/po/storepo/VerificationPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/tool/VerificationTool.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/tool/VerificationTool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/VerificationToolListener.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/listener/toollistener/VerificationToolListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/ShowReceiptBLService_Driver.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_driver/ShowReceiptBLService_Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_stub/ShowReceiptBLService_Stub.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/_stub/ShowReceiptBLService_Stub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/adjustPO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/adjustPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/instorePO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/instorePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/outStorePO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/outStorePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/storePO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/storePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/verificationPO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/verificationPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="df707e08-8df3-4511-9f4e-7ebff1dc9706" name="Default" comment="" />
     <ignored path="express-all.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/server/target/" />
@@ -108,15 +26,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FinanceController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FinanceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/FinanceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.59217304">
-              <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="132" column="13" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
               <folding>
                 <element signature="e#4276#4277#0" expanded="true" />
                 <element signature="e#4303#4304#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShowStatementBL.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/ShowStatementBL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4438723">
+              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -889,16 +817,16 @@
       <workItem from="1449106715297" duration="14343000" />
       <workItem from="1449139632555" duration="1807000" />
       <workItem from="1449141574620" duration="8055000" />
-      <workItem from="1449312645227" duration="30429000" />
+      <workItem from="1449312645227" duration="30986000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183096000" />
+    <option name="totallyTimeSpent" value="183653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -912,7 +840,7 @@
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2046875" sideWeight="0.49651048" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2046875" sideWeight="0.49651048" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1227,18 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/ShowStatementBL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1503605">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2947#2948#0" expanded="false" />
-            <element signature="e#3018#3019#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/ShowStatementBLService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1414,12 +1330,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/FinanceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59217304">
-          <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="132" column="13" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
           <folding>
             <element signature="e#4276#4277#0" expanded="true" />
             <element signature="e#4303#4304#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main/bussinesslogic/financebl/ShowStatementBL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4438723">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
