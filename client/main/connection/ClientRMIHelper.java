@@ -27,7 +27,8 @@ public class ClientRMIHelper {
             "CreatePayBillDataServiceImpl",
             "ShowStatementDataServiceImpl",
             "ShowReceiptDataServiceImpl",
-            "StoreDataServiceImpl"
+            "StoreDataServiceImpl",
+            "BillDataServiceImpl"
     };
 
     public synchronized static void init() throws ClientInitException {

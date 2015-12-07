@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import po.BillPO;
@@ -16,7 +18,12 @@ import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.ResultMessage;
 import dataservice.billdataservice.BilldataService;
 
-public class BillDataServiceImpl implements BilldataService {
+public class BillDataServiceImpl extends UnicastRemoteObject implements BilldataService {
+	
+	protected BillDataServiceImpl() throws RemoteException {
+		super();
+	}
+
 	private final String instorebill = "server/save/storedata/instoreBillPO.dat";
 	private final String outstorebill = "server/save/storedata/outstoreBillPO.dat";
 	private final String paybill = "server/save/financedata/payBillPO.dat";
