@@ -38,6 +38,11 @@ public class Time implements Comparable<Time>,Serializable{
                 return dateFormater.format(date);
         }
 
+        public boolean equalsWithDay(Time o) {
+            SimpleDateFormat fmt =new SimpleDateFormat("yyyy-MM-dd");
+            return fmt.format(o.date).equals(fmt.format(date));
+        }
+        
         @Override
         public int compareTo(Time o) {
                 if (date.before(o.date)) {
@@ -49,5 +54,12 @@ public class Time implements Comparable<Time>,Serializable{
                 return 0;
         }
         
+//        public static void main(String[] args) {
+//            Time time1 = new Time("2015-12-7");
+//            Time time2 = new Time();
+//            System.out.println(time1);
+//            System.out.println(time2);
+//            System.out.println(time1.equalsWithDay(time2));
+//        }
 
 }
