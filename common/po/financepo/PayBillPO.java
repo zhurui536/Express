@@ -1,11 +1,12 @@
 package po.financepo;
 
+import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.PayItem;
 import main.bussinesslogic.util.Time;
 import main.vo.BankAccountVO;
-import main.vo.BillVO;
 import main.vo.PayBillVO;
 import main.vo.StaffMessageVO;
+import po.BillPO;
 import po.StaffMessagePO;
 
 import java.io.Serializable;
@@ -17,7 +18,7 @@ import java.math.BigDecimal;
  * 2015/12/6
  */
 
-public class PayBillPO implements Serializable {
+public class PayBillPO extends BillPO implements Serializable {
 
     private static final long serialVersionUID = 2279200270601944748L;
 
@@ -41,6 +42,7 @@ public class PayBillPO implements Serializable {
 
     public PayBillPO(Time time, BigDecimal money, StaffMessagePO staffMessagePO,
                      BankAccountPO bankAccountPO, String id, PayItem item, String remark) {
+    	super(id, BillType.PAYMENT, staffMessagePO.getId());
         this.time = time;
         this.money = money;
         this.staffMessagePO = staffMessagePO;
@@ -51,8 +53,10 @@ public class PayBillPO implements Serializable {
     }
 
     public PayBillPO(PayBillVO payBillVO) {
+    	super(payBillVO.id, BillType.PAYMENT, payBillVO.staffMessageVO.id);
         BankAccountVO bankAccountVO = payBillVO.bankAccountVO;
         StaffMessageVO staffMessageVO = payBillVO.staffMessageVO;
+        
         this.time = payBillVO.time;
         this.money = payBillVO.money;
         this.staffMessagePO = new StaffMessagePO(staffMessageVO.id, staffMessageVO.name);
@@ -98,9 +102,5 @@ public class PayBillPO implements Serializable {
 
     public String getRemark() {
         return remark;
-    }
-
-    public BillVO toBillVO() {
-        return new BillVO();
     }
 }

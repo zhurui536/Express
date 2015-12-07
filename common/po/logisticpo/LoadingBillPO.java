@@ -3,6 +3,8 @@ package po.logisticpo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import po.BillPO;
+import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.Time;
 import main.vo.logisticvo.LoadingBillVO;
 
@@ -11,7 +13,7 @@ import main.vo.logisticvo.LoadingBillVO;
  * 
  * @author zhuding
  */
-public class LoadingBillPO implements Serializable {
+public class LoadingBillPO extends BillPO implements Serializable {
 
         private static final long serialVersionUID = 1L;
         // 录入机构
@@ -37,7 +39,7 @@ public class LoadingBillPO implements Serializable {
                         String arrivalPlace, String numOfTruck,
                         String supervisor, String supercargo,
                         ArrayList<String> ids) {
-                super();
+                super(institution, BillType.LOADING, supervisor);
                 this.institution = institution;
                 this.date = date;
                 this.transferNum = transferNum;

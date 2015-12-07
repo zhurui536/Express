@@ -1,6 +1,7 @@
 package po.logisticpo;
 
 import main.bussinesslogic.util.BillState;
+import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.Time;
 import main.vo.logisticvo.ReceiptBillVO;
 import main.vo.logisticvo.ReceiptLineItemVO;
@@ -10,11 +11,13 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import po.BillPO;
+
 /**
  * 收款单PO 2015/12/6
  */
 
-public class ReceiptBillPO implements Serializable {
+public class ReceiptBillPO extends BillPO implements Serializable {
 
         private static final long serialVersionUID = 1526637956814486761L;
 
@@ -35,7 +38,7 @@ public class ReceiptBillPO implements Serializable {
         public ReceiptBillPO(Time time, BigDecimal totalMoney,
                         String institutionID,
                         List<ReceiptLineItemPO> receiptLineItemPOs, String billid, String userid) {
-                super();
+                super(billid, BillType.RECEIPT, userid);
                 this.time = time;
                 this.totalMoney = totalMoney;
                 this.institutionID = institutionID;

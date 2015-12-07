@@ -9,5 +9,6 @@ public enum BillType {
         INSTORE,//入库单
         TRANSIT,//中转单
         OUTSTORE,//出库单
-        PAYMENT;//付款单
+        PAYMENT,//付款单
+        RECEIPT;//接收单
 }

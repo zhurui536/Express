@@ -2,12 +2,14 @@ package po.logisticpo;
 
 import java.io.Serializable;
 
+import po.BillPO;
+import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.GoodsState;
 /**
  * 到达单
  * @author zhuding
  */
-public class ArrivalBillPO implements Serializable {
+public class ArrivalBillPO extends BillPO implements Serializable {
 
         private static final long serialVersionUID = 1L;
         // 录入机构
@@ -24,7 +26,7 @@ public class ArrivalBillPO implements Serializable {
         public ArrivalBillPO(String institution, String date,
                         String transferBillNum, String departurePlace,
                         GoodsState goodsState) {
-                super();
+                super(transferBillNum, BillType.ARRIVAL, institution);
                 this.institution = institution;
                 this.date = date;
                 this.transferBillNum = transferBillNum;

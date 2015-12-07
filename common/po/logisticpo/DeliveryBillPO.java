@@ -2,9 +2,11 @@ package po.logisticpo;
 
 import java.util.ArrayList;
 
+import po.BillPO;
+import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.Time;
 
-public class DeliveryBillPO {
+public class DeliveryBillPO extends BillPO{
         // 到达日期
         private Time time;
         // 托运订单条形码号
@@ -14,7 +16,7 @@ public class DeliveryBillPO {
 
         public DeliveryBillPO(Time time, ArrayList<String> ids,
                         String deliverManId) {
-                super();
+                super(null, BillType.DELIVERY, deliverManId);
                 this.time = time;
                 this.ids = ids;
                 this.deliverManId = deliverManId;

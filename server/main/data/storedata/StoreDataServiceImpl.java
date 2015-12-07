@@ -42,10 +42,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 				in.close();
 				
 				//写回文件中
-				FileOutputStream out = new FileOutputStream(storerecord);
-				ObjectOutputStream objout = new ObjectOutputStream(out);
-				objout.writeObject(store);
-				objout.close();
+				this.writeList(storerecord, store);
 			}
 			
 			in = new FileInputStream(instorerecord);
@@ -54,10 +51,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 				in.close();
 
 				//接着将对象写回文件中
-				FileOutputStream out = new FileOutputStream(instorerecord);
-				ObjectOutputStream objout = new ObjectOutputStream(out);
-				objout.writeObject(records);
-				objout.close();
+				this.writeList(instorerecord, records);
 			}
 			
 			in = new FileInputStream(outstorerecord);
@@ -66,10 +60,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 				in.close();
 				
 				//写入文件
-				FileOutputStream out = new FileOutputStream(outstorerecord);
-				ObjectOutputStream objout = new ObjectOutputStream(out);
-				objout.writeObject(records);
-				objout.close();
+				this.writeList(outstorerecord, records);
 			}
 			
 			in = new FileInputStream(adjustrecord);
@@ -78,10 +69,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 				in.close();
 				
 				//写入文件
-				FileOutputStream out = new FileOutputStream(adjustrecord);
-				ObjectOutputStream objout = new ObjectOutputStream(out);
-				objout.writeObject(records);
-				objout.close();
+				this.writeList(adjustrecord, records);
 			}
 			
 			in = new FileInputStream(verificationrecord);
@@ -90,10 +78,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 				in.close();
 				
 				//写入文件
-				FileOutputStream out = new FileOutputStream(verificationrecord);
-				ObjectOutputStream objout = new ObjectOutputStream(out);
-				objout.writeObject(records);
-				objout.close();
+				this.writeList(verificationrecord, records);
 			}
 			
 		} catch (Exception e) {
@@ -117,11 +102,8 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		StorePO store = null;
 		
 		try {//读取库存对象
-			FileInputStream in = new FileInputStream(storerecord);
-			ObjectInputStream objin = new ObjectInputStream(in);
-			store = (StorePO) objin.readObject();
+			store = (StorePO) this.readList(storerecord);
 			store.show();
-			objin.close();
 			
 			//检查传过来的位置是否越界
 			if(place.getArea()>=store.getArea()||place.getRow()>=store.getRow()||place.getShelf()>=store.getShelf()||place.getPlace()>=store.getPlace()){
@@ -139,115 +121,6 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		}
 	}
 
-//	@Override
-//	public ResultMessage delete(GoodsPO po) throws RemoteException {
-//		StorePO store = null;
-//		
-//		try {//读入库存数据
-//			FileInputStream in = new FileInputStream(storerecord);
-//			//判断文档是否为空，如果是空的，那么新建一个对象，并将其写入文件中
-//			if(in.available() == 0){
-//				store = new StorePO(2, 3, 5, 7);
-//				in.close();
-//				
-//				//写回文件中
-//				FileOutputStream out = new FileOutputStream(storerecord);
-//				ObjectOutputStream objout = new ObjectOutputStream(out);
-//				objout.writeObject(store);
-//				objout.close();
-//			}
-//			else{
-//				ObjectInputStream objin = new ObjectInputStream(in);
-//				store = (StorePO) objin.readObject();
-//				store.show();
-//				objin.close();
-//			}
-//			
-//			//遍历库存
-//			for(int a=0;a<store.getArea();a++){
-//				for(int r=0;r<store.getRow();r++){
-//					for(int s=0;s<store.getShelf();s++){
-//						for(int p=0;p<store.getPlace();p++){
-//							//找到对应的库存位置
-//							StorePlacePO temp = store.getStorePlace(a, r, s, p);
-//							if(temp.ifEmpty()){//该位置为空时直接跳过
-//								continue;
-//							}
-//							else if(temp.getGoods().getId().equals(po.getId())){
-//								//找到之后进行更改
-//								temp.setGoods(null);
-//								store.setStorePlace(temp);
-//								
-//								//尝试回文件中
-//								FileOutputStream out = new FileOutputStream(storerecord);
-//								ObjectOutputStream objout = new ObjectOutputStream(out);
-//								objout.writeObject(store);
-//								objout.close();
-//								
-//								store.show();
-//								return new ResultMessage("success", null);
-//							}
-//						}
-//					}
-//				}
-//			}
-//			
-//			return new ResultMessage("noexist", null);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			return new ResultMessage("dataerror", null);
-//		}
-//	}
-//
-//	@Override
-//	public ResultMessage update(StorePlacePO place, GoodsPO po)
-//			throws RemoteException {
-//		StorePO store = null;
-//		try {//读入库存数据
-//			FileInputStream in = new FileInputStream(storerecord);
-//			//判断文档是否为空，如果是空的，那么新建一个对象，并将其写入文件中
-//			if(in.available() == 0){
-//				store = new StorePO(2, 3, 5, 7);
-//				in.close();
-//				
-//				//写回文件中
-//				FileOutputStream out = new FileOutputStream(storerecord);
-//				ObjectOutputStream objout = new ObjectOutputStream(out);
-//				objout.writeObject(store);
-//				objout.close();
-//			}
-//			else{
-//				ObjectInputStream objin = new ObjectInputStream(in);
-//				store = (StorePO) objin.readObject();
-//				store.show();
-//				objin.close();
-//			}
-			
-//			//检查传过来的位置是否越界
-//			if(place.getArea()>=store.getArea()||place.getRow()>=store.getRow()||place.getShelf()>=store.getShelf()||place.getPlace()>=store.getPlace()){
-//				return new ResultMessage("wrongplace", null);
-//			}
-//			if(place.getArea()<0||place.getRow()<0||place.getShelf()<0||place.getPlace()<0){
-//				return new ResultMessage("wrongplace", null);
-//			}
-//			
-//			//确定位置正确后进行修改
-//			place.setGoods(po);
-//			store.setStorePlace(place);
-//			
-//			//接着将对象写回文件中
-//			FileOutputStream out = new FileOutputStream(storerecord);
-//			ObjectOutputStream objout = new ObjectOutputStream(out);
-//			objout.writeObject(store);
-//			objout.close();
-//			store.show();
-//			return new ResultMessage("success", null);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			return new ResultMessage("dataerror", null);
-//		}
-//	}
-
 	//保存入库记录的同时更新库存
 	@SuppressWarnings("unchecked")
 	@Override
@@ -257,12 +130,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		StorePO store = null;
 		
 		try {//读取当前库存对象
-			FileInputStream in = new FileInputStream(storerecord);
-			ObjectInputStream objin = new ObjectInputStream(in);
-			store = (StorePO) objin.readObject();
-			objin.close();
-			
-			store.show();
+			store = (StorePO) this.readList(storerecord);
 			
 			for(int i=0;i<po.size();i++){//进行改写
 				InStorePO temp = po.get(i);
@@ -272,17 +140,10 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			}
 			
 			//将新的库存写入文件
-			FileOutputStream out = new FileOutputStream(storerecord);
-			
-			ObjectOutputStream objout = new ObjectOutputStream(out);
-			objout.writeObject(store);
-			objout.close();
+			this.writeList(storerecord, store);
 			
 			//读入入库记录数据
-			in = new FileInputStream(instorerecord);
-			objin = new ObjectInputStream(in);
-			records = (ArrayList<InStorePO>) objin.readObject();
-			objin.close();
+			records = (ArrayList<InStorePO>) this.readList(instorerecord);
 			
 			//将记录加到现有记录的后面
 			for(int i=0;i<po.size();i++){
@@ -290,10 +151,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			}
 			
 			//接着将对象写回文件中
-			out = new FileOutputStream(instorerecord);
-			objout = new ObjectOutputStream(out);
-			objout.writeObject(records);
-			objout.close();
+			this.writeList(instorerecord, records);
 			
 			//接着保存入库单
 			if(po.size()>0){//暂时现将第一个货物的编号作为入库单id
@@ -301,19 +159,14 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 				ArrayList<InStoreBillPO> temp;
 				
 				//读入已有的单据数据
-				in = new FileInputStream(instorebill);
-				objin = new ObjectInputStream(in);
-				temp = (ArrayList<InStoreBillPO>) objin.readObject();
-				objin.close();
-				
+				temp = (ArrayList<InStoreBillPO>) this.readList(instorebill);
 				temp.add(bill);
 
 				//接着将对象写回文件中
-				out = new FileOutputStream(instorebill);
-				objout = new ObjectOutputStream(out);
-				objout.writeObject(temp);
-				objout.close();
+				this.writeList(instorebill, temp);
 			}
+			
+			store.show();
 				
 			return new ResultMessage("success", null);
 			
@@ -332,12 +185,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		StorePO store = null;
 		
 		try {//读取库存对象
-			FileInputStream in = new FileInputStream(storerecord);
-			ObjectInputStream objin = new ObjectInputStream(in);
-			store = (StorePO) objin.readObject();
-			objin.close();
-			
-			store.show();
+			store = (StorePO) this.readList(storerecord);
 			
 			for(int i=0;i<po.size();i++){//改写库存
 				OutStorePO temp = po.get(i);
@@ -347,16 +195,10 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			}
 			
 			//将新的库存写入文件
-			FileOutputStream out = new FileOutputStream(storerecord);
-			ObjectOutputStream objout = new ObjectOutputStream(out);
-			objout.writeObject(store);
-			objout.close();
+			this.writeList(storerecord, store);
 			
 			//读入出库记录数据
-			in = new FileInputStream(outstorerecord);
-			objin = new ObjectInputStream(in);
-			records = (ArrayList<OutStorePO>) objin.readObject();
-			objin.close();
+			records = (ArrayList<OutStorePO>) this.readList(outstorerecord);
 			
 			//将记录加到现有记录的后面
 			for(int i=0;i<po.size();i++){
@@ -364,10 +206,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			}
 			
 			//接着将对象写回文件中
-			out = new FileOutputStream(outstorerecord);
-			objout = new ObjectOutputStream(out);
-			objout.writeObject(records);
-			objout.close();
+			this.writeList(outstorerecord, records);
 			
 			//接着保存出库单
 			if(po.size()>0){//暂时现将第一个货物的编号作为出库单id
@@ -375,18 +214,11 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 				ArrayList<OutStoreBillPO> temp;
 				
 				//读入已有的单据数据
-				in = new FileInputStream(outstorebill);
-				objin = new ObjectInputStream(in);
-				temp = (ArrayList<OutStoreBillPO>) objin.readObject();
-				objin.close();
-				
+				temp = (ArrayList<OutStoreBillPO>) this.readList(outstorebill);
 				temp.add(bill);
 
 				//接着将对象写回文件中
-				out = new FileOutputStream(outstorebill);
-				objout = new ObjectOutputStream(out);
-				objout.writeObject(temp);
-				objout.close();
+				this.writeList(outstorebill, temp);
 			}
 				
 			return new ResultMessage("success", null);
@@ -404,27 +236,13 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		ArrayList<VerificationPO> records = null;
 		
 		try {//读入出库记录数据
-			FileInputStream in = new FileInputStream(verificationrecord);
-			//若文件为空，则直接新建对象
-			if(in.available() == 0){
-				records = new ArrayList<VerificationPO>();
-				in.close();
-			}
-			else{
-				ObjectInputStream objin = new ObjectInputStream(in);
-				records = (ArrayList<VerificationPO>) objin.readObject();
-				
-				objin.close();
-			}
+			records = (ArrayList<VerificationPO>) this.readList(verificationrecord);
 			
 			//将记录加到现有记录的后面
 			records.add(po);
 			
 			//接着将对象写回文件中
-			FileOutputStream out = new FileOutputStream(verificationrecord);
-			ObjectOutputStream objout = new ObjectOutputStream(out);
-			objout.writeObject(records);
-			objout.close();
+			this.writeList(verificationrecord, records);
 			
 			return new ResultMessage("success", null);
 		} catch (Exception e) {
@@ -441,12 +259,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		StorePO store = null;
 		
 		try {
-			FileInputStream in = new FileInputStream(storerecord);
-			ObjectInputStream objin = new ObjectInputStream(in);
-			store = (StorePO) objin.readObject();
-			objin.close();
-			
-			store.show();
+			store = (StorePO) this.readList(storerecord);
 			
 			//将所有的调整项对库存进行实现
 			for(int i=0;i<po.size();i++){
@@ -465,11 +278,11 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 				store.setStorePlace(end);
 			}
 			
+			//将调整记录写回文件
+			this.writeList(storerecord, store);
+			
 			//读入调整记录数据
-			in = new FileInputStream(adjustrecord);
-			objin = new ObjectInputStream(in);
-			records = (ArrayList<AdjustPO>) objin.readObject();
-			objin.close();
+			records = (ArrayList<AdjustPO>) this.readList(adjustrecord);
 			
 			//将记录加到现有记录的后面
 			for(int i=0;i<po.size();i++){
@@ -477,10 +290,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			}
 			
 			//接着将对象写回文件中
-			FileOutputStream out = new FileOutputStream(adjustrecord);
-			ObjectOutputStream objout = new ObjectOutputStream(out);
-			objout.writeObject(records);
-			objout.close();
+			this.writeList(adjustrecord, records);
 				
 			return new ResultMessage("success", null);
 			
@@ -502,15 +312,8 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		ArrayList<OutStorePO> outs = new ArrayList<OutStorePO>();
 		
 		try {//分别读取所有出库和入库记录
-			FileInputStream in = new FileInputStream(instorerecord);
-			ObjectInputStream objin = new ObjectInputStream(in);
-			instore = (ArrayList<InStorePO>) objin.readObject();
-			objin.close();
-			
-			in = new FileInputStream(outstorerecord);
-			objin = new ObjectInputStream(in);
-			outstore = (ArrayList<OutStorePO>) objin.readObject();
-			objin.close();
+			instore = (ArrayList<InStorePO>) this.readList(instorerecord);
+			outstore = (ArrayList<OutStorePO>) this.readList(outstorerecord);
 			
 			//对对象中的时间进行比较，如果在范围内，则加入返回结果
 			for(int i=0;i<instore.size();i++){
@@ -541,10 +344,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		StorePO store = null;
 		
 		try {//读入库存数据
-			FileInputStream in = new FileInputStream(storerecord);
-			ObjectInputStream objin = new ObjectInputStream(in);
-			store = (StorePO) objin.readObject();
-			objin.close();
+			store = (StorePO) this.readList(storerecord);
 			
 			store.show();
 			
@@ -560,10 +360,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		StorePO store = null;
 		
 		try {//读入库存数据
-			FileInputStream in = new FileInputStream(storerecord);
-			ObjectInputStream objin = new ObjectInputStream(in);
-			store = (StorePO) objin.readObject();
-			objin.close();
+			store = (StorePO) this.readList(storerecord);
 			
 			for(int a=0;a<store.getArea();a++){
 				for(int r=0;r<store.getRow();r++){
@@ -589,6 +386,25 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			e.printStackTrace();
 			return new ResultMessage("dataerror", null);
 		}
+	}
+	
+	private Object readList(String path) throws Exception{
+		Object list;
+		
+		FileInputStream in = new FileInputStream(path);
+		ObjectInputStream objin = new ObjectInputStream(in);
+		list = objin.readObject();
+		objin.close();
+			
+		return list;
+	}
+	
+	private void writeList(String path, Object list) throws Exception{
+		//将新的库存写入文件
+		FileOutputStream out = new FileOutputStream(path);
+		ObjectOutputStream objout = new ObjectOutputStream(out);
+		objout.writeObject(list);
+		objout.close();
 	}
 
 }

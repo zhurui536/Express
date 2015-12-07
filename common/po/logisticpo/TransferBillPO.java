@@ -3,10 +3,12 @@ package po.logisticpo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import po.BillPO;
+import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.Time;
 import main.bussinesslogic.util.Trans;
 
-public class TransferBillPO implements Serializable{
+public class TransferBillPO extends BillPO implements Serializable{
 
         private static final long serialVersionUID = -4178073770417521604L;
         // 装车日期
@@ -35,7 +37,7 @@ public class TransferBillPO implements Serializable{
         public TransferBillPO(String transferBillNum, Trans trans,
                         String depaturePlace, String arrivalPlace,
                         ArrayList<String> ids) {
-                super();
+                super(transferBillNum, BillType.TRANSIT, transferBillNum);
                 this.time = new Time();
                 this.transferBillNum = transferBillNum;
                 this.trans = trans;

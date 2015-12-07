@@ -3,14 +3,15 @@ package po.logisticpo;
 import java.io.Serializable;
 
 import main.bussinesslogic.util.BillState;
+import main.bussinesslogic.util.BillType;
 import main.vo.logisticvo.SendBillVO;
-
+import po.BillPO;
 import po.GoodsPO;
 /**
  * 寄件单
  * @author zhuding
  */
-public class SendBillPO implements Serializable {
+public class SendBillPO extends BillPO implements Serializable {
         
         private static final long serialVersionUID = 1L;
         // 寄件人信息
@@ -28,7 +29,7 @@ public class SendBillPO implements Serializable {
 
         public SendBillPO(PeopleMessagePO senderPO,
                         PeopleMessagePO recipientPO, GoodsPO goodsPO, String id,String deliveryManID) {
-                super();
+                super(id, BillType.DELIVERY, deliveryManID);
                 this.senderPO = senderPO;
                 this.recipientPO = recipientPO;
                 this.goodsPO = goodsPO;
