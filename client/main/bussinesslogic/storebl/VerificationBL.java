@@ -27,11 +27,18 @@ public class VerificationBL implements VerificationBLService {
 		ResultMessage result;
 		try {
 			result = dataservice.getStore();
-			StorePO store = (StorePO) result.getValue();
-			this.store = new StoreVO(store);
-			this.po = new VerificationPO(store, user);
+			if(result.getKey().equals("success")){
+				StorePO store = (StorePO) result.getValue();
+				this.store = new StoreVO(store);
+				this.po = new VerificationPO(store, user);
+				
+				return new ResultMessage("success", this.store);
+			}
+			else{
+				System.out.println(result.getKey());
+				return result;
+			}
 			
-			return new ResultMessage("success", this.store);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return new ResultMessage("internet error", null);
