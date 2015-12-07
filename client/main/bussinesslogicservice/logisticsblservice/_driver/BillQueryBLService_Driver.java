@@ -24,7 +24,7 @@ public class BillQueryBLService_Driver {
         
         public void drive() {
               // System.out.println(billQueryBLService.queryBill("0000000000").getBillType());
-                billQueryBLService.endQueryBill();
+//                billQueryBLService.endQueryBill();
         }
         
 }

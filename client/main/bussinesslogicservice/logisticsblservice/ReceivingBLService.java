@@ -27,5 +27,8 @@ public interface ReceivingBLService {
          */
         public double getCharge(GoodsVO goods) ;
         
+        /**
+         * 结束一次快件信息录入时调用
+         */
         public void endReceipt() ;
 }

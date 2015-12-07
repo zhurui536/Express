@@ -1,32 +1,25 @@
 package main.bussinesslogic.logisticsbl;
 
-
 import java.util.ArrayList;
 
 import java.rmi.RemoteException;
 
 import po.GoodsPO;
-import po.logisticpo.ArrivalBillPO;
-import po.logisticpo.DeliveryBillPO;
-import po.logisticpo.LoadingBillPO;
-import po.logisticpo.TransferBillPO;
+import po.logisticpo.*;
 
 import dataservice.logisticsdataservice.GoodsReceiptDataService;
-import main.bussinesslogic.util.PublicMessage;
-import main.bussinesslogic.util.ResultMessage;
-import main.bussinesslogic.util.Time;
+import main.bussinesslogic.util.*;
 import main.bussinesslogicservice.logisticsblservice.GoodsReceiptBLService;
 import main.vo.logisticvo.ArrivalBillVO;
 
-public class GoodsReceiptBL implements GoodsReceiptBLService{
+public class GoodsReceiptBL implements GoodsReceiptBLService {
 
         private GoodsReceiptDataService goodsReceiptDataService;
-        
+
         private ArrayList<String> ids;
-        
+
         public GoodsReceiptBL() {
                 ids = new ArrayList<>();
-                // TODO Auto-generated constructor stub
         }
 
         @Override
@@ -38,29 +31,36 @@ public class GoodsReceiptBL implements GoodsReceiptBLService{
                 } catch (RemoteException e) {
                         e.printStackTrace();
                 }
-                
-                if(resultMessage == null || !resultMessage.getKey().equals("SUCCESS"))
+
+                if (resultMessage == null
+                                || !resultMessage.getKey().equals("SUCCESS"))
                         return new ResultMessage("FAIL");
-                
+
                 String location = PublicMessage.location;
                 LoadingBillPO loadingBillPO = null;
                 TransferBillPO transferBillPO = null;
-                if(location.equals(arrivalBillVO.departurePlace)){
-                        loadingBillPO = (LoadingBillPO) resultMessage.getValue();
+                if (location.equals(arrivalBillVO.departurePlace)) {
+                        loadingBillPO = (LoadingBillPO) resultMessage
+                                        .getValue();
+                } else {
+                        transferBillPO = (TransferBillPO) resultMessage
+                                        .getValue();
                 }
-                else {
-                        transferBillPO = (TransferBillPO) resultMessage.getValue();
-                }
-                ids = loadingBillPO == null ? transferBillPO.getIds() : loadingBillPO.getIds();
-                //TODO 入库操作
-                ArrivalBillPO arrivalBillPO = new ArrivalBillPO(arrivalBillVO.institution, arrivalBillVO.date, arrivalBillVO.transferBillNum, arrivalBillVO.departurePlace, arrivalBillVO.goodsState);
+                ids = loadingBillPO == null ? transferBillPO.getIds()
+                                : loadingBillPO.getIds();
+
+                ArrivalBillPO arrivalBillPO = new ArrivalBillPO(
+                                arrivalBillVO.institution, arrivalBillVO.date,
+                                arrivalBillVO.transferBillNum,
+                                arrivalBillVO.departurePlace,
+                                arrivalBillVO.goodsState);
                 try {
                         goodsReceiptDataService.insertBill(arrivalBillPO);
                 } catch (RemoteException e) {
                         e.printStackTrace();
                         return new ResultMessage("FAIL_TO_INSERT");
                 }
-                
+
                 return new ResultMessage("SUCCESS");
         }
 
@@ -72,7 +72,6 @@ public class GoodsReceiptBL implements GoodsReceiptBLService{
                                 goodsPO = goodsReceiptDataService.findGoods(id);
                         } catch (RemoteException e) {
                                 e.printStackTrace();
-//                                return new Re
                         }
                         goodsPO.addLocation(PublicMessage.location);
                         try {
@@ -81,7 +80,8 @@ public class GoodsReceiptBL implements GoodsReceiptBLService{
                                 e.printStackTrace();
                         }
                 }
-                DeliveryBillPO deliveryBillPO = new DeliveryBillPO(new Time(), ids, deliverManId);
+                DeliveryBillPO deliveryBillPO = new DeliveryBillPO(new Time(),
+                                ids, deliverManId);
                 try {
                         goodsReceiptDataService.insertBill(deliveryBillPO);
                 } catch (RemoteException e) {
@@ -93,7 +93,6 @@ public class GoodsReceiptBL implements GoodsReceiptBLService{
                 return new ResultMessage("SUCCESS");
         }
 
-        
         @Override
         public void endGoodsreceipt() {
                 ids.clear();

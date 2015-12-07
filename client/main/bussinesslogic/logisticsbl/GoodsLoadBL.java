@@ -7,12 +7,15 @@ import po.logisticpo.TransferBillPO;
 import dataservice.logisticsdataservice.GoodsLoadDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.GoodsLoadBLService;
+import main.bussinesslogicservice.storeblservice.OutStoreBLService;
 import main.vo.logisticvo.LoadingBillVO;
 import main.vo.logisticvo.TransferBillVO;
 
 public class GoodsLoadBL implements GoodsLoadBLService {
 
         private GoodsLoadDataService goodsLoadDataService;
+
+        private OutStoreBLService outStoreBLService;
 
         // TODO
         // 接口改动
@@ -25,11 +28,6 @@ public class GoodsLoadBL implements GoodsLoadBLService {
                         return new ResultMessage("INSERT_FAIL", null);
                 }
                 return new ResultMessage("SUCCESS", null);
-        }
-
-        @Override
-        public void endGoodsLoad() {
-                // TODO Auto-generated method stub
         }
 
         @Override
@@ -50,7 +48,16 @@ public class GoodsLoadBL implements GoodsLoadBLService {
                         e.printStackTrace();
                         return new ResultMessage("FAIL_INSERT");
                 }
-                // TODO 调出库的方法
+                
+                outStoreBLService.newOutStore();
+                for (String id : transferBillVO.ids) {
+                        outStoreBLService.addOutStoreGoods(id,
+                                        transferBillVO.trans,
+                                        transferBillVO.arrivalPlace,
+                                        transferBillVO.transferBillNum);
+                }
+                outStoreBLService.endOutStore(0);
+                
                 return new ResultMessage("SUCCESS");
         }
 

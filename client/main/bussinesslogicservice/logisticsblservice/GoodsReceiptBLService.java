@@ -20,7 +20,9 @@ public interface GoodsReceiptBLService {
          * @param deliverManId 快递员id
          */
         public ResultMessage produceDeliveryBill( String deliverManId);
-        //TODO
-        //send改为delivery
+        
+        /**
+         * 结束一次派件单生成时调用
+         */
         public void endGoodsreceipt();
 }

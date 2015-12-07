@@ -49,23 +49,13 @@ public class LogisticsBLController implements LogisticsBLService {
         }
 
         @Override
-        public SendBillVO queryBill(String id) {
+        public ResultMessage queryBill(String id) {
                 return billQueryBLService.queryBill(id);
-        }
-
-        @Override
-        public void endQueryBill() {
-                billQueryBLService.endQueryBill();
         }
 
         @Override
         public void endDelivery() {
                 deliveryBLService.endDelivery();
-        }
-
-        @Override
-        public void endGoodsLoad() {
-                goodsLoadBLService.endGoodsLoad();
         }
 
         @Override

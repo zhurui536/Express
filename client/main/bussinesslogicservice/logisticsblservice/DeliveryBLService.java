@@ -16,5 +16,8 @@ public interface DeliveryBLService {
          */
         public ResultMessage addRecMessage(String Recipients,String id, Time time) ;
         
+        /**
+         * 结束记录收件信息时调用
+         */
         public void endDelivery();
 }
