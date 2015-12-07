@@ -83,8 +83,6 @@ public class LogisticsBLController implements LogisticsBLService {
                 return goodsLoadBLService.produceLoadBill(billVO);
         }
 
-
-
         @Override
         public ResultMessage addRecMessage(String Recipients, String id,
                         Time time) {
@@ -95,9 +93,5 @@ public class LogisticsBLController implements LogisticsBLService {
         public ResultMessage produceTransferBill(TransferBillVO transferBillVO) {
                 return goodsLoadBLService.produceTransferBill(transferBillVO);
         }
-
-        
-
-        
         
 }

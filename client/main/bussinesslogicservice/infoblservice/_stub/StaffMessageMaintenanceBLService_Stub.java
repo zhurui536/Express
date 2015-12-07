@@ -16,11 +16,6 @@ public class StaffMessageMaintenanceBLService_Stub implements StaffMessageMainte
                 return new ResultMessage("add success!",null);
         }
 
-        @Override
-        public ResultMessage delStaffMessage(long staffId) {
-                // TODO Auto-generated method stub
-                return new ResultMessage("del success!",null);
-        }
 
         @Override
         public ResultMessage modStaffMessage(StaffMessageVO staffMessage) {
@@ -28,16 +23,18 @@ public class StaffMessageMaintenanceBLService_Stub implements StaffMessageMainte
                 return new ResultMessage("mod success!",null);
         }
 
+
+
         @Override
-        public ResultMessage showStaffMessage(long staffId) {
+        public ResultMessage delStaffMessage(String staffId) {
                 // TODO Auto-generated method stub
-                return new ResultMessage("success!",null);
+                return null;
         }
 
         @Override
-        public void endStaffMessageMaintenance() {
+        public ResultMessage showStaffMessage(String staffId) {
                 // TODO Auto-generated method stub
-                System.out.println("SUCCESS!");
+                return null;
         }
 
 }

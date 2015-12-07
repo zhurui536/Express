@@ -3,6 +3,8 @@ package dataservice.infodataservice;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+import main.bussinesslogic.util.ResultMessage;
+
 import po.StaffMessagePO;
 
 /**
@@ -10,8 +12,8 @@ import po.StaffMessagePO;
  *
  */
 public interface StaffMessageMaintenanceDataService extends Remote{
-        public StaffMessagePO find(long id) throws RemoteException;
-        public void insert(StaffMessagePO message) throws RemoteException;
-        public void delete(long id) throws RemoteException;
-        public void update(StaffMessagePO message) throws RemoteException;
+        public ResultMessage find(String id) throws RemoteException;
+        public ResultMessage insert(StaffMessagePO message) throws RemoteException;
+        public ResultMessage delete(String id) throws RemoteException;
+        public ResultMessage update(StaffMessagePO message) throws RemoteException;
 }
