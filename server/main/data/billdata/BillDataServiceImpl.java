@@ -7,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import po.financepo.PayBillPO;
+import po.logisticpo.ReceiptBillPO;
 import po.storepo.InStoreBillPO;
 import po.storepo.OutStoreBillPO;
 import main.bussinesslogic.util.ResultMessage;
@@ -20,8 +22,39 @@ public class BillDataServiceImpl implements BillDataService {
 
 	@Override
 	public ResultMessage find(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<InStoreBillPO> instore = (ArrayList<InStoreBillPO>) readBill(instorebill);
+		for(int i=0;i<instore.size();i++){
+			InStoreBillPO temp = instore.get(i);
+			if(temp.getBill().equals(id)){
+				return new ResultMessage("exist", temp);
+			}
+		}
+		
+		ArrayList<OutStoreBillPO> outstore = (ArrayList<OutStoreBillPO>) readBill(outstorebill);
+		for(int i=0;i<instore.size();i++){
+			OutStoreBillPO temp = outstore.get(i);
+			if(temp.getBill().equals(id)){
+				return new ResultMessage("exist", temp);
+			}
+		}
+		
+		ArrayList<PayBillPO> pay = (ArrayList<PayBillPO>) readBill(paybill);
+		for(int i=0;i<pay.size();i++){
+			PayBillPO temp = pay.get(i);
+			if(temp.getId().equals(id)){
+				return new ResultMessage("exist", temp);
+			}
+		}
+		
+		ArrayList<ReceiptBillPO> receipt = (ArrayList<ReceiptBillPO>) readBill(paybill);
+		for(int i=0;i<receipt.size();i++){
+			ReceiptBillPO temp = receipt.get(i);
+			if(temp.getBill().equals(id)){
+				return new ResultMessage("exist", temp);
+			}
+		}
+		
+		return new ResultMessage("noexist", null);
 	}
 
 	@Override
