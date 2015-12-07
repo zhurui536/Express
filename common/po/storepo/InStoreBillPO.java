@@ -3,11 +3,10 @@ package po.storepo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import main.bussinesslogic.util.BillState;
+import po.BillPO;
 import main.bussinesslogic.util.BillType;
-import main.vo.BillVO;
 
-public class InStoreBillPO implements Serializable{
+public class InStoreBillPO extends BillPO implements Serializable{
 
 	/**
 	 * 
@@ -17,17 +16,12 @@ public class InStoreBillPO implements Serializable{
 	private String userid;
 	private ArrayList<InStorePO> pos;
 	private String billid;
-	private BillState state;
 	
 	public InStoreBillPO(String userid, ArrayList<InStorePO> pos, String billid){
+		super(billid, BillType.INSTORE, userid);
 		this.userid = userid;
 		this.pos = pos;
 		this.billid = billid;
-		this.state = BillState.DRAFT;
-	}
-	
-	public BillVO toVO(){
-		return new BillVO(billid, BillType.INSTORE, userid);
 	}
 	
 	public ArrayList<InStorePO> getPOS(){
@@ -40,13 +34,5 @@ public class InStoreBillPO implements Serializable{
 	
 	public String getBill(){
 		return this.billid;
-	}
-	
-	public BillState getState(){
-		return this.state;
-	}
-	
-	public void setState(BillState state){
-		this.state = state;
 	}
 }
