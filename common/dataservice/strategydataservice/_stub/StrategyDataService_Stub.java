@@ -4,7 +4,8 @@ import java.rmi.RemoteException;
 
 import main.bussinesslogic.util.ResultMessage;
 import dataservice.strategydataservice.StrategyDataService;
-import po.StaffPO;
+import po.StaffMessagePO;
+
 
 /**
  * Created by Wippy
@@ -31,12 +32,12 @@ public class StrategyDataService_Stub implements StrategyDataService {
     }
 
     @Override
-    public void update(StaffPO po) throws RemoteException{
+    public void update(StaffMessagePO po) throws RemoteException{
     	System.out.println("update success!");
     }
     
     @Override
-    public void delete(StaffPO po) throws RemoteException{
+    public void delete(StaffMessagePO po) throws RemoteException{
     	System.out.println("delete success!");
     }
     

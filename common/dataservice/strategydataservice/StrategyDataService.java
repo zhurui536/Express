@@ -3,7 +3,8 @@ package dataservice.strategydataservice;
 import java.rmi.RemoteException;
 
 import main.bussinesslogic.util.ResultMessage;
-import po.StaffPO;
+import po.StaffMessagePO;
+
 
 
 /*
@@ -17,9 +18,9 @@ public interface StrategyDataService {
 	
 	public ResultMessage finds(String Post) throws RemoteException;
 	
-	public void update(StaffPO po) throws RemoteException;
+	public void update(StaffMessagePO po) throws RemoteException;
 	
-	public void delete(StaffPO po) throws RemoteException;
+	public void delete(StaffMessagePO po) throws RemoteException;
 	
 	public void init() throws RemoteException;
 	
