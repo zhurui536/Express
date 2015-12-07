@@ -2,7 +2,7 @@ package main.bussinesslogic.billbl;
 
 import java.util.ArrayList;
 
-import dataservice.billdataservice.BillDataService;
+import dataservice.billdataservice.BilldataService;
 import po.UserPO;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.billblservice.BillBLService;
@@ -10,7 +10,7 @@ import main.vo.BillVO;
 
 public class BillBLController implements BillBLService{
 	UserPO user;
-	BillDataService dataservice;
+	BilldataService dataservice;
 	
 	public BillBLController(UserPO user){
 		this.user = user;

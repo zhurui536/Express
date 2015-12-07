@@ -12,9 +12,9 @@ import po.storepo.InStoreBillPO;
 import po.storepo.OutStoreBillPO;
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.ResultMessage;
-import dataservice.billdataservice.BillDataService;
+import dataservice.billdataservice.BilldataService;
 
-public class BillDataServiceImpl implements BillDataService {
+public class BillDataServiceImpl implements BilldataService {
 	private final String instorebill = "server/save/storedata/instoreBillPO.dat";
 	private final String outstorebill = "server/save/storedata/outstoreBillPO.dat";
 	private final String paybill = "server/save/financedata/payBillPO.dat";

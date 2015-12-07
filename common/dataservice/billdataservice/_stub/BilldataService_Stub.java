@@ -2,14 +2,14 @@ package dataservice.billdataservice._stub;
 
 import java.util.ArrayList;
 
-import dataservice.billdataservice.BillDataService;
+import dataservice.billdataservice.BilldataService;
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.ResultMessage;
 /*
  * Created By ZHR
  * 2015/10/26
  */
-public class BilldataService_Stub implements BillDataService {
+public class BilldataService_Stub implements BilldataService {
 
 	@Override
 	public ResultMessage approve(String id, BillType type) {

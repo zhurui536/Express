@@ -10,7 +10,7 @@ import main.bussinesslogic.util.ResultMessage;
  *2015年10月26日
  */
 
-public interface BillDataService {
+public interface BilldataService {
 	/*根据单据号和单据类型获得具体单据信息
 	 * 
 	 * 返回查找结果和对应的BillPO
