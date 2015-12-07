@@ -46,7 +46,7 @@ public class ReceiptBillProduceBL implements ReceiptBillProduceBLService {
                                                         .getPrice()));
                 }
                 try {
-                        receiptBillProduceDataService.insert(new ReceiptBillPO(today, sum, PublicMessage.institutionID, receiptLineItemPOs));
+                        receiptBillProduceDataService.insert(new ReceiptBillPO(today, sum, PublicMessage.institutionID, receiptLineItemPOs, null, null));
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();

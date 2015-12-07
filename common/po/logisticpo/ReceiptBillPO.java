@@ -1,5 +1,6 @@
 package po.logisticpo;
 
+import main.bussinesslogic.util.BillState;
 import main.bussinesslogic.util.Time;
 import main.vo.logisticvo.ReceiptBillVO;
 import main.vo.logisticvo.ReceiptLineItemVO;
@@ -24,15 +25,24 @@ public class ReceiptBillPO implements Serializable {
         private String institutionID;
 
         private List<ReceiptLineItemPO> receiptLineItemPOs;
+        
+        private String billid;
+        
+        private String userid;
+        
+        private BillState state;
 
         public ReceiptBillPO(Time time, BigDecimal totalMoney,
                         String institutionID,
-                        List<ReceiptLineItemPO> receiptLineItemPOs) {
+                        List<ReceiptLineItemPO> receiptLineItemPOs, String billid, String userid) {
                 super();
                 this.time = time;
                 this.totalMoney = totalMoney;
                 this.institutionID = institutionID;
                 this.receiptLineItemPOs = receiptLineItemPOs;
+                this.state = BillState.DRAFT;
+                this.billid = billid;
+                this.userid = userid;
         }
         
         public ReceiptBillVO poToVo() {
@@ -76,9 +86,21 @@ public class ReceiptBillPO implements Serializable {
                         List<ReceiptLineItemPO> receiptLineItemPOs) {
                 this.receiptLineItemPOs = receiptLineItemPOs;
         }
-
-
-
-
+        
+        public BillState getState(){
+        	return this.state;
+        }
+        
+        public void setState(BillState state){
+        	this.state = state;
+        }
+        
+        public String getUser(){
+    		return this.userid;
+    	}
+    	
+    	public String getBill(){
+    		return this.billid;
+    	}
 
 }

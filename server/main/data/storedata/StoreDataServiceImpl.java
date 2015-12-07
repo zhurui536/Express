@@ -15,7 +15,9 @@ import main.bussinesslogic.util.ResultMessage;
 import po.GoodsPO;
 import po.storepo.AdjustPO;
 import po.storepo.IORecordPO;
+import po.storepo.InStoreBillPO;
 import po.storepo.InStorePO;
+import po.storepo.OutStoreBillPO;
 import po.storepo.OutStorePO;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
@@ -28,6 +30,8 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	private final String outstorerecord = "server/save/storedata/outstorePO.dat";
 	private final String adjustrecord = "server/save/storedata/adjustPO.dat";
 	private final String verificationrecord = "server/save/storedata/verificationPO.dat";
+	private final String instorebill = "server/save/storedata/instoreBillPO.dat";
+	private final String outstorebill = "server/save/storedata/outstoreBillPO.dat";
 	
 	public StoreDataServiceImpl() throws RemoteException {
 		try {//将所有空文件进行初始化
@@ -269,6 +273,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			
 			//将新的库存写入文件
 			FileOutputStream out = new FileOutputStream(storerecord);
+			
 			ObjectOutputStream objout = new ObjectOutputStream(out);
 			objout.writeObject(store);
 			objout.close();
@@ -289,6 +294,26 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			objout = new ObjectOutputStream(out);
 			objout.writeObject(records);
 			objout.close();
+			
+			//接着保存入库单
+			if(po.size()>0){//暂时现将第一个货物的编号作为入库单id
+				InStoreBillPO bill = new InStoreBillPO(po.get(0).getUser().getid(), po, po.get(0).getGoodsID());
+				ArrayList<InStoreBillPO> temp;
+				
+				//读入已有的单据数据
+				in = new FileInputStream(instorebill);
+				objin = new ObjectInputStream(in);
+				temp = (ArrayList<InStoreBillPO>) objin.readObject();
+				objin.close();
+				
+				temp.add(bill);
+
+				//接着将对象写回文件中
+				out = new FileOutputStream(instorebill);
+				objout = new ObjectOutputStream(out);
+				objout.writeObject(temp);
+				objout.close();
+			}
 				
 			return new ResultMessage("success", null);
 			
@@ -343,6 +368,26 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			objout = new ObjectOutputStream(out);
 			objout.writeObject(records);
 			objout.close();
+			
+			//接着保存出库单
+			if(po.size()>0){//暂时现将第一个货物的编号作为出库单id
+				OutStoreBillPO bill = new OutStoreBillPO(po.get(0).getUser().getid(), po, po.get(0).getGoodsID());
+				ArrayList<OutStoreBillPO> temp;
+				
+				//读入已有的单据数据
+				in = new FileInputStream(outstorebill);
+				objin = new ObjectInputStream(in);
+				temp = (ArrayList<OutStoreBillPO>) objin.readObject();
+				objin.close();
+				
+				temp.add(bill);
+
+				//接着将对象写回文件中
+				out = new FileOutputStream(outstorebill);
+				objout = new ObjectOutputStream(out);
+				objout.writeObject(temp);
+				objout.close();
+			}
 				
 			return new ResultMessage("success", null);
 			

@@ -2,6 +2,7 @@ package po.storepo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import po.UserPO;
 
@@ -18,8 +19,11 @@ public class VerificationPO implements Serializable {
 	private ArrayList<StorePlacePO> goodslist;
 	/*盘点的用户*/
 	private UserPO user;
+	/*盘点的时间*/
+	private Calendar time;
 	
 	public VerificationPO(StorePO store, UserPO user){
+		time = Calendar.getInstance();
 		this.user = user;
 		int area = store.getArea();
 		int row = store.getRow();
@@ -46,5 +50,15 @@ public class VerificationPO implements Serializable {
 	/*获得现有货物列表*/
 	public ArrayList<StorePlacePO> getGoodslist(){
 		return this.goodslist;
+	}
+	
+	/*获得盘点时间*/
+	public Calendar getTime(){
+		return this.time;
+	}
+	
+	/*获得盘点用户*/
+	public UserPO getUser(){
+		return this.user;
 	}
 }

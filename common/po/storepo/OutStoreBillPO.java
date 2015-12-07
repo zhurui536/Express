@@ -7,19 +7,19 @@ import main.bussinesslogic.util.BillState;
 import main.bussinesslogic.util.BillType;
 import main.vo.BillVO;
 
-public class InStoreBillPO implements Serializable{
+public class OutStoreBillPO implements Serializable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3312534581845321792L;
+	private static final long serialVersionUID = 1107054620205858780L;
 	
 	private String userid;
-	private ArrayList<InStorePO> pos;
 	private String billid;
+	private ArrayList<OutStorePO> pos;
 	private BillState state;
 	
-	public InStoreBillPO(String userid, ArrayList<InStorePO> pos, String billid){
+	public OutStoreBillPO(String userid, ArrayList<OutStorePO> pos, String billid){
 		this.userid = userid;
 		this.pos = pos;
 		this.billid = billid;
@@ -27,11 +27,7 @@ public class InStoreBillPO implements Serializable{
 	}
 	
 	public BillVO toVO(){
-		return new BillVO(billid, BillType.INSTORE, userid);
-	}
-	
-	public ArrayList<InStorePO> getPOS(){
-		return this.pos;
+		return new BillVO(billid, BillType.OUTSTORE, userid);
 	}
 	
 	public String getUser(){
@@ -40,6 +36,10 @@ public class InStoreBillPO implements Serializable{
 	
 	public String getBill(){
 		return this.billid;
+	}
+	
+	public ArrayList<OutStorePO> getPOS(){
+		return this.pos;
 	}
 	
 	public BillState getState(){
