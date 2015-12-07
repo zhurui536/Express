@@ -43,10 +43,14 @@ public class ReceiptBillProduceBL implements ReceiptBillProduceBLService {
                                                         .getPrice()));
                         receiptLineItemPOs.add(receiptLineItemPO);
                         sum.add(new BigDecimal(sendBillPO.getGoodsPO()
-                                                        .getPrice()));
+                                        .getPrice()));
                 }
                 try {
-                        receiptBillProduceDataService.insert(new ReceiptBillPO(today, sum, PublicMessage.institutionID, receiptLineItemPOs, null, null));
+                        receiptBillProduceDataService.insert(new ReceiptBillPO(
+                                        today, sum,
+                                        PublicMessage.institutionID,
+                                        receiptLineItemPOs, PublicMessage.institutionID + today.toID(),
+                                        PublicMessage.userID));
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();

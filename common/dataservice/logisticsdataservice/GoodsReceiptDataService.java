@@ -1,5 +1,6 @@
 package dataservice.logisticsdataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import po.GoodsPO;
@@ -12,7 +13,7 @@ import main.bussinesslogic.util.ResultMessage;
 /**
  * @author zhuding
  */
-public interface GoodsReceiptDataService {
+public interface GoodsReceiptDataService extends Remote{
         
         public ResultMessage findBill(String id) throws RemoteException;
         

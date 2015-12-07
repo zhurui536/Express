@@ -17,11 +17,7 @@ public class InstitutionMessageMaintenanceBLService_Stub implements InstitutionM
                 return new ResultMessage("add success!",null);
         }
 
-        @Override
-        public ResultMessage delInstitutionMessage(long institutionId) {
-                // TODO Auto-generated method stub
-                return new ResultMessage("del success!",null);
-        }
+
 
         @Override
         public ResultMessage modInstitutionMessage(
@@ -30,16 +26,18 @@ public class InstitutionMessageMaintenanceBLService_Stub implements InstitutionM
                 return new ResultMessage("mod success!",null);
         }
 
+
+
         @Override
-        public ResultMessage showInstitutionMessage(long institutionId) {
+        public ResultMessage delInstitutionMessage(String institutionId) {
                 // TODO Auto-generated method stub
-                return new ResultMessage("success!",null);
+                return null;
         }
 
         @Override
-        public void endInstitutionMessageMaintenance() {
+        public ResultMessage showInstitutionMessage(String institutionId) {
                 // TODO Auto-generated method stub
-                System.out.println("SUCCESS!");
+                return null;
         }
 
 }

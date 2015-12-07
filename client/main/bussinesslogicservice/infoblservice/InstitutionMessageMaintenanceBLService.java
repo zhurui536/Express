@@ -10,11 +10,10 @@ import main.vo.InstitutionMessageVO;
 public interface InstitutionMessageMaintenanceBLService {
         public ResultMessage addInstitutionMessage(InstitutionMessageVO institutionMessage);
         
-        public ResultMessage delInstitutionMessage(long institutionId);
+        public ResultMessage delInstitutionMessage(String institutionId);
         
         public ResultMessage modInstitutionMessage(InstitutionMessageVO institutionMessage);
         
-        public ResultMessage showInstitutionMessage(long institutionId);
+        public ResultMessage showInstitutionMessage(String institutionId);
         
-        public void endInstitutionMessageMaintenance();
 }

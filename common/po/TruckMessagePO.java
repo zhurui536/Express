@@ -2,6 +2,8 @@ package po;
 
 import java.io.Serializable;
 
+import main.vo.TruckMessageVO;
+
 /**
  * 车辆信息PO
  * Created by Away
@@ -13,20 +15,30 @@ public class TruckMessagePO implements Serializable {
     private static final long serialVersionUID = -7361521750619540694L;
     
     // 车辆编号
-    String id;
+    private String id;
 
     // 车牌号
-    String plateNumber;
+    private String plateNumber;
 
     // 服役时间
-    int time;
+    private int time;
 
     public TruckMessagePO(String id, String plateNumber, int time) {
         this.id = id;
         this.plateNumber = plateNumber;
         this.time = time;
     }
+    
+    public TruckMessagePO(TruckMessageVO truckMessageVO) {
+            this.id = truckMessageVO.id;
+            this.plateNumber = truckMessageVO.plateNumber;
+            this.time = truckMessageVO.time;
+}
 
+    public TruckMessageVO poToVo() {
+        return new TruckMessageVO(id, plateNumber, time);
+}
+    
     public String getId() {
         return id;
     }

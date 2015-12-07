@@ -10,6 +10,8 @@ import po.storepo.StorePO;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
 
+import main.bussinesslogic.util.InstitutionType;
+
 /**
  * 期初建账数据层的驱动
  * Created by Away
@@ -19,7 +21,7 @@ import java.rmi.RemoteException;
 public class CreateAccountingDataService_Driver {
 
     public void drive(CreateAccountingDataService createAccountingDataService) {
-        InstitutionMessagePO institution = new InstitutionMessagePO("hell", "003006");
+        InstitutionMessagePO institution = new InstitutionMessagePO("hell", "003006",InstitutionType.BUSINESS_HALL);
         StaffMessagePO staff = new StaffMessagePO("韩梅梅", "000111");
         TruckMessagePO truck = new TruckMessagePO("13246578979", "苏A2001", 1);
         StorePO store = new StorePO(2, 3, 3, 3);

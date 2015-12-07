@@ -1,17 +1,19 @@
 package dataservice.infodataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
+
+import main.bussinesslogic.util.ResultMessage;
 
 import po.DriverMessagePO;
 
 /**
  * @author zhuding
- *
  */
-public interface DriverMessageMaintenanceDataService {
-        public DriverMessagePO find(long id) throws RemoteException;
-        public void insert(DriverMessagePO message) throws RemoteException;
-        public void delete(long id) throws RemoteException;
-        public void update(DriverMessagePO message) throws RemoteException;
+public interface DriverMessageMaintenanceDataService extends Remote{
+        public ResultMessage find(String id) throws RemoteException;
+        public ResultMessage insert(DriverMessagePO message) throws RemoteException;
+        public ResultMessage delete(String id) throws RemoteException;
+        public ResultMessage update(DriverMessagePO message) throws RemoteException;
 
 }

@@ -30,9 +30,5 @@ public class DriverMessageMaintenanceBLService_Stub implements DriverMessageMain
                 return new ResultMessage("success!",null);
         }
 
-        @Override
-        public void endDriverMessageMaintenance() {
-                System.out.println("SUCCESS!");
-        }
 
 }

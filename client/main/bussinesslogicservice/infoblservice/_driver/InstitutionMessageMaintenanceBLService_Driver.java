@@ -18,10 +18,10 @@ private InstitutionMessageMaintenanceBLService institutionMessageMaintenanceBLSe
         }
         
         public void drive() {
-                System.out.println(institutionMessageMaintenanceBLService.addInstitutionMessage(new InstitutionMessageVO()).getKey());
-                System.out.println(institutionMessageMaintenanceBLService.delInstitutionMessage(000000000).getKey());
-                System.out.println(institutionMessageMaintenanceBLService.modInstitutionMessage(new InstitutionMessageVO()).getKey());
-                System.out.println(institutionMessageMaintenanceBLService.showInstitutionMessage(000000000).getKey());
-                institutionMessageMaintenanceBLService.endInstitutionMessageMaintenance();
+//                System.out.println(institutionMessageMaintenanceBLService.addInstitutionMessage(new InstitutionMessageVO()).getKey());
+//                System.out.println(institutionMessageMaintenanceBLService.delInstitutionMessage(000000000).getKey());
+//                System.out.println(institutionMessageMaintenanceBLService.modInstitutionMessage(new InstitutionMessageVO()).getKey());
+//                System.out.println(institutionMessageMaintenanceBLService.showInstitutionMessage(000000000).getKey());
+//                institutionMessageMaintenanceBLService.endInstitutionMessageMaintenance();
         }
 }

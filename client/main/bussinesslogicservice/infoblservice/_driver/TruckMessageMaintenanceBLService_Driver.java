@@ -22,10 +22,10 @@ private TruckMessageMaintenanceBLService truckMessageMaintenanceBLService;
         }
         
         public void drive() {
-                System.out.println(truckMessageMaintenanceBLService.addTruckMessage(new TruckMessageVO()).getKey());
-                System.out.println(truckMessageMaintenanceBLService.delTruckMessage(000000000).getKey());
-                System.out.println(truckMessageMaintenanceBLService.modTruckMessage(new TruckMessageVO()).getKey());
-                System.out.println(truckMessageMaintenanceBLService.showTruckMessage(000000000).getKey());
-                truckMessageMaintenanceBLService.endTruckMessageMaintenance();
+//                System.out.println(truckMessageMaintenanceBLService.addTruckMessage(new TruckMessageVO()).getKey());
+//                System.out.println(truckMessageMaintenanceBLService.delTruckMessage(000000000).getKey());
+//                System.out.println(truckMessageMaintenanceBLService.modTruckMessage(new TruckMessageVO()).getKey());
+//                System.out.println(truckMessageMaintenanceBLService.showTruckMessage(000000000).getKey());
+//                truckMessageMaintenanceBLService.endTruckMessageMaintenance();
         }
 }

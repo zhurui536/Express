@@ -23,10 +23,10 @@ public class DriverMessageMaintenanceBLService_Driver {
         }
         
         public void drive() {
-                System.out.println(driverMessageMaintenanceBLService.addDriverMessage(new DriverMessageVO()).getKey());
-                System.out.println(driverMessageMaintenanceBLService.delDriverMessage("000000000").getKey());
-                System.out.println(driverMessageMaintenanceBLService.modDriverMessage(new DriverMessageVO()).getKey());
-                System.out.println(driverMessageMaintenanceBLService.showDriverMessage("000000000").getKey());
-                driverMessageMaintenanceBLService.endDriverMessageMaintenance();
+//                System.out.println(driverMessageMaintenanceBLService.addDriverMessage(new DriverMessageVO()).getKey());
+//                System.out.println(driverMessageMaintenanceBLService.delDriverMessage("000000000").getKey());
+//                System.out.println(driverMessageMaintenanceBLService.modDriverMessage(new DriverMessageVO()).getKey());
+//                System.out.println(driverMessageMaintenanceBLService.showDriverMessage("000000000").getKey());
+//                driverMessageMaintenanceBLService.endDriverMessageMaintenance();
         }
 }

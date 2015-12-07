@@ -1,82 +1,48 @@
 package main.vo;
 
+import main.bussinesslogic.util.Sex;
+import main.bussinesslogic.util.Time;
+
 /**
  * @author zhuding
  *
  */
 public class DriverMessageVO {
         
-        public  enum sex{MAN,WOMAN};
+        public String driverId;
         
-        private String driverId;
+        public String name;
         
-        private String name;
+        public String ID;
         
-        private String ID;
+        public String phoneNum;
         
-        private String phoneNum;
+        public Sex sex;
         
-        private sex sex;
+        public Time birth;
         
-        private double periodOfDrivinglicence;
+        public Time registrationTime;
         
-//        public DriverMessageVO(String driverId, String name, String ID,
-//                        String phoneNum, sex sex, double periodOfDrivinglicence) {
-//                this.driverId = driverId;
-//                this.name = name;
-//                this.ID = ID;
-//                this.phoneNum = phoneNum;
-//                this.sex = sex;
-//                this.periodOfDrivinglicence = periodOfDrivinglicence;
-//        }
+        public Time terminationTime;
+        
+        public int yearsOfLicense;
 
-        public String getDriverId() {
-                return driverId;
-        }
-
-        public void setDriverId(String driverId) {
+        public DriverMessageVO(String driverId, String name, String iD,
+                        String phoneNum, Sex sex, Time birth,
+                        Time registrationTime, 
+                        int yearsOfLicense) {
+                super();
                 this.driverId = driverId;
-        }
-
-        public String getName() {
-                return name;
-        }
-
-        public void setName(String name) {
                 this.name = name;
-        }
-
-        public String getID() {
-                return ID;
-        }
-
-        public void setID(String iD) {
                 ID = iD;
-        }
-
-        public String getPhoneNum() {
-                return phoneNum;
-        }
-
-        public void setPhoneNum(String phoneNum) {
                 this.phoneNum = phoneNum;
-        }
-
-        public sex getSex() {
-                return sex;
-        }
-
-        public void setSex(sex sex) {
                 this.sex = sex;
-        }
-
-        public double getPeriodOfDrivinglicence() {
-                return periodOfDrivinglicence;
-        }
-
-        public void setPeriodOfDrivinglicence(double periodOfDrivinglicence) {
-                this.periodOfDrivinglicence = periodOfDrivinglicence;
+                this.birth = birth;
+                this.registrationTime = registrationTime;
+                this.yearsOfLicense = yearsOfLicense;
+                this.terminationTime = registrationTime.add(yearsOfLicense);
         }
         
         
+
 }

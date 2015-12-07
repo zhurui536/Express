@@ -16,7 +16,7 @@ public class DeliveryBillPO extends BillPO{
 
         public DeliveryBillPO(Time time, ArrayList<String> ids,
                         String deliverManId) {
-                super(null, BillType.DELIVERY, deliverManId);
+                super(time.toString(), BillType.DELIVERY, deliverManId);
                 this.time = time;
                 this.ids = ids;
                 this.deliverManId = deliverManId;

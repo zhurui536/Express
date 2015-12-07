@@ -10,11 +10,11 @@ import main.vo.TruckMessageVO;
 public interface TruckMessageMaintenanceBLService {
         public ResultMessage addTruckMessage(TruckMessageVO truckMessage);
         
-        public ResultMessage delTruckMessage(long truckId);
+        public ResultMessage delTruckMessage(String truckId);
         
         public ResultMessage modTruckMessage(TruckMessageVO truckMessage);
         
-        public ResultMessage showTruckMessage(long truckId);
+        public ResultMessage showTruckMessage(String truckId);
         
-        public void endTruckMessageMaintenance();
+
 }

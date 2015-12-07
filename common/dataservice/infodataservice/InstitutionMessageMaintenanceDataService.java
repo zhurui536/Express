@@ -1,6 +1,9 @@
 package dataservice.infodataservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
+
+import main.bussinesslogic.util.ResultMessage;
 
 import po.InstitutionMessagePO;
 
@@ -8,9 +11,9 @@ import po.InstitutionMessagePO;
  * @author zhuding
  *
  */
-public interface InstitutionMessageMaintenanceDataService {
-        public InstitutionMessagePO find(long id) throws RemoteException;
-        public void insert(InstitutionMessagePO message) throws RemoteException;
-        public void delete(long id) throws RemoteException;
-        public void update(InstitutionMessagePO message) throws RemoteException;
+public interface InstitutionMessageMaintenanceDataService extends Remote{
+        public ResultMessage find(String id) throws RemoteException;
+        public ResultMessage insert(InstitutionMessagePO message) throws RemoteException;
+        public ResultMessage delete(String id) throws RemoteException;
+        public ResultMessage update(InstitutionMessagePO message) throws RemoteException;
 }

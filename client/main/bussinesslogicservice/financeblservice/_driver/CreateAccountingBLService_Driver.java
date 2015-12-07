@@ -16,9 +16,9 @@ import java.math.BigDecimal;
 public class CreateAccountingBLService_Driver {
 
     public void drive(CreateAccountingBLService createAccountingBLService) {
-        InstitutionMessageVO institution = new InstitutionMessageVO();
+        InstitutionMessageVO institution = new InstitutionMessageVO(null,null,null);
         StaffMessageVO staff = new StaffMessageVO(null, null);
-        TruckMessageVO truck = new TruckMessageVO();
+        TruckMessageVO truck = new TruckMessageVO(null,null,0);
         StoreVO store = new StoreVO(null);
         BankAccountVO bankAccount = new BankAccountVO("kkk", BigDecimal.valueOf(123465), "465456555");
 

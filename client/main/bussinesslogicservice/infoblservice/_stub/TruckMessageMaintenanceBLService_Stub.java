@@ -13,31 +13,27 @@ public class TruckMessageMaintenanceBLService_Stub implements TruckMessageMainte
         @Override
         public ResultMessage addTruckMessage(TruckMessageVO truckMessage) {
                 // TODO Auto-generated method stub
-                return new ResultMessage("add success!",null);
+                return null;
         }
 
         @Override
-        public ResultMessage delTruckMessage(long truckId) {
+        public ResultMessage delTruckMessage(String truckId) {
                 // TODO Auto-generated method stub
-                return new ResultMessage("del success!",null);
+                return null;
         }
 
         @Override
         public ResultMessage modTruckMessage(TruckMessageVO truckMessage) {
                 // TODO Auto-generated method stub
-                return new ResultMessage("mod success!",null);
+                return null;
         }
 
         @Override
-        public ResultMessage showTruckMessage(long truckId) {
+        public ResultMessage showTruckMessage(String truckId) {
                 // TODO Auto-generated method stub
-                return new ResultMessage("success!",null);
+                return null;
         }
 
-        @Override
-        public void endTruckMessageMaintenance() {
-                // TODO Auto-generated method stub
-                System.out.println("SUCCESS!");
-        }
+
 
 }
