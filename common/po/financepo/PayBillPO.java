@@ -9,7 +9,6 @@ import main.vo.StaffMessageVO;
 import po.BillPO;
 import po.StaffMessagePO;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -18,7 +17,7 @@ import java.math.BigDecimal;
  * 2015/12/6
  */
 
-public class PayBillPO extends BillPO implements Serializable {
+public class PayBillPO extends BillPO {
 
     private static final long serialVersionUID = 2279200270601944748L;
 

@@ -1,12 +1,11 @@
 package po.storepo;
 
-import java.io.Serializable;
+import main.bussinesslogic.util.BillType;
+import po.BillPO;
+
 import java.util.ArrayList;
 
-import po.BillPO;
-import main.bussinesslogic.util.BillType;
-
-public class InStoreBillPO extends BillPO implements Serializable{
+public class InStoreBillPO extends BillPO {
 
 	/**
 	 * 

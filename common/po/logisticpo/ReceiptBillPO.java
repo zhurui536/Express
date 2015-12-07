@@ -5,19 +5,17 @@ import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.Time;
 import main.vo.logisticvo.ReceiptBillVO;
 import main.vo.logisticvo.ReceiptLineItemVO;
+import po.BillPO;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
-import po.BillPO;
 
 /**
  * 收款单PO 2015/12/6
  */
 
-public class ReceiptBillPO extends BillPO implements Serializable {
+public class ReceiptBillPO extends BillPO {
 
         private static final long serialVersionUID = 1526637956814486761L;
 

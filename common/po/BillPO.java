@@ -4,7 +4,12 @@ import main.bussinesslogic.util.BillState;
 import main.bussinesslogic.util.BillType;
 import main.vo.BillVO;
 
-public class BillPO {
+import java.io.Serializable;
+
+public class BillPO implements Serializable {
+
+	private static final long serialVersionUID = 186782065848074416L;
+
 	private String billid;
 	private String userid;
 	private BillType type;

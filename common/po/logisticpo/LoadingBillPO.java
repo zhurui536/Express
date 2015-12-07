@@ -1,21 +1,21 @@
 package po.logisticpo;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
-import po.BillPO;
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.Time;
 import main.vo.logisticvo.LoadingBillVO;
+import po.BillPO;
+
+import java.util.ArrayList;
 
 /**
  * 装车单
  * 
  * @author zhuding
  */
-public class LoadingBillPO extends BillPO implements Serializable {
+public class LoadingBillPO extends BillPO {
 
-        private static final long serialVersionUID = 1L;
+        private static final long serialVersionUID = -5615496575819450063L;
+
         // 录入机构
         private String institution;
         // 装车日期

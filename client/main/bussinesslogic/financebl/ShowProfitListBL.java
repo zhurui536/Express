@@ -30,7 +30,7 @@ public class ShowProfitListBL implements ShowProfitListBLService {
 
     public ShowProfitListBL() {
         showStatementDataServiceImpl = (ShowStatementDataService) ClientRMIHelper.
-                getServiceByName("showStatementDataServiceImpl");
+                getServiceByName("ShowStatementDataServiceImpl");
         showReceiptDataServiceImpl = (ShowReceiptDataService) ClientRMIHelper.
                 getServiceByName("ShowReceiptDataServiceImpl");
 

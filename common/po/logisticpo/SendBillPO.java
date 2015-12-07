@@ -1,7 +1,5 @@
 package po.logisticpo;
 
-import java.io.Serializable;
-
 import main.bussinesslogic.util.BillState;
 import main.bussinesslogic.util.BillType;
 import main.vo.logisticvo.SendBillVO;
@@ -11,9 +9,10 @@ import po.GoodsPO;
  * 寄件单
  * @author zhuding
  */
-public class SendBillPO extends BillPO implements Serializable {
-        
-        private static final long serialVersionUID = 1L;
+public class SendBillPO extends BillPO {
+
+        private static final long serialVersionUID = -5413700054156146188L;
+
         // 寄件人信息
         private PeopleMessagePO senderPO;
         // 收件人信息

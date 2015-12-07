@@ -1,17 +1,16 @@
 package po.logisticpo;
 
-import java.io.Serializable;
-
-import po.BillPO;
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.GoodsState;
+import po.BillPO;
 /**
  * 到达单
  * @author zhuding
  */
-public class ArrivalBillPO extends BillPO implements Serializable {
+public class ArrivalBillPO extends BillPO {
 
-        private static final long serialVersionUID = 1L;
+        private static final long serialVersionUID = -5607159218880704105L;
+
         // 录入机构
         private String institution;
         // 到达日期

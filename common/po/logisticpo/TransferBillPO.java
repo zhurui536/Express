@@ -1,16 +1,16 @@
 package po.logisticpo;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
-import po.BillPO;
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.Time;
 import main.bussinesslogic.util.Trans;
+import po.BillPO;
 
-public class TransferBillPO extends BillPO implements Serializable{
+import java.util.ArrayList;
+
+public class TransferBillPO extends BillPO {
 
         private static final long serialVersionUID = -4178073770417521604L;
+
         // 装车日期
         private Time time;
         // 本中转中心中转单编号（中转中心编号+日期+0000000七位数字）

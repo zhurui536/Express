@@ -1,12 +1,15 @@
 package po.logisticpo;
 
-import java.util.ArrayList;
-
-import po.BillPO;
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.Time;
+import po.BillPO;
 
-public class DeliveryBillPO extends BillPO{
+import java.util.ArrayList;
+
+public class DeliveryBillPO extends BillPO {
+
+        private static final long serialVersionUID = -2881503742972548225L;
+
         // 到达日期
         private Time time;
         // 托运订单条形码号

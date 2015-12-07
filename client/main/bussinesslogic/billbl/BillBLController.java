@@ -1,21 +1,21 @@
 package main.bussinesslogic.billbl;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-
 import dataservice.billdataservice.BilldataService;
-import po.BillPO;
-import po.UserPO;
-import po.financepo.PayBillPO;
-import po.logisticpo.ReceiptBillPO;
-import po.storepo.InStoreBillPO;
-import po.storepo.OutStoreBillPO;
 import main.bussinesslogic.util.BillState;
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.billblservice.BillBLService;
 import main.connection.ClientRMIHelper;
 import main.vo.BillVO;
+import po.BillPO;
+import po.UserPO;
+import po.financepo.PayBillPO;
+import po.logisticpo.ReceiptBillPO;
+import po.storepo.InStoreBillPO;
+import po.storepo.OutStoreBillPO;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class BillBLController implements BillBLService{
 	private UserPO user;
@@ -148,7 +148,7 @@ public class BillBLController implements BillBLService{
 				}
 				else if(type == BillType.RECEIPT){
 					ArrayList<ReceiptBillPO> temp = (ArrayList<ReceiptBillPO>) result.getValue();
-					
+
 					for(int i=0;i<temp.size();i++){
 						if(temp.get(i).getBillID().equals(id)){
 							return new ResultMessage("success", temp.get(i));
