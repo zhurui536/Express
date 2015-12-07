@@ -17,7 +17,7 @@ public class BillBLService_Stub implements BillBLService {
 		System.out.println("Asking for bills!");
 		ArrayList<BillVO> bvo = new ArrayList<BillVO>();
 		
-		bvo.add(new BillVO("10010", null));
+		bvo.add(new BillVO("10010", null, "10086"));
 		return new ResultMessage("success", bvo);
 	}
 
@@ -26,7 +26,7 @@ public class BillBLService_Stub implements BillBLService {
 		// TODO Auto-generated method stub
 		System.out.println("Asking for information of a chosed bill:"+ id + "!");
 		
-		return new BillVO("10010", null);
+		return new BillVO("10010", null, "10086");
 	}
 
 	@Override
@@ -35,8 +35,8 @@ public class BillBLService_Stub implements BillBLService {
 		System.out.println("Return for bill list!");
 		ArrayList<BillVO> bvo = new ArrayList<BillVO>();
 		
-		bvo.add(new BillVO("10010", null));
-		bvo.add(new BillVO("10086", null));
+		bvo.add(new BillVO("10010", null, "10086"));
+		bvo.add(new BillVO("10086", null, "10086"));
 		return bvo;
 	}
 

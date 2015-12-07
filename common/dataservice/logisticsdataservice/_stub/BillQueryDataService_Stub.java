@@ -3,8 +3,6 @@ package dataservice.logisticsdataservice._stub;
 import java.rmi.RemoteException;
 
 import dataservice.logisticsdataservice.BillQueryDataService;
-import main.bussinesslogic.util.BillType;
-import po.BillPO;
 import po.logisticpo.SendBillPO;
 
 /**

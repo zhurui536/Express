@@ -5,7 +5,6 @@ import java.rmi.RemoteException;
 import dataservice.logisticsdataservice.ReceivingDataService;
 import dataservice.logisticsdataservice._stub.ReceivingDataService_Stub;
 import main.bussinesslogic.util.BillType;
-import po.BillPO;
 import po.logisticpo.SendBillPO;
 
 /**

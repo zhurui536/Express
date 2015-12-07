@@ -27,18 +27,18 @@ public class BillBLService_Driver {
 		if(result.getKey().equals("success")){
 			for(int i=0;i<bvo.size();i++){
 				vo = bvo.get(i);
-				System.out.println(vo.getID());
+				System.out.println(vo.getBillID());
 			}
 			
-			result = bbls.approve(vo.getID());
+			result = bbls.approve(vo.getBillID());
 			
 			if(result.getKey().equals("success")){
 				bvo = (ArrayList<BillVO>) result.getValue();
 				
 				if(bvo.size()>0){
-					vo = bbls.chooseBill(bvo.get(0).getID());
+					vo = bbls.chooseBill(bvo.get(0).getBillID());
 					
-					System.out.println(vo.getID()+" "+vo.getBillType());
+					System.out.println(vo.getBillID()+" "+vo.getBillType());
 					
 					bvo = bbls.back();
 				}

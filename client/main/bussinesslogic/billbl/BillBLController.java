@@ -2,11 +2,20 @@ package main.bussinesslogic.billbl;
 
 import java.util.ArrayList;
 
+import dataservice.billdataservice.BillDataService;
+import po.UserPO;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.billblservice.BillBLService;
 import main.vo.BillVO;
 
 public class BillBLController implements BillBLService{
+	UserPO user;
+	BillDataService dataservice;
+	
+	public BillBLController(UserPO user){
+		this.user = user;
+		
+	}
 
 	@Override
 	public ResultMessage getBills() {
