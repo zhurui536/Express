@@ -25,17 +25,17 @@ public class CreatePayBillDataServiceImpl extends UnicastRemoteObject implements
 
     public CreatePayBillDataServiceImpl() throws RemoteException {
         super();
+        init();
     }
 
     @Override
     public ResultMessage insert(PayBillPO po) throws RemoteException {
-        read();
         payBillPOs.add(po);
         Database.save(PATH, payBillPOs);
         return new ResultMessage("success");
     }
 
-    private void read() {
+    private void init() {
         payBillPOs = (ArrayList<PayBillPO>) Database.load(PATH);
         if (payBillPOs == null)
             payBillPOs = new ArrayList<>();

@@ -15,7 +15,7 @@ import dataservice.billdataservice.BillDataService;
 public class BillDataServiceImpl implements BillDataService {
 	private final String instorebill = "server/save/storedata/instoreBillPO.dat";
 	private final String outstorebill = "server/save/storedata/outstoreBillPO.dat";
-	private final String paybill = "server/save/financedata/PayBillPO.dat";
+	private final String paybill = "server/save/financedata/payBillPO.dat";
 	private final String receiptbill = "server/save/logisticsdata/receiptBillPO.dat";
 
 	@Override

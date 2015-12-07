@@ -25,12 +25,12 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     public BankAccountManagementDataServiceImpl() throws RemoteException {
         super();
+        init();
     }
 
     @Override
     // TODO 改文档
     public ResultMessage find(String id) throws RemoteException {
-        read();
         for (BankAccountPO bankAccountPO : bankAccountPOs) {
             if (bankAccountPO.getId().equals(id))
                 return new ResultMessage("success", bankAccountPO);
@@ -40,7 +40,6 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     @Override
     public ResultMessage findAll() throws RemoteException {
-        read();
         return new ResultMessage("success", bankAccountPOs);
     }
 
@@ -50,7 +49,6 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
         // 插入的 id 已存在，插入失败
         if (message.getKey().equals("success"))
             return new ResultMessage("fail");
-        read();
         bankAccountPOs.add(po);
         Database.save(PATH, bankAccountPOs);
         return new ResultMessage("success");
@@ -85,7 +83,7 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
         }
     }
 
-    private void read() {
+    private void init() {
         bankAccountPOs = (ArrayList<BankAccountPO>) Database.load(PATH);
         if (bankAccountPOs == null)
             bankAccountPOs = new ArrayList<>();

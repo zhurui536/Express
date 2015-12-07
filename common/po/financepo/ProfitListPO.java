@@ -1,5 +1,7 @@
 package po.financepo;
 
+import java.math.BigDecimal;
+
 /**
  * 成本收益表PO
  * Created by Away
@@ -9,29 +11,34 @@ package po.financepo;
 public class ProfitListPO {
 
     // 总收入
-    private double income;
+    private BigDecimal income;
 
     // 总支出
-    private double pay;
+    private BigDecimal pay;
 
     public ProfitListPO(double income, double pay) {
+        this.income = new BigDecimal(income);
+        this.pay = new BigDecimal(pay);
+    }
+
+    public ProfitListPO(BigDecimal income, BigDecimal pay) {
         this.income = income;
         this.pay = pay;
     }
 
-    public double getIncome() {
+    public BigDecimal getIncome() {
         return income;
     }
 
-    public void setIncome(double income) {
+    public void setIncome(BigDecimal income) {
         this.income = income;
     }
 
-    public double getPay() {
+    public BigDecimal getPay() {
         return pay;
     }
 
-    public void setPay(double pay) {
+    public void setPay(BigDecimal pay) {
         this.pay = pay;
     }
 }

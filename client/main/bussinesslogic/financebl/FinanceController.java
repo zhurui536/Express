@@ -127,7 +127,7 @@ public class FinanceController implements FinanceBLService {
 
     @Override
     public ResultMessage showProfitList() {
-        return null;
+        return showProfitListBL.showProfitList();
     }
 
     @Override

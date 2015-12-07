@@ -3,6 +3,7 @@ package po.financepo;
 import main.bussinesslogic.util.PayItem;
 import main.bussinesslogic.util.Time;
 import main.vo.BankAccountVO;
+import main.vo.BillVO;
 import main.vo.PayBillVO;
 import main.vo.StaffMessageVO;
 import po.StaffMessagePO;
@@ -99,20 +100,7 @@ public class PayBillPO implements Serializable {
         return remark;
     }
 
+    public BillVO toBillVO() {
+        return new BillVO();
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
