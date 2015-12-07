@@ -2,6 +2,7 @@ package dataservice.billdataservice._stub;
 
 import java.util.ArrayList;
 
+import po.BillPO;
 import dataservice.billdataservice.BilldataService;
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.ResultMessage;
@@ -11,7 +12,6 @@ import main.bussinesslogic.util.ResultMessage;
  */
 public class BilldataService_Stub implements BilldataService {
 
-	@Override
 	public ResultMessage approve(String id, BillType type) {
 		// TODO Auto-generated method stub
 		System.out.println("approve the bill of "+id+"!");
@@ -19,7 +19,6 @@ public class BilldataService_Stub implements BilldataService {
 		return new ResultMessage("success", null);
 	}
 
-	@Override
 	public ResultMessage approves(ArrayList<String> ids, ArrayList<BillType> types) {
 		// TODO Auto-generated method stub
 		System.out.println("approve bills:");
@@ -30,14 +29,24 @@ public class BilldataService_Stub implements BilldataService {
 		return new ResultMessage("success", null);
 	}
 
-	@Override
 	public ResultMessage find(String id, BillType type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public ResultMessage getBills() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage getBills(BillType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage saveBills(ArrayList<? extends BillPO> bills, BillType type) {
 		// TODO Auto-generated method stub
 		return null;
 	}

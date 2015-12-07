@@ -1,8 +1,10 @@
 package dataservice.billdataservice;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import po.BillPO;
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.ResultMessage;
 
@@ -12,30 +14,17 @@ import main.bussinesslogic.util.ResultMessage;
  */
 
 public interface BilldataService extends Remote{
-	/*根据单据号和单据类型获得具体单据信息
-	 * 
-	 * 返回查找结果和对应的BillPO
+	
+	/*获得某种类型的单据的所有单据
+	 * 无
+	 * ResultMessage
 	 */
-	public ResultMessage find(String id, BillType type);
+	public ResultMessage getBills(BillType type) throws RemoteException;
 	
-	/*根据单据号和单据类型审批单个单据
-	 * 
-	 * 返回审批结果和ArrayList<BillPO>
+	/*保存某种类型的单据
+	 * ArrayList<BillPO>
+	 * ResultMessage
 	 */
-	public ResultMessage approve(String id, BillType type);
-	
-	/*获得剩余单据列表
-	 * 
-	 * 返回查找结果和ArrayList<BillPO>
-	 */
-	public ResultMessage getBills();
-	
-	/*对多个单据进行批量审批
-	 * 
-	 * 返回审批结果
-	 */
-	public ResultMessage approves(ArrayList<String> ids, ArrayList<BillType> types);
-	
-	
+	public ResultMessage saveBills(ArrayList<? extends BillPO> bills, BillType type) throws RemoteException;
 
 }

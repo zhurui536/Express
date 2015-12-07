@@ -2,8 +2,8 @@ package main.bussinesslogicservice.billblservice;
 
 import java.util.ArrayList;
 
+import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.ResultMessage;
-import main.vo.BillVO;
 
 /**
  * Created By ZHR
@@ -21,25 +21,19 @@ public interface BillBLService {
 	 * id
 	 * BillVO
 	 */
-	public BillVO chooseBill(String id);
-	
-	/*返回单据列表时调用的方法
-	 * 无
-	 * ArrayList<BillVO>
-	 */
-	public ArrayList<BillVO> back();
+	public ResultMessage chooseBill(String id, BillType type);
 	
 	/*审批单个单据
 	 * id
 	 * ResultMessage
 	 */
-	public ResultMessage approve(String id);
+	public ResultMessage approve(String id, BillType type);
 	
 	/*批量审批单据
 	 * ids
 	 * ResultMessage
 	 */
-	public ResultMessage approves(ArrayList<String> ids);
+	public ResultMessage approves(ArrayList<String> ids, ArrayList<BillType> types);
 	
 	/*结束审批
 	 * 无
