@@ -33,7 +33,7 @@ public interface BillBLService {
 	 * ids
 	 * ResultMessage
 	 */
-	public ResultMessage approves(ArrayList<String> ids, ArrayList<BillType> types);
+	public ResultMessage approves();
 	
 	/*结束审批
 	 * 无

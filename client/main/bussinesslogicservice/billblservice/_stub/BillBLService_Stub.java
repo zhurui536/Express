@@ -47,16 +47,11 @@ public class BillBLService_Stub implements BillBLService {
 	}
 
 	@Override
-	public ResultMessage approves(ArrayList<String> ids, ArrayList<BillType> types) {
+	public ResultMessage approves() {
 		// TODO Auto-generated method stub
 		System.out.println("Approve severval bills!");
 		String id;
 		
-		for(int i=0;i<ids.size();i++){
-			id = ids.get(i);
-			
-			approve(id, null);
-		}
 		
 		return new ResultMessage("success", null);
 	}

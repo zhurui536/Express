@@ -33,9 +33,10 @@ public class BillBLController implements BillBLService{
 		bills = new ArrayList<BillPO>();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage getBills() {
+		vos = new ArrayList<BillVO>();
+		bills = new ArrayList<BillPO>();
 		for(int i=0;i<types.length;i++){
 			ResultMessage result;
 			try {
@@ -233,7 +234,15 @@ public class BillBLController implements BillBLService{
 	}
 
 	@Override
-	public ResultMessage approves(ArrayList<String> ids, ArrayList<BillType> types) {
+	public ResultMessage approves() {
+		ArrayList<String> ids = new ArrayList<String>();
+		ArrayList<BillType> types = new ArrayList<BillType>();
+		
+		for(int i=0;i<bills.size();i++){
+			BillPO bill = bills.get(i);
+			ids.add(bill.getBillID());
+			types.add(bill.getType());
+		}
 		ResultMessage result = null;
 		
 		for(int i=0;i<ids.size();i++){
