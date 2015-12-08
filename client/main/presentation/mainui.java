@@ -1,15 +1,11 @@
 package main.presentation;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-
 import main.presentation.managerui.ManagerFrame;
 import main.presentation.storeui.StoreFrame;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Away
@@ -17,18 +13,18 @@ import main.presentation.storeui.StoreFrame;
  */
 
 @SuppressWarnings("serial")
-public class Mainui extends JFrame implements ActionListener{
+public class MainUI extends JFrame implements ActionListener{
 	private JTextArea id;
 	private JTextArea password;
 	private JButton confirm;
 	private JButton exit;
 	
 	public static void main(String[] args){
-		Mainui ui = new Mainui();
+		MainUI ui = new MainUI();
 		ui.setVisible(true);
 	}
 	
-	public Mainui(){
+	public MainUI(){
 		this.setLayout(null);
 		this.setBounds(300, 300, 310, 240);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
