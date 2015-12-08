@@ -2,9 +2,9 @@ package main.presentation.storeui.listener.toollistener;
 
 import java.awt.event.ActionEvent;
 
-import main.bussinesslogic.storebl.StoreBLController;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Trans;
+import main.bussinesslogicservice.storeblservice.StoreBLService;
 import main.presentation.storeui.StoreFrame;
 import main.presentation.storeui.datapanel.OutStoreDataPane;
 import main.presentation.storeui.inputframe.OutStoreInputFrame;
@@ -14,7 +14,7 @@ import main.vo.storevo.OutStoreVO;
 
 public class OutStoreToolListener extends ToolListener {
 
-	private StoreBLController sc;
+	private StoreBLService sc;
 	private StoreFrame ui;
 	
 	public OutStoreToolListener(StoreFrame ui) {

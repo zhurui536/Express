@@ -3,8 +3,8 @@ package main.presentation.storeui.listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import main.bussinesslogic.storebl.StoreBLController;
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogicservice.storeblservice.StoreBLService;
 import main.presentation.storeui.StoreFrame;
 import main.presentation.storeui.datapanel.VerificationDataPane;
 import main.presentation.storeui.listener.toollistener.AdjustToolListener;
@@ -38,7 +38,7 @@ public class MenuListener implements ActionListener {
 			}
 		}
 		
-		StoreBLController sc = storeui.getController();
+		StoreBLService sc = storeui.getController();
 		
 		if(i==0){//0为入库按钮
 			ResultMessage result = sc.newInStore();
