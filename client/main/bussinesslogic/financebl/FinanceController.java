@@ -1,27 +1,12 @@
 package main.bussinesslogic.financebl;
 
-import main.bussinesslogic.util.PayItem;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.financeblservice.*;
-import main.bussinesslogicservice.financeblservice._stub.FinanceBLService;
-import main.connection.ClientInitException;
-import main.connection.ClientRMIHelper;
-import main.vo.*;
+import main.bussinesslogicservice.financeblservice.FinanceBLService;
 import main.vo.financevo.AccountVO;
 import main.vo.financevo.BankAccountVO;
 import main.vo.financevo.PayBillVO;
-import main.vo.financevo.StatementVO;
-import main.vo.logisticvo.ReceiptBillVO;
-import main.vo.logisticvo.ReceiptLineItemVO;
-import main.vo.storevo.ProfitListVO;
-import main.vo.storevo.StorePlaceVO;
-import main.vo.storevo.StoreVO;
-import po.financepo.BankAccountPO;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 控制器，用于控制财务层的逻辑
@@ -53,66 +38,66 @@ public class FinanceController implements FinanceBLService {
     }
 
     // TODO
-    public static void main(String[] args) {
-        try {
-            ClientRMIHelper.init();
-        } catch (ClientInitException e) {
-            e.printStackTrace();
-        }
-        FinanceController financeController = new FinanceController();
-        BankAccountVO vo = new BankAccountVO("线性代数", null, "123456789");
-        BankAccountVO vo2 = new BankAccountVO("微积分和线性代数", null, "123456789");
-        BankAccountVO vo3 = new BankAccountVO("分和", null, null);
-        financeController.createMember(vo);
-        financeController.updateMember(vo2);
-        ResultMessage message = financeController.inquireMember(vo2);
-        ResultMessage message1 = financeController.inquireMember(vo3);
-        ArrayList<BankAccountVO> bankAccountVOs = (ArrayList<BankAccountVO>) message1.getValue();
-        System.out.println(message.getKey());
-        System.out.println(((BankAccountPO)message.getValue()).getId());
-        for (BankAccountVO bankAccountVO : bankAccountVOs) {
-            System.out.println(bankAccountVO.name + " " + bankAccountVO.id);
-        }
-
-        Time time = new Time("2015-02-18");
-        BigDecimal money = new BigDecimal(1000.50);
-        StaffMessageVO staffMessageVO = new StaffMessageVO("31423", "hello");
-        String id = "41242";
-        PayItem item = PayItem.SALARY;
-        String remark = "test";
-        PayBillVO payBillVO = new PayBillVO(time, money, staffMessageVO, vo, id, item, remark);
-        financeController.createPayBill(payBillVO);
-
-        ResultMessage resultMessage = financeController.showStatement(time, time);
-        StatementVO statementVO = (StatementVO) resultMessage.getValue();
-        List<PayBillVO> payBillVOs = statementVO.payBillVOs;
-        for (PayBillVO t : payBillVOs) {
-            System.out.println(t.staffMessageVO.name);
-        }
-
-        List<ReceiptBillVO> receiptBillVOs = (List<ReceiptBillVO>) financeController.showReceipt(time, "1234").getValue();
-        for (ReceiptBillVO vo1 : receiptBillVOs) {
-            List<ReceiptLineItemVO> receiptLineItemVOs = vo1.receiptLineItemVOs;
-            for (ReceiptLineItemVO vo4 : receiptLineItemVOs) {
-                System.out.println(vo4.barCode);
-            }
-        }
-
-        ProfitListVO profitListVO = (ProfitListVO) financeController.showProfitList().getValue();
-        System.out.println(profitListVO.pay + "\n" + profitListVO.income + "\n" + profitListVO.profit);
-
-        InstitutionMessageVO institution = new InstitutionMessageVO(null,null,null);
-        StaffMessageVO staff = new StaffMessageVO(null, null);
-        TruckMessageVO truck = new TruckMessageVO(null,null,0);
-        StoreVO store = new StoreVO(new ArrayList<StorePlaceVO>(), 0, 0, 0, 0);
-        BankAccountVO bankAccount = new BankAccountVO("kkk", BigDecimal.valueOf(123465), "465456555");
-        financeController.createAccounting(new AccountVO(institution, staff, truck, store, bankAccount, new Time()));
-        List<AccountVO> accountVOs = (List<AccountVO>) financeController.inquireInitInfo().getValue();
-        for (AccountVO accountVO : accountVOs) {
-            System.out.println(accountVO.bankAccountVO.name + "\n" +
-                                accountVO.time);
-        }
-    }
+//    public static void main(String[] args) {
+//        try {
+//            ClientRMIHelper.init();
+//        } catch (ClientInitException e) {
+//            e.printStackTrace();
+//        }
+//        FinanceController financeController = new FinanceController();
+//        BankAccountVO vo = new BankAccountVO("线性代数", null, "123456789");
+//        BankAccountVO vo2 = new BankAccountVO("微积分和线性代数", null, "123456789");
+//        BankAccountVO vo3 = new BankAccountVO("分和", null, null);
+//        financeController.createMember(vo);
+//        financeController.updateMember(vo2);
+//        ResultMessage message = financeController.inquireMember(vo2);
+//        ResultMessage message1 = financeController.inquireMember(vo3);
+//        ArrayList<BankAccountVO> bankAccountVOs = (ArrayList<BankAccountVO>) message1.getValue();
+//        System.out.println(message.getKey());
+//        System.out.println(((BankAccountPO)message.getValue()).getId());
+//        for (BankAccountVO bankAccountVO : bankAccountVOs) {
+//            System.out.println(bankAccountVO.name + " " + bankAccountVO.id);
+//        }
+//
+//        Time time = new Time("2015-02-18");
+//        BigDecimal money = new BigDecimal(1000.50);
+//        StaffMessageVO staffMessageVO = new StaffMessageVO("31423", "hello");
+//        String id = "41242";
+//        PayItem item = PayItem.SALARY;
+//        String remark = "test";
+//        PayBillVO payBillVO = new PayBillVO(time, money, staffMessageVO, vo, id, item, remark);
+//        financeController.createPayBill(payBillVO);
+//
+//        ResultMessage resultMessage = financeController.showStatement(time, time);
+//        StatementVO statementVO = (StatementVO) resultMessage.getValue();
+//        List<PayBillVO> payBillVOs = statementVO.payBillVOs;
+//        for (PayBillVO t : payBillVOs) {
+//            System.out.println(t.staffMessageVO.name);
+//        }
+//
+//        List<ReceiptBillVO> receiptBillVOs = (List<ReceiptBillVO>) financeController.showReceipt(time, "1234").getValue();
+//        for (ReceiptBillVO vo1 : receiptBillVOs) {
+//            List<ReceiptLineItemVO> receiptLineItemVOs = vo1.receiptLineItemVOs;
+//            for (ReceiptLineItemVO vo4 : receiptLineItemVOs) {
+//                System.out.println(vo4.barCode);
+//            }
+//        }
+//
+//        ProfitListVO profitListVO = (ProfitListVO) financeController.showProfitList().getValue();
+//        System.out.println(profitListVO.pay + "\n" + profitListVO.income + "\n" + profitListVO.profit);
+//
+//        InstitutionMessageVO institution = new InstitutionMessageVO(null,null,null);
+//        StaffMessageVO staff = new StaffMessageVO(null, null);
+//        TruckMessageVO truck = new TruckMessageVO(null,null,0);
+//        StoreVO store = new StoreVO(new ArrayList<StorePlaceVO>(), 0, 0, 0, 0);
+//        BankAccountVO bankAccount = new BankAccountVO("kkk", BigDecimal.valueOf(123465), "465456555");
+//        financeController.createAccounting(new AccountVO(institution, staff, truck, store, bankAccount, new Time()));
+//        List<AccountVO> accountVOs = (List<AccountVO>) financeController.inquireInitInfo().getValue();
+//        for (AccountVO accountVO : accountVOs) {
+//            System.out.println(accountVO.bankAccountVO.name + "\n" +
+//                                accountVO.time);
+//        }
+//    }
 
     @Override
     public ResultMessage createMember(BankAccountVO vo) {

@@ -1,7 +1,9 @@
 package main.presentation.financeui;
 
 import main.bussinesslogic.financebl.FinanceController;
-import main.bussinesslogicservice.financeblservice._stub.FinanceBLService;
+import main.bussinesslogicservice.financeblservice.FinanceBLService;
+import main.connection.ClientInitException;
+import main.connection.ClientRMIHelper;
 import main.presentation.financeui.listener.MenuListener;
 import main.presentation.financeui.tool.ToolPanel;
 
@@ -30,13 +32,18 @@ public class FinanceFrame extends JFrame {
     private JPanel data;
 
     public FinanceFrame(FinanceBLService financeController) {
+        this.financeController = financeController;
         menuListener = new MenuListener(this);
         initComponents();
     }
 
     public static void main(String[] args) {
+        try {
+            ClientRMIHelper.init();
+        } catch (ClientInitException e) {
+            e.printStackTrace();
+        }
         FinanceFrame financeFrame = new FinanceFrame(new FinanceController());
-//        ClientRMIHelper.init();
     }
 
     private void initComponents() {
@@ -135,7 +142,7 @@ public class FinanceFrame extends JFrame {
     }
 
     public FinanceBLService getFinanceController() {
-        return financeController;
+        return this.financeController;
     }
 
     public ToolPanel getToolPanel() {

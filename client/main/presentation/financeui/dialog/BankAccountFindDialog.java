@@ -3,42 +3,42 @@ package main.presentation.financeui.dialog;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.FinanceBLService;
 import main.presentation.financeui.FinanceFrame;
+import main.presentation.financeui.datapanel.BankAccountPanel;
 import main.vo.financevo.BankAccountVO;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.math.BigDecimal;
+import java.util.ArrayList;
 
 /**
  * Created by Away
  * 2015/12/8
  */
 
-@SuppressWarnings("serial")
-public class BankAccountAddDialog extends JDialog {
+public class BankAccountFindDialog extends JDialog {
 
     private JTextField acID;
     private JTextField acName;
-    private JTextField acBalance;
     private FinanceBLService financeController;
+    private FinanceFrame ui;
 
-    public BankAccountAddDialog(FinanceFrame ui) {
+    public BankAccountFindDialog(FinanceFrame ui) {
         super(ui);
-        init(ui);
+        this.ui = ui;
+        init();
         financeController = ui.getFinanceController();
     }
 
-    private void init(Frame ui) {
+    private void init() {
         this.setLayout(null);
-        this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 300);
+        this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 250);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         JPanel panel = new JPanel();
 
         JButton ok = new JButton("确定");
-        ok.setBounds(150, 180, 100, 40);
+        ok.setBounds(150, 130, 100, 40);
         ok.addActionListener(new okListener());
 
         JLabel id = new JLabel("账号ID");
@@ -53,37 +53,43 @@ public class BankAccountAddDialog extends JDialog {
         acName = new JTextField();
         acName.setBounds(150, 80, 150, 30);
 
-        JLabel balance = new JLabel("余额");
-        balance.setBounds(50, 120, 80, 50);
-
-        acBalance = new JTextField();
-        acBalance.setBounds(150, 130, 150, 30);
-
         panel.setLayout(null);
         panel.add(ok);
         panel.add(id);
         panel.add(acID);
         panel.add(name);
         panel.add(acName);
-        panel.add(balance);
-        panel.add(acBalance);
         this.setContentPane(panel);
     }
 
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String name = acName.getText();
-            BigDecimal balance = new BigDecimal(acBalance.getText());
-            String id = acID.getText();
-            BankAccountVO vo = new BankAccountVO(name, balance, id);
-            ResultMessage msg = financeController.createMember(vo);
+            String name = acName.getText().isEmpty() ? null : acName.getText();
+            String id = acID.getText().isEmpty() ? null : acID.getText();
+            BankAccountVO vo = new BankAccountVO(name, null, id);
+            ResultMessage msg = financeController.inquireMember(vo);
             if (isFail(msg)) {
                 // TODO
             } else {
+                processData(id, msg);
                 close();
             }
         }
+    }
+
+    private void processData(String id, ResultMessage msg) {
+        java.util.List<BankAccountVO> bankAccountVOs;
+        if (id == null) {
+            bankAccountVOs = (java.util.List<BankAccountVO>) msg.getValue();
+        } else {
+            bankAccountVOs = new ArrayList<>();
+            BankAccountVO bankAccountVO = (BankAccountVO) msg.getValue();
+            bankAccountVOs.add(bankAccountVO);
+        }
+
+        BankAccountPanel bankAccountPanel = new BankAccountPanel(bankAccountVOs);
+        ui.paintData(bankAccountPanel);
     }
 
     private boolean isFail(ResultMessage message) {
@@ -96,4 +102,5 @@ public class BankAccountAddDialog extends JDialog {
 //        acID.setText("");
         this.setVisible(false);
     }
+
 }

@@ -2,6 +2,8 @@ package main.presentation.financeui.listener.toollistener;
 
 import main.presentation.financeui.FinanceFrame;
 import main.presentation.financeui.dialog.BankAccountAddDialog;
+import main.presentation.financeui.dialog.BankAccountDelDialog;
+import main.presentation.financeui.dialog.BankAccountFindDialog;
 import main.presentation.financeui.listener.ToolListener;
 import main.presentation.financeui.tool.ToolPanel;
 
@@ -27,9 +29,11 @@ public class BankAccountManagementToolListener extends ToolListener {
             BankAccountAddDialog dialog = new BankAccountAddDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton("del")) {
-            System.out.println("del");
+            BankAccountDelDialog dialog = new BankAccountDelDialog(ui);
+            dialog.setVisible(true);
         } else if (button == toolPanel.getButton("find")) {
-            System.out.println("f");
+            BankAccountFindDialog dialog = new BankAccountFindDialog(ui);
+            dialog.setVisible(true);
         } else if (button == toolPanel.getButton("update")) {
             System.out.println("u");
         } else if (button == toolPanel.getButton("back")) {
