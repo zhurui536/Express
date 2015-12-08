@@ -17,6 +17,8 @@ import main.vo.BillVO;
 public class BillDataPane extends JPanel implements ActionListener {
 	//审批按钮
 	private ArrayList<JButton> approves;
+	//查看按钮
+	private ArrayList<JButton> details;
 	//保存了与删除按钮对应的单据编号与单据类型作为审批依据
 	private ArrayList<String> billslist;
 	private ArrayList<BillType> billstype;
@@ -27,6 +29,7 @@ public class BillDataPane extends JPanel implements ActionListener {
 		this.billslist = new ArrayList<String>();
 		this.billstype = new ArrayList<BillType>();
 		this.approves = new ArrayList<JButton>();
+		this.details = new ArrayList<JButton>();
 		this.listener = tl;
 		
 		this.setSize(810, 60*bills.size()+60);
@@ -103,21 +106,37 @@ public class BillDataPane extends JPanel implements ActionListener {
 		item.add(approve);
 		approves.add(approve);
 		
+		//查看按钮，用于查看某个单据
+		JButton detail = new JButton("查看");
+		detail.setSize(75, 30);
+		detail.setLocation(715, 15);
+		detail.addActionListener(this);
+		detail.setBackground(Color.GREEN);
+		item.add(detail);
+		details.add(detail);
+		
 		return item;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		int i=0;
-		
-		for(i=0;i<approves.size();i++){
-			if(e.getSource() == approves.get(i))
+		for(int i=0;i<approves.size();i++){
+			if(e.getSource() == approves.get(i)){
+				String billid = this.billslist.get(i);
+				BillType type = this.billstype.get(i);
+				listener.approve(billid, type);
 				break;
+			}
 		}
 		
-		String billid = this.billslist.get(i);
-		BillType type = this.billstype.get(i);
-		listener.approve(billid, type);
+		for(int i=0;i<details.size();i++){
+			if(e.getSource() == details.get(i)){
+				String billid = this.billslist.get(i);
+				BillType type = this.billstype.get(i);
+				listener.getDetail(billid, type);
+				break;
+			}
+		}
 	}
 	
 	private String typeToString(BillType type){
