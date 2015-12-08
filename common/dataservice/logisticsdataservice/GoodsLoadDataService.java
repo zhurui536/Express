@@ -10,8 +10,6 @@ import po.logisticpo.TransferBillPO;
 
 public interface GoodsLoadDataService extends Remote{
 
-        public ResultMessage findBill(long id) throws RemoteException;
-        
         public ResultMessage insertBill(LoadingBillPO bill) throws RemoteException;
         
         public ResultMessage insertBill(TransferBillPO bill) throws RemoteException;

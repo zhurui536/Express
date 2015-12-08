@@ -3,6 +3,11 @@ package main.connection;
 import main.data.billdata.BillDataServiceImpl;
 import main.data.financedata.*;
 import main.data.logisticsdata.BillQueryDataServiceImpl;
+import main.data.logisticsdata.DeliveryDataServiceImpl;
+import main.data.logisticsdata.GoodsLoadDataServiceImpl;
+import main.data.logisticsdata.GoodsReceiptDataServiceImpl;
+import main.data.logisticsdata.ReceiptBillProduceDataServiceImpl;
+import main.data.logisticsdata.ReceivingDataServiceImpl;
 import main.data.storedata.StoreDataServiceImpl;
 
 import java.rmi.Naming;
@@ -11,6 +16,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+
 
 /**
  * Created by Away
@@ -42,7 +48,12 @@ public class ServerRMIHelper {
         NAMING_MAP.put("StoreDataServiceImpl", StoreDataServiceImpl.class);
         NAMING_MAP.put("BillDataServiceImpl", BillDataServiceImpl.class);
         NAMING_MAP.put("BillQueryDataServiceImpl", BillQueryDataServiceImpl.class);
-//        for (String name : CLASS_NAMES) {
+        NAMING_MAP.put("DeliveryDataServiceImpl", DeliveryDataServiceImpl.class);
+        NAMING_MAP.put("GoodsLoadDataServiceImpl", GoodsLoadDataServiceImpl.class);
+        NAMING_MAP.put("GoodsReceiptDataServiceImpl", GoodsReceiptDataServiceImpl.class);
+        NAMING_MAP.put("ReceiptBillProduceDataServiceImpl", ReceiptBillProduceDataServiceImpl.class);
+        NAMING_MAP.put("ReceivingDataServiceImpl", ReceivingDataServiceImpl.class);
+        //        for (String name : CLASS_NAMES) {
 //            try {
 //                NAMING_MAP.put(name, (Class<? extends UnicastRemoteObject>) Class.forName("main.data.financedata." + name));
 //            } catch (ClassNotFoundException e) {

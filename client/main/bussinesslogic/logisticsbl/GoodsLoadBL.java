@@ -8,6 +8,7 @@ import dataservice.logisticsdataservice.GoodsLoadDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.GoodsLoadBLService;
 import main.bussinesslogicservice.storeblservice.OutStoreBLService;
+import main.connection.ClientRMIHelper;
 import main.vo.logisticvo.LoadingBillVO;
 import main.vo.logisticvo.TransferBillVO;
 
@@ -17,6 +18,11 @@ public class GoodsLoadBL implements GoodsLoadBLService {
 
         private OutStoreBLService outStoreBLService;
 
+        public GoodsLoadBL(OutStoreBLService outStoreBLService) {
+                this.outStoreBLService = outStoreBLService;
+                goodsLoadDataService = (GoodsLoadDataService) ClientRMIHelper.getServiceByName("GoodsLoadDataServiceImpl");
+        }
+        
         // TODO
         // 接口改动
         @Override

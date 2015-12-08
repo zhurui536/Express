@@ -2,7 +2,8 @@ package dataservice.logisticsdataservice;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
+
+import main.bussinesslogic.util.ResultMessage;
 
 import po.logisticpo.SendBillPO;
 
@@ -11,7 +12,7 @@ import po.logisticpo.SendBillPO;
  */
 public interface ReceivingDataService extends Remote{
         
-        public void insertBill(SendBillPO bill) throws RemoteException;
+        public ResultMessage insertBill(SendBillPO bill) throws RemoteException;
         
-        public ArrayList<SendBillPO> findAll() throws RemoteException;
+        public ResultMessage findAll() throws RemoteException;
 }

@@ -12,6 +12,7 @@ import main.bussinesslogic.util.PackageType;
 import main.bussinesslogic.util.PublicMessage;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.ReceivingBLService;
+import main.connection.ClientRMIHelper;
 import main.vo.GoodsVO;
 import main.vo.logisticvo.SendBillVO;
 
@@ -22,8 +23,8 @@ public class ReceivingBL implements ReceivingBLService{
         private ArrayList<SendBillPO> sendBillPOs;
         
         public ReceivingBL() {
-                // TODO Auto-generated constructor stub
                 this.sendBillPOs = new ArrayList<>();
+                receivingDataService = (ReceivingDataService) ClientRMIHelper.getServiceByName("ReceivingDataServiceImpl");
         }
         
         @Override
@@ -38,11 +39,12 @@ public class ReceivingBL implements ReceivingBLService{
                 return new ResultMessage("SUCCESS", null);
         }
 
+        @SuppressWarnings("unchecked")
         @Override
         public long getTime(String departurePlace, String destination) {
                 ArrayList<SendBillPO> sendBillPOs = null;
                 try {
-                        sendBillPOs = receivingDataService.findAll();
+                        sendBillPOs = (ArrayList<SendBillPO>) (receivingDataService.findAll()).getValue();
                 } catch (RemoteException e) {
                         return -1;
                 }

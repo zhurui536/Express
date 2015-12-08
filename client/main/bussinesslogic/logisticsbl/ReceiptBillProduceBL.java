@@ -14,11 +14,16 @@ import main.bussinesslogic.util.PublicMessage;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.logisticsblservice.ReceiptBillProduceBLService;
+import main.connection.ClientRMIHelper;
 
 public class ReceiptBillProduceBL implements ReceiptBillProduceBLService {
 
         private ReceiptBillProduceDataService receiptBillProduceDataService;
 
+        public ReceiptBillProduceBL() {
+                receiptBillProduceDataService = (ReceiptBillProduceDataService) ClientRMIHelper.getServiceByName("ReceiptBillProduceDataServiceImpl");
+        }
+        
         @Override
         public ResultMessage produceReceiptBill() {
                 Time today = new Time();

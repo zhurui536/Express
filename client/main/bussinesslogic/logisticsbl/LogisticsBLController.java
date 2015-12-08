@@ -2,6 +2,7 @@ package main.bussinesslogic.logisticsbl;
 
 import main.bussinesslogic.util.*;
 import main.bussinesslogicservice.logisticsblservice.*;
+import main.bussinesslogicservice.storeblservice.OutStoreBLService;
 import main.vo.GoodsVO;
 import main.vo.logisticvo.*;
 
@@ -19,10 +20,10 @@ public class LogisticsBLController implements LogisticsBLService {
         
         private ReceivingBLService receivingBLService;
         
-        public LogisticsBLController() {
+        public LogisticsBLController(OutStoreBLService outStoreBLService) {
                 this.billQueryBLService = new BillQueryBL();
                 this.deliveryBLService = new DeliveryBL();
-                this.goodsLoadBLService = new GoodsLoadBL();
+                this.goodsLoadBLService = new GoodsLoadBL(outStoreBLService);
                 this.goodsReceiptBLService = new GoodsReceiptBL();
                 this.receiptBillProduceBLService = new ReceiptBillProduceBL();
                 this.receivingBLService = new ReceivingBL();

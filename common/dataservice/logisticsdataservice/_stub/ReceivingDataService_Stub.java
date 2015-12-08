@@ -3,6 +3,8 @@ package dataservice.logisticsdataservice._stub;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import main.bussinesslogic.util.ResultMessage;
+
 import dataservice.logisticsdataservice.ReceivingDataService;
 import po.logisticpo.SendBillPO;
 
@@ -13,15 +15,17 @@ import po.logisticpo.SendBillPO;
 public class ReceivingDataService_Stub implements ReceivingDataService {
 
         @Override
-        public void insertBill(SendBillPO bill) throws RemoteException {
-                // TODO Auto-generated method stub
-                System.out.println("insert successfully");
-        }
-
-        @Override
-        public ArrayList<SendBillPO> findAll() throws RemoteException {
+        public ResultMessage insertBill(SendBillPO bill) throws RemoteException {
                 // TODO Auto-generated method stub
                 return null;
         }
+
+        @Override
+        public ResultMessage findAll() throws RemoteException {
+                // TODO Auto-generated method stub
+                return null;
+        }
+
+
         
 }

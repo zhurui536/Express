@@ -9,6 +9,7 @@ import main.bussinesslogic.util.GoodsDeliveryState;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.logisticsblservice.DeliveryBLService;
+import main.connection.ClientRMIHelper;
 
 public class DeliveryBL implements DeliveryBLService{
 
@@ -18,7 +19,7 @@ public class DeliveryBL implements DeliveryBLService{
         
         public DeliveryBL() {
                 super();
-//                this.deliveryDataService = deliveryDataService;
+                deliveryDataService = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
                 goodsPOsList = new ArrayList<>();
         }
 

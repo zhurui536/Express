@@ -10,6 +10,7 @@ import po.logisticpo.*;
 import dataservice.logisticsdataservice.GoodsReceiptDataService;
 import main.bussinesslogic.util.*;
 import main.bussinesslogicservice.logisticsblservice.GoodsReceiptBLService;
+import main.connection.ClientRMIHelper;
 import main.vo.logisticvo.ArrivalBillVO;
 
 public class GoodsReceiptBL implements GoodsReceiptBLService {
@@ -20,6 +21,7 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
 
         public GoodsReceiptBL() {
                 ids = new ArrayList<>();
+                goodsReceiptDataService = (GoodsReceiptDataService) ClientRMIHelper.getServiceByName("GoodsReceiptDataServiceImpl");
         }
 
         @Override
@@ -33,16 +35,15 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
                 }
 
                 if (resultMessage == null
-                                || !resultMessage.getKey().equals("SUCCESS"))
+                                || resultMessage.getKey().equals("NOT_FOUND"))
                         return new ResultMessage("FAIL");
 
-                String location = PublicMessage.location;
                 LoadingBillPO loadingBillPO = null;
                 TransferBillPO transferBillPO = null;
-                if (location.equals(arrivalBillVO.departurePlace)) {
+                if (resultMessage.getKey().equals("FOUND_LoadingBill")) {
                         loadingBillPO = (LoadingBillPO) resultMessage
                                         .getValue();
-                } else {
+                } else if (resultMessage.getKey().equals("FOUND_TransferBill")) {
                         transferBillPO = (TransferBillPO) resultMessage
                                         .getValue();
                 }
@@ -72,7 +73,7 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
                                 goodsPO = goodsReceiptDataService.findGoods(id);
                         } catch (RemoteException e) {
                                 e.printStackTrace();
-                        }
+                        } 
                         goodsPO.addLocation(PublicMessage.location);
                         try {
                                 goodsReceiptDataService.updateGoods(goodsPO);
