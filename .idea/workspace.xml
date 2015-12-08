@@ -2,32 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df707e08-8df3-4511-9f4e-7ebff1dc9706" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/dialog/BankAccountDelDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/dialog/BankAccountFindDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/datapanel/BankAccountPanel.java" />
+      <change type="DELETED" beforePath="D:\code\Express\Express\client\main\bussinesslogicservice\financeblservice\_stub\FinanceBLService.java" afterPath="" />
       <change type="DELETED" beforePath="D:\code\Express\Express\target\classes\main\bussinesslogicservice\financeblservice\_stub\FinanceBLService.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/dialog/BankAccountAddDialog.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/dialog/BankAccountAddDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/BankAccountManagementBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/financebl/BankAccountManagementBL.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/BankAccountManagementBL.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/BankAccountManagementBL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/FinanceController.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/FinanceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/FinanceFrame.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/FinanceFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/adjustPO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/adjustPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/storedata/adjustPO.dat" afterPath="$PROJECT_DIR$/target/classes/save/storedata/adjustPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/financedata/bankAccountPO.dat" afterPath="$PROJECT_DIR$/server/save/financedata/bankAccountPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/financedata/bankAccountPO.dat" afterPath="$PROJECT_DIR$/target/classes/save/financedata/bankAccountPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/financedata/initAccountPO.dat" afterPath="$PROJECT_DIR$/server/save/financedata/initAccountPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/instorePO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/instorePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/storedata/instorePO.dat" afterPath="$PROJECT_DIR$/target/classes/save/storedata/instorePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/outStorePO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/outStorePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/storedata/outStorePO.dat" afterPath="$PROJECT_DIR$/target/classes/save/storedata/outStorePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/storePO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/storePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/storedata/storePO.dat" afterPath="$PROJECT_DIR$/target/classes/save/storedata/storePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/verificationPO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/verificationPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/storedata/verificationPO.dat" afterPath="$PROJECT_DIR$/target/classes/save/storedata/verificationPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\code\Express\Express\client\main\bussinesslogicservice\financeblservice\_stub\FinanceBLService.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/FinanceBLService.java" />
-      <change type="MOVED" beforePath="D:\code\Express\Express\server\save\financedata\PayBillPO.dat" afterPath="$PROJECT_DIR$/server/save/financedata/payBillPO.dat" />
-      <change type="MOVED" beforePath="D:\code\Express\Express\target\classes\save\financedata\PayBillPO.dat" afterPath="$PROJECT_DIR$/target/classes/save/financedata/payBillPO.dat" />
     </list>
     <ignored path="express-all.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BankAccountAddDialog.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BankAccountAddDialog.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/dialog/BankAccountAddDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5561277">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,13 +92,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BankAccountPanel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BankAccountPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/datapanel/BankAccountPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.33367664">
+              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#176#203#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -235,9 +214,9 @@
         <option value="$PROJECT_DIR$/server/save/financedata/payBillPO.dat" />
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java" />
         <option value="$PROJECT_DIR$/client/main/bussinesslogicservice/financeblservice/FinanceBLService.java" />
-        <option value="$PROJECT_DIR$/client/main/presentation/financeui/datapanel/BankAccountPanel.java" />
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/dialog/BankAccountFindDialog.java" />
         <option value="$PROJECT_DIR$/client/main/bussinesslogic/financebl/BankAccountManagementBL.java" />
+        <option value="$PROJECT_DIR$/client/main/presentation/financeui/datapanel/BankAccountPanel.java" />
       </list>
     </option>
   </component>
@@ -1071,12 +1050,12 @@
       <workItem from="1449475310186" duration="6023000" />
       <workItem from="1449491072478" duration="2484000" />
       <workItem from="1449497095412" duration="175000" />
-      <workItem from="1449500019704" duration="37330000" />
+      <workItem from="1449500019704" duration="37378000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230794000" />
+    <option name="totallyTimeSpent" value="230842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
@@ -1556,16 +1535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/datapanel/BankAccountPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/dialog/BankAccountFindDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1604,10 +1573,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/dialog/BankAccountAddDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5561277">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/datapanel/BankAccountPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33367664">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#176#203#0" expanded="true" />
           </folding>
         </state>
       </provider>

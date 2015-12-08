@@ -61,7 +61,12 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
         try {
             // 根据 id 查找
             if (vo.id != null) {
-                return bankAccountManagementDataServiceImpl.find(vo.id);
+                ResultMessage message = bankAccountManagementDataServiceImpl.find(vo.id);
+                if (message.getKey().equals("fail")) {
+                    return message;
+                }
+                BankAccountPO bankAccountPO = (BankAccountPO) message.getValue();
+                return new ResultMessage("success", bankAccountPO.poToVo());
             }
 
             // 根据名字模糊匹配
