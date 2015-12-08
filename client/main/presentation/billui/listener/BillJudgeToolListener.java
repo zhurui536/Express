@@ -68,5 +68,13 @@ public class BillJudgeToolListener extends ToolListener {
 			ui.paintdata(data);
 		}
 	}
+	
+	public void getDetail(String billid, BillType type){
+		ResultMessage result = bc.chooseBill(billid, type);
+		
+		if(result.getKey().equals("success")){
+			//将单据显示出来
+		}
+	}
 
 }
