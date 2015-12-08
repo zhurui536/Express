@@ -1,20 +1,20 @@
 package main.bussinesslogic.storebl;
 
-import java.rmi.RemoteException;
-
-import po.UserPO;
-import po.storepo.StorePO;
-import po.storepo.VerificationPO;
 import dataservice.storedataservice.StoreDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.storeblservice.VerificationBLService;
 import main.connection.ClientRMIHelper;
-import main.vo.storevo.StoreVO;
+import main.vo.storevo.VerificationVO;
+import po.UserPO;
+import po.storepo.StorePO;
+import po.storepo.VerificationPO;
+
+import java.rmi.RemoteException;
 
 public class VerificationBL implements VerificationBLService {
 	private StoreDataService dataservice;
 	private UserPO user;
-	private StoreVO store;
+	private VerificationVO store;
 	private VerificationPO po;
 	
 	public VerificationBL(UserPO user){
@@ -29,7 +29,7 @@ public class VerificationBL implements VerificationBLService {
 			result = dataservice.getStore();
 			if(result.getKey().equals("success")){
 				StorePO store = (StorePO) result.getValue();
-				this.store = new StoreVO(store);
+				this.store = new VerificationVO(store);
 				this.po = new VerificationPO(store, user);
 				
 				return new ResultMessage("success", this.store);

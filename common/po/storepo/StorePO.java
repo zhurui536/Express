@@ -1,5 +1,7 @@
 package po.storepo;
 
+import main.vo.storevo.VerificationVO;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -44,7 +46,10 @@ public class StorePO implements Serializable {
 		}
 		
 	}
-	
+
+	public StorePO(VerificationVO storeVO) {
+		this.areas = storeVO.
+	}
 	/*获得在某一位置上的库存信息*/
 	public StorePlacePO getStorePlace(int area, int row, int shelf, int place){
 		for(int i=0;i<store.size();i++){
