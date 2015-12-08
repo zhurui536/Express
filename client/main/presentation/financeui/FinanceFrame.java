@@ -46,7 +46,7 @@ public class FinanceFrame extends JFrame {
         this.setName("财务人员主界面");
         this.setLayout(null);
         this.setSize(1000, 630);
-//        this.setResizable(false);
+        this.setResizable(false);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
