@@ -7,7 +7,7 @@ import main.presentation.billui.listener.BillJudgeToolListener;
 import main.presentation.storeui.tool.GetButtonOfTool;
 
 public class BillJudgeTool extends JPanel implements GetButtonOfTool{
-	private JButton[] buttons = new JButton[2];
+	private JButton[] buttons = new JButton[3];
 	
 	public BillJudgeTool(BillJudgeToolListener tl){
 		this.setLayout(null);
@@ -25,6 +25,12 @@ public class BillJudgeTool extends JPanel implements GetButtonOfTool{
 		buttons[1].setLocation(880, 35);
 		buttons[1].addActionListener(tl);
 		this.add(buttons[1]);
+		
+		buttons[2] = new JButton("单据刷新");
+		buttons[2].setSize(105, 25);
+		buttons[2].setLocation(300, 40);
+		buttons[2].addActionListener(tl);
+		this.add(buttons[2]);
 	}
 
 	@Override
