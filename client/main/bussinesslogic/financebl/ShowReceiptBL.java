@@ -50,7 +50,6 @@ public class ShowReceiptBL implements ShowReceiptBLService {
     }
 
     /**
-     * // TODO 重写 equals方法
      * 检验是否符合搜索条件
      * @param po 带检查的收款单 po
      * @param time 搜索时间
@@ -58,6 +57,6 @@ public class ShowReceiptBL implements ShowReceiptBLService {
      * @return 符合为 true， 否则为 false
      */
     private boolean isValid(ReceiptBillPO po, Time time, String id) {
-        return id.equals(po.getInstitutionID()) && time.equals(po.getTime());
+        return id.equals(po.getInstitutionID()) && time.equalsWithDay(po.getTime());
     }
 }
