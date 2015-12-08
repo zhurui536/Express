@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import main.vo.storevo.CheckVO;
 
+@SuppressWarnings("serial")
 public class CheckDataPane extends JPanel {
 	
 	public CheckDataPane(CheckVO vo){

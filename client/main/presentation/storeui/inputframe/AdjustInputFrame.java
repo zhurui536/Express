@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 
 import main.presentation.storeui.listener.toollistener.AdjustToolListener;
 
+@SuppressWarnings("serial")
 public class AdjustInputFrame extends JFrame implements ActionListener {
 	//确定、取消按钮
 	private JButton confirm, cancle;

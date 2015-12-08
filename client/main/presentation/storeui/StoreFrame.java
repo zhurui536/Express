@@ -17,6 +17,7 @@ import main.connection.ClientRMIHelper;
 import main.presentation.storeui.listener.MenuListener;
 
 
+@SuppressWarnings("serial")
 public class StoreFrame extends JFrame{
 	//处理窗口事件的对象
 	private StoreBLService sc;

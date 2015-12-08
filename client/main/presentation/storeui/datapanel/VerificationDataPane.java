@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import main.vo.storevo.VerificationVO;
 
+@SuppressWarnings("serial")
 public class VerificationDataPane extends JPanel {
 	public VerificationDataPane(VerificationVO store){
 		ArrayList<String> goodsid = store.getGoodsID();

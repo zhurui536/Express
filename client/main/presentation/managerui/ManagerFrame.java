@@ -14,6 +14,7 @@ import main.bussinesslogic.billbl.BillBLController;
 import main.bussinesslogicservice.billblservice.BillBLService;
 import main.presentation.managerui.listener.MenuListener;
 
+@SuppressWarnings("serial")
 public class ManagerFrame extends JFrame {
 
 	//窗口中的成员组件，窗口分为菜单、工具和数据三个部分
@@ -157,6 +158,12 @@ public class ManagerFrame extends JFrame {
 	//为了方便取得处理业务逻辑的对象，设置了此方法
 	public BillBLService getBillBLController(){
 		return this.bs;
+	}
+	
+	//点击退出键时的方法
+	public void close(){
+		this.setVisible(false);
+		System.exit(0);
 	}
 	
 	private final String[] buttonname = {"运费策略制定", "薪水策略制定", "单据审批", "新增机构", "删除机构", "查看机构信息", "修改机构信息", "退出"};

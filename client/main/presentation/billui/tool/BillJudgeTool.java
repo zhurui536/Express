@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import main.presentation.billui.listener.BillJudgeToolListener;
 import main.presentation.storeui.tool.GetButtonOfTool;
 
+@SuppressWarnings("serial")
 public class BillJudgeTool extends JPanel implements GetButtonOfTool{
 	private JButton[] buttons = new JButton[3];
 	

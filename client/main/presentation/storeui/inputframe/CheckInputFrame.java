@@ -11,6 +11,7 @@ import javax.swing.JTextArea;
 
 import main.presentation.storeui.listener.toollistener.CheckToolListener;
 
+@SuppressWarnings("serial")
 public class CheckInputFrame extends JFrame implements ActionListener {
 	//确定、取消按钮
 	private JButton confirm, cancle;

@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 
 import main.presentation.storeui.listener.toollistener.InStoreToolListener;
 
+@SuppressWarnings("serial")
 public class InStoreInputFrame extends JFrame implements ActionListener{
 	private JButton confirm, cancle;
 	private JTextArea number, destination;

@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 
 import main.presentation.storeui.listener.ToolListener;
 
+@SuppressWarnings("serial")
 public class OutStoreTool extends JPanel implements GetButtonOfTool{
 	private JButton buttons[] = new JButton[3];
 	

@@ -13,6 +13,7 @@ import main.bussinesslogic.util.BillType;
 import main.presentation.billui.listener.BillJudgeToolListener;
 import main.vo.BillVO;
 
+@SuppressWarnings("serial")
 public class BillDataPane extends JPanel implements ActionListener {
 	//审批按钮
 	private ArrayList<JButton> approves;

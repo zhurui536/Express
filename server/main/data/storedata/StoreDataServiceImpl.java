@@ -24,6 +24,11 @@ import po.storepo.VerificationPO;
 import dataservice.storedataservice.StoreDataService;
 
 public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDataService {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2094560624032926398L;
+	
 	private final String storerecord = "server/save/storedata/storePO.dat";
 	private final String instorerecord = "server/save/storedata/instorePO.dat";
 	private final String outstorerecord = "server/save/storedata/outstorePO.dat";

@@ -50,9 +50,6 @@ public class BillBLService_Stub implements BillBLService {
 	public ResultMessage approves() {
 		// TODO Auto-generated method stub
 		System.out.println("Approve severval bills!");
-		String id;
-		
-		
 		return new ResultMessage("success", null);
 	}
 

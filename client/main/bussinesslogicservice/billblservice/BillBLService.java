@@ -1,7 +1,5 @@
 package main.bussinesslogicservice.billblservice;
 
-import java.util.ArrayList;
-
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.ResultMessage;
 

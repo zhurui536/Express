@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import main.presentation.storeui.listener.toollistener.InStoreToolListener;
 import main.vo.storevo.InStoreVO;
 
+@SuppressWarnings("serial")
 public class InStoreDataPane extends JPanel implements ActionListener{
 	//删除按钮
 	private ArrayList<JButton> deletes;

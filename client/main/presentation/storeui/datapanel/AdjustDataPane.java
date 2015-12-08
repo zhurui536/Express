@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import main.presentation.storeui.listener.toollistener.AdjustToolListener;
 import main.vo.storevo.AdjustVO;
 
+@SuppressWarnings("serial")
 public class AdjustDataPane extends JPanel implements ActionListener{
 	private ArrayList<JButton> deletes;
 	private AdjustToolListener listener;

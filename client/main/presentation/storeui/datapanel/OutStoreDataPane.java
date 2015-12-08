@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import main.presentation.storeui.listener.toollistener.OutStoreToolListener;
 import main.vo.storevo.OutStoreVO;
 
+@SuppressWarnings("serial")
 public class OutStoreDataPane extends JPanel implements ActionListener {
 	
 	//删除按钮的数组

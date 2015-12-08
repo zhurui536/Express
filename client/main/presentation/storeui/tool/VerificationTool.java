@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 
 import main.presentation.storeui.listener.ToolListener;
 
+@SuppressWarnings("serial")
 public class VerificationTool extends JPanel implements GetButtonOfTool{
 	private JButton buttons[] = new JButton[2];
 	
