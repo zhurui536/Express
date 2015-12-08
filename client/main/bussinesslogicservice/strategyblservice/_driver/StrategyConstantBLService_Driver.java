@@ -1,6 +1,5 @@
 package main.bussinesslogicservice.strategyblservice._driver;
 
-import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.strategyblservice.StrategyConstantBLService;
 import main.bussinesslogicservice.strategyblservice._stub.StrategyConstantBLService_Stub;
 
@@ -21,15 +20,5 @@ public class StrategyConstantBLService_Driver {
 	}
 
 	private static void drive(StrategyConstantBLService scbls) {
-		// TODO Auto-generated method stub
-		ResultMessage result = null;
-		
-		scbls.newConstant();
-		
-		result = scbls.inputConstantInfo(10000,100);
-		
-		System.out.println(result.getKey());
-		
-		scbls.endConstant();
 	}
 }

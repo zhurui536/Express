@@ -1,9 +1,11 @@
 package dataservice.strategydataservice;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import main.bussinesslogic.util.ResultMessage;
-import po.StaffMessagePO;
+import po.DistancePO;
+import po.SalaryPO;
 
 
 
@@ -14,15 +16,11 @@ import po.StaffMessagePO;
 
 
 public interface StrategyDataService {
-	public ResultMessage find(long id) throws RemoteException;
+	public ResultMessage getDistance() throws RemoteException;
 	
-	public ResultMessage finds(String Post) throws RemoteException;
+	public ResultMessage SaveDistance(ArrayList<DistancePO> pos) throws RemoteException;
 	
-	public void update(StaffMessagePO po) throws RemoteException;
+	public ResultMessage update(SalaryPO po) throws RemoteException;
 	
-	public void delete(StaffMessagePO po) throws RemoteException;
-	
-	public void init() throws RemoteException;
-	
-	public void finish() throws RemoteException;
+	public ResultMessage savePrice(double price) throws RemoteException;
 }

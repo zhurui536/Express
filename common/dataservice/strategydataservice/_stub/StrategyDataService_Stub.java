@@ -1,10 +1,12 @@
 package dataservice.strategydataservice._stub;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import main.bussinesslogic.util.ResultMessage;
 import dataservice.strategydataservice.StrategyDataService;
-import po.StaffMessagePO;
+import po.DistancePO;
+import po.SalaryPO;
 
 
 /**
@@ -14,40 +16,28 @@ import po.StaffMessagePO;
 
 public class StrategyDataService_Stub implements StrategyDataService {
 
-    @Override
-    public ResultMessage find(long id) throws RemoteException{
-    	if(id>=1000000000&&id<=Long.MAX_VALUE){
-    		
-			return new ResultMessage("find success", null);
-		}
-		else{
-			return new ResultMessage("cannot find", null);
-		}
-
-    }
-
-    @Override
-    public ResultMessage finds(String Post) throws RemoteException{
+	@Override
+	public ResultMessage getDistance() throws RemoteException {
+		// TODO Auto-generated method stub
 		return null;
-    }
+	}
 
-    @Override
-    public void update(StaffMessagePO po) throws RemoteException{
-    	System.out.println("update success!");
-    }
-    
-    @Override
-    public void delete(StaffMessagePO po) throws RemoteException{
-    	System.out.println("delete success!");
-    }
-    
-    @Override
-    public void init() throws RemoteException {
-    	System.out.println("init success!");
-    }
+	@Override
+	public ResultMessage SaveDistance(ArrayList<DistancePO> pos)
+			throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    @Override
-    public void finish() throws RemoteException {
-    	System.out.println("finish success!");
-    }
+	@Override
+	public ResultMessage update(SalaryPO po) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage savePrice(double price) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

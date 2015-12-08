@@ -25,11 +25,11 @@ public class MenuListener implements ActionListener {
 				break;
 		}
 		if(i==0){
-			ConstantStrategyDataPane data = new ConstantStrategyDataPane();
+			ConstantStrategyDataPane data = new ConstantStrategyDataPane(ui);
 			ui.paintdata(data);
 		}
 		if(i==1){
-			SalaryStrategyDataPane data = new SalaryStrategyDataPane();
+			SalaryStrategyDataPane data = new SalaryStrategyDataPane(ui);
 			ui.paintdata(data);
 		}
 		if(i==2){//点击了审批单据

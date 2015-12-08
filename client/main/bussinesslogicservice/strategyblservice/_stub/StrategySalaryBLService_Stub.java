@@ -2,6 +2,7 @@ package main.bussinesslogicservice.strategyblservice._stub;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.strategyblservice.StrategySalaryBLService;
+import main.vo.SalaryVO;
 
 
 
@@ -28,5 +29,11 @@ public class StrategySalaryBLService_Stub implements StrategySalaryBLService{
 	
 	public void endSalary(){
 		System.out.println("The salary strategy was drafted!");
+	}
+
+	@Override
+	public ResultMessage inputSalaryInfo(SalaryVO vo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
