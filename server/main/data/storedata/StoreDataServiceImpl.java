@@ -9,10 +9,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import main.bussinesslogic.util.ExpressType;
-import main.bussinesslogic.util.PackageType;
 import main.bussinesslogic.util.ResultMessage;
-import po.GoodsPO;
+import po.logisticpo.SendBillPO;
 import po.storepo.AdjustPO;
 import po.storepo.IORecordPO;
 import po.storepo.InStoreBillPO;
@@ -36,6 +34,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	private final String verificationrecord = "server/save/storedata/verificationPO.dat";
 	private final String instorebill = "server/save/storedata/instoreBillPO.dat";
 	private final String outstorebill = "server/save/storedata/outstoreBillPO.dat";
+	private final String sendbill = "server/save/logisticsdata/sendBillPO.dat";
 	
 	public StoreDataServiceImpl() throws RemoteException {
 		try {//将所有空文件进行初始化
@@ -91,13 +90,22 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage find(String id) throws RemoteException {
-		if(Integer.parseInt(id)>=100000000&&Integer.parseInt(id)<=Integer.MAX_VALUE){
-			return new ResultMessage("exist", new GoodsPO(id, "sb", "南京", "北京", 1, 1, PackageType.CARTONS, ExpressType.COURIER));
-		}
-		else{
+		try {
+			ArrayList<SendBillPO> bills = (ArrayList<SendBillPO>) this.readList(sendbill);
+			
+			for(int i=0;i<bills.size();i++){
+				SendBillPO bill = bills.get(i);
+				if(bill.getId().equals(id)){
+					return new ResultMessage("exist", bill.getGoodsPO());
+				}
+			}
 			return new ResultMessage("noexist", null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResultMessage("dataerror", null);
 		}
 	}
 
