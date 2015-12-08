@@ -17,7 +17,7 @@ import main.presentation.storeui.tool.CheckTool;
 import main.presentation.storeui.tool.InStoreTool;
 import main.presentation.storeui.tool.OutStoreTool;
 import main.presentation.storeui.tool.VerificationTool;
-import main.vo.storevo.StoreVO;
+import main.vo.storevo.VerificationVO;
 
 public class MenuListener implements ActionListener {
 	private StoreFrame storeui;
@@ -84,7 +84,7 @@ public class MenuListener implements ActionListener {
 				storeui.replaceTool(tool);
 				tl.setTool(tool);
 				
-				StoreVO vo = (StoreVO) result.getValue();
+				VerificationVO vo = (VerificationVO) result.getValue();
 				VerificationDataPane panel = new VerificationDataPane(vo);
 				storeui.paintdata(panel);
 			}

@@ -2,7 +2,7 @@ package test.tester.financetester;
 
 import main.bussinesslogic.financebl.FinanceController;
 import main.vo.*;
-import main.vo.storevo.StoreVO;
+import main.vo.storevo.VerificationVO;
 
 import org.junit.Test;
 
@@ -22,7 +22,7 @@ public class InitTester {
         InstitutionMessageVO institution = new InstitutionMessageVO(null,null,null);
         StaffMessageVO staff = new StaffMessageVO(null, null);
         TruckMessageVO truck = new TruckMessageVO(null,null,0);
-        StoreVO store = new StoreVO(null);
+        VerificationVO store = new VerificationVO(null);
         BankAccountVO bankAccount = new BankAccountVO("kkk", BigDecimal.valueOf(123465), "465456555");
         AccountVO accountVO = new AccountVO(institution, staff, truck, store, bankAccount);
         FinanceController controller = new FinanceController();

@@ -1,6 +1,6 @@
 package main.vo;
 
-import main.vo.storevo.StoreVO;
+import main.vo.storevo.VerificationVO;
 
 
 /**
@@ -20,12 +20,12 @@ public class AccountVO {
     public TruckMessageVO truckMessageVO;
 
     // 库存
-    public StoreVO storeVO;
+    public VerificationVO storeVO;
 
     // 银行账户
     public BankAccountVO bankAccountVO;
 
-    public AccountVO(InstitutionMessageVO institutionVO, StaffMessageVO staffMessageVO, TruckMessageVO truckMessageVO, StoreVO storeVO, BankAccountVO bankAccountVO) {
+    public AccountVO(InstitutionMessageVO institutionVO, StaffMessageVO staffMessageVO, TruckMessageVO truckMessageVO, VerificationVO storeVO, BankAccountVO bankAccountVO) {
         this.institutionVO = institutionVO;
         this.staffMessageVO = staffMessageVO;
         this.truckMessageVO = truckMessageVO;

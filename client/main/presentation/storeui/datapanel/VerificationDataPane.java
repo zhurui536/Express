@@ -8,10 +8,10 @@ import java.util.Calendar;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import main.vo.storevo.StoreVO;
+import main.vo.storevo.VerificationVO;
 
 public class VerificationDataPane extends JPanel {
-	public VerificationDataPane(StoreVO store){
+	public VerificationDataPane(VerificationVO store){
 		ArrayList<String> goodsid = store.getGoodsID();
 		ArrayList<int[]> place = store.getStorePlace();
 		ArrayList<Calendar> time = store.getDate();
