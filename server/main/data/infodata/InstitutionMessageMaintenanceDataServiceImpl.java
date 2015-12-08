@@ -18,7 +18,7 @@ public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteO
         
         private ArrayList<InstitutionMessagePO> institutionMessagePOs;
         
-        protected InstitutionMessageMaintenanceDataServiceImpl()
+        public InstitutionMessageMaintenanceDataServiceImpl()
                         throws RemoteException {
                 super();
                 init();

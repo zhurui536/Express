@@ -18,7 +18,7 @@ public class StaffMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
         
         private ArrayList<StaffMessagePO> staffMessagePOs;
 
-        protected StaffMessageMaintenanceDataServiceImpl()
+        public StaffMessageMaintenanceDataServiceImpl()
                         throws RemoteException {
                 super();
                 init();

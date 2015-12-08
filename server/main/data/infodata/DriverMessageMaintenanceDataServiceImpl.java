@@ -18,7 +18,7 @@ public class DriverMessageMaintenanceDataServiceImpl extends UnicastRemoteObject
         
         private ArrayList<DriverMessagePO> driverMessagePOs;
 
-        protected DriverMessageMaintenanceDataServiceImpl()
+        public DriverMessageMaintenanceDataServiceImpl()
                         throws RemoteException {
                 super();
                 init();
