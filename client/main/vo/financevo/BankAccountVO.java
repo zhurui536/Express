@@ -1,4 +1,4 @@
-package main.vo;
+package main.vo.financevo;
 
 import java.math.BigDecimal;
 

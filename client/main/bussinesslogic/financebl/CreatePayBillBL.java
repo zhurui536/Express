@@ -4,7 +4,7 @@ import dataservice.financedataservice.CreatePayBillDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.CreatePayBillBLService;
 import main.connection.ClientRMIHelper;
-import main.vo.PayBillVO;
+import main.vo.financevo.PayBillVO;
 import po.financepo.PayBillPO;
 
 import java.rmi.RemoteException;

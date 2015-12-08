@@ -1,6 +1,6 @@
 package po.financepo;
 
-import main.vo.BankAccountVO;
+import main.vo.financevo.BankAccountVO;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

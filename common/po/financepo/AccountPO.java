@@ -2,6 +2,8 @@ package po.financepo;
 
 import main.bussinesslogic.util.Time;
 import main.vo.*;
+import main.vo.financevo.AccountVO;
+import main.vo.financevo.BankAccountVO;
 import main.vo.storevo.StoreVO;
 import po.InstitutionMessagePO;
 import po.StaffMessagePO;

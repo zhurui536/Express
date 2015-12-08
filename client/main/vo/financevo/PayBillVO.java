@@ -1,7 +1,8 @@
-package main.vo;
+package main.vo.financevo;
 
 import main.bussinesslogic.util.PayItem;
 import main.bussinesslogic.util.Time;
+import main.vo.StaffMessageVO;
 
 import java.math.BigDecimal;
 

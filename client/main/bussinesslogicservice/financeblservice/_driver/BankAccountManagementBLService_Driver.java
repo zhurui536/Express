@@ -3,7 +3,7 @@ package main.bussinesslogicservice.financeblservice._driver;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.BankAccountManagementBLService;
 import main.bussinesslogicservice.financeblservice._stub.BankAccountManagementBLService_Stub;
-import main.vo.BankAccountVO;
+import main.vo.financevo.BankAccountVO;
 
 import java.math.BigDecimal;
 

@@ -4,7 +4,7 @@ import dataservice.financedataservice.BankAccountManagementDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.BankAccountManagementBLService;
 import main.connection.ClientRMIHelper;
-import main.vo.BankAccountVO;
+import main.vo.financevo.BankAccountVO;
 import po.financepo.BankAccountPO;
 
 import java.rmi.RemoteException;

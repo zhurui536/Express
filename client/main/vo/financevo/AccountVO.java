@@ -1,6 +1,9 @@
-package main.vo;
+package main.vo.financevo;
 
 import main.bussinesslogic.util.Time;
+import main.vo.InstitutionMessageVO;
+import main.vo.StaffMessageVO;
+import main.vo.TruckMessageVO;
 import main.vo.storevo.StoreVO;
 
 

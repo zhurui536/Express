@@ -2,7 +2,7 @@ package main.bussinesslogicservice.financeblservice._stub;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.CreatePayBillBLService;
-import main.vo.PayBillVO;
+import main.vo.financevo.PayBillVO;
 
 /**
  * Created by Away

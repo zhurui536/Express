@@ -1,7 +1,7 @@
 package main.bussinesslogicservice.financeblservice;
 
 import main.bussinesslogic.util.ResultMessage;
-import main.vo.PayBillVO;
+import main.vo.financevo.PayBillVO;
 
 /**
  * 新建付款单

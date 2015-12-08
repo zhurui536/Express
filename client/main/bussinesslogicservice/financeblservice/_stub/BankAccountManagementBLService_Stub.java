@@ -2,7 +2,7 @@ package main.bussinesslogicservice.financeblservice._stub;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.BankAccountManagementBLService;
-import main.vo.BankAccountVO;
+import main.vo.financevo.BankAccountVO;
 
 import java.util.ArrayList;
 

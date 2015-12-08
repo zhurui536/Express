@@ -1,7 +1,7 @@
 package main.bussinesslogicservice.financeblservice;
 
 import main.bussinesslogic.util.ResultMessage;
-import main.vo.BankAccountVO;
+import main.vo.financevo.BankAccountVO;
 
 /**
  * Created by Away

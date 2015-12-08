@@ -4,6 +4,8 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.CreateAccountingBLService;
 import main.bussinesslogicservice.financeblservice._stub.CreateAccountingBLService_Stub;
 import main.vo.*;
+import main.vo.financevo.AccountVO;
+import main.vo.financevo.BankAccountVO;
 import main.vo.storevo.StoreVO;
 
 import java.math.BigDecimal;
