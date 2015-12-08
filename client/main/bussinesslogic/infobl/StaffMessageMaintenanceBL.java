@@ -6,11 +6,16 @@ import po.StaffMessagePO;
 import dataservice.infodataservice.StaffMessageMaintenanceDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.infoblservice.StaffMessageMaintenanceBLService;
+import main.connection.ClientRMIHelper;
 import main.vo.StaffMessageVO;
 
 public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLService{
 
         private StaffMessageMaintenanceDataService staffMessageMaintenanceDataService;
+        
+        public StaffMessageMaintenanceBL() {
+                staffMessageMaintenanceDataService = (StaffMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("StaffMessageMaintenanceDataServiceImpl");
+        }
         
         @Override
         public ResultMessage addStaffMessage(StaffMessageVO staffMessage) {

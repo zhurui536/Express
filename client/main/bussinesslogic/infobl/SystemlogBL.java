@@ -9,11 +9,16 @@ import po.SystemlogPO;
 import dataservice.infodataservice.SystemlogMaintenanceDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
+import main.connection.ClientRMIHelper;
 import main.vo.SystemlogVO;
 
 public class SystemlogBL implements SystemlogMaintenanceBLService{
         
         private SystemlogMaintenanceDataService systemlogMaintenanceDataService;
+        
+        public SystemlogBL() {
+                systemlogMaintenanceDataService = (SystemlogMaintenanceDataService) ClientRMIHelper.getServiceByName("SystemlogDataServiceImpl");
+        }
         
         @Override
         public ResultMessage addSystemlog(SystemlogVO systemlog) {

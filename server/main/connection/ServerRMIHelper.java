@@ -2,12 +2,8 @@ package main.connection;
 
 import main.data.billdata.BillDataServiceImpl;
 import main.data.financedata.*;
-import main.data.logisticsdata.BillQueryDataServiceImpl;
-import main.data.logisticsdata.DeliveryDataServiceImpl;
-import main.data.logisticsdata.GoodsLoadDataServiceImpl;
-import main.data.logisticsdata.GoodsReceiptDataServiceImpl;
-import main.data.logisticsdata.ReceiptBillProduceDataServiceImpl;
-import main.data.logisticsdata.ReceivingDataServiceImpl;
+import main.data.infodata.*;
+import main.data.logisticsdata.*;
 import main.data.storedata.StoreDataServiceImpl;
 
 import java.rmi.Naming;
@@ -53,6 +49,12 @@ public class ServerRMIHelper {
         NAMING_MAP.put("GoodsReceiptDataServiceImpl", GoodsReceiptDataServiceImpl.class);
         NAMING_MAP.put("ReceiptBillProduceDataServiceImpl", ReceiptBillProduceDataServiceImpl.class);
         NAMING_MAP.put("ReceivingDataServiceImpl", ReceivingDataServiceImpl.class);
+        NAMING_MAP.put("SystemlogDataServiceImpl", SystemlogDataServiceImpl.class);
+        NAMING_MAP.put("DriverMessageMaintenanceDataServiceImpl", DriverMessageMaintenanceDataServiceImpl.class);
+        NAMING_MAP.put("InstitutionMessageMaintenanceDataServiceImpl", InstitutionMessageMaintenanceDataServiceImpl.class);
+        NAMING_MAP.put("StaffMessageMaintenanceDataServiceImpl", StaffMessageMaintenanceDataServiceImpl.class);
+        NAMING_MAP.put("TruckMessageMaintenanceDataServiceImpl", TruckMessageMaintenanceDataServiceImpl.class);
+        
         //        for (String name : CLASS_NAMES) {
 //            try {
 //                NAMING_MAP.put(name, (Class<? extends UnicastRemoteObject>) Class.forName("main.data.financedata." + name));

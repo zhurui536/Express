@@ -6,6 +6,7 @@ import po.InstitutionMessagePO;
 import dataservice.infodataservice.InstitutionMessageMaintenanceDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.infoblservice.InstitutionMessageMaintenanceBLService;
+import main.connection.ClientRMIHelper;
 import main.vo.InstitutionMessageVO;
 
 public class InstitutionMessageMaintenanceBL implements
@@ -14,7 +15,7 @@ public class InstitutionMessageMaintenanceBL implements
         private InstitutionMessageMaintenanceDataService institutionMessageMaintenanceDataService;
 
         public InstitutionMessageMaintenanceBL() {
-                // TODO Auto-generated constructor stub
+                institutionMessageMaintenanceDataService = (InstitutionMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("InstitutionMessageMaintenanceDataServiceImpl");
         }
 
         @Override

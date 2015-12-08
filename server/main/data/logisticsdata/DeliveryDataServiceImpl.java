@@ -14,7 +14,7 @@ public class DeliveryDataServiceImpl extends UnicastRemoteObject implements Deli
 
         private static final long serialVersionUID = 7517528151328181814L;
 
-        private static final String PATH = "server/save/data/logistics/sendBillPO.dat";
+        private static final String PATH = "server/save/logisticsdata/sendBillPO.dat";
         
         private ArrayList<SendBillPO> sendBillPOs;
         

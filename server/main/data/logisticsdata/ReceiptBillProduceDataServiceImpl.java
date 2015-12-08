@@ -19,7 +19,7 @@ public class ReceiptBillProduceDataServiceImpl extends UnicastRemoteObject imple
         
         private static final String PATH_RECEIPT_BILL = "server/save/logisticsdata/receiptBillPO.dat";
         
-        private static final String PATH_SEND_BILL = "server/save/data/logistics/sendBillPO.dat";
+        private static final String PATH_SEND_BILL = "server/save/logisticsdata/sendBillPO.dat";
         
         private ArrayList<SendBillPO> sendBillPOs;
         

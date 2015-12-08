@@ -6,11 +6,16 @@ import po.TruckMessagePO;
 import dataservice.infodataservice.TruckMessageMaintenanceDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.infoblservice.TruckMessageMaintenanceBLService;
+import main.connection.ClientRMIHelper;
 import main.vo.TruckMessageVO;
 
 public class TruckMessageMaintenanceBL implements TruckMessageMaintenanceBLService{
 
         private TruckMessageMaintenanceDataService truckMessageMaintenanceDataService;
+        
+        public TruckMessageMaintenanceBL() {
+                truckMessageMaintenanceDataService = (TruckMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("TruckMessageMaintenanceDataServiceImpl");
+        }
         
         @Override
         public ResultMessage addTruckMessage(TruckMessageVO truckMessage) {

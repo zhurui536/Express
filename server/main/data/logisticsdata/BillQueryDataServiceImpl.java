@@ -15,7 +15,7 @@ public class BillQueryDataServiceImpl extends UnicastRemoteObject implements Bil
 
         private static final long serialVersionUID = 7499240604425522792L;
 
-        private static final String PATH = "server/save/data/logistics/sendBillPO.dat";
+        private static final String PATH = "server/save/logisticsdata/sendBillPO.dat";
         
         private List<SendBillPO> sendBillPOs;
         

@@ -7,6 +7,7 @@ import po.DriverMessagePO;
 import dataservice.infodataservice.DriverMessageMaintenanceDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.infoblservice.DriverMessageMaintenanceBLService;
+import main.connection.ClientRMIHelper;
 import main.vo.DriverMessageVO;
 
 public class DriverMessageMaintenanceBL implements
@@ -15,7 +16,7 @@ public class DriverMessageMaintenanceBL implements
         private DriverMessageMaintenanceDataService driverMessageMaintenanceDataService;
 
         public DriverMessageMaintenanceBL() {
-                // TODO Auto-generated constructor stub
+                driverMessageMaintenanceDataService = (DriverMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("DriverMessageMaintenanceDataServiceImpl");
         }
 
         @Override
