@@ -25,7 +25,7 @@ public class StaffMessagePO implements Serializable {
         this.name = name;
     }
 
-    
+
 
     public StaffMessagePO(StaffMessageVO vo) {
         this.id = vo.id;
