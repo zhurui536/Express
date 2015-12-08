@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df707e08-8df3-4511-9f4e-7ebff1dc9706" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/dialog/PayDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/datapanel/PayPanel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/dialog/ReceiptDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/tool/ReceiptTool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/ReceiptToolListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/connection/ClientRMIHelper.class" afterPath="$PROJECT_DIR$/target/classes/main/connection/ClientRMIHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/util/PayItem.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/util/PayItem.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/StrategyConstantBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/StrategyConstantBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/_driver/StrategyConstantBLService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/_driver/StrategyConstantBLService_Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/_stub/StrategyConstantBLService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/_stub/StrategyConstantBLService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/strategydataservice/StrategyDataService.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/strategydataservice/StrategyDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/strategydataservice/_drive/StrategyDataService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/strategydataservice/_drive/StrategyDataService_Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/strategydataservice/_stub/StrategyDataService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/strategydataservice/_stub/StrategyDataService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/StrategySalaryBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/StrategySalaryBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/_driver/StrategySalaryBLService_Driver.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/_driver/StrategySalaryBLService_Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/_stub/StrategySalaryBLService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/_stub/StrategySalaryBLService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/listener/MenuListener.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/MenuListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogic/util/PayItem.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogic/util/PayItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/PayToolListener.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/PayToolListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/adjustPO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/adjustPO.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/outStorePO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/outStorePO.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/save/storedata/verificationPO.dat" afterPath="$PROJECT_DIR$/server/save/storedata/verificationPO.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="express-all.iws" />
@@ -47,30 +31,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MenuListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/listener/MenuListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReceiptTool.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/tool/ReceiptTool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ReceiptToolListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/ReceiptToolListener.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -85,14 +45,77 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReceiptDialog.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReceiptDialog.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/dialog/ReceiptDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.5962925">
-              <caret line="97" column="5" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="verificationPO.dat" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/save/storedata/verificationPO.dat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="storePO.dat" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/save/storedata/storePO.dat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="outStorePO.dat" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/save/storedata/outStorePO.dat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="instorePO.dat" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/save/storedata/instorePO.dat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="instoreBillPO.dat" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/save/storedata/instoreBillPO.dat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adjustPO.dat" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/save/storedata/adjustPO.dat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,18 +135,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="126" column="5" selection-start-line="24" selection-start-column="4" selection-end-line="126" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PayToolListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/PayToolListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="32" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,11 +178,6 @@
         <option value="$PROJECT_DIR$/client/main/vo/AccountVO.java" />
         <option value="$PROJECT_DIR$/client/main/vo/financevo/AccountVO.java" />
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/Test.form" />
-        <option value="$PROJECT_DIR$/server/save/storedata/adjustPO.dat" />
-        <option value="$PROJECT_DIR$/server/save/storedata/instorePO.dat" />
-        <option value="$PROJECT_DIR$/server/save/storedata/outStorePO.dat" />
-        <option value="$PROJECT_DIR$/server/save/storedata/storePO.dat" />
-        <option value="$PROJECT_DIR$/server/save/storedata/verificationPO.dat" />
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/tool/CreateAccountingTool.java" />
         <option value="$PROJECT_DIR$/client/main/presentation/mainui.java" />
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/inputframe.java" />
@@ -205,6 +211,11 @@
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/tool/ReceiptTool.java" />
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/ReceiptToolListener.java" />
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/dialog/ReceiptDialog.java" />
+        <option value="$PROJECT_DIR$/server/save/storedata/verificationPO.dat" />
+        <option value="$PROJECT_DIR$/server/save/storedata/storePO.dat" />
+        <option value="$PROJECT_DIR$/server/save/storedata/outStorePO.dat" />
+        <option value="$PROJECT_DIR$/server/save/storedata/instorePO.dat" />
+        <option value="$PROJECT_DIR$/server/save/storedata/adjustPO.dat" />
       </list>
     </option>
   </component>
@@ -312,6 +323,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="save" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="save" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storedata" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1026,16 +1059,16 @@
       <workItem from="1449475310186" duration="6023000" />
       <workItem from="1449491072478" duration="2484000" />
       <workItem from="1449497095412" duration="175000" />
-      <workItem from="1449500019704" duration="47439000" />
+      <workItem from="1449500019704" duration="47719000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240903000" />
+    <option name="totallyTimeSpent" value="241183000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1049,7 +1082,7 @@
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.225" sideWeight="0.49651048" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.225" sideWeight="0.49651048" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1285,57 +1318,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/save/storedata/verificationPO.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/save/storedata/outStorePO.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/save/storedata/instorePO.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/save/storedata/instoreBillPO.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/save/storedata/adjustPO.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/save/storedata/storePO.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/po/financepo/BankAccountPO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2605561">
@@ -1559,11 +1541,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/dialog/ReceiptDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.5962925">
-          <caret line="97" column="5" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/save/storedata/adjustPO.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/save/storedata/verificationPO.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/save/storedata/storePO.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/save/storedata/outStorePO.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/save/storedata/instorePO.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/save/storedata/instoreBillPO.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
