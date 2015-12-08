@@ -31,6 +31,7 @@ public class BankAccountDelDialog extends JDialog {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 180);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setModal(true);
 
         JPanel panel = new JPanel();
 

@@ -13,6 +13,8 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class BankAccountPanel extends JPanel {
 
+    private String[] row = { "账号ID", "账号名称" , "余额" };
+
     private List<BankAccountVO> bankAccountVOs;
 
     private JTable table;
@@ -26,10 +28,25 @@ public class BankAccountPanel extends JPanel {
         this.setLayout(null);
         createTable();
         this.add(table);
+        this.setSize(830, table.getHeight());
     }
 
     private void createTable() {
-        table = new JTable(2, 3);
+        int numOfRow = bankAccountVOs.size() + 1;
+        table = new JTable(numOfRow, 3);
+        table.setRowHeight(60);
+        table.setBounds(0, 0, 830, 60 * numOfRow);
+
+        for (int i = 0; i < row.length; i++) {
+            table.setValueAt(row[i], 0, i);
+        }
+
+        for (int i = 1; i < numOfRow; i++) {
+            BankAccountVO bankAccountVO = bankAccountVOs.get(i - 1);
+            table.setValueAt(bankAccountVO.id, i, 0);
+            table.setValueAt(bankAccountVO.name, i, 1);
+            table.setValueAt(bankAccountVO.balance, i, 2);
+        }
 
     }
 

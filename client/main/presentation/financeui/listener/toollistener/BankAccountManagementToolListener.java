@@ -4,6 +4,7 @@ import main.presentation.financeui.FinanceFrame;
 import main.presentation.financeui.dialog.BankAccountAddDialog;
 import main.presentation.financeui.dialog.BankAccountDelDialog;
 import main.presentation.financeui.dialog.BankAccountFindDialog;
+import main.presentation.financeui.dialog.BankAccountUpdateDialog;
 import main.presentation.financeui.listener.ToolListener;
 import main.presentation.financeui.tool.ToolPanel;
 
@@ -35,9 +36,10 @@ public class BankAccountManagementToolListener extends ToolListener {
             BankAccountFindDialog dialog = new BankAccountFindDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton("update")) {
-            System.out.println("u");
+            BankAccountUpdateDialog dialog = new BankAccountUpdateDialog(ui);
+            dialog.setVisible(true);
         } else if (button == toolPanel.getButton("back")) {
-            System.out.println("b");
+            ui.replaceTool(new ToolPanel());
         } else {
             System.out.println("0");
         }
