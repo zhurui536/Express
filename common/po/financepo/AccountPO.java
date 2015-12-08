@@ -1,7 +1,7 @@
 package po.financepo;
 
 import main.vo.*;
-import main.vo.storevo.StoreVO;
+import main.vo.storevo.VerificationVO;
 import po.InstitutionMessagePO;
 import po.StaffMessagePO;
 import po.TruckMessagePO;
@@ -47,8 +47,12 @@ public class AccountPO implements Serializable {
         InstitutionMessageVO institutionMessageVO = accountVO.institutionVO;
         StaffMessageVO staffMessageVO = accountVO.staffMessageVO;
         TruckMessageVO truckMessageVO = accountVO.truckMessageVO;
-        StoreVO storeVO = accountVO.storeVO;
+        VerificationVO storeVO = accountVO.storeVO;
         BankAccountVO bankAccountVO = accountVO.bankAccountVO;
+        InstitutionMessagePO institutionMessagePO = new InstitutionMessagePO(institutionMessageVO);
+        StaffMessagePO staffMessagePO = new StaffMessagePO(staffMessageVO);
+        TruckMessagePO truckMessagePO = new TruckMessagePO(truckMessageVO);
+        StorePO storePO = new StorePO(storeVO);
     }
     public InstitutionMessagePO getInstitutionPO() {
         return institutionPO;
