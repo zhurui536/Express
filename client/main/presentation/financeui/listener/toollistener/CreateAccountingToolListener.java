@@ -1,8 +1,7 @@
 package main.presentation.financeui.listener.toollistener;
 
-import main.bussinesslogicservice.financeblservice._stub.FinanceBLService;
+import main.presentation.financeui.FinanceFrame;
 import main.presentation.financeui.listener.ToolListener;
-import main.presentation.financeui.tool.ToolPanel;
 
 import java.awt.event.ActionEvent;
 
@@ -13,8 +12,8 @@ import java.awt.event.ActionEvent;
 
 public class CreateAccountingToolListener extends ToolListener {
 
-    public CreateAccountingToolListener(ToolPanel toolPanel, FinanceBLService financeController) {
-        super(toolPanel, financeController);
+    public CreateAccountingToolListener(FinanceFrame ui) {
+        super(ui);
     }
 
     @Override

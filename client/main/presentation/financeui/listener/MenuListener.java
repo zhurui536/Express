@@ -1,6 +1,5 @@
 package main.presentation.financeui.listener;
 
-import main.bussinesslogic.financebl.FinanceController;
 import main.presentation.financeui.FinanceFrame;
 import main.presentation.financeui.tool.BankAccountManagementTool;
 import main.presentation.financeui.tool.ToolPanel;
@@ -17,13 +16,11 @@ public class MenuListener implements ActionListener {
 
     private FinanceFrame ui;
 
-    private FinanceController financeController;
-
     private ToolPanel bankAcManageTool;
+
     public MenuListener(FinanceFrame ui) {
         this.ui = ui;
-        this.financeController = new FinanceController();
-        bankAcManageTool = new BankAccountManagementTool(financeController);
+        bankAcManageTool = new BankAccountManagementTool(ui);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package main.presentation.financeui.listener;
 
-import main.bussinesslogicservice.financeblservice._stub.FinanceBLService;
-import main.presentation.financeui.tool.ToolPanel;
+import main.presentation.financeui.FinanceFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,13 +12,10 @@ import java.awt.event.ActionListener;
 
 public abstract class ToolListener implements ActionListener {
 
-    protected ToolPanel toolPanel;
+    protected FinanceFrame ui;
 
-    protected FinanceBLService financeController;
-
-    public ToolListener(ToolPanel toolPanel, FinanceBLService financeController) {
-        this.toolPanel = toolPanel;
-        this.financeController = financeController;
+    public ToolListener(FinanceFrame ui) {
+        this.ui = ui;
     }
 
     @Override

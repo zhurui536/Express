@@ -1,6 +1,7 @@
 package main.presentation.financeui.listener.toollistener;
 
-import main.bussinesslogicservice.financeblservice._stub.FinanceBLService;
+import main.presentation.financeui.FinanceFrame;
+import main.presentation.financeui.dialog.BankAccountAddDialog;
 import main.presentation.financeui.listener.ToolListener;
 import main.presentation.financeui.tool.ToolPanel;
 
@@ -13,16 +14,18 @@ import java.awt.event.ActionEvent;
 
 public class BankAccountManagementToolListener extends ToolListener {
 
-    public BankAccountManagementToolListener(ToolPanel toolPanel, FinanceBLService financeController) {
-        super(toolPanel, financeController);
+    public BankAccountManagementToolListener(FinanceFrame ui) {
+        super(ui);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object button = e.getSource();
+        ToolPanel toolPanel = ui.getToolPanel();
 
         if (button == toolPanel.getButton("add")) {
-            System.out.println("add");
+            BankAccountAddDialog dialog = new BankAccountAddDialog(ui);
+            dialog.setVisible(true);
         } else if (button == toolPanel.getButton("del")) {
             System.out.println("del");
         } else if (button == toolPanel.getButton("find")) {

@@ -1,6 +1,6 @@
 package main.presentation.financeui.tool;
 
-import main.bussinesslogic.financebl.FinanceController;
+import main.presentation.financeui.FinanceFrame;
 import main.presentation.financeui.listener.ToolListener;
 import main.presentation.financeui.listener.toollistener.BankAccountManagementToolListener;
 
@@ -20,10 +20,10 @@ public class BankAccountManagementTool extends ToolPanel {
     private JButton update;
     private JButton back;
 
-    public BankAccountManagementTool(FinanceController financeController) {
+    public BankAccountManagementTool(FinanceFrame ui) {
         super();
         init();
-        initComponents(financeController);
+        initComponents(ui);
     }
 
     private void init() {
@@ -34,12 +34,12 @@ public class BankAccountManagementTool extends ToolPanel {
         back = new JButton("返回");
     }
 
-    private void initComponents(FinanceController financeController) {
+    private void initComponents(FinanceFrame ui) {
         this.setLayout(null);
         this.setSize(1000, 100);
         this.setLocation(0, 0);
 
-        ToolListener toolListener = new BankAccountManagementToolListener(this, financeController);
+        ToolListener toolListener = new BankAccountManagementToolListener(ui);
 
         add.setBounds(83, 25, 100, 50);
         add.addActionListener(toolListener);
