@@ -2,8 +2,7 @@ package test.tester.financetester;
 
 import main.bussinesslogic.financebl.FinanceController;
 import main.vo.*;
-import main.vo.storevo.VerificationVO;
-
+import main.vo.storevo.StoreVO;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -22,9 +21,9 @@ public class InitTester {
         InstitutionMessageVO institution = new InstitutionMessageVO(null,null,null);
         StaffMessageVO staff = new StaffMessageVO(null, null);
         TruckMessageVO truck = new TruckMessageVO(null,null,0);
-        VerificationVO store = new VerificationVO(null);
+        StoreVO store = new StoreVO(null, 0, 0, 0, 0 );
         BankAccountVO bankAccount = new BankAccountVO("kkk", BigDecimal.valueOf(123465), "465456555");
-        AccountVO accountVO = new AccountVO(institution, staff, truck, store, bankAccount);
+        AccountVO accountVO = new AccountVO(institution, staff, truck, store, bankAccount, null);
         FinanceController controller = new FinanceController();
         assertEquals("success", controller.createAccounting(accountVO).getKey());
     }

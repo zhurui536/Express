@@ -7,6 +7,10 @@ import main.connection.ClientRMIHelper;
 import main.vo.AccountVO;
 import po.financepo.AccountPO;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 账本
  * Created by Away
@@ -15,21 +19,45 @@ import po.financepo.AccountPO;
 
 public class CreateAccountingBL implements CreateAccountingBLService {
 
-    CreateAccountingDataService createAccountingData;
+    CreateAccountingDataService createAccountingDataImpl;
 
     public CreateAccountingBL() {
-        createAccountingData = (CreateAccountingDataService) ClientRMIHelper.
+        createAccountingDataImpl = (CreateAccountingDataService) ClientRMIHelper.
                 getServiceByName("CreateAccountingDataServiceImpl");
     }
 
     @Override
     public ResultMessage createAccounting(AccountVO accountVO) {
         AccountPO accountPO = new AccountPO(accountVO);
-        return null;
+        try {
+            return createAccountingDataImpl.initInsert(accountPO);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return new ResultMessage("fail");
+        }
     }
 
     @Override
     public ResultMessage inquireInitInfo() {
-        return null;
+        try {
+            ResultMessage msg = createAccountingDataImpl.findAllInitInfo();
+            if (!isValidMsg(msg)) {
+                return msg;
+            }
+
+            List<AccountVO> initAccountVOs = new ArrayList<>();
+            List<AccountPO> initAccountPOs = (List<AccountPO>) msg.getValue();
+            for (AccountPO po : initAccountPOs) {
+                initAccountVOs.add(po.poToVo());
+            }
+            return new ResultMessage("success", initAccountVOs);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return new ResultMessage("fail");
+        }
+    }
+
+    private boolean isValidMsg(ResultMessage msg) {
+        return msg.getKey().equals("success");
     }
 }

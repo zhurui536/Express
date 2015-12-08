@@ -1,6 +1,7 @@
 package main.vo;
 
-import main.vo.storevo.VerificationVO;
+import main.bussinesslogic.util.Time;
+import main.vo.storevo.StoreVO;
 
 
 /**
@@ -10,6 +11,10 @@ import main.vo.storevo.VerificationVO;
  */
 
 public class AccountVO {
+
+    //时间
+    public Time time;
+
     // 机构
     public InstitutionMessageVO institutionVO;
 
@@ -20,16 +25,19 @@ public class AccountVO {
     public TruckMessageVO truckMessageVO;
 
     // 库存
-    public VerificationVO storeVO;
+    public StoreVO storeVO;
 
     // 银行账户
     public BankAccountVO bankAccountVO;
 
-    public AccountVO(InstitutionMessageVO institutionVO, StaffMessageVO staffMessageVO, TruckMessageVO truckMessageVO, VerificationVO storeVO, BankAccountVO bankAccountVO) {
+    public AccountVO(InstitutionMessageVO institutionVO, StaffMessageVO staffMessageVO,
+                     TruckMessageVO truckMessageVO, StoreVO storeVO,
+                     BankAccountVO bankAccountVO, Time time) {
         this.institutionVO = institutionVO;
         this.staffMessageVO = staffMessageVO;
         this.truckMessageVO = truckMessageVO;
         this.storeVO = storeVO;
         this.bankAccountVO = bankAccountVO;
+        this.time = time;
     }
 }

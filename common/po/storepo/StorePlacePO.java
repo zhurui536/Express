@@ -1,9 +1,11 @@
 package po.storepo;
 
+import main.vo.GoodsVO;
+import main.vo.storevo.StorePlaceVO;
+import po.GoodsPO;
+
 import java.io.Serializable;
 import java.util.Calendar;
-
-import po.GoodsPO;
 
 /**
  * Created by ZHR
@@ -34,6 +36,20 @@ public class StorePlacePO implements Serializable{
 		this.place = place;
 		this.goods = null;
 		this.date = Calendar.getInstance();
+	}
+
+	public StorePlacePO(StorePlaceVO storePlaceVO) {
+		this.area = storePlaceVO.area;
+		this.row = storePlaceVO.row;
+		this.shelf = storePlaceVO.shelf;
+		this.place = storePlaceVO.place;
+		this.goods = null;
+		this.date = Calendar.getInstance();
+	}
+
+	public StorePlaceVO poToVo() {
+		GoodsVO goodsVO = this.goods.poToVo();
+		return new StorePlaceVO(area, row, shelf, place, goodsVO, date);
 	}
 
 	public boolean ifEmpty(){

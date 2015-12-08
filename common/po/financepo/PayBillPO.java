@@ -66,7 +66,7 @@ public class PayBillPO extends BillPO {
     }
 
     public PayBillVO poToVo() {
-        BankAccountVO bankAccountVO = bankAccountPO.poToVO();
+        BankAccountVO bankAccountVO = bankAccountPO.poToVo();
         StaffMessageVO staffMessageVO = staffMessagePO.poToVo();
         return new PayBillVO(time, money, staffMessageVO, bankAccountVO, id, item, remark);
     }

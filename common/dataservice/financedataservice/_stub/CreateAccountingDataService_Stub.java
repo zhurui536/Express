@@ -19,4 +19,9 @@ public class CreateAccountingDataService_Stub implements CreateAccountingDataSer
         System.out.println("initInsert success");
         return null;
     }
+
+    @Override
+    public ResultMessage findAllInitInfo() throws RemoteException {
+        return null;
+    }
 }
