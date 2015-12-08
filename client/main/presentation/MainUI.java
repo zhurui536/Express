@@ -33,15 +33,15 @@ public class MainUI extends JFrame implements ActionListener{
     }
 
     private void initialize(){
-        JLabel title = new JLabel("用户登录");
+        JLabel title = new JLabel("鐢ㄦ埛鐧诲綍");
         title.setBounds(120, 10, 100, 35);
         this.getContentPane().add(title);
 
-        JLabel id = new JLabel("账号：");
+        JLabel id = new JLabel("璐﹀彿锛�");
         id.setBounds(20, 50, 50, 40);
         this.getContentPane().add(id);
 
-        JLabel password = new JLabel("密码：");
+        JLabel password = new JLabel("瀵嗙爜锛�");
         password.setBounds(20, 100, 50, 40);
         this.getContentPane().add(password);
 
@@ -53,12 +53,12 @@ public class MainUI extends JFrame implements ActionListener{
         this.password.setBounds(90, 100, 200, 40);
         this.getContentPane().add(this.password);
 
-        confirm = new JButton("登录");
+        confirm = new JButton("鐧诲綍");
         confirm.setBounds(40, 160, 80, 30);
         confirm.addActionListener(this);
         this.getContentPane().add(confirm);
 
-        exit = new JButton("退出");
+        exit = new JButton("閫�鍑�");
         exit.setBounds(150, 160, 80, 30);
         exit.addActionListener(this);
         this.getContentPane().add(exit);
@@ -72,7 +72,7 @@ public class MainUI extends JFrame implements ActionListener{
         }
         if(e.getSource() == confirm){
             String id = this.id.getText();
-            //根据id进行画面跳转
+            //鏍规嵁id杩涜鐢婚潰璺宠浆
             if(id.charAt(0) == '0'){
                 this.setVisible(false);
                 StoreFrame frame = new StoreFrame();
