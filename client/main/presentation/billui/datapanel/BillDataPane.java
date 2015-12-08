@@ -116,6 +116,7 @@ public class BillDataPane extends JPanel implements ActionListener {
 		
 		String billid = this.billslist.get(i);
 		BillType type = this.billstype.get(i);
+		listener.approve(billid, type);
 	}
 	
 	private String typeToString(BillType type){
@@ -131,6 +132,21 @@ public class BillDataPane extends JPanel implements ActionListener {
 		}
 		else if(type == BillType.RECEIPT){
 			billname = "接收单";
+		}
+		else if(type == BillType.ARRIVAL){
+			billname = "到达单";
+		}
+		else if(type == BillType.DELIVERY){
+			billname = "派件单";
+		}
+		else if(type == BillType.SEND){
+			billname = "寄件单";
+		}
+		else if(type == BillType.TRANSIT){
+			billname = "中转单";
+		}
+		else if(type == BillType.LOADING){
+			billname = "装车单";
 		}
 		else
 			billname = "未知类型";

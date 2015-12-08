@@ -57,6 +57,7 @@ public class OutStoreBL implements OutStoreBLService {
 									continue;
 								}
 								else if(temp.getGoods().getId().equals(id)){
+									this.goodslist.add(new OutStorePO(temp.getGoods(), temp, Destination, this.user, trans, billid));
 									return new ResultMessage("success", temp);
 								}
 							}
