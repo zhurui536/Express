@@ -28,6 +28,7 @@ public class ClientRMIHelper {
             "ShowStatementDataServiceImpl",
             "ShowReceiptDataServiceImpl",
             "StoreDataServiceImpl",
+            "BillQueryDataServiceImpl",
             "BillDataServiceImpl"
     };
 

@@ -2,6 +2,7 @@ package main.connection;
 
 import main.data.billdata.BillDataServiceImpl;
 import main.data.financedata.*;
+import main.data.logisticsdata.BillQueryDataServiceImpl;
 import main.data.storedata.StoreDataServiceImpl;
 
 import java.rmi.Naming;
@@ -40,6 +41,7 @@ public class ServerRMIHelper {
         NAMING_MAP.put("ShowReceiptDataServiceImpl", ShowReceiptDataServiceImpl.class);
         NAMING_MAP.put("StoreDataServiceImpl", StoreDataServiceImpl.class);
         NAMING_MAP.put("BillDataServiceImpl", BillDataServiceImpl.class);
+        NAMING_MAP.put("BillQueryDataServiceImpl", BillQueryDataServiceImpl.class);
 //        for (String name : CLASS_NAMES) {
 //            try {
 //                NAMING_MAP.put(name, (Class<? extends UnicastRemoteObject>) Class.forName("main.data.financedata." + name));
