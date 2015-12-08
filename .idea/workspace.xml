@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df707e08-8df3-4511-9f4e-7ebff1dc9706" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/tool/BankAccountManagementTool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/tool/CreateAccountingTool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/ToolListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/tool/ToolPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/AdjustDataPane.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/AdjustDataPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/inputframe/AdjustInputFrame.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/inputframe/AdjustInputFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/CheckDataPane.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/CheckDataPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/inputframe/CheckInputFrame.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/inputframe/CheckInputFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/connection/ClientRMIHelper.class" afterPath="$PROJECT_DIR$/target/classes/main/connection/ClientRMIHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/InStoreDataPane.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/InStoreDataPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/inputframe/InStoreInputFrame.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/inputframe/InStoreInputFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/tool/InStoreTool.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/tool/InStoreTool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/OutStoreBL.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogic/storebl/OutStoreBL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/OutStoreDataPane.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/OutStoreDataPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/tool/OutStoreTool.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/tool/OutStoreTool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/vo/storevo/OutStoreVO.class" afterPath="$PROJECT_DIR$/target/classes/main/vo/storevo/OutStoreVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/StoreFrame.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/StoreFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/data/infodata/SystemlogDataServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/main/data/infodata/SystemlogDataServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/VerificationDataPane.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/datapanel/VerificationDataPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/presentation/storeui/tool/VerificationTool.class" afterPath="$PROJECT_DIR$/target/classes/main/presentation/storeui/tool/VerificationTool.class" />
-      <change type="MODIFICATION" beforePath="D:\code\Express\Express\target\classes\main\presentation\mainui.class" afterPath="D:\code\Express\Express\target\classes\main\presentation\mainui.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/CreateAccountingToolListener.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/CreateAccountingToolListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/FinanceFrame.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/FinanceFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/listener/MenuListener.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/MenuListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/main/presentation/MainUI.java" />
     </list>
     <ignored path="express-all.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,13 +52,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BankAccountManagementToolListener.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BankAccountManagementToolListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2584964">
-              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainUI.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/main/presentation/MainUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9258496">
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#261#288#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,7 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/main/vo/storevo/ProfitListVO.java" />
         <option value="$PROJECT_DIR$/common/po/BillPO.java" />
         <option value="$PROJECT_DIR$/common/po/logisticpo/ArrivalBillPO.java" />
         <option value="$PROJECT_DIR$/common/po/logisticpo/DeliveryBillPO.java" />
@@ -199,6 +186,7 @@
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/tool/BankAccountManagementTool.java" />
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/listener/MenuListener.java" />
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java" />
+        <option value="$PROJECT_DIR$/client/main/presentation/MainUI.java" />
       </list>
     </option>
   </component>
@@ -849,12 +837,12 @@
       <workItem from="1449475310186" duration="6023000" />
       <workItem from="1449491072478" duration="2484000" />
       <workItem from="1449497095412" duration="175000" />
-      <workItem from="1449500019704" duration="28364000" />
+      <workItem from="1449500019704" duration="28812000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221828000" />
+    <option name="totallyTimeSpent" value="222276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
@@ -1342,22 +1330,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/presentation/Mainui.java">
+    <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36869207">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java">
+    <entry file="file://$PROJECT_DIR$/client/main/presentation/MainUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2584964">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.9258496">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#261#288#0" expanded="true" />
           </folding>
         </state>
       </provider>
