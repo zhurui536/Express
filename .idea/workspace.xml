@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df707e08-8df3-4511-9f4e-7ebff1dc9706" name="Default" comment="">
-      <change type="MOVED" beforePath="D:\code\Express\Express\client\main\presentation\mainui.java" afterPath="$PROJECT_DIR$/client/main/presentation/MainUI.java" />
-    </list>
+    <list default="true" id="df707e08-8df3-4511-9f4e-7ebff1dc9706" name="Default" comment="" />
     <ignored path="express-all.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/server/target/" />
@@ -52,23 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BankAccountManagementToolListener.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BankAccountManagementToolListener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainUI.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/main/presentation/MainUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3692946">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.29557157">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,7 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/main/vo/storevo/ProfitListVO.java" />
         <option value="$PROJECT_DIR$/common/po/BillPO.java" />
         <option value="$PROJECT_DIR$/common/po/logisticpo/ArrivalBillPO.java" />
         <option value="$PROJECT_DIR$/common/po/logisticpo/DeliveryBillPO.java" />
@@ -186,6 +171,7 @@
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/tool/BankAccountManagementTool.java" />
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/listener/MenuListener.java" />
         <option value="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java" />
+        <option value="$PROJECT_DIR$/client/main/presentation/MainUI.java" />
       </list>
     </option>
   </component>
@@ -836,12 +822,12 @@
       <workItem from="1449475310186" duration="6023000" />
       <workItem from="1449491072478" duration="2484000" />
       <workItem from="1449497095412" duration="175000" />
-      <workItem from="1449500019704" duration="28584000" />
+      <workItem from="1449500019704" duration="28742000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222048000" />
+    <option name="totallyTimeSpent" value="222206000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
@@ -855,7 +841,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24725823" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24725823" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1331,18 +1317,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main/presentation/MainUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3692946">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.29557157">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
