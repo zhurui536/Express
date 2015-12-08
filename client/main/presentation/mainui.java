@@ -17,18 +17,18 @@ import main.presentation.storeui.StoreFrame;
  */
 
 @SuppressWarnings("serial")
-public class Mainui extends JFrame implements ActionListener{
+public class mainui extends JFrame implements ActionListener{
 	private JTextArea id;
 	private JTextArea password;
 	private JButton confirm;
 	private JButton exit;
 	
 	public static void main(String[] args){
-		Mainui ui = new Mainui();
+		mainui ui = new mainui();
 		ui.setVisible(true);
 	}
 	
-	public Mainui(){
+	public mainui(){
 		this.setLayout(null);
 		this.setBounds(300, 300, 310, 240);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
