@@ -1,15 +1,8 @@
 package main.bussinesslogic.infobl;
 
 import main.bussinesslogic.util.ResultMessage;
-import main.bussinesslogicservice.infoblservice.DriverMessageMaintenanceBLService;
-import main.bussinesslogicservice.infoblservice.InfoBLSerivce;
-import main.bussinesslogicservice.infoblservice.InstitutionMessageMaintenanceBLService;
-import main.bussinesslogicservice.infoblservice.StaffMessageMaintenanceBLService;
-import main.bussinesslogicservice.infoblservice.TruckMessageMaintenanceBLService;
-import main.vo.DriverMessageVO;
-import main.vo.InstitutionMessageVO;
-import main.vo.StaffMessageVO;
-import main.vo.TruckMessageVO;
+import main.bussinesslogicservice.infoblservice.*;
+import main.vo.*;
 
 public class InfoBLController implements InfoBLSerivce{
         

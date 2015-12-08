@@ -22,9 +22,9 @@ public class GoodsVO {
         //货物轨迹
         public ArrayList<String> track;
         //货物重量
-        public int weight;
+        public double weight;
         //货物体积
-        public int volume;
+        public double volume;
         //货物包装类型
         public PackageType packageType;
         //快递类型

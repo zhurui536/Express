@@ -27,9 +27,9 @@ public class GoodsPO implements Serializable {
         // 货物轨迹
         private ArrayList<String> track;
         // 货物重量
-        private int weight;
+        private double weight;
         // 货物体积
-        private int volume;
+        private double volume;
         // 货物包装类型
         private PackageType packageType;
         // 快递类型
@@ -48,7 +48,7 @@ public class GoodsPO implements Serializable {
         private double price;
 
         public GoodsPO(String id, String name, String departurePlace,
-                        String destination, int weight, int volume,
+                        String destination, double weight, double volume,
                         PackageType packageType, ExpressType expressType) {
 
                 this.id = id;
@@ -171,19 +171,20 @@ public class GoodsPO implements Serializable {
                 this.name = name;
         }
 
-        public int getWeight() {
+
+        public double getWeight() {
                 return weight;
         }
 
-        public void setWeight(int weight) {
+        public void setWeight(double weight) {
                 this.weight = weight;
         }
 
-        public int getVolume() {
+        public double getVolume() {
                 return volume;
         }
 
-        public void setVolume(int volume) {
+        public void setVolume(double volume) {
                 this.volume = volume;
         }
 
