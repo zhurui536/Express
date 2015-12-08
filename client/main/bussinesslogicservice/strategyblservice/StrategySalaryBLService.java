@@ -1,6 +1,7 @@
 package main.bussinesslogicservice.strategyblservice;
 
 import main.bussinesslogic.util.ResultMessage;
+import main.vo.SalaryVO;
 
 /*
  * Created By Wippy
@@ -10,7 +11,7 @@ import main.bussinesslogic.util.ResultMessage;
 public interface StrategySalaryBLService {
 	public void newSalary();
 	
-	public ResultMessage inputSalaryInfo(long id, String Post,int salary);
+	public ResultMessage inputSalaryInfo(SalaryVO vo);
 	
 	public void endSalary();
 }

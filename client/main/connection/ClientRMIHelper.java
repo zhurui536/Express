@@ -40,7 +40,8 @@ public class ClientRMIHelper {
             "DriverMessageMaintenanceDataServiceImpl",
             "InstitutionMessageMaintenanceDataServiceImpl",
             "StaffMessageMaintenanceDataServiceImpl",
-            "TruckMessageMaintenanceDataServiceImpl"
+            "TruckMessageMaintenanceDataServiceImpl",
+            "StrategyDataServiceImpl"
     };
 
     public synchronized static void init() throws ClientInitException {

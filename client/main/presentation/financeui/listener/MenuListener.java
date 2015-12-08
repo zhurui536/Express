@@ -1,8 +1,8 @@
 package main.presentation.financeui.listener;
 
-import main.bussinesslogic.financebl.FinanceController;
 import main.presentation.financeui.FinanceFrame;
 import main.presentation.financeui.tool.BankAccountManagementTool;
+import main.presentation.financeui.tool.PayTool;
 import main.presentation.financeui.tool.ToolPanel;
 
 import java.awt.event.ActionEvent;
@@ -17,13 +17,14 @@ public class MenuListener implements ActionListener {
 
     private FinanceFrame ui;
 
-    private FinanceController financeController;
-
     private ToolPanel bankAcManageTool;
+
+    private ToolPanel payTool;
+
     public MenuListener(FinanceFrame ui) {
         this.ui = ui;
-        this.financeController = new FinanceController();
-        bankAcManageTool = new BankAccountManagementTool(financeController);
+        bankAcManageTool = new BankAccountManagementTool(ui);
+        payTool = new PayTool(ui);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class MenuListener implements ActionListener {
         if (button == ui.getButton("账户管理")) {
             ui.replaceTool(bankAcManageTool);
         } else if (button == ui.getButton("付款")) {
-            System.out.println("1");
+            ui.replaceTool(payTool);
         } else if (button == ui.getButton("收款")) {
             System.out.println("2");
         } else if (button == ui.getButton("报表查看")) {

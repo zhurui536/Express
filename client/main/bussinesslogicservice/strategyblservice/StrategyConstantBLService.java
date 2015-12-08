@@ -1,6 +1,7 @@
 package main.bussinesslogicservice.strategyblservice;
 
 import main.bussinesslogic.util.ResultMessage;
+import main.vo.DistanceVO;
 
 /*
  * Created By Wippy
@@ -8,11 +9,8 @@ import main.bussinesslogic.util.ResultMessage;
  */
 
 public interface StrategyConstantBLService {
-	public void newConstant();
 	
-	public void selectCity();
+	public ResultMessage inputDistanceInfo(DistanceVO vo);
 	
-	public ResultMessage inputConstantInfo(int distance,int price);
-	
-	public void endConstant();
+	public ResultMessage inputPriceInfo(double price);
 }

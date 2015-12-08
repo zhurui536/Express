@@ -63,7 +63,6 @@ public class BankAccountPO implements Serializable {
 
     public void setPO(BankAccountPO po) {
         this.name = po.name;
-        this.balance = po.balance;
         this.id = po.id;
     }
 

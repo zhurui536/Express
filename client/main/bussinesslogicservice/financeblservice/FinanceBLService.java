@@ -1,6 +1,4 @@
-package main.bussinesslogicservice.financeblservice._stub;
-
-import main.bussinesslogicservice.financeblservice.*;
+package main.bussinesslogicservice.financeblservice;
 
 /**
  * Created by Away

@@ -2,6 +2,7 @@ package main.bussinesslogicservice.strategyblservice._stub;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.strategyblservice.StrategyConstantBLService;
+import main.vo.DistanceVO;
 
 
 /*
@@ -31,5 +32,17 @@ public class StrategyConstantBLService_Stub implements StrategyConstantBLService
 	
 	public void endConstant(){
 		System.out.println("The freight strategy was drafted!");
+	}
+
+	@Override
+	public ResultMessage inputDistanceInfo(DistanceVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage inputPriceInfo(double price) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

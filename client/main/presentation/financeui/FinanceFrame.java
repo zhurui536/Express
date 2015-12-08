@@ -1,6 +1,11 @@
 package main.presentation.financeui;
 
+import main.bussinesslogic.financebl.FinanceController;
+import main.bussinesslogicservice.financeblservice.FinanceBLService;
+import main.connection.ClientInitException;
+import main.connection.ClientRMIHelper;
 import main.presentation.financeui.listener.MenuListener;
+import main.presentation.financeui.tool.ToolPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,19 +25,25 @@ public class FinanceFrame extends JFrame {
     private JPanel menu;
     private MenuListener menuListener;
     private JButton[] buttons;
+    private FinanceBLService financeController;
     private Map<String, JButton> buttonMap;
-    private JPanel tool;
+    private ToolPanel tool;
     private JScrollPane scroll;
     private JPanel data;
 
-    public FinanceFrame() {
+    public FinanceFrame(FinanceBLService financeController) {
+        this.financeController = financeController;
         menuListener = new MenuListener(this);
         initComponents();
     }
 
     public static void main(String[] args) {
-        FinanceFrame financeFrame = new FinanceFrame();
-//        ClientRMIHelper.init();
+        try {
+            ClientRMIHelper.init();
+        } catch (ClientInitException e) {
+            e.printStackTrace();
+        }
+        FinanceFrame financeFrame = new FinanceFrame(new FinanceController());
     }
 
     private void initComponents() {
@@ -62,7 +73,7 @@ public class FinanceFrame extends JFrame {
     }
 
     private void initTool() {
-        tool = new JPanel();
+        tool = new ToolPanel();
         tool.setLayout(null);
         tool.setSize(1000, 100);
         tool.setLocation(0, 0);
@@ -105,7 +116,7 @@ public class FinanceFrame extends JFrame {
     }
 
     //由于menu发生点击事件时需要更换Tool区，故设置了这个方法
-    public void replaceTool(JPanel newTool) {
+    public void replaceTool(ToolPanel newTool) {
         if (this.tool != null) {
             this.remove(tool);
         }
@@ -128,6 +139,14 @@ public class FinanceFrame extends JFrame {
 
     public JButton getButton(String name) {
         return buttonMap.get(name);
+    }
+
+    public FinanceBLService getFinanceController() {
+        return this.financeController;
+    }
+
+    public ToolPanel getToolPanel() {
+        return tool;
     }
 }
 
