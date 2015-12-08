@@ -11,6 +11,8 @@ import main.vo.*;
 import main.vo.logisticvo.ReceiptBillVO;
 import main.vo.logisticvo.ReceiptLineItemVO;
 import main.vo.storevo.ProfitListVO;
+import main.vo.storevo.StorePlaceVO;
+import main.vo.storevo.StoreVO;
 import po.financepo.BankAccountPO;
 
 import java.math.BigDecimal;
@@ -94,6 +96,18 @@ public class FinanceController implements FinanceBLService {
 
         ProfitListVO profitListVO = (ProfitListVO) financeController.showProfitList().getValue();
         System.out.println(profitListVO.pay + "\n" + profitListVO.income + "\n" + profitListVO.profit);
+
+        InstitutionMessageVO institution = new InstitutionMessageVO(null,null,null);
+        StaffMessageVO staff = new StaffMessageVO(null, null);
+        TruckMessageVO truck = new TruckMessageVO(null,null,0);
+        StoreVO store = new StoreVO(new ArrayList<StorePlaceVO>(), 0, 0, 0, 0);
+        BankAccountVO bankAccount = new BankAccountVO("kkk", BigDecimal.valueOf(123465), "465456555");
+        financeController.createAccounting(new AccountVO(institution, staff, truck, store, bankAccount, new Time()));
+        List<AccountVO> accountVOs = (List<AccountVO>) financeController.inquireInitInfo().getValue();
+        for (AccountVO accountVO : accountVOs) {
+            System.out.println(accountVO.bankAccountVO.name + "\n" +
+                                accountVO.time);
+        }
     }
 
     @Override
@@ -118,12 +132,12 @@ public class FinanceController implements FinanceBLService {
 
     @Override
     public ResultMessage createAccounting(AccountVO accountVO) {
-        return new ResultMessage("success", null);
+        return createAccountingBL.createAccounting(accountVO);
     }
 
     @Override
     public ResultMessage inquireInitInfo() {
-        return null;
+        return createAccountingBL.inquireInitInfo();
     }
 
     @Override

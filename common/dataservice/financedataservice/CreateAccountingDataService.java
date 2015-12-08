@@ -21,5 +21,10 @@ public interface CreateAccountingDataService extends Remote {
      */
     ResultMessage initInsert(AccountPO po) throws RemoteException;
 
-
+    /**
+     * 查询所有期初信息
+     * @return ResultMessage
+     * @throws RemoteException
+     */
+    ResultMessage findAllInitInfo() throws RemoteException;
 }

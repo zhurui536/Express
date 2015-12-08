@@ -12,6 +12,7 @@ import main.vo.storevo.StorePlaceVO;
 import po.GoodsPO;
 import po.UserPO;
 import po.storepo.InStorePO;
+import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
 
 public class InStoreBL implements InStoreBLService {
@@ -44,9 +45,11 @@ public class InStoreBL implements InStoreBLService {
 			}
 			else{//货物存在时，继续检查该位置
 				GoodsPO goods = (GoodsPO) result.getValue();
-				result = dataservice.find(place);
+				result = dataservice.getStore();
 				if(result.getKey().equals("success")){
-					StorePlacePO theplace = (StorePlacePO) result.getValue();
+					StorePO store = (StorePO) result.getValue();
+					
+					StorePlacePO theplace = store.getStorePlace(p.getArea(), p.getRow(), p.getShelf(), p.getPlace());
 					if(!theplace.ifEmpty()){//该位置有货物时，返回对应的结果
 						return new ResultMessage("usedplace", null);
 					}
@@ -81,6 +84,24 @@ public class InStoreBL implements InStoreBLService {
 	public ResultMessage endInStore(int condition) {
 		if(condition == 0){//0表示确定结束入库
 			try {
+				ResultMessage result = dataservice.getStore();
+				
+				if(result.getKey().equals("success")){
+					StorePO store = (StorePO) result.getValue();
+					
+					for(int i=0;i<goodslist.size();i++){//进行改写
+						InStorePO temp = goodslist.get(i);
+						StorePlacePO place = temp.getStorePlace();
+						place.setGoods(temp.getGoods());
+						store.setStorePlace(place);
+					}
+					
+					result = dataservice.saveStore(store);
+					
+					if(!result.getKey().equals("success")){
+						return new ResultMessage("dataerror", new InStoreVO(goodslist));
+					}
+				}
 				dataservice.saveInStore(goodslist);
 			} catch (RemoteException e) {
 				e.printStackTrace();

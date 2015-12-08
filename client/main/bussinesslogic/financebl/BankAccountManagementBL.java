@@ -88,7 +88,7 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
         ArrayList<BankAccountVO> bankAccountVOs = new ArrayList<>();
         for (BankAccountPO bankAccountPO : bankAccountPOs) {
             if (bankAccountPO.getName().contains(name)) {
-                bankAccountVOs.add(bankAccountPO.poToVO());
+                bankAccountVOs.add(bankAccountPO.poToVo());
             }
         }
         return bankAccountVOs;

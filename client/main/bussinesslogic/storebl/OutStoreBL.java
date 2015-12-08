@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import po.UserPO;
 import po.storepo.OutStorePO;
+import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
 import dataservice.storedataservice.StoreDataService;
 import main.bussinesslogic.util.ResultMessage;
@@ -42,14 +43,27 @@ public class OutStoreBL implements OutStoreBLService {
 			}
 		}
 		try {//id无误之后检查该id是否在库存中
-			ResultMessage result = dataservice.ifInStore(id);
-			if(result.getKey().equals("exist")){
-				StorePlacePO place = (StorePlacePO) result.getValue();
-				goodslist.add(new OutStorePO(place.getGoods(), place, Destination, user, trans, billid));
+			ResultMessage result = dataservice.getStore();
+			if(result.getKey().equals("success")){
+				StorePO store = (StorePO) result.getValue();
 				
-				return new ResultMessage("success", new OutStoreVO(goodslist));
-			}
-			else if(result.getKey().equals("noexist")){
+				for(int a=0;a<store.getArea();a++){
+					for(int r=0;r<store.getRow();r++){
+						for(int s=0;s<store.getShelf();s++){
+							for(int p=0;p<store.getPlace();p++){
+								//找到对应的库存位置
+								StorePlacePO temp = store.getStorePlace(a, r, s, p);
+								if(temp.ifEmpty()){//该位置为空时直接跳过
+									continue;
+								}
+								else if(temp.getGoods().getId().equals(id)){
+									return new ResultMessage("success", temp);
+								}
+							}
+						}
+					}
+				}
+				
 				return new ResultMessage("noexist", new OutStoreVO(goodslist));
 			}
 			else{
@@ -77,6 +91,29 @@ public class OutStoreBL implements OutStoreBLService {
 		if(condition == 0){//0代表确定结束出库
 			//保存出库记录
 			try {
+				ResultMessage result = dataservice.getStore();
+				
+				if(result.getKey().equals("success")){
+					StorePO store = (StorePO) result.getValue();
+					
+					for(int i=0;i<goodslist.size();i++){//改写库存
+						OutStorePO temp = goodslist.get(i);
+						StorePlacePO place = temp.getStorePlace();
+						StorePlacePO newplace = new StorePlacePO(place.getArea(), place.getRow(), place.getShelf(), place.getPlace());
+						store.setStorePlace(newplace);
+					}
+					
+					result = dataservice.saveStore(store);
+					
+					if(!result.getKey().equals("success")){
+						return new ResultMessage("dataerror", new OutStoreVO(goodslist));
+					}
+					
+				}
+				else{
+					return new ResultMessage("dataerror", new OutStoreVO(goodslist));
+				}
+				
 				dataservice.saveOutStore(goodslist);
 			} catch (RemoteException e) {
 				e.printStackTrace();

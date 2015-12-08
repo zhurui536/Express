@@ -11,6 +11,7 @@ import javax.swing.ScrollPaneConstants;
 
 import po.UserPO;
 import main.bussinesslogic.storebl.StoreBLController;
+import main.bussinesslogicservice.storeblservice.StoreBLService;
 import main.connection.ClientInitException;
 import main.connection.ClientRMIHelper;
 import main.presentation.storeui.listener.MenuListener;
@@ -18,7 +19,7 @@ import main.presentation.storeui.listener.MenuListener;
 
 public class StoreFrame extends JFrame{
 	//处理窗口事件的对象
-	private StoreBLController sc = new StoreBLController(new UserPO("10010", "10086"));
+	private StoreBLService sc;
 	
 	//窗口中的成员组件，窗口分为菜单、工具和数据三个部分
 	private JPanel menu;
@@ -26,15 +27,17 @@ public class StoreFrame extends JFrame{
 	private JButton[] buttons;
 	private JPanel tool;
 	
+	//由于data区可能有很多记录，所以添加了滑轮。。
 	private JScrollPane scroll;
 	private JPanel data;
 	
 	public StoreFrame(){
 		this.setLayout(null);
-		this.setSize(1000, 600);
+		this.setSize(1000, 630);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		menulistener = new MenuListener(this);
+		sc = new StoreBLController(new UserPO("10010", "10086"));
 		this.paintframe();
 	}
 	
@@ -76,6 +79,7 @@ public class StoreFrame extends JFrame{
 		this.getContentPane().add(tool);
 	}
 	
+	//由于data区可能会经常更换，所以设置了这个方法
 	public void paintdata(JPanel data){
 		if(scroll != null){
 			this.remove(scroll);
@@ -104,10 +108,12 @@ public class StoreFrame extends JFrame{
 		return button;
 	}
 	
+	//方便监听者获得menu的按键，所以设置了这个方法
 	public JButton getButton(int i){
 		return buttons[i];
 	}
 	
+	//由于menu发生点击事件时需要更换Tool区，故设置了这个方法
 	public void replaceTool(JPanel newtool){
 		if(this.tool != null){
 			this.remove(tool);	
@@ -116,6 +122,7 @@ public class StoreFrame extends JFrame{
 		this.tool = newtool;
 		
 		if(newtool != null){
+			tool.setBackground(Color.BLUE);
 			this.getContentPane().add(tool);
 		}
 		this.validate();
@@ -128,7 +135,7 @@ public class StoreFrame extends JFrame{
 		}
 	}
 	
-	public StoreBLController getController(){
+	public StoreBLService getController(){
 		return this.sc;
 	}
 	

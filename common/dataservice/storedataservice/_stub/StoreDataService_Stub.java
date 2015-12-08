@@ -1,6 +1,7 @@
 package dataservice.storedataservice._stub;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -51,99 +52,6 @@ public class StoreDataService_Stub implements StoreDataService {
 		else{
 			return new ResultMessage("noexist", null);
 		}
-	}
-
-	@Override
-	public ResultMessage find(StorePlacePO place) throws RemoteException{
-		StorePO store = null;
-		try {
-			FileInputStream in = new FileInputStream(filename);
-			ObjectInputStream objin = new ObjectInputStream(in);
-			store = (StorePO) objin.readObject();
-			
-			objin.close();
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		
-		System.out.println("checking for the place "+place.getArea()+" "+place.getRow()+" "+place.getShelf()+" "+place.getPlace());
-		store.show();
-		return new ResultMessage("success", store.getStorePlace(place.getArea(), place.getRow(), place.getShelf(), place.getPlace()));
-	}
-
-	public ResultMessage delete(GoodsPO po) throws RemoteException {
-		StorePO store = null;
-		try {
-			FileInputStream in = new FileInputStream(filename);
-			ObjectInputStream objin = new ObjectInputStream(in);
-			store = (StorePO) objin.readObject();
-			
-			objin.close();
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		for(int a=0;a<store.getArea();a++){
-			for(int r=0;r<store.getRow();r++){
-				for(int s=0;s<store.getShelf();s++){
-					for(int p=0;p<store.getPlace();p++){
-						StorePlacePO temp = store.getStorePlace(a, r, s, p);
-						if(temp.ifEmpty()){
-							continue;
-						}
-						else if(temp.getGoods().getId().equals(po.getId())){
-							temp.setGoods(null);
-							store.setStorePlace(temp);
-							store.show();
-							return new ResultMessage("success", null);
-						}
-					}
-				}
-			}
-		}
-		
-		try {
-			FileOutputStream out = new FileOutputStream(filename);
-			ObjectOutputStream objout = new ObjectOutputStream(out);
-			objout.writeObject(store);
-			objout.close();
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		store.show();
-		return new ResultMessage("noexist", null);
-	}
-
-	public ResultMessage update(StorePlacePO place, GoodsPO po)
-			throws RemoteException {
-		StorePO store = null;
-		try {
-			FileInputStream in = new FileInputStream(filename);
-			ObjectInputStream objin = new ObjectInputStream(in);
-			store = (StorePO) objin.readObject();
-			
-			objin.close();
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		
-		place.setGoods(po);
-		store.setStorePlace(place);
-		
-		try {
-			FileOutputStream out = new FileOutputStream(filename);
-			ObjectOutputStream objout = new ObjectOutputStream(out);
-			objout.writeObject(store);
-			objout.close();
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		store.show();
-		return new ResultMessage("success", null);
 	}
 
 	@Override
@@ -199,45 +107,26 @@ public class StoreDataService_Stub implements StoreDataService {
 			
 			objin.close();
 		} catch (Exception e) {
-			
 			e.printStackTrace();
+			return new ResultMessage("dataerror", null);
 		}
 		
 		return new ResultMessage("success", store);
 	}
 
 	@Override
-	public ResultMessage ifInStore(String id) throws RemoteException {
-		StorePO store = null;
+	public ResultMessage saveStore(StorePO store) throws RemoteException {
 		try {
-			FileInputStream in = new FileInputStream(filename);
-			ObjectInputStream objin = new ObjectInputStream(in);
-			store = (StorePO) objin.readObject();
-			
-			objin.close();
+			FileOutputStream out = new FileOutputStream(filename);
+			ObjectOutputStream objout = new ObjectOutputStream(out);
+			objout.writeObject(store);
+			objout.close();
 		} catch (Exception e) {
-			
 			e.printStackTrace();
+			return new ResultMessage("dataerror", null);
 		}
 		
-		for(int a=0;a<store.getArea();a++){
-			for(int r=0;r<store.getRow();r++){
-				for(int s=0;s<store.getShelf();s++){
-					for(int p=0;p<store.getPlace();p++){
-						StorePlacePO temp = store.getStorePlace(a, r, s, p);
-						if(temp.ifEmpty()){
-							continue;
-						}
-						else if(temp.getGoods().getId().equals(id)){
-							store.show();
-							return new ResultMessage("exist", temp.getGoods());
-						}
-					}
-				}
-			}
-		}
-		store.show();
-		return new ResultMessage("noexist", null);
+		return new ResultMessage("success", null);
 	}
 
 }

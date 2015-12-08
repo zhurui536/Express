@@ -12,6 +12,7 @@ import main.vo.storevo.StorePlaceVO;
 import po.GoodsPO;
 import po.UserPO;
 import po.storepo.AdjustPO;
+import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
 
 public class AdjustBL implements AdjustBLService {
@@ -44,36 +45,26 @@ public class AdjustBL implements AdjustBLService {
 		StorePlacePO end = new StorePlacePO(e.getArea(), e.getRow(), e.getShelf(), e.getPlace());
 		
 		try {
-			ResultMessage result = dataservice.find(start);
-			//如果查找成功，则继续检查end
-			if(result.getKey().equals("success")){
-				start = (StorePlacePO) result.getValue();
-				GoodsPO goodsOfStart = start.getGoods();
-				if(goodsOfStart == null){
+			ResultMessage result = dataservice.getStore();
+			if(result.getKey().equals("success")){//如果成功获得库存，则检查开始与结束位置
+				StorePO store = (StorePO) result.getValue();
+				start = store.getStorePlace(s.getArea(), s.getRow(), s.getShelf(), s.getPlace());
+				if(start.ifEmpty()){
 					return new ResultMessage("emptystart", new AdjustVO(adjusts));
 				}
 				
-				//检查end，如果end也符合条件，则操作成功，否则操作失败
-				result = dataservice.find(end);
-				if(result.getKey().equals("success")){
-					end = (StorePlacePO) result.getValue();
-					GoodsPO goodsOfEnd = end.getGoods();
-					if(goodsOfEnd != null){
-						return new ResultMessage("usedend", new AdjustVO(adjusts));
-					}
-					
-					adjusts.add(new AdjustPO(start, end, user));
-					
-					return new ResultMessage("success", new AdjustVO(adjusts));
+				end = store.getStorePlace(e.getArea(), e.getRow(), e.getShelf(), e.getPlace());
+				if(!end.ifEmpty()){
+					return new ResultMessage("usedend", new AdjustVO(adjusts));
 				}
-				else{
-					return new ResultMessage(result.getKey(), new AdjustVO(adjusts));
-				}
+				
+				adjusts.add(new AdjustPO(start, end, user));
+				
+				return new ResultMessage("success", new AdjustVO(adjusts));
 			}
 			else{
 				return new ResultMessage(result.getKey(), new AdjustVO(adjusts));
 			}
-			
 		} catch (RemoteException exception) {
 			exception.printStackTrace();
 			return new ResultMessage("internet error", new AdjustVO(adjusts));
@@ -90,8 +81,43 @@ public class AdjustBL implements AdjustBLService {
 	@Override
 	public ResultMessage endAdjust(int condition) {
 		try {//存储调整记录
-			dataservice.saveAdjust(adjusts);
-			return new ResultMessage("success", null);
+			ResultMessage result = dataservice.getStore();
+			if(result.getKey().equals("success")){//如果成功获得库存，则对库存进行改写
+				StorePO store = (StorePO) result.getValue();
+
+				//将所有的调整项对库存进行实现
+				for(int i=0;i<adjusts.size();i++){
+					AdjustPO temp = adjusts.get(i);
+					StorePlacePO start = temp.getStart();
+					StorePlacePO end = temp.getEnd();
+					
+					start = store.getStorePlace(start.getArea(), start.getRow(), start.getShelf(), start.getPlace());
+					end = store.getStorePlace(end.getArea(), end.getRow(), end.getShelf(), end.getPlace());
+					
+					GoodsPO goods = start.getGoods();
+					start.setGoods(end.getGoods());
+					end.setGoods(goods);
+					
+					store.setStorePlace(start);
+					store.setStorePlace(end);
+				}
+				
+				result = dataservice.saveStore(store);
+				if(result.getKey().equals("success")){
+					result = dataservice.saveAdjust(adjusts);
+					
+					if(result.getKey().equals("success"))
+						return new ResultMessage("success", new AdjustVO(adjusts));
+					else
+						return new ResultMessage(result.getKey(), new AdjustVO(adjusts));
+				}
+				else{
+					return new ResultMessage(result.getKey(), new AdjustVO(adjusts));
+				}
+			}
+			else{
+				return new ResultMessage(result.getKey(), new AdjustVO(adjusts));
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return new ResultMessage("internet error", new AdjustVO(adjusts));

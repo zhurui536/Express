@@ -20,7 +20,6 @@ import po.storepo.InStorePO;
 import po.storepo.OutStoreBillPO;
 import po.storepo.OutStorePO;
 import po.storepo.StorePO;
-import po.storepo.StorePlacePO;
 import po.storepo.VerificationPO;
 import dataservice.storedataservice.StoreDataService;
 
@@ -97,51 +96,14 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		}
 	}
 
-	@Override
-	public ResultMessage find(StorePlacePO place) throws RemoteException {
-		StorePO store = null;
-		
-		try {//读取库存对象
-			store = (StorePO) this.readList(storerecord);
-			store.show();
-			
-			//检查传过来的位置是否越界
-			if(place.getArea()>=store.getArea()||place.getRow()>=store.getRow()||place.getShelf()>=store.getShelf()||place.getPlace()>=store.getPlace()){
-				return new ResultMessage("wrongplace", null);
-			}
-			if(place.getArea()<0||place.getRow()<0||place.getShelf()<0||place.getPlace()<0){
-				return new ResultMessage("wrongplace", null);
-			}
-			
-			//没有越界的话就返回对应的位置
-			return new ResultMessage("success", store.getStorePlace(place.getArea(), place.getRow(), place.getShelf(), place.getPlace()));
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new ResultMessage("dataerror", null);
-		}
-	}
-
 	//保存入库记录的同时更新库存
 	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage saveInStore(ArrayList<InStorePO> po)
 			throws RemoteException {
 		ArrayList<InStorePO> records = null;
-		StorePO store = null;
 		
-		try {//读取当前库存对象
-			store = (StorePO) this.readList(storerecord);
-			
-			for(int i=0;i<po.size();i++){//进行改写
-				InStorePO temp = po.get(i);
-				StorePlacePO place = temp.getStorePlace();
-				place.setGoods(temp.getGoods());
-				store.setStorePlace(place);
-			}
-			
-			//将新的库存写入文件
-			this.writeList(storerecord, store);
-			
+		try {
 			//读入入库记录数据
 			records = (ArrayList<InStorePO>) this.readList(instorerecord);
 			
@@ -165,8 +127,6 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 				//接着将对象写回文件中
 				this.writeList(instorebill, temp);
 			}
-			
-			store.show();
 				
 			return new ResultMessage("success", null);
 			
@@ -182,21 +142,8 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	public ResultMessage saveOutStore(ArrayList<OutStorePO> po)
 			throws RemoteException {
 		ArrayList<OutStorePO> records = null;
-		StorePO store = null;
 		
-		try {//读取库存对象
-			store = (StorePO) this.readList(storerecord);
-			
-			for(int i=0;i<po.size();i++){//改写库存
-				OutStorePO temp = po.get(i);
-				StorePlacePO place = temp.getStorePlace();
-				StorePlacePO newplace = new StorePlacePO(place.getArea(), place.getRow(), place.getShelf(), place.getPlace());
-				store.setStorePlace(newplace);
-			}
-			
-			//将新的库存写入文件
-			this.writeList(storerecord, store);
-			
+		try {
 			//读入出库记录数据
 			records = (ArrayList<OutStorePO>) this.readList(outstorerecord);
 			
@@ -250,37 +197,15 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			return new ResultMessage("dataerror", null);
 		}
 	}
+	
 
 	//保存调整记录的同时更新库存
 	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage saveAdjust(ArrayList<AdjustPO> po) throws RemoteException {
 		ArrayList<AdjustPO> records = null;
-		StorePO store = null;
 		
 		try {
-			store = (StorePO) this.readList(storerecord);
-			
-			//将所有的调整项对库存进行实现
-			for(int i=0;i<po.size();i++){
-				AdjustPO temp = po.get(i);
-				StorePlacePO start = temp.getStart();
-				StorePlacePO end = temp.getEnd();
-				
-				start = store.getStorePlace(start.getArea(), start.getRow(), start.getShelf(), start.getPlace());
-				end = store.getStorePlace(end.getArea(), end.getRow(), end.getShelf(), end.getPlace());
-				
-				GoodsPO goods = start.getGoods();
-				start.setGoods(end.getGoods());
-				end.setGoods(goods);
-				
-				store.setStorePlace(start);
-				store.setStorePlace(end);
-			}
-			
-			//将调整记录写回文件
-			this.writeList(storerecord, store);
-			
 			//读入调整记录数据
 			records = (ArrayList<AdjustPO>) this.readList(adjustrecord);
 			
@@ -299,6 +224,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			return new ResultMessage("datasavewrong", null);
 		}
 	}
+	
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -338,6 +264,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			return new ResultMessage("dataerror", null);
 		}
 	}
+	
 
 	@Override
 	public ResultMessage getStore() {
@@ -354,39 +281,22 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			return new ResultMessage("dataerror", null);
 		}
 	}
-
+	
 	@Override
-	public ResultMessage ifInStore(String id) throws RemoteException {
-		StorePO store = null;
+	public ResultMessage saveStore(StorePO store) throws RemoteException {
 		
-		try {//读入库存数据
-			store = (StorePO) this.readList(storerecord);
+		try {
+			this.writeList(storerecord, store);
 			
-			for(int a=0;a<store.getArea();a++){
-				for(int r=0;r<store.getRow();r++){
-					for(int s=0;s<store.getShelf();s++){
-						for(int p=0;p<store.getPlace();p++){
-							//找到对应的库存位置
-							StorePlacePO temp = store.getStorePlace(a, r, s, p);
-							if(temp.ifEmpty()){//该位置为空时直接跳过
-								continue;
-							}
-							else if(temp.getGoods().getId().equals(id)){
-								return new ResultMessage("exist", temp);
-							}
-						}
-					}
-				}
-			}
+			store.show();
 			
-			//如果遍历了一遍没有找到，就返回不存在
-			return new ResultMessage("noexist", null);
+			return new ResultMessage("success", null);
 		} catch (Exception e) {
-			//返回数据读取错误，如何处理以后完善
 			e.printStackTrace();
 			return new ResultMessage("dataerror", null);
 		}
 	}
+	
 	
 	private Object readList(String path) throws Exception{
 		Object list;
@@ -398,6 +308,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			
 		return list;
 	}
+	
 	
 	private void writeList(String path, Object list) throws Exception{
 		//将新的库存写入文件

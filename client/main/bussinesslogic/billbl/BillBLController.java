@@ -8,7 +8,6 @@ import main.bussinesslogicservice.billblservice.BillBLService;
 import main.connection.ClientRMIHelper;
 import main.vo.BillVO;
 import po.BillPO;
-import po.UserPO;
 import po.financepo.PayBillPO;
 import po.logisticpo.ReceiptBillPO;
 import po.storepo.InStoreBillPO;
@@ -18,7 +17,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class BillBLController implements BillBLService{
-	private UserPO user;
 	private BilldataService dataservice;
 	private final BillType[] types = {
 			BillType.OUTSTORE, BillType.INSTORE, BillType.PAYMENT, BillType.RECEIPT
@@ -26,8 +24,7 @@ public class BillBLController implements BillBLService{
 	ArrayList<BillPO> bills;
 	ArrayList<BillVO> vos;
 	
-	public BillBLController(UserPO user){
-		this.user = user;
+	public BillBLController(){
 		dataservice = (BilldataService) ClientRMIHelper.getServiceByName("BillDataServiceImpl");
 		vos = new ArrayList<BillVO>();
 		bills = new ArrayList<BillPO>();
@@ -226,7 +223,7 @@ public class BillBLController implements BillBLService{
 				}
 			}
 			
-			return new ResultMessage(result.getKey(), vos);
+			return new ResultMessage(result.getKey(), null);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return new ResultMessage("internet error", null);
@@ -265,7 +262,6 @@ public class BillBLController implements BillBLService{
 	@Override
 	public void end() {
 		dataservice = null;
-		user = null;
 	}
 
 }

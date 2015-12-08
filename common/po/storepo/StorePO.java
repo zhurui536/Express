@@ -1,9 +1,11 @@
 package po.storepo;
 
-import main.vo.storevo.VerificationVO;
+import main.vo.storevo.StorePlaceVO;
+import main.vo.storevo.StoreVO;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 库存PO
@@ -47,9 +49,26 @@ public class StorePO implements Serializable {
 		
 	}
 
-	public StorePO(VerificationVO storeVO) {
-		this.areas = storeVO.
+	public StorePO(StoreVO storeVO) {
+		this.areas = storeVO.areas;
+		this.places = storeVO.areas;
+		this.rows = storeVO.rows;
+		this.shelfs = storeVO.shelfs;
+		this.store = new ArrayList<>();
+		List<StorePlaceVO> storePlaceVOs = storeVO.store;
+		for (StorePlaceVO vo : storePlaceVOs) {
+			store.add(new StorePlacePO(vo));
+		}
 	}
+
+	public StoreVO poToVo() {
+		List<StorePlaceVO> storePlaceVOs = new ArrayList<>();
+		for (StorePlacePO po : store) {
+			storePlaceVOs.add(po.poToVo());
+		}
+		return new StoreVO(storePlaceVOs, areas, rows, shelfs, places);
+	}
+
 	/*获得在某一位置上的库存信息*/
 	public StorePlacePO getStorePlace(int area, int row, int shelf, int place){
 		for(int i=0;i<store.size();i++){

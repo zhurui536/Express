@@ -2,8 +2,8 @@ package main.presentation.storeui.listener.toollistener;
 
 import java.awt.event.ActionEvent;
 
-import main.bussinesslogic.storebl.StoreBLController;
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogicservice.storeblservice.StoreBLService;
 import main.presentation.storeui.StoreFrame;
 import main.presentation.storeui.datapanel.AdjustDataPane;
 import main.presentation.storeui.inputframe.AdjustInputFrame;
@@ -14,7 +14,7 @@ import main.vo.storevo.StorePlaceVO;
 
 public class AdjustToolListener extends ToolListener {
 
-	private StoreBLController sc;
+	private StoreBLService sc;
 	private StoreFrame ui;
 	
 	public AdjustToolListener(StoreFrame ui) {

@@ -1,7 +1,8 @@
 package po.financepo;
 
+import main.bussinesslogic.util.Time;
 import main.vo.*;
-import main.vo.storevo.VerificationVO;
+import main.vo.storevo.StoreVO;
 import po.InstitutionMessagePO;
 import po.StaffMessagePO;
 import po.TruckMessagePO;
@@ -19,41 +20,59 @@ public class AccountPO implements Serializable {
 
     private static final long serialVersionUID = 6264983247235154666L;
 
+    // 建账时间
+    private Time time;
+
     // 机构
-    InstitutionMessagePO institutionPO;
+    private InstitutionMessagePO institutionPO;
 
     // 人员
-    StaffMessagePO staffPO;
+    private StaffMessagePO staffPO;
 
     // 车辆
-    TruckMessagePO truckPO;
+    private TruckMessagePO truckPO;
 
     // 库存
-    StorePO storePO;
+    private StorePO storePO;
 
     // 银行账户
-    BankAccountPO bankAccountPO;
+    private BankAccountPO bankAccountPO;
 
     public AccountPO(InstitutionMessagePO institutionPO, StaffMessagePO staffPO,
-                     TruckMessagePO truckPO, StorePO storePO, BankAccountPO bankAccountPO) {
+                     TruckMessagePO truckPO, StorePO storePO, BankAccountPO bankAccountPO, Time time) {
         this.institutionPO = institutionPO;
         this.staffPO = staffPO;
         this.truckPO = truckPO;
         this.storePO = storePO;
         this.bankAccountPO = bankAccountPO;
+        this.time = time;
     }
 
     public AccountPO(AccountVO accountVO) {
         InstitutionMessageVO institutionMessageVO = accountVO.institutionVO;
         StaffMessageVO staffMessageVO = accountVO.staffMessageVO;
         TruckMessageVO truckMessageVO = accountVO.truckMessageVO;
-        VerificationVO storeVO = accountVO.storeVO;
+        StoreVO storeVO = accountVO.storeVO;
         BankAccountVO bankAccountVO = accountVO.bankAccountVO;
-        InstitutionMessagePO institutionMessagePO = new InstitutionMessagePO(institutionMessageVO);
-        StaffMessagePO staffMessagePO = new StaffMessagePO(staffMessageVO);
-        TruckMessagePO truckMessagePO = new TruckMessagePO(truckMessageVO);
-        StorePO storePO = new StorePO(storeVO);
+
+        this.institutionPO = new InstitutionMessagePO(institutionMessageVO);
+        this.staffPO = new StaffMessagePO(staffMessageVO);
+        this.truckPO = new TruckMessagePO(truckMessageVO);
+        this.storePO = new StorePO(storeVO);
+        this.bankAccountPO = new BankAccountPO(bankAccountVO);
+        this.time = accountVO.time;
     }
+
+    public AccountVO poToVo() {
+        InstitutionMessageVO institutionMessageVO = this.institutionPO.poToVo();
+        StaffMessageVO staffMessageVO = this.staffPO.poToVo();
+        TruckMessageVO truckMessageVO = this.truckPO.poToVo();
+        StoreVO storeVO = this.storePO.poToVo();
+        BankAccountVO bankAccountVO = this.bankAccountPO.poToVo();
+        return new AccountVO(institutionMessageVO, staffMessageVO, truckMessageVO,
+                storeVO, bankAccountVO, this.time);
+    }
+
     public InstitutionMessagePO getInstitutionPO() {
         return institutionPO;
     }

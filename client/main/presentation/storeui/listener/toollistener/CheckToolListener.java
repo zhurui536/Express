@@ -3,8 +3,8 @@ package main.presentation.storeui.listener.toollistener;
 import java.awt.event.ActionEvent;
 import java.util.Calendar;
 
-import main.bussinesslogic.storebl.StoreBLController;
 import main.bussinesslogic.util.ResultMessage;
+import main.bussinesslogicservice.storeblservice.StoreBLService;
 import main.presentation.storeui.StoreFrame;
 import main.presentation.storeui.datapanel.CheckDataPane;
 import main.presentation.storeui.inputframe.CheckInputFrame;
@@ -14,7 +14,7 @@ import main.vo.storevo.CheckVO;
 
 public class CheckToolListener extends ToolListener {
 
-	private StoreBLController sc;
+	private StoreBLService sc;
 	private StoreFrame ui;
 	
 	public CheckToolListener(StoreFrame ui) {

@@ -2,15 +2,16 @@ package dataservice.financedataservice._driver;
 
 import dataservice.financedataservice.CreateAccountingDataService;
 import dataservice.financedataservice._stub.CreateAccountingDataService_Stub;
-import po.*;
+import main.bussinesslogic.util.InstitutionType;
+import po.InstitutionMessagePO;
+import po.StaffMessagePO;
+import po.TruckMessagePO;
 import po.financepo.AccountPO;
 import po.financepo.BankAccountPO;
 import po.storepo.StorePO;
 
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
-
-import main.bussinesslogic.util.InstitutionType;
 
 /**
  * 期初建账数据层的驱动
@@ -28,7 +29,7 @@ public class CreateAccountingDataService_Driver {
         BankAccountPO bankAccount = new BankAccountPO("kkk", BigDecimal.valueOf(123465), "465456555");
         try {
             createAccountingDataService.initInsert(
-                    new AccountPO(institution, staff, truck, store, bankAccount));
+                    new AccountPO(institution, staff, truck, store, bankAccount, null));
         } catch (RemoteException e) {
             e.printStackTrace();
         }

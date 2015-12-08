@@ -1,18 +1,32 @@
 package main.vo.storevo;
 
+import main.vo.GoodsVO;
+
+import java.util.Calendar;
+
 public class StorePlaceVO {
-	private int area;
-	private int row;
-	private int shelf;
-	private int place;
-	
+	public int area;
+	public int row;
+	public int shelf;
+	public int place;
+	//该位置存放的货物
+	public GoodsVO goodsVO;
+	//货物的存放日期
+	public Calendar date;
+
 	public StorePlaceVO(int area, int row, int shelf, int place){
 		this.area = area;
 		this.row = row;
 		this.shelf = shelf;
 		this.place = place;
 	}
-	
+
+	public StorePlaceVO(int area, int row, int shelf, int place, GoodsVO goodsVO, Calendar date) {
+		this(area, row, shelf, place);
+		this.goodsVO = goodsVO;
+		this.date = date;
+	}
+
 	public int getArea(){
 		return this.area;
 	}

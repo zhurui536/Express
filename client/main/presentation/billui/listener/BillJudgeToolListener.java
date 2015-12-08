@@ -1,11 +1,15 @@
 package main.presentation.billui.listener;
 
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 import main.bussinesslogic.billbl.BillBLController;
+import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.ResultMessage;
+import main.presentation.billui.datapanel.BillDataPane;
 import main.presentation.storeui.listener.ToolListener;
 import main.presentation.storeui.tool.GetButtonOfTool;
+import main.vo.BillVO;
 
 public class BillJudgeToolListener extends ToolListener {
 	private BillBLController bc;
@@ -33,6 +37,15 @@ public class BillJudgeToolListener extends ToolListener {
 		}
 		else if(i==1){
 			//将窗口中的tool和datapanel移除，并将窗口返回空闲状态
+		}
+	}
+	
+	public void approve(String billid, BillType type){
+		ResultMessage result = bc.approve(billid, type);
+		
+		result = bc.getBills();
+		if(result.getKey().equals("success")){
+			BillDataPane data = new BillDataPane((ArrayList<BillVO>) result.getValue(), this);
 		}
 	}
 

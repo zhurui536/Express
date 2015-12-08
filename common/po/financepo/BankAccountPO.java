@@ -35,6 +35,12 @@ public class BankAccountPO implements Serializable {
         this.balance = BigDecimal.ZERO;
     }
 
+    public BankAccountPO(BankAccountVO vo) {
+        this.balance = vo.balance;
+        this.id = vo.id;
+        this.name = vo.name;
+    }
+
     public String getName() {
         return name;
     }
@@ -61,7 +67,7 @@ public class BankAccountPO implements Serializable {
         this.id = po.id;
     }
 
-    public BankAccountVO poToVO() {
+    public BankAccountVO poToVo() {
         return new BankAccountVO(name, balance, id);
     }
 }

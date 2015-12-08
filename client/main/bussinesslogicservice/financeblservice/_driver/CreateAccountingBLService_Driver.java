@@ -4,7 +4,7 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.financeblservice.CreateAccountingBLService;
 import main.bussinesslogicservice.financeblservice._stub.CreateAccountingBLService_Stub;
 import main.vo.*;
-import main.vo.storevo.VerificationVO;
+import main.vo.storevo.StoreVO;
 
 import java.math.BigDecimal;
 
@@ -19,10 +19,10 @@ public class CreateAccountingBLService_Driver {
         InstitutionMessageVO institution = new InstitutionMessageVO(null,null,null);
         StaffMessageVO staff = new StaffMessageVO(null, null);
         TruckMessageVO truck = new TruckMessageVO(null,null,0);
-        VerificationVO store = new VerificationVO(null);
+        StoreVO store = new StoreVO(null, 0, 0, 0, 0);
         BankAccountVO bankAccount = new BankAccountVO("kkk", BigDecimal.valueOf(123465), "465456555");
 
-        ResultMessage result = createAccountingBLService.createAccounting(new AccountVO(institution, staff, truck, store, bankAccount));
+        ResultMessage result = createAccountingBLService.createAccounting(new AccountVO(institution, staff, truck, store, bankAccount, null));
         if (result.getKey().equals("success"))
             System.out.println("create account pass");
     }

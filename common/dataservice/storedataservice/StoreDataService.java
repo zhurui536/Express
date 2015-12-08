@@ -9,7 +9,7 @@ import main.bussinesslogic.util.ResultMessage;
 import po.storepo.AdjustPO;
 import po.storepo.InStorePO;
 import po.storepo.OutStorePO;
-import po.storepo.StorePlacePO;
+import po.storepo.StorePO;
 import po.storepo.VerificationPO;
 
 
@@ -32,27 +32,6 @@ public interface StoreDataService extends Remote {
 	 * 查找结果：success  dataerror
 	 */
 	public ResultMessage finds(Calendar start, Calendar end) throws RemoteException;
-	
-	/*根据位置查看库存上的货物情况
-	 * place
-	 * 返回查找结果和StorePlacePO，越界或者读写出错返回结果和null
-	 * 查找结果：success  wrongplace  dataerror
-	 */
-	public ResultMessage find(StorePlacePO place) throws RemoteException;
-	
-	/*根据货物删除库存中的该货物
-	 * po
-	 * 返回删除结果和null
-	 * 删除结果：success  noexist  dataerror
-	 */
-//	public ResultMessage delete(GoodsPO po) throws RemoteException;
-	
-	/*将该位置的货物更新为该货物
-	 * place po
-	 * 返回更新的结果和null
-	 * 更新结果：wrongplace  success  dataerror
-	 */
-//	public ResultMessage update(StorePlacePO place, GoodsPO po) throws RemoteException;
 	
 	/*存储入库记录
 	 * po
@@ -89,10 +68,10 @@ public interface StoreDataService extends Remote {
 	 */
 	public ResultMessage getStore()  throws RemoteException;
 	
-	/*查看拥有该id的货物是否存在于库存中
+	/*保存新的库存对象
 	 * 
-	 * 返回查找结果和StorePlacePO，不存在时返回null
-	 * 查找结果：exist  noexist  dataerror
+	 * 返回存储结果
+	 * 结果：success  dataerror
 	 */
-	public ResultMessage ifInStore(String id)  throws RemoteException;
+	public ResultMessage saveStore(StorePO store)  throws RemoteException;
 }
