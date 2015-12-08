@@ -6,9 +6,9 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.financeblservice.ShowProfitListBLService;
 import main.connection.ClientRMIHelper;
-import main.vo.PayBillVO;
-import main.vo.logisticvo.ReceiptBillVO;
 import main.vo.storevo.ProfitListVO;
+import po.financepo.PayBillPO;
+import po.logisticpo.ReceiptBillPO;
 
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
@@ -44,9 +44,9 @@ public class ShowProfitListBL implements ShowProfitListBLService {
             if (!isValidMsg(payMsg) || !isValidMsg(receiptMsg)) {
                 return new ResultMessage("fail");
             }
-            List<PayBillVO> payBillVOs = (List<PayBillVO>) payMsg.getValue();
-            List<ReceiptBillVO> receiptBillVOs = (List<ReceiptBillVO>) receiptMsg.getValue();
-            updateProfitListVO(new Time(), payBillVOs, receiptBillVOs);
+            List<PayBillPO> payBillPOs = (List<PayBillPO>) payMsg.getValue();
+            List<ReceiptBillPO> receiptBillPOs = (List<ReceiptBillPO>) receiptMsg.getValue();
+            updateProfitListVO(new Time(), payBillPOs, receiptBillPOs);
             return new ResultMessage("success", profitListVO);
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -57,22 +57,22 @@ public class ShowProfitListBL implements ShowProfitListBLService {
     /**
      * 更新成本收益表 VO
      * @param time 截止时间
-     * @param payBillVOs 付款单 VO
-     * @param receiptBillVOs 收款单 VO
+     * @param payBillPOs 付款单 VO
+     * @param receiptBillPOs 收款单 VO
      */
-    private void updateProfitListVO(Time time, List<PayBillVO> payBillVOs, List<ReceiptBillVO> receiptBillVOs) {
+    private void updateProfitListVO(Time time, List<PayBillPO> payBillPOs, List<ReceiptBillPO> receiptBillPOs) {
         BigDecimal income = BigDecimal.ZERO;
         BigDecimal pay = BigDecimal.ZERO;
         BigDecimal profit;
 
-        for (ReceiptBillVO vo : receiptBillVOs) {
-            if (isValidReceiptBillVO(time, vo)) {
-                income = income.add(vo.totalMoney);
+        for (ReceiptBillPO po : receiptBillPOs) {
+            if (isValidReceiptBillPO(time, po)) {
+                income = income.add(po.getTotalMoney());
             }
         }
-        for (PayBillVO vo : payBillVOs) {
-            if (isValidPayBillVO(time, vo)) {
-                pay = pay.add(vo.money);
+        for (PayBillPO po : payBillPOs) {
+            if (isValidPayBillPO(time, po)) {
+                pay = pay.add(po.getMoney());
             }
         }
 
@@ -85,12 +85,12 @@ public class ShowProfitListBL implements ShowProfitListBLService {
         return null;
     }
 
-    private boolean isValidReceiptBillVO(Time time, ReceiptBillVO vo) {
-        return time.compareTo(vo.time) >= 0;
+    private boolean isValidReceiptBillPO(Time time, ReceiptBillPO po) {
+        return time.compareTo(po.getTime()) >= 0;
     }
 
-    private boolean isValidPayBillVO(Time time, PayBillVO vo) {
-        return time.compareTo(vo.time) >= 0;
+    private boolean isValidPayBillPO(Time time, PayBillPO po) {
+        return time.compareTo(po.getTime()) >= 0;
     }
 
     private boolean isValidMsg(ResultMessage message) {

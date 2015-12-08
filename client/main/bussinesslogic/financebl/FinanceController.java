@@ -35,12 +35,15 @@ public class FinanceController implements FinanceBLService {
 
     private ShowReceiptBLService showReceiptBL;
 
+    private CreateAccountingBLService createAccountingBL;
+
     public FinanceController() {
         bankAccountManagement = new BankAccountManagementBL();
         createPayBillBL = new CreatePayBillBL();
         showProfitListBL = new ShowProfitListBL();
         showStatementBL = new ShowStatementBL();
         showReceiptBL = new ShowReceiptBL();
+        createAccountingBL = new CreateAccountingBL();
     }
 
     // TODO

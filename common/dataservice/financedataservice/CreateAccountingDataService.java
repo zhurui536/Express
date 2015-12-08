@@ -3,6 +3,7 @@ package dataservice.financedataservice;
 import main.bussinesslogic.util.ResultMessage;
 import po.financepo.AccountPO;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
@@ -11,7 +12,7 @@ import java.rmi.RemoteException;
  * 2015/10/26
  */
 
-public interface CreateAccountingDataService {
+public interface CreateAccountingDataService extends Remote {
 
     /**
      * 期初账本信息存储
