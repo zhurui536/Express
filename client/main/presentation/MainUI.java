@@ -92,35 +92,54 @@ public class MainUI extends JFrame implements ActionListener{
             System.exit(0);
         }
         if(e.getSource() == confirm){
-            String id = this.id.getText();
-            LogisticsBLService logisticsBLService = new LogisticsBLController();
-            if(id.charAt(0) == '0'){
-                this.setVisible(false);
-                StoreFrame frame = new StoreFrame();
-                frame.setVisible(true);
-            }
-            else if(id.charAt(0) == '1'){
-                this.setVisible(false);
-                ManagerFrame frame = new ManagerFrame();
-                frame.setVisible(true);
-            } else if (id.charAt(0) == '2'){
-                this.setVisible(false);
-                FinanceFrame frame = new FinanceFrame();
-                frame.setVisible(true);
-            } else if (id.charAt(0) == '3') {
-                this.setVisible(false);
-                DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
-                frame.setVisible(true);
-            } else if (id.charAt(0) == '4') {
-                this.setVisible(false);
-                TransitCenterclerkFrame frame = new TransitCenterclerkFrame(logisticsBLService);
-                frame.setVisible(true);
-            }else if(id.charAt(0) == '5'){
+ //           try{
+            	String id = this.id.getText();
+                if(id.charAt(0) == '0'){
                     this.setVisible(false);
-                    BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
+                    StoreFrame frame = new StoreFrame();
                     frame.setVisible(true);
-            }
-            PublicMessage.userID = id;
+                }
+                else if(id.charAt(0) == '1'){
+                    this.setVisible(false);
+                    ManagerFrame frame = new ManagerFrame();
+                    frame.setVisible(true);
+                } else if (id.charAt(0) == '2'){
+                    this.setVisible(false);
+                    FinanceFrame frame = new FinanceFrame();
+                    frame.setVisible(true);
+                } else if (id.charAt(0) == '3') {
+                	LogisticsBLService logisticsBLService = new LogisticsBLController();
+                    this.setVisible(false);
+                    DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
+                    frame.setVisible(true);
+                } else if (id.charAt(0) == '4') {
+                	LogisticsBLService logisticsBLService = new LogisticsBLController();
+                    this.setVisible(false);
+                    TransitCenterclerkFrame frame = new TransitCenterclerkFrame(logisticsBLService);
+                    frame.setVisible(true);
+                }else if(id.charAt(0) == '5'){
+                	LogisticsBLService logisticsBLService = new LogisticsBLController();
+                        this.setVisible(false);
+                        BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
+                        frame.setVisible(true);
+                }
+                PublicMessage.userID = id;
+//            }
+//            catch(Exception ex){
+//            	JFrame warning = new JFrame();
+//            	warning.setBounds(this.getBounds());
+//            	
+//            	JPanel panel = new JPanel();
+//            	panel.setBounds(0, 0, 310, 250);
+//            	
+//            	JLabel label = new JLabel(ex.getClass().getName());
+//            	label.setBounds(panel.getBounds());
+//            	panel.add(label);
+//            	
+//            	warning.add(panel);
+//            	
+//            	warning.setVisible(true);
+//            }
         }
     }
 }

@@ -19,7 +19,7 @@ public class BillQueryBL implements BillQueryBLService {
 
         public BillQueryBL() {
                 billQueryDataService = (BillQueryDataService) ClientRMIHelper
-                                .getServiceByName("BillDataServiceImpl");
+                                .getServiceByName("BillQueryDataServiceImpl");
         }
 
         @Override
