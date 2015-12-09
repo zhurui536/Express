@@ -62,12 +62,12 @@ public class SalaryStrategyDataPane extends JPanel implements ActionListener {
 		type.setBounds(120, 210, 170, 40);
 		this.add(type);
 		
-		confirm = new JButton("纭畾");
+		confirm = new JButton("确定");
 		confirm.setBounds(70, 270, 70, 30);
 		confirm.addActionListener(this);
 		this.add(confirm);
 		
-		cancle = new JButton("鍙栨秷");
+		cancle = new JButton("取消");
 		cancle.setBounds(160, 270, 70, 30);
 		cancle.addActionListener(this);
 		this.add(cancle);
@@ -85,7 +85,7 @@ public class SalaryStrategyDataPane extends JPanel implements ActionListener {
 				double salary = Double.parseDouble(input[1].getText());
 				ResultMessage result = bl.inputSalaryInfo(new SalaryVO(id, job, salary, this.boxToType()));
 				if(result.getKey().equals("success")){
-					input[1].setText("璁剧疆鎴愬姛锛�");
+					input[1].setText("设置成功");
 					ui.validate();
 					ui.repaint();
 				}
@@ -95,14 +95,14 @@ public class SalaryStrategyDataPane extends JPanel implements ActionListener {
 					ui.repaint();
 				}
 			}catch(Exception ex){
-				input[1].setText("杈撳叆鏈夎锛岃閲嶆柊杈撳叆");
+				input[1].setText("网络错误");
 			}
 		}
 	}
 	
-	private final String[] jobs ={ "蹇�掑憳", "钀ヤ笟鍘呬笟鍔″憳", "涓浆涓績涓氬姟鍛�", "涓浆涓績搴撳瓨绠＄悊浜哄憳","璐㈠姟浜哄憳","鎬荤粡鐞�","鍙告満" };
-	private final String[] listname = {"钖按鍒跺畾", "鐢ㄦ埛鍚�", "鑱屼綅", "钖按", "钖按绫诲瀷"};
-	private final String[] salarytype = {"鏈堣柂", "涓�娆′竴缁�", "鎻愭垚"};
+	private final String[] jobs ={ "快递员", "营业厅业务员", "中转中心业务员", "库存管理员","财务人员","总经理","司机" };
+	private final String[] listname = {"薪水策略制定：", "员工编号：", "职业：", "薪水：", "薪水类型："};
+	private final String[] salarytype = {"月薪", "按次", "提成"};
 	
 	private Job boxToJob(){
 		int i = this.job.getSelectedIndex();
