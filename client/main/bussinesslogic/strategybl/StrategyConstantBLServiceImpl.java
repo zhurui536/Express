@@ -38,6 +38,12 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 						}
 					}
 				}
+				
+				distances.add(po);
+				result = dataservice.SaveDistance(distances);
+				if(result.getKey().equals("success")){
+					return new ResultMessage("success", null);
+				}
 			}
 		} catch (RemoteException e) {
 			e.printStackTrace();

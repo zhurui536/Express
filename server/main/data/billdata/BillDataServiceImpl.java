@@ -112,7 +112,7 @@ public class BillDataServiceImpl extends UnicastRemoteObject implements Billdata
 	//入库单
 	private final String instorebill = "server/save/storedata/instoreBillPO.dat";
 	//出库单
-	private final String outstorebill = "server/save/storedata/outstoreBillPO.dat.dat";
+	private final String outstorebill = "server/save/storedata/outstoreBillPO.dat";
 	//付款单
 	private final String paybill = "server/save/financedata/payBillPO.dat";
 	//收款单

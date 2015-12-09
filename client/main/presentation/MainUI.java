@@ -9,8 +9,8 @@ import main.presentation.logisticsui.deliverymanui.DeliveryManFrame;
 import main.presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import main.presentation.managerui.ManagerFrame;
 import main.presentation.storeui.StoreFrame;
-
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,7 +22,7 @@ import java.awt.event.ActionListener;
 @SuppressWarnings("serial")
 public class MainUI extends JFrame implements ActionListener{
     private JTextArea id;
-    private JTextArea password;
+    private JPasswordField password;
     private JButton confirm;
     private JButton exit;
 
@@ -67,7 +67,7 @@ public class MainUI extends JFrame implements ActionListener{
         this.id.setBounds(90, 50, 200, 40);
         this.getContentPane().add(this.id);
 
-        this.password = new JTextArea();
+        this.password = new JPasswordField();
         this.password.setBounds(90, 100, 200, 40);
         this.getContentPane().add(this.password);
 

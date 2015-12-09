@@ -23,7 +23,6 @@ public class ConstantStrategyShowPane extends JPanel {
 		this.add(pricenow);
 		
 		JTable table  = new JTable(this.votostrings(distances), this.headers);
-		table.setRowHeight(60);
 		table.setBounds(30, 80, 600, distances.size()*60+60);
 		table.setEnabled(false);
 		this.add(table);

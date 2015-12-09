@@ -35,6 +35,7 @@ public class MenuListener implements ActionListener {
 		if(i==2){//点击了审批单据
 			BillJudgeToolListener listener = new BillJudgeToolListener(ui);
 			BillJudgeTool tool = new BillJudgeTool(listener);
+			listener.setTool(tool);
 			ui.replaceTool(tool);
 		}
 		

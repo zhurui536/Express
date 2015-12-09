@@ -29,13 +29,13 @@ public class StrategyDataServiceImpl extends UnicastRemoteObject implements Stra
 				this.writeList(this.price, price);
 			}
 			
-			in = new FileInputStream(price);
+			in = new FileInputStream(distances);
 			if(in.available() == 0){
 				ArrayList<DistancePO> list = new ArrayList<DistancePO>();
 				this.writeList(distances, list);
 			}
 			
-			in = new FileInputStream(price);
+			in = new FileInputStream(salary);
 			if(in.available() == 0){
 				ArrayList<SalaryPO> list = new ArrayList<SalaryPO>();
 				this.writeList(salary, list);
