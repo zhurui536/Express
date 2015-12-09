@@ -18,7 +18,6 @@ import main.vo.DistanceVO;
 @SuppressWarnings("serial")
 public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 	private JButton confirm;
-	private JButton cancle;
 	private JButton setprice;
 	
 	private JTextArea[] city;
@@ -89,21 +88,12 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 		setprice.setBounds(100, 390, 70, 30);
 		setprice.addActionListener(this);
 		this.add(setprice);
-		
-		//閫�鍑烘寜閽�
-		cancle = new JButton("返回");
-		cancle.setBounds(160, 440, 70, 30);
-		cancle.addActionListener(this);
-		this.add(cancle);
 	}
 	
 	private final String[] icons = {"南京", "上海", "广州", "北京"};
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == cancle){
-			ui.paintdata(null);
-		}
 		if(e.getSource() == confirm){
 			try{
 				double distance = Double.parseDouble(input[0].getText());
@@ -116,12 +106,16 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 					ui.validate();
 					ui.repaint();
 				}
+				else{
+					this.input[0].setText(result.getKey());
+					ui.validate();
+					ui.repaint();
+				}
 			}catch(Exception ex){
 				this.input[0].setText("输入有误，请重新输入");
 				ui.validate();
 				ui.repaint();
 			}
-			
 		}
 		if(e.getSource() == setprice){
 			try{
