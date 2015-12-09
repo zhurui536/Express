@@ -33,7 +33,7 @@ public class ReceivingBL implements ReceivingBLService{
                 goodsPO.addLocation(PublicMessage.location);
                 sendBillPO.setGoodsPO(goodsPO);
                 sendBillPOs.add(sendBillPO);
-                return new ResultMessage("SUCCESS", null);
+                return new ResultMessage("SUCCESS", billVO);
         }
 
         @SuppressWarnings("unchecked")

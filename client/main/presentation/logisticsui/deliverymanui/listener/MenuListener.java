@@ -3,8 +3,6 @@ package main.presentation.logisticsui.deliverymanui.listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-
 import main.presentation.logisticsui.deliverymanui.DeliveryManFrame;
 import main.presentation.logisticsui.deliverymanui.listener.toollistener.BillQueryToolListener;
 import main.presentation.logisticsui.deliverymanui.tool.BillQueryTool;

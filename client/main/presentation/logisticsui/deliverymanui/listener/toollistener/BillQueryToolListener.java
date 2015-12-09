@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.LogisticsBLService;
-import main.presentation.logisticsui.deliverymanui.BillQueryDataPane;
 import main.presentation.logisticsui.deliverymanui.DeliveryManFrame;
+import main.presentation.logisticsui.deliverymanui.datapane.BillQueryDataPane;
 import main.presentation.logisticsui.deliverymanui.inputframe.BillQueryInputFrame;
 import main.presentation.storeui.listener.ToolListener;
 import main.presentation.storeui.tool.GetButtonOfTool;
