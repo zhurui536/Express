@@ -19,8 +19,33 @@ public class StrategyDataServiceImpl extends UnicastRemoteObject implements Stra
 	 */
 	private static final long serialVersionUID = -6454372370974129187L;
 
+	@SuppressWarnings("resource")
 	public StrategyDataServiceImpl() throws RemoteException {
 		super();
+		try {
+			FileInputStream in = new FileInputStream(price);
+			if(in.available() == 0){
+				double price = 23;
+				this.writeList(this.price, price);
+			}
+			
+			in = new FileInputStream(price);
+			if(in.available() == 0){
+				ArrayList<DistancePO> list = new ArrayList<DistancePO>();
+				this.writeList(distances, list);
+			}
+			
+			in = new FileInputStream(price);
+			if(in.available() == 0){
+				ArrayList<SalaryPO> list = new ArrayList<SalaryPO>();
+				this.writeList(salary, list);
+			}
+			
+			in.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	private final String price = "server/save/strategydata/price.dat";

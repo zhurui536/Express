@@ -9,6 +9,15 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import po.BillPO;
+import po.financepo.PayBillPO;
+import po.logisticpo.ArrivalBillPO;
+import po.logisticpo.DeliveryBillPO;
+import po.logisticpo.LoadingBillPO;
+import po.logisticpo.ReceiptBillPO;
+import po.logisticpo.SendBillPO;
+import po.logisticpo.TransferBillPO;
+import po.storepo.InStoreBillPO;
+import po.storepo.OutStoreBillPO;
 import main.bussinesslogic.util.BillType;
 import main.bussinesslogic.util.ResultMessage;
 import dataservice.billdataservice.BilldataService;
@@ -22,6 +31,82 @@ public class BillDataServiceImpl extends UnicastRemoteObject implements Billdata
 
 	public BillDataServiceImpl() throws RemoteException {
 		super();
+		try {
+			FileInputStream in = new FileInputStream(instorebill);
+			if(in.available()==0){
+				in.close();
+				
+				ArrayList<InStoreBillPO> bills = new ArrayList<InStoreBillPO>();
+				this.writeBill(instorebill, bills);
+			}
+			
+			in = new FileInputStream(outstorebill);
+			if(in.available()==0){
+				in.close();
+				
+				ArrayList<OutStoreBillPO> bills = new ArrayList<OutStoreBillPO>();
+				this.writeBill(outstorebill, bills);
+			}
+			
+			in = new FileInputStream(paybill);
+			if(in.available()==0){
+				in.close();
+				
+				ArrayList<PayBillPO> bills = new ArrayList<PayBillPO>();
+				this.writeBill(paybill, bills);
+			}
+			
+			in = new FileInputStream(receiptbill);
+			if(in.available()==0){
+				in.close();
+				
+				ArrayList<ReceiptBillPO> bills = new ArrayList<ReceiptBillPO>();
+				this.writeBill(receiptbill, bills);
+			}
+			
+			in = new FileInputStream(arrivalbill);
+			if(in.available()==0){
+				in.close();
+				
+				ArrayList<ArrivalBillPO> bills = new ArrayList<ArrivalBillPO>();
+				this.writeBill(arrivalbill, bills);
+			}
+			
+			in = new FileInputStream(deliverybill);
+			if(in.available()==0){
+				in.close();
+				
+				ArrayList<DeliveryBillPO> bills = new ArrayList<DeliveryBillPO>();
+				this.writeBill(deliverybill, bills);
+			}
+			
+			in = new FileInputStream(loadingbill);
+			if(in.available()==0){
+				in.close();
+				
+				ArrayList<LoadingBillPO> bills = new ArrayList<LoadingBillPO>();
+				this.writeBill(loadingbill, bills);
+			}
+			
+			in = new FileInputStream(sendbill);
+			if(in.available()==0){
+				in.close();
+				
+				ArrayList<SendBillPO> bills = new ArrayList<SendBillPO>();
+				this.writeBill(sendbill, bills);
+			}
+			
+			in = new FileInputStream(transferbill);
+			if(in.available()==0){
+				in.close();
+				
+				ArrayList<TransferBillPO> bills = new ArrayList<TransferBillPO>();
+				this.writeBill(transferbill, bills);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	//入库单

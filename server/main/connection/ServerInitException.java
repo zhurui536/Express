@@ -6,7 +6,12 @@ package main.connection;
  */
 
 public class ServerInitException extends Exception {
-    public ServerInitException(Throwable e) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4817161211576882179L;
+
+	public ServerInitException(Throwable e) {
         super(e);
     }
 }
