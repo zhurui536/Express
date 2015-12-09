@@ -5,23 +5,23 @@ import java.awt.event.ActionEvent;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import main.presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
-import main.presentation.logisticsui.transitcenterclerkui.inputframe.GoodsRecInputFrame;
+import main.presentation.logisticsui.transitcenterclerkui.inputframe.GoodsTranInputFrame;
 import main.presentation.storeui.listener.ToolListener;
 import main.presentation.storeui.tool.GetButtonOfTool;
-import main.vo.logisticvo.ArrivalBillVO;
+import main.vo.logisticvo.TransferBillVO;
 
-public class GoodsRecToolListener extends ToolListener{
+public class GoodsTranToolListener extends ToolListener{
         private LogisticsBLService logisticsBLService;
         private TransitCenterclerkFrame ui;
         
-        public GoodsRecToolListener(TransitCenterclerkFrame ui) {
+        public GoodsTranToolListener(TransitCenterclerkFrame ui) {
                 super();
                 this.ui = ui;
                 this.logisticsBLService = ui.getController();
         }
         
-        public boolean getInput(ArrivalBillVO arrivalBillVO) {
-                ResultMessage resultMessage = logisticsBLService.produceArrivalBill(arrivalBillVO);
+        public boolean getInput(TransferBillVO transferBillVO) {
+                ResultMessage resultMessage = logisticsBLService.produceTransferBill(transferBillVO);
                 if(resultMessage.getKey().equals("SUCCESS")){
                         ui.paintdata(null);
                         return true;
@@ -34,11 +34,16 @@ public class GoodsRecToolListener extends ToolListener{
         @Override
         public void actionPerformed(ActionEvent e) {
                 GetButtonOfTool tool = super.getTool();
-                if(e.getSource() == tool.getButton(0)){
-                        GoodsRecInputFrame frame = new GoodsRecInputFrame(this);
+                int i;
+                for ( i = 0; i < tool.getNumOfButton(); i++) {
+                        if(e.getSource() == tool.getButton(i))
+                                break;
+                }
+                
+                if(e.getSource() != tool.getButton(3)){
+                        GoodsTranInputFrame frame = new GoodsTranInputFrame(this,i);
                         frame.setVisible(true);
                 }else{
-                        logisticsBLService.endReceipt();
                         ui.replaceTool(null);
                         ui.paintdata(null);
                 }

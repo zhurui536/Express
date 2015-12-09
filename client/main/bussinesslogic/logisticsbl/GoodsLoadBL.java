@@ -7,7 +7,6 @@ import po.logisticpo.TransferBillPO;
 import dataservice.logisticsdataservice.GoodsLoadDataService;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.GoodsLoadBLService;
-import main.bussinesslogicservice.storeblservice.OutStoreBLService;
 import main.connection.ClientRMIHelper;
 import main.vo.logisticvo.LoadingBillVO;
 import main.vo.logisticvo.TransferBillVO;
@@ -16,10 +15,8 @@ public class GoodsLoadBL implements GoodsLoadBLService {
 
         private GoodsLoadDataService goodsLoadDataService;
 
-        private OutStoreBLService outStoreBLService;
 
-        public GoodsLoadBL(OutStoreBLService outStoreBLService) {
-                this.outStoreBLService = outStoreBLService;
+        public GoodsLoadBL() {
                 goodsLoadDataService = (GoodsLoadDataService) ClientRMIHelper.getServiceByName("GoodsLoadDataServiceImpl");
         }
         
@@ -54,15 +51,7 @@ public class GoodsLoadBL implements GoodsLoadBLService {
                         e.printStackTrace();
                         return new ResultMessage("FAIL_INSERT");
                 }
-                
-                outStoreBLService.newOutStore();
-                for (String id : transferBillVO.ids) {
-                        outStoreBLService.addOutStoreGoods(id,
-                                        transferBillVO.trans,
-                                        transferBillVO.arrivalPlace,
-                                        transferBillVO.transferBillNum);
-                }
-                outStoreBLService.endOutStore(0);
+
                 
                 return new ResultMessage("SUCCESS");
         }

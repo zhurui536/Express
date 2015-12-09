@@ -73,14 +73,16 @@ public class DeliveryInputFrame extends JFrame implements ActionListener{
                 
                 month = new JComboBox<>();
                 for (int i = 1; i <= 12; i++) {
-                        month.addItem(i + "月");
+                        String s = i  < 10 ? "0" : "";
+                        month.addItem( s + i + "月");
                 }
                 month.setBounds(185, 130, 60, 30);
                 this.getContentPane().add(month);
                 
                 day = new JComboBox<>();
                 for (int i = 1; i <= 31; i++) {
-                        day.addItem(i + "日");
+                        String s = i  < 10 ? "0" : "";
+                        day.addItem(s + i + "日");
                 }
                 day.setBounds(295, 130, 60, 30);
                 this.getContentPane().add(day);
@@ -92,7 +94,9 @@ public class DeliveryInputFrame extends JFrame implements ActionListener{
                 if(e.getSource() == confirm){
                         String recp = rec.getText();
                         String id = number.getText();
-                        Time time = new Time(year.getSelectedItem() + "-" + month.getSelectedItem() + "-" + day.getSelectedItem());
+                        Time time = new Time(((String)year.getSelectedItem()).substring(0,4) + "-" 
+                        + ((String)month.getSelectedItem()).substring(0,2) + "-" 
+                                        + ((String)day.getSelectedItem()).substring(0, 2));
                         boolean result = listener.getInput(recp, id, time);
                         if(result)
                                 this.setVisible(false);

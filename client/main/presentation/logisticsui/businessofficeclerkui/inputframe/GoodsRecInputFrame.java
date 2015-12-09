@@ -1,4 +1,4 @@
-package main.presentation.logisticsui.transitcenterclerkui.inputframe;
+package main.presentation.logisticsui.businessofficeclerkui.inputframe;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +11,7 @@ import javax.swing.JTextArea;
 
 import main.bussinesslogic.util.GoodsState;
 import main.bussinesslogic.util.PublicMessage;
-import main.presentation.logisticsui.transitcenterclerkui.listener.toollistener.GoodsRecToolListener;
+import main.presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsRecToolListener;
 import main.vo.logisticvo.ArrivalBillVO;
 
 @SuppressWarnings("serial")

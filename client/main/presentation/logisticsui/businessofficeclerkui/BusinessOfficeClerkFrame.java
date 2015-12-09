@@ -1,17 +1,23 @@
-package main.presentation.logisticsui.transitcenterclerkui;
+package main.presentation.logisticsui.businessofficeclerkui;
 
 import java.awt.Color;
 import java.awt.Dimension;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
+import main.bussinesslogicservice.infoblservice.InfoBLSerivce;
 import main.bussinesslogicservice.logisticsblservice.LogisticsBLService;
-import main.presentation.logisticsui.transitcenterclerkui.listener.MenuListener;
+import main.presentation.logisticsui.businessofficeclerkui.listerner.MenuListener;
 
 @SuppressWarnings("serial")
-public class TransitCenterclerkFrame extends JFrame {
+public class BusinessOfficeClerkFrame extends JFrame {
 
         private LogisticsBLService logisticsBLService;
+        private InfoBLSerivce infoBLSerivce;
 
         // 窗口中的成员组件，窗口分为菜单、工具和数据三个部分
         private JPanel menu;
@@ -23,22 +29,22 @@ public class TransitCenterclerkFrame extends JFrame {
         private JScrollPane scroll;
         private JPanel data;
 
-        private static final String[] NAMES = { "货物接受", "货物转运", "货物装车" };
+        private static final String[] NAMES = { "货物装车", "货物接受","分派货物","收款", "信息维护" };
 
-        private static final int NUMBER_OF_BUTTONS = 3;
+        private static final int NUMBER_OF_BUTTONS = 5;
 
-        public TransitCenterclerkFrame() {
+        public static void main(String[] args) {
+                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame();
+                frame.setVisible(true);
+        }
+
+        public BusinessOfficeClerkFrame() {
                 this.setLayout(null);
                 this.setSize(1000, 630);
                 this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
                 menulistener = new MenuListener(this);
                 this.paintframe();
-        }
-
-        public static void main(String[] args) {
-                TransitCenterclerkFrame frame = new TransitCenterclerkFrame();
-                frame.setVisible(true);
         }
 
         private void paintframe() {
@@ -127,7 +133,12 @@ public class TransitCenterclerkFrame extends JFrame {
                 }
         }
 
-        public LogisticsBLService getController() {
-                return this.logisticsBLService;
+        public LogisticsBLService getLogisticsBLService() {
+                return logisticsBLService;
         }
+
+        public InfoBLSerivce getInfoBLSerivce() {
+                return infoBLSerivce;
+        }
+
 }

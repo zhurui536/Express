@@ -1,4 +1,4 @@
-package main.presentation.logisticsui.transitcenterclerkui.tool;
+package main.presentation.logisticsui.businessofficeclerkui.tool;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;

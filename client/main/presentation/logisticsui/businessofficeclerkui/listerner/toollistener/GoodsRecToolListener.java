@@ -1,23 +1,23 @@
-package main.presentation.logisticsui.transitcenterclerkui.listener.toollistener;
+package main.presentation.logisticsui.businessofficeclerkui.listerner.toollistener;
 
 import java.awt.event.ActionEvent;
 
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.logisticsblservice.LogisticsBLService;
-import main.presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
-import main.presentation.logisticsui.transitcenterclerkui.inputframe.GoodsRecInputFrame;
+import main.presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
+import main.presentation.logisticsui.businessofficeclerkui.inputframe.GoodsRecInputFrame;
 import main.presentation.storeui.listener.ToolListener;
 import main.presentation.storeui.tool.GetButtonOfTool;
 import main.vo.logisticvo.ArrivalBillVO;
 
 public class GoodsRecToolListener extends ToolListener{
         private LogisticsBLService logisticsBLService;
-        private TransitCenterclerkFrame ui;
+        private BusinessOfficeClerkFrame ui;
         
-        public GoodsRecToolListener(TransitCenterclerkFrame ui) {
+        public GoodsRecToolListener(BusinessOfficeClerkFrame ui) {
                 super();
                 this.ui = ui;
-                this.logisticsBLService = ui.getController();
+                this.logisticsBLService = ui.getLogisticsBLService();
         }
         
         public boolean getInput(ArrivalBillVO arrivalBillVO) {

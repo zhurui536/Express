@@ -1,9 +1,12 @@
 package main.presentation;
 
+import main.bussinesslogic.util.PublicMessage;
 import main.connection.ClientInitException;
 import main.connection.ClientRMIHelper;
 import main.presentation.financeui.FinanceFrame;
+import main.presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import main.presentation.logisticsui.deliverymanui.DeliveryManFrame;
+import main.presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import main.presentation.managerui.ManagerFrame;
 import main.presentation.storeui.StoreFrame;
 
@@ -105,11 +108,16 @@ public class MainUI extends JFrame implements ActionListener{
                 this.setVisible(false);
                 DeliveryManFrame frame = new DeliveryManFrame();
                 frame.setVisible(true);
-            } else if (id.charAt(0) == '3') {
+            } else if (id.charAt(0) == '4') {
                 this.setVisible(false);
-                DeliveryManFrame frame = new DeliveryManFrame();
+                TransitCenterclerkFrame frame = new TransitCenterclerkFrame();
                 frame.setVisible(true);
+            }else if(id.charAt(0) == '5'){
+                    this.setVisible(false);
+                    BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame();
+                    frame.setVisible(true);
             }
+            PublicMessage.userID = id;
         }
     }
 }
