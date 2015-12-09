@@ -86,6 +86,7 @@ public class StrategyTool extends JPanel implements ActionListener {
 		}
 		if(e.getSource() == back){
 			ui.replaceTool(null);
+			ui.paintdata(null);
 		}
 	}
 }
