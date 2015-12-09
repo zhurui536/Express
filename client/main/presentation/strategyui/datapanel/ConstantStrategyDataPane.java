@@ -40,21 +40,21 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 	@SuppressWarnings("unchecked")
 	private void initialize(){
 		//鎷熷畾鍩庡競璺濈閮ㄥ垎
-		confirm = new JButton("纭畾");
+		confirm = new JButton("确定");
 		confirm.setBounds(70, 245, 70, 30);
 		confirm.addActionListener(this);
 		this.add(confirm);
 		
-		JLabel list1 = new JLabel("鍩庡競寰呴�夐」");
+		JLabel list1 = new JLabel("城市距离制定");
 		list1.setBounds(10, 20, 100, 50);
 		this.add(list1);
 		
 		city = new JTextArea[2];
-		city[0] = new JTextArea("鍩庡競A");
+		city[0] = new JTextArea("城市A：");
 		city[0].setBounds(30, 80, 80, 40);
 		this.add(city[0]);
 		
-		city[1] = new JTextArea("鍩庡競B");
+		city[1] = new JTextArea("城市B：");
 		city[1].setBounds(30, 130, 80, 40);
 		this.add(city[1]);
 		
@@ -67,7 +67,7 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 		cities[1].setBounds(135, 130, 80, 40);
 		this.add(cities[1]);
 		
-		JLabel list2 = new JLabel("鍩庡競璺濈");
+		JLabel list2 = new JLabel("距离：");
 		list2.setBounds(10, 190, 80, 40);
 		this.add(list2);
 		
@@ -77,7 +77,7 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 		this.add(input[0]);
 		
 		//鎷熷畾杩愯垂閮ㄥ垎
-		JLabel list3 = new JLabel("鎷熷畾杩愯垂");
+		JLabel list3 = new JLabel("价格");
 		list3.setBounds(10, 340, 80, 40);
 		this.add(list3);
 		
@@ -85,19 +85,19 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 		input[1].setBounds(110, 340, 260, 40);
 		this.add(input[1]);
 		
-		setprice = new JButton("璁惧畾");
+		setprice = new JButton("设定");
 		setprice.setBounds(100, 390, 70, 30);
 		setprice.addActionListener(this);
 		this.add(setprice);
 		
 		//閫�鍑烘寜閽�
-		cancle = new JButton("缁撴潫");
+		cancle = new JButton("返回");
 		cancle.setBounds(160, 440, 70, 30);
 		cancle.addActionListener(this);
 		this.add(cancle);
 	}
 	
-	private final String[] icons = {"鍗椾含", "涓婃捣", "骞垮窞", "鍖椾含"};
+	private final String[] icons = {"南京", "上海", "广州", "北京"};
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -117,7 +117,7 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 					ui.repaint();
 				}
 			}catch(Exception ex){
-				this.input[0].setText("杈撳叆鏈夎锛岃閲嶆柊杈撳叆");
+				this.input[0].setText("输入有误，请重新输入");
 				ui.validate();
 				ui.repaint();
 			}
@@ -139,7 +139,7 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 					ui.repaint();
 				}
 			}catch(Exception ex){
-				this.input[1].setText("杈撳叆鏈夎锛岃閲嶆柊杈撳叆");
+				this.input[1].setText("输入有误，请重新输入");
 				ui.validate();
 				ui.repaint();
 			}

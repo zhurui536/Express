@@ -40,7 +40,7 @@ public class StrategyTool extends JPanel implements ActionListener {
 	
 	private void initialize(){
 		check = new JButton("当前策略查看");
-		check.setBounds(150, 20, 110, 40);
+		check.setBounds(150, 20, 130, 40);
 		check.addActionListener(this);
 		this.add(check);
 		
@@ -50,7 +50,7 @@ public class StrategyTool extends JPanel implements ActionListener {
 		this.add(input);
 		
 		back = new JButton("返回");
-		back.setBounds(750, 20, 50, 40);
+		back.setBounds(720, 20, 80, 40);
 		back.addActionListener(this);
 		this.add(back);
 	}
