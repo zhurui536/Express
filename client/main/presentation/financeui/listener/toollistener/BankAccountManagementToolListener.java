@@ -28,15 +28,19 @@ public class BankAccountManagementToolListener extends ToolListener {
         ToolPanel toolPanel = ui.getToolPanel();
 
         if (button == toolPanel.getButton("add")) {
+            ui.paintData(new JPanel());
             BankAccountAddDialog dialog = new BankAccountAddDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton("del")) {
+            ui.paintData(new JPanel());
             BankAccountDelDialog dialog = new BankAccountDelDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton("find")) {
+            ui.paintData(new JPanel());
             BankAccountFindDialog dialog = new BankAccountFindDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton("update")) {
+            ui.paintData(new JPanel());
             BankAccountUpdateDialog dialog = new BankAccountUpdateDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton("back")) {

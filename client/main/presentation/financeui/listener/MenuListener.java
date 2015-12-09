@@ -3,6 +3,7 @@ package main.presentation.financeui.listener;
 import main.presentation.financeui.FinanceFrame;
 import main.presentation.financeui.tool.*;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -39,14 +40,19 @@ public class MenuListener implements ActionListener {
         Object button = e.getSource();
 
         if (button == ui.getButton("账户管理")) {
+            ui.paintData(new JPanel());
             ui.replaceTool(bankAcManageTool);
         } else if (button == ui.getButton("付款")) {
+            ui.paintData(new JPanel());
             ui.replaceTool(payTool);
         } else if (button == ui.getButton("收款")) {
+            ui.paintData(new JPanel());
             ui.replaceTool(receiptTool);
         } else if (button == ui.getButton("报表查看")) {
+            ui.paintData(new JPanel());
             ui.replaceTool(reportTool);
         } else if (button == ui.getButton("期初建账")) {
+            ui.paintData(new JPanel());
             ui.replaceTool(initTool);
         } else {
             System.err.println("error");

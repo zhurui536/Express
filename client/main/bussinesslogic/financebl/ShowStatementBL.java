@@ -43,7 +43,7 @@ public class ShowStatementBL implements ShowStatementBLService {
 
     @Override
     public ResultMessage showStatement(Time startTime, Time endTime) {
-        if (startTime.compareTo(endTime) < 0) {
+        if (startTime.compareTo(endTime) > 0) {
             return new ResultMessage("fail");
         }
 

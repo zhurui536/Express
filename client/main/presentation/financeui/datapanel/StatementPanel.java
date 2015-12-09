@@ -23,17 +23,26 @@ public class StatementPanel extends JPanel {
 
         this.setLayout(null);
         initPanel();
-        this.setSize(830, receiptPanel.getHeight() + payPanel.getHeight() + 20);
+        this.setSize(830, receiptPanel.getHeight() + payPanel.getHeight() + 200);
     }
 
     private void initPanel() {
+        JLabel receipt = new JLabel("收款单");
+        receipt.setBounds(5, 20, 100, 30);
+
+
         receiptPanel = new ReceiptPanel(statementVO.receiptBillVOs);
-        receiptPanel.setLocation(0, 0);
+        receiptPanel.setLocation(0, 60);
+
+        JLabel pay = new JLabel("付款单");
+        pay.setBounds(5, 100 + receiptPanel.getHeight(), 100, 30);
 
         payPanel = new PayPanel(statementVO.payBillVOs);
-        payPanel.setLocation(0, receiptPanel.getHeight() + 10);
+        payPanel.setLocation(0, receiptPanel.getHeight() + 150);
 
         this.add(receiptPanel);
         this.add(payPanel);
+        this.add(receipt);
+        this.add(pay);
     }
 }

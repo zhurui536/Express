@@ -39,8 +39,10 @@ public class InitToolListener extends ToolListener {
         ToolPanel toolPanel = ui.getToolPanel();
 
         if (button == toolPanel.getButton("create")) {
+            ui.paintData(new JPanel());
             initAccount();
         } else if (button == toolPanel.getButton("inquire")) {
+            ui.paintData(new JPanel());
             inquire();
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());

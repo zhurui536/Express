@@ -32,8 +32,10 @@ public class ReportToolListener extends ToolListener {
         ToolPanel toolPanel = ui.getToolPanel();
 
         if (button == toolPanel.getButton("profit")) {
+            ui.paintData(new JPanel());
             processProfit();
         } else if (button == toolPanel.getButton("statement")) {
+            ui.paintData(new JPanel());
             StatementDialog dialog = new StatementDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton("back")) {

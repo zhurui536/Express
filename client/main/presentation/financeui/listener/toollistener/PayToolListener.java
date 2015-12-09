@@ -25,6 +25,7 @@ public class PayToolListener extends ToolListener {
         ToolPanel toolPanel = ui.getToolPanel();
 
         if (button == toolPanel.getButton("create")) {
+            ui.paintData(new JPanel());
             PayDialog dialog = new PayDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton("back")) {

@@ -25,6 +25,7 @@ public class ReceiptToolListener extends ToolListener {
         ToolPanel toolPanel = ui.getToolPanel();
 
         if (button == toolPanel.getButton("show")) {
+            ui.paintData(new JPanel());
             ReceiptDialog dialog = new ReceiptDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton("back")) {

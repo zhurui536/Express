@@ -14,7 +14,7 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class PayPanel extends JPanel {
 
-    private String[] row = { "付款人ID", "付款金额" , "付款账号", "条目", "备注" };
+    private String[] row = { "付款人ID", "付款账号", "条目", "备注", "付款金额" };
 
     private List<PayBillVO> payBillVOs;
 
@@ -45,10 +45,10 @@ public class PayPanel extends JPanel {
         for (int i = 1; i <= payBillVOs.size(); i++) {
             PayBillVO payBillVO = payBillVOs.get(i - 1);
             table.setValueAt(payBillVO.id, i, 0);
-            table.setValueAt(payBillVO.money, i, 1);
-            table.setValueAt(payBillVO.bankAccountVO.id, i, 2);
-            table.setValueAt(payBillVO.item.getName(), i, 3);
-            table.setValueAt(payBillVO.remark, i, 4);
+            table.setValueAt(payBillVO.bankAccountVO.id, i, 1);
+            table.setValueAt(payBillVO.item.getName(), i, 2);
+            table.setValueAt(payBillVO.remark, i, 3);
+            table.setValueAt(payBillVO.money, i, 4);
         }
 
         int len = payBillVOs.size() + 2;
@@ -57,6 +57,6 @@ public class PayPanel extends JPanel {
         for (PayBillVO payBillVO : payBillVOs) {
             sum = sum.add(payBillVO.money);
         }
-        table.setValueAt(sum, len, 1);
+        table.setValueAt(sum, len, 4);
     }
 }
