@@ -23,4 +23,6 @@ public interface StrategyDataService {
 	public ResultMessage update(SalaryPO po) throws RemoteException;
 	
 	public ResultMessage savePrice(double price) throws RemoteException;
+	
+	public ResultMessage getPrice() throws RemoteException;
 }

@@ -13,4 +13,8 @@ public interface StrategyConstantBLService {
 	public ResultMessage inputDistanceInfo(DistanceVO vo);
 	
 	public ResultMessage inputPriceInfo(double price);
+	
+	public ResultMessage getDistanceInfo();
+	
+	public ResultMessage getPrice();
 }

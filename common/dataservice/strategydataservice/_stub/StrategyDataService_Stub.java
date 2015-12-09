@@ -40,4 +40,10 @@ public class StrategyDataService_Stub implements StrategyDataService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public ResultMessage getPrice() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

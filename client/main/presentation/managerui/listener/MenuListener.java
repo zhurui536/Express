@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import main.presentation.billui.listener.BillJudgeToolListener;
 import main.presentation.billui.tool.BillJudgeTool;
 import main.presentation.managerui.ManagerFrame;
-import main.presentation.strategyui.datapanel.ConstantStrategyDataPane;
 import main.presentation.strategyui.datapanel.SalaryStrategyDataPane;
+import main.presentation.strategyui.tool.StrategyTool;
 
 public class MenuListener implements ActionListener {
 	private ManagerFrame ui;
@@ -25,8 +25,8 @@ public class MenuListener implements ActionListener {
 				break;
 		}
 		if(i==0){
-			ConstantStrategyDataPane data = new ConstantStrategyDataPane(ui);
-			ui.paintdata(data);
+			StrategyTool tool = new StrategyTool(this.ui);
+			ui.replaceTool(tool);
 		}
 		if(i==1){
 			SalaryStrategyDataPane data = new SalaryStrategyDataPane(ui);

@@ -6,7 +6,12 @@ package main.connection;
  */
 
 public class ClientInitException extends Throwable {
-    public ClientInitException(Exception e) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5101836605741298981L;
+
+	public ClientInitException(Exception e) {
         super(e);
     }
 }

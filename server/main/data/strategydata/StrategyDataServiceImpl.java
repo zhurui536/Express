@@ -106,4 +106,15 @@ public class StrategyDataServiceImpl extends UnicastRemoteObject implements Stra
 		}
 	}
 
+	@Override
+	public ResultMessage getPrice() throws RemoteException {
+		try {
+			double price = (double) this.readList(this.price);
+			return new ResultMessage("success", price);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResultMessage("dataerror", null);
+		}
+	}
+
 }

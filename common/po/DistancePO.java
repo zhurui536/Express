@@ -31,4 +31,12 @@ public class DistancePO implements Serializable {
 	public double getDistance(){
 		return this.distance;
 	}
+	
+	public City getCityA(){
+		return this.a;
+	}
+	
+	public City getCityB(){
+		return this.b;
+	}
 }

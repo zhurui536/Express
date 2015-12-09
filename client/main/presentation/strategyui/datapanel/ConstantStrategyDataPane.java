@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import main.bussinesslogic.strategybl.StrategyConstantBLServiceImpl;
 import main.bussinesslogic.util.City;
 import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogicservice.strategyblservice.StrategyConstantBLService;
@@ -30,9 +29,9 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 	private StrategyConstantBLService bl;
 	private ManagerFrame ui;
 	
-	public ConstantStrategyDataPane(ManagerFrame ui){
+	public ConstantStrategyDataPane(ManagerFrame ui,  StrategyConstantBLService bl){
 		this.ui = ui;
-		bl = new StrategyConstantBLServiceImpl();
+		this.bl = bl;
 		this.setBounds(140, 100, 810, 500);
 		this.setLayout(null);
 		this.initialize();

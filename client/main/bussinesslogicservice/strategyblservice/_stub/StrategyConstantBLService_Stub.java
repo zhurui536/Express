@@ -45,4 +45,16 @@ public class StrategyConstantBLService_Stub implements StrategyConstantBLService
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public ResultMessage getDistanceInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage getPrice() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

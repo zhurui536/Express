@@ -61,4 +61,46 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 		return new ResultMessage("error", null);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResultMessage getDistanceInfo() {
+		try {
+			ResultMessage result = dataservice.getDistance();
+			
+			if(result.getKey().equalsIgnoreCase("success")){
+				ArrayList<DistancePO> distances = (ArrayList<DistancePO>) result.getValue();
+				ArrayList<DistanceVO> vos = new ArrayList<DistanceVO>();
+				
+				for(int i=0;i<distances.size();i++){
+					vos.add(new DistanceVO(distances.get(i).getCityA(), distances.get(i).getCityB(), distances.get(i).getDistance()));
+				}
+				
+				return new ResultMessage("success", vos);
+			}
+			else{
+				return result;
+			}
+		}catch(Exception ex){
+			return new ResultMessage("internet error", null);
+		}
+	}
+
+	@Override
+	public ResultMessage getPrice() {
+		try {
+			ResultMessage result = dataservice.getPrice();
+			
+			if(result.getKey().equalsIgnoreCase("success")){
+				double price = (double) result.getValue();
+				
+				return new ResultMessage("success", price);
+			}
+			else{
+				return result;
+			}
+		}catch(Exception ex){
+			return new ResultMessage("internet error", null);
+		}
+	}
+
 }
