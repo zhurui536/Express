@@ -36,12 +36,12 @@ public class ReportTool extends ToolPanel {
 
         ToolListener toolListener = new ReportToolListener(ui);
 
-        profit.setBounds(100, 25, 100, 50);
+        profit.setBounds(100, 25, 150, 50);
         profit.addActionListener(toolListener);
         buttonMap.put("profit", profit);
         this.add(profit);
 
-        statement.setBounds(200, 25, 100, 50);
+        statement.setBounds(400, 25, 150, 50);
         statement.addActionListener(toolListener);
         buttonMap.put("statement", statement);
         this.add(statement);

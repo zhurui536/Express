@@ -23,4 +23,8 @@ public enum PayItem {
         }
         return null;
     }
+
+    public String getName() {
+        return name;
+    }
 }

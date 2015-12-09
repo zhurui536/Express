@@ -4,6 +4,8 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.financeblservice.FinanceBLService;
 import main.presentation.financeui.FinanceFrame;
+import main.presentation.financeui.datapanel.StatementPanel;
+import main.vo.financevo.StatementVO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +17,7 @@ import java.awt.event.ActionListener;
  * 2015/12/9
  */
 
+@SuppressWarnings("serial")
 public class StatementDialog extends JDialog {
 
     private JComboBox<String> startYear;
@@ -24,23 +27,25 @@ public class StatementDialog extends JDialog {
     private JComboBox<String> endMonth;
     private JComboBox<String> endDay;
     private FinanceBLService financeController;
+    private FinanceFrame ui;
 
     public StatementDialog(FinanceFrame ui) {
         super(ui);
         init(ui);
+        this.ui = ui;
         financeController = ui.getFinanceController();
     }
 
     private void init(Frame ui) {
         this.setLayout(null);
-        this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 200);
+        this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 220);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
         JPanel panel = new JPanel();
 
         JButton ok = new JButton("确定");
-        ok.setBounds(150, 120, 80, 30);
+        ok.setBounds(150, 130, 80, 30);
         ok.addActionListener(new okListener());
 
         JLabel sTime = new JLabel("开始时间");
@@ -115,11 +120,16 @@ public class StatementDialog extends JDialog {
             if (isFail(msg)) {
                 // TODO
             } else {
-                System.out.println(sTime);
-                System.out.println(eTime);
+                processStatement(msg);
                 close();
             }
         }
+    }
+
+    private void processStatement(ResultMessage msg) {
+        StatementVO statementVO = (StatementVO) msg.getValue();
+        StatementPanel statementPanel = new StatementPanel(statementVO);
+        ui.paintData(statementPanel);
     }
 
     private boolean isFail(ResultMessage message) {

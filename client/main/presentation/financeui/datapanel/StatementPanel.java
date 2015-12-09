@@ -30,6 +30,10 @@ public class StatementPanel extends JPanel {
         receiptPanel = new ReceiptPanel(statementVO.receiptBillVOs);
         receiptPanel.setLocation(0, 0);
 
+        payPanel = new PayPanel(statementVO.payBillVOs);
         payPanel.setLocation(0, receiptPanel.getHeight() + 10);
+
+        this.add(receiptPanel);
+        this.add(payPanel);
     }
 }

@@ -30,7 +30,7 @@ public class ReceiptPanel extends JPanel {
         this.setLayout(null);
         createTable();
         this.add(table);
-        this.setSize(table.getWidth(), table.getHeight());
+        this.setSize(830, table.getHeight());
     }
 
     private void createTable() {
@@ -42,7 +42,7 @@ public class ReceiptPanel extends JPanel {
 
         table = new JTable(numOfRow, row.length);
         table.setRowHeight(60);
-        table.setBounds(0, 0, 100 * row.length, 60 * numOfRow);
+        table.setBounds(0, 0, 830, 60 * numOfRow);
 
         for (int i = 0; i < row.length; i++) {
             table.setValueAt(row[i], 0, i);

@@ -5,12 +5,15 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.financeblservice.FinanceBLService;
 import main.presentation.financeui.FinanceFrame;
+import main.presentation.financeui.datapanel.PayPanel;
 import main.vo.StaffMessageVO;
 import main.vo.financevo.BankAccountVO;
 import main.vo.financevo.PayBillVO;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
@@ -29,10 +32,12 @@ public class PayDialog extends JDialog {
     private JComboBox<String> payItem;
     private JTextField payRemark;
     private FinanceBLService financeController;
+    private FinanceFrame ui;
 
     public PayDialog(FinanceFrame ui) {
         super(ui);
         init(ui);
+        this.ui = ui;
         financeController = ui.getFinanceController();
     }
 
@@ -110,10 +115,16 @@ public class PayDialog extends JDialog {
             Time current = new Time();
             String id = "12345";
             PayBillVO payBillVO = new PayBillVO(current, money, staffMessageVO, bankAccountVO, id, item, remark);
+
             ResultMessage msg = financeController.createPayBill(payBillVO);
+
             if (isFail(msg)) {
                 // TODO
             } else {
+                List<PayBillVO> payBillVOList = new ArrayList<>();
+                payBillVOList.add(payBillVO);
+                PayPanel payPanel = new PayPanel(payBillVOList);
+                ui.paintData(payPanel);
                 close();
             }
         }
