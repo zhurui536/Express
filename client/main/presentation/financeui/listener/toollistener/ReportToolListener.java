@@ -1,7 +1,6 @@
 package main.presentation.financeui.listener.toollistener;
 
 import main.presentation.financeui.FinanceFrame;
-import main.presentation.financeui.dialog.PayDialog;
 import main.presentation.financeui.listener.ToolListener;
 import main.presentation.financeui.tool.ToolPanel;
 
@@ -12,9 +11,9 @@ import java.awt.event.ActionEvent;
  * 2015/12/9
  */
 
-public class PayToolListener extends ToolListener {
+public class ReportToolListener extends ToolListener {
 
-    public PayToolListener(FinanceFrame ui) {
+    public ReportToolListener(FinanceFrame ui) {
         super(ui);
     }
 
@@ -23,12 +22,14 @@ public class PayToolListener extends ToolListener {
         Object button = e.getSource();
         ToolPanel toolPanel = ui.getToolPanel();
 
-        if (button == toolPanel.getButton("create")) {
-            PayDialog dialog = new PayDialog(ui);
-            dialog.setVisible(true);
+        if (button == toolPanel.getButton("profit")) {
+
+        } else if (button == toolPanel.getButton("statement")) {
+
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
-        } else {
+        }
+        else {
             System.out.println("0");
         }
     }
