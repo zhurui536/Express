@@ -14,4 +14,7 @@ public class StaffMessageVO {
         this.id = id;
         this.name = name;
     }
+
+    public StaffMessageVO() {
+    }
 }

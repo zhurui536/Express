@@ -34,7 +34,7 @@ public class ReceiptPanel extends JPanel {
     }
 
     private void createTable() {
-        int numOfRow = 1;
+        int numOfRow = 3;
         for (ReceiptBillVO receiptBillVO : receiptBillVOs) {
             List<ReceiptLineItemVO> receiptLineItemVOs = receiptBillVO.receiptLineItemVOs;
             numOfRow += receiptLineItemVOs.size();
@@ -48,10 +48,20 @@ public class ReceiptPanel extends JPanel {
             table.setValueAt(row[i], 0, i);
         }
 
+        table.setValueAt("总额", numOfRow - 1, 0);
+
         int len = 1;
+
+        if (receiptBillVOs == null) {
+            return;
+        }
 
         for (ReceiptBillVO receiptBillVO : receiptBillVOs) {
             List<ReceiptLineItemVO> receiptLineItemVOs = receiptBillVO.receiptLineItemVOs;
+
+            if (receiptLineItemVOs == null) {
+                return;
+            }
 
             for (ReceiptLineItemVO receiptLineItemVO : receiptLineItemVOs) {
                 table.setValueAt(receiptBillVO.time.toString(), len, 0);
@@ -64,11 +74,10 @@ public class ReceiptPanel extends JPanel {
 
         }
 
-        table.setValueAt("总额", len, 0);
         BigDecimal sum = BigDecimal.ZERO;
         for (ReceiptBillVO receiptBillVO : receiptBillVOs) {
             sum = sum.add(receiptBillVO.totalMoney);
         }
-        table.setValueAt(sum, len, 4);
+        table.setValueAt(sum, len + 1, 4);
     }
 }

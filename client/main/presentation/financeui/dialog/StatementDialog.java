@@ -129,6 +129,7 @@ public class StatementDialog extends JDialog {
     private void processStatement(ResultMessage msg) {
         StatementVO statementVO = (StatementVO) msg.getValue();
         StatementPanel statementPanel = new StatementPanel(statementVO);
+        System.out.println("success");
         ui.paintData(statementPanel);
     }
 

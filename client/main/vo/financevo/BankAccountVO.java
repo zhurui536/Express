@@ -23,4 +23,7 @@ public class BankAccountVO {
         this.balance = balance;
         this.id = id;
     }
+
+    public BankAccountVO() {
+    }
 }

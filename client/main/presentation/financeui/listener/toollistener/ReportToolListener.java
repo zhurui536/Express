@@ -9,6 +9,7 @@ import main.presentation.financeui.listener.ToolListener;
 import main.presentation.financeui.tool.ToolPanel;
 import main.vo.storevo.ProfitListVO;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 /**
@@ -37,6 +38,7 @@ public class ReportToolListener extends ToolListener {
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
+            ui.paintData(new JPanel());
         }
         else {
             System.out.println("0");

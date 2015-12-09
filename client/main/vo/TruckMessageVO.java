@@ -21,4 +21,8 @@ public class TruckMessageVO {
                 this.time = time;
         }
 
+        public TruckMessageVO() {
+
+        }
+
 }

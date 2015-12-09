@@ -27,4 +27,8 @@ public class StoreVO {
         this.shelfs = shelfs;
         this.places = places;
     }
+
+    public StoreVO() {
+
+    }
 }

@@ -81,6 +81,7 @@ public class BankAccountAddDialog extends JDialog {
             ResultMessage msg = financeController.createMember(vo);
             if (isFail(msg)) {
                 // TODO
+                System.err.println("fail");
             } else {
                 close();
             }
@@ -92,9 +93,6 @@ public class BankAccountAddDialog extends JDialog {
     }
 
     private void close() {
-//        acName.setText("");
-//        acBalance.setText("");
-//        acID.setText("");
         this.setVisible(false);
     }
 }

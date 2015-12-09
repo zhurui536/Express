@@ -33,8 +33,8 @@ public class PayPanel extends JPanel {
     }
 
     private void createTable() {
-        int numOfRow = payBillVOs.size() + 1;
-        table = new JTable(numOfRow, 3);
+        int numOfRow = payBillVOs.size() + 3;
+        table = new JTable(numOfRow, 5);
         table.setRowHeight(60);
         table.setBounds(0, 0, 830, 60 * numOfRow);
 
@@ -51,7 +51,7 @@ public class PayPanel extends JPanel {
             table.setValueAt(payBillVO.remark, i, 4);
         }
 
-        int len = payBillVOs.size();
+        int len = payBillVOs.size() + 2;
         table.setValueAt("总额", len, 0);
         BigDecimal sum = BigDecimal.ZERO;
         for (PayBillVO payBillVO : payBillVOs) {

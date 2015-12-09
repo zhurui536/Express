@@ -23,12 +23,15 @@ public class MenuListener implements ActionListener {
 
     private ToolPanel reportTool;
 
+    private ToolPanel initTool;
+
     public MenuListener(FinanceFrame ui) {
         this.ui = ui;
         bankAcManageTool = new BankAccountManagementTool(ui);
         payTool = new PayTool(ui);
         receiptTool = new ReceiptTool(ui);
         reportTool = new ReportTool(ui);
+        initTool = new InitTool(ui);
     }
 
     @Override
@@ -44,7 +47,7 @@ public class MenuListener implements ActionListener {
         } else if (button == ui.getButton("报表查看")) {
             ui.replaceTool(reportTool);
         } else if (button == ui.getButton("期初建账")) {
-
+            ui.replaceTool(initTool);
         } else {
             System.err.println("error");
         }

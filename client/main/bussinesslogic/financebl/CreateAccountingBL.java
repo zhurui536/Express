@@ -50,7 +50,11 @@ public class CreateAccountingBL implements CreateAccountingBLService {
             for (AccountPO po : initAccountPOs) {
                 initAccountVOs.add(po.poToVo());
             }
-            return new ResultMessage("success", initAccountVOs);
+//            return new ResultMessage("success", initAccountVOs);
+            if (initAccountVOs.size() == 0) {
+                return new ResultMessage("success", null);
+            }
+            return new ResultMessage("success", initAccountVOs.get(initAccountVOs.size() - 1));
         } catch (RemoteException e) {
             e.printStackTrace();
             return new ResultMessage("fail");

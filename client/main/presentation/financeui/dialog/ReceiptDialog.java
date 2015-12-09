@@ -4,6 +4,8 @@ import main.bussinesslogic.util.ResultMessage;
 import main.bussinesslogic.util.Time;
 import main.bussinesslogicservice.financeblservice.FinanceBLService;
 import main.presentation.financeui.FinanceFrame;
+import main.presentation.financeui.datapanel.ReceiptPanel;
+import main.vo.logisticvo.ReceiptBillVO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,10 +24,12 @@ public class ReceiptDialog extends JDialog {
     private JComboBox<String> day;
     private JTextField id;
     private FinanceBLService financeController;
+    private FinanceFrame ui;
 
     public ReceiptDialog(FinanceFrame ui) {
         super(ui);
         init(ui);
+        this.ui = ui;
         financeController = ui.getFinanceController();
     }
 
@@ -91,7 +95,9 @@ public class ReceiptDialog extends JDialog {
             if (isFail(msg)) {
                 // TODO
             } else {
-                System.out.println(time);
+                java.util.List<ReceiptBillVO> billVOList = (java.util.List<ReceiptBillVO>) msg.getValue();
+                ReceiptPanel receiptPanel = new ReceiptPanel(billVOList);
+                ui.paintData(receiptPanel);
                 close();
             }
         }

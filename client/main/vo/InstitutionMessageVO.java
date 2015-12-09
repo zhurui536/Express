@@ -23,6 +23,10 @@ public class InstitutionMessageVO {
                 this.id = id;
                 this.institutionType = institutionType;
         }
-        
+
+        public InstitutionMessageVO() {
+
+        }
+
         
 }

@@ -27,6 +27,10 @@ public class StorePlaceVO {
 		this.date = date;
 	}
 
+	public StorePlaceVO() {
+
+	}
+
 	public int getArea(){
 		return this.area;
 	}
