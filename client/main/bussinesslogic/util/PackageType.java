@@ -3,6 +3,17 @@ package main.bussinesslogic.util;
 public enum PackageType {
         CARTONS, WOODEN_BOX, COURIER_BAG;
         
+        public static PackageType stringToType(String string) {
+                PackageType packageType = null;
+                if(string.contains("纸箱"))
+                        packageType = CARTONS;
+                else if(string.contains("木箱"))
+                        packageType = WOODEN_BOX;
+                else if(string.contains("快递袋"))
+                        packageType = COURIER_BAG;
+                return packageType;
+        }
+        
         public static String typeToString(PackageType type) {
                 String result = null;
                 switch (type) {

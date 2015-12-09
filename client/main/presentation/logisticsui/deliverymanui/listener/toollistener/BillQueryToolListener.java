@@ -44,6 +44,9 @@ public class BillQueryToolListener extends ToolListener{
                 if(i == 0){
                         BillQueryInputFrame frame = new BillQueryInputFrame(this);
                         frame.setVisible(true);
+                }else{
+                        ui.replaceTool(null);
+                        ui.paintdata(null);
                 }
         }
 }

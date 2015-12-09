@@ -58,7 +58,8 @@ public class BillQueryInputFrame extends JFrame implements ActionListener{
         public void actionPerformed(ActionEvent e) {
                 if(e.getSource() == confirm){
                         String ID = this.number.getText();
-                        
+                        if(ID == null)
+                                return;
                         boolean result = listener.getInput(ID);
                         if(result){
                                 this.setVisible(false);

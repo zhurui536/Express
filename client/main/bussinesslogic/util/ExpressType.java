@@ -6,7 +6,16 @@ package main.bussinesslogic.util;
  */
 public enum ExpressType {
         ECONOMIC , COURIER,EXPRESS;
-        
+        public static ExpressType stringToType(String string) {
+                ExpressType expressType = null;
+                if(string.contains("经济"))
+                        expressType = ECONOMIC;
+                else if(string.contains("普通"))
+                        expressType = COURIER;
+                else if(string.contains("特快"))
+                        expressType = EXPRESS;
+                return expressType;
+        }
         public static String typeToString(ExpressType type) {
                 String result = null;
                 switch (type) {

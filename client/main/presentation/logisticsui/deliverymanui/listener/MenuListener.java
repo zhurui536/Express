@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import main.presentation.logisticsui.deliverymanui.DeliveryManFrame;
-import main.presentation.logisticsui.deliverymanui.listener.toollistener.BillQueryToolListener;
-import main.presentation.logisticsui.deliverymanui.tool.BillQueryTool;
+import main.presentation.logisticsui.deliverymanui.listener.toollistener.*;
+import main.presentation.logisticsui.deliverymanui.tool.*;
 
 public class MenuListener implements ActionListener{
         
@@ -25,8 +25,12 @@ public class MenuListener implements ActionListener{
                                 i++;
                         }
                 }
-                
-                if(i == 2){
+                if(i == 0){
+                        ReceivingToolListener receivingToolListener = new ReceivingToolListener(ui);
+                        ReceivingTool tool = new ReceivingTool(receivingToolListener);
+                        receivingToolListener.setTool(tool);
+                        ui.replaceTool(tool);
+                }else if(i == 2){
                         BillQueryToolListener billQueryToolListener = new BillQueryToolListener(ui);
                         BillQueryTool tool = new BillQueryTool(billQueryToolListener);
                         billQueryToolListener.setTool(tool);
