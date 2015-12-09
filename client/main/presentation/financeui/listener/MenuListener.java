@@ -46,7 +46,7 @@ public class MenuListener implements ActionListener {
         } else if (button == ui.getButton("期初建账")) {
 
         } else {
-            System.out.println("0");
+            System.err.println("error");
         }
 
     }
