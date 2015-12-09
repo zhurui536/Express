@@ -20,7 +20,7 @@ import po.storepo.OutStoreBillPO;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-
+//处理单据审批
 public class BillBLController implements BillBLService{
 	private BilldataService dataservice;
 	private final BillType[] types = {
@@ -35,7 +35,7 @@ public class BillBLController implements BillBLService{
 		vos = new ArrayList<BillVO>();
 		bills = new ArrayList<BillPO>();
 	}
-
+//获得所有未审批单据
 	@Override
 	public ResultMessage getBills() {
 		vos = new ArrayList<BillVO>();
@@ -164,7 +164,7 @@ public class BillBLController implements BillBLService{
 		
 		
 	}
-
+//获得某个被选中的单据
 	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage chooseBill(String id, BillType type) {
@@ -268,7 +268,7 @@ public class BillBLController implements BillBLService{
 			return new ResultMessage("internet error", null);
 		}
 	}
-
+//审批单个单据
 	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage approve(String id, BillType type) {
@@ -401,7 +401,7 @@ public class BillBLController implements BillBLService{
 			return new ResultMessage("internet error", null);
 		}
 	}
-
+//批量审批
 	@Override
 	public ResultMessage approves() {
 		ArrayList<String> ids = new ArrayList<String>();
@@ -430,7 +430,7 @@ public class BillBLController implements BillBLService{
 		
 		return new ResultMessage("success", null);
 	}
-
+//结束审批
 	@Override
 	public void end() {
 		dataservice = null;
