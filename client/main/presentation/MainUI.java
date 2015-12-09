@@ -1,6 +1,8 @@
 package main.presentation;
 
+import main.bussinesslogic.logisticsbl.LogisticsBLController;
 import main.bussinesslogic.util.PublicMessage;
+import main.bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import main.connection.ClientInitException;
 import main.connection.ClientRMIHelper;
 import main.presentation.financeui.FinanceFrame;
@@ -9,6 +11,7 @@ import main.presentation.logisticsui.deliverymanui.DeliveryManFrame;
 import main.presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import main.presentation.managerui.ManagerFrame;
 import main.presentation.storeui.StoreFrame;
+
 import javax.swing.*;
 
 import java.awt.event.ActionEvent;
@@ -90,7 +93,7 @@ public class MainUI extends JFrame implements ActionListener{
         }
         if(e.getSource() == confirm){
             String id = this.id.getText();
-
+            LogisticsBLService logisticsBLService = new LogisticsBLController();
             if(id.charAt(0) == '0'){
                 this.setVisible(false);
                 StoreFrame frame = new StoreFrame();
@@ -106,15 +109,15 @@ public class MainUI extends JFrame implements ActionListener{
                 frame.setVisible(true);
             } else if (id.charAt(0) == '3') {
                 this.setVisible(false);
-                DeliveryManFrame frame = new DeliveryManFrame();
+                DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
                 frame.setVisible(true);
             } else if (id.charAt(0) == '4') {
                 this.setVisible(false);
-                TransitCenterclerkFrame frame = new TransitCenterclerkFrame();
+                TransitCenterclerkFrame frame = new TransitCenterclerkFrame(logisticsBLService);
                 frame.setVisible(true);
             }else if(id.charAt(0) == '5'){
                     this.setVisible(false);
-                    BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame();
+                    BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
                     frame.setVisible(true);
             }
             PublicMessage.userID = id;

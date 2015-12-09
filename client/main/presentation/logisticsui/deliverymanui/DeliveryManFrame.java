@@ -5,6 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 
+import sun.util.logging.resources.logging;
 import main.bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import main.presentation.logisticsui.deliverymanui.listener.MenuListener;
 
@@ -27,12 +28,13 @@ public class DeliveryManFrame extends JFrame{
         
         private static final int NUMBER_OF_BUTTONS = 3;
         
-        public static void main(String[] args) {
-                DeliveryManFrame frame = new DeliveryManFrame();
-                frame.setVisible(true);
-        }
+//        public static void main(String[] args) {
+//                DeliveryManFrame frame = new DeliveryManFrame();
+//                frame.setVisible(true);
+//        }
         
-        public DeliveryManFrame() {
+        public DeliveryManFrame(LogisticsBLService logisticsBLService) {
+            this.logisticsBLService = logisticsBLService;
                 this.setLayout(null);
                 this.setSize(1000, 630);
                 this.setDefaultCloseOperation(EXIT_ON_CLOSE);

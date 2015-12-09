@@ -33,12 +33,13 @@ public class BusinessOfficeClerkFrame extends JFrame {
 
         private static final int NUMBER_OF_BUTTONS = 5;
 
-        public static void main(String[] args) {
-                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame();
-                frame.setVisible(true);
-        }
+//        public static void main(String[] args) {
+//                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame();
+//                frame.setVisible(true);
+//        }
 
-        public BusinessOfficeClerkFrame() {
+        public BusinessOfficeClerkFrame(LogisticsBLService logisticsBLService) {
+            this.logisticsBLService = logisticsBLService;
                 this.setLayout(null);
                 this.setSize(1000, 630);
                 this.setDefaultCloseOperation(EXIT_ON_CLOSE);
