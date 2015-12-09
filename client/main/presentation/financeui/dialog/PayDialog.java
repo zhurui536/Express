@@ -20,6 +20,7 @@ import java.math.BigDecimal;
  * 2015/12/9
  */
 
+@SuppressWarnings("serial")
 public class PayDialog extends JDialog {
 
     private JTextField payPersonID;

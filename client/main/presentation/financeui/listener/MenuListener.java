@@ -1,10 +1,7 @@
 package main.presentation.financeui.listener;
 
 import main.presentation.financeui.FinanceFrame;
-import main.presentation.financeui.tool.BankAccountManagementTool;
-import main.presentation.financeui.tool.PayTool;
-import main.presentation.financeui.tool.ReceiptTool;
-import main.presentation.financeui.tool.ToolPanel;
+import main.presentation.financeui.tool.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,11 +21,14 @@ public class MenuListener implements ActionListener {
 
     private ToolPanel receiptTool;
 
+    private ToolPanel reportTool;
+
     public MenuListener(FinanceFrame ui) {
         this.ui = ui;
         bankAcManageTool = new BankAccountManagementTool(ui);
         payTool = new PayTool(ui);
         receiptTool = new ReceiptTool(ui);
+        reportTool = new ReportTool(ui);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class MenuListener implements ActionListener {
         } else if (button == ui.getButton("收款")) {
             ui.replaceTool(receiptTool);
         } else if (button == ui.getButton("报表查看")) {
-            System.out.println("3");
+            ui.replaceTool(reportTool);
         } else if (button == ui.getButton("期初建账")) {
 
         } else {
