@@ -32,40 +32,54 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                 this.listener = listener;
                 this.setName("快递单号输入");
                 this.setLayout(null);
-                this.setSize(540, 550);
-                this.setLocation(350, 200);
+                this.setSize(550, 520);
+                this.setLocation(350, 150);
                 init();
         }
         
         private void init() {
+                JPanel aJPanel = new JPanel();
+                aJPanel.setLayout(null);
+                this.setContentPane(aJPanel);
+                
                 numberLabel = new JLabel("订单号：");
-                numberLabel.setSize(50,35);
+                numberLabel.setSize(70,35);
                 numberLabel.setLocation(15,15);
-                this.add(numberLabel);
+                this.getContentPane().add(numberLabel);
                 
                 number = new JTextArea();
-                number.setLocation(65,15);
+                number.setLocation(65,25);
                 number.setSize(100,15);
-                this.add(number);
+                this.getContentPane().add(number);
+                
                 
                 panelForGoods = new goodsPanel();
-                panelForGoods.setLocation(15,65);
+                panelForGoods.setLayout(null);
+                panelForGoods.setSize(510,165);
+                panelForGoods.setLocation(15,45);
+                
                 this.add(panelForGoods);
                 
                 panelForSender = new peoplePanel("寄件人");
-                panelForGoods.setLocation(15,245);
-                this.add(panelForSender);
+                panelForSender.setLocation(15,220);
+                panelForSender.setSize(510,115);
+                this.getContentPane().add(panelForSender);
                 
                 panelForRec = new peoplePanel("收件人");
-                panelForRec.setLocation(15,375);
-                this.add(panelForRec);
+                panelForRec.setLocation(15,350);
+                panelForRec.setSize(510,115);
+                this.getContentPane().add(panelForRec);
                 
                 confirm = new JButton("确定");
                 cancle = new JButton("取消");
                 confirm.setSize(60,35);
-                confirm.setLocation(385,405);
+                confirm.setLocation(385,465);
                 cancle.setSize(60,35);
-                cancle.setLocation(465,405);
+                cancle.setLocation(465,465);
+                confirm.addActionListener(this);
+                cancle.addActionListener(this);
+                this.getContentPane().add(confirm);
+                this.getContentPane().add(cancle);
         }
         
         class goodsPanel extends JPanel{
@@ -76,7 +90,7 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                                 { "包装：", "快递方式：", "运转状态：" } };
                 
                 public goodsPanel() {
-                        this.setSize(510,165);
+                        this.setSize(520,165);
                         for (int i = 0; i < 3; i++) {
                                 for (int j = 0; j < 3; j++) {
                                         if(nameStrings[i][j] == null)
@@ -85,7 +99,7 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                                         labels[i][j].setLocation(15 + j * 165, 15 + i * 50);
                                         labels[i][j].setSize(50,35);
                                         this.add(labels[i][j]);
-                                        
+                                        textAreas[i][j] = new JTextArea();
                                         textAreas[i][j].setLocation(65 + j * 165, 15 + i * 50);
                                         textAreas[i][j].setSize(100, 35);
                                         this.add(textAreas[i][j]);
@@ -136,8 +150,8 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                 JTextArea mobArea;
                 
                 peoplePanel(String people){
-                        this.setSize(510,115);
-                        
+                       
+                        this.setLayout(null);
                          name = new JLabel(people + "姓名：");
                         name.setSize(50,35);
                         name.setLocation(15,15);
@@ -154,7 +168,7 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                          locationArea = new JTextArea();
                         locationArea.setSize(100,35);
                         locationArea.setLocation(250,15);
-                        
+                        this.add(locationArea);
                         
                          institution = new JLabel("单位：" );
                         institution.setSize(50,35);
