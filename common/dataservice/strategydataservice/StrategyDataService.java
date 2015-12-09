@@ -1,11 +1,12 @@
 package dataservice.strategydataservice;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-
 import main.bussinesslogic.util.ResultMessage;
 import po.DistancePO;
 import po.SalaryPO;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 
 
@@ -15,7 +16,7 @@ import po.SalaryPO;
  */
 
 
-public interface StrategyDataService {
+public interface StrategyDataService extends Remote {
 	public ResultMessage getDistance() throws RemoteException;
 	
 	public ResultMessage SaveDistance(ArrayList<DistancePO> pos) throws RemoteException;

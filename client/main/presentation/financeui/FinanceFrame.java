@@ -2,8 +2,6 @@ package main.presentation.financeui;
 
 import main.bussinesslogic.financebl.FinanceController;
 import main.bussinesslogicservice.financeblservice.FinanceBLService;
-import main.connection.ClientInitException;
-import main.connection.ClientRMIHelper;
 import main.presentation.financeui.listener.MenuListener;
 import main.presentation.financeui.tool.ToolPanel;
 
@@ -31,20 +29,20 @@ public class FinanceFrame extends JFrame {
     private JScrollPane scroll;
     private JPanel data;
 
-    public FinanceFrame(FinanceBLService financeController) {
-        this.financeController = financeController;
+    public FinanceFrame() {
+        this.financeController = new FinanceController();
         menuListener = new MenuListener(this);
         initComponents();
     }
 
-    public static void main(String[] args) {
-        try {
-            ClientRMIHelper.init();
-        } catch (ClientInitException e) {
-            e.printStackTrace();
-        }
-        FinanceFrame financeFrame = new FinanceFrame(new FinanceController());
-    }
+//    public static void main(String[] args) {
+//        try {
+//            ClientRMIHelper.init();
+//        } catch (ClientInitException e) {
+//            e.printStackTrace();
+//        }
+//        FinanceFrame financeFrame = new FinanceFrame(new FinanceController());
+//    }
 
     private void initComponents() {
         buttonMap = new HashMap<>();

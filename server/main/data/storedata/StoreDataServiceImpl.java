@@ -33,7 +33,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	private final String adjustrecord = "server/save/storedata/adjustPO.dat";
 	private final String verificationrecord = "server/save/storedata/verificationPO.dat";
 	private final String instorebill = "server/save/storedata/instoreBillPO.dat";
-	private final String outstorebill = "server/save/storedata/outstoreBillPO.dat";
+	private final String outstorebill = "server/save/storedata/outstoreBillPO.dat.dat";
 	private final String sendbill = "server/save/logisticsdata/sendBillPO.dat";
 	
 	public StoreDataServiceImpl() throws RemoteException {

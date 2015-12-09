@@ -2,34 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df707e08-8df3-4511-9f4e-7ebff1dc9706" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/connection/ClientInitException.class" afterPath="$PROJECT_DIR$/target/classes/main/connection/ClientInitException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/StrategyConstantBLService.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/StrategyConstantBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/_stub/StrategyConstantBLService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/main/bussinesslogicservice/strategyblservice/_stub/StrategyConstantBLService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/strategydataservice/StrategyDataService.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/strategydataservice/StrategyDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dataservice/strategydataservice/_stub/StrategyDataService_Stub.class" afterPath="$PROJECT_DIR$/target/classes/dataservice/strategydataservice/_stub/StrategyDataService_Stub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/BankAccountManagementToolListener.java" />
+      <change type="DELETED" beforePath="D:\code\Express\Express\server\save\storedata\outstoreBillPO" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/main/data/billdata/BillDataServiceImpl.java" afterPath="$PROJECT_DIR$/server/main/data/billdata/BillDataServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/FinanceFrame.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/FinanceFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/InitToolListener.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/InitToolListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/MainUI.java" afterPath="$PROJECT_DIR$/client/main/presentation/MainUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/listener/MenuListener.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/MenuListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/datapanel/PayPanel.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/datapanel/PayPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/PayToolListener.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/PayToolListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/ReceiptToolListener.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/ReceiptToolListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/ReportToolListener.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/listener/toollistener/ReportToolListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/ShowStatementBL.java" afterPath="$PROJECT_DIR$/client/main/bussinesslogic/financebl/ShowStatementBL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main/presentation/financeui/datapanel/StatementPanel.java" afterPath="$PROJECT_DIR$/client/main/presentation/financeui/datapanel/StatementPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/main/data/storedata/StoreDataServiceImpl.java" afterPath="$PROJECT_DIR$/server/main/data/storedata/StoreDataServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/dataservice/strategydataservice/StrategyDataService.java" afterPath="$PROJECT_DIR$/common/dataservice/strategydataservice/StrategyDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/storedata/adjustPO.dat" afterPath="$PROJECT_DIR$/target/classes/save/storedata/adjustPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/financedata/bankAccountPO.dat" afterPath="$PROJECT_DIR$/target/classes/save/financedata/bankAccountPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/storedata/instorePO.dat" afterPath="$PROJECT_DIR$/target/classes/save/storedata/instorePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/storedata/outStorePO.dat" afterPath="$PROJECT_DIR$/target/classes/save/storedata/outStorePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/storedata/storePO.dat" afterPath="$PROJECT_DIR$/target/classes/save/storedata/storePO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/save/storedata/verificationPO.dat" afterPath="$PROJECT_DIR$/target/classes/save/storedata/verificationPO.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\code\Express\Express\server\save\storedata\outstoreBillPO" afterPath="$PROJECT_DIR$/server/save/storedata/outstoreBillPO.dat" />
-      <change type="MOVED" beforePath="D:\code\Express\Express\target\classes\save\financedata\PayBillPO.dat" afterPath="$PROJECT_DIR$/target/classes/save/financedata/payBillPO.dat" />
     </list>
     <ignored path="express-all.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -217,6 +194,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="save" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="save" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storedata" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -761,12 +792,12 @@
       <workItem from="1449626469752" duration="6748000" />
       <workItem from="1449635748114" duration="1195000" />
       <workItem from="1449638419627" duration="1541000" />
-      <workItem from="1449640778510" duration="15334000" />
+      <workItem from="1449640778510" duration="15375000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266180000" />
+    <option name="totallyTimeSpent" value="266221000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1932" height="1092" extended-state="0" />
