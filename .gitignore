@@ -1,9 +1,11 @@
-/MyUnderstandProject1_html
-/MyUnderstandProject1_html.zip
-/MyUnderstandProject1.udb
-/MyUnderstandProject1.txt
-/.idea
 # Created by .ignore support plugin (hsz.mobi)
-/bin/
+/client/client.iml
+/common/common.iml
+/server/server.iml
+/Express.iml
+/.idea
+/server/src/main/java/save
 /target
-/.gitignore
+/client/target
+/common/target
+/server/target
