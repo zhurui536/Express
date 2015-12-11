@@ -1,6 +1,8 @@
 package po;
 
 
+import util.Job;
+import util.SalaryType;
 import vo.StaffMessageVO;
 
 import java.io.Serializable;
@@ -20,10 +22,22 @@ public class StaffMessagePO implements Serializable {
 
     // 员工名称
     String name;
+    
+    //员工职位
+    Job job;
+    
+    //员工薪水
+    SalaryPO salary;
+    
+    //所属机构
+    String institutionid;
 
-    public StaffMessagePO(String id, String name) {
+    public StaffMessagePO(String id, String name, String institutionid, Job job, SalaryType type, double salary) {
         this.id = id;
         this.name = name;
+        this.job = job;
+        this.salary = new SalaryPO(salary, type);
+        this.institutionid = institutionid;
     }
 
 
@@ -31,11 +45,14 @@ public class StaffMessagePO implements Serializable {
     public StaffMessagePO(StaffMessageVO vo) {
         this.id = vo.id;
         this.name = vo.name;
+        this.job = vo.job;
+        this.salary = new SalaryPO(vo.salary.getSalary(), vo.salary.getType());
+        this.institutionid = vo.institutionid;
     }
 
 
     public StaffMessageVO poToVo() {
-        return new StaffMessageVO(id, name);
+        return new StaffMessageVO(this);
     }
 
     public String getId() {
@@ -52,5 +69,29 @@ public class StaffMessagePO implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public void setSalary(SalaryPO salary){
+    	this.salary = salary;
+    }
+    
+    public SalaryPO getSalary(){
+    	return this.salary;
+    }
+    
+    public String getInstitutionid(){
+    	return this.institutionid;
+    }
+    
+    public void setInstitutionid(String id){
+    	this.institutionid = id;
+    }
+    
+    public void setJob(Job job){
+    	this.job = job;
+    }
+    
+    public Job getJob(){
+    	return this.job;
     }
 }

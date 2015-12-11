@@ -3,6 +3,7 @@ package main.data.strategydata;
 import dataservice.strategydataservice.StrategyDataService;
 import po.DistancePO;
 import po.SalaryPO;
+import po.StaffMessagePO;
 import util.ResultMessage;
 
 import java.io.FileInputStream;
@@ -50,7 +51,7 @@ public class StrategyDataServiceImpl extends UnicastRemoteObject implements Stra
 
 	private final String price = "server/src/main/java/save/strategydata/price.dat";
 	private final String distances = "server/src/main/java/save/strategydata/distancepo.dat";
-	private final String salary = "server/src/main/java/save/strategydata/salarypo.dat";
+	private final String salary = "server/src/main/java/save/infodata/staffMessagePO.dat";
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -109,21 +110,10 @@ public class StrategyDataServiceImpl extends UnicastRemoteObject implements Stra
 		objout.close();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public ResultMessage update(SalaryPO po) throws RemoteException {
+	public ResultMessage saveSalary(ArrayList<StaffMessagePO> pos) throws RemoteException {
 		try {
-			ArrayList<SalaryPO> pos = (ArrayList<SalaryPO>) this.readList(this.salary);
-			
-			for(int i=0;i<pos.size();i++){
-				if(po.getId().equals(pos.get(i).getId())){
-					pos.remove(i);
-					pos.add(po);
-					return new ResultMessage("success", null);
-				}
-			}
-			
-			pos.add(po);
+			this.writeList(salary, pos);
 			return new ResultMessage("success", null);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -136,6 +126,17 @@ public class StrategyDataServiceImpl extends UnicastRemoteObject implements Stra
 		try {
 			double price = (double) this.readList(this.price);
 			return new ResultMessage("success", price);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResultMessage("dataerror", null);
+		}
+	}
+
+	@Override
+	public ResultMessage getSalary() throws RemoteException {
+		try {
+			ArrayList<StaffMessagePO> pos = (ArrayList<StaffMessagePO>) this.readList(salary);
+			return new ResultMessage("success", pos);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResultMessage("dataerror", null);

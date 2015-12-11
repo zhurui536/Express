@@ -58,7 +58,7 @@ public class PayBillPO extends BillPO {
         
         this.time = payBillVO.time;
         this.money = payBillVO.money;
-        this.staffMessagePO = new StaffMessagePO(staffMessageVO.id, staffMessageVO.name);
+        this.staffMessagePO = new StaffMessagePO(staffMessageVO.id, staffMessageVO.name, id, null, null, 0);
         this.bankAccountPO = new BankAccountPO(bankAccountVO.name, bankAccountVO.balance, bankAccountVO.id);
         this.id = payBillVO.id;
         this.item = payBillVO.item;

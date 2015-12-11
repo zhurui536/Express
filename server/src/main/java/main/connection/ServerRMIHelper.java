@@ -6,6 +6,7 @@ import main.data.infodata.*;
 import main.data.logisticsdata.*;
 import main.data.storedata.StoreDataServiceImpl;
 import main.data.strategydata.StrategyDataServiceImpl;
+import main.data.userdata.AdminDataServiceImpl;
 
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
@@ -56,6 +57,7 @@ public class ServerRMIHelper {
         NAMING_MAP.put("StaffMessageMaintenanceDataServiceImpl", StaffMessageMaintenanceDataServiceImpl.class);
         NAMING_MAP.put("TruckMessageMaintenanceDataServiceImpl", TruckMessageMaintenanceDataServiceImpl.class);
         NAMING_MAP.put("StrategyDataServiceImpl", StrategyDataServiceImpl.class);
+        NAMING_MAP.put("AdminDataServiceImpl", AdminDataServiceImpl.class);
         
         //        for (String name : CLASS_NAMES) {
 //            try {

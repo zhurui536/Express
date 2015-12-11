@@ -77,18 +77,18 @@ public class SalaryStrategyDataPane extends JPanel implements ActionListener {
 			Job job = this.boxToJob();
 			String id = this.input[0].getText();
 			try{
-				double salary = Double.parseDouble(input[1].getText());
-				ResultMessage result = bl.inputSalaryInfo(new SalaryVO(id, job, salary, this.boxToType()));
-				if(result.getKey().equals("success")){
-					input[1].setText("设置成功");
-					ui.validate();
-					ui.repaint();
-				}
-				else{
-					input[1].setText(result.getKey());
-					ui.validate();
-					ui.repaint();
-				}
+//				double salary = Double.parseDouble(input[1].getText());
+//				ResultMessage result = null;
+//				if(result.getKey().equals("success")){
+//					input[1].setText("设置成功");
+//					ui.validate();
+//					ui.repaint();
+//				}
+//				else{
+//					input[1].setText(result.getKey());
+//					ui.validate();
+//					ui.repaint();
+//				}
 			}catch(Exception ex){
 				input[1].setText("网络错误");
 			}

@@ -41,7 +41,8 @@ public class ClientRMIHelper {
             "InstitutionMessageMaintenanceDataServiceImpl",
             "StaffMessageMaintenanceDataServiceImpl",
             "TruckMessageMaintenanceDataServiceImpl",
-            "StrategyDataServiceImpl"
+            "StrategyDataServiceImpl",
+            "AdminDataServiceImpl"
     };
 
     public synchronized static void init() throws ClientInitException {

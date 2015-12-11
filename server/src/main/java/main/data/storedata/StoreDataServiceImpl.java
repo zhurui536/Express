@@ -27,14 +27,14 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	 */
 	private static final long serialVersionUID = -2094560624032926398L;
 	
-	private final String storerecord = "server/save/storedata/storePO.dat";
-	private final String instorerecord = "server/save/storedata/instorePO.dat";
-	private final String outstorerecord = "server/save/storedata/outstorePO.dat";
-	private final String adjustrecord = "server/save/storedata/adjustPO.dat";
-	private final String verificationrecord = "server/save/storedata/verificationPO.dat";
-	private final String instorebill = "server/save/storedata/instoreBillPO.dat";
-	private final String outstorebill = "server/save/storedata/outstoreBillPO.dat.dat";
-	private final String sendbill = "server/save/logisticsdata/sendBillPO.dat";
+	private final String storerecord = "server/src/main/java/save/storedata/storePO.dat";
+	private final String instorerecord = "server/src/main/java/save/storedata/instorePO.dat";
+	private final String outstorerecord = "server/src/main/java/save/storedata/outstorePO.dat";
+	private final String adjustrecord = "server/src/main/java/save/storedata/adjustPO.dat";
+	private final String verificationrecord = "server/src/main/java/save/storedata/verificationPO.dat";
+	private final String instorebill = "server/src/main/java/save/storedata/instoreBillPO.dat";
+	private final String outstorebill = "server/src/main/java/save/storedata/outstoreBillPO.dat";
+	private final String sendbill = "server/src/main/java/save/logisticsdata/sendBillPO.dat";
 	
 	public StoreDataServiceImpl() throws RemoteException {
 		try {//将所有空文件进行初始化

@@ -1,27 +1,14 @@
 package vo;
 
 
-import util.Job;
 import util.SalaryType;
 
 public class SalaryVO {
-	private String id;
-	private Job job;
 	private double salary;
 	private SalaryType type;
-	public SalaryVO(String id, Job job, double salary, SalaryType type){
-		this.setId(id);
+	public SalaryVO(double salary, SalaryType type){
 		this.setSalary(salary);
-		this.setJob(job);
 		this.setType(type);
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public double getSalary() {
@@ -38,14 +25,6 @@ public class SalaryVO {
 
 	public void setType(SalaryType type) {
 		this.type = type;
-	}
-
-	public Job getJob() {
-		return job;
-	}
-
-	public void setJob(Job job) {
-		this.job = job;
 	}
 	
 }
