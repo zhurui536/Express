@@ -1,19 +1,15 @@
 package presentation.storeui.tool;
 
+import javax.swing.JButton;
+
+import presentation.ToolPane;
 import presentation.storeui.listener.ToolListener;
 
-import javax.swing.*;
-
-
 @SuppressWarnings("serial")
-public class OutStoreTool extends JPanel implements GetButtonOfTool{
-	private JButton buttons[] = new JButton[3];
+public class OutStoreTool extends ToolPane{
 	
 	public OutStoreTool(ToolListener tl){
-		this.setName("outstore");
-		this.setLayout(null);
-		this.setSize(1000, 100);
-		this.setLocation(0, 0);
+		super.buttons = new JButton[3];
 		
 		buttons[0] = new JButton("新建出库项");
 		buttons[0].setSize(105, 25);
@@ -32,15 +28,5 @@ public class OutStoreTool extends JPanel implements GetButtonOfTool{
 		buttons[2].setLocation(880, 35);
 		buttons[2].addActionListener(tl);
 		this.add(buttons[2]);
-	}
-	
-	@Override
-	public JButton getButton(int i){
-		return buttons[i];
-	}
-
-	@Override
-	public int getNumOfButton() {
-		return 3;
 	}
 }

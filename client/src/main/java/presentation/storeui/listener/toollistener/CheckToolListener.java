@@ -1,16 +1,17 @@
 package presentation.storeui.listener.toollistener;
 
-import bussinesslogicservice.storeblservice.StoreBLService;
+import java.awt.event.ActionEvent;
+import java.util.Calendar;
+
+import presentation.ToolPane;
+import presentation.WarningFrame;
 import presentation.storeui.StoreFrame;
 import presentation.storeui.datapanel.CheckDataPane;
 import presentation.storeui.inputframe.CheckInputFrame;
 import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
 import util.ResultMessage;
 import vo.storevo.CheckVO;
-
-import java.awt.event.ActionEvent;
-import java.util.Calendar;
+import bussinesslogicservice.storeblservice.StoreBLService;
 
 public class CheckToolListener extends ToolListener {
 
@@ -24,7 +25,7 @@ public class CheckToolListener extends ToolListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		GetButtonOfTool tool = super.getTool();
+		ToolPane tool = super.getTool();
 		int i;
 		
 		for(i=0;i<tool.getNumOfButton();i++){
@@ -53,7 +54,7 @@ public class CheckToolListener extends ToolListener {
 		}
 		else{
 			//提示错误
-			
+			WarningFrame frame = new WarningFrame(result);
 			return false;
 		}
 	}

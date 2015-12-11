@@ -1,19 +1,19 @@
 package presentation.logisticsui.transitcenterclerkui.tool;
 
+import javax.swing.JButton;
+
+import presentation.ToolPane;
 import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
-
-import javax.swing.*;
-
 
 @SuppressWarnings("serial")
-public class GoodsRecTool extends JPanel implements GetButtonOfTool {
+public class GoodsRecTool extends ToolPane{
         
         private static final int NUMBER_OF_BUTTIONS = 2;
         
-        private JButton[] buttons = new JButton[NUMBER_OF_BUTTIONS];
-
+        
         public GoodsRecTool(ToolListener toolListener) {
+        		super.buttons = new JButton[NUMBER_OF_BUTTIONS];
+
                 this.setName("goodsReceipt");
                 this.setLayout(null);
                 this.setSize(1000, 100);
@@ -30,16 +30,6 @@ public class GoodsRecTool extends JPanel implements GetButtonOfTool {
                 buttons[1].setLocation(880, 35);
                 buttons[1].addActionListener(toolListener);
                 this.add(buttons[1]);
-        }
-        
-        @Override
-        public JButton getButton(int i) {
-                return buttons[i];
-        }
-
-        @Override
-        public int getNumOfButton() {
-                return NUMBER_OF_BUTTIONS;
         }
         
 }

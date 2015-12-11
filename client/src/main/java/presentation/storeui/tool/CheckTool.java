@@ -1,21 +1,18 @@
 package presentation.storeui.tool;
 
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+
+import presentation.ToolPane;
 import presentation.storeui.listener.ToolListener;
 
-import javax.swing.*;
-
-
 @SuppressWarnings("serial")
-public class CheckTool extends JPanel implements GetButtonOfTool{
-	private JButton buttons[] = new JButton[2];
+public class CheckTool extends ToolPane{
 	private JTextArea startt;
 	private JTextArea endt;
 	
 	public CheckTool(ToolListener tl){
-		this.setName("check");
-		this.setLayout(null);
-		this.setSize(1000, 100);
-		this.setLocation(0, 0);
+		super.buttons = new JButton[2];
 		
 		buttons[0] = new JButton("search");
 		buttons[0].setSize(100, 30);
@@ -30,17 +27,7 @@ public class CheckTool extends JPanel implements GetButtonOfTool{
 		this.add(buttons[1]);
 	}
 	
-	@Override
-	public JButton getButton(int i){
-		return buttons[i];
-	}
-	
 	public String getText(){
 		return startt.getText()+" "+endt.getText();
-	}
-
-	@Override
-	public int getNumOfButton() {
-		return buttons.length;
 	}
 }

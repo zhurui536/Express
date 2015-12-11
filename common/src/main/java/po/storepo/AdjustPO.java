@@ -1,7 +1,5 @@
 package po.storepo;
 
-import po.UserPO;
-
 import java.io.Serializable;
 import java.util.Calendar;
 
@@ -17,9 +15,9 @@ public class AdjustPO implements Serializable {
 	private Calendar date;
 	private StorePlacePO start;
 	private StorePlacePO end;
-	private UserPO user;
+	private String user;
 	
-	public AdjustPO(StorePlacePO start, StorePlacePO end, UserPO user){
+	public AdjustPO(StorePlacePO start, StorePlacePO end, String user){
 		this.start = start;
 		this.end = end;
 		this.date = Calendar.getInstance(); 
@@ -38,7 +36,7 @@ public class AdjustPO implements Serializable {
 		return this.date;
 	}
 	
-	public UserPO getUser(){
+	public String getUser(){
 		return this.user;
 	}
 }

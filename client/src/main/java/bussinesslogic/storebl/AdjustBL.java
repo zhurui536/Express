@@ -1,28 +1,28 @@
 package bussinesslogic.storebl;
 
-import bussinesslogicservice.storeblservice.AdjustBLService;
-import connection.ClientRMIHelper;
-import dataservice.storedataservice.StoreDataService;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import po.GoodsPO;
-import po.UserPO;
 import po.storepo.AdjustPO;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
+import util.PublicMessage;
 import util.ResultMessage;
 import vo.storevo.AdjustVO;
 import vo.storevo.StorePlaceVO;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
+import bussinesslogicservice.storeblservice.AdjustBLService;
+import connection.ClientRMIHelper;
+import dataservice.storedataservice.StoreDataService;
 
 public class AdjustBL implements AdjustBLService {
 	private StoreDataService dataservice;
 	private ArrayList<AdjustPO> adjusts;
-	private UserPO user;
+	private String user;
 	
-	public AdjustBL(UserPO user){
+	public AdjustBL(){
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
-		this.user = user;
+		this.user = PublicMessage.userID;
 	}
 
 	@Override
@@ -50,12 +50,12 @@ public class AdjustBL implements AdjustBLService {
 				StorePO store = (StorePO) result.getValue();
 				start = store.getStorePlace(s.getArea(), s.getRow(), s.getShelf(), s.getPlace());
 				if(start.ifEmpty()){
-					return new ResultMessage("emptystart", new AdjustVO(adjusts));
+					return new ResultMessage("emptystart", null);
 				}
 				
 				end = store.getStorePlace(e.getArea(), e.getRow(), e.getShelf(), e.getPlace());
 				if(!end.ifEmpty()){
-					return new ResultMessage("usedend", new AdjustVO(adjusts));
+					return new ResultMessage("usedend", null);
 				}
 				
 				adjusts.add(new AdjustPO(start, end, user));
@@ -63,11 +63,11 @@ public class AdjustBL implements AdjustBLService {
 				return new ResultMessage("success", new AdjustVO(adjusts));
 			}
 			else{
-				return new ResultMessage(result.getKey(), new AdjustVO(adjusts));
+				return new ResultMessage(result.getKey(), null);
 			}
 		} catch (RemoteException exception) {
 			exception.printStackTrace();
-			return new ResultMessage("internet error", new AdjustVO(adjusts));
+			return new ResultMessage("internet error", null);
 		}
 	}
 	
@@ -80,47 +80,52 @@ public class AdjustBL implements AdjustBLService {
 
 	@Override
 	public ResultMessage endAdjust(int condition) {
-		try {//存储调整记录
-			ResultMessage result = dataservice.getStore();
-			if(result.getKey().equals("success")){//如果成功获得库存，则对库存进行改写
-				StorePO store = (StorePO) result.getValue();
+		if(condition == 0){
+			try {//存储调整记录
+				ResultMessage result = dataservice.getStore();
+				if(result.getKey().equals("success")){//如果成功获得库存，则对库存进行改写
+					StorePO store = (StorePO) result.getValue();
 
-				//将所有的调整项对库存进行实现
-				for(int i=0;i<adjusts.size();i++){
-					AdjustPO temp = adjusts.get(i);
-					StorePlacePO start = temp.getStart();
-					StorePlacePO end = temp.getEnd();
+					//将所有的调整项对库存进行实现
+					for(int i=0;i<adjusts.size();i++){
+						AdjustPO temp = adjusts.get(i);
+						StorePlacePO start = temp.getStart();
+						StorePlacePO end = temp.getEnd();
+						
+						start = store.getStorePlace(start.getArea(), start.getRow(), start.getShelf(), start.getPlace());
+						end = store.getStorePlace(end.getArea(), end.getRow(), end.getShelf(), end.getPlace());
+						
+						GoodsPO goods = start.getGoods();
+						start.setGoods(end.getGoods());
+						end.setGoods(goods);
+						
+						store.setStorePlace(start);
+						store.setStorePlace(end);
+					}
 					
-					start = store.getStorePlace(start.getArea(), start.getRow(), start.getShelf(), start.getPlace());
-					end = store.getStorePlace(end.getArea(), end.getRow(), end.getShelf(), end.getPlace());
-					
-					GoodsPO goods = start.getGoods();
-					start.setGoods(end.getGoods());
-					end.setGoods(goods);
-					
-					store.setStorePlace(start);
-					store.setStorePlace(end);
-				}
-				
-				result = dataservice.saveStore(store);
-				if(result.getKey().equals("success")){
-					result = dataservice.saveAdjust(adjusts);
-					
-					if(result.getKey().equals("success"))
-						return new ResultMessage("success", new AdjustVO(adjusts));
-					else
-						return new ResultMessage(result.getKey(), new AdjustVO(adjusts));
+					result = dataservice.saveStore(store);
+					if(result.getKey().equals("success")){
+						result = dataservice.saveAdjust(adjusts);
+						
+						if(result.getKey().equals("success"))
+							return new ResultMessage("success", null);
+						else
+							return new ResultMessage(result.getKey(), null);
+					}
+					else{
+						return new ResultMessage(result.getKey(), null);
+					}
 				}
 				else{
-					return new ResultMessage(result.getKey(), new AdjustVO(adjusts));
+					return new ResultMessage(result.getKey(), null);
 				}
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				return new ResultMessage("internet error", null);
 			}
-			else{
-				return new ResultMessage(result.getKey(), new AdjustVO(adjusts));
-			}
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			return new ResultMessage("internet error", new AdjustVO(adjusts));
+		}
+		else{
+			return new ResultMessage("success", null);
 		}
 	}
 	

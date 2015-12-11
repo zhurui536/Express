@@ -1,17 +1,16 @@
 package presentation.logisticsui.deliverymanui.listener.toollistener;
 
+import java.awt.event.ActionEvent;
 
-import bussinesslogicservice.logisticsblservice.LogisticsBLService;
+import presentation.ToolPane;
 import presentation.logisticsui.deliverymanui.DeliveryManFrame;
 import presentation.logisticsui.deliverymanui.inputframe.DeliveryInputFrame;
 import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
 import util.ResultMessage;
 import util.Time;
+import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 
-import java.awt.event.ActionEvent;
-
-public class DeliveryToolListener extends ToolListener {
+public class DeliveryToolListener extends ToolListener{
         
         private LogisticsBLService logisticsBLService;
         private DeliveryManFrame ui;
@@ -24,7 +23,7 @@ public class DeliveryToolListener extends ToolListener {
         @Override
         public void actionPerformed(ActionEvent e) {
                 int i;
-                GetButtonOfTool tool = super.getTool();
+                ToolPane tool = super.getTool();
 
                 for (i = 0; i < tool.getNumOfButton(); i++) {
                         if (e.getSource() == tool.getButton(i))

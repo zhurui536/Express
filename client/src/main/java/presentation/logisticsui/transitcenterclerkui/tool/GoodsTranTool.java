@@ -1,20 +1,21 @@
 package presentation.logisticsui.transitcenterclerkui.tool;
 
-import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
+import javax.swing.JButton;
 
-import javax.swing.*;
+import presentation.ToolPane;
+import presentation.storeui.listener.ToolListener;
 
 @SuppressWarnings("serial")
-public class GoodsTranTool extends JPanel implements GetButtonOfTool {
+public class GoodsTranTool extends ToolPane{
 
         private static final int NUMBER_OF_BUTTIONS = 4;
         
-        private JButton[] buttons = new JButton[NUMBER_OF_BUTTIONS];
+       
         
         private final String[] transTypeName = {"火车装运","汽车装运","飞机装运"};
 
         public GoodsTranTool(ToolListener toolListener) {
+        		super.buttons = new JButton[NUMBER_OF_BUTTIONS];
                 this.setName("goodsTran");
                 this.setLayout(null);
                 this.setSize(1000, 100);
@@ -33,16 +34,6 @@ public class GoodsTranTool extends JPanel implements GetButtonOfTool {
                 buttons[3].setLocation(880, 35);
                 buttons[3].addActionListener(toolListener);
                 this.add(buttons[3]);
-        }
-        
-        @Override
-        public JButton getButton(int i) {
-                return buttons[i];
-        }
-
-        @Override
-        public int getNumOfButton() {
-                return NUMBER_OF_BUTTIONS;
         }
 
 }

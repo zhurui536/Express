@@ -1,11 +1,15 @@
 package presentation.storeui.inputframe;
 
-import presentation.storeui.listener.toollistener.InStoreToolListener;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
+import presentation.WarningFrame;
+import presentation.storeui.listener.toollistener.InStoreToolListener;
 
 @SuppressWarnings("serial")
 public class InStoreInputFrame extends JFrame implements ActionListener{
@@ -79,24 +83,28 @@ public class InStoreInputFrame extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		//将输入委托给上一级进行处理
 		if(e.getSource() == confirm){
-			String number = this.number.getText();
-			String destination = this.destination.getText();
-			int[] place = new int[4];
-			
-			for(int i=0;i<4;i++){
-				place[i] = Integer.parseInt(this.place[i].getText()) - 1;
-			}
-			
-			boolean result = listener.getInput(number, destination, place);
-			if(result){
-				this.setVisible(false);
-			}
-			else{
-				//提示输入错误或者网络错误
+			try{
+				String number = this.number.getText();
+				String destination = this.destination.getText();
+				int[] place = new int[4];
+				
+				for(int i=0;i<4;i++){
+					place[i] = Integer.parseInt(this.place[i].getText()) - 1;
+				}
+				
+				boolean result = listener.getInput(number, destination, place);
+				if(result){
+					this.dispose();
+				}
+			}catch(Exception ex){
+				WarningFrame warning = new WarningFrame("输入有误，请重新输入");
+				for(int i=0;i<4;i++){
+					this.place[i].setText("");
+				}
 			}
 		}
 		else if(e.getSource() == cancle){
-			this.setVisible(false);
+			this.dispose();
 		}
 		
 	}

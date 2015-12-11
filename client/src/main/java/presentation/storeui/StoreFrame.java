@@ -1,14 +1,19 @@
 package presentation.storeui;
 
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
+import presentation.storeui.listener.MenuListener;
 import bussinesslogic.storebl.StoreBLController;
 import bussinesslogicservice.storeblservice.StoreBLService;
 import connection.ClientInitException;
 import connection.ClientRMIHelper;
-import po.UserPO;
-import presentation.storeui.listener.MenuListener;
-
-import javax.swing.*;
-import java.awt.*;
 
 
 @SuppressWarnings("serial")
@@ -32,11 +37,11 @@ public class StoreFrame extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		menulistener = new MenuListener(this);
-		sc = new StoreBLController(new UserPO("10010", "10086"));
+		sc = new StoreBLController();
 		this.paintframe();
 	}
 	
-	public static void main(String[] args) throws ClientInitException {
+	public static void main(String[] args) throws ClientInitException{
 		StoreFrame frame = new StoreFrame();
 		ClientRMIHelper.init();
 		frame.setVisible(true);

@@ -1,16 +1,17 @@
 package presentation.billui.listener;
 
-import bussinesslogicservice.billblservice.BillBLService;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
+import presentation.ToolPane;
+import presentation.WarningFrame;
 import presentation.billui.datapanel.BillDataPane;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
 import util.BillType;
 import util.ResultMessage;
 import vo.BillVO;
-
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
+import bussinesslogicservice.billblservice.BillBLService;
 
 public class BillJudgeToolListener extends ToolListener {
 	private BillBLService bc;
@@ -25,7 +26,7 @@ public class BillJudgeToolListener extends ToolListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int i;
-		GetButtonOfTool tool = super.getTool();
+		ToolPane tool = super.getTool();
 		
 		for(i=0;i<tool.getNumOfButton();i++){
 			if(e.getSource() == tool.getButton(i)){
@@ -41,6 +42,12 @@ public class BillJudgeToolListener extends ToolListener {
 					BillDataPane data = new BillDataPane((ArrayList<BillVO>) result.getValue(), this);
 					ui.paintdata(data);
 				}
+				else{
+					WarningFrame frame = new WarningFrame(result);
+				}
+			}
+			else{
+				WarningFrame frame = new WarningFrame(result);
 			}
 		}
 		else if(i==1){
@@ -55,6 +62,9 @@ public class BillJudgeToolListener extends ToolListener {
 				BillDataPane data = new BillDataPane((ArrayList<BillVO>) result.getValue(), this);
 				ui.paintdata(data);
 			}
+			else{
+				WarningFrame frame = new WarningFrame(result);
+			}
 		}
 	}
 	
@@ -67,6 +77,9 @@ public class BillJudgeToolListener extends ToolListener {
 			BillDataPane data = new BillDataPane((ArrayList<BillVO>) result.getValue(), this);
 			ui.paintdata(data);
 		}
+		else{
+			WarningFrame frame = new WarningFrame(result);
+		}
 	}
 	
 	public void getDetail(String billid, BillType type){
@@ -74,6 +87,9 @@ public class BillJudgeToolListener extends ToolListener {
 		
 		if(result.getKey().equals("success")){
 			//将单据显示出来
+		}
+		else{
+			WarningFrame frame = new WarningFrame(result);
 		}
 	}
 

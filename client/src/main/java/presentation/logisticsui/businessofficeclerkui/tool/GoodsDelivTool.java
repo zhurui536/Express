@@ -1,22 +1,16 @@
 package presentation.logisticsui.businessofficeclerkui.tool;
 
-import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
+import javax.swing.JButton;
 
-import javax.swing.*;
+import presentation.ToolPane;
+import presentation.storeui.listener.ToolListener;
 
 @SuppressWarnings("serial")
-public class GoodsDelivTool extends JPanel implements GetButtonOfTool {
-private static final int NUMBER_OF_BUTTIONS = 2;
-        
-        private JButton[] buttons = new JButton[NUMBER_OF_BUTTIONS];
+public class GoodsDelivTool extends ToolPane{
+		private static final int NUMBER_OF_BUTTIONS = 2;
         
         public GoodsDelivTool(ToolListener toolListener) {
-                this.setName("goodsLoad");
-                this.setLayout(null);
-                this.setSize(1000, 100);
-                this.setLocation(0, 0);
-                
+        		super.buttons = new JButton[NUMBER_OF_BUTTIONS];
                 buttons[0] = new JButton("选择快递员");
                 buttons[0].setSize(125, 25);
                 buttons[0].setLocation(145, 40);
@@ -29,15 +23,5 @@ private static final int NUMBER_OF_BUTTIONS = 2;
                 buttons[1].addActionListener(toolListener);
                 this.add(buttons[1]);
                 
-        }
-        
-        @Override
-        public JButton getButton(int i) {
-                return buttons[i];
-        }
-
-        @Override
-        public int getNumOfButton() {
-                return NUMBER_OF_BUTTIONS;
         }
 }

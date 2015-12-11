@@ -1,9 +1,5 @@
 package po.storepo;
 
-import po.GoodsPO;
-import po.UserPO;
-import util.Trans;
-
 import java.io.Serializable;
 import java.util.Calendar;
 
@@ -11,6 +7,8 @@ import java.util.Calendar;
  * Created By ZHR
  * 2015/10/26
  */
+import po.GoodsPO;
+import util.Trans;
 
 public class OutStorePO implements Serializable {
 	/**
@@ -24,7 +22,7 @@ public class OutStorePO implements Serializable {
 	//出入库货物的目的地
 	private String destination;
 	//出入库的管理员
-	private UserPO user;
+	private String user;
 	//货物的存储位置
 	private StorePlacePO place;
 	//货物出库后的装运方式
@@ -32,7 +30,7 @@ public class OutStorePO implements Serializable {
 	//中转单货号或者汽运编号
 	private String billid;
 	
-	public OutStorePO(GoodsPO goods, StorePlacePO place, String destination, UserPO user, Trans trans, String billid) {
+	public OutStorePO(GoodsPO goods, StorePlacePO place, String destination, String user, Trans trans, String billid) {
 		this.goods = goods;
 		this.destination = destination;
 		this.date = Calendar.getInstance();
@@ -58,7 +56,7 @@ public class OutStorePO implements Serializable {
 		return this.destination;
 	}
 	
-	public UserPO getUser(){
+	public String getUser(){
 		return this.user;
 	}
 	

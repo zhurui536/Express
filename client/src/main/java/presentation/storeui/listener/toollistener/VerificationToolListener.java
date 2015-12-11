@@ -1,13 +1,13 @@
 package presentation.storeui.listener.toollistener;
 
-import bussinesslogicservice.storeblservice.StoreBLService;
-import presentation.storeui.StoreFrame;
-import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
-import util.ResultMessage;
-
 import java.awt.event.ActionEvent;
 
+import presentation.ToolPane;
+import presentation.WarningFrame;
+import presentation.storeui.StoreFrame;
+import presentation.storeui.listener.ToolListener;
+import util.ResultMessage;
+import bussinesslogicservice.storeblservice.StoreBLService;
 
 public class VerificationToolListener extends ToolListener {
 
@@ -21,7 +21,7 @@ public class VerificationToolListener extends ToolListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		GetButtonOfTool tool = super.getTool();
+		ToolPane tool = super.getTool();
 		int i;
 		
 		for(i=0;i<tool.getNumOfButton();i++){
@@ -37,7 +37,7 @@ public class VerificationToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				//提示错误类型
+				WarningFrame frame = new WarningFrame(result);
 			}
 		}
 		else{

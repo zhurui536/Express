@@ -1,16 +1,17 @@
 package presentation.storeui.listener.toollistener;
 
-import bussinesslogicservice.storeblservice.StoreBLService;
+import java.awt.event.ActionEvent;
+
+import presentation.ToolPane;
+import presentation.WarningFrame;
 import presentation.storeui.StoreFrame;
 import presentation.storeui.datapanel.OutStoreDataPane;
 import presentation.storeui.inputframe.OutStoreInputFrame;
 import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
 import util.ResultMessage;
 import util.Trans;
 import vo.storevo.OutStoreVO;
-
-import java.awt.event.ActionEvent;
+import bussinesslogicservice.storeblservice.StoreBLService;
 
 public class OutStoreToolListener extends ToolListener {
 
@@ -25,7 +26,7 @@ public class OutStoreToolListener extends ToolListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int i;
-		GetButtonOfTool tool = super.getTool();
+		ToolPane tool = super.getTool();
 		
 		for(i=0;i<3;i++){
 			if(e.getSource() == tool.getButton(i))
@@ -43,7 +44,7 @@ public class OutStoreToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				//提示错误
+				WarningFrame frame = new WarningFrame(result);
 			}
 		}
 		else if(i==2){

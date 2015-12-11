@@ -1,13 +1,12 @@
 package presentation.storeui.listener;
 
-import presentation.storeui.tool.GetButtonOfTool;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import presentation.ToolPane;
 //tool部分的父类，由于tool和toollistener互相持有引用，所以添加了此类的设定监听对象的方法
 public class ToolListener implements ActionListener {
-	private GetButtonOfTool tool;
+	private ToolPane tool;
 	
 	public ToolListener(){
 		
@@ -17,11 +16,11 @@ public class ToolListener implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 	}
 	
-	public void setTool(GetButtonOfTool tool){
+	public void setTool(ToolPane tool){
 		this.tool = tool;
 	}
 	
-	public GetButtonOfTool getTool(){
+	public ToolPane getTool(){
 		return this.tool;
 	}
 }

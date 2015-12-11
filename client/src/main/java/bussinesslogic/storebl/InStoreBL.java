@@ -1,27 +1,27 @@
 package bussinesslogic.storebl;
 
-import bussinesslogicservice.storeblservice.InStoreBLService;
-import connection.ClientRMIHelper;
-import dataservice.storedataservice.StoreDataService;
-import po.GoodsPO;
-import po.UserPO;
-import po.storepo.InStorePO;
-import po.storepo.StorePO;
-import po.storepo.StorePlacePO;
-import util.ResultMessage;
-import vo.storevo.InStoreVO;
-import vo.storevo.StorePlaceVO;
-
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import po.GoodsPO;
+import po.storepo.InStorePO;
+import po.storepo.StorePO;
+import po.storepo.StorePlacePO;
+import util.PublicMessage;
+import util.ResultMessage;
+import vo.storevo.InStoreVO;
+import vo.storevo.StorePlaceVO;
+import bussinesslogicservice.storeblservice.InStoreBLService;
+import connection.ClientRMIHelper;
+import dataservice.storedataservice.StoreDataService;
+
 public class InStoreBL implements InStoreBLService {
 	private StoreDataService dataservice;
-	private UserPO user;
+	private String user;
 	private ArrayList<InStorePO> goodslist;
 	
-	public InStoreBL(UserPO user){
-		this.user = user;
+	public InStoreBL(){
+		this.user = PublicMessage.userID;
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 	}
 
@@ -37,13 +37,18 @@ public class InStoreBL implements InStoreBLService {
 		if(ifAppear(p)){
 			return new ResultMessage("usedplace", null);
 		}
+		for(int i=0;i<goodslist.size();i++){
+			if(goodslist.get(i).getGoodsID().equals(id)){
+				return new ResultMessage("inputedid", null);
+			}
+		}
 		StorePlacePO place = new StorePlacePO(p.getArea(), p.getRow(), p.getShelf(), p.getPlace());
 		try {
 			ResultMessage result = dataservice.find(id);
 			if(result.getKey().equals("noexist")){//货物不存在时，返回不存在
 				return new ResultMessage("noexist", null);
 			}
-			else{//货物存在时，继续检查该位置
+			else if(result.getKey().equals("exist")){//货物存在时，继续检查该位置
 				GoodsPO goods = (GoodsPO) result.getValue();
 				result = dataservice.getStore();
 				if(result.getKey().equals("success")){
@@ -62,6 +67,9 @@ public class InStoreBL implements InStoreBLService {
 					return result;
 				}
 				
+			}
+			else{
+				return result;
 			}
 		} catch (RemoteException e) {
 			e.printStackTrace();

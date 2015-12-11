@@ -1,28 +1,28 @@
 package bussinesslogic.storebl;
 
-import bussinesslogicservice.storeblservice.OutStoreBLService;
-import connection.ClientRMIHelper;
-import dataservice.storedataservice.StoreDataService;
-import po.UserPO;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import po.storepo.OutStorePO;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
+import util.PublicMessage;
 import util.ResultMessage;
 import util.Trans;
 import vo.storevo.OutStoreVO;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
+import bussinesslogicservice.storeblservice.OutStoreBLService;
+import connection.ClientRMIHelper;
+import dataservice.storedataservice.StoreDataService;
 
 public class OutStoreBL implements OutStoreBLService {
 	
 	private StoreDataService dataservice;
-	private UserPO user;
+	private String user;
 	private ArrayList<OutStorePO> goodslist;
 	
-	public OutStoreBL(UserPO user){
+	public OutStoreBL(){
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
-		this.user = user;
+		this.user = PublicMessage.userID;
 		
 	}
 	

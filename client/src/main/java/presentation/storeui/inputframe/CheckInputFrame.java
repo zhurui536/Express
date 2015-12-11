@@ -1,13 +1,16 @@
 package presentation.storeui.inputframe;
 
-import presentation.storeui.listener.toollistener.CheckToolListener;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
+import presentation.WarningFrame;
+import presentation.storeui.listener.toollistener.CheckToolListener;
 
 @SuppressWarnings("serial")
 public class CheckInputFrame extends JFrame implements ActionListener {
@@ -130,7 +133,7 @@ public class CheckInputFrame extends JFrame implements ActionListener {
 					this.starttime[i].setText("");
 					this.endtime[i].setText("");
 				}
-				
+				WarningFrame warning = new WarningFrame("输入有误，请重新输入");
 				this.validate();
 				this.repaint();
 			}

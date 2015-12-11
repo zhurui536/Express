@@ -1,12 +1,16 @@
 package presentation.storeui.inputframe;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 import presentation.storeui.listener.toollistener.OutStoreToolListener;
 import util.Trans;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class OutStoreInputFrame extends JFrame implements ActionListener{
@@ -80,9 +84,6 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 		this.getContentPane().add(trans);
 	}
 	
-	private final String[] listname = {"货物编号：", "装运方式", "目的地：", "单据编号："};
-	private final String[] transport = {"飞机", "火车", "货车"};
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == confirm){
@@ -91,14 +92,16 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 			
 			boolean result = listener.getInput(number.getText(), destination.getText(), trans, billid.getText());
 			if(result == true){
-				this.setVisible(false);
+				this.dispose();
 			}
 		}
 		if(e.getSource() == cancle){
-			this.setVisible(false);
+			this.dispose();
 		}
 		
 	}
 	
-	private Trans[] tran = {Trans.PLANE, Trans.TRAIN, Trans.TRUCK};
+	private final String[] listname = {"货物编号：", "装运方式", "目的地：", "单据编号："};
+	private final String[] transport = {"飞机", "火车", "货车"};
+	private final Trans[] tran = {Trans.PLANE, Trans.TRAIN, Trans.TRUCK};
 }

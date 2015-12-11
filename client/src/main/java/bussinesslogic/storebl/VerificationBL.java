@@ -1,24 +1,24 @@
 package bussinesslogic.storebl;
 
+import java.rmi.RemoteException;
+
+import po.storepo.StorePO;
+import po.storepo.VerificationPO;
+import util.PublicMessage;
+import util.ResultMessage;
+import vo.storevo.VerificationVO;
 import bussinesslogicservice.storeblservice.VerificationBLService;
 import connection.ClientRMIHelper;
 import dataservice.storedataservice.StoreDataService;
-import po.UserPO;
-import po.storepo.StorePO;
-import po.storepo.VerificationPO;
-import util.ResultMessage;
-import vo.storevo.VerificationVO;
-
-import java.rmi.RemoteException;
 
 public class VerificationBL implements VerificationBLService {
 	private StoreDataService dataservice;
-	private UserPO user;
+	private String user;
 	private VerificationVO store;
 	private VerificationPO po;
 	
-	public VerificationBL(UserPO user){
-		this.user = user;
+	public VerificationBL(){
+		this.user = PublicMessage.userID;
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 	}
 	
@@ -35,7 +35,6 @@ public class VerificationBL implements VerificationBLService {
 				return new ResultMessage("success", this.store);
 			}
 			else{
-				System.out.println(result.getKey());
 				return result;
 			}
 			

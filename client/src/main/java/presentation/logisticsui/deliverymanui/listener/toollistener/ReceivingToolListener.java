@@ -1,17 +1,17 @@
 package presentation.logisticsui.deliverymanui.listener.toollistener;
 
-import bussinesslogicservice.logisticsblservice.LogisticsBLService;
+import java.awt.event.ActionEvent;
+
+import presentation.ToolPane;
 import presentation.logisticsui.deliverymanui.DeliveryManFrame;
 import presentation.logisticsui.deliverymanui.datapane.ReceivingDataPane;
 import presentation.logisticsui.deliverymanui.inputframe.ReceivingInputFrame;
 import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
 import util.ResultMessage;
 import vo.logisticvo.SendBillVO;
+import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 
-import java.awt.event.ActionEvent;
-
-public class ReceivingToolListener extends ToolListener {
+public class ReceivingToolListener extends ToolListener{
         
         private LogisticsBLService logisticsBLService;
         private DeliveryManFrame ui;
@@ -34,7 +34,7 @@ public class ReceivingToolListener extends ToolListener {
         
         @Override
         public void actionPerformed(ActionEvent e) {
-                GetButtonOfTool tool = super.getTool();
+                ToolPane tool = super.getTool();
                 if(e.getSource() == tool.getButton(0)){
                         ReceivingInputFrame frame = new ReceivingInputFrame(this);
                         frame.setVisible(true);

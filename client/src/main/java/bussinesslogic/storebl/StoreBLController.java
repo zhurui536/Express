@@ -1,12 +1,11 @@
 package bussinesslogic.storebl;
 
-import bussinesslogicservice.storeblservice.StoreBLService;
-import po.UserPO;
+import java.util.Calendar;
+
 import util.ResultMessage;
 import util.Trans;
 import vo.storevo.StorePlaceVO;
-
-import java.util.Calendar;
+import bussinesslogicservice.storeblservice.StoreBLService;
 
 public class StoreBLController implements StoreBLService {
 	//以下为处理5种用例所用的逻辑处理对象
@@ -16,21 +15,17 @@ public class StoreBLController implements StoreBLService {
 	private OutStoreBL outstore;
 	private VerificationBL verification;
 	
-	//包含了创建该事件的用户的信息
-	private UserPO user;
-	
 	//表示当前的状态，0代表空闲
 	private int condition;
 	
-	public StoreBLController(UserPO user){
-		this.user = user;
+	public StoreBLController(){
 		this.condition = 0;
 	}
 
 	@Override
 	public ResultMessage newInStore() {
 		if(condition == 0){
-			instore = new InStoreBL(user);
+			instore = new InStoreBL();
 			condition = 1;
 			return instore.newInStore();
 		}
@@ -63,7 +58,7 @@ public class StoreBLController implements StoreBLService {
 	@Override
 	public ResultMessage newOutStore() {
 		if(condition == 0){
-			outstore = new OutStoreBL(user);
+			outstore = new OutStoreBL();
 			condition = 2;
 			return outstore.newOutStore();
 		}
@@ -96,7 +91,7 @@ public class StoreBLController implements StoreBLService {
 	@Override
 	public ResultMessage newAdjust() {
 		if(condition == 0){
-			adjust = new AdjustBL(user);
+			adjust = new AdjustBL();
 			condition = 5;
 			return adjust.newAdjust();
 		}
@@ -155,7 +150,7 @@ public class StoreBLController implements StoreBLService {
 	@Override
 	public ResultMessage verification() {
 		if(condition == 0){
-			verification = new VerificationBL(user);
+			verification = new VerificationBL();
 			condition = 4;
 			return verification.verification();
 		}

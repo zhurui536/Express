@@ -1,16 +1,17 @@
 package presentation.storeui.listener.toollistener;
 
-import bussinesslogicservice.storeblservice.StoreBLService;
+import java.awt.event.ActionEvent;
+
+import presentation.ToolPane;
+import presentation.WarningFrame;
 import presentation.storeui.StoreFrame;
 import presentation.storeui.datapanel.AdjustDataPane;
 import presentation.storeui.inputframe.AdjustInputFrame;
 import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
 import util.ResultMessage;
 import vo.storevo.AdjustVO;
 import vo.storevo.StorePlaceVO;
-
-import java.awt.event.ActionEvent;
+import bussinesslogicservice.storeblservice.StoreBLService;
 
 public class AdjustToolListener extends ToolListener {
 
@@ -25,7 +26,7 @@ public class AdjustToolListener extends ToolListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		int i;
-		GetButtonOfTool tool = super.getTool();
+		ToolPane tool = super.getTool();
 		
 		for(i=0;i<tool.getNumOfButton();i++){
 			if(arg0.getSource() == tool.getButton(i))
@@ -44,6 +45,12 @@ public class AdjustToolListener extends ToolListener {
 			}
 			else{
 				//提示错误
+				if(result.getKey().equals("dataerror")){
+					WarningFrame frame = new WarningFrame("数据存储出错");
+				}
+				else{
+					WarningFrame frame = new WarningFrame(result);
+				}
 			}
 		}
 		else if(i==2){
@@ -54,6 +61,7 @@ public class AdjustToolListener extends ToolListener {
 			}
 			else{
 				//提示错误
+				WarningFrame frame = new WarningFrame(result);
 			}
 		}
 	}

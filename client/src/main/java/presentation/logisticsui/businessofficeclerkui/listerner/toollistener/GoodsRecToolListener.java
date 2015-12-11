@@ -1,17 +1,16 @@
 package presentation.logisticsui.businessofficeclerkui.listerner.toollistener;
 
-import bussinesslogicservice.logisticsblservice.LogisticsBLService;
+import java.awt.event.ActionEvent;
+
+import presentation.ToolPane;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.inputframe.GoodsRecInputFrame;
 import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
 import util.ResultMessage;
 import vo.logisticvo.ArrivalBillVO;
+import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 
-import java.awt.event.ActionEvent;
-
-
-public class GoodsRecToolListener extends ToolListener {
+public class GoodsRecToolListener extends ToolListener{
         private LogisticsBLService logisticsBLService;
         private BusinessOfficeClerkFrame ui;
         
@@ -34,7 +33,7 @@ public class GoodsRecToolListener extends ToolListener {
         
         @Override
         public void actionPerformed(ActionEvent e) {
-                GetButtonOfTool tool = super.getTool();
+        		ToolPane tool = super.getTool();
                 if(e.getSource() == tool.getButton(0)){
                         GoodsRecInputFrame frame = new GoodsRecInputFrame(this);
                         frame.setVisible(true);

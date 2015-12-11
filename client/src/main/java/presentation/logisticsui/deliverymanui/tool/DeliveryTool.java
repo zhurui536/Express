@@ -1,23 +1,17 @@
 package presentation.logisticsui.deliverymanui.tool;
 
+import javax.swing.JButton;
 
+import presentation.ToolPane;
 import presentation.storeui.listener.ToolListener;
-import presentation.storeui.tool.GetButtonOfTool;
-
-import javax.swing.*;
 
 @SuppressWarnings("serial")
-public class DeliveryTool extends JPanel implements GetButtonOfTool {
+public class DeliveryTool extends ToolPane{
 
         private static final int NUMBER_OF_BUTTIONS = 2;
         
-        private JButton[] buttons = new JButton[NUMBER_OF_BUTTIONS];
-        
         public DeliveryTool(ToolListener toolListener) {
-                this.setName("delivery");
-                this.setLayout(null);
-                this.setSize(1000, 100);
-                this.setLocation(0, 0);
+                super.buttons = new JButton[NUMBER_OF_BUTTIONS];
                 
                 buttons[0] = new JButton("输入收件信息");
                 buttons[0].setSize(105, 25);
@@ -31,15 +25,4 @@ public class DeliveryTool extends JPanel implements GetButtonOfTool {
                 buttons[1].addActionListener(toolListener);
                 this.add(buttons[1]);
         }
-        
-        @Override
-        public JButton getButton(int i) {
-                return buttons[i];
-        }
-
-        @Override
-        public int getNumOfButton() {
-                return NUMBER_OF_BUTTIONS;
-        }
-
 }
