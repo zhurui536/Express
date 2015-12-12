@@ -9,6 +9,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import po.StaffMessagePO;
 import po.UserPO;
 import util.ResultMessage;
 import dataservice.userdataservice.AdminDataService;
@@ -18,7 +19,8 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 	 * 
 	 */
 	private static final long serialVersionUID = 2560801151861337295L;
-	private final String userrecord = "server/src/main/java/save/userdata/UserPO.dat";
+	private final String userrecord = "src/main/java/save/userdata/UserPO.dat";
+	private final String staffmessage = "src/main/java/save/infodata/staffMessagePO.dat";
 	
 	public AdminDataServiceImpl() throws RemoteException{
 		super();
@@ -67,6 +69,19 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 		try {
 			this.writeList(userrecord, users);
 			return new ResultMessage("success", null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResultMessage("dataerror", null);
+		}
+	}
+	
+	@Override
+	public ResultMessage getStaff() throws RemoteException {
+		ArrayList<StaffMessagePO> staff = null;
+		
+		try {
+			staff = (ArrayList<StaffMessagePO>) this.readList(staffmessage);
+			return new ResultMessage("success", staff);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResultMessage("dataerror", null);

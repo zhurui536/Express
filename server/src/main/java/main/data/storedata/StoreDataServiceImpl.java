@@ -27,21 +27,21 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	 */
 	private static final long serialVersionUID = -2094560624032926398L;
 	
-	private final String storerecord = "server/src/main/java/save/storedata/storePO.dat";
-	private final String instorerecord = "server/src/main/java/save/storedata/instorePO.dat";
-	private final String outstorerecord = "server/src/main/java/save/storedata/outstorePO.dat";
-	private final String adjustrecord = "server/src/main/java/save/storedata/adjustPO.dat";
-	private final String verificationrecord = "server/src/main/java/save/storedata/verificationPO.dat";
-	private final String instorebill = "server/src/main/java/save/storedata/instoreBillPO.dat";
-	private final String outstorebill = "server/src/main/java/save/storedata/outstoreBillPO.dat";
-	private final String sendbill = "server/src/main/java/save/logisticsdata/sendBillPO.dat";
+	private final String storerecord = "src/main/java/save/storedata/storePO.dat";
+	private final String instorerecord = "src/main/java/save/storedata/instorePO.dat";
+	private final String outstorerecord = "src/main/java/save/storedata/outstorePO.dat";
+	private final String adjustrecord = "src/main/java/save/storedata/adjustPO.dat";
+	private final String verificationrecord = "src/main/java/save/storedata/verificationPO.dat";
+	private final String instorebill = "src/main/java/save/storedata/instoreBillPO.dat";
+	private final String outstorebill = "src/main/java/save/storedata/outstoreBillPO.dat";
+	private final String sendbill = "src/main/java/save/logisticsdata/sendBillPO.dat";
 	
 	public StoreDataServiceImpl() throws RemoteException {
 		try {//将所有空文件进行初始化
 			FileInputStream in = new FileInputStream(storerecord);
 			//判断文档是否为空，如果是空的，那么新建一个对象，并将其写入文件中
 			if(in.available() == 0){
-				StorePO store = new StorePO(2, 3, 5, 7);
+				StorePO store = new StorePO(4, 10, 10, 10);
 				in.close();
 				
 				//写回文件中

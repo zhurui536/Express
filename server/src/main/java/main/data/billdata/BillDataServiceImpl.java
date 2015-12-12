@@ -105,23 +105,23 @@ public class BillDataServiceImpl extends UnicastRemoteObject implements Billdata
 	}
 
 	//入库单
-	private final String instorebill = "server/src/main/java/save/storedata/instoreBillPO.dat";
+	private final String instorebill = "src/main/java/save/storedata/instoreBillPO.dat";
 	//出库单
-	private final String outstorebill = "server/src/main/java/save/storedata/outstoreBillPO.dat";
+	private final String outstorebill = "src/main/java/save/storedata/outstoreBillPO.dat";
 	//付款单
-	private final String paybill = "server/src/main/java/save/financedata/payBillPO.dat";
+	private final String paybill = "src/main/java/save/financedata/payBillPO.dat";
 	//收款单
-	private final String receiptbill = "server/src/main/java/save/logisticsdata/receiptBillPO.dat";
+	private final String receiptbill = "src/main/java/save/logisticsdata/receiptBillPO.dat";
 	//到达单
-	private final String arrivalbill = "server/src/main/java/save/logisticsdata/arrivalBillPO.dat";
+	private final String arrivalbill = "src/main/java/save/logisticsdata/arrivalBillPO.dat";
 	//派件单
-	private final String deliverybill = "server/src/main/java/save/logisticsdata/deliveryBillPO.dat";
+	private final String deliverybill = "src/main/java/save/logisticsdata/deliveryBillPO.dat";
 	//装车单
-	private final String loadingbill = "server/src/main/java/save/logisticsdata/loadingBillPO.dat";
+	private final String loadingbill = "src/main/java/save/logisticsdata/loadingBillPO.dat";
 	//寄件单
-	private final String sendbill = "server/src/main/java/save/logisticsdata/sendBillPO.dat";
+	private final String sendbill = "src/main/java/save/logisticsdata/sendBillPO.dat";
 	//中转单
-	private final String transferbill = "server/src/main/java/save/logisticsdata/transferBillPO.dat";
+	private final String transferbill = "src/main/java/save/logisticsdata/transferBillPO.dat";
 	
 	private Object readBill(String path) throws Exception{
 		Object bills;

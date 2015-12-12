@@ -49,9 +49,9 @@ public class StrategyDataServiceImpl extends UnicastRemoteObject implements Stra
 		
 	}
 
-	private final String price = "server/src/main/java/save/strategydata/price.dat";
-	private final String distances = "server/src/main/java/save/strategydata/distancepo.dat";
-	private final String salary = "server/src/main/java/save/infodata/staffMessagePO.dat";
+	private final String price = "src/main/java/save/strategydata/price.dat";
+	private final String distances = "src/main/java/save/strategydata/distancepo.dat";
+	private final String salary = "src/main/java/save/infodata/staffMessagePO.dat";
 
 	@SuppressWarnings("unchecked")
 	@Override

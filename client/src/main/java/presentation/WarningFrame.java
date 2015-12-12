@@ -65,25 +65,25 @@ public class WarningFrame {
 	
 	private String resultToString(ResultMessage result){
 		if(result.getKey().equals("internet error")){
-			return "缃戠粶杩炴帴鏂紑锛岃妫�鏌ョ綉缁�";
+			return "网络连接出错";
 		}
 		else if(result.getKey().equals("dataerror")){
-			return "鏁版嵁瀛樺偍鍑洪敊";
+			return "数据存储出错";
 		}
 		else if(result.getKey().equals("inputedid")){
-			return "id宸茶緭鍏�";
+			return "货物id重复";
 		}
 		else if(result.getKey().equals("appearedplace")){
-			return "璇ヤ綅缃凡杈撳叆";
+			return "该位置已输入";
 		}
 		if(result.getKey().equals("emptystart")){
-			return "璧峰浣嶇疆鏄┖鐨�";
+			return "起始位置是空闲的";
 		}
 		if(result.getKey().equals("usedend")){
-			return "鐩爣浣嶇疆宸插崰鐢�";
+			return "目标位置已占用";
 		}
 		else{
-			return "鏈煡閿欒";
+			return "未知错误";
 		}
 	}
 }

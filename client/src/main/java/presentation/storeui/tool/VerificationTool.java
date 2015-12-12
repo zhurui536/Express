@@ -11,7 +11,6 @@ import presentation.storeui.listener.ToolListener;
 
 @SuppressWarnings("serial")
 public class VerificationTool extends ToolPane{
-	private JButton buttons[] = new JButton[2];
 	
 	public VerificationTool(ToolListener tl){
 		super.buttons = new JButton[2];

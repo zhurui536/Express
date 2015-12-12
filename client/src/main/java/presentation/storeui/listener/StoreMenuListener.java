@@ -1,6 +1,7 @@
 package presentation.storeui.listener;
 
 import bussinesslogicservice.storeblservice.StoreBLService;
+import presentation.WarningFrame;
 import presentation.storeui.StoreFrame;
 import presentation.storeui.datapanel.VerificationDataPane;
 import presentation.storeui.listener.toollistener.*;
@@ -11,10 +12,10 @@ import vo.storevo.VerificationVO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MenuListener implements ActionListener {
+public class StoreMenuListener implements ActionListener {
 	private StoreFrame storeui;
 	
-	public MenuListener(StoreFrame ui){
+	public StoreMenuListener(StoreFrame ui){
 		this.storeui = ui;
 	}
 
@@ -41,7 +42,7 @@ public class MenuListener implements ActionListener {
 				storeui.replaceTool(tool);
 			}
 			if(result.getKey().equals("busy")){
-				System.out.println("busy");
+				WarningFrame warning = new WarningFrame("请结束当前任务");
 			}
 		}
 		else if(i==1){//1为出库按钮
@@ -53,7 +54,7 @@ public class MenuListener implements ActionListener {
 				storeui.replaceTool(tool);
 			}
 			if(result.getKey().equals("busy")){
-				System.out.println("busy");
+				WarningFrame warning = new WarningFrame("请结束当前任务");
 			}
 		}
 		else if(i==2){//2为库存查看
@@ -65,7 +66,7 @@ public class MenuListener implements ActionListener {
 				tl.setTool(tool);
 			}
 			if(result.getKey().equals("busy")){
-				System.out.println("busy");
+				WarningFrame warning = new WarningFrame("请结束当前任务");
 			}
 		}
 		else if(i==3){//3为库存盘点，在这里画data区是因为data区并不需要监听事件来改变
@@ -81,7 +82,7 @@ public class MenuListener implements ActionListener {
 				storeui.paintdata(panel);
 			}
 			if(result.getKey().equals("busy")){
-				System.out.println("busy");
+				WarningFrame warning = new WarningFrame("请结束当前任务");
 			}
 		}
 		else if(i==4){//4代表库存调整
@@ -93,7 +94,7 @@ public class MenuListener implements ActionListener {
 				tl.setTool(tool);
 			}
 			if(result.getKey().equals("busy")){
-				System.out.println("busy");
+				WarningFrame warning = new WarningFrame("请结束当前任务");
 			}
 		}
 		else//最后为退出

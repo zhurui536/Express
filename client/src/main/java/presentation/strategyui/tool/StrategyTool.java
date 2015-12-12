@@ -2,6 +2,7 @@ package presentation.strategyui.tool;
 
 import bussinesslogic.strategybl.StrategyConstantBLServiceImpl;
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
+import presentation.ToolPane;
 import presentation.managerui.ManagerFrame;
 import presentation.strategyui.datapanel.ConstantStrategyDataPane;
 import presentation.strategyui.datapanel.ConstantStrategyShowPane;
@@ -9,13 +10,13 @@ import util.ResultMessage;
 import vo.DistanceVO;
 
 import javax.swing.*;
-import java.awt.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 @SuppressWarnings("serial")
-public class StrategyTool extends JPanel implements ActionListener {
+public class StrategyTool extends ToolPane implements ActionListener {
 	private JButton check;
 	private JButton input;
 	private JButton back;
@@ -27,22 +28,16 @@ public class StrategyTool extends JPanel implements ActionListener {
 		this.ui = ui;
 		bl = new StrategyConstantBLServiceImpl();
 		
-		this.setName("instore");
-		this.setLayout(null);
-		this.setSize(1000, 100);
-		this.setLocation(0, 0);
-		this.setBackground(Color.BLUE);
-		
 		this.initialize();
 	}
 	
 	private void initialize(){
-		check = new JButton("当前策略查看");
+		check = new JButton("当前城市距离");
 		check.setBounds(150, 20, 130, 40);
 		check.addActionListener(this);
 		this.add(check);
 		
-		input = new JButton("策略制定");
+		input = new JButton("距离制定");
 		input.setBounds(300, 20, 110, 40);
 		input.addActionListener(this);
 		this.add(input);

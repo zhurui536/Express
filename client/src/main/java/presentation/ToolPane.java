@@ -6,7 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class ToolPane extends JPanel {
-	protected JButton buttons[] = new JButton[3];
+	protected JButton buttons[];
 	
 	public ToolPane(){
 		this.setLayout(null);

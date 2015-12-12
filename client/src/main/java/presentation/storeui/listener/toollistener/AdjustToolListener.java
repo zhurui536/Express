@@ -44,13 +44,7 @@ public class AdjustToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				//提示错误
-				if(result.getKey().equals("dataerror")){
-					WarningFrame frame = new WarningFrame("数据存储出错");
-				}
-				else{
-					WarningFrame frame = new WarningFrame(result);
-				}
+				WarningFrame frame = new WarningFrame(result);
 			}
 		}
 		else if(i==2){
