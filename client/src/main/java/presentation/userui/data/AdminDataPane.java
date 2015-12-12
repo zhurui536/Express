@@ -1,5 +1,6 @@
 package presentation.userui.data;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -59,6 +60,13 @@ public class AdminDataPane extends JPanel implements ActionListener {
 				
 				JPanel item = this.makeItem(temp);
 				item.setLocation(10, 40*i+40);
+				
+				if(i%2==1){
+					item.setBackground(Color.CYAN);
+				}
+				else{
+					item.setBackground(Color.GRAY);
+				}
 				this.add(item);
 			}
 		}
@@ -87,13 +95,13 @@ public class AdminDataPane extends JPanel implements ActionListener {
 		item.add(password);
 		
 		JButton modify = new JButton("修改");
-		modify.setBounds(600, 0, 50, 40);
+		modify.setBounds(600, 5, 60, 30);
 		modify.addActionListener(this);
 		item.add(modify);
 		this.modifys.add(modify);
 		
 		JButton delete = new JButton("删除");
-		delete.setBounds(670, 0, 50, 40);
+		delete.setBounds(670, 5, 60, 30);
 		delete.addActionListener(this);
 		item.add(delete);
 		this.deletes.add(delete);

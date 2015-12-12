@@ -22,6 +22,7 @@ public class AdminBL implements AdminBLService {
 		staff = new ArrayList<StaffMessagePO>();
 	}
 
+	//猜猜看能不能？
 	@Override
 	public ResultMessage addUser(UserVO user) {
 		//检查登录账户是否存在，如果已经存在，则返回错误

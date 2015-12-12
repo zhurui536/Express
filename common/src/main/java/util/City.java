@@ -14,8 +14,10 @@ public enum City {
                         break;
                 case SHANGHAI:
                         result = "上海";
+                        break;
                 case GUANGZHOU:
                 		result = "广州";
+                		break;
         }
         return result;
 	}

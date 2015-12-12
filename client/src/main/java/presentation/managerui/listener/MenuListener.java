@@ -25,7 +25,7 @@ public class MenuListener implements ActionListener {
 				break;
 		}
 		if(i==0){
-			StrategyTool tool = new StrategyTool(this.ui);
+			StrategyTool tool = new StrategyTool(this.ui, null);
 			ui.replaceTool(tool);
 		}
 		if(i==1){

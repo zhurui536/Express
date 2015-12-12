@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import po.StaffMessagePO;
 import po.UserPO;
+import save.userdata.UserPathMaker;
 import util.ResultMessage;
 import dataservice.userdataservice.AdminDataService;
 
@@ -19,13 +20,16 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 	 * 
 	 */
 	private static final long serialVersionUID = 2560801151861337295L;
-	private final String userrecord = "src/main/java/save/userdata/UserPO.dat";
-	private final String staffmessage = "src/main/java/save/infodata/staffMessagePO.dat";
 	
 	public AdminDataServiceImpl() throws RemoteException{
 		super();
+		
+		this.generatePath();
+		
 		File file = new File(userrecord);
 		
+		System.out.println(this.userrecord);
+		System.out.println(file.getPath());
 		if(file.exists()){
 			try {
 				FileInputStream in = new FileInputStream(file);
@@ -106,5 +110,20 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 		ObjectOutputStream objout = new ObjectOutputStream(out);
 		objout.writeObject(list);
 		objout.close();
+	}
+	
+	private String userrecord = this.getClass().getResource("UserPO.dat") + "";
+	private String staffmessage = "src/main/java/save/infodata/staffMessagePO.dat";
+	
+	private void generatePath(){
+		UserPathMaker maker = new UserPathMaker();
+		userrecord = maker.getClass().getResource("") + "UserPO.dat";
+		
+		for(int i=0;i<userrecord.length();i++){
+			if(userrecord.charAt(i) == '/'){
+				userrecord = userrecord.substring(i + 1);
+				break;
+			}
+		}
 	}
 }

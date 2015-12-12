@@ -4,82 +4,69 @@ import bussinesslogic.strategybl.StrategyConstantBLServiceImpl;
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
 import presentation.ToolPane;
 import presentation.managerui.ManagerFrame;
-import presentation.strategyui.datapanel.ConstantStrategyDataPane;
-import presentation.strategyui.datapanel.ConstantStrategyShowPane;
-import util.ResultMessage;
-import vo.DistanceVO;
-
+import presentation.strategyui.listener.StrategyToolListener;
 import javax.swing.*;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 @SuppressWarnings("serial")
-public class StrategyTool extends ToolPane implements ActionListener {
-	private JButton check;
-	private JButton input;
-	private JButton back;
+public class StrategyTool extends ToolPane {
 	
 	private ManagerFrame ui;
 	private StrategyConstantBLService bl;
+	private StrategyToolListener tl;
 	
-	public StrategyTool(ManagerFrame ui){
+	public StrategyTool(ManagerFrame ui, StrategyToolListener tl){
+		super.buttons = new JButton[2];
 		this.ui = ui;
+		this.tl = tl;
 		bl = new StrategyConstantBLServiceImpl();
 		
 		this.initialize();
 	}
 	
 	private void initialize(){
-		check = new JButton("当前城市距离");
-		check.setBounds(150, 20, 130, 40);
-		check.addActionListener(this);
-		this.add(check);
+		buttons[0] = new JButton("距离制定");
+		buttons[0].setBounds(300, 20, 110, 40);
+		buttons[0].addActionListener(tl);
+		this.add(buttons[0]);
 		
-		input = new JButton("距离制定");
-		input.setBounds(300, 20, 110, 40);
-		input.addActionListener(this);
-		this.add(input);
-		
-		back = new JButton("返回");
-		back.setBounds(720, 20, 80, 40);
-		back.addActionListener(this);
-		this.add(back);
+		buttons[1] = new JButton("返回");
+		buttons[1].setBounds(720, 20, 80, 40);
+		buttons[1].addActionListener(tl);
+		this.add(buttons[1]);
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == input){
-			ConstantStrategyDataPane data = new ConstantStrategyDataPane(this.ui, bl);
-			ui.paintdata(data);
-		}
-		if(e.getSource() == check){
-			ArrayList<DistanceVO> distances = null;
-			double price;
-			ResultMessage result = bl.getPrice();
-			if(result.getKey().equals("success")){
-				price = (double) result.getValue();
-				
-				result = bl.getDistanceInfo();
-				if(result.getKey().equals("success")){
-					distances = (ArrayList<DistanceVO>) result.getValue();
-					ConstantStrategyShowPane data = new ConstantStrategyShowPane(distances, price);
-					ui.paintdata(data);
-				}
-				else{
-					//提出警告
-				}
-			}
-			else{
-				//提出警告
-			}
-			
-		}
-		if(e.getSource() == back){
-			ui.replaceTool(null);
-			ui.paintdata(null);
-		}
-	}
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		if(e.getSource() == input){
+//			ConstantStrategyDataPane data = new ConstantStrategyDataPane(this.ui, bl);
+//			ui.paintdata(data);
+//		}
+//		if(e.getSource() == check){
+//			ArrayList<DistanceVO> distances = null;
+//			double price;
+//			ResultMessage result = bl.getPrice();
+//			if(result.getKey().equals("success")){
+//				price = (double) result.getValue();
+//				
+//				result = bl.getDistanceInfo();
+//				if(result.getKey().equals("success")){
+//					distances = (ArrayList<DistanceVO>) result.getValue();
+//					ConstantStrategyShowPane data = new ConstantStrategyShowPane(distances, price);
+//					ui.paintdata(data);
+//				}
+//				else{
+//					//提出警告
+//				}
+//			}
+//			else{
+//				//提出警告
+//			}
+//			
+//		}
+//		if(e.getSource() == back){
+//			ui.replaceTool(null);
+//			ui.paintdata(null);
+//		}
+//	}
 }

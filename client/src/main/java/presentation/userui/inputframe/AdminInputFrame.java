@@ -26,7 +26,7 @@ public class AdminInputFrame extends JFrame implements ActionListener{
 		this.listener = tl;
 		
 		this.setLayout(null);
-		this.setSize(430, 275);
+		this.setSize(430, 320);
 		this.setLocation(400, 250);
 		condition = 0;
 		
@@ -38,12 +38,13 @@ public class AdminInputFrame extends JFrame implements ActionListener{
 		this.listener = tl;
 		
 		this.setLayout(null);
-		this.setSize(430, 275);
+		this.setSize(430, 320);
 		this.setLocation(400, 250);
 		condition = 1;
 		
 		this.initialize();
 		this.initialize(vo);
+		this.setVisible(true);
 	}
 	
 	//输入框的构建

@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
+import connection.ClientInitException;
+import connection.ClientRMIHelper;
 import bussinesslogic.adminbl.AdminBL;
 import bussinesslogicservice.adminblservice.AdminBLService;
 import presentation.userui.listener.AdminMenuListener;
@@ -28,6 +30,13 @@ public class AdminFrame extends JFrame {
 	private JPanel data;
 	
 	public static void main(String[] args){
+		
+	        try {
+	            ClientRMIHelper.init();
+	        } catch (ClientInitException e) {
+	            e.printStackTrace();
+	        }
+	    
 		AdminFrame frame = new AdminFrame();
 		frame.setVisible(true);
 	}

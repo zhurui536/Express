@@ -83,7 +83,7 @@ public class WarningFrame {
 			return "目标位置已占用";
 		}
 		else{
-			return "未知错误";
+			return result.getKey();
 		}
 	}
 }

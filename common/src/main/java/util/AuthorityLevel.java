@@ -10,10 +10,13 @@ public enum AuthorityLevel {
 		switch(lv){
 		case HIGH: 
 			result = "高";
+			break;
 		case MEDIUM:
 			result = "中";
+			break;
 		case LOW:
 			result = "低";
+			break;
 		}
 		
 		return result;
