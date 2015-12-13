@@ -1,6 +1,7 @@
 package vo.logisticvo;
 
 
+import po.logisticpo.ArrivalBillPO;
 import util.GoodsState;
 
 public class ArrivalBillVO {
@@ -14,4 +15,16 @@ public class ArrivalBillVO {
         public String departurePlace;
         // 货物到达状态（损坏、完整、丢失）
         public GoodsState goodsState;
+        
+        public ArrivalBillVO(ArrivalBillPO po){
+        	this.institution = po.getInstitution();
+        	this.date = po.getDate();
+        	this.transferBillNum = po.getTransferBillNum();
+        	this.departurePlace = po.getDeparturePlace();
+        	this.goodsState = po.getGoodsState();
+        }
+        
+        public ArrivalBillVO(){
+        	
+        }
 }

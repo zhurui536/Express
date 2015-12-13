@@ -9,6 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import path.PathMaker;
 import po.logisticpo.SendBillPO;
 import po.storepo.AdjustPO;
 import po.storepo.IORecordPO;
@@ -27,16 +28,28 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	 */
 	private static final long serialVersionUID = -2094560624032926398L;
 	
-	private final String storerecord = "src/main/java/save/storedata/storePO.dat";
-	private final String instorerecord = "src/main/java/save/storedata/instorePO.dat";
-	private final String outstorerecord = "src/main/java/save/storedata/outstorePO.dat";
-	private final String adjustrecord = "src/main/java/save/storedata/adjustPO.dat";
-	private final String verificationrecord = "src/main/java/save/storedata/verificationPO.dat";
-	private final String instorebill = "src/main/java/save/storedata/instoreBillPO.dat";
-	private final String outstorebill = "src/main/java/save/storedata/outstoreBillPO.dat";
-	private final String sendbill = "src/main/java/save/logisticsdata/sendBillPO.dat";
+	private String storerecord;
+	private String instorerecord;
+	private String outstorerecord;
+	private String adjustrecord;
+	private String verificationrecord;
+	private String instorebill;
+	private String outstorebill;
+	private String sendbill;
+	
+	private void generatePath(){
+		storerecord = PathMaker.getPath() + "save/storedata/storePO.dat";
+		instorerecord = PathMaker.getPath() + "save/storedata/instorePO.dat";
+		outstorerecord = PathMaker.getPath() + "save/storedata/outstorePO.dat";
+		adjustrecord = PathMaker.getPath() + "save/storedata/adjustPO.dat";
+		verificationrecord = PathMaker.getPath() + "save/storedata/verificationPO.dat";
+		instorebill = PathMaker.getPath() + "save/storedata/instoreBillPO.dat";
+		outstorebill = PathMaker.getPath() + "save/storedata/outstoreBillPO.dat";
+		sendbill = PathMaker.getPath() + "save/logisticsdata/sendBillPO.dat";
+	}
 	
 	public StoreDataServiceImpl() throws RemoteException {
+		this.generatePath();
 		try {//将所有空文件进行初始化
 			FileInputStream in = new FileInputStream(storerecord);
 			//判断文档是否为空，如果是空的，那么新建一个对象，并将其写入文件中
@@ -330,5 +343,5 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		objout.writeObject(list);
 		objout.close();
 	}
-
+	
 }

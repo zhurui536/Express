@@ -26,32 +26,31 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 		deletes = new ArrayList<JButton>();
 		 
 		//将容器的大小设计为货物数量加1对应的大小
-		this.setSize(810, goodslist.size()*60 + 60);
+		this.setSize(810, goodslist.size()*40 + 40);
 		this.setLayout(null);
 		
 		//第一行放置对应的目录
 		JPanel type = new JPanel();
-		type.setSize(810, 60);
+		type.setSize(810, 40);
 		type.setLocation(0, 0);
 		type.setLayout(null);
 		 
 		 
 		JLabel number = new JLabel("货物编号");
-		number.setSize(150, 57);
+		number.setSize(150, 40);
 		number.setLocation(10, 0);
 		type.add(number);
 		 
 		JLabel[] places = new JLabel[4];
 		for(int i=0;i<4;i++){
 			places[i] = new JLabel(this.places[i]);
-			places[i].setSize(50, 57);
-			places[i].setBackground(Color.PINK);
+			places[i].setSize(50, 40);
 			places[i].setLocation(260 + 50*i, 0);
 			type.add(places[i]);
 		}
 		 
 		JLabel dest = new JLabel("目的地");
-		dest.setSize(200, 57);
+		dest.setSize(200, 40);
 		dest.setLocation(550, 0);
 		type.add(dest);
 		 
@@ -60,7 +59,7 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 		//接着加入入库项
 		for(int i=0;i<goodslist.size();i++){
 			JPanel item = makeItem(goodslist.get(i), place.get(i), destination.get(i));
-			item.setLocation(10, 60*i + 60);
+			item.setLocation(10, 40*i + 40);
 			
 			if(i%2==1){
 				item.setBackground(Color.YELLOW);
@@ -77,12 +76,12 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 	//制作入库项的panel的方法
 	private JPanel makeItem(String id, int[] place, String destination){
 		JPanel item = new JPanel();
-		item.setSize(810, 60);
+		item.setSize(810, 40);
 		item.setLayout(null);
 		
 		//加入id
 		JLabel number = new JLabel(id);
-		number.setSize(150, 57);
+		number.setSize(150, 40);
 		number.setLocation(10, 0);
 		item.add(number);
 		
@@ -90,7 +89,7 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 		JLabel[] places = new JLabel[4];
 		for(int i=0;i<4;i++){
 			places[i] = new JLabel(place[i]+"");
-			places[i].setSize(50, 57);
+			places[i].setSize(50, 40);
 			places[i].setBackground(Color.PINK);
 			places[i].setLocation(230 + 50*i, 0);
 			item.add(places[i]);
@@ -98,14 +97,14 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 		
 		//加入目的地
 		JLabel dest = new JLabel(destination);
-		dest.setSize(200, 57);
+		dest.setSize(200, 40);
 		dest.setLocation(530, 0);
 		item.add(dest);
 		
 		//删除按钮
 		JButton delete = new JButton("删除");
 		delete.setSize(75, 30);
-		delete.setLocation(735, 15);
+		delete.setLocation(735, 5);
 		delete.addActionListener(this);
 		delete.setBackground(Color.red);
 		item.add(delete);

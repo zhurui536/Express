@@ -2,6 +2,8 @@ package vo.financevo;
 
 import java.math.BigDecimal;
 
+import po.financepo.BankAccountPO;
+
 /**
  * Created by Away
  * 2015/10/26
@@ -25,5 +27,11 @@ public class BankAccountVO {
     }
 
     public BankAccountVO() {
+    }
+    
+    public BankAccountVO(BankAccountPO po){
+    	this.name = po.getName();
+    	this.balance = po.getBalance();
+    	this.id = po.getId();
     }
 }

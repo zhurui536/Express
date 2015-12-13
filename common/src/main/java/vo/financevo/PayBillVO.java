@@ -1,10 +1,11 @@
 package vo.financevo;
 
+import java.math.BigDecimal;
+
+import po.financepo.PayBillPO;
 import util.PayItem;
 import util.Time;
 import vo.StaffMessageVO;
-
-import java.math.BigDecimal;
 
 /**
  * Created by Away
@@ -32,13 +33,23 @@ public class PayBillVO {
     public String remark;
 
     public PayBillVO(Time time, BigDecimal money, StaffMessageVO staffMessageVO,
-                     BankAccountVO bankAccountPO, String id, PayItem item, String remark) {
+                     BankAccountVO bankAccountVO, String id, PayItem item, String remark) {
         this.time = time;
         this.money = money;
         this.staffMessageVO = staffMessageVO;
-        this.bankAccountVO = bankAccountPO;
+        this.bankAccountVO = bankAccountVO;
         this.id = id;
         this.item = item;
         this.remark = remark;
+    }
+    
+    public PayBillVO(PayBillPO po){
+    	this.time = po.getTime();
+    	this.money = po.getMoney();
+    	this.staffMessageVO = new StaffMessageVO(po.getStaffMessagePO());
+    	this.bankAccountVO = new BankAccountVO(po.getBankAccountPO());
+    	this.id = po.getId();
+    	this.item = po.getItem();
+    	this.remark = po.getRemark();
     }
 }

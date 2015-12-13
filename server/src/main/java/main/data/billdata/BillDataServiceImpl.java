@@ -1,6 +1,7 @@
 package main.data.billdata;
 
 import dataservice.billdataservice.BilldataService;
+import path.PathMaker;
 import po.BillPO;
 import po.financepo.PayBillPO;
 import po.logisticpo.*;
@@ -23,9 +24,42 @@ public class BillDataServiceImpl extends UnicastRemoteObject implements Billdata
 	 * 
 	 */
 	private static final long serialVersionUID = -8882526534904249002L;
+	
+
+	//入库单
+	private String instorebill = "src/main/java/save/storedata/instoreBillPO.dat";
+	//出库单
+	private String outstorebill = "src/main/java/save/storedata/outstoreBillPO.dat";
+	//付款单
+	private String paybill = "src/main/java/save/financedata/payBillPO.dat";
+	//收款单
+	private String receiptbill = "src/main/java/save/logisticsdata/receiptBillPO.dat";
+	//到达单
+	private String arrivalbill = "src/main/java/save/logisticsdata/arrivalBillPO.dat";
+	//派件单
+	private String deliverybill = "src/main/java/save/logisticsdata/deliveryBillPO.dat";
+	//装车单
+	private String loadingbill = "src/main/java/save/logisticsdata/loadingBillPO.dat";
+	//寄件单
+	private String sendbill = "src/main/java/save/logisticsdata/sendBillPO.dat";
+	//中转单
+	private String transferbill = "src/main/java/save/logisticsdata/transferBillPO.dat";
+	
+	private void generatePath(){
+		instorebill = PathMaker.getPath() + "save/storedata/instoreBillPO.dat";
+		outstorebill = PathMaker.getPath() + "save/storedata/outstoreBillPO.dat";
+		paybill = PathMaker.getPath() + "save/financedata/payBillPO.dat";
+		receiptbill = PathMaker.getPath() + "save/logisticsdata/receiptBillPO.dat";
+		arrivalbill = PathMaker.getPath() + "save/logisticsdata/arrivalBillPO.dat";
+		deliverybill = PathMaker.getPath() + "save/logisticsdata/deliveryBillPO.dat";
+		loadingbill = PathMaker.getPath() + "save/logisticsdata/loadingBillPO.dat";
+		sendbill = PathMaker.getPath() + "save/logisticsdata/sendBillPO.dat";
+		transferbill = PathMaker.getPath() + "save/logisticsdata/transferBillPO.dat";
+	}
 
 	public BillDataServiceImpl() throws RemoteException {
 		super();
+		this.generatePath();
 		try {
 			FileInputStream in = new FileInputStream(instorebill);
 			if(in.available()==0){
@@ -103,25 +137,6 @@ public class BillDataServiceImpl extends UnicastRemoteObject implements Billdata
 		}
 		
 	}
-
-	//入库单
-	private final String instorebill = "src/main/java/save/storedata/instoreBillPO.dat";
-	//出库单
-	private final String outstorebill = "src/main/java/save/storedata/outstoreBillPO.dat";
-	//付款单
-	private final String paybill = "src/main/java/save/financedata/payBillPO.dat";
-	//收款单
-	private final String receiptbill = "src/main/java/save/logisticsdata/receiptBillPO.dat";
-	//到达单
-	private final String arrivalbill = "src/main/java/save/logisticsdata/arrivalBillPO.dat";
-	//派件单
-	private final String deliverybill = "src/main/java/save/logisticsdata/deliveryBillPO.dat";
-	//装车单
-	private final String loadingbill = "src/main/java/save/logisticsdata/loadingBillPO.dat";
-	//寄件单
-	private final String sendbill = "src/main/java/save/logisticsdata/sendBillPO.dat";
-	//中转单
-	private final String transferbill = "src/main/java/save/logisticsdata/transferBillPO.dat";
 	
 	private Object readBill(String path) throws Exception{
 		Object bills;
