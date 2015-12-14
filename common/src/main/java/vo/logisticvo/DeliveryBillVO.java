@@ -1,8 +1,9 @@
 package vo.logisticvo;
 
-import util.Time;
-
 import java.util.ArrayList;
+
+import po.logisticpo.DeliveryBillPO;
+import util.Time;
 
 
 public class DeliveryBillVO {
@@ -12,4 +13,13 @@ public class DeliveryBillVO {
         public ArrayList<String> ids;
         // 派送员
         public String deliverManId;
+        
+        public DeliveryBillVO(DeliveryBillPO po){
+        	this.time = po.getTime();
+        	this.ids = po.getIds();
+        	this.deliverManId = po.getDeliverManId();
+        }
+        public DeliveryBillVO(){
+        	
+        }
 }

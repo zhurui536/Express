@@ -1,8 +1,9 @@
 package vo.logisticvo;
 
-import util.Time;
-
 import java.util.ArrayList;
+
+import po.logisticpo.LoadingBillPO;
+import util.Time;
 
 
 public class LoadingBillVO {
@@ -24,4 +25,20 @@ public class LoadingBillVO {
         public ArrayList<String> ids;
         // 运费
         public double charge;
+        
+        public LoadingBillVO(LoadingBillPO po){
+        	this.institution = po.getInstitution();
+        	this.date = po.getDate();
+        	this.transferNum = po.getTransferNum();
+        	this.arrivalPlace = po.getArrivalPlace();
+        	this.numOfTruck = po.getNumOfTruck();
+        	this.supercargo = po.getSupercargo();
+        	this.supervisor = po.getSupervisor();
+        	this.ids = po.getIds();
+        	this.charge = po.getCharge();
+        }
+        
+        public LoadingBillVO(){
+        	
+        }
 }
