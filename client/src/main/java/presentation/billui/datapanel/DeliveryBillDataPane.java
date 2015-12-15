@@ -58,7 +58,6 @@ public class DeliveryBillDataPane extends JPanel {
 		for(int i=0;i<ids.size();i++){
 			rowdata[i+3][0] = i;
 			rowdata[i+3][1] = ids.get(i);
-			System.out.println(ids.get(i));
 		}
 		
 		JTable table = new JTable(rowdata, columnnames){

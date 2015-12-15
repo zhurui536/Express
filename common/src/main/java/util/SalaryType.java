@@ -9,10 +9,13 @@ public enum SalaryType {
 		switch(type){
 		case MONTHLY: 
 			result = "月薪";
+			break;
 		case ONCE:
 			result = "按次计薪";
+			break;
 		case DEDUCT:
 			result = "提成";
+			break;
 		}
 		return result;
 	}

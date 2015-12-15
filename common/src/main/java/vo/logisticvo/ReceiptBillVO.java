@@ -5,6 +5,9 @@ import util.Time;
 import java.math.BigDecimal;
 import java.util.List;
 
+import po.logisticpo.ReceiptBillPO;
+import po.logisticpo.ReceiptLineItemPO;
+
 
 /**
  * Created by Away
@@ -30,6 +33,4 @@ public class ReceiptBillVO {
                 this.institutionID = institutionID;
                 this.receiptLineItemVOs = receiptLineItemVOs;
         }
-        
-        
 }
