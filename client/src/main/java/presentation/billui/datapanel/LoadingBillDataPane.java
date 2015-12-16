@@ -11,7 +11,7 @@ import po.logisticpo.LoadingBillPO;
 import util.Time;
 import vo.logisticvo.LoadingBillVO;
 
-public class LoadingBillPODataPane extends JPanel {
+public class LoadingBillDataPane extends JPanel {
 //	public static void main(String[] args){
 //		JFrame test = new JFrame();
 //		test.setLayout(null);
@@ -30,7 +30,7 @@ public class LoadingBillPODataPane extends JPanel {
 //		
 //		test.setVisible(true);
 //	}
-	public LoadingBillPODataPane(LoadingBillPO po){
+	public LoadingBillDataPane(LoadingBillPO po){
 		LoadingBillVO vo = new LoadingBillVO(po);
 		
 		this.setLayout(null);
