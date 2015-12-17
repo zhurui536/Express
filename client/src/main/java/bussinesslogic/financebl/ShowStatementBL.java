@@ -41,9 +41,10 @@ public class ShowStatementBL implements ShowStatementBLService {
         isUpdated = false;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public ResultMessage showStatement(Time startTime, Time endTime) {
-        if (startTime.compareTo(endTime) > 0) {
+        if (isBefore(startTime, endTime)) {
             return new ResultMessage("fail");
         }
 
@@ -63,6 +64,10 @@ public class ShowStatementBL implements ShowStatementBLService {
             e.printStackTrace();
             return new ResultMessage("fail");
         }
+    }
+
+    private boolean isBefore(Time startTime, Time endTime) {
+        return startTime.compareTo(endTime) < 0;
     }
 
     /**
