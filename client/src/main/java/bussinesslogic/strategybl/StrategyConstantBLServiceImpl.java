@@ -15,6 +15,9 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 	
 	public StrategyConstantBLServiceImpl(){
 		dataservice = (StrategyDataService) ClientRMIHelper.getServiceByName("StrategyDataServiceImpl");
+		if(dataservice == null){
+			System.out.println("打他service is null!");
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -87,6 +90,7 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 				return result;
 			}
 		}catch(Exception ex){
+			ex.printStackTrace();
 			return new ResultMessage("internet error", null);
 		}
 	}

@@ -1,12 +1,14 @@
 package presentation.strategyui.datapanel;
 
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
+import presentation.WarningFrame;
 import presentation.managerui.ManagerFrame;
 import util.City;
 import util.ResultMessage;
 import vo.DistanceVO;
 
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,7 +17,7 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 	private JButton confirm;
 	private JButton setprice;
 	
-	private JTextArea[] city;
+	private JLabel[] city;
 	private JTextArea[] input;
 	
 	private JComboBox<String>[] cities;
@@ -43,12 +45,12 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 		list1.setBounds(10, 20, 100, 50);
 		this.add(list1);
 		
-		city = new JTextArea[2];
-		city[0] = new JTextArea("城市A：");
+		city = new JLabel[2];
+		city[0] = new JLabel("城市A：");
 		city[0].setBounds(30, 80, 80, 40);
 		this.add(city[0]);
 		
-		city[1] = new JTextArea("城市B：");
+		city[1] = new JLabel("城市B：");
 		city[1].setBounds(30, 130, 80, 40);
 		this.add(city[1]);
 		
@@ -86,6 +88,7 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 	}
 	
 	private final String[] icons = {"南京", "上海", "广州", "北京"};
+	private final City[] cityicon = {City.NANJING, City.SHANGHAI, City.GUANGZHOU, City.BEIJING};
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -97,17 +100,17 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 				
 				ResultMessage result = bl.inputDistanceInfo(new DistanceVO(a, b, distance));
 				if(result.getKey().equals("success")){
-					this.input[0].setText("success");
+					WarningFrame tip = new WarningFrame("设置成功！");
 					ui.validate();
 					ui.repaint();
 				}
 				else{
-					this.input[0].setText(result.getKey());
+					WarningFrame tip = new WarningFrame(result.getKey());
 					ui.validate();
 					ui.repaint();
 				}
 			}catch(Exception ex){
-				this.input[0].setText("输入有误，请重新输入");
+				WarningFrame tip = new WarningFrame("输入有误，请重新输入");
 				ui.validate();
 				ui.repaint();
 			}
@@ -118,17 +121,19 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 				ResultMessage result = bl.inputPriceInfo(price);
 				
 				if(result.getKey().equals("success")){
-					this.input[1].setText("success");
+					WarningFrame tip = new WarningFrame("输入成功！");
+					input[0].setText("");
+					input[1].setText("");
 					ui.validate();
 					ui.repaint();
 				}
 				else{
-					this.input[1].setText(result.getKey());
-					ui.validate();
-					ui.repaint();
+					WarningFrame tip = new WarningFrame(result.getKey());
 				}
 			}catch(Exception ex){
-				this.input[1].setText("输入有误，请重新输入");
+				WarningFrame tip = new WarningFrame("输入有误，请重新输入");
+				input[0].setText("");
+				input[1].setText("");
 				ui.validate();
 				ui.repaint();
 			}
@@ -138,13 +143,6 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 	private City boxToCity(int i){
 		int num = this.cities[i].getSelectedIndex();
 		
-		if(num == 0)
-			return City.NANJING;
-		else if(num == 1)
-			return City.SHANGHAI;
-		else if(num == 2)
-			return City.GUANGZHOU;
-		else
-			return City.BEIJING;
+		return cityicon[i];
 	}
 }

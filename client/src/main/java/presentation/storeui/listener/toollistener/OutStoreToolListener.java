@@ -56,6 +56,7 @@ public class OutStoreToolListener extends ToolListener {
 	}
 	
 	public boolean getInput(String number, String destination, Trans trans, String billid){
+		
 		ResultMessage result = sc.addOutStoreGoods(number, trans, destination, billid);
 		
 		if(result.getKey().equals("success")){
@@ -63,6 +64,7 @@ public class OutStoreToolListener extends ToolListener {
 			return true;
 		}
 		else{
+			WarningFrame warning = new WarningFrame(result.getKey());
 			return false;
 		}
 	}

@@ -116,7 +116,7 @@ public class CheckInputFrame extends JFrame implements ActionListener {
 				
 				boolean result = listener.getInput(start, end);
 				if(result){
-					this.setVisible(false);
+					this.dispose();
 				}
 				else{
 					for(int i=0;i<4;i++){

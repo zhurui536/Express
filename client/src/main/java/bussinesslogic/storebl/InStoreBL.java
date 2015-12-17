@@ -42,6 +42,9 @@ public class InStoreBL implements InStoreBLService {
 				return new ResultMessage("inputedid", null);
 			}
 		}
+		if(p.getArea()<0||p.getRow()<0||p.getShelf()<0||p.getPlace()<0){
+			return new ResultMessage("wrongplace", null);
+		}
 		StorePlacePO place = new StorePlacePO(p.getArea(), p.getRow(), p.getShelf(), p.getPlace());
 		try {
 			ResultMessage result = dataservice.find(id);
@@ -53,6 +56,10 @@ public class InStoreBL implements InStoreBLService {
 				result = dataservice.getStore();
 				if(result.getKey().equals("success")){
 					StorePO store = (StorePO) result.getValue();
+					
+					if(p.getArea()>store.getArea()||p.getRow()>store.getRow()||p.getShelf()>store.getShelf()||p.getPlace()>store.getPlace()){
+						return new ResultMessage("wrongplace", null);
+					}
 					
 					StorePlacePO theplace = store.getStorePlace(p.getArea(), p.getRow(), p.getShelf(), p.getPlace());
 					if(!theplace.ifEmpty()){//该位置有货物时，返回对应的结果

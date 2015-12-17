@@ -1,10 +1,18 @@
 package presentation.managerui;
 
 import bussinesslogic.billbl.BillBLController;
+import bussinesslogic.strategybl.StrategyConstantBLServiceImpl;
+import bussinesslogic.strategybl.StrategySalaryBLServiceImpl;
 import bussinesslogicservice.billblservice.BillBLService;
+import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
+import bussinesslogicservice.strategyblservice.StrategySalaryBLService;
 import presentation.managerui.listener.MenuListener;
 
 import javax.swing.*;
+
+import connection.ClientInitException;
+import connection.ClientRMIHelper;
+
 import java.awt.*;
 
 @SuppressWarnings("serial")
@@ -22,8 +30,11 @@ public class ManagerFrame extends JFrame {
 	
 	//处理逻辑的逻辑层接口
 	private BillBLService bs;
+	private StrategyConstantBLService cs;
+	private StrategySalaryBLService ss;
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws ClientInitException{
+		ClientRMIHelper.init();
 		ManagerFrame test = new ManagerFrame();
 		test.setVisible(true);
 	}
@@ -35,6 +46,8 @@ public class ManagerFrame extends JFrame {
 		
 		menulistener = new MenuListener(this);
 		bs = new BillBLController();
+		cs = new StrategyConstantBLServiceImpl();
+		ss = new StrategySalaryBLServiceImpl();
 		this.paintFrame();
 	}
 	
@@ -153,9 +166,16 @@ public class ManagerFrame extends JFrame {
 		return this.bs;
 	}
 	
+	public StrategyConstantBLService getStrategyBLController(){
+		return this.cs;
+	}
+	
+	public StrategySalaryBLService getStrategySalaryController(){
+		return this.ss;
+	}
 	//点击退出键时的方法
 	public void close(){
-		this.setVisible(false);
+		this.dispose();
 		System.exit(0);
 	}
 	

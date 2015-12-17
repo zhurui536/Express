@@ -4,6 +4,8 @@ import util.City;
 import vo.DistanceVO;
 
 import javax.swing.*;
+
+import java.awt.Dimension;
 import java.util.ArrayList;
 
 
@@ -20,10 +22,27 @@ public class ConstantStrategyShowPane extends JPanel {
 		pricenow.setBounds(30, 20, 300, 40);
 		this.add(pricenow);
 		
-		JTable table  = new JTable(this.votostrings(distances), this.headers);
-		table.setBounds(30, 80, 600, distances.size()*60+60);
-		table.setEnabled(false);
-		this.add(table);
+		JLabel distancenow = new JLabel("当前距离显示：");
+		distancenow.setBounds(30, 70, 140, 30);
+		
+		JTable table = new JTable(this.votostrings(distances), headers){
+			public boolean isCellEditable(int row, int column) {
+				 return false;
+				 }
+		};
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		table.setRowHeight(30);
+		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
+		table.getColumnModel().getColumn(0).setPreferredWidth(200);
+		table.getColumnModel().getColumn(1).setPreferredWidth(200);
+		table.getColumnModel().getColumn(2).setPreferredWidth(410);
+		table.setShowGrid(true);
+		table.setLocation(0, 0);
+		
+		JScrollPane scroller = new JScrollPane(table);
+		scroller.setBounds(0, 100, 810, 400);
+		
+		this.add(scroller);
 	}
 	
 	private String[][] votostrings(ArrayList<DistanceVO> distances){

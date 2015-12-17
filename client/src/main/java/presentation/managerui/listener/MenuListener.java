@@ -3,7 +3,9 @@ package presentation.managerui.listener;
 import presentation.billui.listener.BillJudgeToolListener;
 import presentation.billui.tool.BillJudgeTool;
 import presentation.managerui.ManagerFrame;
-import presentation.strategyui.datapanel.SalaryStrategyDataPane;
+import presentation.strategyui.listener.SalaryToolListener;
+import presentation.strategyui.listener.StrategyToolListener;
+import presentation.strategyui.tool.SalaryTool;
 import presentation.strategyui.tool.StrategyTool;
 
 import java.awt.event.ActionEvent;
@@ -25,12 +27,16 @@ public class MenuListener implements ActionListener {
 				break;
 		}
 		if(i==0){
-			StrategyTool tool = new StrategyTool(this.ui, null);
+			StrategyToolListener tl = new StrategyToolListener(ui);
+			StrategyTool tool = new StrategyTool(tl);
+			tl.setTool(tool);
 			ui.replaceTool(tool);
 		}
 		if(i==1){
-			SalaryStrategyDataPane data = new SalaryStrategyDataPane(ui);
-			ui.paintdata(data);
+			SalaryToolListener tl = new SalaryToolListener(ui);
+			SalaryTool tool = new SalaryTool(tl);
+			tl.setTool(tool);
+			ui.replaceTool(tool);
 		}
 		if(i==2){//点击了审批单据
 			BillJudgeToolListener listener = new BillJudgeToolListener(ui);

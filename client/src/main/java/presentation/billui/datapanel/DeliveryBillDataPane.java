@@ -1,6 +1,7 @@
 package presentation.billui.datapanel;
 
 import java.awt.Dimension;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;

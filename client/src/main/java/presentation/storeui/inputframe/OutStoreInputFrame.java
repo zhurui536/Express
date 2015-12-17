@@ -91,6 +91,7 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 			trans = tran[this.trans.getSelectedIndex()];
 			
 			boolean result = listener.getInput(number.getText(), destination.getText(), trans, billid.getText());
+			
 			if(result == true){
 				this.dispose();
 			}
