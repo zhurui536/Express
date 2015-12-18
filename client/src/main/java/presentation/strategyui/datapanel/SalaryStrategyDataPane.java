@@ -1,13 +1,10 @@
 package presentation.strategyui.datapanel;
 
-import bussinesslogic.strategybl.StrategySalaryBLServiceImpl;
 import bussinesslogicservice.strategyblservice.StrategySalaryBLService;
 import presentation.managerui.ManagerFrame;
 import util.Job;
 import util.ResultMessage;
 import util.SalaryType;
-import vo.SalaryVO;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,10 +19,11 @@ public class SalaryStrategyDataPane extends JPanel implements ActionListener {
 	private JButton cancle;
 	
 	private ManagerFrame ui;
-	private StrategySalaryBLService bl = new StrategySalaryBLServiceImpl();
+	private StrategySalaryBLService bl;
 	
 	public SalaryStrategyDataPane(ManagerFrame ui){
 		this.ui = ui;
+		this.bl = ui.getStrategySalaryController();
 		this.setBounds(140, 100, 810, 500);
 		this.setLayout(null);
 		this.initialize();
@@ -77,18 +75,18 @@ public class SalaryStrategyDataPane extends JPanel implements ActionListener {
 			Job job = this.boxToJob();
 			String id = this.input[0].getText();
 			try{
-//				double salary = Double.parseDouble(input[1].getText());
-//				ResultMessage result = null;
-//				if(result.getKey().equals("success")){
-//					input[1].setText("设置成功");
-//					ui.validate();
-//					ui.repaint();
-//				}
-//				else{
-//					input[1].setText(result.getKey());
-//					ui.validate();
-//					ui.repaint();
-//				}
+				double salary = Double.parseDouble(input[1].getText());
+				ResultMessage result = null;
+				if(result.getKey().equals("success")){
+					input[1].setText("设置成功");
+					ui.validate();
+					ui.repaint();
+				}
+				else{
+					input[1].setText(result.getKey());
+					ui.validate();
+					ui.repaint();
+				}
 			}catch(Exception ex){
 				input[1].setText("网络错误");
 			}

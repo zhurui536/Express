@@ -1,20 +1,26 @@
 package presentation.strategyui.datapanel;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import presentation.strategyui.listener.SalaryToolListener;
 import util.Job;
 import util.SalaryType;
 import vo.StaffMessageVO;
 
-public class SalaryStrategyShowPane extends JPanel {
+public class SalaryStrategyShowPane extends JPanel implements ActionListener{
 	private ArrayList<StaffMessageVO> vos;
 	private ArrayList<JButton> modify;
+	private SalaryToolListener tl;
 	
-	public SalaryStrategyShowPane(ArrayList<StaffMessageVO> vos){
+	public SalaryStrategyShowPane(ArrayList<StaffMessageVO> vos, SalaryToolListener tl){
 		this.vos = vos;
+		this.tl = tl;
 		modify = new ArrayList<JButton>();
 		this.setBounds(140, 100, 810, 500);
 		this.setLayout(null);
@@ -88,6 +94,7 @@ public class SalaryStrategyShowPane extends JPanel {
 		
 		JButton modify = new JButton();
 		modify.setBounds(560, 5, 50, 30);
+		modify.addActionListener(this);
 		this.modify.add(modify);
 		item.add(modify);
 		
@@ -95,4 +102,18 @@ public class SalaryStrategyShowPane extends JPanel {
 	}
 	
 	private final String[] header = {"员工id", "员工姓名", "员工职位", "员工薪水", "薪水类型", "修改"};
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		int i=0;
+		
+		for(;i<modify.size();i++){
+			if(e.getSource() == modify.get(i)){
+				break;
+			}
+		}
+		
+		tl.getModify(vos.get(i));
+		
+	}
 }

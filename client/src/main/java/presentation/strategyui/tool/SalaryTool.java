@@ -16,13 +16,13 @@ public class SalaryTool extends ToolPane {
 	}
 	
 	private void initialize(){
-		buttons[0] = new JButton("薪水制定");
+		buttons[0] = new JButton("当前薪水查看");
 		buttons[0].setBounds(300, 20, 120, 40);
 		buttons[0].addActionListener(tl);
 		this.add(buttons[0]);
 		
-		buttons[1] = new JButton("当前薪水查看");
-		buttons[1].setBounds(430, 20, 120, 40);
+		buttons[1] = new JButton("确定");
+		buttons[1].setBounds(620, 20, 80, 40);
 		buttons[1].addActionListener(tl);
 		this.add(buttons[1]);
 		

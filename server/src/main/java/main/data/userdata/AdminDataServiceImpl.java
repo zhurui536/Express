@@ -28,8 +28,6 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 		
 		File file = new File(userrecord);
 		
-		System.out.println(this.userrecord);
-		System.out.println(file.getPath());
 		if(file.exists()){
 			try {
 				FileInputStream in = new FileInputStream(file);

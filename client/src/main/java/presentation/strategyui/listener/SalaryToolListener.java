@@ -8,8 +8,8 @@ import presentation.ToolPane;
 import presentation.WarningFrame;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
-import presentation.strategyui.datapanel.SalaryStrategyDataPane;
 import presentation.strategyui.datapanel.SalaryStrategyShowPane;
+import presentation.strategyui.inputframe.SalaryInputFrame;
 import util.ResultMessage;
 import vo.StaffMessageVO;
 
@@ -34,22 +34,50 @@ public class SalaryToolListener extends ToolListener {
 		}
 		
 		if(i==0){
-			SalaryStrategyDataPane data = new SalaryStrategyDataPane(ui);
-			ui.paintdata(data);
-		}
-		if(i==1){
 			ResultMessage result = bl.getSalary();
 			if(result.getKey().equals("success")){
-				SalaryStrategyShowPane data = new SalaryStrategyShowPane((ArrayList<StaffMessageVO>) result.getValue());
+				SalaryStrategyShowPane data = new SalaryStrategyShowPane((ArrayList<StaffMessageVO>) result.getValue(), this);
 				ui.paintdata(data);
 			}
 			else{
 				WarningFrame warning = new WarningFrame(result.getKey());
 			}
 		}
+		if(i==1){
+			ResultMessage result = bl.endSalary(0);
+			if(result.getKey().equals("success")){
+				ui.paintdata(null);
+				ui.replaceTool(null);
+			}
+			else{
+				WarningFrame warning = new WarningFrame(result.getKey());
+			}
+		}
 		if(i==2){
-			ui.paintdata(null);
-			ui.replaceTool(null);
+			ResultMessage result = bl.endSalary(1);
+			if(result.getKey().equals("success")){
+				ui.paintdata(null);
+				ui.replaceTool(null);
+			}
+			else{
+				WarningFrame warning = new WarningFrame(result.getKey());
+			}
+		}
+	}
+	
+	public void getModify(StaffMessageVO vo){
+		SalaryInputFrame input = new SalaryInputFrame(vo, this);
+		input.setVisible(true);
+	}
+	
+	public boolean getInput(StaffMessageVO vo){
+		ResultMessage result = bl.modifySalary(vo);
+		if(result.getKey().equals("success")){
+			return true;
+		}
+		else{
+			WarningFrame warning = new WarningFrame(result.getKey());
+			return false;
 		}
 	}
 }

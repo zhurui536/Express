@@ -1,7 +1,9 @@
 package presentation;
 
 import bussinesslogic.logisticsbl.LogisticsBLController;
+import bussinesslogic.userbl.UserBLServiceImpl;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
+import bussinesslogicservice.userblservice.UserBLService;
 import connection.ClientInitException;
 import connection.ClientRMIHelper;
 import presentation.financeui.FinanceFrame;
@@ -10,9 +12,14 @@ import presentation.logisticsui.deliverymanui.DeliveryManFrame;
 import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.StoreFrame;
+import presentation.userui.AdminFrame;
+import util.Job;
 import util.PublicMessage;
+import util.ResultMessage;
+import vo.StaffMessageVO;
 
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,24 +34,27 @@ public class MainUI extends JFrame implements ActionListener{
     private JPasswordField password;
     private JButton confirm;
     private JButton exit;
+    
+    private UserBLService bl;
 
     public static String USER_ID;
 
     public static void main(String[] args){
+    	initRMI();
         MainUI ui = new MainUI();
         ui.setVisible(true);
     }
 
     public MainUI(){
+    	this.bl = new UserBLServiceImpl();
         this.setLayout(null);
         this.setBounds(300, 300, 330, 260);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        initRMI();
         this.initialize();
     }
 
-    private void initRMI() {
+    private static void initRMI() {
         try {
             ClientRMIHelper.init();
         } catch (ClientInitException e) {
@@ -90,55 +100,95 @@ public class MainUI extends JFrame implements ActionListener{
             this.setVisible(false);
             System.exit(0);
         }
+//        if(e.getSource() == confirm){
+//            String id = this.id.getText();
+//            if(id.charAt(0) == '0'){
+//                this.setVisible(false);
+//                StoreFrame frame = new StoreFrame();
+//                frame.setVisible(true);
+//            }
+//            else if(id.charAt(0) == '1'){
+//                this.setVisible(false);
+//                ManagerFrame frame = new ManagerFrame();
+//                frame.setVisible(true);
+//            } else if (id.charAt(0) == '2'){
+//                this.setVisible(false);
+//                FinanceFrame frame = new FinanceFrame();
+//                frame.setVisible(true);
+//            } else if (id.charAt(0) == '3') {
+//                LogisticsBLService logisticsBLService = new LogisticsBLController();
+//                this.setVisible(false);
+//                DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
+//                frame.setVisible(true);
+//            } else if (id.charAt(0) == '4') {
+//                LogisticsBLService logisticsBLService = new LogisticsBLController();
+//                this.setVisible(false);
+//                TransitCenterclerkFrame frame = new TransitCenterclerkFrame(logisticsBLService);
+//                frame.setVisible(true);
+//            }else if(id.charAt(0) == '5'){
+//                LogisticsBLService logisticsBLService = new LogisticsBLController();
+//                this.setVisible(false);
+//                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
+//                frame.setVisible(true);
+//            }
+//            PublicMessage.userID = id;
+//        }
         if(e.getSource() == confirm){
-            //           try{
-            String id = this.id.getText();
-            if(id.charAt(0) == '0'){
-                this.setVisible(false);
-                StoreFrame frame = new StoreFrame();
-                frame.setVisible(true);
-            }
-            else if(id.charAt(0) == '1'){
-                this.setVisible(false);
-                ManagerFrame frame = new ManagerFrame();
-                frame.setVisible(true);
-            } else if (id.charAt(0) == '2'){
-                this.setVisible(false);
-                FinanceFrame frame = new FinanceFrame();
-                frame.setVisible(true);
-            } else if (id.charAt(0) == '3') {
-                LogisticsBLService logisticsBLService = new LogisticsBLController();
-                this.setVisible(false);
-                DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
-                frame.setVisible(true);
-            } else if (id.charAt(0) == '4') {
-                LogisticsBLService logisticsBLService = new LogisticsBLController();
-                this.setVisible(false);
-                TransitCenterclerkFrame frame = new TransitCenterclerkFrame(logisticsBLService);
-                frame.setVisible(true);
-            }else if(id.charAt(0) == '5'){
-                LogisticsBLService logisticsBLService = new LogisticsBLController();
-                this.setVisible(false);
-                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
-                frame.setVisible(true);
-            }
-            PublicMessage.userID = id;
-//            }
-//            catch(Exception ex){
-//            	JFrame warning = new JFrame();
-//            	warning.setBounds(this.getBounds());
-//            	
-//            	JPanel panel = new JPanel();
-//            	panel.setBounds(0, 0, 310, 250);
-//            	
-//            	JLabel label = new JLabel(ex.getClass().getName());
-//            	label.setBounds(panel.getBounds());
-//            	panel.add(label);
-//            	
-//            	warning.add(panel);
-//            	
-//            	warning.setVisible(true);
-//            }
+        	 String id = this.id.getText();
+        	 String password = this.password.getText();
+        	 
+        	 ResultMessage result = this.bl.login(id, password);
+        	 if(result.getKey().equals("success")){
+        		 StaffMessageVO vo = (StaffMessageVO) result.getValue();
+        		 
+        		 this.OpenFrame(vo);
+        	 }
+        	 else{
+        		 WarningFrame warning = new WarningFrame(result);
+        	 }
         }
+    }
+    
+    private void OpenFrame(StaffMessageVO vo){
+    	if(vo.job == Job.COURIER){
+    		LogisticsBLService logisticsBLService = new LogisticsBLController();
+            this.setVisible(false);
+            DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
+            frame.setVisible(true);
+    	}
+    	if(vo.job == Job.STOCKMAN){
+            this.setVisible(false);
+            StoreFrame frame = new StoreFrame();
+            frame.setVisible(true);
+    	}
+    	if(vo.job == Job.MANAGER){
+    		this.setVisible(false);
+            ManagerFrame frame = new ManagerFrame();
+            frame.setVisible(true);
+    	}
+    	if(vo.job == Job.SALESOFOFFICE){
+    		LogisticsBLService logisticsBLService = new LogisticsBLController();
+            this.setVisible(false);
+            BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
+            frame.setVisible(true);
+    	}
+    	if(vo.job == Job.FINANCEMAN){
+    		this.setVisible(false);
+            FinanceFrame frame = new FinanceFrame();
+            frame.setVisible(true);
+    	}
+    	if(vo.job == Job.SALESOFCENTRE){
+    		LogisticsBLService logisticsBLService = new LogisticsBLController();
+            this.setVisible(false);
+            TransitCenterclerkFrame frame = new TransitCenterclerkFrame(logisticsBLService);
+            frame.setVisible(true);
+    	}
+    	if(vo.job == Job.ADMIN){
+    		this.setVisible(false);
+    		AdminFrame admin = new AdminFrame();
+    		admin.setVisible(true);
+    	}
+    	
+    	PublicMessage.userID = vo.id;
     }
 }
