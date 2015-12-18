@@ -27,7 +27,7 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 		try {
 			ResultMessage result = dataservice.getDistance();
 			
-			if(result.getKey().equalsIgnoreCase("success")){
+			if(result.getKey().equals("success")){
 				ArrayList<DistancePO> distances = (ArrayList<DistancePO>) result.getValue();
 				
 				for(int i=0;i<distances.size();i++){
@@ -38,6 +38,9 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 						result = dataservice.SaveDistance(distances);
 						if(result.getKey().equals("success")){
 							return new ResultMessage("success", null);
+						}
+						else{
+							return result;
 						}
 					}
 				}
