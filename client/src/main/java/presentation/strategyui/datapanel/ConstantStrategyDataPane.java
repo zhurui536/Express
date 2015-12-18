@@ -98,6 +98,10 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 				City a = this.boxToCity(0);
 				City b = this.boxToCity(1);
 				
+				if(a==b){
+					distance = 0;
+				}
+				
 				ResultMessage result = bl.inputDistanceInfo(new DistanceVO(a, b, distance));
 				if(result.getKey().equals("success")){
 					WarningFrame tip = new WarningFrame("设置成功！");
@@ -143,6 +147,6 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 	private City boxToCity(int i){
 		int num = this.cities[i].getSelectedIndex();
 		
-		return cityicon[i];
+		return cityicon[num];
 	}
 }
