@@ -1,6 +1,7 @@
 package po.storepo;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -19,9 +20,14 @@ public class VerificationPO implements Serializable {
 	private String user;
 	/*盘点的时间*/
 	private Calendar time;
+	/*批次和批号*/
+	private String pici;
+	private String pihao;
 	
 	public VerificationPO(StorePO store, String user){
 		time = Calendar.getInstance();
+		this.pici = df.format(time.getTime());
+		this.pihao = time.getTime().getHours()+"";
 		this.user = user;
 		int area = store.getArea();
 		int row = store.getRow();
@@ -59,4 +65,14 @@ public class VerificationPO implements Serializable {
 	public String getUser(){
 		return this.user;
 	}
+	
+	public String getPici(){
+		return this.pici;
+	}
+	
+	public String getPihao(){
+		return this.pihao;
+	}
+	
+	private final SimpleDateFormat df= new SimpleDateFormat("yyyyMMdd");
 }
