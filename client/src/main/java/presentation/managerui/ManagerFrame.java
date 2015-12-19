@@ -1,9 +1,13 @@
 package presentation.managerui;
 
 import bussinesslogic.billbl.BillBLController;
+import bussinesslogic.infobl.InstitutionMessageMaintenanceBL;
+import bussinesslogic.infobl.StaffMessageMaintenanceBL;
 import bussinesslogic.strategybl.StrategyConstantBLServiceImpl;
 import bussinesslogic.strategybl.StrategySalaryBLServiceImpl;
 import bussinesslogicservice.billblservice.BillBLService;
+import bussinesslogicservice.infoblservice.InstitutionMessageMaintenanceBLService;
+import bussinesslogicservice.infoblservice.StaffMessageMaintenanceBLService;
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
 import bussinesslogicservice.strategyblservice.StrategySalaryBLService;
 import presentation.managerui.listener.MenuListener;
@@ -32,6 +36,8 @@ public class ManagerFrame extends JFrame {
 	private BillBLService bs;
 	private StrategyConstantBLService cs;
 	private StrategySalaryBLService ss;
+	private StaffMessageMaintenanceBLService sms;
+	private InstitutionMessageMaintenanceBLService ims;
 	
 	public static void main(String[] args) throws ClientInitException{
 		ClientRMIHelper.init();
@@ -48,6 +54,8 @@ public class ManagerFrame extends JFrame {
 		bs = new BillBLController();
 		cs = new StrategyConstantBLServiceImpl();
 		ss = new StrategySalaryBLServiceImpl();
+		sms = new StaffMessageMaintenanceBL();
+		ims = new InstitutionMessageMaintenanceBL();
 		this.paintFrame();
 	}
 	
@@ -63,14 +71,14 @@ public class ManagerFrame extends JFrame {
 		menu.setSize(140, 500);
 		menu.setLocation(0, 100);
 		
-		buttons = new JButton[8];
-		for(int i=0;i<8;i++){
+		buttons = new JButton[6];
+		for(int i=0;i<6;i++){
 			buttons[i] = new JButton(this.buttonname[i]);
 			buttons[i].setSize(100, 35);
 			buttons[i].setBackground(Color.PINK);
 			buttons[i].addActionListener(menulistener);
 		}
-		buttons[7].setBackground(Color.RED);
+		buttons[5].setBackground(Color.RED);
 		
 		JLabel[] list = new JLabel[3];
 		for(int i=0;i<3;i++){
@@ -95,14 +103,14 @@ public class ManagerFrame extends JFrame {
 		//添加机构管理及按钮
 		list[2].setLocation(0, 230);
 		menu.add(list[2]);
-		for(int i=3;i<=6;i++){
+		for(int i=3;i<5;i++){
 			buttons[i].setLocation(20, 275+40*(i-3));
 			menu.add(buttons[i]);
 		}
 		
 		//添加退出键
-		buttons[7].setLocation(20, 440);
-		menu.add(buttons[7]);
+		buttons[5].setLocation(20, 440);
+		menu.add(buttons[5]);
 		
 		this.getContentPane().add(menu);
 	}
@@ -173,12 +181,20 @@ public class ManagerFrame extends JFrame {
 	public StrategySalaryBLService getStrategySalaryController(){
 		return this.ss;
 	}
+	
+	public StaffMessageMaintenanceBLService getStaffMessageController(){
+		return this.sms;
+	}
+	
+	public InstitutionMessageMaintenanceBLService getInstitutionMessageController(){
+		return this.ims;
+	}
 	//点击退出键时的方法
 	public void close(){
 		this.dispose();
 		System.exit(0);
 	}
 	
-	private final String[] buttonname = {"运费策略制定", "薪水策略制定", "单据审批", "新增机构", "删除机构", "查看机构信息", "修改机构信息", "退出"};
+	private final String[] buttonname = {"运费策略制定", "薪水策略制定", "单据审批", "机构信息管理", "人员信息管理", "退出"};
 	private final String[] listname = {"策略制定", "单据审批", "机构管理"};
 }

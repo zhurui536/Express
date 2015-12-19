@@ -33,4 +33,6 @@ public interface StaffMessageMaintenanceBLService {
          */
         public ResultMessage showStaffMessage(String staffId);
         
+        public ResultMessage getStaff();
+        
 }

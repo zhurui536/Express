@@ -17,4 +17,5 @@ public interface StaffMessageMaintenanceDataService extends Remote{
         public ResultMessage insert(StaffMessagePO message) throws RemoteException;
         public ResultMessage delete(String id) throws RemoteException;
         public ResultMessage update(StaffMessagePO message) throws RemoteException;
+        public ResultMessage getStaff() throws RemoteException;
 }
