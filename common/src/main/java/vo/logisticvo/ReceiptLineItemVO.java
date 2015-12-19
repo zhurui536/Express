@@ -16,6 +16,19 @@ public class ReceiptLineItemVO {
                 this.barCode = barCode;
                 this.money = money;
         }
+
+		public String getDeliveryManID() {
+			return deliveryManID;
+		}
+
+		public String getBarCode() {
+			return barCode;
+		}
+
+		public BigDecimal getMoney() {
+			return money;
+		}
+        
         
         
 }

@@ -64,7 +64,7 @@ public class FinanceController implements FinanceBLService {
 //            System.out.println(bankAccountVO.name + " " + bankAccountVO.id);
 //        }
 //
-        Time time = new Time("2015-02-18");
+        Time time = new Time();
         BigDecimal money = new BigDecimal(1000.50);
         String staffID = "123456";
         String id = "41242";
@@ -88,9 +88,9 @@ public class FinanceController implements FinanceBLService {
 //            }
 //        }
 //
-        ProfitListVO profitListVO = (ProfitListVO) financeController.showProfitList().getValue();
-        System.out.println(profitListVO.pay + "\n" + profitListVO.income + "\n" + profitListVO.profit);
-        financeController.profitListToExcel();
+//        ProfitListVO profitListVO = (ProfitListVO) financeController.showProfitList().getValue();
+//        System.out.println(profitListVO.pay + "\n" + profitListVO.income + "\n" + profitListVO.profit);
+//        financeController.profitListToExcel();
 //
 //        InstitutionMessageVO institution = new InstitutionMessageVO(null,null,null);
 //        StaffMessageVO staff = new StaffMessageVO(null, null);
@@ -103,6 +103,8 @@ public class FinanceController implements FinanceBLService {
 //            System.out.println(accountVO.bankAccountVO.name + "\n" +
 //                                accountVO.time);
 //        }
+        financeController.showStatement(new Time(), new Time());
+        financeController.statementToExcel();
     }
 
     @Override
@@ -163,6 +165,6 @@ public class FinanceController implements FinanceBLService {
 
     @Override
     public ResultMessage statementToExcel() {
-        return showProfitListBL.profitListToExcel();
+        return showStatementBL.statementToExcel();
     }
 }

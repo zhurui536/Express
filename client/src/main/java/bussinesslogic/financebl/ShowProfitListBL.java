@@ -48,10 +48,11 @@ public class ShowProfitListBL implements ShowProfitListBLService {
         try {
             ResultMessage payMsg = showStatementDataServiceImpl.findAllPayBill();
             ResultMessage receiptMsg = showReceiptDataServiceImpl.findAll();
-            if (!isValidMsg(payMsg) || !isValidMsg(receiptMsg)) {
-                return new ResultMessage("fail");
-            }
+//            if (!isValidMsg(payMsg) || !isValidMsg(receiptMsg)) {
+//                return new ResultMessage("fail");
+//            }
             List<PayBillPO> payBillPOs = (List<PayBillPO>) payMsg.getValue();
+            System.out.println(payBillPOs);
             List<ReceiptBillPO> receiptBillPOs = (List<ReceiptBillPO>) receiptMsg.getValue();
             updateProfitListVO(new Time(), payBillPOs, receiptBillPOs);
             return new ResultMessage("success", profitListVO);
@@ -106,6 +107,7 @@ public class ShowProfitListBL implements ShowProfitListBLService {
         Excel excel = new Excel();
         excel.createSheet(profitListVO, "成本收益表", headers);
         excel.export(out);
+        isUpdated = false;
         return new ResultMessage("success");
     }
 

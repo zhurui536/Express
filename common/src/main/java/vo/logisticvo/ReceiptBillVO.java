@@ -34,4 +34,30 @@ public class ReceiptBillVO {
                 this.institutionID = institutionID;
                 this.receiptLineItemVOs = receiptLineItemVOs;
         }
+
+		public Time getTime() {
+			return time;
+		}
+
+		public BigDecimal getTotalMoney() {
+			return totalMoney;
+		}
+
+		public String getInstitutionID() {
+			return institutionID;
+		}
+
+		public List<ReceiptLineItemVO> getReceiptLineItemVOs() {
+			return receiptLineItemVOs;
+		}
+
+		public String getBillID() {
+			return billID;
+		}
+
+		public String getStaffID() {
+			return staffID;
+		}
+        
+        
 }

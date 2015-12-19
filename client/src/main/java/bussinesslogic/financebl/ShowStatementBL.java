@@ -6,12 +6,16 @@ import dataservice.financedataservice.ShowReceiptDataService;
 import dataservice.financedataservice.ShowStatementDataService;
 import po.financepo.PayBillPO;
 import po.logisticpo.ReceiptBillPO;
+import util.Excel;
 import util.ResultMessage;
 import util.Time;
 import vo.financevo.PayBillVO;
 import vo.financevo.StatementVO;
 import vo.logisticvo.ReceiptBillVO;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,14 +55,15 @@ public class ShowStatementBL implements ShowStatementBLService {
         try {
             ResultMessage payMsg = showStatementDataServiceImpl.findAllPayBill();
             ResultMessage receiptMsg = showReceiptDataServiceImpl.findAll();
-            if (payMsg.getKey().equals("fail") || receiptMsg.getKey().equals("fail")) {
-                return new ResultMessage("fail");
-            }
+//            if (payMsg.getKey().equals("fail") || receiptMsg.getKey().equals("fail")) {
+//                return new ResultMessage("fail");
+//            }
 
             List<PayBillPO> payBillPOs = (List<PayBillPO>) payMsg.getValue();
             List<ReceiptBillPO> receiptBillPOs = (List<ReceiptBillPO>) receiptMsg.getValue();
 
             updateStatementVO(startTime, endTime, payBillPOs, receiptBillPOs);
+            System.out.println(statementVO.payBillVOs.size());
             return new ResultMessage("success", statementVO);
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -97,7 +102,8 @@ public class ShowStatementBL implements ShowStatementBLService {
     }
 
     private boolean isBetween(Time t, Time start, Time end) {
-        return t.compareTo(start) >= 0 && t.compareTo(end) <= 0;
+//        return t.compareTo(start) >= 0 && t.compareTo(end) <= 0;
+    	return true;
     }
 
     @Override
@@ -105,7 +111,19 @@ public class ShowStatementBL implements ShowStatementBLService {
         if (!isUpdated) {
             return new ResultMessage("fail");
         }
+        String[] headers = { "付款时间", "付款单编号", "付款人ID", "付款账号", "条目", "备注", "付款金额" };
+        OutputStream out = null;
+
+        try {
+            out = new FileOutputStream("C:/Users/jone/Desktop/经营情况表.xls");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Excel excel = new Excel();
+        excel.createSheet(statementVO.payBillVOs, "付款单", headers);
+        excel.export(out);
         isUpdated = false;
-        return null;
+        return new ResultMessage("success");
     }
 }

@@ -1,9 +1,9 @@
 package vo.financevo;
 
+import java.math.BigDecimal;
+
 import util.PayItem;
 import util.Time;
-
-import java.math.BigDecimal;
 
 /**
  * Created by Away
@@ -41,4 +41,34 @@ public class PayBillVO {
         this.item = item;
         this.remark = remark;
     }
+
+	public Time getTime() {
+		return time;
+	}
+
+	public BigDecimal getMoney() {
+		return money;
+	}
+
+	public String getStaffID() {
+		return staffID;
+	}
+
+	public String getBankAccountID() {
+		return bankAccountID;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public PayItem getItem() {
+		return item;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+    
+    
 }

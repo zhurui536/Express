@@ -106,6 +106,7 @@ public class Excel {
                     @SuppressWarnings("unchecked")
                     Method getMethod = cls.getMethod(getMethodName);
                     Object value = getMethod.invoke(t);
+                    System.out.println(value);
                     // 判断值的类型后进行强制类型转换
                     if (value instanceof BigDecimal) {
                         Double doubleValue = ((BigDecimal) value).doubleValue();

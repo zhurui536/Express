@@ -57,7 +57,7 @@ public class AdminBL implements AdminBLService {
 			
 			if(result.getKey().equals("success")){
 				staff = (ArrayList<StaffMessagePO>) result.getValue();
-				
+				System.out.println(staff.size());
 				for(int i=0;i<staff.size();i++){
 					StaffMessagePO temp = staff.get(i);
 					//如果员工id存在，则说明账户信息正确，添加账户

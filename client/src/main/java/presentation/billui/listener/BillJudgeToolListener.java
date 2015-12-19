@@ -19,7 +19,7 @@ import presentation.billui.datapanel.DeliveryBillDataPane;
 import presentation.billui.datapanel.InStoreBillDataPane;
 import presentation.billui.datapanel.LoadingBillDataPane;
 import presentation.billui.datapanel.OutStoreBillDataPane;
-import presentation.billui.datapanel.PayBillDataPane;
+//import presentation.billui.datapanel.PayBillDataPane;
 import presentation.billui.datapanel.ReceiptBillDataPane;
 import presentation.billui.datapanel.SendBillDataPane;
 import presentation.managerui.ManagerFrame;
@@ -116,10 +116,10 @@ public class BillJudgeToolListener extends ToolListener {
 				ui.paintdata(data);
 			}
 			else if(type == BillType.PAYMENT){
-				PayBillPO po = (PayBillPO) result.getValue();
-				
-				PayBillDataPane data = new PayBillDataPane(po);
-				ui.paintdata(data);
+//				PayBillPO po = (PayBillPO) result.getValue();
+//				
+//				PayBillDataPane data = new PayBillDataPane(po);
+//				ui.paintdata(data);
 			}
 			else if(type == BillType.RECEIPT){
 				ReceiptBillPO po = (ReceiptBillPO) result.getValue();
