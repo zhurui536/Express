@@ -1,10 +1,16 @@
 package presentation.logisticsui.businessofficeclerkui;
 
+import bussinesslogic.infobl.InfoBLController;
+import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogicservice.infoblservice.InfoBLSerivce;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import presentation.logisticsui.businessofficeclerkui.listerner.MenuListener;
 
 import javax.swing.*;
+
+import connection.ClientInitException;
+import connection.ClientRMIHelper;
+
 import java.awt.*;
 
 @SuppressWarnings("serial")
@@ -27,13 +33,16 @@ public class BusinessOfficeClerkFrame extends JFrame {
 
         private static final int NUMBER_OF_BUTTONS = 5;
 
-//        public static void main(String[] args) {
-//                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame();
-//                frame.setVisible(true);
-//        }
+        public static void main(String[] args) throws ClientInitException {
+                ClientRMIHelper.init();
+                LogisticsBLService logisticsBLService = new LogisticsBLController();
+                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
+                frame.setVisible(true);
+        }
 
         public BusinessOfficeClerkFrame(LogisticsBLService logisticsBLService) {
             this.logisticsBLService = logisticsBLService;
+            this.infoBLSerivce = new InfoBLController();
                 this.setLayout(null);
                 this.setSize(1000, 630);
                 this.setDefaultCloseOperation(EXIT_ON_CLOSE);

@@ -5,8 +5,6 @@ import util.Time;
 import java.math.BigDecimal;
 import java.util.List;
 
-import po.logisticpo.ReceiptBillPO;
-import po.logisticpo.ReceiptLineItemPO;
 
 
 /**

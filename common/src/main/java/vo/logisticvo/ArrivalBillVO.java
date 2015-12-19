@@ -23,8 +23,20 @@ public class ArrivalBillVO {
         	this.departurePlace = po.getDeparturePlace();
         	this.goodsState = po.getGoodsState();
         }
-        
-        public ArrivalBillVO(){
-        	
+
+        public ArrivalBillVO(String institution, String date,
+                        String transferBillNum, String departurePlace,
+                        GoodsState goodsState) {
+                super();
+                this.institution = institution;
+                this.date = date;
+                this.transferBillNum = transferBillNum;
+                this.departurePlace = departurePlace;
+                this.goodsState = goodsState;
         }
+        
+        public ArrivalBillVO() {
+                // TODO Auto-generated constructor stub
+        }
+        
 }

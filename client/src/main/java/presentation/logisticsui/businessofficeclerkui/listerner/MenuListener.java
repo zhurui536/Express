@@ -62,6 +62,8 @@ public class MenuListener implements ActionListener{
                                 dialog.setContentPane(panel);
                                 dialog.setVisible(true);
                         }
+                }else if(i == 4){
+                        
                 }
                 
         }

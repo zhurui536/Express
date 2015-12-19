@@ -190,5 +190,6 @@ public class MainUI extends JFrame implements ActionListener{
     	}
     	
     	PublicMessage.userID = vo.id;
+    	PublicMessage.institutionID = vo.institutionid;
     }
 }
