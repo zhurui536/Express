@@ -72,7 +72,7 @@ public class TruckMessageMaintenanceBL implements TruckMessageMaintenanceBLServi
                         e.printStackTrace();
                         return new ResultMessage("FAIL");
                 }
-                if (resultMessage.getKey().equals("SUCCESS")) {
+                if (resultMessage.getKey().equals("FOUND")) {
                         return new ResultMessage("SUCCESS",
                                         ((TruckMessagePO) resultMessage
                                                         .getValue()).poToVo());
