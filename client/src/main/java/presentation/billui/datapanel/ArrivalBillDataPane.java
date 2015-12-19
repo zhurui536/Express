@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import po.logisticpo.ArrivalBillPO;
 import vo.logisticvo.ArrivalBillVO;
 
+@SuppressWarnings("serial")
 public class ArrivalBillDataPane extends JPanel {
 //	public static void main(String[] args){
 //		JFrame test = new JFrame();

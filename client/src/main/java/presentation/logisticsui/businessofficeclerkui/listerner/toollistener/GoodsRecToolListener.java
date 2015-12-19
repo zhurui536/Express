@@ -2,7 +2,9 @@ package presentation.logisticsui.businessofficeclerkui.listerner.toollistener;
 
 import java.awt.event.ActionEvent;
 
+import po.logisticpo.ArrivalBillPO;
 import presentation.ToolPane;
+import presentation.billui.datapanel.ArrivalBillDataPane;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.inputframe.GoodsRecInputFrame;
 import presentation.storeui.listener.ToolListener;
@@ -23,7 +25,7 @@ public class GoodsRecToolListener extends ToolListener{
         public boolean getInput(ArrivalBillVO arrivalBillVO) {
                 ResultMessage resultMessage = logisticsBLService.produceArrivalBill(arrivalBillVO);
                 if(resultMessage.getKey().equals("SUCCESS")){
-                        ui.paintdata(null);
+                        ui.paintdata(new ArrivalBillDataPane(new ArrivalBillPO(arrivalBillVO)));
                         return true;
                 }else {
                         return false;

@@ -189,6 +189,8 @@ public class MainUI extends JFrame implements ActionListener{
     		admin.setVisible(true);
     	}
     	
+
     	PublicMessage.staffID = vo.id;
+    	PublicMessage.institutionID = vo.institutionid;
     }
 }

@@ -1,10 +1,16 @@
 package presentation.logisticsui.businessofficeclerkui;
 
+import bussinesslogic.infobl.InfoBLController;
+import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogicservice.infoblservice.InfoBLSerivce;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import presentation.logisticsui.businessofficeclerkui.listerner.MenuListener;
 
 import javax.swing.*;
+
+import connection.ClientInitException;
+import connection.ClientRMIHelper;
+
 import java.awt.*;
 
 @SuppressWarnings("serial")
@@ -23,17 +29,20 @@ public class BusinessOfficeClerkFrame extends JFrame {
         private JScrollPane scroll;
         private JPanel data;
 
-        private static final String[] NAMES = { "货物装车", "货物接受","分派货物","收款", "信息维护" };
+        private static final String[] NAMES = { "货物装车", "货物接受","分派货物","收款", "司机信息维护" ,"车辆信息维护"};
 
-        private static final int NUMBER_OF_BUTTONS = 5;
+        private static final int NUMBER_OF_BUTTONS = 6;
 
-//        public static void main(String[] args) {
-//                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame();
-//                frame.setVisible(true);
-//        }
+        public static void main(String[] args) throws ClientInitException {
+                ClientRMIHelper.init();
+                LogisticsBLService logisticsBLService = new LogisticsBLController();
+                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
+                frame.setVisible(true);
+        }
 
         public BusinessOfficeClerkFrame(LogisticsBLService logisticsBLService) {
             this.logisticsBLService = logisticsBLService;
+            this.infoBLSerivce = new InfoBLController();
                 this.setLayout(null);
                 this.setSize(1000, 630);
                 this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -67,7 +76,7 @@ public class BusinessOfficeClerkFrame extends JFrame {
                 buttons = new JButton[NUMBER_OF_BUTTONS];
                 for (int i = 0; i < NUMBER_OF_BUTTONS; i++) {
                         buttons[i] = createButton(i);
-                        buttons[i].setLocation(15, 35 + 75 * i);
+                        buttons[i].setLocation(10, 35 + 75 * i);
                         menu.add(buttons[i], 0);
                 }
 
@@ -76,7 +85,7 @@ public class BusinessOfficeClerkFrame extends JFrame {
 
         private JButton createButton(int i) {
                 JButton button = new JButton(NAMES[i]);
-                button.setSize(100, 35);
+                button.setSize(120, 35);
                 button.addActionListener(menulistener);
                 return button;
         }

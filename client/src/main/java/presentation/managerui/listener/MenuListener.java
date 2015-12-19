@@ -2,7 +2,9 @@ package presentation.managerui.listener;
 
 import presentation.billui.listener.BillJudgeToolListener;
 import presentation.billui.tool.BillJudgeTool;
+import presentation.infoui.listener.InstitutionInfoToolListener;
 import presentation.infoui.listener.StaffInfoToolListener;
+import presentation.infoui.tool.InstitutionInfoTool;
 import presentation.infoui.tool.StaffInfoTool;
 import presentation.managerui.ManagerFrame;
 import presentation.strategyui.listener.SalaryToolListener;
@@ -43,6 +45,12 @@ public class MenuListener implements ActionListener {
 		if(i==2){//点击了审批单据
 			BillJudgeToolListener listener = new BillJudgeToolListener(ui);
 			BillJudgeTool tool = new BillJudgeTool(listener);
+			listener.setTool(tool);
+			ui.replaceTool(tool);
+		}
+		if(i==3){//点击了机构信息管理
+			InstitutionInfoToolListener listener = new InstitutionInfoToolListener(ui);
+			InstitutionInfoTool tool = new InstitutionInfoTool(listener);
 			listener.setTool(tool);
 			ui.replaceTool(tool);
 		}

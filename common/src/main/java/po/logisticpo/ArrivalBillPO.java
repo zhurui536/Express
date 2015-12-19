@@ -3,9 +3,11 @@ package po.logisticpo;
 import po.BillPO;
 import util.BillType;
 import util.GoodsState;
+import vo.logisticvo.ArrivalBillVO;
 
 /**
  * 到达单
+ * 
  * @author zhuding
  */
 public class ArrivalBillPO extends BillPO {
@@ -32,6 +34,13 @@ public class ArrivalBillPO extends BillPO {
                 this.transferBillNum = transferBillNum;
                 this.departurePlace = departurePlace;
                 this.goodsState = goodsState;
+        }
+
+        public ArrivalBillPO(ArrivalBillVO arrivalBillVO) {
+                this(arrivalBillVO.institution, arrivalBillVO.date,
+                                arrivalBillVO.transferBillNum,
+                                arrivalBillVO.departurePlace,
+                                arrivalBillVO.goodsState);
         }
 
         public String getInstitution() {

@@ -111,4 +111,9 @@ public class InfoBLController implements InfoBLSerivce {
 			return this.staffMessageMaintenanceBLService.getStaff();
 		}
 
+		@Override
+		public ResultMessage getInstitutionMessage() {
+			return this.institutionMessageMaintenanceBLService.getInstitutionMessage();
+		}
+
 }

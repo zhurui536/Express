@@ -1,5 +1,6 @@
 package presentation.logisticsui.transitcenterclerkui;
 
+import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import presentation.logisticsui.transitcenterclerkui.listener.MenuListener;
 
@@ -36,10 +37,11 @@ public class TransitCenterclerkFrame extends JFrame {
                 this.paintframe();
         }
 
-//        public static void main(String[] args) {
-//                TransitCenterclerkFrame frame = new TransitCenterclerkFrame();
-//                frame.setVisible(true);
-//        }
+        public static void main(String[] args) {
+                LogisticsBLService logisticsBLService = new LogisticsBLController();
+                TransitCenterclerkFrame frame = new TransitCenterclerkFrame(logisticsBLService);
+                frame.setVisible(true);
+        }
 
         private void paintframe() {
                 paintmenu();

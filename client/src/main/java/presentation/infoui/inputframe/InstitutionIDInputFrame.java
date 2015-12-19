@@ -8,19 +8,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
-import presentation.infoui.listener.StaffInfoToolListener;
+import presentation.infoui.listener.InstitutionInfoToolListener;
 
-public class IDInputFrame extends JFrame implements ActionListener {
+public class InstitutionIDInputFrame extends JFrame implements ActionListener {
 	//确定、取消按钮
 	private JButton confirm, cancle;
 	//ID的输入框
 	private JTextArea id;
 	//
-	private StaffInfoToolListener tl;
+	private InstitutionInfoToolListener tl;
 	//表示此窗口的用途，0代表删除，1代表修改
 	private int condition;
 	
-	public IDInputFrame(StaffInfoToolListener tl, int i){
+	public InstitutionIDInputFrame(InstitutionInfoToolListener tl, int i){
 		this.tl = tl;
 		this.condition = i;
 		this.setLayout(null);
@@ -31,7 +31,7 @@ public class IDInputFrame extends JFrame implements ActionListener {
 	}
 	
 	private void initialize(){
-		JLabel title = new JLabel("员工id输入");
+		JLabel title = new JLabel("机构id输入");
 		title.setSize(90, 30);
 		title.setLocation(70, 10);
 		this.getContentPane().add(title);

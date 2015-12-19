@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -143,7 +144,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			
 			//接着保存入库单
 			if(po.size()>0){//暂时现将第一个货物的编号作为入库单id
-				InStoreBillPO bill = new InStoreBillPO(po.get(0).getUser(), po, po.get(0).getGoodsID());
+				InStoreBillPO bill = new InStoreBillPO(po.get(0).getUser(), po, df.format(Calendar.getInstance().getTime()));
 				ArrayList<InStoreBillPO> temp;
 				
 				//读入已有的单据数据
@@ -183,7 +184,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			
 			//接着保存出库单
 			if(po.size()>0){//暂时现将第一个货物的编号作为出库单id
-				OutStoreBillPO bill = new OutStoreBillPO(po.get(0).getUser(), po, po.get(0).getGoodsID());
+				OutStoreBillPO bill = new OutStoreBillPO(po.get(0).getUser(), po, df.format(Calendar.getInstance().getTime()));
 				ArrayList<OutStoreBillPO> temp;
 				
 				//读入已有的单据数据
@@ -344,4 +345,5 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		objout.close();
 	}
 	
+	private final SimpleDateFormat df= new SimpleDateFormat("yyyyMMddHHmmss");
 }

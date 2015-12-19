@@ -14,7 +14,7 @@ import java.rmi.RemoteException;
 public class VerificationBL implements VerificationBLService {
 	private StoreDataService dataservice;
 	private String user;
-	private VerificationVO store;
+	private VerificationVO vo;
 	private VerificationPO po;
 	
 	public VerificationBL(){
@@ -29,10 +29,10 @@ public class VerificationBL implements VerificationBLService {
 			result = dataservice.getStore();
 			if(result.getKey().equals("success")){
 				StorePO store = (StorePO) result.getValue();
-				this.store = new VerificationVO(store);
+				this.vo = new VerificationVO(store);
 				this.po = new VerificationPO(store, user);
 				
-				return new ResultMessage("success", this.store);
+				return new ResultMessage("success", this.vo);
 			}
 			else{
 				return result;

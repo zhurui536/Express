@@ -16,4 +16,5 @@ public interface InstitutionMessageMaintenanceBLService {
         
         public ResultMessage showInstitutionMessage(String institutionId);
         
+        public ResultMessage getInstitutionMessage();
 }

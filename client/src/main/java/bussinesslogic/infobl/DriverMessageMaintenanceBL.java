@@ -73,7 +73,7 @@ public class DriverMessageMaintenanceBL implements
                         e.printStackTrace();
                         return new ResultMessage("FAIL");
                 }
-                if (resultMessage.getKey().equals("SUCCESS")) {
+                if (resultMessage.getKey().equals("FOUND")) {
                         return new ResultMessage("SUCCESS",
                                         ((DriverMessagePO) resultMessage
                                                         .getValue()).poToVo());

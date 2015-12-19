@@ -13,7 +13,8 @@ public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteO
 
         private static final long serialVersionUID = -2566534132857071603L;
         
-        private static final String PATH = "server/src/main/java/save/infodata/institutionMessagePO.dat";
+//        private static final String PATH = "server/src/main/java/save/infodata/institutionMessagePO.dat";
+        private static final String PATH = "src/main/java/save/infodata/institutionMessagePO.dat";
         
         private ArrayList<InstitutionMessagePO> institutionMessagePOs;
         
@@ -74,5 +75,10 @@ public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteO
                 }
                 return new ResultMessage("NO_EXIST");
         }
+
+		@Override
+		public ResultMessage get() throws RemoteException {
+			return new ResultMessage("SUCCESS", this.institutionMessagePOs);
+		}
 
 }
