@@ -8,6 +8,7 @@ import util.ResultMessage;
 import vo.StaffMessageVO;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 
 public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLService {
@@ -73,7 +74,7 @@ public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLServi
                         e.printStackTrace();
                         return new ResultMessage("FAIL");
                 }
-                if (resultMessage.getKey().equals("SUCCESS")) {
+                if (resultMessage.getKey().equals("FOUND")) {
                         return new ResultMessage("SUCCESS",
                                         ((StaffMessagePO) resultMessage
                                                         .getValue()).poToVo());
@@ -82,4 +83,22 @@ public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLServi
                 }
         }
 
+		@Override
+		public ResultMessage getStaff() {
+			ResultMessage result;
+			try {
+				result = staffMessageMaintenanceDataService.getStaff();
+				ArrayList<StaffMessagePO> pos = (ArrayList<StaffMessagePO>) result.getValue();
+				ArrayList<StaffMessageVO> vos = new ArrayList<StaffMessageVO>();
+				
+				for(int i=0;i<pos.size();i++){
+					vos.add(pos.get(i).poToVo());
+				}
+				
+				return new ResultMessage("success", vos);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				return new ResultMessage("FAIL");
+			}
+		}
 }

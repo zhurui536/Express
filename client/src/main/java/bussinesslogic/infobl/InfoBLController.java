@@ -106,4 +106,9 @@ public class InfoBLController implements InfoBLSerivce {
                 return truckMessageMaintenanceBLService.showTruckMessage(truckId);
         }
 
+		@Override
+		public ResultMessage getStaff() {
+			return this.staffMessageMaintenanceBLService.getStaff();
+		}
+
 }

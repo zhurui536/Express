@@ -2,6 +2,8 @@ package presentation.managerui.listener;
 
 import presentation.billui.listener.BillJudgeToolListener;
 import presentation.billui.tool.BillJudgeTool;
+import presentation.infoui.listener.StaffInfoToolListener;
+import presentation.infoui.tool.StaffInfoTool;
 import presentation.managerui.ManagerFrame;
 import presentation.strategyui.listener.SalaryToolListener;
 import presentation.strategyui.listener.StrategyToolListener;
@@ -22,7 +24,7 @@ public class MenuListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		int i = 0;
 		
-		for(i=0;i<8;i++){
+		for(i=0;i<6;i++){
 			if(e.getSource() == ui.getButton(i))
 				break;
 		}
@@ -44,8 +46,13 @@ public class MenuListener implements ActionListener {
 			listener.setTool(tool);
 			ui.replaceTool(tool);
 		}
-		
-		if(i==7){
+		if(i==4){//点击了人员信息管理
+			StaffInfoToolListener listener = new StaffInfoToolListener(ui);
+			StaffInfoTool tool = new StaffInfoTool(listener);
+			listener.setTool(tool);
+			ui.replaceTool(tool);
+		}
+		if(i==5){
 			ui.close();
 		}
 	}

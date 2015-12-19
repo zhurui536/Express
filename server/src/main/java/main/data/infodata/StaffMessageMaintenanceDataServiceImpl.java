@@ -77,4 +77,9 @@ public class StaffMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
                 return new ResultMessage("NO_EXIST");
         }
 
+		@Override
+		public ResultMessage getStaff() throws RemoteException {
+			return new ResultMessage("SUCCESS", this.staffMessagePOs);
+		}
+
 }
