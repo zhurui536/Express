@@ -1,7 +1,7 @@
 package presentation.financeui.datapanel;
 
 
-import vo.storevo.ProfitListVO;
+import vo.financevo.ProfitListVO;
 
 import javax.swing.*;
 

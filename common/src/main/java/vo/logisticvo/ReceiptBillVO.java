@@ -5,9 +5,6 @@ import util.Time;
 import java.math.BigDecimal;
 import java.util.List;
 
-import po.logisticpo.ReceiptBillPO;
-import po.logisticpo.ReceiptLineItemPO;
-
 
 /**
  * Created by Away
@@ -23,6 +20,10 @@ public class ReceiptBillVO {
         public String institutionID;
 
         public List<ReceiptLineItemVO> receiptLineItemVOs;
+
+        public String billID;
+
+        public String staffID;
 
         public ReceiptBillVO(Time time, BigDecimal totalMoney,
                         String institutionID,

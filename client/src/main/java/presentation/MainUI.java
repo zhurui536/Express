@@ -135,7 +135,7 @@ public class MainUI extends JFrame implements ActionListener{
 //        }
         if(e.getSource() == confirm){
         	 String id = this.id.getText();
-        	 String password = this.password.getText();
+        	 String password = new String(this.password.getPassword());
         	 
         	 ResultMessage result = this.bl.login(id, password);
         	 if(result.getKey().equals("success")){
@@ -189,6 +189,6 @@ public class MainUI extends JFrame implements ActionListener{
     		admin.setVisible(true);
     	}
     	
-    	PublicMessage.userID = vo.id;
+    	PublicMessage.staffID = vo.id;
     }
 }

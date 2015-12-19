@@ -54,7 +54,7 @@ public class ReceiptBillProduceBL implements ReceiptBillProduceBLService {
                                         today, sum,
                                         PublicMessage.institutionID,
                                         receiptLineItemPOs, PublicMessage.institutionID + today.toID(),
-                                        PublicMessage.userID));
+                                        PublicMessage.staffID));
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();

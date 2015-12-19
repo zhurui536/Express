@@ -4,10 +4,9 @@ import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.PayPanel;
 import util.PayItem;
+import util.PublicMessage;
 import util.ResultMessage;
 import util.Time;
-import vo.StaffMessageVO;
-import vo.financevo.BankAccountVO;
 import vo.financevo.PayBillVO;
 
 import javax.swing.*;
@@ -106,15 +105,14 @@ public class PayDialog extends JDialog {
         @Override
         public void actionPerformed(ActionEvent e) {
             String personID = payPersonID.getText();
-            StaffMessageVO staffMessageVO = new StaffMessageVO(personID, null);
+            String staffID = PublicMessage.staffID;
             BigDecimal money = new BigDecimal(payMoney.getText());
             String accountID = payAccountID.getText();
-            BankAccountVO bankAccountVO = new BankAccountVO(accountID, null, null);
             PayItem item = PayItem.getItem((String) payItem.getSelectedItem());
             String remark = payRemark.getText();
             Time current = new Time();
             String id = "12345";
-            PayBillVO payBillVO = new PayBillVO(current, money, staffMessageVO, bankAccountVO, id, item, remark);
+            PayBillVO payBillVO = new PayBillVO(current, money, staffID, accountID, id, item, remark);
 
             ResultMessage msg = financeController.createPayBill(payBillVO);
 

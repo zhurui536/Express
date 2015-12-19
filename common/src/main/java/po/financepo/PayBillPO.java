@@ -1,12 +1,9 @@
 package po.financepo;
 
 import po.BillPO;
-import po.StaffMessagePO;
 import util.BillType;
 import util.PayItem;
 import util.Time;
-import vo.StaffMessageVO;
-import vo.financevo.BankAccountVO;
 import vo.financevo.PayBillVO;
 
 import java.math.BigDecimal;
@@ -25,10 +22,11 @@ public class PayBillPO extends BillPO {
 
     private BigDecimal money;
 
-    // 付款人
-    private StaffMessagePO staffMessagePO;
+    // 付款人ID
+    public String staffID;
 
-    private BankAccountPO bankAccountPO;
+    // 付款账号
+    private String bankAccountID;
 
     // 付款单编号
     private String id;
@@ -39,40 +37,31 @@ public class PayBillPO extends BillPO {
     // 备注
     private String remark;
 
-    public PayBillPO(Time time, BigDecimal money, StaffMessagePO staffMessagePO,
-                     BankAccountPO bankAccountPO, String id, PayItem item, String remark) {
-    	super(id, BillType.PAYMENT, staffMessagePO.getId());
+    public PayBillPO(Time time, BigDecimal money, String staffID,
+                     String bankAccountID, String id, PayItem item, String remark) {
+    	super(id, BillType.PAYMENT, staffID);
         this.time = time;
         this.money = money;
-        this.staffMessagePO = staffMessagePO;
-        this.bankAccountPO = bankAccountPO;
+        this.bankAccountID = bankAccountID;
         this.id = id;
         this.item = item;
         this.remark = remark;
     }
 
     public PayBillPO(PayBillVO payBillVO) {
-    	super(payBillVO.id, BillType.PAYMENT, payBillVO.staffMessageVO.id);
-        BankAccountVO bankAccountVO = payBillVO.bankAccountVO;
-        StaffMessageVO staffMessageVO = payBillVO.staffMessageVO;
+    	super(payBillVO.id, BillType.PAYMENT, payBillVO.staffID);
         
         this.time = payBillVO.time;
         this.money = payBillVO.money;
-        this.staffMessagePO = new StaffMessagePO(staffMessageVO.id, staffMessageVO.name, id, null, null, 0);
-        this.bankAccountPO = new BankAccountPO(bankAccountVO.name, bankAccountVO.balance, bankAccountVO.id);
+        this.staffID = payBillVO.staffID;
+        this.bankAccountID = payBillVO.bankAccountID;
         this.id = payBillVO.id;
         this.item = payBillVO.item;
         this.remark = payBillVO.remark;
     }
 
     public PayBillVO poToVo() {
-        BankAccountVO bankAccountVO = bankAccountPO.poToVo();
-        StaffMessageVO staffMessageVO = staffMessagePO.poToVo();
-        return new PayBillVO(time, money, staffMessageVO, bankAccountVO, id, item, remark);
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+        return new PayBillVO(time, money, staffID, bankAccountID, id, item, remark);
     }
 
     public Time getTime() {
@@ -83,12 +72,12 @@ public class PayBillPO extends BillPO {
         return money;
     }
 
-    public StaffMessagePO getStaffMessagePO() {
-        return staffMessagePO;
+    public String getStaffID() {
+        return staffID;
     }
 
-    public BankAccountPO getBankAccountPO() {
-        return bankAccountPO;
+    public String getBankAccountID() {
+        return bankAccountID;
     }
 
     public String getId() {

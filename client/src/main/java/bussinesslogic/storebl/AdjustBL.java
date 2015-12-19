@@ -1,8 +1,8 @@
 package bussinesslogic.storebl;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-
+import bussinesslogicservice.storeblservice.AdjustBLService;
+import connection.ClientRMIHelper;
+import dataservice.storedataservice.StoreDataService;
 import po.GoodsPO;
 import po.storepo.AdjustPO;
 import po.storepo.StorePO;
@@ -11,9 +11,9 @@ import util.PublicMessage;
 import util.ResultMessage;
 import vo.storevo.AdjustVO;
 import vo.storevo.StorePlaceVO;
-import bussinesslogicservice.storeblservice.AdjustBLService;
-import connection.ClientRMIHelper;
-import dataservice.storedataservice.StoreDataService;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class AdjustBL implements AdjustBLService {
 	private StoreDataService dataservice;
@@ -22,7 +22,7 @@ public class AdjustBL implements AdjustBLService {
 	
 	public AdjustBL(){
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
-		this.user = PublicMessage.userID;
+		this.user = PublicMessage.staffID;
 	}
 
 	@Override

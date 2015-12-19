@@ -7,7 +7,7 @@ import presentation.financeui.dialog.StatementDialog;
 import presentation.financeui.listener.ToolListener;
 import presentation.financeui.tool.ToolPanel;
 import util.ResultMessage;
-import vo.storevo.ProfitListVO;
+import vo.financevo.ProfitListVO;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

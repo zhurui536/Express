@@ -15,7 +15,7 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class ReceiptPanel extends JPanel {
 
-    private String[] row = { "收款时间", "营业厅编号", "快递员编号", "订单条形码号", "收款金额" };
+    private String[] row = { "收款时间", "收款单编号", "营业厅编号", "快递员编号", "订单条形码号", "收款金额" };
 
     private List<ReceiptBillVO> receiptBillVOs;
 
@@ -65,10 +65,11 @@ public class ReceiptPanel extends JPanel {
 
             for (ReceiptLineItemVO receiptLineItemVO : receiptLineItemVOs) {
                 table.setValueAt(receiptBillVO.time.toString(), len, 0);
-                table.setValueAt(receiptBillVO.institutionID, len, 1);
-                table.setValueAt(receiptLineItemVO.deliveryManID, len, 2);
-                table.setValueAt(receiptLineItemVO.barCode, len, 3);
-                table.setValueAt(receiptLineItemVO.money, len, 4);
+                table.setValueAt(receiptBillVO.billID, len, 1);
+                table.setValueAt(receiptBillVO.institutionID, len, 2);
+                table.setValueAt(receiptLineItemVO.deliveryManID, len, 3);
+                table.setValueAt(receiptLineItemVO.barCode, len, 4);
+                table.setValueAt(receiptLineItemVO.money, len, 5);
                 len++;
             }
 

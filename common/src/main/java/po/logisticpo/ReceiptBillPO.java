@@ -1,7 +1,6 @@
 package po.logisticpo;
 
 import po.BillPO;
-import util.BillState;
 import util.BillType;
 import util.Time;
 import vo.logisticvo.ReceiptBillVO;
@@ -27,23 +26,20 @@ public class ReceiptBillPO extends BillPO {
 
         private List<ReceiptLineItemPO> receiptLineItemPOs;
         
-        private String billid;
+        private String billID;
         
-        private String userid;
-        
-        private BillState state;
+        private String staffID;
 
         public ReceiptBillPO(Time time, BigDecimal totalMoney,
                         String institutionID,
-                        List<ReceiptLineItemPO> receiptLineItemPOs, String billid, String userid) {
-                super(billid, BillType.RECEIPT, userid);
+                        List<ReceiptLineItemPO> receiptLineItemPOs, String billID, String staffID) {
+                super(billID, BillType.RECEIPT, staffID);
                 this.time = time;
                 this.totalMoney = totalMoney;
                 this.institutionID = institutionID;
                 this.receiptLineItemPOs = receiptLineItemPOs;
-                this.state = BillState.DRAFT;
-                this.billid = billid;
-                this.userid = userid;
+                this.billID = billID;
+                this.staffID = staffID;
         }
         
         public ReceiptBillVO poToVo() {
@@ -87,21 +83,13 @@ public class ReceiptBillPO extends BillPO {
                         List<ReceiptLineItemPO> receiptLineItemPOs) {
                 this.receiptLineItemPOs = receiptLineItemPOs;
         }
-        
-        public BillState getState(){
-        	return this.state;
-        }
-        
-        public void setState(BillState state){
-        	this.state = state;
-        }
-        
+
         public String getUser(){
-    		return this.userid;
+    		return this.staffID;
     	}
     	
     	public String getBill(){
-    		return this.billid;
+    		return this.billID;
     	}
 
 }

@@ -1,11 +1,17 @@
 package bussinesslogic.financebl;
 
 import bussinesslogicservice.financeblservice.*;
+import connection.ClientInitException;
+import connection.ClientRMIHelper;
+import util.PayItem;
 import util.ResultMessage;
 import util.Time;
 import vo.financevo.AccountVO;
 import vo.financevo.BankAccountVO;
 import vo.financevo.PayBillVO;
+import vo.financevo.ProfitListVO;
+
+import java.math.BigDecimal;
 
 /**
  * 控制器，用于控制财务层的逻辑
@@ -26,7 +32,7 @@ public class FinanceController implements FinanceBLService {
     private ShowReceiptBLService showReceiptBL;
 
     private CreateAccountingBLService createAccountingBL;
-
+    
     public FinanceController() {
         bankAccountManagement = new BankAccountManagementBL();
         createPayBillBL = new CreatePayBillBL();
@@ -37,13 +43,13 @@ public class FinanceController implements FinanceBLService {
     }
 
     // TODO
-//    public static void main(String[] args) {
-//        try {
-//            ClientRMIHelper.init();
-//        } catch (ClientInitException e) {
-//            e.printStackTrace();
-//        }
-//        FinanceController financeController = new FinanceController();
+    public static void main(String[] args) {
+        try {
+            ClientRMIHelper.init();
+        } catch (ClientInitException e) {
+            e.printStackTrace();
+        }
+        FinanceController financeController = new FinanceController();
 //        BankAccountVO vo = new BankAccountVO("线性代数", null, "123456789");
 //        BankAccountVO vo2 = new BankAccountVO("微积分和线性代数", null, "123456789");
 //        BankAccountVO vo3 = new BankAccountVO("分和", null, null);
@@ -58,14 +64,14 @@ public class FinanceController implements FinanceBLService {
 //            System.out.println(bankAccountVO.name + " " + bankAccountVO.id);
 //        }
 //
-//        Time time = new Time("2015-02-18");
-//        BigDecimal money = new BigDecimal(1000.50);
-//        StaffMessageVO staffMessageVO = new StaffMessageVO("31423", "hello");
-//        String id = "41242";
-//        PayItem item = PayItem.SALARY;
-//        String remark = "test";
-//        PayBillVO payBillVO = new PayBillVO(time, money, staffMessageVO, vo, id, item, remark);
-//        financeController.createPayBill(payBillVO);
+        Time time = new Time("2015-02-18");
+        BigDecimal money = new BigDecimal(1000.50);
+        String staffID = "123456";
+        String id = "41242";
+        PayItem item = PayItem.SALARY;
+        String remark = "test";
+        PayBillVO payBillVO = new PayBillVO(time, money, staffID, id, "000000", item, remark);
+        financeController.createPayBill(payBillVO);
 //
 //        ResultMessage resultMessage = financeController.showStatement(time, time);
 //        StatementVO statementVO = (StatementVO) resultMessage.getValue();
@@ -82,8 +88,9 @@ public class FinanceController implements FinanceBLService {
 //            }
 //        }
 //
-//        ProfitListVO profitListVO = (ProfitListVO) financeController.showProfitList().getValue();
-//        System.out.println(profitListVO.pay + "\n" + profitListVO.income + "\n" + profitListVO.profit);
+        ProfitListVO profitListVO = (ProfitListVO) financeController.showProfitList().getValue();
+        System.out.println(profitListVO.pay + "\n" + profitListVO.income + "\n" + profitListVO.profit);
+        financeController.profitListToExcel();
 //
 //        InstitutionMessageVO institution = new InstitutionMessageVO(null,null,null);
 //        StaffMessageVO staff = new StaffMessageVO(null, null);
@@ -96,7 +103,7 @@ public class FinanceController implements FinanceBLService {
 //            System.out.println(accountVO.bankAccountVO.name + "\n" +
 //                                accountVO.time);
 //        }
-//    }
+    }
 
     @Override
     public ResultMessage createMember(BankAccountVO vo) {
@@ -140,7 +147,7 @@ public class FinanceController implements FinanceBLService {
 
     @Override
     public ResultMessage profitListToExcel() {
-        return null;
+        return showProfitListBL.profitListToExcel();
     }
 
     @Override
@@ -156,6 +163,6 @@ public class FinanceController implements FinanceBLService {
 
     @Override
     public ResultMessage statementToExcel() {
-        return null;
+        return showProfitListBL.profitListToExcel();
     }
 }

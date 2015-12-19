@@ -6,10 +6,14 @@ import dataservice.financedataservice.ShowReceiptDataService;
 import dataservice.financedataservice.ShowStatementDataService;
 import po.financepo.PayBillPO;
 import po.logisticpo.ReceiptBillPO;
+import util.Excel;
 import util.ResultMessage;
 import util.Time;
-import vo.storevo.ProfitListVO;
+import vo.financevo.ProfitListVO;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
 import java.util.List;
@@ -28,14 +32,17 @@ public class ShowProfitListBL implements ShowProfitListBLService {
 
     private ProfitListVO profitListVO;
 
+    private boolean isUpdated;
+
     public ShowProfitListBL() {
         showStatementDataServiceImpl = (ShowStatementDataService) ClientRMIHelper.
                 getServiceByName("ShowStatementDataServiceImpl");
         showReceiptDataServiceImpl = (ShowReceiptDataService) ClientRMIHelper.
                 getServiceByName("ShowReceiptDataServiceImpl");
-
+        isUpdated = false;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public ResultMessage showProfitList() {
         try {
@@ -78,11 +85,28 @@ public class ShowProfitListBL implements ShowProfitListBLService {
 
         profit = income.subtract(pay);
         profitListVO = new ProfitListVO(income, pay, profit);
+        isUpdated = true;
     }
 
     @Override
     public ResultMessage profitListToExcel() {
-        return null;
+        if (!isUpdated) {
+            return new ResultMessage("false");
+        }
+
+        String[] headers = { "总收入", "总支出", "总利润" };
+        OutputStream out = null;
+
+        try {
+            out = new FileOutputStream("C:/Users/jone/Desktop/成本收益表.xls");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Excel excel = new Excel();
+        excel.createSheet(profitListVO, "成本收益表", headers);
+        excel.export(out);
+        return new ResultMessage("success");
     }
 
     private boolean isValidReceiptBillPO(Time time, ReceiptBillPO po) {

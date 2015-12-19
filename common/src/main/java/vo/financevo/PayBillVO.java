@@ -1,11 +1,9 @@
 package vo.financevo;
 
-import java.math.BigDecimal;
-
-import po.financepo.PayBillPO;
 import util.PayItem;
 import util.Time;
-import vo.StaffMessageVO;
+
+import java.math.BigDecimal;
 
 /**
  * Created by Away
@@ -18,10 +16,11 @@ public class PayBillVO {
 
     public BigDecimal money;
 
-    // 付款人
-    public StaffMessageVO staffMessageVO;
+    // 付款人ID
+    public String staffID;
 
-    public BankAccountVO bankAccountVO;
+    // 付款账号
+    public String bankAccountID;
 
     // 付款单编号
     public String id;
@@ -32,24 +31,14 @@ public class PayBillVO {
     // 备注
     public String remark;
 
-    public PayBillVO(Time time, BigDecimal money, StaffMessageVO staffMessageVO,
-                     BankAccountVO bankAccountVO, String id, PayItem item, String remark) {
+    public PayBillVO(Time time, BigDecimal money, String staffID,
+                     String bankAccountID, String id, PayItem item, String remark) {
         this.time = time;
         this.money = money;
-        this.staffMessageVO = staffMessageVO;
-        this.bankAccountVO = bankAccountVO;
+        this.staffID = staffID;
+        this.bankAccountID = bankAccountID;
         this.id = id;
         this.item = item;
         this.remark = remark;
-    }
-    
-    public PayBillVO(PayBillPO po){
-    	this.time = po.getTime();
-    	this.money = po.getMoney();
-    	this.staffMessageVO = new StaffMessageVO(po.getStaffMessagePO());
-    	this.bankAccountVO = new BankAccountVO(po.getBankAccountPO());
-    	this.id = po.getId();
-    	this.item = po.getItem();
-    	this.remark = po.getRemark();
     }
 }

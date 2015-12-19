@@ -29,7 +29,7 @@ public class SystemlogVO {
         }
         
         public SystemlogVO(String origin,String event) {
-                this(new Time(), origin, PublicMessage.userID, event);
+                this(new Time(), origin, PublicMessage.staffID, event);
         }
         
 }

@@ -1,8 +1,8 @@
 package bussinesslogic.storebl;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-
+import bussinesslogicservice.storeblservice.InStoreBLService;
+import connection.ClientRMIHelper;
+import dataservice.storedataservice.StoreDataService;
 import po.GoodsPO;
 import po.storepo.InStorePO;
 import po.storepo.StorePO;
@@ -11,9 +11,9 @@ import util.PublicMessage;
 import util.ResultMessage;
 import vo.storevo.InStoreVO;
 import vo.storevo.StorePlaceVO;
-import bussinesslogicservice.storeblservice.InStoreBLService;
-import connection.ClientRMIHelper;
-import dataservice.storedataservice.StoreDataService;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class InStoreBL implements InStoreBLService {
 	private StoreDataService dataservice;
@@ -21,7 +21,7 @@ public class InStoreBL implements InStoreBLService {
 	private ArrayList<InStorePO> goodslist;
 	
 	public InStoreBL(){
-		this.user = PublicMessage.userID;
+		this.user = PublicMessage.staffID;
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 	}
 

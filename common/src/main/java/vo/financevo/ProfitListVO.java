@@ -1,4 +1,4 @@
-package vo.storevo;
+package vo.financevo;
 
 import java.math.BigDecimal;
 
@@ -23,5 +23,17 @@ public class ProfitListVO {
         this.income = income;
         this.pay = pay;
         this.profit = profit;
+    }
+
+    public BigDecimal getIncome() {
+        return income;
+    }
+
+    public BigDecimal getPay() {
+        return pay;
+    }
+
+    public BigDecimal getProfit() {
+        return profit;
     }
 }
