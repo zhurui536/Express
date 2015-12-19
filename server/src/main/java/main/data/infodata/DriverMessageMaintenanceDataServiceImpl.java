@@ -5,6 +5,7 @@ import main.dao.Database;
 import po.DriverMessagePO;
 import util.ResultMessage;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -45,7 +46,9 @@ public class DriverMessageMaintenanceDataServiceImpl extends UnicastRemoteObject
                 ResultMessage resultMessage = find(message.getDriverId());
                 if(resultMessage.getKey().equals("NO_EXIST")){
                         driverMessagePOs.add(message);
-                        Database.save(PATH, driverMessagePOs);
+                        
+                                Database.save(PATH, driverMessagePOs);
+                       
                         return new ResultMessage("SUCCESS");
                 }
                 return new ResultMessage("EXIST");

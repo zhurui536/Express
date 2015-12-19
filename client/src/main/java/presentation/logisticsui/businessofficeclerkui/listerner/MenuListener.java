@@ -2,12 +2,8 @@ package presentation.logisticsui.businessofficeclerkui.listerner;
 
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
-import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsDelivToolListener;
-import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsLoadToolListener;
-import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsRecToolListener;
-import presentation.logisticsui.businessofficeclerkui.tool.GoodsDelivTool;
-import presentation.logisticsui.businessofficeclerkui.tool.GoodsLoadTool;
-import presentation.logisticsui.businessofficeclerkui.tool.GoodsRecTool;
+import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.*;
+import presentation.logisticsui.businessofficeclerkui.tool.*;
 import util.ResultMessage;
 
 import javax.swing.*;
@@ -63,7 +59,10 @@ public class MenuListener implements ActionListener{
                                 dialog.setVisible(true);
                         }
                 }else if(i == 4){
-                        
+                        DriverMessageToolListener driverMessageToolListener = new DriverMessageToolListener(ui);
+                        DriverMessageTool tool = new DriverMessageTool(driverMessageToolListener);
+                        driverMessageToolListener.setTool(tool);
+                        ui.replaceTool(tool);
                 }else if(i == 5){
                         
                 }

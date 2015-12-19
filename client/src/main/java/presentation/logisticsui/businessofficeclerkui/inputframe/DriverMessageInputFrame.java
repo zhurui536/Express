@@ -9,7 +9,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import bussinesslogicservice.infoblservice.InfoBLSerivce;
+
+import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
+import presentation.logisticsui.businessofficeclerkui.datapane.ResultDialog;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.DriverMessageToolListener;
+import util.ResultMessage;
+import util.Sex;
+import util.Time;
 import vo.DriverMessageVO;
 
 @SuppressWarnings("serial")
@@ -31,22 +38,22 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
         
         private JComboBox<String> sex;
         
-        private DriverMessageToolListener listener;
-        
         private DriverMessageVO driverMessageVO;
         
         private JButton confirm, cancle;
         
+        private BusinessOfficeClerkFrame ui;
+        
         public DriverMessageInputFrame(DriverMessageToolListener listener) {
-                this.listener = listener;         
                 this.state = frameState.ADD;
+                this.ui = listener.getUi();
                 init();
         }
         
         public DriverMessageInputFrame(DriverMessageToolListener listener, DriverMessageVO driverMessageVO) {
-               this.listener = listener;
                this.state = frameState.MOD;
                this.driverMessageVO = driverMessageVO;
+               this.ui = listener.getUi();
                init();
         }
         
@@ -86,7 +93,7 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
                 this.getContentPane().add(jTextAreas[0]);
                 
                 jTextAreas[1].setBounds(115, 60, 150 , 30);
-                jTextAreas[2].setBounds(295, 60, 150 , 30);
+                jTextAreas[2].setBounds(395, 60, 150 , 30);
                 jTextAreas[3].setBounds(115, 105, 150 , 30);
                 jTextAreas[4].setBounds(115,240,150,30);
                 if(state == frameState.MOD){
@@ -102,7 +109,7 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
                 sex = new JComboBox<String>();
                 sex.addItem("男");
                 sex.addItem("女");
-                sex.setBounds(295, 105, 60, 30);
+                sex.setBounds(395, 105, 60, 30);
                 
                 this.getContentPane().add(sex);
                 
@@ -146,18 +153,50 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
                  
                  confirm = new JButton("确定");
                  confirm.setBounds(410, 285, 60, 25);
-                 confirm.addActionListener(listener);
+                 confirm.addActionListener(this);
                  this.getContentPane().add(confirm);
                  cancle = new JButton("取消");
                  cancle.setBounds(485, 285, 60 ,25);
-                 cancle.addActionListener(listener);
+                 cancle.addActionListener(this);
                  this.getContentPane().add(cancle);
         }
 
         @Override
-        public void actionPerformed(ActionEvent arg0) {
-                // TODO Auto-generated method stub
+        public void actionPerformed(ActionEvent e) {
+                if(e.getSource() == confirm){
+                        driverMessageVO = new DriverMessageVO();
+                        driverMessageVO.birth = new Time(((String)yearBirth.getSelectedItem()).substring(0,4) + "-" 
+                        + ((String)monthBirth.getSelectedItem()).substring(0,2) + "-" 
+                                        + ((String)dayBirth.getSelectedItem()).substring(0, 2));
+                        driverMessageVO.driverId = jTextAreas[0].getText();
+                        driverMessageVO.ID = jTextAreas[2].getText();
+                        driverMessageVO.name = jTextAreas[1].getText();
+                        driverMessageVO.phoneNum = jTextAreas[3].getText();
+                        driverMessageVO.sex = Sex.stringToSex((String)sex.getSelectedItem());
+                        driverMessageVO.registrationTime = new Time(((String)yearStart.getSelectedItem()).substring(0,4) + "-" 
+                        + ((String)monthStart.getSelectedItem()).substring(0,2) + "-" 
+                                        + ((String)dayStart.getSelectedItem()).substring(0, 2));
+                        driverMessageVO.yearsOfLicense = Integer.parseInt(jTextAreas[4].getText());
+                        driverMessageVO.terminationTime = driverMessageVO.registrationTime.add(driverMessageVO.yearsOfLicense);
+                        InfoBLSerivce infoBLSerivce = ui.getInfoBLSerivce();
+                        
+                        if(state == frameState.ADD){
+                                ResultMessage resultMessage = infoBLSerivce.addDriverMessage(driverMessageVO);
+                                ResultDialog resultDialog = new ResultDialog(resultMessage.getKey());
+                                resultDialog.setVisible(true);
+                        }
+                        else {
+                                ResultMessage resultMessage = infoBLSerivce.modDriverMessage(driverMessageVO);
+                                ResultDialog resultDialog = new ResultDialog(resultMessage.getKey());
+                                resultDialog.setVisible(true);
+                        }
+                       
+                        this.setVisible(false);
+                        
                 
+                }else if(e.getSource() == cancle){
+                        this.setVisible(false);
+                }
         }
 
 }

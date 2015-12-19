@@ -23,6 +23,7 @@ public class BillQueryDataPane extends JPanel {
         private JPanel panelForGoods;
         
         public BillQueryDataPane(SendBillVO sendBillVO) {
+                this.setLayout(null);
                 this.setSize(810,650);
                 init(sendBillVO);
         }

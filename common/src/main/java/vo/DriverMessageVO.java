@@ -26,6 +26,10 @@ public class DriverMessageVO {
         public Time terminationTime;
         
         public int yearsOfLicense;
+        
+        public DriverMessageVO() {
+               
+        }
 
         public DriverMessageVO(String driverId, String name, String iD,
                         String phoneNum, Sex sex, Time birth,

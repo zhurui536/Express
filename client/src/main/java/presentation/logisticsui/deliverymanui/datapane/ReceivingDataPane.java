@@ -24,6 +24,7 @@ public class ReceivingDataPane extends JPanel {
         private JLabel time;
 
         public ReceivingDataPane(SendBillVO sendBillVO, long time) {
+                this.setLayout(null);
                 this.setSize(810,700);
                 init(sendBillVO,time);
         }
