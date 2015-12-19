@@ -8,6 +8,7 @@ import util.ResultMessage;
 import vo.InstitutionMessageVO;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class InstitutionMessageMaintenanceBL implements
         InstitutionMessageMaintenanceBLService {
@@ -75,7 +76,7 @@ public class InstitutionMessageMaintenanceBL implements
                         e.printStackTrace();
                         return new ResultMessage("FAIL");
                 }
-                if (resultMessage.getKey().equals("SUCCESS")) {
+                if (resultMessage.getKey().equals("FOUND")) {
                         return new ResultMessage("SUCCESS",
                                         ((InstitutionMessagePO) resultMessage
                                                         .getValue()).poToVo());
@@ -83,5 +84,22 @@ public class InstitutionMessageMaintenanceBL implements
                         return new ResultMessage("FAIL");
                 }
         }
+
+		@Override
+		public ResultMessage getInstitutionMessage() {
+			try {
+				ResultMessage result = this.institutionMessageMaintenanceDataService.get();
+				ArrayList<InstitutionMessagePO> pos = (ArrayList<InstitutionMessagePO>) result.getValue();
+				ArrayList<InstitutionMessageVO> vos = new ArrayList<InstitutionMessageVO>();
+				
+				for(int i=0;i<pos.size();i++){
+					vos.add(pos.get(i).poToVo());
+				}
+				return new ResultMessage("SUCCESS", vos);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				return new ResultMessage("FAIL");
+			}
+		}
 
 }

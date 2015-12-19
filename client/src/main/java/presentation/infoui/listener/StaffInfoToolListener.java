@@ -7,7 +7,7 @@ import bussinesslogicservice.infoblservice.StaffMessageMaintenanceBLService;
 import presentation.ToolPane;
 import presentation.WarningFrame;
 import presentation.infoui.datapanel.StaffMessageDataPane;
-import presentation.infoui.inputframe.IDInputFrame;
+import presentation.infoui.inputframe.StaffIDInputFrame;
 import presentation.infoui.inputframe.StaffInfoInputFrame;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
@@ -46,11 +46,11 @@ public class StaffInfoToolListener extends ToolListener {
 			frame.setVisible(true);
 		}
 		if(i==2){
-			IDInputFrame frame = new IDInputFrame(this, 0);
+			StaffIDInputFrame frame = new StaffIDInputFrame(this, 0);
 			frame.setVisible(true);
 		}
 		if(i==3){
-			IDInputFrame frame = new IDInputFrame(this, 1);
+			StaffIDInputFrame frame = new StaffIDInputFrame(this, 1);
 			frame.setVisible(true);
 		}
 		if(i==4){
