@@ -46,7 +46,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		verificationrecord = PathMaker.getPath() + "save/storedata/verificationPO.dat";
 		instorebill = PathMaker.getPath() + "save/storedata/instoreBillPO.dat";
 		outstorebill = PathMaker.getPath() + "save/storedata/outstoreBillPO.dat";
-		sendbill = PathMaker.getPath() + "save/logisticsdata/sendBillPO.dat";
+		sendbill = "src/main/java/save/logisticsdata/sendBillPO.dat";
 	}
 	
 	public StoreDataServiceImpl() throws RemoteException {
@@ -112,7 +112,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			
 			for(int i=0;i<bills.size();i++){
 				SendBillPO bill = bills.get(i);
-				if(bill.getId().equals(id)){
+				if(bill.getGoodsPO().getId().equals(id)){
 					return new ResultMessage("exist", bill.getGoodsPO());
 				}
 			}

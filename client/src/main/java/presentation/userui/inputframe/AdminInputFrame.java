@@ -116,8 +116,8 @@ public class AdminInputFrame extends JFrame implements ActionListener{
 		if(e.getSource() == cancle){
 			this.dispose();
 		}
-		boolean result = true;
-		if(e.getSource() == confirm){
+		else if(e.getSource() == confirm){
+			boolean result = true;
 			if(condition == 0){
 				result = listener.addInput(texts[0].getText(), texts[1].getText(), texts[2].getText(), levels[level.getSelectedIndex()]);
 			}
@@ -125,10 +125,9 @@ public class AdminInputFrame extends JFrame implements ActionListener{
 			if(condition == 1){
 				result = listener.modifyInput(texts[0].getText(), texts[1].getText(), texts[2].getText(), levels[level.getSelectedIndex()]);
 			}
-		}
-		
-		if(result){
-			this.dispose();
+			if(result){
+				this.dispose();
+			}
 		}
 	}
 }

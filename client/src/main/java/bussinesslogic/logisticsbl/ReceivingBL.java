@@ -64,6 +64,9 @@ public class ReceivingBL implements ReceivingBLService {
                                 count++;
                         }
                 }
+                if(count==0){
+                	return 0;
+                }
                 return sum / count;
         }
 
