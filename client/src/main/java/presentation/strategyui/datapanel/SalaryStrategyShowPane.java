@@ -92,8 +92,8 @@ public class SalaryStrategyShowPane extends JPanel implements ActionListener{
 		salarytype.setBounds(480, 0, 60, 40);
 		item.add(salarytype);
 		
-		JButton modify = new JButton();
-		modify.setBounds(560, 5, 50, 30);
+		JButton modify = new JButton("修改");
+		modify.setBounds(560, 5, 70, 30);
 		modify.addActionListener(this);
 		this.modify.add(modify);
 		item.add(modify);

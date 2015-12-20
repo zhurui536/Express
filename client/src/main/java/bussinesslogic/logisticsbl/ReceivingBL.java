@@ -75,7 +75,12 @@ public class ReceivingBL implements ReceivingBLService {
                                 count++;
                         }
                 }
-                return count == 0 ? 0 :sum / count;
+
+                if(count==0){
+                	return 0;
+                }
+                return sum / count;
+
         }
 
         @Override

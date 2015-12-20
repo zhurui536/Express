@@ -40,7 +40,7 @@ public class OutStoreBL implements OutStoreBLService {
 		for(int i=0;i<goodslist.size();i++){
 			OutStorePO temp = goodslist.get(i);
 			if(temp.getGoodsID().equals(id)){
-				return new ResultMessage("inputedid", null);
+				return new ResultMessage("inputedid", new OutStoreVO(goodslist));
 			}
 		}
 		try {//id无误之后检查该id是否在库存中
@@ -59,7 +59,7 @@ public class OutStoreBL implements OutStoreBLService {
 								}
 								else if(temp.getGoods().getId().equals(id)){
 									this.goodslist.add(new OutStorePO(temp.getGoods(), temp, Destination, this.user, trans, billid));
-									return new ResultMessage("success", temp);
+									return new ResultMessage("success", new OutStoreVO(goodslist));
 								}
 							}
 						}

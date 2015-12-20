@@ -35,30 +35,35 @@ public class MenuListener implements ActionListener {
 			StrategyTool tool = new StrategyTool(tl);
 			tl.setTool(tool);
 			ui.replaceTool(tool);
+			ui.paintdata(null);
 		}
 		if(i==1){
 			SalaryToolListener tl = new SalaryToolListener(ui);
 			SalaryTool tool = new SalaryTool(tl);
 			tl.setTool(tool);
 			ui.replaceTool(tool);
+			ui.paintdata(null);
 		}
 		if(i==2){//点击了审批单据
 			BillJudgeToolListener listener = new BillJudgeToolListener(ui);
 			BillJudgeTool tool = new BillJudgeTool(listener);
 			listener.setTool(tool);
 			ui.replaceTool(tool);
+			ui.paintdata(null);
 		}
 		if(i==3){//点击了机构信息管理
 			InstitutionInfoToolListener listener = new InstitutionInfoToolListener(ui);
 			InstitutionInfoTool tool = new InstitutionInfoTool(listener);
 			listener.setTool(tool);
 			ui.replaceTool(tool);
+			ui.paintdata(null);
 		}
 		if(i==4){//点击了人员信息管理
 			StaffInfoToolListener listener = new StaffInfoToolListener(ui);
 			StaffInfoTool tool = new StaffInfoTool(listener);
 			listener.setTool(tool);
 			ui.replaceTool(tool);
+			ui.paintdata(null);
 		}
 		if(i==5){
 			ui.close();
