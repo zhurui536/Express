@@ -54,6 +54,10 @@ public class Time implements Comparable<Time>,Serializable{
         public String toString() {
                 return dateFormaterForDisplay.format(date);
         }
+        
+        public String toDayString() {
+                return dateFormaterForCompare.format(date);
+        }
 
         public boolean equalsWithDay(Time o) {
                 return dateFormaterForCompare.format(o.date).equals(

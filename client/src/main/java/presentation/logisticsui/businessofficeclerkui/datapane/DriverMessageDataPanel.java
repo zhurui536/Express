@@ -8,7 +8,7 @@ import vo.DriverMessageVO;
 
 @SuppressWarnings("serial")
 public class DriverMessageDataPanel extends JPanel{
-        private final String[] nameStrings = {"司机编号","姓名","身份证号","手机号码","性别","出生日期","驾照期限"};
+        private final String[] nameStrings = {"司机编号:","姓名:","身份证号:","手机号码:","性别:","出生日期:","驾照期限:"};
         
         private final int numbers = nameStrings.length;
         
@@ -30,12 +30,13 @@ public class DriverMessageDataPanel extends JPanel{
                         datas[i].setSize(250,30);
                 }
                 datas[0].setText(datas[0].getText() + driverMessageVO.driverId);
+                this.add(datas[0]);
                 datas[1].setText(datas[1].getText() + driverMessageVO.name);
                 datas[2].setText(datas[2].getText() + driverMessageVO.ID);
                 datas[3].setText(datas[3].getText() + driverMessageVO.phoneNum);
                 datas[4].setText(datas[4].getText() + Sex.sexToString(driverMessageVO.sex));
-                datas[5].setText(datas[5].getText() + driverMessageVO.birth.toString());
-                datas[6].setText(datas[6].getText() + driverMessageVO.terminationTime.toString());
+                datas[5].setText(datas[5].getText() + driverMessageVO.birth.toDayString());
+                datas[6].setText(datas[6].getText() + driverMessageVO.terminationTime.toDayString());
                 datas[0].setLocation(15, 15);
                 for (int i = 0; i < 3; i++) {
                         for (int j = 0; j < 2; j++) {

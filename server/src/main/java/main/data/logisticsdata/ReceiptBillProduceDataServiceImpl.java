@@ -15,9 +15,9 @@ public class ReceiptBillProduceDataServiceImpl extends UnicastRemoteObject imple
 
         private static final long serialVersionUID = 1L;
         
-        private static final String PATH_RECEIPT_BILL = "server/src/main/java/save/logisticsdata/receiptBillPO.dat";
+        private static final String PATH_RECEIPT_BILL = "src/main/java/save/logisticsdata/receiptBillPO.dat";
         
-        private static final String PATH_SEND_BILL = "server/src/main/java/save/logisticsdata/sendBillPO.dat";
+        private static final String PATH_SEND_BILL = "src/main/java/save/logisticsdata/sendBillPO.dat";
         
         private ArrayList<SendBillPO> sendBillPOs;
         

@@ -13,7 +13,7 @@ public class ReceivingDataServiceImpl extends UnicastRemoteObject implements Rec
 
         private static final long serialVersionUID = -6643024262710089533L;
         
-        private static final String PATH = "server/src/main/java/save/logisticsdata/sendBillPO.dat";
+        private static final String PATH = "src/main/java/save/logisticsdata/sendBillPO.dat";
         
         private ArrayList<SendBillPO> sendBillPOs;
 

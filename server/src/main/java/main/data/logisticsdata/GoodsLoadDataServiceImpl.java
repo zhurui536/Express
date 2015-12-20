@@ -14,9 +14,9 @@ public class GoodsLoadDataServiceImpl extends UnicastRemoteObject implements Goo
 
         private static final long serialVersionUID = -8736571768693635155L;
         
-        private static final String PATH_LOADING_BILL = "server/src/main/java/save/logisticsdata/loadingBillPO.dat";
+        private static final String PATH_LOADING_BILL = "src/main/java/save/logisticsdata/loadingBillPO.dat";
         
-        private static final String PATH_TRANSFER_BILL = "server/src/main/java/save/logisticsdata/transferBillPO.dat";
+        private static final String PATH_TRANSFER_BILL = "src/main/java/save/logisticsdata/transferBillPO.dat";
 
         private ArrayList<LoadingBillPO> loadingBillPOs;
         

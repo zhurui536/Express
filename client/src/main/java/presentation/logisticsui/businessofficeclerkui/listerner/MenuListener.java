@@ -64,7 +64,10 @@ public class MenuListener implements ActionListener{
                         driverMessageToolListener.setTool(tool);
                         ui.replaceTool(tool);
                 }else if(i == 5){
-                        
+                        TruckMessageToolListener truckMessageToolListener = new TruckMessageToolListener(ui);
+                        TruckMessageTool tool = new TruckMessageTool(truckMessageToolListener);
+                        truckMessageToolListener.setTool(tool);
+                        ui.replaceTool(tool);
                 }
                 
         }

@@ -28,8 +28,8 @@ public class SystemlogVO {
                 this.event = event;
         }
         
-        public SystemlogVO(String origin,String event) {
-                this(new Time(), origin, PublicMessage.staffID, event);
+        public SystemlogVO(String event) {
+                this(new Time(), PublicMessage.institutionID, PublicMessage.staffID, event);
         }
         
 }

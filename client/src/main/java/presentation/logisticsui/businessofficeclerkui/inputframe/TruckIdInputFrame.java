@@ -11,16 +11,16 @@ import javax.swing.JTextArea;
 import bussinesslogicservice.infoblservice.InfoBLSerivce;
 
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
-import presentation.logisticsui.businessofficeclerkui.datapane.DriverMessageDataPanel;
 import presentation.logisticsui.businessofficeclerkui.datapane.ResultDialog;
-import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.DriverMessageToolListener;
+import presentation.logisticsui.businessofficeclerkui.datapane.TruckMessageDataPane;
+import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.TruckMessageToolListener;
 import util.ResultMessage;
-import vo.DriverMessageVO;
+import vo.TruckMessageVO;
 
 @SuppressWarnings("serial")
-public class DriverIdInputFrame extends JFrame implements ActionListener{
-        
-        private DriverMessageToolListener listener;
+public class TruckIdInputFrame extends JFrame implements ActionListener{
+
+        private TruckMessageToolListener listener;
         
         private JButton confirm, cancle;
         
@@ -31,10 +31,11 @@ public class DriverIdInputFrame extends JFrame implements ActionListener{
         private int kind;
         
         private BusinessOfficeClerkFrame ui;
-
-        public DriverIdInputFrame(DriverMessageToolListener listener, int kind) {
-                this.listener = listener;
-                this.setName("司机ID输入");
+        
+        public TruckIdInputFrame(
+                        TruckMessageToolListener truckMessageToolListener, int kind) {
+                this.listener = truckMessageToolListener;
+                this.setName("车辆ID输入");
                 this.setLayout(null);
                 this.setSize(460, 240);
                 this.setLocation(350, 150);
@@ -42,7 +43,7 @@ public class DriverIdInputFrame extends JFrame implements ActionListener{
                 this.ui = listener.getUi();
                 init();
         }
-        
+
         private void init() {
                 confirm = new JButton("确定");
                 cancle = new JButton("取消");
@@ -71,21 +72,21 @@ public class DriverIdInputFrame extends JFrame implements ActionListener{
                 if(e.getSource() == confirm){
                         InfoBLSerivce infoBLSerivce = ui.getInfoBLSerivce();
                         if(kind == 0){
-                                ResultMessage resultMessage = infoBLSerivce.delDriverMessage(textArea.getText());
+                                ResultMessage resultMessage = infoBLSerivce.delTruckMessage(textArea.getText());
                                 ResultDialog resultDialog = new ResultDialog(resultMessage.getKey());
                                 resultDialog.setVisible(true);
                         }else if(kind == 1){
-                                ResultMessage resultMessage = infoBLSerivce.showDriverMessage(textArea.getText());
+                                ResultMessage resultMessage = infoBLSerivce.showTruckMessage(textArea.getText());
                                 if(resultMessage.getKey().equals("SUCCESS")){
-                                        DriverMessageDataPanel dataPanel = new DriverMessageDataPanel((DriverMessageVO)resultMessage.getValue());
+                                        TruckMessageDataPane dataPanel = new TruckMessageDataPane((TruckMessageVO)resultMessage.getValue());
                                         ui.paintdata(dataPanel);
                                 }
                         }else if(kind == -1){
-                                ResultMessage resultMessage = infoBLSerivce.showDriverMessage(textArea.getText());
+                                ResultMessage resultMessage = infoBLSerivce.showTruckMessage(textArea.getText());
                                 if(resultMessage.getKey().equals("SUCCESS")){
-                                        DriverMessageVO driverMessageVO = (DriverMessageVO) resultMessage.getValue();
-                                        DriverMessageInputFrame driverMessageInputFrame = new DriverMessageInputFrame(listener, driverMessageVO);
-                                        driverMessageInputFrame.setVisible(true);
+                                        TruckMessageVO truckMessageVO = (TruckMessageVO) resultMessage.getValue();
+                                        TruckMessageInputFrame truckMessageInputFrame = new TruckMessageInputFrame(listener, truckMessageVO);
+                                        truckMessageInputFrame.setVisible(true);
                                 }
                                 if(resultMessage.getKey().equals("FAIL")){
                                         ResultDialog resultDialog = new ResultDialog(resultMessage.getKey());

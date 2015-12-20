@@ -5,7 +5,6 @@ import main.dao.Database;
 import po.DriverMessagePO;
 import util.ResultMessage;
 
-import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class DriverMessageMaintenanceDataServiceImpl extends UnicastRemoteObject
 
         private static final long serialVersionUID = 2363428936751059509L;
         
-        private static final String PATH = "server/src/main/java/save/infodata/driverMessagePO.dat";
+        private static final String PATH = "src/main/java/save/infodata/driverMessagePO.dat";
         
         private ArrayList<DriverMessagePO> driverMessagePOs;
 
@@ -33,6 +32,7 @@ public class DriverMessageMaintenanceDataServiceImpl extends UnicastRemoteObject
 
         @Override
         public ResultMessage find(String id) throws RemoteException {
+                init();
                 for (DriverMessagePO driverMessagePO : driverMessagePOs) {
                         if(driverMessagePO.getDriverId().equals(id))
                                 return new ResultMessage("FOUND",driverMessagePO);
@@ -46,9 +46,7 @@ public class DriverMessageMaintenanceDataServiceImpl extends UnicastRemoteObject
                 ResultMessage resultMessage = find(message.getDriverId());
                 if(resultMessage.getKey().equals("NO_EXIST")){
                         driverMessagePOs.add(message);
-                        
-                                Database.save(PATH, driverMessagePOs);
-                       
+                        Database.save(PATH, driverMessagePOs);
                         return new ResultMessage("SUCCESS");
                 }
                 return new ResultMessage("EXIST");
