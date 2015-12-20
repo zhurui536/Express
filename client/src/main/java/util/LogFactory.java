@@ -10,7 +10,7 @@ public class LogFactory {
         
         public static SystemlogMaintenanceBLService getInstance() {
                 if(service == null)
-                        return new SystemlogBL();
+                        service = new SystemlogBL();
                 return service;
         }
 }
