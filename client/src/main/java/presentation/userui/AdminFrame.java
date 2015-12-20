@@ -1,19 +1,11 @@
 package presentation.userui;
 
-import java.awt.Color;
-import java.awt.Dimension;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
-
-import connection.ClientInitException;
-import connection.ClientRMIHelper;
 import bussinesslogic.adminbl.AdminBL;
 import bussinesslogicservice.adminblservice.AdminBLService;
 import presentation.userui.listener.AdminMenuListener;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class AdminFrame extends JFrame {
 	//处理用例逻辑的对象
@@ -31,11 +23,11 @@ public class AdminFrame extends JFrame {
 	
 	public static void main(String[] args){
 		
-	        try {
-	            ClientRMIHelper.init();
-	        } catch (ClientInitException e) {
-	            e.printStackTrace();
-	        }
+//	        try {
+//	            ClientRMIHelper.init();
+//	        } catch (ClientInitException e) {
+//	            e.printStackTrace();
+//	        }
 	    
 		AdminFrame frame = new AdminFrame();
 		frame.setVisible(true);

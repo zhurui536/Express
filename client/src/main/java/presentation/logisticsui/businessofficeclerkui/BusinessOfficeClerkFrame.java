@@ -4,13 +4,10 @@ import bussinesslogic.infobl.InfoBLController;
 import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogicservice.infoblservice.InfoBLSerivce;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
+import connection.ClientInitException;
 import presentation.logisticsui.businessofficeclerkui.listerner.MenuListener;
 
 import javax.swing.*;
-
-import connection.ClientInitException;
-import connection.ClientRMIHelper;
-
 import java.awt.*;
 
 @SuppressWarnings("serial")
@@ -34,7 +31,7 @@ public class BusinessOfficeClerkFrame extends JFrame {
         private static final int NUMBER_OF_BUTTONS = 6;
 
         public static void main(String[] args) throws ClientInitException {
-                ClientRMIHelper.init();
+//                ClientRMIHelper.init();
                 LogisticsBLService logisticsBLService = new LogisticsBLController();
                 BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
                 frame.setVisible(true);

@@ -23,8 +23,9 @@ public class ReceivingBL implements ReceivingBLService {
         private ArrayList<SendBillPO> sendBillPOs;
         
         public ReceivingBL() {
+                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
                 this.sendBillPOs = new ArrayList<>();
-                receivingDataService = (ReceivingDataService) ClientRMIHelper.getServiceByName("ReceivingDataServiceImpl");
+                receivingDataService = (ReceivingDataService) clientRMIHelper.getServiceByName("ReceivingDataServiceImpl");
         }
         
         @Override

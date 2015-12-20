@@ -15,7 +15,8 @@ public class DriverMessageMaintenanceBL implements
         private DriverMessageMaintenanceDataService driverMessageMaintenanceDataService;
 
         public DriverMessageMaintenanceBL() {
-                driverMessageMaintenanceDataService = (DriverMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("DriverMessageMaintenanceDataServiceImpl");
+                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+                driverMessageMaintenanceDataService = (DriverMessageMaintenanceDataService) clientRMIHelper.getServiceByName("DriverMessageMaintenanceDataServiceImpl");
         }
 
         @Override

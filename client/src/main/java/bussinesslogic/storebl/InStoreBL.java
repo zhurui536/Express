@@ -21,8 +21,9 @@ public class InStoreBL implements InStoreBLService {
 	private ArrayList<InStorePO> goodslist;
 	
 	public InStoreBL(){
+		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
 		this.user = PublicMessage.staffID;
-		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		dataservice = (StoreDataService) clientRMIHelper.getServiceByName("StoreDataServiceImpl");
 	}
 
 	@Override

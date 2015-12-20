@@ -18,7 +18,8 @@ public class BillQueryBL implements BillQueryBLService {
         private BillQueryDataService billQueryDataService;
 
         public BillQueryBL() {
-                billQueryDataService = (BillQueryDataService) ClientRMIHelper
+                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+                billQueryDataService = (BillQueryDataService) clientRMIHelper
                                 .getServiceByName("BillQueryDataServiceImpl");
         }
 

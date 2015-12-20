@@ -16,7 +16,8 @@ public class InstitutionMessageMaintenanceBL implements
         private InstitutionMessageMaintenanceDataService institutionMessageMaintenanceDataService;
 
         public InstitutionMessageMaintenanceBL() {
-                institutionMessageMaintenanceDataService = (InstitutionMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("InstitutionMessageMaintenanceDataServiceImpl");
+                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+                institutionMessageMaintenanceDataService = (InstitutionMessageMaintenanceDataService) clientRMIHelper.getServiceByName("InstitutionMessageMaintenanceDataServiceImpl");
         }
 
         @Override

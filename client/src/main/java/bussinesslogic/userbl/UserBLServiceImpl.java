@@ -1,21 +1,22 @@
 package bussinesslogic.userbl;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-
-import po.StaffMessagePO;
-import po.UserPO;
+import bussinesslogicservice.userblservice.UserBLService;
 import connection.ClientRMIHelper;
 import dataservice.userdataservice.AdminDataService;
-import bussinesslogicservice.userblservice.UserBLService;
+import po.StaffMessagePO;
+import po.UserPO;
 import util.ResultMessage;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class UserBLServiceImpl implements UserBLService {
 	
 	private AdminDataService dataservice;
 	
 	public UserBLServiceImpl(){
-		dataservice = (AdminDataService) ClientRMIHelper.getServiceByName("AdminDataServiceImpl");
+		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+		dataservice = (AdminDataService) clientRMIHelper.getServiceByName("AdminDataServiceImpl");
 	}
 
 	@Override

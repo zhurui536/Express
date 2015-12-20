@@ -1,15 +1,15 @@
 package bussinesslogic.adminbl;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-
+import bussinesslogicservice.adminblservice.AdminBLService;
 import connection.ClientRMIHelper;
 import dataservice.userdataservice.AdminDataService;
 import po.StaffMessagePO;
 import po.UserPO;
 import util.ResultMessage;
 import vo.UserVO;
-import bussinesslogicservice.adminblservice.AdminBLService;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class AdminBL implements AdminBLService {
 	private ArrayList<UserPO> users;
@@ -17,7 +17,8 @@ public class AdminBL implements AdminBLService {
 	private AdminDataService dataservice;
 	
 	public AdminBL(){
-		dataservice = (AdminDataService) ClientRMIHelper.getServiceByName("AdminDataServiceImpl");
+		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+		dataservice = (AdminDataService) clientRMIHelper.getServiceByName("AdminDataServiceImpl");
 		users = new ArrayList<UserPO>();
 		staff = new ArrayList<StaffMessagePO>();
 	}

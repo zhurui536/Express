@@ -10,13 +10,10 @@ import bussinesslogicservice.infoblservice.InstitutionMessageMaintenanceBLServic
 import bussinesslogicservice.infoblservice.StaffMessageMaintenanceBLService;
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
 import bussinesslogicservice.strategyblservice.StrategySalaryBLService;
+import connection.ClientInitException;
 import presentation.managerui.listener.MenuListener;
 
 import javax.swing.*;
-
-import connection.ClientInitException;
-import connection.ClientRMIHelper;
-
 import java.awt.*;
 
 @SuppressWarnings("serial")
@@ -40,7 +37,7 @@ public class ManagerFrame extends JFrame {
 	private InstitutionMessageMaintenanceBLService ims;
 	
 	public static void main(String[] args) throws ClientInitException{
-		ClientRMIHelper.init();
+//		ClientRMIHelper.init();
 		ManagerFrame test = new ManagerFrame();
 		test.setVisible(true);
 	}

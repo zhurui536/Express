@@ -16,7 +16,8 @@ public class SystemlogBL implements SystemlogMaintenanceBLService {
         private SystemlogMaintenanceDataService systemlogMaintenanceDataService;
         
         public SystemlogBL() {
-                systemlogMaintenanceDataService = (SystemlogMaintenanceDataService) ClientRMIHelper.getServiceByName("SystemlogDataServiceImpl");
+                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+                systemlogMaintenanceDataService = (SystemlogMaintenanceDataService) clientRMIHelper.getServiceByName("SystemlogDataServiceImpl");
         }
         
         @Override

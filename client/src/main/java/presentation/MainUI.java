@@ -4,8 +4,6 @@ import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogic.userbl.UserBLServiceImpl;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import bussinesslogicservice.userblservice.UserBLService;
-import connection.ClientInitException;
-import connection.ClientRMIHelper;
 import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.deliverymanui.DeliveryManFrame;
@@ -19,7 +17,6 @@ import util.ResultMessage;
 import vo.StaffMessageVO;
 
 import javax.swing.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,7 +37,7 @@ public class MainUI extends JFrame implements ActionListener{
     public static String USER_ID;
 
     public static void main(String[] args){
-    	initRMI();
+//    	initRMI();
         MainUI ui = new MainUI();
         ui.setVisible(true);
     }
@@ -54,13 +51,13 @@ public class MainUI extends JFrame implements ActionListener{
         this.initialize();
     }
 
-    private static void initRMI() {
-        try {
-            ClientRMIHelper.init();
-        } catch (ClientInitException e) {
-            e.printStackTrace();
-        }
-    }
+//    private static void initRMI() {
+//        try {
+//            ClientRMIHelper.init();
+//        } catch (ClientInitException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private void initialize(){
         JLabel title = new JLabel("用户登录");

@@ -9,7 +9,8 @@ public class Server {
 
     public static void main(String[] args) {
         try {
-            ServerRMIHelper.init();
+            ServerRMIHelper server = new ServerRMIHelper();
+            server.init();
         } catch (ServerInitException e) {
             e.printStackTrace();
         }

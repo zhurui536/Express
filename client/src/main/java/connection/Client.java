@@ -8,9 +8,8 @@ package connection;
 public class Client {
     public static void main(String[] args) {
         try {
-            ClientRMIHelper.init();
-//            BankAccountManagementBL bankAccountManagementBL = new BankAccountManagementBL();
-//            bankAccountManagementBL.inquireMember(null);
+            ClientRMIHelper client = new ClientRMIHelper();
+            client.init();
         } catch (ClientInitException e) {
             e.printStackTrace();
         }

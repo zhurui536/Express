@@ -21,7 +21,8 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
     BankAccountManagementDataService bankAccountManagementDataServiceImpl;
 
     public BankAccountManagementBL() {
-        bankAccountManagementDataServiceImpl = (BankAccountManagementDataService) ClientRMIHelper.getServiceByName("BankAccountManagementDataServiceImpl");
+        ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+        bankAccountManagementDataServiceImpl = (BankAccountManagementDataService) clientRMIHelper.getServiceByName("BankAccountManagementDataServiceImpl");
     }
 
     @Override

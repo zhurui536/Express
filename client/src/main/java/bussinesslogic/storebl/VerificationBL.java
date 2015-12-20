@@ -18,8 +18,9 @@ public class VerificationBL implements VerificationBLService {
 	private VerificationPO po;
 	
 	public VerificationBL(){
+		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
 		this.user = PublicMessage.staffID;
-		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		dataservice = (StoreDataService) clientRMIHelper.getServiceByName("StoreDataServiceImpl");
 	}
 	
 	@Override

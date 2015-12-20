@@ -1,9 +1,10 @@
 package connection;
 
 import java.net.MalformedURLException;
-import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,9 +15,9 @@ import java.util.Map;
 
 public class ClientRMIHelper {
 
-    private static final String IP = "127.0.0.1"; //Can be read from config file
+    private static final String IP = "172.26.98.70"; //Can be read from config file
 
-    private static final String PORT = "1099";
+//    private static final String PORT = "1099";
 
     private static boolean init = false;
 
@@ -45,7 +46,15 @@ public class ClientRMIHelper {
             "AdminDataServiceImpl"
     };
 
-    public synchronized static void init() throws ClientInitException {
+    public ClientRMIHelper() {
+        try {
+            init();
+        } catch (ClientInitException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public synchronized void init() throws ClientInitException {
         if (init) {
             return;
         }
@@ -58,14 +67,17 @@ public class ClientRMIHelper {
         }
     }
 
-    private static void initObjects() throws MalformedURLException, RemoteException, NotBoundException {
-        String urlPrefix = "rmi://" + IP + ":" + PORT + "/";
+    private void initObjects() throws MalformedURLException, RemoteException, NotBoundException {
+//        String urlPrefix = "rmi://" + IP + ":" + PORT + "/";
+        System.out.println(LocateRegistry.getRegistry(IP));
+        Registry registry = LocateRegistry.getRegistry(IP);
         for (String name : CLASS_NAMES) {
-            OBJECT_MAP.put(name, Naming.lookup(urlPrefix + name));
+//            System.out.println(registry.lookup(name));
+            OBJECT_MAP.put(name, registry.lookup(name));
         }
     }
 
-    public static Object getServiceByName(String name) {
+    public Object getServiceByName(String name) {
         System.out.println(OBJECT_MAP.get(name));
         return OBJECT_MAP.get(name);
     }

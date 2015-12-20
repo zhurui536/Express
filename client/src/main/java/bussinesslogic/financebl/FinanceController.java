@@ -1,15 +1,12 @@
 package bussinesslogic.financebl;
 
 import bussinesslogicservice.financeblservice.*;
-import connection.ClientInitException;
-import connection.ClientRMIHelper;
 import util.PayItem;
 import util.ResultMessage;
 import util.Time;
 import vo.financevo.AccountVO;
 import vo.financevo.BankAccountVO;
 import vo.financevo.PayBillVO;
-import vo.financevo.ProfitListVO;
 
 import java.math.BigDecimal;
 
@@ -44,11 +41,11 @@ public class FinanceController implements FinanceBLService {
 
     // TODO
     public static void main(String[] args) {
-        try {
-            ClientRMIHelper.init();
-        } catch (ClientInitException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            ClientRMIHelper.init();
+//        } catch (ClientInitException e) {
+//            e.printStackTrace();
+//        }
         FinanceController financeController = new FinanceController();
 //        BankAccountVO vo = new BankAccountVO("线性代数", null, "123456789");
 //        BankAccountVO vo2 = new BankAccountVO("微积分和线性代数", null, "123456789");
