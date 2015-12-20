@@ -92,6 +92,7 @@ public class GoodsPO implements Serializable {
                                 goodsVO.weight, goodsVO.volume,
                                 goodsVO.packageType, goodsVO.expressType);
                 goodsPO.setStartTime(goodsVO.startTime);
+                goodsPO.setPrice(goodsVO.price);
                 return goodsPO;
         }
 

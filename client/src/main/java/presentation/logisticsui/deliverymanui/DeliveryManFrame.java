@@ -1,10 +1,15 @@
 package presentation.logisticsui.deliverymanui;
 
 
+import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import presentation.logisticsui.deliverymanui.listener.MenuListener;
 
 import javax.swing.*;
+
+import connection.ClientInitException;
+import connection.ClientRMIHelper;
+
 import java.awt.*;
 
 @SuppressWarnings("serial")
@@ -26,10 +31,13 @@ public class DeliveryManFrame extends JFrame{
         
         private static final int NUMBER_OF_BUTTONS = 3;
         
-//        public static void main(String[] args) {
-//                DeliveryManFrame frame = new DeliveryManFrame();
-//                frame.setVisible(true);
-//        }
+        public static void main(String[] args) throws ClientInitException {
+                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+                clientRMIHelper.init();
+                LogisticsBLService logisticsBLService = new LogisticsBLController();
+                DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
+                frame.setVisible(true);
+        }
         
         public DeliveryManFrame(LogisticsBLService logisticsBLService) {
             this.logisticsBLService = logisticsBLService;

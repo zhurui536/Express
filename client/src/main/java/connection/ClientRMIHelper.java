@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class ClientRMIHelper {
 
-    private static final String IP = "172.26.98.70"; //Can be read from config file
+    private static final String IP = "localhost"; //Can be read from config file
 
 //    private static final String PORT = "1099";
 
