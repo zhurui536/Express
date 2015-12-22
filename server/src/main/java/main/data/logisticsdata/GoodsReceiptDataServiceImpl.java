@@ -18,11 +18,11 @@ public class GoodsReceiptDataServiceImpl extends UnicastRemoteObject implements 
         
         private static final String PATH_DELIEVRY_BILL = "src/main/java/save/logisticsdata/deliveryBillPO.dat";
         
-        private static final String PATH_SEND_BILL  = "server/src/main/java/save/logisticsdata/sendBillPO.dat";
+        private static final String PATH_SEND_BILL  = "src/main/java/save/logisticsdata/sendBillPO.dat";
         
-        private static final String PATH_LOADING_BILL = "server/src/main/java/save/logisticsdata/loadingBillPO.dat";
+        private static final String PATH_LOADING_BILL = "src/main/java/save/logisticsdata/loadingBillPO.dat";
         
-        private static final String PATH_TRANSFER_BILL = "server/src/main/java/save/logisticsdata/transferBillPO.dat";
+        private static final String PATH_TRANSFER_BILL = "src/main/java/save/logisticsdata/transferBillPO.dat";
         
         private ArrayList<ArrivalBillPO> arrivalBillPOs;
         

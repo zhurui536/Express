@@ -15,7 +15,7 @@ public class StaffMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
 
         private static final long serialVersionUID = 1709425729832465611L;
         
-        private static final String PATH = "server/src/main/java/save/infodata/staffMessagePO.dat";
+        private static final String PATH = "src/main/java/save/infodata/staffMessagePO.dat";
         
         private ArrayList<StaffMessagePO> staffMessagePOs;
 

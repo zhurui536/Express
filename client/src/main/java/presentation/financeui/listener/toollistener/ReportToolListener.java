@@ -9,6 +9,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
 import bussinesslogicservice.financeblservice.FinanceBLService;
+import presentation.WarningFrame;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.ProfitPanel;
 import presentation.financeui.datapanel.StatementPanel;
@@ -71,8 +72,12 @@ public class ReportToolListener extends ToolListener {
     }
 
     private void profitExport(OutputStream out) {
-		ResultMessage msg = financeController.profitListToExcel(out);
-		
+//		ResultMessage msg = financeController.profitListToExcel(out);
+//		if (isFail(msg)) {
+//            // TODO
+//        } else {
+//        	new WarningFrame("导出成功！");
+//        }
 	}
 
 	private void processStatement(Time sTime, Time eTime) {
