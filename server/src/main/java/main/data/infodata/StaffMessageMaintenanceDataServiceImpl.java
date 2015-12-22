@@ -1,5 +1,7 @@
 package main.data.infodata;
 
+
+//github.com/awayz/Express.git
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -14,7 +16,6 @@ public class StaffMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
         private static final long serialVersionUID = 1709425729832465611L;
         
         private static final String PATH = "server/src/main/java/save/infodata/staffMessagePO.dat";
-//        private static final String PATH = PathMaker.getPath() + "save/infodata/staffMessagePO.dat";
         
         private ArrayList<StaffMessagePO> staffMessagePOs;
 

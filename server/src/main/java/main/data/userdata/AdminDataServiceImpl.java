@@ -111,9 +111,5 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 	
 	private String userrecord = "src/main/java/save/userdata/userPO.dat";
 	private String staffmessage = "src/main/java/save/infodata/staffMessagePO.dat";
-	
-//	private void generatePath(){
-//		userrecord = PathMaker.getPath() + "save/userdata/userPO.dat";
-//		staffmessage = PathMaker.getPath() + "save/infodata/staffMessagePO.dat";
-//	}
+
 }
