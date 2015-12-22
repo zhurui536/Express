@@ -25,8 +25,8 @@ public class InStoreBillDataPane extends JPanel {
 		Object[][] rowdata = new Object[pos.size()+2][7];
 		rowdata[0][0] = "入库单编写人";
 		rowdata[0][1] = userid;
-		rowdata[0][2] = "入库单编号";
-		rowdata[0][3] = billid;
+		rowdata[0][5] = "入库单编号";
+		rowdata[0][6] = billid;
 		rowdata[1][0] = "货物编号";
 		rowdata[1][1] = "区号";
 		rowdata[1][2] = "架号";

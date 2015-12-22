@@ -53,7 +53,12 @@ public class SendBillDataPane extends JPanel {
 		rowdata[5][0] = "出发时间";
 		rowdata[5][1] = vo.goodsVO.startTime.toString();
 		rowdata[5][2] = "接收时间";
-		rowdata[5][3] = vo.goodsVO.receiveTime.toString();
+		if(vo.goodsVO.receiveTime!=null){
+			rowdata[5][3] = vo.goodsVO.receiveTime.toString();
+		}
+		else{
+			rowdata[5][3] = "未接收";
+		}
 		
 		rowdata[6][0] = "寄件人姓名";
 		rowdata[6][1] = vo.senderVO.name;
@@ -83,8 +88,10 @@ public class SendBillDataPane extends JPanel {
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setRowHeight(30);
 		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-		table.getColumnModel().getColumn(0).setPreferredWidth(300);
-		table.getColumnModel().getColumn(1).setPreferredWidth(510);
+		table.getColumnModel().getColumn(0).setPreferredWidth(200);
+		table.getColumnModel().getColumn(1).setPreferredWidth(200);
+		table.getColumnModel().getColumn(2).setPreferredWidth(200);
+		table.getColumnModel().getColumn(3).setPreferredWidth(200);
 		table.setShowGrid(true);
 		table.setLocation(0, 0);
 		

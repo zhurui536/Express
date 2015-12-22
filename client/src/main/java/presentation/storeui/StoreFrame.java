@@ -122,15 +122,16 @@ public class StoreFrame extends JFrame{
 			tool.setBackground(Color.BLUE);
 			this.getContentPane().add(tool);
 		}
+		else{
+			this.painttool();
+		}
 		this.validate();
 		this.repaint();
 	}
 	
 	public void close(){
-		if(tool == null){
-			this.dispose();
-			System.exit(0);
-		}
+		this.dispose();
+		System.exit(0);
 	}
 	
 	public StoreBLService getController(){

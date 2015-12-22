@@ -42,7 +42,7 @@ public class BillBLController implements BillBLService {
 				result = dataservice.getBills(types[i]);
 				if(result.getKey().equals("success")){
 					if(i==0){
-						ArrayList<OutStoreBillPO> temp = new ArrayList<OutStoreBillPO>();
+						ArrayList<OutStoreBillPO> temp = (ArrayList<OutStoreBillPO>) result.getValue();
 						OutStoreBillPO bill = null;
 						
 						for(int j=0;j<temp.size();j++){
@@ -53,7 +53,7 @@ public class BillBLController implements BillBLService {
 						}
 					}
 					if(i==1){
-						ArrayList<InStoreBillPO> temp = new ArrayList<InStoreBillPO>();
+						ArrayList<InStoreBillPO> temp = (ArrayList<InStoreBillPO>) result.getValue();
 						InStoreBillPO bill = null;
 						
 						for(int j=0;j<temp.size();j++){
@@ -64,7 +64,7 @@ public class BillBLController implements BillBLService {
 						}
 					}
 					if(i==2){
-						ArrayList<PayBillPO> temp = new ArrayList<PayBillPO>();
+						ArrayList<PayBillPO> temp = (ArrayList<PayBillPO>) result.getValue();
 						PayBillPO bill = null;
 						
 						for(int j=0;j<temp.size();j++){
@@ -119,7 +119,7 @@ public class BillBLController implements BillBLService {
 						}
 					}
 					if(i==7){
-						ArrayList<SendBillPO> temp = new ArrayList<SendBillPO>();
+						ArrayList<SendBillPO> temp = (ArrayList<SendBillPO>) result.getValue();
 						SendBillPO bill = null;
 						
 						for(int j=0;j<temp.size();j++){
@@ -130,7 +130,7 @@ public class BillBLController implements BillBLService {
 						}
 					}
 					if(i==8){
-						ArrayList<TransferBillPO> temp = new ArrayList<TransferBillPO>();
+						ArrayList<TransferBillPO> temp = (ArrayList<TransferBillPO>) result.getValue();
 						TransferBillPO bill = null;
 						
 						for(int j=0;j<temp.size();j++){
@@ -155,7 +155,7 @@ public class BillBLController implements BillBLService {
 		for(int j=0;j<bills.size();j++){
 			vos.add(bills.get(j).toVO());
 		}
-		
+		System.out.println(vos.size());
 		return new ResultMessage("success", vos);
 		
 		

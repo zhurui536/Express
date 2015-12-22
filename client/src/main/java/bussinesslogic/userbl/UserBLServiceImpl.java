@@ -38,7 +38,7 @@ public class UserBLServiceImpl implements UserBLService {
 								ArrayList<StaffMessagePO> staff = (ArrayList<StaffMessagePO>) result.getValue();
 								
 								//如果员工编号存在，则将该编号返回作为之后工作的编号
-								for(int j=0;i<staff.size();j++){
+								for(int j=0;j<staff.size();j++){
 									if(staff.get(j).getId().equals(users.get(i).getStaffid())){
 										return new ResultMessage("success", staff.get(j).poToVo());
 									}
