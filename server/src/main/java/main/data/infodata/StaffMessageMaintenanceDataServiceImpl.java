@@ -2,7 +2,6 @@ package main.data.infodata;
 
 import dataservice.infodataservice.StaffMessageMaintenanceDataService;
 import main.dao.Database;
-import path.PathMaker;
 import po.StaffMessagePO;
 import util.ResultMessage;
 
@@ -14,8 +13,7 @@ public class StaffMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
 
         private static final long serialVersionUID = 1709425729832465611L;
         
-//        private static final String PATH = "server/src/main/java/save/infodata/staffMessagePO.dat";
-        private static final String PATH = PathMaker.getPath() + "save/infodata/staffMessagePO.dat";
+        private static final String PATH = "server/src/main/java/save/infodata/staffMessagePO.dat";
         
         private ArrayList<StaffMessagePO> staffMessagePOs;
 

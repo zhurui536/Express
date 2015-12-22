@@ -9,7 +9,6 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import path.PathMaker;
 import po.StaffMessagePO;
 import po.UserPO;
 import util.ResultMessage;
@@ -114,7 +113,7 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 	private String staffmessage;
 	
 	private void generatePath(){
-		userrecord = PathMaker.getPath() + "save/userdata/userPO.dat";
-		staffmessage = PathMaker.getPath() + "save/infodata/staffMessagePO.dat";
+		userrecord = "src/main/java/save/userdata/userPO.dat";
+		staffmessage = "src/main/java/save/infodata/staffMessagePO.dat";
 	}
 }

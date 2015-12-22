@@ -2,7 +2,6 @@ package main.data.userdata;
 
 import java.rmi.RemoteException;
 import main.data.logisticsdata.ReceivingDataServiceImpl;
-import path.PathMaker;
 import po.GoodsPO;
 import po.logisticpo.PeopleMessagePO;
 import po.logisticpo.SendBillPO;
@@ -10,7 +9,7 @@ import util.ExpressType;
 import util.PackageType;
 
 public class AdminDataTester {
-	private static final String PATH = PathMaker.getPath() + "save/logisticsdata/sendBillPO.dat";
+	private static final String PATH = "src/main/java/save/logisticsdata/sendBillPO.dat";
 	
 	public static void main(String[] args){
 		try {
