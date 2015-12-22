@@ -2,6 +2,8 @@ package bussinesslogic.storebl;
 
 import java.util.Calendar;
 
+import javax.swing.JTable;
+
 import util.ResultMessage;
 import util.Trans;
 import vo.storevo.StorePlaceVO;
@@ -167,6 +169,11 @@ public class StoreBLController implements StoreBLService {
 			this.condition = 0;
 		}
 		return result;
+	}
+
+	@Override
+	public ResultMessage exportVerification(JTable table) {
+		return verification.exportVerification(table);
 	}
 
 }

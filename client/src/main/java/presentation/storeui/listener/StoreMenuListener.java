@@ -80,6 +80,7 @@ public class StoreMenuListener implements ActionListener {
 				VerificationVO vo = (VerificationVO) result.getValue();
 				VerificationDataPane panel = new VerificationDataPane(vo);
 				storeui.paintdata(panel);
+				tl.setTable(panel.getTable());
 			}
 			if(result.getKey().equals("busy")){
 				WarningFrame warning = new WarningFrame("请结束当前任务");
