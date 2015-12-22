@@ -28,7 +28,8 @@ public class ShowReceiptBL implements ShowReceiptBLService {
                 getServiceByName("ShowReceiptDataServiceImpl");
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public ResultMessage showReceipt(Time time, String id) {
         try {
             ResultMessage msg = showReceiptDataServiceImpl.findAll();

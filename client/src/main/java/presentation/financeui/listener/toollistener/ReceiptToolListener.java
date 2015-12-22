@@ -1,5 +1,10 @@
 package presentation.financeui.listener.toollistener;
 
+import java.awt.event.ActionEvent;
+
+import javax.swing.JPanel;
+
+import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.ReceiptPanel;
 import presentation.financeui.dialog.ReceiptDialog;
@@ -8,13 +13,6 @@ import presentation.financeui.tool.ToolPanel;
 import util.ResultMessage;
 import util.Time;
 import vo.logisticvo.ReceiptBillVO;
-
-import javax.swing.*;
-
-import bussinesslogic.financebl.FinanceController;
-import bussinesslogicservice.financeblservice.FinanceBLService;
-
-import java.awt.event.ActionEvent;
 
 /**
  * 查看收款单监听
@@ -62,4 +60,10 @@ public class ReceiptToolListener extends ToolListener {
 			ui.paintData(receiptPanel);
 		}	
 	}
+
+	private boolean isFail(ResultMessage msg) {
+		return msg.getValue().equals("fail");
+	}
+	
+	
 }

@@ -8,6 +8,7 @@ import vo.financevo.AccountVO;
 import vo.financevo.BankAccountVO;
 import vo.financevo.PayBillVO;
 
+import java.io.OutputStream;
 import java.math.BigDecimal;
 
 /**
@@ -145,8 +146,8 @@ public class FinanceController implements FinanceBLService {
     }
 
     @Override
-    public ResultMessage profitListToExcel() {
-        return showProfitListBL.profitListToExcel();
+    public ResultMessage profitListToExcel(OutputStream out) {
+        return showProfitListBL.profitListToExcel(out);
     }
 
     @Override

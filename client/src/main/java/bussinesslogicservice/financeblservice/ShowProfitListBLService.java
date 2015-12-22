@@ -1,6 +1,8 @@
 package bussinesslogicservice.financeblservice;
 
 
+import java.io.OutputStream;
+
 import util.ResultMessage;
 
 /**
@@ -20,5 +22,5 @@ public interface ShowProfitListBLService {
      * 导出为 excel 表
      * @return ResultMessage 成功为 SUCCESS 失败为 FAIL
      */
-    ResultMessage profitListToExcel();
+    ResultMessage profitListToExcel(OutputStream out);
 }

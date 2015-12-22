@@ -91,20 +91,12 @@ public class ShowProfitListBL implements ShowProfitListBLService {
     }
 
     @Override
-    public ResultMessage profitListToExcel() {
+    public ResultMessage profitListToExcel(OutputStream out) {
         if (!isUpdated) {
             return new ResultMessage("false");
         }
 
         String[] headers = { "总收入", "总支出", "总利润" };
-        OutputStream out = null;
-
-        try {
-            out = new FileOutputStream("C:/Users/jone/Desktop/成本收益表.xls");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
         Excel excel = new Excel();
         excel.createSheet(profitListVO, "成本收益表", headers);
         excel.export(out);

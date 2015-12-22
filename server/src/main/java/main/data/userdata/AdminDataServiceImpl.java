@@ -9,11 +9,10 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import path.PathMaker;
+import dataservice.userdataservice.AdminDataService;
 import po.StaffMessagePO;
 import po.UserPO;
 import util.ResultMessage;
-import dataservice.userdataservice.AdminDataService;
 
 public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDataService {
 	/**
@@ -24,7 +23,7 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 	public AdminDataServiceImpl() throws RemoteException{
 		super();
 		
-		this.generatePath();
+//		this.generatePath();
 		
 		File file = new File(userrecord);
 		
@@ -110,11 +109,11 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 		objout.close();
 	}
 	
-	private String userrecord;
-	private String staffmessage;
+	private String userrecord = "src/main/java/save/userdata/userPO.dat";
+	private String staffmessage = "src/main/java/save/infodata/staffMessagePO.dat";
 	
-	private void generatePath(){
-		userrecord = PathMaker.getPath() + "save/userdata/userPO.dat";
-		staffmessage = PathMaker.getPath() + "save/infodata/staffMessagePO.dat";
-	}
+//	private void generatePath(){
+//		userrecord = PathMaker.getPath() + "save/userdata/userPO.dat";
+//		staffmessage = PathMaker.getPath() + "save/infodata/staffMessagePO.dat";
+//	}
 }

@@ -1,16 +1,17 @@
 package presentation.financeui.dialog;
 
-import bussinesslogicservice.financeblservice.FinanceBLService;
-import presentation.financeui.FinanceFrame;
-import presentation.financeui.datapanel.StatementPanel;
-import util.ResultMessage;
-import util.Time;
-import vo.financevo.StatementVO;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import presentation.financeui.FinanceFrame;
+import util.Time;
 
 /**
  * Created by Away
@@ -26,14 +27,10 @@ public class StatementDialog extends JDialog {
     private JComboBox<String> endYear;
     private JComboBox<String> endMonth;
     private JComboBox<String> endDay;
-    private FinanceBLService financeController;
-    private FinanceFrame ui;
 
     public StatementDialog(FinanceFrame ui) {
         super(ui);
         init(ui);
-        this.ui = ui;
-        financeController = ui.getFinanceController();
     }
 
     private void init(Frame ui) {
@@ -106,37 +103,24 @@ public class StatementDialog extends JDialog {
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String sy = (String) startYear.getSelectedItem();
-            String sm = (String) startMonth.getSelectedItem();
-            String sd = (String) startDay.getSelectedItem();
-            Time sTime = new Time(sy + "-" + sm + "-" + sd);
-
-            String ey = (String) endYear.getSelectedItem();
-            String em = (String) endMonth.getSelectedItem();
-            String ed = (String) endDay.getSelectedItem();
-            Time eTime = new Time(ey + "-" + em + "-" + ed);
-            
-            ResultMessage msg = financeController.showStatement(sTime, eTime);
-            if (isFail(msg)) {
-                // TODO
-            } else {
-                processStatement(msg);
-                close();
-            }
+               close();
         }
     }
-
-    private void processStatement(ResultMessage msg) {
-        StatementVO statementVO = (StatementVO) msg.getValue();
-        StatementPanel statementPanel = new StatementPanel(statementVO);
-        System.out.println("success");
-        ui.paintData(statementPanel);
-    }
-
-    private boolean isFail(ResultMessage message) {
-        return message.getKey().equals("fail");
-    }
-
+	
+	public Time getStartTime() {
+		String sy = (String) startYear.getSelectedItem();
+        String sm = (String) startMonth.getSelectedItem();
+        String sd = (String) startDay.getSelectedItem();
+        return new Time(sy + "-" + sm + "-" + sd);
+	}
+	
+	public Time getEndTime() {
+		String ey = (String) endYear.getSelectedItem();
+        String em = (String) endMonth.getSelectedItem();
+        String ed = (String) endDay.getSelectedItem();
+        return new Time(ey + "-" + em + "-" + ed);
+	}
+	
     private void close() {
         this.setVisible(false);
     }

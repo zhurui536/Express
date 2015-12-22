@@ -1,13 +1,13 @@
 package main.data.infodata;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+
 import dataservice.infodataservice.InstitutionMessageMaintenanceDataService;
 import main.dao.Database;
 import po.InstitutionMessagePO;
 import util.ResultMessage;
-
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 
 public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteObject implements InstitutionMessageMaintenanceDataService{
 
