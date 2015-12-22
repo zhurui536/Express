@@ -11,6 +11,8 @@ import vo.storevo.VerificationVO;
 
 import java.rmi.RemoteException;
 
+import javax.swing.JTable;
+
 public class VerificationBL implements VerificationBLService {
 	private StoreDataService dataservice;
 	private String user;
@@ -53,7 +55,6 @@ public class VerificationBL implements VerificationBLService {
 				dataservice.saveVerification(po);
 				return new ResultMessage("success", null);
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return new ResultMessage("internet error", null);
 			}
@@ -64,6 +65,15 @@ public class VerificationBL implements VerificationBLService {
 		else{
 			return new ResultMessage("unknown operation", null);
 		}
+	}
+
+	@Override
+	public ResultMessage exportVerification(JTable table) {
+		TableExport exportor = new TableExport(table);
+		if(exportor.export()){
+			return new ResultMessage("success", null);
+		}
+		return new ResultMessage("failed", null);
 	}
 
 }

@@ -4,8 +4,11 @@ package bussinesslogic.logisticsbl;
 import bussinesslogicservice.logisticsblservice.ReceivingBLService;
 import connection.ClientRMIHelper;
 import dataservice.logisticsdataservice.ReceivingDataService;
+import dataservice.strategydataservice.StrategyDataService;
+import po.DistancePO;
 import po.GoodsPO;
 import po.logisticpo.SendBillPO;
+import util.City;
 import util.ExpressType;
 import util.PackageType;
 import util.PublicMessage;
@@ -20,12 +23,15 @@ public class ReceivingBL implements ReceivingBLService {
 
         private ReceivingDataService receivingDataService;
         
+        private StrategyDataService strategyDataService;
+        
         private ArrayList<SendBillPO> sendBillPOs;
         
         public ReceivingBL() {
                 ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
                 this.sendBillPOs = new ArrayList<>();
                 receivingDataService = (ReceivingDataService) clientRMIHelper.getServiceByName("ReceivingDataServiceImpl");
+                strategyDataService = (StrategyDataService) clientRMIHelper.getServiceByName("StrategyDataServiceImpl");
         }
         
         @Override
@@ -37,6 +43,11 @@ public class ReceivingBL implements ReceivingBLService {
                 goodsPO.addLocation(PublicMessage.location);
                 sendBillPO.setGoodsPO(goodsPO);
                 sendBillPOs.add(sendBillPO);
+                try {
+                        receivingDataService.insertBill(sendBillPO);
+                } catch (RemoteException e) {
+                        e.printStackTrace();
+                }
                 return new ResultMessage("SUCCESS", billVO);
         }
 
@@ -64,18 +75,35 @@ public class ReceivingBL implements ReceivingBLService {
                                 count++;
                         }
                 }
+
+                if(count==0){
+                	return 0;
+                }
                 return sum / count;
+
         }
 
         @Override
         public double getCharge(GoodsVO goods) {
-                int tempDistance = 900;
-                //TODO
-                //在数据层拿到distance的数据
+                double distance = 0;
+                ResultMessage resultMessage = null;
+                try {
+                        resultMessage = strategyDataService.getDistance();
+                } catch (RemoteException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                }
+                @SuppressWarnings("unchecked")
+                ArrayList<DistancePO> distancePos = (ArrayList<DistancePO>) resultMessage.getValue();
+                for (DistancePO distancePO : distancePos) {
+                        if(distancePO.ifMatch(City.stringToCity(goods.departurePlace), City.stringToCity(goods.destination))){
+                                distance = distancePO.getDistance();
+                        }
+                }
                 return PackageType.typeToCost(goods.packageType)
                                 + goods.weight
                                 * ExpressType.typeToCost(goods.expressType,
-                        tempDistance);
+                        distance);
         }
 
         @Override

@@ -13,7 +13,7 @@ import presentation.storeui.listener.ToolListener;
 public class VerificationTool extends ToolPane{
 	
 	public VerificationTool(ToolListener tl){
-		super.buttons = new JButton[2];
+		super.buttons = new JButton[3];
 		
 		buttons[0] = new JButton("确定");
 		buttons[0].setSize(100, 30);
@@ -26,6 +26,11 @@ public class VerificationTool extends ToolPane{
 		buttons[1].setLocation(880, 35);
 		buttons[1].addActionListener(tl);
 		this.add(buttons[1]);
+		
+		buttons[2] = new JButton("导出表格");
+		buttons[2].setBounds(330, 35, 100, 30);
+		buttons[2].addActionListener(tl);
+		this.add(buttons[2]);
 		
 		JLabel batch = new JLabel(df.format(Calendar.getInstance().getTime()));
 		batch.setSize(150, 60);

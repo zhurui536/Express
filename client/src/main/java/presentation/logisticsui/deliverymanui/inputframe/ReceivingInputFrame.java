@@ -3,7 +3,6 @@ package presentation.logisticsui.deliverymanui.inputframe;
 
 import presentation.logisticsui.deliverymanui.listener.toollistener.ReceivingToolListener;
 import util.ExpressType;
-import util.GoodsDeliveryState;
 import util.PackageType;
 import vo.GoodsVO;
 import vo.logisticvo.PeopleMessageVO;
@@ -34,7 +33,7 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                 this.listener = listener;
                 this.setName("快递单号输入");
                 this.setLayout(null);
-                this.setSize(550, 520);
+                this.setSize(590, 520);
                 this.setLocation(350, 150);
                 init();
         }
@@ -89,8 +88,11 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                 JTextArea[][] textAreas = new JTextArea[3][3];
                 final String[][] nameStrings = { { "名称：", "出发地：", "目的地：" },
                                 { "重量：", "体积：", null },
-                                { "包装：", "快递方式：", "运转状态：" } };
-                
+                                { "包装：", "快递方式：", null} };
+                final String[] stringsP = {"纸箱", "木箱", "快递袋"};
+                JComboBox<String> packageTypeBox = new JComboBox<String>(stringsP);
+                final String[] stringsE = {"普通", "经济", "特快"};
+                JComboBox<String> expressTypeBox = new JComboBox<>(stringsE);
                 public goodsPanel() {
                         this.setSize(520,165);
                         for (int i = 0; i < 3; i++) {
@@ -98,15 +100,24 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                                         if(nameStrings[i][j] == null)
                                                 continue;
                                         labels[i][j] = new JLabel(nameStrings[i][j]);
-                                        labels[i][j].setLocation(15 + j * 165, 15 + i * 50);
-                                        labels[i][j].setSize(50,35);
+                                        labels[i][j].setLocation(15 + j * 175, 15 + i * 50);
+                                        labels[i][j].setSize(70,35);
                                         this.add(labels[i][j]);
+                                        if(i == 2)
+                                                continue;
                                         textAreas[i][j] = new JTextArea();
-                                        textAreas[i][j].setLocation(65 + j * 165, 15 + i * 50);
+                                        textAreas[i][j].setLocation(65 + j * 185, 15 + i * 50);
                                         textAreas[i][j].setSize(100, 35);
                                         this.add(textAreas[i][j]);
                                 }
                         }
+                        
+                        packageTypeBox.setBounds(65, 115, 100, 30);
+                        this.add(packageTypeBox);
+                       
+                        expressTypeBox.setBounds(65 + 185, 115, 100, 30);
+                        this.add(expressTypeBox);
+                        
                 }
                 
                 GoodsVO getInput(){
@@ -122,9 +133,9 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                         if(v > 0)
                                 goodsVO.volume = v;
                         
-                        goodsVO.packageType = PackageType.stringToType(textAreas[2][0].getText());
-                        goodsVO.expressType = ExpressType.stringToType(textAreas[2][1].getText());
-                        goodsVO.goodsDeliveryState = GoodsDeliveryState.stringToType(textAreas[2][2].getText());
+                        goodsVO.packageType = PackageType.stringToType((String)packageTypeBox.getSelectedItem());
+                        goodsVO.expressType = ExpressType.stringToType((String)expressTypeBox.getSelectedItem());
+//                        goodsVO.goodsDeliveryState = GoodsDeliveryState.stringToType(textAreas[2][2].getText());
                         
                         return goodsVO;
                 }

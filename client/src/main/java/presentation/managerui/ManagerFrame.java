@@ -135,6 +135,9 @@ public class ManagerFrame extends JFrame {
 			tool.setBackground(Color.BLUE);
 			this.getContentPane().add(tool);
 		}
+		else{
+			this.paintTool();
+		}
 		this.validate();
 		this.repaint();
 	}

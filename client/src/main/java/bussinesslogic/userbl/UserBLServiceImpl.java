@@ -28,6 +28,7 @@ public class UserBLServiceImpl implements UserBLService {
 				//检查用户id是否存在
 				for(int i=0;i<users.size();i++){
 					//如果存在，则比较密码
+					System.out.println(users.get(i).getid()+" "+users.get(i).getPassword());
 					if(users.get(i).getid().equals(id)){
 						//如果密码正确，则查询员工编号
 						if(users.get(i).getPassword().equals(password)){
@@ -37,7 +38,7 @@ public class UserBLServiceImpl implements UserBLService {
 								ArrayList<StaffMessagePO> staff = (ArrayList<StaffMessagePO>) result.getValue();
 								
 								//如果员工编号存在，则将该编号返回作为之后工作的编号
-								for(int j=0;i<staff.size();j++){
+								for(int j=0;j<staff.size();j++){
 									if(staff.get(j).getId().equals(users.get(i).getStaffid())){
 										return new ResultMessage("success", staff.get(j).poToVo());
 									}

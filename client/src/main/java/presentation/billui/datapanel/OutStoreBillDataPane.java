@@ -23,7 +23,7 @@ public class OutStoreBillDataPane extends JPanel {
 		this.setLayout(null);
 		
 		Object[] columnnames = {"列1", "列2", "列3", "列4", "列5"};
-		Object[][] rowdata = new Object[pos.size()+1][5];
+		Object[][] rowdata = new Object[pos.size()+2][5];
 		rowdata[0][0] = "单据编写人";
 		rowdata[0][1] = userid;
 		rowdata[0][2] = "单据编号";
@@ -51,8 +51,11 @@ public class OutStoreBillDataPane extends JPanel {
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setRowHeight(30);
 		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-		table.getColumnModel().getColumn(0).setPreferredWidth(300);
-		table.getColumnModel().getColumn(1).setPreferredWidth(510);
+		table.getColumnModel().getColumn(0).setPreferredWidth(150);
+		table.getColumnModel().getColumn(1).setPreferredWidth(120);
+		table.getColumnModel().getColumn(2).setPreferredWidth(200);
+		table.getColumnModel().getColumn(3).setPreferredWidth(100);
+		table.getColumnModel().getColumn(4).setPreferredWidth(150);
 		table.setShowGrid(true);
 		table.setLocation(0, 0);
 		

@@ -21,4 +21,23 @@ public enum City {
         }
         return result;
 	}
+	
+	public static City stringToCity(String string) {
+                City city = null;
+                switch (string) {
+                        case "南京":
+                                city = NANJING;
+                                break;
+                        case "北京":
+                                city = BEIJING;
+                                break;
+                        case "广州":
+                                city = GUANGZHOU;
+                                break;
+                        case "上海":
+                                city = SHANGHAI;
+                                break;
+                }
+                return city;
+        }
 }

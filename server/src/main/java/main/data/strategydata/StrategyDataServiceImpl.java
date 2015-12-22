@@ -1,6 +1,7 @@
 package main.data.strategydata;
 
 import dataservice.strategydataservice.StrategyDataService;
+import path.PathMaker;
 import po.DistancePO;
 import po.SalaryPO;
 import po.StaffMessagePO;
@@ -51,7 +52,7 @@ public class StrategyDataServiceImpl extends UnicastRemoteObject implements Stra
 
 	private final String price = "src/main/java/save/strategydata/price.dat";
 	private final String distances = "src/main/java/save/strategydata/distancepo.dat";
-	private final String salary = "src/main/java/save/infodata/staffMessagePO.dat";
+	private final String salary = PathMaker.getPath() + "save/infodata/staffMessagePO.dat";
 
 	@SuppressWarnings("unchecked")
 	@Override
