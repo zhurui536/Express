@@ -20,10 +20,13 @@ import java.awt.event.ActionEvent;
 public class ReportToolListener extends ToolListener {
 
     FinanceFrame ui;
-
+    
+    FinanceBLService financeController;
+    
     public ReportToolListener(FinanceFrame ui) {
         super(ui);
         this.ui = ui;
+        this.financeController = ui.getFinanceController();
     }
 
     @Override
@@ -38,6 +41,11 @@ public class ReportToolListener extends ToolListener {
             ui.paintData(new JPanel());
             StatementDialog dialog = new StatementDialog(ui);
             dialog.setVisible(true);
+        } else if (button == toolPanel.getButton("profitExport")) {
+        	ui.paintData(new JPanel());
+        	JFileChooser fileChooser = new JFileChooser();
+        	fileChooser.showOpenDialog(ui);
+//        	profitExport();
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
             ui.paintData(new JPanel());

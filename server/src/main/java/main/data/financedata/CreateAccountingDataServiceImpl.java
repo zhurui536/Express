@@ -20,7 +20,7 @@ public class CreateAccountingDataServiceImpl extends UnicastRemoteObject impleme
 
     private static final long serialVersionUID = -5572836631948624078L;
 
-    private static final String INIT_PATH = "server/save/financedata/initAccountPO.dat";
+    private static final String INIT_PATH = "src/main/java/save/financedata/initAccountPO.dat";
 
     List<AccountPO> initAccountPOs;
 

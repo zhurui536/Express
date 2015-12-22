@@ -26,7 +26,7 @@ public class AdminDataTester {
 			StaffMessageMaintenanceDataServiceImpl staffdata = new StaffMessageMaintenanceDataServiceImpl();
 			staffdata.insert(new StaffMessagePO("141250212", "朱浩然", "admin", Job.MANAGER, SalaryType.MONTHLY, 0));
 			staffdata.insert(new StaffMessagePO("admin", "admin", "admin", Job.ADMIN, SalaryType.MONTHLY, 0));
-			
+			System.out.println(result.getKey());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

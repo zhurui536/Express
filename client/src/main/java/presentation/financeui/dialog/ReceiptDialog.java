@@ -1,36 +1,35 @@
 package presentation.financeui.dialog;
 
-import bussinesslogicservice.financeblservice.FinanceBLService;
-import presentation.financeui.FinanceFrame;
-import presentation.financeui.datapanel.ReceiptPanel;
-import util.ResultMessage;
-import util.Time;
-import vo.logisticvo.ReceiptBillVO;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import presentation.financeui.FinanceFrame;
+import util.Time;
 
 /**
  * Created by Away
  * 2015/12/9
  */
 
+@SuppressWarnings("serial")
 public class ReceiptDialog extends JDialog {
 
     private JComboBox<String> year;
     private JComboBox<String> month;
     private JComboBox<String> day;
     private JTextField id;
-    private FinanceBLService financeController;
-    private FinanceFrame ui;
 
     public ReceiptDialog(FinanceFrame ui) {
         super(ui);
         init(ui);
-        this.ui = ui;
-        financeController = ui.getFinanceController();
     }
 
     private void init(Frame ui) {
@@ -86,28 +85,24 @@ public class ReceiptDialog extends JDialog {
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String y = (String) year.getSelectedItem();
-            String m = (String) month.getSelectedItem();
-            String d = (String) day.getSelectedItem();
-            Time time = new Time(y + "-" + m + "-" + d);
-            String ID = id.getText();
-            ResultMessage msg = financeController.showReceipt(time, ID);
-            if (isFail(msg)) {
-                // TODO
-            } else {
-                java.util.List<ReceiptBillVO> billVOList = (java.util.List<ReceiptBillVO>) msg.getValue();
-                ReceiptPanel receiptPanel = new ReceiptPanel(billVOList);
-                ui.paintData(receiptPanel);
-                close();
-            }
+            close();
         }
     }
-
-    private boolean isFail(ResultMessage message) {
-        return message.getKey().equals("fail");
-    }
-
+    
     private void close() {
         this.setVisible(false);
+    }
+    
+    public Time getTime() {
+    	String y = (String) year.getSelectedItem();
+        String m = (String) month.getSelectedItem();
+        String d = (String) day.getSelectedItem();
+        Time time = new Time(y + "-" + m + "-" + d);
+        return time;
+    }
+    
+    public String getID() {
+        String ID = id.getText();
+        return ID;
     }
 }

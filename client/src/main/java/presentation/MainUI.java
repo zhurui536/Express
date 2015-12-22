@@ -43,6 +43,11 @@ public class MainUI extends JFrame implements ActionListener{
     }
 
     public MainUI(){
+//    	try {
+//			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
     	this.bl = new UserBLServiceImpl();
         this.setLayout(null);
         this.setBounds(300, 300, 330, 260);

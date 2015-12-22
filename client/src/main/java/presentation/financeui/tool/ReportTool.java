@@ -15,7 +15,9 @@ import javax.swing.*;
 public class ReportTool extends ToolPanel {
 
     private JButton profit;
+    private JButton profitExport;
     private JButton statement;
+    private JButton statementExport;
     private JButton back;
 
     public ReportTool(FinanceFrame ui) {
@@ -25,7 +27,9 @@ public class ReportTool extends ToolPanel {
 
     private void init() {
         profit = new JButton("显示成本收益表");
+        profitExport = new JButton("导出成本收益表");
         statement = new JButton("显示经营情况表");
+        statementExport = new JButton("导出经营情况表");
         back = new JButton("返回");
     }
 
@@ -36,17 +40,27 @@ public class ReportTool extends ToolPanel {
 
         ToolListener toolListener = new ReportToolListener(ui);
 
-        profit.setBounds(100, 25, 150, 50);
+        profit.setBounds(50, 25, 150, 50);
         profit.addActionListener(toolListener);
         buttonMap.put("profit", profit);
         this.add(profit);
-
-        statement.setBounds(400, 25, 150, 50);
+        
+        profitExport.setBounds(250, 25, 150, 50);
+        profitExport.addActionListener(toolListener);
+        buttonMap.put("profitExport", profitExport);
+        this.add(profitExport);
+        
+        statement.setBounds(450, 25, 150, 50);
         statement.addActionListener(toolListener);
         buttonMap.put("statement", statement);
         this.add(statement);
         
-        back.setBounds(815, 25, 100, 50);
+        statementExport.setBounds(650, 25, 150, 50);
+        statementExport.addActionListener(toolListener);
+        buttonMap.put("statementExport", statementExport);
+        this.add(statementExport);
+        
+        back.setBounds(850, 25, 100, 50);
         back.addActionListener(toolListener);
         buttonMap.put("back", back);
         this.add(back);

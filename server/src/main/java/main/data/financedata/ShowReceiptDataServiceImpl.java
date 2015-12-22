@@ -19,7 +19,7 @@ public class ShowReceiptDataServiceImpl extends UnicastRemoteObject implements S
 
     private static final long serialVersionUID = -715121312177936353L;
 
-    private static final String PATH = "server/save/logisticsdata/receiptBillPO.dat";
+    private static final String PATH = "src/main/java/save/logisticsdata/receiptBillPO.dat";
 
     public ShowReceiptDataServiceImpl() throws RemoteException {
         super();
