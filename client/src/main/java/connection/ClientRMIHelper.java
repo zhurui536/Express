@@ -17,8 +17,6 @@ public class ClientRMIHelper {
 
     private static final String IP = "172.26.98.70"; //Can be read from config file
 
-    private static final int PORT = 1099;
-
     private static boolean init = false;
 
     private static Map<String, Object> OBJECT_MAP = new HashMap<>();
@@ -59,10 +57,6 @@ public class ClientRMIHelper {
             return;
         }
         
-//        if(System.getSecurityManager() == null) {  
-//            System.setSecurityManager(new RMISecurityManager());  
-//        }
-        
         try {
             initObjects();
             init = true;
@@ -72,12 +66,9 @@ public class ClientRMIHelper {
     }
 
     private void initObjects() throws MalformedURLException, RemoteException, NotBoundException {
-//        String urlPrefix = "rmi://" + IP + ":" + PORT + "/";
-        System.out.println(LocateRegistry.getRegistry(IP));
 //        System.out.println(LocateRegistry.getRegistry(IP));
-        Registry registry = LocateRegistry.getRegistry(IP, PORT);
+        Registry registry = LocateRegistry.getRegistry(IP);
         for (String name : CLASS_NAMES) {
-//            System.out.println(registry.lookup(name));
             OBJECT_MAP.put(name, registry.lookup(name));
         }
     }

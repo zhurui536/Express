@@ -1,7 +1,7 @@
 package main.connection;
 
-import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,11 +44,6 @@ public class ServerRMIHelper {
 
     private static boolean init = false;
 
-//    private static String[] CLASS_NAMES = {
-//            "BankAccountManagementDataServiceImpl",
-//            "CreatePayBillDataServiceImpl"
-//    };
-
     static {
         NAMING_MAP.put("BankAccountManagementDataServiceImpl", BankAccountManagementDataServiceImpl.class);
         NAMING_MAP.put("CreateAccountingDataServiceImpl", CreateAccountingDataServiceImpl.class);
@@ -70,14 +65,6 @@ public class ServerRMIHelper {
         NAMING_MAP.put("TruckMessageMaintenanceDataServiceImpl", TruckMessageMaintenanceDataServiceImpl.class);
         NAMING_MAP.put("StrategyDataServiceImpl", StrategyDataServiceImpl.class);
         NAMING_MAP.put("AdminDataServiceImpl", AdminDataServiceImpl.class);
-        
-        //        for (String name : CLASS_NAMES) {
-//            try {
-//                NAMING_MAP.put(name, (Class<? extends UnicastRemoteObject>) Class.forName("main.data.financedata." + name));
-//            } catch (ClassNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//        }
     }
 
     public synchronized static void init() throws ServerInitException {
@@ -85,25 +72,17 @@ public class ServerRMIHelper {
             return;
         }
         
-//        System.setProperty("java.security.policy", "ServerRMIHelper.policy"); 
-                  
-//        if(System.getSecurityManager() == null) {  
-//            System.setSecurityManager(new RMISecurityManager());  
-//        }
-        
         try {
-        	System.setProperty("java.rmi.server.hostname" , "172.26.98.70");
+        	System.setProperty("java.rmi.server.hostname" , IP);
         	MyRMIFactory myRMIFactory = new MyRMIFactory(IP, PORT);
-        	LocateRegistry.createRegistry(PORT, myRMIFactory, myRMIFactory);
-//        	RMISocketFactory.setSocketFactory(new MyRMIFactory(IP, PORT));
+        	Registry registry = LocateRegistry.createRegistry(PORT, myRMIFactory, myRMIFactory);
         	
             for (Entry<String, Class<? extends UnicastRemoteObject>> entry : NAMING_MAP.entrySet()) {
                 System.out.println(entry.getKey());
-                String name = "rmi://" + IP + ":" + PORT + "/" + entry.getKey();
-//                String name = entry.getKey();
+                String name = entry.getKey();
                 Class<? extends UnicastRemoteObject> clazz = entry.getValue();
                 UnicastRemoteObject proxy = clazz.newInstance();
-                Naming.rebind(name, proxy);
+                registry.rebind(name, proxy);
             }
             
             System.out.println("Server started ...");
