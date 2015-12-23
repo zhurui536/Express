@@ -1,9 +1,10 @@
 package connection;
 
 import java.net.MalformedURLException;
-import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -71,13 +72,13 @@ public class ClientRMIHelper {
     }
 
     private void initObjects() throws MalformedURLException, RemoteException, NotBoundException {
-        String urlPrefix = "rmi://" + IP + ":" + PORT + "/";
-//        System.out.println(LocateRegistry.getRegistry(IP, PORT));
+//        String urlPrefix = "rmi://" + IP + ":" + PORT + "/";
+        System.out.println(LocateRegistry.getRegistry(IP));
 //        System.out.println(LocateRegistry.getRegistry(IP));
-//        Registry registry = LocateRegistry.getRegistry(IP);
+        Registry registry = LocateRegistry.getRegistry(IP, PORT);
         for (String name : CLASS_NAMES) {
 //            System.out.println(registry.lookup(name));
-            OBJECT_MAP.put(name, Naming.lookup(urlPrefix + name));
+            OBJECT_MAP.put(name, registry.lookup(name));
         }
     }
 

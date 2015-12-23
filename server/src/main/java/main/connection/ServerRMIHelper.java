@@ -36,8 +36,7 @@ import main.data.userdata.AdminDataServiceImpl;
 
 public class ServerRMIHelper {
 
-    private static Map<String, Class<? extends UnicastRemoteObject>> NAMING_MAP =
-            new HashMap<>();
+    private static Map<String, Class<? extends UnicastRemoteObject>> NAMING_MAP = new HashMap<>();
 
     private static final String IP = "172.26.98.70";
 
@@ -81,7 +80,7 @@ public class ServerRMIHelper {
 //        }
     }
 
-    public synchronized void init() throws ServerInitException {
+    public synchronized static void init() throws ServerInitException {
         if (init) {
             return;
         }
@@ -93,14 +92,20 @@ public class ServerRMIHelper {
 //        }
         
         try {
-            LocateRegistry.createRegistry(PORT);
+        	System.setProperty("java.rmi.server.hostname" , "172.26.98.70");
+        	MyRMIFactory myRMIFactory = new MyRMIFactory(IP, PORT);
+        	LocateRegistry.createRegistry(PORT, myRMIFactory, myRMIFactory);
+//        	RMISocketFactory.setSocketFactory(new MyRMIFactory(IP, PORT));
+        	
             for (Entry<String, Class<? extends UnicastRemoteObject>> entry : NAMING_MAP.entrySet()) {
                 System.out.println(entry.getKey());
                 String name = "rmi://" + IP + ":" + PORT + "/" + entry.getKey();
+//                String name = entry.getKey();
                 Class<? extends UnicastRemoteObject> clazz = entry.getValue();
                 UnicastRemoteObject proxy = clazz.newInstance();
                 Naming.rebind(name, proxy);
             }
+            
             System.out.println("Server started ...");
             init = true;
         } catch (Exception e) {
@@ -108,15 +113,4 @@ public class ServerRMIHelper {
         }
     }
 
-//    @Override
-//    public Socket createSocket(String host, int port) throws IOException {
-//        System.out.println("create client socket " + IP + ":" + PORT);
-//        return new Socket(IP, PORT);
-//    }
-//
-//    @Override
-//    public ServerSocket createServerSocket(int port) throws IOException {
-//        System.out.println("create server socket " + IP + ":" + PORT);
-//        return new ServerSocket(PORT, 0, InetAddress.getByName(IP));
-//    }
 }
