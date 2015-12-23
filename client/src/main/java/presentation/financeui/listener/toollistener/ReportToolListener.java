@@ -8,8 +8,6 @@ import java.io.OutputStream;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
-import bussinesslogicservice.financeblservice.FinanceBLService;
-import presentation.WarningFrame;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.ProfitPanel;
 import presentation.financeui.datapanel.StatementPanel;
@@ -27,15 +25,9 @@ import vo.financevo.StatementVO;
  */
 
 public class ReportToolListener extends ToolListener {
-
-    FinanceFrame ui;
-    
-    FinanceBLService financeController;
     
     public ReportToolListener(FinanceFrame ui) {
         super(ui);
-        this.ui = ui;
-        this.financeController = ui.getFinanceController();
     }
 
     @Override
@@ -53,16 +45,11 @@ public class ReportToolListener extends ToolListener {
             processStatement(sTime, eTime);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton("profitExport")) {
-        	JFileChooser fileChooser = new JFileChooser();
-        	fileChooser.showOpenDialog(ui);
-        	OutputStream out = null;
-			try {
-				out = new FileOutputStream(fileChooser.getSelectedFile().getAbsolutePath());
-				System.out.println(fileChooser.getSelectedFile().getAbsolutePath());
-			} catch (FileNotFoundException e1) {
-				e1.printStackTrace();
-			}
+        	OutputStream out = getPath();
         	profitExport(out);
+        } else if (button == toolPanel.getButton("statementExport")) {
+        	OutputStream out = getPath();
+        	statementExport(out); 
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
         }
@@ -71,7 +58,29 @@ public class ReportToolListener extends ToolListener {
         }
     }
 
-    private void profitExport(OutputStream out) {
+    private OutputStream getPath() {
+    	JFileChooser fileChooser = new JFileChooser();
+    	fileChooser.showOpenDialog(ui);
+    	OutputStream out = null;
+		try {
+			out = new FileOutputStream(fileChooser.getSelectedFile().getAbsolutePath());
+			System.out.println(fileChooser.getSelectedFile().getAbsolutePath());
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		return out;
+	}
+
+	private void statementExport(OutputStream out) {
+		ResultMessage msg = financeController.statementToExcel(out);
+//		if (isFail(msg)) {
+//            // TODO
+//        } else {
+//        	new WarningFrame("导出成功！");
+//        }
+	}
+
+	private void profitExport(OutputStream out) {
 //		ResultMessage msg = financeController.profitListToExcel(out);
 //		if (isFail(msg)) {
 //            // TODO

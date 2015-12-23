@@ -1,13 +1,16 @@
 package presentation.financeui.dialog;
 
-import bussinesslogicservice.financeblservice.FinanceBLService;
-import presentation.financeui.FinanceFrame;
-import util.ResultMessage;
-import vo.financevo.BankAccountVO;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import presentation.financeui.FinanceFrame;
+import vo.financevo.BankAccountVO;
 
 /**
  * Created by Away
@@ -16,19 +19,17 @@ import java.awt.event.ActionListener;
 
 public class BankAccountUpdateDialog extends JDialog {
 
-    private JTextField acID;
+	private static final long serialVersionUID = 1L;
+	private JTextField acID;
     private JTextField afterName;
-    private FinanceBLService financeController;
-    private FinanceFrame ui;
-
+    private BankAccountVO bankAccountVO;
+    
     public BankAccountUpdateDialog(FinanceFrame ui) {
         super(ui);
-        this.ui = ui;
-        init();
-        financeController = ui.getFinanceController();
+        init(ui);
     }
 
-    private void init() {
+    private void init(FinanceFrame ui) {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 250);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -66,22 +67,16 @@ public class BankAccountUpdateDialog extends JDialog {
         public void actionPerformed(ActionEvent e) {
             String name = afterName.getText().isEmpty() ? null : afterName.getText();
             String id = acID.getText().isEmpty() ? null : acID.getText();
-            BankAccountVO vo = new BankAccountVO(name, null, id);
-            ResultMessage msg = financeController.updateMember(vo);
-            if (isFail(msg)) {
-                // TODO
-            } else {
-                close();
-            }
+            bankAccountVO = new BankAccountVO(name, null, id);
+            close();
         }
-    }
-
-
-    private boolean isFail(ResultMessage message) {
-        return message.getKey().equals("fail");
     }
 
     private void close() {
         this.setVisible(false);
+    }
+    
+    public BankAccountVO getBankAccountVO() {
+    	return bankAccountVO;
     }
 }

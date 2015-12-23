@@ -26,7 +26,9 @@ public class ReceiptDialog extends JDialog {
     private JComboBox<String> month;
     private JComboBox<String> day;
     private JTextField id;
-
+    private Time time;
+    private String ID;
+    
     public ReceiptDialog(FinanceFrame ui) {
         super(ui);
         init(ui);
@@ -85,6 +87,11 @@ public class ReceiptDialog extends JDialog {
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+        	String y = (String) year.getSelectedItem();
+            String m = (String) month.getSelectedItem();
+            String d = (String) day.getSelectedItem();
+            time = new Time(y + "-" + m + "-" + d);
+            ID = id.getText();
             close();
         }
     }
@@ -94,15 +101,10 @@ public class ReceiptDialog extends JDialog {
     }
     
     public Time getTime() {
-    	String y = (String) year.getSelectedItem();
-        String m = (String) month.getSelectedItem();
-        String d = (String) day.getSelectedItem();
-        Time time = new Time(y + "-" + m + "-" + d);
         return time;
     }
     
     public String getID() {
-        String ID = id.getText();
         return ID;
     }
 }

@@ -1,25 +1,32 @@
 package main.connection;
 
-import main.data.billdata.BillDataServiceImpl;
-import main.data.financedata.*;
-import main.data.infodata.*;
-import main.data.logisticsdata.*;
-import main.data.storedata.StoreDataServiceImpl;
-import main.data.strategydata.StrategyDataServiceImpl;
-import main.data.userdata.AdminDataServiceImpl;
-
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
-import java.rmi.server.RMIClientSocketFactory;
-import java.rmi.server.RMIServerSocketFactory;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import main.data.billdata.BillDataServiceImpl;
+import main.data.financedata.BankAccountManagementDataServiceImpl;
+import main.data.financedata.CreateAccountingDataServiceImpl;
+import main.data.financedata.CreatePayBillDataServiceImpl;
+import main.data.financedata.ShowReceiptDataServiceImpl;
+import main.data.financedata.ShowStatementDataServiceImpl;
+import main.data.infodata.DriverMessageMaintenanceDataServiceImpl;
+import main.data.infodata.InstitutionMessageMaintenanceDataServiceImpl;
+import main.data.infodata.StaffMessageMaintenanceDataServiceImpl;
+import main.data.infodata.SystemlogDataServiceImpl;
+import main.data.infodata.TruckMessageMaintenanceDataServiceImpl;
+import main.data.logisticsdata.BillQueryDataServiceImpl;
+import main.data.logisticsdata.DeliveryDataServiceImpl;
+import main.data.logisticsdata.GoodsLoadDataServiceImpl;
+import main.data.logisticsdata.GoodsReceiptDataServiceImpl;
+import main.data.logisticsdata.ReceiptBillProduceDataServiceImpl;
+import main.data.logisticsdata.ReceivingDataServiceImpl;
+import main.data.storedata.StoreDataServiceImpl;
+import main.data.strategydata.StrategyDataServiceImpl;
+import main.data.userdata.AdminDataServiceImpl;
 
 
 /**
@@ -27,12 +34,12 @@ import java.util.Map.Entry;
  * 2015/11/26
  */
 
-public class ServerRMIHelper implements RMIClientSocketFactory, RMIServerSocketFactory {
+public class ServerRMIHelper {
 
     private static Map<String, Class<? extends UnicastRemoteObject>> NAMING_MAP =
             new HashMap<>();
 
-    private static final String IP = "localhost";
+    private static final String IP = "172.26.98.70";
 
     private static final int PORT = 1099;
 
@@ -78,15 +85,21 @@ public class ServerRMIHelper implements RMIClientSocketFactory, RMIServerSocketF
         if (init) {
             return;
         }
-
+        
+//        System.setProperty("java.security.policy", "ServerRMIHelper.policy"); 
+                  
+//        if(System.getSecurityManager() == null) {  
+//            System.setSecurityManager(new RMISecurityManager());  
+//        }
+        
         try {
-            Registry reg = LocateRegistry.createRegistry(PORT, this, this);
+            LocateRegistry.createRegistry(PORT);
             for (Entry<String, Class<? extends UnicastRemoteObject>> entry : NAMING_MAP.entrySet()) {
                 System.out.println(entry.getKey());
-                String name = entry.getKey();
+                String name = "rmi://" + IP + ":" + PORT + "/" + entry.getKey();
                 Class<? extends UnicastRemoteObject> clazz = entry.getValue();
                 UnicastRemoteObject proxy = clazz.newInstance();
-                reg.rebind(name, proxy);
+                Naming.rebind(name, proxy);
             }
             System.out.println("Server started ...");
             init = true;
@@ -95,15 +108,15 @@ public class ServerRMIHelper implements RMIClientSocketFactory, RMIServerSocketF
         }
     }
 
-    @Override
-    public Socket createSocket(String host, int port) throws IOException {
-        System.out.println("create client socket " + IP + ":" + PORT);
-        return new Socket(IP, PORT);
-    }
-
-    @Override
-    public ServerSocket createServerSocket(int port) throws IOException {
-        System.out.println("create server socket " + IP + ":" + PORT);
-        return new ServerSocket(PORT, 0, InetAddress.getByName(IP));
-    }
+//    @Override
+//    public Socket createSocket(String host, int port) throws IOException {
+//        System.out.println("create client socket " + IP + ":" + PORT);
+//        return new Socket(IP, PORT);
+//    }
+//
+//    @Override
+//    public ServerSocket createServerSocket(int port) throws IOException {
+//        System.out.println("create server socket " + IP + ":" + PORT);
+//        return new ServerSocket(PORT, 0, InetAddress.getByName(IP));
+//    }
 }

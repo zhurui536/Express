@@ -9,6 +9,7 @@ import vo.financevo.BankAccountVO;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 银行账户管理
@@ -57,7 +58,8 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
         }
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public ResultMessage inquireMember(BankAccountVO vo) {
         try {
             // 根据 id 查找
@@ -67,7 +69,9 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
                     return message;
                 }
                 BankAccountPO bankAccountPO = (BankAccountPO) message.getValue();
-                return new ResultMessage("success", bankAccountPO.poToVo());
+                List<BankAccountVO> bankAccountVOs = new ArrayList<>();
+                bankAccountVOs.add(bankAccountPO.poToVo());
+                return new ResultMessage("success", bankAccountVOs);
             }
 
             // 根据名字模糊匹配

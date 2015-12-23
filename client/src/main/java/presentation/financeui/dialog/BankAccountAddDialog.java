@@ -1,15 +1,18 @@
 package presentation.financeui.dialog;
 
-import bussinesslogicservice.financeblservice.FinanceBLService;
-import presentation.financeui.FinanceFrame;
-import util.ResultMessage;
-import vo.financevo.BankAccountVO;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import presentation.financeui.FinanceFrame;
+import vo.financevo.BankAccountVO;
 
 /**
  * Created by Away
@@ -22,12 +25,11 @@ public class BankAccountAddDialog extends JDialog {
     private JTextField acID;
     private JTextField acName;
     private JTextField acBalance;
-    private FinanceBLService financeController;
-
+    private BankAccountVO bankAccountVO;
+    
     public BankAccountAddDialog(FinanceFrame ui) {
         super(ui);
         init(ui);
-        financeController = ui.getFinanceController();
     }
 
     private void init(Frame ui) {
@@ -74,25 +76,19 @@ public class BankAccountAddDialog extends JDialog {
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String name = acName.getText();
+        	String name = acName.getText();
             BigDecimal balance = new BigDecimal(acBalance.getText());
             String id = acID.getText();
-            BankAccountVO vo = new BankAccountVO(name, balance, id);
-            ResultMessage msg = financeController.createMember(vo);
-            if (isFail(msg)) {
-                // TODO
-                System.err.println("fail");
-            } else {
-                close();
-            }
+            bankAccountVO = new BankAccountVO(name, balance, id);
+            close();
         }
-    }
-
-    private boolean isFail(ResultMessage message) {
-        return message.getKey().equals("fail");
     }
 
     private void close() {
         this.setVisible(false);
+    }
+    
+    public BankAccountVO getBankAccountVO() {
+    	return bankAccountVO;
     }
 }

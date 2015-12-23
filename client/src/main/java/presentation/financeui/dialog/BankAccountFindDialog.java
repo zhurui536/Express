@@ -1,15 +1,16 @@
 package presentation.financeui.dialog;
 
-import bussinesslogicservice.financeblservice.FinanceBLService;
-import presentation.financeui.FinanceFrame;
-import presentation.financeui.datapanel.BankAccountPanel;
-import util.ResultMessage;
-import vo.financevo.BankAccountVO;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import presentation.financeui.FinanceFrame;
+import vo.financevo.BankAccountVO;
 
 /**
  * Created by Away
@@ -18,19 +19,17 @@ import java.util.ArrayList;
 
 public class BankAccountFindDialog extends JDialog {
 
-    private JTextField acID;
+	private static final long serialVersionUID = 1L;
+	private JTextField acID;
     private JTextField acName;
-    private FinanceBLService financeController;
-    private FinanceFrame ui;
-
+    private BankAccountVO bankAccountVO;
+    
     public BankAccountFindDialog(FinanceFrame ui) {
         super(ui);
-        this.ui = ui;
-        init();
-        financeController = ui.getFinanceController();
+        init(ui);
     }
 
-    private void init() {
+    private void init(FinanceFrame ui) {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 250);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -68,33 +67,9 @@ public class BankAccountFindDialog extends JDialog {
         public void actionPerformed(ActionEvent e) {
             String name = acName.getText().isEmpty() ? null : acName.getText();
             String id = acID.getText().isEmpty() ? null : acID.getText();
-            BankAccountVO vo = new BankAccountVO(name, null, id);
-            ResultMessage msg = financeController.inquireMember(vo);
-            if (isFail(msg)) {
-                // TODO
-            } else {
-                processData(id, msg);
-                close();
-            }
+            bankAccountVO = new BankAccountVO(name, null, id);
+            close();
         }
-    }
-
-    private void processData(String id, ResultMessage msg) {
-        java.util.List<BankAccountVO> bankAccountVOs;
-        if (id == null) {
-            bankAccountVOs = (java.util.List<BankAccountVO>) msg.getValue();
-        } else {
-            bankAccountVOs = new ArrayList<>();
-            BankAccountVO bankAccountVO = (BankAccountVO) msg.getValue();
-            bankAccountVOs.add(bankAccountVO);
-        }
-
-        BankAccountPanel bankAccountPanel = new BankAccountPanel(bankAccountVOs);
-        ui.paintData(bankAccountPanel);
-    }
-
-    private boolean isFail(ResultMessage message) {
-        return message.getKey().equals("fail");
     }
 
     private void close() {
@@ -103,5 +78,8 @@ public class BankAccountFindDialog extends JDialog {
 //        acID.setText("");
         this.setVisible(false);
     }
-
+    
+    public BankAccountVO getBankAccountVO() {
+    	return bankAccountVO;
+    }
 }

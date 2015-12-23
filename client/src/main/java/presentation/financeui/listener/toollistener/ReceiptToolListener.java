@@ -33,10 +33,9 @@ public class ReceiptToolListener extends ToolListener {
     public void actionPerformed(ActionEvent e) {
         Object button = e.getSource();
         ToolPanel toolPanel = ui.getToolPanel();
-
+        ui.paintData(new JPanel());
+        
         if (button == toolPanel.getButton("show")) {
-            ui.paintData(new JPanel());
-            
             ReceiptDialog dialog = new ReceiptDialog(ui);
             dialog.setVisible(true);
             
@@ -45,7 +44,6 @@ public class ReceiptToolListener extends ToolListener {
             processShow(time, id);
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
-            ui.paintData(new JPanel());
         }
     }
 
@@ -64,6 +62,5 @@ public class ReceiptToolListener extends ToolListener {
 	private boolean isFail(ResultMessage msg) {
 		return msg.getValue().equals("fail");
 	}
-	
 	
 }

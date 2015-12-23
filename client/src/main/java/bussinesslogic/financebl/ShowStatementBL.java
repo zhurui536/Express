@@ -1,5 +1,10 @@
 package bussinesslogic.financebl;
 
+import java.io.OutputStream;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+
 import bussinesslogicservice.financeblservice.ShowStatementBLService;
 import connection.ClientRMIHelper;
 import dataservice.financedataservice.ShowReceiptDataService;
@@ -12,13 +17,6 @@ import util.Time;
 import vo.financevo.PayBillVO;
 import vo.financevo.StatementVO;
 import vo.logisticvo.ReceiptBillVO;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 经营情况表逻辑层实现
@@ -108,18 +106,11 @@ public class ShowStatementBL implements ShowStatementBLService {
     }
 
     @Override
-    public ResultMessage statementToExcel() {
+    public ResultMessage statementToExcel(OutputStream out) {
         if (!isUpdated) {
             return new ResultMessage("fail");
         }
         String[] headers = { "付款时间", "付款单编号", "付款人ID", "付款账号", "条目", "备注", "付款金额" };
-        OutputStream out = null;
-
-        try {
-            out = new FileOutputStream("C:/Users/jone/Desktop/经营情况表.xls");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
 
         Excel excel = new Excel();
         excel.createSheet(statementVO.payBillVOs, "付款单", headers);

@@ -1,13 +1,16 @@
 package presentation.financeui.dialog;
 
-import bussinesslogicservice.financeblservice.FinanceBLService;
-import presentation.financeui.FinanceFrame;
-import util.ResultMessage;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import presentation.financeui.FinanceFrame;
 
 /**
  * Created by Away
@@ -18,13 +21,12 @@ import java.awt.event.ActionListener;
 public class BankAccountDelDialog extends JDialog {
 
     private JTextField acID;
-
-    private FinanceBLService financeController;
-
+    
+    private String id;
+    
     public BankAccountDelDialog(FinanceFrame ui) {
         super(ui);
         init(ui);
-        financeController = ui.getFinanceController();
     }
 
     private void init(Frame ui) {
@@ -55,23 +57,17 @@ public class BankAccountDelDialog extends JDialog {
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String id = acID.getText();
-            ResultMessage msg = financeController.deleteMember(id);
-            if (isFail(msg)) {
-                // TODO
-            } else {
-                System.out.println(msg.getKey());
-                close();
-            }
+        	id = acID.getText();
+            close();
         }
-    }
-
-    private boolean isFail(ResultMessage message) {
-        return message.getKey().equals("fail");
     }
 
     private void close() {
 //        acID.setText("");
         this.setVisible(false);
+    }
+    
+    public String getID() {
+    	return id;
     }
 }

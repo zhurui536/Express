@@ -37,16 +37,14 @@ public class InitToolListener extends ToolListener {
     public void actionPerformed(ActionEvent e) {
         Object button = e.getSource();
         ToolPanel toolPanel = ui.getToolPanel();
-
+        ui.paintData(new JPanel());
+        
         if (button == toolPanel.getButton("create")) {
-            ui.paintData(new JPanel());
             initAccount();
         } else if (button == toolPanel.getButton("inquire")) {
-            ui.paintData(new JPanel());
             inquire();
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
-            ui.paintData(new JPanel());
         } else {
             System.out.println("0");
         }

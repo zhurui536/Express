@@ -1,5 +1,8 @@
 package bussinesslogic.financebl;
 
+import java.io.OutputStream;
+import java.math.BigDecimal;
+
 import bussinesslogicservice.financeblservice.*;
 import util.PayItem;
 import util.ResultMessage;
@@ -7,9 +10,6 @@ import util.Time;
 import vo.financevo.AccountVO;
 import vo.financevo.BankAccountVO;
 import vo.financevo.PayBillVO;
-
-import java.io.OutputStream;
-import java.math.BigDecimal;
 
 /**
  * 控制器，用于控制财务层的逻辑
@@ -102,7 +102,7 @@ public class FinanceController implements FinanceBLService {
 //                                accountVO.time);
 //        }
         financeController.showStatement(new Time(), new Time());
-        financeController.statementToExcel();
+//        financeController.statementToExcel();
     }
 
     @Override
@@ -156,13 +156,12 @@ public class FinanceController implements FinanceBLService {
     }
 
     @Override
-    // TODO
     public ResultMessage showStatement(Time startTime, Time endTime) {
         return showStatementBL.showStatement(startTime, endTime);
     }
 
     @Override
-    public ResultMessage statementToExcel() {
-        return showStatementBL.statementToExcel();
+    public ResultMessage statementToExcel(OutputStream out) {
+        return showStatementBL.statementToExcel(out);
     }
 }

@@ -27,7 +27,9 @@ public class StatementDialog extends JDialog {
     private JComboBox<String> endYear;
     private JComboBox<String> endMonth;
     private JComboBox<String> endDay;
-
+    private Time sTime;
+    private Time eTime;
+    
     public StatementDialog(FinanceFrame ui) {
         super(ui);
         init(ui);
@@ -103,22 +105,24 @@ public class StatementDialog extends JDialog {
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-               close();
+        	String sy = (String) startYear.getSelectedItem();
+            String sm = (String) startMonth.getSelectedItem();
+            String sd = (String) startDay.getSelectedItem();
+            sTime = new Time(sy + "-" + sm + "-" + sd);
+            String ey = (String) endYear.getSelectedItem();
+            String em = (String) endMonth.getSelectedItem();
+            String ed = (String) endDay.getSelectedItem();
+            eTime = new Time(ey + "-" + em + "-" + ed);
+            close();
         }
     }
 	
 	public Time getStartTime() {
-		String sy = (String) startYear.getSelectedItem();
-        String sm = (String) startMonth.getSelectedItem();
-        String sd = (String) startDay.getSelectedItem();
-        return new Time(sy + "-" + sm + "-" + sd);
+		return sTime;
 	}
 	
 	public Time getEndTime() {
-		String ey = (String) endYear.getSelectedItem();
-        String em = (String) endMonth.getSelectedItem();
-        String ed = (String) endDay.getSelectedItem();
-        return new Time(ey + "-" + em + "-" + ed);
+		return eTime;
 	}
 	
     private void close() {

@@ -1,21 +1,22 @@
 package presentation.financeui.dialog;
 
-import bussinesslogicservice.financeblservice.FinanceBLService;
-import presentation.financeui.FinanceFrame;
-import presentation.financeui.datapanel.PayPanel;
-import util.PayItem;
-import util.PublicMessage;
-import util.ResultMessage;
-import util.Time;
-import vo.financevo.PayBillVO;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import presentation.financeui.FinanceFrame;
+import util.PayItem;
+import util.PublicMessage;
+import util.Time;
+import vo.financevo.PayBillVO;
 
 /**
  * Created by Away
@@ -30,14 +31,11 @@ public class PayDialog extends JDialog {
     private JTextField payAccountID;
     private JComboBox<String> payItem;
     private JTextField payRemark;
-    private FinanceBLService financeController;
-    private FinanceFrame ui;
-
+    private PayBillVO payBillVO;
+    
     public PayDialog(FinanceFrame ui) {
         super(ui);
         init(ui);
-        this.ui = ui;
-        financeController = ui.getFinanceController();
     }
 
     private void init(Frame ui) {
@@ -104,35 +102,23 @@ public class PayDialog extends JDialog {
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String personID = payPersonID.getText();
-            String staffID = PublicMessage.staffID;
+        	String staffID = PublicMessage.staffID;
             BigDecimal money = new BigDecimal(payMoney.getText());
             String accountID = payAccountID.getText();
             PayItem item = PayItem.getItem((String) payItem.getSelectedItem());
             String remark = payRemark.getText();
             Time current = new Time();
             String id = "12345";
-            PayBillVO payBillVO = new PayBillVO(current, money, staffID, accountID, id, item, remark);
-
-            ResultMessage msg = financeController.createPayBill(payBillVO);
-
-            if (isFail(msg)) {
-                // TODO
-            } else {
-                List<PayBillVO> payBillVOList = new ArrayList<>();
-                payBillVOList.add(payBillVO);
-                PayPanel payPanel = new PayPanel(payBillVOList);
-                ui.paintData(payPanel);
-                close();
-            }
+            payBillVO = new PayBillVO(current, money, staffID, accountID, id, item, remark);
+            close();
         }
-    }
-
-    private boolean isFail(ResultMessage message) {
-        return message.getKey().equals("fail");
     }
 
     private void close() {
         this.setVisible(false);
+    }
+    
+    public PayBillVO getPayBillVO() {
+    	return payBillVO;
     }
 }
