@@ -1,6 +1,6 @@
 package presentation.strategyui.tool;
 
-import presentation.ToolPane;
+import presentation.mainui.ToolPane;
 import presentation.strategyui.listener.StrategyToolListener;
 import javax.swing.*;
 

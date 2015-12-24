@@ -1,17 +1,17 @@
 package presentation.strategyui.listener;
 
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
-import presentation.ToolPane;
-import presentation.WarningFrame;
+import presentation.WarningDialog;
+import presentation.mainui.ToolPane;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
 import presentation.strategyui.datapanel.ConstantStrategyDataPane;
 import presentation.strategyui.datapanel.ConstantStrategyShowPane;
 import util.ResultMessage;
 import vo.DistanceVO;
+
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class StrategyToolListener extends ToolListener {
 	private ManagerFrame ui;
@@ -52,11 +52,11 @@ public class StrategyToolListener extends ToolListener {
 					ui.paintdata(data);
 				}
 				else{
-					WarningFrame warning = new WarningFrame(result.getKey());
+					WarningDialog warning = new WarningDialog(ui, result.getKey());
 				}
 			}
 			else{
-				WarningFrame warning = new WarningFrame(result.getKey());
+				WarningDialog warning = new WarningDialog(ui, result.getKey());
 			}
 		}
 		if(i==2){

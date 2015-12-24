@@ -1,16 +1,16 @@
 package presentation.userui.listener;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 import bussinesslogicservice.adminblservice.AdminBLService;
-import presentation.WarningFrame;
+import presentation.WarningDialog;
 import presentation.userui.AdminFrame;
 import presentation.userui.data.AdminDataPane;
 import presentation.userui.tool.AdminTool;
 import util.ResultMessage;
 import vo.UserVO;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class AdminMenuListener implements ActionListener {
 	private AdminFrame ui;
@@ -41,7 +41,7 @@ public class AdminMenuListener implements ActionListener {
 				ui.paintdata(data);
 			}
 			else{
-				WarningFrame warning = new WarningFrame(result);
+				WarningDialog warning = new WarningDialog(ui, result);
 			}
 		}
 		if(i==1){
