@@ -14,6 +14,7 @@ import vo.financevo.StatementVO;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -59,10 +60,7 @@ public class ReportToolListener extends ToolListener {
 
     private OutputStream getPath() {
     	JFileChooser fileChooser = new JFileChooser();
-//        fileChooser.setDe
-//    	fileChooser.showOpenDialog(ui);
         fileChooser.showSaveDialog(ui);
-//        fileChooser.setSelectedFile(new File("hello.txt"));
     	OutputStream out = null;
 		try {
 			out = new FileOutputStream(fileChooser.getSelectedFile().getAbsolutePath());
@@ -95,6 +93,7 @@ public class ReportToolListener extends ToolListener {
     	ResultMessage msg = financeController.showStatement(sTime, eTime);
         if (isFail(msg)) {
             // TODO
+        	System.out.println(msg.getKey());
         } else {
         	StatementVO statementVO = (StatementVO) msg.getValue();
             StatementPanel statementPanel = new StatementPanel(statementVO);

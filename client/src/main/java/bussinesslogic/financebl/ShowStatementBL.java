@@ -48,7 +48,7 @@ public class ShowStatementBL implements ShowStatementBLService {
     @SuppressWarnings("unchecked")
     @Override
     public ResultMessage showStatement(Time startTime, Time endTime) {
-        if (isBefore(startTime, endTime)) {
+        if (isAfter(startTime, endTime)) {
             return new ResultMessage("fail");
         }
 
@@ -71,8 +71,8 @@ public class ShowStatementBL implements ShowStatementBLService {
         }
     }
 
-    private boolean isBefore(Time startTime, Time endTime) {
-        return startTime.compareTo(endTime) < 0;
+    private boolean isAfter(Time startTime, Time endTime) {
+        return startTime.compareTo(endTime) > 0;
     }
 
     /**
