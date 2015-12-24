@@ -1,15 +1,14 @@
 package presentation.storeui.listener.toollistener;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.JTable;
-
-import presentation.ToolPane;
-import presentation.WarningFrame;
+import bussinesslogicservice.storeblservice.StoreBLService;
+import presentation.WarningDialog;
+import presentation.mainui.ToolPane;
 import presentation.storeui.StoreFrame;
 import presentation.storeui.listener.ToolListener;
 import util.ResultMessage;
-import bussinesslogicservice.storeblservice.StoreBLService;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 public class VerificationToolListener extends ToolListener {
 
@@ -40,7 +39,7 @@ public class VerificationToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				WarningFrame frame = new WarningFrame(result);
+				WarningDialog frame = new WarningDialog(ui, result);
 			}
 		}
 		else if(i==1){
@@ -52,10 +51,10 @@ public class VerificationToolListener extends ToolListener {
 			ResultMessage result = sc.exportVerification(table);
 			
 			if(result.getKey().equals("success")){
-				WarningFrame frame = new WarningFrame("导出成功");
+				WarningDialog frame = new WarningDialog(ui, "导出成功");
 			}
 			else{
-				WarningFrame frame = new WarningFrame("导出失败");
+				WarningDialog frame = new WarningDialog(ui, "导出失败");
 			}
 		}
 	}

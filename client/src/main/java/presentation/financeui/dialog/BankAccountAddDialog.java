@@ -1,18 +1,13 @@
 package presentation.financeui.dialog;
 
-import java.awt.Frame;
+import presentation.WarningDialog;
+import presentation.financeui.FinanceFrame;
+import vo.financevo.BankAccountVO;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
-
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import presentation.financeui.FinanceFrame;
-import vo.financevo.BankAccountVO;
 
 /**
  * Created by Away
@@ -26,13 +21,16 @@ public class BankAccountAddDialog extends JDialog {
     private JTextField acName;
     private JTextField acBalance;
     private BankAccountVO bankAccountVO;
-    
+    private FinanceFrame ui;
+
     public BankAccountAddDialog(FinanceFrame ui) {
         super(ui);
-        init(ui);
+        this.ui = ui;
+        bankAccountVO = null;
+        init();
     }
 
-    private void init(Frame ui) {
+    private void init() {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 300);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -77,11 +75,29 @@ public class BankAccountAddDialog extends JDialog {
         @Override
         public void actionPerformed(ActionEvent e) {
         	String name = acName.getText();
-            BigDecimal balance = new BigDecimal(acBalance.getText());
+            String balance = acBalance.getText();
             String id = acID.getText();
-            bankAccountVO = new BankAccountVO(name, balance, id);
+            boolean success = check(name, balance, id);
+            if (!success) {
+                return;
+            }
+            bankAccountVO = new BankAccountVO(name, new BigDecimal(balance), id);
             close();
         }
+    }
+
+    private boolean check(String name, String balance, String id) {
+        if (name.length() == 0) {
+            new WarningDialog(ui, "请输入账户名称");
+            return false;
+        } else if (balance.length() == 0) {
+            new WarningDialog(ui, "请输入账户余额");
+            return false;
+        } else if (id.length() == 0) {
+            new WarningDialog(ui, "请输入账户ID");
+            return false;
+        }
+        return true;
     }
 
     private void close() {

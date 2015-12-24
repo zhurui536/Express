@@ -32,6 +32,9 @@ public class DeliveryBL implements DeliveryBLService {
                 } catch (RemoteException e) {
                         return new ResultMessage("NOT_FOUND", null);
                 }
+                if (goodsPO == null) {
+                        return new ResultMessage("NOT_FOUND", null);
+                }
                 goodsPO.setRecipient(Recipients);
                 goodsPO.setReceiveTime(time);
                 goodsPO.setGoodsDeliveryState(GoodsDeliveryState.DELIVERED);

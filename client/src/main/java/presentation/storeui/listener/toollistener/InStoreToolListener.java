@@ -1,9 +1,8 @@
 package presentation.storeui.listener.toollistener;
 
-import java.awt.event.ActionEvent;
-
-import presentation.ToolPane;
-import presentation.WarningFrame;
+import bussinesslogicservice.storeblservice.StoreBLService;
+import presentation.WarningDialog;
+import presentation.mainui.ToolPane;
 import presentation.storeui.StoreFrame;
 import presentation.storeui.datapanel.InStoreDataPane;
 import presentation.storeui.inputframe.InStoreInputFrame;
@@ -11,7 +10,8 @@ import presentation.storeui.listener.ToolListener;
 import util.ResultMessage;
 import vo.storevo.InStoreVO;
 import vo.storevo.StorePlaceVO;
-import bussinesslogicservice.storeblservice.StoreBLService;
+
+import java.awt.event.ActionEvent;
 
 public class InStoreToolListener extends ToolListener {
 
@@ -44,7 +44,7 @@ public class InStoreToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				WarningFrame frame = new WarningFrame(result);
+				WarningDialog frame = new WarningDialog(ui, result);
 			}
 		}
 		else if(i==2){
@@ -54,7 +54,7 @@ public class InStoreToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				WarningFrame frame = new WarningFrame(result);
+				WarningDialog frame = new WarningDialog(ui, result);
 			}
 		}
 	}
@@ -67,7 +67,7 @@ public class InStoreToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningFrame frame = new WarningFrame(result);
+			WarningDialog frame = new WarningDialog(ui, result);
 			return false;
 		}
 	}
@@ -78,7 +78,7 @@ public class InStoreToolListener extends ToolListener {
 			ui.paintdata(new InStoreDataPane((InStoreVO) result.getValue(), this));
 		}
 		else{
-			WarningFrame frame = new WarningFrame(result);
+			WarningDialog frame = new WarningDialog(ui, result);
 		}
 	}
 }

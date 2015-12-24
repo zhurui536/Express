@@ -2,7 +2,7 @@ package presentation.strategyui.tool;
 
 import javax.swing.JButton;
 
-import presentation.ToolPane;
+import presentation.mainui.ToolPane;
 import presentation.strategyui.listener.SalaryToolListener;
 
 public class SalaryTool extends ToolPane {

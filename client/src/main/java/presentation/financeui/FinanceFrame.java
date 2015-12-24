@@ -18,7 +18,7 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class FinanceFrame extends JFrame {
 
-    private final String[] names = {"账户管理", "付款", "收款", "报表查看", "期初建账" };
+    private final String[] names = {"账户管理", "付款", "收款", "报表查看", "期初建账", "日志查看"};
 
     private JPanel menu;
     private MenuListener menuListener;
@@ -103,8 +103,9 @@ public class FinanceFrame extends JFrame {
     }
 
     private void createButton() {
-        buttons = new JButton[5];
-        for (int i = 0; i < 5; i++) {
+        int len = names.length;
+        buttons = new JButton[len];
+        for (int i = 0; i < len; i++) {
             buttons[i] = new JButton(names[i]);
             buttons[i].setBounds(15, 35 + 75 * i, 100, 35);
             buttons[i].addActionListener(menuListener);

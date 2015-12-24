@@ -1,33 +1,22 @@
 package presentation.billui.listener;
 
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-
-import po.financepo.PayBillPO;
-import po.logisticpo.ArrivalBillPO;
-import po.logisticpo.DeliveryBillPO;
-import po.logisticpo.LoadingBillPO;
-import po.logisticpo.ReceiptBillPO;
-import po.logisticpo.SendBillPO;
+import bussinesslogicservice.billblservice.BillBLService;
+import po.logisticpo.*;
 import po.storepo.InStoreBillPO;
 import po.storepo.OutStoreBillPO;
-import presentation.ToolPane;
-import presentation.WarningFrame;
-import presentation.billui.datapanel.ArrivalBillDataPane;
-import presentation.billui.datapanel.BillDataPane;
-import presentation.billui.datapanel.DeliveryBillDataPane;
-import presentation.billui.datapanel.InStoreBillDataPane;
-import presentation.billui.datapanel.LoadingBillDataPane;
-import presentation.billui.datapanel.OutStoreBillDataPane;
-//import presentation.billui.datapanel.PayBillDataPane;
-import presentation.billui.datapanel.ReceiptBillDataPane;
-import presentation.billui.datapanel.SendBillDataPane;
+import presentation.WarningDialog;
+import presentation.billui.datapanel.*;
+import presentation.mainui.ToolPane;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
 import util.BillType;
 import util.ResultMessage;
 import vo.BillVO;
-import bussinesslogicservice.billblservice.BillBLService;
+
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
+//import presentation.billui.datapanel.PayBillDataPane;
 
 public class BillJudgeToolListener extends ToolListener {
 	private BillBLService bc;
@@ -59,11 +48,11 @@ public class BillJudgeToolListener extends ToolListener {
 					ui.paintdata(data);
 				}
 				else{
-					WarningFrame frame = new WarningFrame(result);
+					WarningDialog frame = new WarningDialog(ui, result);
 				}
 			}
 			else{
-				WarningFrame frame = new WarningFrame(result);
+				WarningDialog frame = new WarningDialog(ui, result);
 			}
 		}
 		else if(i==1){
@@ -79,7 +68,7 @@ public class BillJudgeToolListener extends ToolListener {
 				ui.paintdata(data);
 			}
 			else{
-				WarningFrame frame = new WarningFrame(result);
+				WarningDialog frame = new WarningDialog(ui, result);
 			}
 		}
 	}
@@ -94,7 +83,7 @@ public class BillJudgeToolListener extends ToolListener {
 			ui.paintdata(data);
 		}
 		else{
-			WarningFrame frame = new WarningFrame(result);
+			WarningDialog frame = new WarningDialog(ui, result);
 		}
 	}
 	
@@ -153,7 +142,7 @@ public class BillJudgeToolListener extends ToolListener {
 			}
 		}
 		else{
-			WarningFrame frame = new WarningFrame(result);
+			WarningDialog frame = new WarningDialog(ui, result);
 		}
 	}
 

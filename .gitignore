@@ -9,3 +9,5 @@ target
 *.project
 *.ipr
 *.iws
+*.MF
+out

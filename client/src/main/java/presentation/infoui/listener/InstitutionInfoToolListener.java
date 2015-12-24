@@ -1,20 +1,18 @@
 package presentation.infoui.listener;
 
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-
 import bussinesslogicservice.infoblservice.InstitutionMessageMaintenanceBLService;
-import presentation.ToolPane;
-import presentation.WarningFrame;
+import presentation.WarningDialog;
 import presentation.infoui.datapanel.InstitutionMessageDataPane;
 import presentation.infoui.inputframe.InstitutionIDInputFrame;
 import presentation.infoui.inputframe.InstitutionInfoInputFrame;
-import presentation.infoui.inputframe.StaffIDInputFrame;
+import presentation.mainui.ToolPane;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
 import util.ResultMessage;
 import vo.InstitutionMessageVO;
-import vo.StaffMessageVO;
+
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class InstitutionInfoToolListener extends ToolListener {
 	private ManagerFrame ui;
@@ -74,7 +72,7 @@ public class InstitutionInfoToolListener extends ToolListener {
 				return true;
 			}
 			else{
-				WarningFrame warning = new WarningFrame(result.getKey());
+				WarningDialog warning = new WarningDialog(ui, result.getKey());
 				return false;
 			}
 		}
@@ -88,7 +86,7 @@ public class InstitutionInfoToolListener extends ToolListener {
 				return true;
 			}
 			else{
-				WarningFrame warning = new WarningFrame(result.getKey());
+				WarningDialog warning = new WarningDialog(ui, result.getKey());
 				return false;
 			}
 		}
@@ -114,7 +112,7 @@ public class InstitutionInfoToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningFrame warning = new WarningFrame(result.getKey());
+			WarningDialog warning = new WarningDialog(ui, result.getKey());
 			return false;
 		}
 	}

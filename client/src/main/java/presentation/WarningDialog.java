@@ -1,30 +1,26 @@
 package presentation;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import util.ResultMessage;
 
-public class WarningFrame {
+import javax.swing.*;
+
+public class WarningDialog {
 	//璀﹀憡绐楀彛锛�2绉掑悗鑷姩娑堝け
-	private final JFrame frame;
-	private final Thread thread = new Thread(new Runnable(){
-		@Override
-		public void run() {
-			try {
-				thread.sleep(2000);
-				frame.dispose();
-			} catch (InterruptedException e) {
-			}
-		}
-	});
-	
-	public WarningFrame(String text){
-		frame = new JFrame();
-		
-		frame.setSize(220, 130);
-		frame.setLayout(null);
+	private JDialog dialog;
+//	private Thread thread = new Thread(new Runnable(){
+//		@Override
+//		public void run() {
+//			try {
+//				Thread.sleep(2000);
+//				dialog.dispose();
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	});
+
+	public WarningDialog(JFrame parent, String text){
+		init(parent);
 		
 		JPanel container = new JPanel();
 		container.setBounds(0, 0, 200, 100);
@@ -34,18 +30,14 @@ public class WarningFrame {
 		warning.setBounds(0, 0, 200, 100);
 		container.add(warning);
 		
-		frame.getContentPane().add(container);
+		dialog.getContentPane().add(container);
 		this.warn();
 	}
 	
-	public WarningFrame(ResultMessage result){
+	public WarningDialog(JFrame parent, ResultMessage result){
+		init(parent);
+
 		String text = this.resultToString(result);
-		
-		frame = new JFrame();
-		
-		frame.setSize(220, 130);
-		frame.setLayout(null);
-		
 		JPanel container = new JPanel();
 		container.setBounds(0, 0, 200, 100);
 		container.setLayout(null);
@@ -54,13 +46,13 @@ public class WarningFrame {
 		warning.setBounds(0, 0, 200, 100);
 		container.add(warning);
 		
-		frame.getContentPane().add(container);
+		dialog.getContentPane().add(container);
 		this.warn();
 	}
 	
 	private void warn(){
-		frame.setVisible(true);
-		thread.start();
+		dialog.setVisible(true);
+//		thread.start();
 	}
 	
 	private String resultToString(ResultMessage result){
@@ -85,5 +77,12 @@ public class WarningFrame {
 		else{
 			return result.getKey();
 		}
+	}
+
+	private void init(JFrame parent) {
+		dialog = new JDialog(parent);
+		dialog.setLayout(null);
+		dialog.setBounds(parent.getX() + 400, parent.getY() + 290, 220, 130);
+		dialog.setModal(true);
 	}
 }

@@ -1,16 +1,11 @@
 package presentation.financeui.dialog;
 
-import java.awt.Frame;
+import presentation.WarningDialog;
+import presentation.financeui.FinanceFrame;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import presentation.financeui.FinanceFrame;
 
 /**
  * Created by Away
@@ -23,13 +18,17 @@ public class BankAccountDelDialog extends JDialog {
     private JTextField acID;
     
     private String id;
-    
+
+    private FinanceFrame ui;
+
     public BankAccountDelDialog(FinanceFrame ui) {
         super(ui);
-        init(ui);
+        this.ui = ui;
+        id = null;
+        init();
     }
 
-    private void init(Frame ui) {
+    private void init() {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 180);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -58,12 +57,23 @@ public class BankAccountDelDialog extends JDialog {
         @Override
         public void actionPerformed(ActionEvent e) {
         	id = acID.getText();
-            close();
+            boolean success = check(id);
+            if (success) {
+                close();
+            }
         }
     }
 
+    private boolean check(String id) {
+        System.out.print(id == null);
+        if (id == null) {
+            new WarningDialog(ui, "请输入账户ID");
+            return false;
+        }
+        return true;
+    }
+
     private void close() {
-//        acID.setText("");
         this.setVisible(false);
     }
     
