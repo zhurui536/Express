@@ -60,13 +60,14 @@ public class BankAccountDelDialog extends JDialog {
             boolean success = check(id);
             if (success) {
                 close();
+            } else {
+                id = null;
             }
         }
     }
 
     private boolean check(String id) {
-        System.out.print(id == null);
-        if (id == null) {
+        if (id.length() == 0) {
             new WarningDialog(ui, "请输入账户ID");
             return false;
         }

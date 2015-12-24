@@ -47,7 +47,7 @@ public class ReceiptBillProduceBL implements ReceiptBillProduceBLService {
                                         new BigDecimal(sendBillPO.getGoodsPO()
                                                         .getPrice()));
                         receiptLineItemPOs.add(receiptLineItemPO);
-                        sum.add(new BigDecimal(sendBillPO.getGoodsPO()
+                        sum = sum.add(new BigDecimal(sendBillPO.getGoodsPO()
                                         .getPrice()));
                 }
                 try {

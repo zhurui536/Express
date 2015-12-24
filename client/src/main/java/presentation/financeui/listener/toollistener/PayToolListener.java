@@ -1,5 +1,7 @@
 package presentation.financeui.listener.toollistener;
 
+import bussinesslogicservice.financeblservice.FinanceBLService;
+import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.PayPanel;
 import presentation.financeui.dialog.PayDialog;
@@ -9,9 +11,6 @@ import util.ResultMessage;
 import vo.financevo.PayBillVO;
 
 import javax.swing.*;
-
-import bussinesslogicservice.financeblservice.FinanceBLService;
-
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,11 +38,11 @@ public class PayToolListener extends ToolListener {
             PayDialog dialog = new PayDialog(ui);
             dialog.setVisible(true);
             PayBillVO payBillVO = dialog.getPayBillVO();
-            processPay(payBillVO);
+            if (payBillVO != null) {
+                processPay(payBillVO);
+            }
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
-        } else {
-            System.out.println("0");
         }
     }
     
@@ -51,12 +50,13 @@ public class PayToolListener extends ToolListener {
     	ResultMessage msg = financeController.createPayBill(payBillVO);
 
         if (isFail(msg)) {
-            // TODO
+            new WarningDialog(ui, "创建付款单失败");
         } else {
             List<PayBillVO> payBillVOList = new ArrayList<>();
             payBillVOList.add(payBillVO);
             PayPanel payPanel = new PayPanel(payBillVOList);
             ui.paintData(payPanel);
+            new WarningDialog(ui, "成功创建付款单");
         }
 		
 	}

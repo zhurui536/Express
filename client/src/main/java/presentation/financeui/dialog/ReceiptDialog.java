@@ -101,4 +101,6 @@ public class ReceiptDialog extends JDialog {
     public String getID() {
         return ID;
     }
+
+
 }

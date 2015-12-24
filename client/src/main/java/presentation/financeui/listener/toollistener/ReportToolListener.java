@@ -14,7 +14,6 @@ import vo.financevo.StatementVO;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -46,15 +45,16 @@ public class ReportToolListener extends ToolListener {
             processStatement(sTime, eTime);
         } else if (button == toolPanel.getButton("profitExport")) {
         	OutputStream out = getPath();
-        	profitExport(out);
+            if (out != null) {
+                profitExport(out);
+            }
         } else if (button == toolPanel.getButton("statementExport")) {
         	OutputStream out = getPath();
-        	statementExport(out); 
+            if (out != null) {
+                statementExport(out);
+            }
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
-        }
-        else {
-            System.out.println("0");
         }
     }
 
@@ -66,6 +66,7 @@ public class ReportToolListener extends ToolListener {
 			out = new FileOutputStream(fileChooser.getSelectedFile().getAbsolutePath());
 			System.out.println(fileChooser.getSelectedFile().getAbsolutePath());
 		} catch (FileNotFoundException e1) {
+            out = null;
 			e1.printStackTrace();
 		}
 		return out;
@@ -74,7 +75,7 @@ public class ReportToolListener extends ToolListener {
 	private void statementExport(OutputStream out) {
 		ResultMessage msg = financeController.statementToExcel(out);
 		if (isFail(msg)) {
-            // TODO
+            new WarningDialog(ui, "导出失败！");
         } else {
         	new WarningDialog(ui, "导出成功！");
         }
@@ -83,7 +84,7 @@ public class ReportToolListener extends ToolListener {
 	private void profitExport(OutputStream out) {
 		ResultMessage msg = financeController.profitListToExcel(out);
 		if (isFail(msg)) {
-            // TODO
+            new WarningDialog(ui, "导出失败！");
         } else {
         	new WarningDialog(ui, "导出成功！");
         }
@@ -92,24 +93,26 @@ public class ReportToolListener extends ToolListener {
 	private void processStatement(Time sTime, Time eTime) {
     	ResultMessage msg = financeController.showStatement(sTime, eTime);
         if (isFail(msg)) {
-            // TODO
+            new WarningDialog(ui, "生成失败！");
         	System.out.println(msg.getKey());
         } else {
         	StatementVO statementVO = (StatementVO) msg.getValue();
             StatementPanel statementPanel = new StatementPanel(statementVO);
             System.out.println("success");
             ui.paintData(statementPanel);
+            new WarningDialog(ui, "生成成功！");
         }
 	}
 
 	private void processProfit() {
         ResultMessage msg = financeController.showProfitList();
         if (isFail(msg)) {
-            // TODO
+            new WarningDialog(ui, "生成失败！");
         } else {
             ProfitListVO profitListVO = (ProfitListVO) msg.getValue();
             ProfitPanel profitPanel = new ProfitPanel(profitListVO);
             ui.paintData(profitPanel);
+            new WarningDialog(ui, "生成失败！");
         }
     }
 

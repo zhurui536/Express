@@ -60,6 +60,6 @@ public class PayPanel extends JPanel {
         for (PayBillVO payBillVO : payBillVOs) {
             sum = sum.add(payBillVO.money);
         }
-        table.setValueAt(sum, len, 4);
+        table.setValueAt(sum, len, 6);
     }
 }

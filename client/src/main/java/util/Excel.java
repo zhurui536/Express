@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -83,6 +84,7 @@ public class Excel {
 
     private void processList(List dataList, HSSFSheet sheet, HSSFCellStyle style2) {
         // 遍历集合数据，产生数据行
+//        if (dataList == null) return;
         Iterator it = dataList.iterator();
         int index = 0;
         while (it.hasNext())
@@ -109,8 +111,9 @@ public class Excel {
                     System.out.println(value);
                     // 判断值的类型后进行强制类型转换
                     if (value instanceof BigDecimal) {
+                        DecimalFormat df = new DecimalFormat("#.00");
                         Double doubleValue = ((BigDecimal) value).doubleValue();
-                        cell.setCellValue(doubleValue);
+                        cell.setCellValue(df.format(doubleValue));
                     }
                     else if (value instanceof Time) {
                         String time = value.toString();
@@ -124,7 +127,7 @@ public class Excel {
                         Enum e = (Enum) value;
                         cell.setCellValue(e.toString());
                     }
-                    else {
+                    else if (value instanceof List) {
                         processList((List) value, sheet, style2);
                     }
                 }
@@ -143,6 +146,7 @@ public class Excel {
             e.printStackTrace();
         }
     }
+
 }
 
 

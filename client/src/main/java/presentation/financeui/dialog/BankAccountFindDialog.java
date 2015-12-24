@@ -1,16 +1,12 @@
 package presentation.financeui.dialog;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
+import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import vo.financevo.BankAccountVO;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Away
@@ -23,13 +19,15 @@ public class BankAccountFindDialog extends JDialog {
 	private JTextField acID;
     private JTextField acName;
     private BankAccountVO bankAccountVO;
-    
+    private FinanceFrame ui;
+
     public BankAccountFindDialog(FinanceFrame ui) {
         super(ui);
-        init(ui);
+        this.ui = ui;
+        init();
     }
 
-    private void init(FinanceFrame ui) {
+    private void init() {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 250);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -65,17 +63,27 @@ public class BankAccountFindDialog extends JDialog {
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String name = acName.getText().isEmpty() ? null : acName.getText();
-            String id = acID.getText().isEmpty() ? null : acID.getText();
-            bankAccountVO = new BankAccountVO(name, null, id);
-            close();
+            String name = acName.getText();
+            String id = acID.getText();
+            boolean success = check(name, id);
+            if (success) {
+                name = name.length() == 0 ? null : name;
+                id = id.length() == 0 ? null : id;
+                bankAccountVO = new BankAccountVO(name, null, id);
+                close();
+            }
         }
     }
 
+    private boolean check(String name, String id) {
+        if (name.length() == 0 && id.length() == 0) {
+            new WarningDialog(ui, "请输入账户名称或id");
+            return false;
+        }
+        return true;
+    }
+
     private void close() {
-//        acName.setText("");
-//        acBalance.setText("");
-//        acID.setText("");
         this.setVisible(false);
     }
     
