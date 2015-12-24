@@ -1,6 +1,6 @@
 package presentation.logisticsui.deliverymanui.inputframe;
 
-import presentation.logisticsui.businessofficeclerkui.datapane.ResultDialog;
+import presentation.WarningDialog;
 import presentation.logisticsui.deliverymanui.listener.toollistener.DeliveryToolListener;
 import util.Time;
 
@@ -96,13 +96,11 @@ public class DeliveryInputFrame extends JFrame implements ActionListener{
                                         + ((String)day.getSelectedItem()).substring(0, 2));
                         boolean result = listener.getInput(recp, id, time);
                         if(result){
-                                ResultDialog resultDialog = new ResultDialog("收件信息已记录");
-                                resultDialog.setVisible(true);
+                                new WarningDialog(this, "收件信息已记录");
                                 this.setVisible(false);
                         }
                         else {
-                                ResultDialog resultDialog = new ResultDialog("订单号不存在");
-                                resultDialog.setVisible(true);
+                                new WarningDialog(this, "订单号不存在");
                         }
                 }else if(e.getSource() == cancle){
                         this.setVisible(false);

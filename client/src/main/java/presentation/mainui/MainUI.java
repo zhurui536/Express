@@ -19,6 +19,7 @@ import util.ResultMessage;
 import vo.StaffMessageVO;
 
 import javax.swing.*;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -50,6 +51,20 @@ public class MainUI extends JFrame implements ActionListener{
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
+        try {
+            UIManager.setLookAndFeel(new NimbusLookAndFeel());
+            JFrame.setDefaultLookAndFeelDecorated(true);
+            JDialog.setDefaultLookAndFeelDecorated(true);
+//            SubstanceLookAndFeel.setCurrentTheme(new SubstanceTerracottaTheme());
+//          SubstanceLookAndFeel.setSkin(new EmeraldDuskSkin());
+//          SubstanceLookAndFeel.setCurrentButtonShaper(new ClassicButtonShaper());
+//          SubstanceLookAndFeel.setCurrentWatermark(new SubstanceBubblesWatermark());
+//          SubstanceLookAndFeel.setCurrentBorderPainter(new StandardBorderPainter());
+//            SubstanceLookAndFeel.setCurrentGradientPainter(new StandardGradientPainter());
+//            SubstanceLookAndFeel.setCurrentTitlePainter(new FlatTitePainter());
+        } catch (Exception e) {
+//            System.err.println("Something went wrong!");
+        }
     	this.bl = new UserBLServiceImpl();
         this.setLayout(null);
         this.setBounds(300, 300, 330, 260);

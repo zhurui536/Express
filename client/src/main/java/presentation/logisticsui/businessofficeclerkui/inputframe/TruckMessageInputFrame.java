@@ -1,20 +1,15 @@
 package presentation.logisticsui.businessofficeclerkui.inputframe;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-
 import bussinesslogicservice.infoblservice.InfoBLSerivce;
-
+import presentation.WarningDialog;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
-import presentation.logisticsui.businessofficeclerkui.datapane.ResultDialog;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.TruckMessageToolListener;
 import util.ResultMessage;
 import vo.TruckMessageVO;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class TruckMessageInputFrame extends JFrame implements ActionListener {
@@ -107,12 +102,10 @@ public class TruckMessageInputFrame extends JFrame implements ActionListener {
                         InfoBLSerivce infoBLSerivce = ui.getInfoBLSerivce();
                         if(state == frameState.ADD){
                                 ResultMessage resultMessage = infoBLSerivce.addTruckMessage(truckMessageVO);
-                                ResultDialog resultDialog = new ResultDialog(resultMessage.getKey());
-                                resultDialog.setVisible(true);
+                                new WarningDialog(ui, resultMessage.getKey());
                         }else{
                                 ResultMessage resultMessage = infoBLSerivce.modTruckMessage(truckMessageVO);
-                                ResultDialog resultDialog = new ResultDialog(resultMessage.getKey());
-                                resultDialog.setVisible(true);
+                                new WarningDialog(ui, resultMessage.getKey());
                         }
                         this.setVisible(false);
                 } else if (e.getSource() == cancle) {
