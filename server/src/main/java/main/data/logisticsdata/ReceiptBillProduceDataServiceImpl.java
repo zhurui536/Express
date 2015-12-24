@@ -43,7 +43,7 @@ public class ReceiptBillProduceDataServiceImpl extends UnicastRemoteObject imple
                 init();
                 ArrayList<SendBillPO> result = new ArrayList<>();
                 for (SendBillPO sendBillPO : sendBillPOs) {
-                        if(sendBillPO.getGoodsPO().getStartTime().equalsWithDay(time))
+//                        if(sendBillPO.getGoodsPO().getStartTime().equalsWithDay(time))
                                 result.add(sendBillPO);
                 }
                 return new ResultMessage("SUCCESS", result);
