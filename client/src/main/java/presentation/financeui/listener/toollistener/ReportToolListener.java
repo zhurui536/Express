@@ -1,13 +1,6 @@
 package presentation.financeui.listener.toollistener;
 
-import java.awt.event.ActionEvent;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-
-import javax.swing.JFileChooser;
-import javax.swing.JPanel;
-
+import presentation.WarningFrame;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.ProfitPanel;
 import presentation.financeui.datapanel.StatementPanel;
@@ -18,6 +11,12 @@ import util.ResultMessage;
 import util.Time;
 import vo.financevo.ProfitListVO;
 import vo.financevo.StatementVO;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 /**
  * Created by Away
@@ -60,7 +59,10 @@ public class ReportToolListener extends ToolListener {
 
     private OutputStream getPath() {
     	JFileChooser fileChooser = new JFileChooser();
-    	fileChooser.showOpenDialog(ui);
+//        fileChooser.setDe
+//    	fileChooser.showOpenDialog(ui);
+        fileChooser.showSaveDialog(ui);
+//        fileChooser.setSelectedFile(new File("hello.txt"));
     	OutputStream out = null;
 		try {
 			out = new FileOutputStream(fileChooser.getSelectedFile().getAbsolutePath());
@@ -73,20 +75,20 @@ public class ReportToolListener extends ToolListener {
 
 	private void statementExport(OutputStream out) {
 		ResultMessage msg = financeController.statementToExcel(out);
-//		if (isFail(msg)) {
-//            // TODO
-//        } else {
-//        	new WarningFrame("导出成功！");
-//        }
+		if (isFail(msg)) {
+            // TODO
+        } else {
+        	new WarningFrame("导出成功！");
+        }
 	}
 
 	private void profitExport(OutputStream out) {
-//		ResultMessage msg = financeController.profitListToExcel(out);
-//		if (isFail(msg)) {
-//            // TODO
-//        } else {
-//        	new WarningFrame("导出成功！");
-//        }
+		ResultMessage msg = financeController.profitListToExcel(out);
+		if (isFail(msg)) {
+            // TODO
+        } else {
+        	new WarningFrame("导出成功！");
+        }
 	}
 
 	private void processStatement(Time sTime, Time eTime) {

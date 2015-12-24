@@ -11,8 +11,7 @@ import util.ResultMessage;
 import util.Time;
 import vo.financevo.ProfitListVO;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
@@ -101,6 +100,11 @@ public class ShowProfitListBL implements ShowProfitListBLService {
         excel.createSheet(profitListVO, "成本收益表", headers);
         excel.export(out);
         isUpdated = false;
+        try {
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return new ResultMessage("success");
     }
 

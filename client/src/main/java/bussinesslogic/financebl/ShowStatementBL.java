@@ -1,10 +1,5 @@
 package bussinesslogic.financebl;
 
-import java.io.OutputStream;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
-
 import bussinesslogicservice.financeblservice.ShowStatementBLService;
 import connection.ClientRMIHelper;
 import dataservice.financedataservice.ShowReceiptDataService;
@@ -17,6 +12,12 @@ import util.Time;
 import vo.financevo.PayBillVO;
 import vo.financevo.StatementVO;
 import vo.logisticvo.ReceiptBillVO;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 经营情况表逻辑层实现
@@ -116,6 +117,11 @@ public class ShowStatementBL implements ShowStatementBLService {
         excel.createSheet(statementVO.payBillVOs, "付款单", headers);
         excel.export(out);
         isUpdated = false;
+        try {
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return new ResultMessage("success");
     }
 }

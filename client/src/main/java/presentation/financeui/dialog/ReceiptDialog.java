@@ -1,18 +1,12 @@
 package presentation.financeui.dialog;
 
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 import presentation.financeui.FinanceFrame;
 import util.Time;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Away
@@ -56,7 +50,7 @@ public class ReceiptDialog extends JDialog {
         year.setBounds(150, 30, 100, 30);
 
         month = new JComboBox<>();
-        for (int i = 1; i < 12; i++) {
+        for (int i = 1; i <= 12; i++) {
             month.addItem(i + "");
         }
         month.setBounds(260, 30, 50, 30);
