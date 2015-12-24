@@ -1,5 +1,6 @@
 package presentation.logisticsui.deliverymanui.inputframe;
 
+import presentation.logisticsui.businessofficeclerkui.datapane.ResultDialog;
 import presentation.logisticsui.deliverymanui.listener.toollistener.BillQueryToolListener;
 
 import javax.swing.*;
@@ -61,7 +62,9 @@ public class BillQueryInputFrame extends JFrame implements ActionListener{
                                 this.setVisible(false);
                         }
                         else{
-                                //TODO
+                                this.setVisible(false);
+                                ResultDialog resultDialog = new ResultDialog("无该订单");
+                                resultDialog.setVisible(true);
                         }
                 }else if(e.getSource() == cancle){
                         this.setVisible(false);

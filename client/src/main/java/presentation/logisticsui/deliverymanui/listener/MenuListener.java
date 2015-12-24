@@ -30,16 +30,19 @@ public class MenuListener implements ActionListener{
                         }
                 }
                 if(i == 0){
+                        ui.paintdata(null);
                         ReceivingToolListener receivingToolListener = new ReceivingToolListener(ui);
                         ReceivingTool tool = new ReceivingTool(receivingToolListener);
                         receivingToolListener.setTool(tool);
                         ui.replaceTool(tool);
                 }else if (i == 1){
+                        ui.paintdata(null);
                         DeliveryToolListener deliveryToolListener = new DeliveryToolListener(ui);
                         DeliveryTool tool = new DeliveryTool(deliveryToolListener);
                         deliveryToolListener.setTool(tool);
                         ui.replaceTool(tool);
                 }else if(i == 2){
+                        ui.paintdata(null);
                         BillQueryToolListener billQueryToolListener = new BillQueryToolListener(ui);
                         BillQueryTool tool = new BillQueryTool(billQueryToolListener);
                         billQueryToolListener.setTool(tool);

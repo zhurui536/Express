@@ -1,20 +1,15 @@
 package presentation.infoui.inputframe;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-
-import presentation.WarningFrame;
+import presentation.WarningDialog;
 import presentation.infoui.listener.StaffInfoToolListener;
 import util.Job;
 import util.SalaryType;
 import vo.SalaryVO;
 import vo.StaffMessageVO;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class StaffInfoInputFrame extends JFrame implements ActionListener{
 	//表示窗口的用途，0代表增加，1代表修改
@@ -219,7 +214,7 @@ public class StaffInfoInputFrame extends JFrame implements ActionListener{
 				}
 			}catch(Exception e){
 				e.printStackTrace();
-				WarningFrame warning = new WarningFrame("输入有误，请重新输入");
+				WarningDialog warning = new WarningDialog(this, "输入有误，请重新输入");
 				this.input[3].setText("");
 			}
 			

@@ -2,7 +2,7 @@ package presentation.logisticsui.deliverymanui.listener.toollistener;
 
 import java.awt.event.ActionEvent;
 
-import presentation.ToolPane;
+import presentation.mainui.ToolPane;
 import presentation.logisticsui.deliverymanui.DeliveryManFrame;
 import presentation.logisticsui.deliverymanui.datapane.ReceivingDataPane;
 import presentation.logisticsui.deliverymanui.inputframe.ReceivingInputFrame;
@@ -36,6 +36,7 @@ public class ReceivingToolListener extends ToolListener{
         public void actionPerformed(ActionEvent e) {
                 ToolPane tool = super.getTool();
                 if(e.getSource() == tool.getButton(0)){
+                        ui.paintdata(null);
                         ReceivingInputFrame frame = new ReceivingInputFrame(this);
                         frame.setVisible(true);
                 }else{

@@ -2,7 +2,7 @@ package presentation.infoui.tool;
 
 import javax.swing.JButton;
 
-import presentation.ToolPane;
+import presentation.mainui.ToolPane;
 import presentation.infoui.listener.InstitutionInfoToolListener;
 
 public class InstitutionInfoTool extends ToolPane {

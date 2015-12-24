@@ -1,11 +1,6 @@
 package presentation.financeui.listener.toollistener;
 
-import java.awt.event.ActionEvent;
-import java.util.List;
-
-import javax.swing.JPanel;
-
-import presentation.WarningFrame;
+import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.BankAccountPanel;
 import presentation.financeui.dialog.BankAccountAddDialog;
@@ -16,6 +11,10 @@ import presentation.financeui.listener.ToolListener;
 import presentation.financeui.tool.ToolPanel;
 import util.ResultMessage;
 import vo.financevo.BankAccountVO;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.util.List;
 
 /**
  * Created by Away
@@ -96,7 +95,7 @@ public class BankAccountManagementToolListener extends ToolListener {
             // TODO
             System.err.println("fail");
         } else {
-            new WarningFrame("sucess");
+            new WarningDialog(ui, "sucess");
         }
 	}
 

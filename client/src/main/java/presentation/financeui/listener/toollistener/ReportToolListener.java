@@ -1,6 +1,6 @@
 package presentation.financeui.listener.toollistener;
 
-import presentation.WarningFrame;
+import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.ProfitPanel;
 import presentation.financeui.datapanel.StatementPanel;
@@ -78,7 +78,7 @@ public class ReportToolListener extends ToolListener {
 		if (isFail(msg)) {
             // TODO
         } else {
-        	new WarningFrame("导出成功！");
+        	new WarningDialog(ui, "导出成功！");
         }
 	}
 
@@ -87,7 +87,7 @@ public class ReportToolListener extends ToolListener {
 		if (isFail(msg)) {
             // TODO
         } else {
-        	new WarningFrame("导出成功！");
+        	new WarningDialog(ui, "导出成功！");
         }
 	}
 

@@ -1,11 +1,8 @@
 package presentation.userui.listener;
 
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-
 import bussinesslogicservice.adminblservice.AdminBLService;
-import presentation.ToolPane;
-import presentation.WarningFrame;
+import presentation.WarningDialog;
+import presentation.mainui.ToolPane;
 import presentation.storeui.listener.ToolListener;
 import presentation.userui.AdminFrame;
 import presentation.userui.data.AdminDataPane;
@@ -13,6 +10,9 @@ import presentation.userui.inputframe.AdminInputFrame;
 import util.AuthorityLevel;
 import util.ResultMessage;
 import vo.UserVO;
+
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class AdminToolListener extends ToolListener {
 	private AdminFrame ui;
@@ -57,7 +57,7 @@ public class AdminToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				WarningFrame warning = new WarningFrame(result);
+				WarningDialog warning = new WarningDialog(ui, result);
 			}
 		}
 	}
@@ -75,7 +75,7 @@ public class AdminToolListener extends ToolListener {
 			
 			ui.paintdata(data);
 			
-			WarningFrame warning = new WarningFrame("id已删除");
+			WarningDialog warning = new WarningDialog(ui, "id已删除");
 		}
 	}
 	
@@ -101,7 +101,7 @@ public class AdminToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningFrame warning  = new WarningFrame(result);
+			WarningDialog warning  = new WarningDialog(ui, result);
 			return false;
 		}
 	}
@@ -118,7 +118,7 @@ public class AdminToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningFrame warning  = new WarningFrame(result);
+			WarningDialog warning  = new WarningDialog(ui, result);
 			return false;
 		}
 	}

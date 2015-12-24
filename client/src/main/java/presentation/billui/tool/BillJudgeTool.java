@@ -2,7 +2,7 @@ package presentation.billui.tool;
 
 import javax.swing.JButton;
 
-import presentation.ToolPane;
+import presentation.mainui.ToolPane;
 import presentation.billui.listener.BillJudgeToolListener;
 
 @SuppressWarnings("serial")

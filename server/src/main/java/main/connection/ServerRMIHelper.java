@@ -38,8 +38,9 @@ public class ServerRMIHelper {
 
     private static Map<String, Class<? extends UnicastRemoteObject>> NAMING_MAP = new HashMap<>();
 
-    private static final String IP = "localhost";
-
+//    private static final String IP = "172.26.98.70";
+  private static final String IP = "localhost";
+  
     private static final int PORT = 1099;
 
     private static boolean init = false;

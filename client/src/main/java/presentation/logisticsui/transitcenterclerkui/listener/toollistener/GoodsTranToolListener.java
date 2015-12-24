@@ -2,7 +2,7 @@ package presentation.logisticsui.transitcenterclerkui.listener.toollistener;
 
 import java.awt.event.ActionEvent;
 
-import presentation.ToolPane;
+import presentation.mainui.ToolPane;
 import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import presentation.logisticsui.transitcenterclerkui.inputframe.GoodsTranInputFrame;
 import presentation.storeui.listener.ToolListener;

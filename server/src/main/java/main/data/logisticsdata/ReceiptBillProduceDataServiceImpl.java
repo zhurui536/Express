@@ -42,8 +42,8 @@ public class ReceiptBillProduceDataServiceImpl extends UnicastRemoteObject imple
         public ResultMessage findGoods(Time time) throws RemoteException {
                 init();
                 ArrayList<SendBillPO> result = new ArrayList<>();
-                for (SendBillPO sendBillPO : sendBillPOs) {
-//                        if(sendBillPO.getGoodsPO().getStartTime().equalsWithDay(time))
+                for (SendBillPO sendBillPO : sendBillPOs) {//System.out.println(sendBillPO.getGoodsPO().getStartTime()==null);
+                        if(sendBillPO.getGoodsPO().getStartTime().equalsWithDay(time))
                                 result.add(sendBillPO);
                 }
                 return new ResultMessage("SUCCESS", result);

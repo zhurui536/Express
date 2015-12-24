@@ -1,7 +1,7 @@
 package presentation.strategyui.datapanel;
 
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
-import presentation.WarningFrame;
+import presentation.WarningDialog;
 import presentation.managerui.ManagerFrame;
 import util.City;
 import util.ResultMessage;
@@ -104,17 +104,17 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 				
 				ResultMessage result = bl.inputDistanceInfo(new DistanceVO(a, b, distance));
 				if(result.getKey().equals("success")){
-					WarningFrame tip = new WarningFrame("设置成功！");
+					WarningDialog tip = new WarningDialog(ui, "设置成功！");
 					ui.validate();
 					ui.repaint();
 				}
 				else{
-					WarningFrame tip = new WarningFrame(result.getKey());
+					WarningDialog tip = new WarningDialog(ui, result.getKey());
 					ui.validate();
 					ui.repaint();
 				}
 			}catch(Exception ex){
-				WarningFrame tip = new WarningFrame("输入有误，请重新输入");
+				WarningDialog tip = new WarningDialog(ui, "输入有误，请重新输入");
 				ui.validate();
 				ui.repaint();
 			}
@@ -125,17 +125,17 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 				ResultMessage result = bl.inputPriceInfo(price);
 				
 				if(result.getKey().equals("success")){
-					WarningFrame tip = new WarningFrame("输入成功！");
+					WarningDialog tip = new WarningDialog(ui, "输入成功！");
 					input[0].setText("");
 					input[1].setText("");
 					ui.validate();
 					ui.repaint();
 				}
 				else{
-					WarningFrame tip = new WarningFrame(result.getKey());
+					WarningDialog tip = new WarningDialog(ui, result.getKey());
 				}
 			}catch(Exception ex){
-				WarningFrame tip = new WarningFrame("输入有误，请重新输入");
+				WarningDialog tip = new WarningDialog(ui, "输入有误，请重新输入");
 				input[0].setText("");
 				input[1].setText("");
 				ui.validate();
