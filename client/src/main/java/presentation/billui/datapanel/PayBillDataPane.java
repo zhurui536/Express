@@ -1,15 +1,15 @@
-//package presentation.billui.datapanel;
+package presentation.billui.datapanel;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import po.financepo.PayBillPO;
+import util.Job;
+import vo.StaffMessageVO;
+import vo.financevo.BankAccountVO;
+import vo.financevo.PayBillVO;
 //
-//import javax.swing.JLabel;
-//import javax.swing.JPanel;
-//
-//import po.financepo.PayBillPO;
-//import util.Job;
-//import vo.StaffMessageVO;
-//import vo.financevo.BankAccountVO;
-//import vo.financevo.PayBillVO;
-//
-//public class PayBillDataPane extends JPanel {
+public class PayBillDataPane extends JPanel {
 //
 ////	public static void main(String[] args){
 ////		JFrame test = new JFrame();
@@ -25,13 +25,13 @@
 ////		test.setVisible(true);
 ////	}
 //
-//	public PayBillDataPane(PayBillPO po){
+	public PayBillDataPane(PayBillPO po){
 //		PayBillVO vo = new PayBillVO(po);
 //		this.setLayout(null);
 //		this.setBounds(140, 100, 810, 500);
 //
 //		this.initialize(vo, po.getUserID());
-//	}
+	}
 //
 //	private void initialize(PayBillVO vo, String writerid){
 //		JLabel[] itemname = new JLabel[8];
@@ -147,4 +147,4 @@
 //	}
 //
 //	private final String[] itemnames = {"付款单编号：", "单据编写者：", "付款时间：", "付款条目：", "付款金额：", "付款人信息：", "账户信息：", "备注："};
-//}
+}

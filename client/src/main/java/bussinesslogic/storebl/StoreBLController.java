@@ -4,9 +4,12 @@ import java.util.Calendar;
 
 import javax.swing.JTable;
 
+import util.LogFactory;
 import util.ResultMessage;
 import util.Trans;
+import vo.SystemlogVO;
 import vo.storevo.StorePlaceVO;
+import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import bussinesslogicservice.storeblservice.StoreBLService;
 
 public class StoreBLController implements StoreBLService {
@@ -17,11 +20,15 @@ public class StoreBLController implements StoreBLService {
 	private OutStoreBL outstore;
 	private VerificationBL verification;
 	
+	//编写系统日志
+	private SystemlogMaintenanceBLService logservice;
+	
 	//表示当前的状态，0代表空闲
 	private int condition;
 	
 	public StoreBLController(){
 		this.condition = 0;
+		logservice = LogFactory.getInstance();
 	}
 
 	@Override
@@ -53,6 +60,8 @@ public class StoreBLController implements StoreBLService {
 		if(result.getKey().equals("success")){
 			instore = null;
 			this.condition = 0;
+			
+			this.logservice.addSystemlog(new SystemlogVO("入库"));
 		}
 		return result;
 	}
@@ -86,6 +95,7 @@ public class StoreBLController implements StoreBLService {
 		if(result.getKey().equals("success")){
 			outstore = null;
 			this.condition = 0;
+			this.logservice.addSystemlog(new SystemlogVO("出库"));
 		}
 		return result;
 	}
@@ -121,6 +131,7 @@ public class StoreBLController implements StoreBLService {
 		if(result.getKey().equals("success")){
 			this.condition = 0;
 			adjust = null;
+			this.logservice.addSystemlog(new SystemlogVO("库存调整"));
 		}
 		return result;
 	}
@@ -139,6 +150,7 @@ public class StoreBLController implements StoreBLService {
 
 	@Override
 	public ResultMessage check(Calendar start, Calendar end) {
+		this.logservice.addSystemlog(new SystemlogVO("库存查看"));
 		return check.check(start, end);
 	}
 
@@ -154,6 +166,7 @@ public class StoreBLController implements StoreBLService {
 		if(condition == 0){
 			verification = new VerificationBL();
 			condition = 4;
+			this.logservice.addSystemlog(new SystemlogVO("进行库存盘点"));
 			return verification.verification();
 		}
 		else{
@@ -167,12 +180,14 @@ public class StoreBLController implements StoreBLService {
 		if(result.getKey().equals("success")){
 			verification = null;
 			this.condition = 0;
+			this.logservice.addSystemlog(new SystemlogVO("保存库存盘点"));
 		}
 		return result;
 	}
 
 	@Override
 	public ResultMessage exportVerification(JTable table) {
+		this.logservice.addSystemlog(new SystemlogVO("导出库存快照"));
 		return verification.exportVerification(table);
 	}
 
