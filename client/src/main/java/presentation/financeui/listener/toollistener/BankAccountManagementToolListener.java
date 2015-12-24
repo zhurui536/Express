@@ -36,23 +36,23 @@ public class BankAccountManagementToolListener extends ToolListener {
         
         if (button == toolPanel.getButton("add")) {
             BankAccountAddDialog dialog = new BankAccountAddDialog(ui);
+            dialog.setVisible(true);
             BankAccountVO bankAccountVO = dialog.getBankAccountVO();
             processAdd(bankAccountVO);
-            dialog.setVisible(true);
         } else if (button == toolPanel.getButton("del")) {
             BankAccountDelDialog dialog = new BankAccountDelDialog(ui);
-            processDel(dialog.getID());
             dialog.setVisible(true);
+            processDel(dialog.getID());
         } else if (button == toolPanel.getButton("find")) {
             BankAccountFindDialog dialog = new BankAccountFindDialog(ui);
+            dialog.setVisible(true);
             BankAccountVO bankAccountVO = dialog.getBankAccountVO();
             processFind(bankAccountVO);
-            dialog.setVisible(true);
         } else if (button == toolPanel.getButton("update")) {
             BankAccountUpdateDialog dialog = new BankAccountUpdateDialog(ui);
+            dialog.setVisible(true);
             BankAccountVO bankAccountVO = dialog.getBankAccountVO();
             processUpdate(bankAccountVO);
-            dialog.setVisible(true);
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
         } else {

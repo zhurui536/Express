@@ -37,9 +37,9 @@ public class PayToolListener extends ToolListener {
         
         if (button == toolPanel.getButton("create")) {
             PayDialog dialog = new PayDialog(ui);
+            dialog.setVisible(true);
             PayBillVO payBillVO = dialog.getPayBillVO();
             processPay(payBillVO);
-            dialog.setVisible(true);
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
         } else {

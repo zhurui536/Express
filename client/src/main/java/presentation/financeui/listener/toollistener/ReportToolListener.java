@@ -40,10 +40,10 @@ public class ReportToolListener extends ToolListener {
             processProfit();
         } else if (button == toolPanel.getButton("statement")) {
             StatementDialog dialog = new StatementDialog(ui);
+            dialog.setVisible(true);
             Time sTime = dialog.getStartTime();
             Time eTime = dialog.getEndTime();
             processStatement(sTime, eTime);
-            dialog.setVisible(true);
         } else if (button == toolPanel.getButton("profitExport")) {
         	OutputStream out = getPath();
         	profitExport(out);
