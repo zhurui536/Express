@@ -58,6 +58,16 @@ public class FinanceFrame extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setVisible(true);
+//        JPanel panel = new JPanel(){
+//            @Override
+//            protected void paintComponent(Graphics g) {
+//                super.paintComponent(g);
+//                Image image = new ImageIcon("client/graphic/index.png").getImage();
+//                g.drawImage(image, 0, 0, 1000, 630, null);
+//            }
+//        };
+//        panel.setLayout(null);
+
     }
 
     private void initMenu() {
@@ -93,7 +103,7 @@ public class FinanceFrame extends JFrame {
             scroll = new JScrollPane(this.data);
             scroll.setBounds(150, 100, 830, 500);
             scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-            scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+            scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
             data.setPreferredSize(new Dimension(data.getWidth(), data.getHeight()));
             this.add(scroll);
         }

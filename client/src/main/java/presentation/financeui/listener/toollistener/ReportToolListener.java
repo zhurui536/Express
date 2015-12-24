@@ -61,7 +61,7 @@ public class ReportToolListener extends ToolListener {
     private OutputStream getPath() {
     	JFileChooser fileChooser = new JFileChooser();
         fileChooser.showSaveDialog(ui);
-    	OutputStream out = null;
+    	OutputStream out;
 		try {
 			out = new FileOutputStream(fileChooser.getSelectedFile().getAbsolutePath());
 			System.out.println(fileChooser.getSelectedFile().getAbsolutePath());
@@ -75,7 +75,7 @@ public class ReportToolListener extends ToolListener {
 	private void statementExport(OutputStream out) {
 		ResultMessage msg = financeController.statementToExcel(out);
 		if (isFail(msg)) {
-            new WarningDialog(ui, "导出失败！");
+            new WarningDialog(ui, "请先生成经营情况表！");
         } else {
         	new WarningDialog(ui, "导出成功！");
         }
@@ -84,7 +84,7 @@ public class ReportToolListener extends ToolListener {
 	private void profitExport(OutputStream out) {
 		ResultMessage msg = financeController.profitListToExcel(out);
 		if (isFail(msg)) {
-            new WarningDialog(ui, "导出失败！");
+            new WarningDialog(ui, "请先生成成本收益表！");
         } else {
         	new WarningDialog(ui, "导出成功！");
         }
@@ -112,7 +112,7 @@ public class ReportToolListener extends ToolListener {
             ProfitListVO profitListVO = (ProfitListVO) msg.getValue();
             ProfitPanel profitPanel = new ProfitPanel(profitListVO);
             ui.paintData(profitPanel);
-            new WarningDialog(ui, "生成失败！");
+            new WarningDialog(ui, "生成成功！");
         }
     }
 

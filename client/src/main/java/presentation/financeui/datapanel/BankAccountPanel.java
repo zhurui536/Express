@@ -35,8 +35,10 @@ public class BankAccountPanel extends JPanel {
     private void createTable() {
         int numOfRow = bankAccountVOs.size() + 1;
         table = new JTable(numOfRow, 3);
-        table.setRowHeight(60);
-        table.setBounds(0, 0, 830, 60 * numOfRow);
+        table.setRowHeight(40);
+        table.setBounds(0, 0, 830, 40 * numOfRow);
+        table.setShowGrid(true);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
         for (int i = 0; i < row.length; i++) {
             table.setValueAt(row[i], 0, i);

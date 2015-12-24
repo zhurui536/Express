@@ -36,8 +36,10 @@ public class PayPanel extends JPanel {
     private void createTable() {
         int numOfRow = payBillVOs.size() + 3;
         table = new JTable(numOfRow, 7);
-        table.setRowHeight(60);
-        table.setBounds(0, 0, 830, 60 * numOfRow);
+        table.setRowHeight(40);
+        table.setBounds(0, 0, 830, 40 * numOfRow);
+        table.setShowGrid(true);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
         for (int i = 0; i < header.length; i++) {
             table.setValueAt(header[i], 0, i);

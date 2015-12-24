@@ -53,8 +53,8 @@ public class MainUI extends JFrame implements ActionListener{
 //		}
         try {
             UIManager.setLookAndFeel(new NimbusLookAndFeel());
-            JFrame.setDefaultLookAndFeelDecorated(true);
-            JDialog.setDefaultLookAndFeelDecorated(true);
+//            JFrame.setDefaultLookAndFeelDecorated(true);
+//            JDialog.setDefaultLookAndFeelDecorated(true);
 //            SubstanceLookAndFeel.setCurrentTheme(new SubstanceTerracottaTheme());
 //          SubstanceLookAndFeel.setSkin(new EmeraldDuskSkin());
 //          SubstanceLookAndFeel.setCurrentButtonShaper(new ClassicButtonShaper());

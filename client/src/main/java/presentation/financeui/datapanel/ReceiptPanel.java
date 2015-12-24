@@ -45,9 +45,10 @@ public class ReceiptPanel extends JPanel {
         }
 
         table = new JTable(numOfRow, row.length);
-        table.setRowHeight(60);
-        table.setBounds(0, 0, 830, 60 * numOfRow);
-
+        table.setRowHeight(40);
+        table.setBounds(0, 0, 830, 40 * numOfRow);
+        table.setShowGrid(true);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         for (int i = 0; i < row.length; i++) {
             table.setValueAt(row[i], 0, i);
         }
