@@ -3,7 +3,7 @@ package presentation.logisticsui.businessofficeclerkui.listerner.toollistener;
 import java.awt.event.ActionEvent;
 
 import po.logisticpo.ArrivalBillPO;
-import presentation.ToolPane;
+import presentation.mainui.ToolPane;
 import presentation.billui.datapanel.ArrivalBillDataPane;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.inputframe.GoodsRecInputFrame;

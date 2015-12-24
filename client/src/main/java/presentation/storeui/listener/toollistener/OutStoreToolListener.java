@@ -1,9 +1,8 @@
 package presentation.storeui.listener.toollistener;
 
-import java.awt.event.ActionEvent;
-
-import presentation.ToolPane;
-import presentation.WarningFrame;
+import bussinesslogicservice.storeblservice.StoreBLService;
+import presentation.WarningDialog;
+import presentation.mainui.ToolPane;
 import presentation.storeui.StoreFrame;
 import presentation.storeui.datapanel.OutStoreDataPane;
 import presentation.storeui.inputframe.OutStoreInputFrame;
@@ -11,7 +10,8 @@ import presentation.storeui.listener.ToolListener;
 import util.ResultMessage;
 import util.Trans;
 import vo.storevo.OutStoreVO;
-import bussinesslogicservice.storeblservice.StoreBLService;
+
+import java.awt.event.ActionEvent;
 
 public class OutStoreToolListener extends ToolListener {
 
@@ -44,7 +44,7 @@ public class OutStoreToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				WarningFrame frame = new WarningFrame(result);
+				WarningDialog frame = new WarningDialog(ui, result);
 			}
 		}
 		else if(i==2){
@@ -64,7 +64,7 @@ public class OutStoreToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningFrame warning = new WarningFrame(result.getKey());
+			WarningDialog warning = new WarningDialog(ui, result.getKey());
 			return false;
 		}
 	}

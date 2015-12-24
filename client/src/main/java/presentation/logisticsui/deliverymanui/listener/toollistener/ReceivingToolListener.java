@@ -2,7 +2,7 @@ package presentation.logisticsui.deliverymanui.listener.toollistener;
 
 import java.awt.event.ActionEvent;
 
-import presentation.ToolPane;
+import presentation.mainui.ToolPane;
 import presentation.logisticsui.deliverymanui.DeliveryManFrame;
 import presentation.logisticsui.deliverymanui.datapane.ReceivingDataPane;
 import presentation.logisticsui.deliverymanui.inputframe.ReceivingInputFrame;

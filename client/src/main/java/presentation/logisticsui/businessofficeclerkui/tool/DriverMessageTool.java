@@ -2,7 +2,7 @@ package presentation.logisticsui.businessofficeclerkui.tool;
 
 import javax.swing.JButton;
 
-import presentation.ToolPane;
+import presentation.mainui.ToolPane;
 import presentation.storeui.listener.ToolListener;
 
 @SuppressWarnings("serial")

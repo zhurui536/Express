@@ -1,9 +1,8 @@
 package presentation.storeui.listener.toollistener;
 
-import java.awt.event.ActionEvent;
-
-import presentation.ToolPane;
-import presentation.WarningFrame;
+import bussinesslogicservice.storeblservice.StoreBLService;
+import presentation.WarningDialog;
+import presentation.mainui.ToolPane;
 import presentation.storeui.StoreFrame;
 import presentation.storeui.datapanel.AdjustDataPane;
 import presentation.storeui.inputframe.AdjustInputFrame;
@@ -11,7 +10,8 @@ import presentation.storeui.listener.ToolListener;
 import util.ResultMessage;
 import vo.storevo.AdjustVO;
 import vo.storevo.StorePlaceVO;
-import bussinesslogicservice.storeblservice.StoreBLService;
+
+import java.awt.event.ActionEvent;
 
 public class AdjustToolListener extends ToolListener {
 
@@ -44,7 +44,7 @@ public class AdjustToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				WarningFrame frame = new WarningFrame(result);
+				WarningDialog frame = new WarningDialog(ui, result);
 			}
 		}
 		else if(i==2){
@@ -55,7 +55,7 @@ public class AdjustToolListener extends ToolListener {
 			}
 			else{
 				//提示错误
-				WarningFrame frame = new WarningFrame(result);
+				WarningDialog frame = new WarningDialog(ui, result);
 			}
 		}
 	}

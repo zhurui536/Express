@@ -1,9 +1,10 @@
-package presentation;
+package presentation.mainui;
 
 import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogic.userbl.UserBLServiceImpl;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import bussinesslogicservice.userblservice.UserBLService;
+import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.deliverymanui.DeliveryManFrame;
@@ -11,6 +12,7 @@ import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.StoreFrame;
 import presentation.userui.AdminFrame;
+import util.FrameUtil;
 import util.Job;
 import util.PublicMessage;
 import util.ResultMessage;
@@ -146,7 +148,7 @@ public class MainUI extends JFrame implements ActionListener{
         		 this.OpenFrame(vo);
         	 }
         	 else{
-        		 WarningFrame warning = new WarningFrame(result);
+        		 WarningDialog warning = new WarningDialog(this, result);
         	 }
         }
     }
@@ -156,42 +158,48 @@ public class MainUI extends JFrame implements ActionListener{
     		LogisticsBLService logisticsBLService = new LogisticsBLController();
             this.setVisible(false);
             DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
+            FrameUtil.setFrameCenter(frame);
             frame.setVisible(true);
     	}
     	if(vo.job == Job.STOCKMAN){
             this.setVisible(false);
             StoreFrame frame = new StoreFrame();
+            FrameUtil.setFrameCenter(frame);
             frame.setVisible(true);
     	}
     	if(vo.job == Job.MANAGER){
     		this.setVisible(false);
             ManagerFrame frame = new ManagerFrame();
+            FrameUtil.setFrameCenter(frame);
             frame.setVisible(true);
     	}
     	if(vo.job == Job.SALESOFOFFICE){
     		LogisticsBLService logisticsBLService = new LogisticsBLController();
             this.setVisible(false);
             BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
+            FrameUtil.setFrameCenter(frame);
             frame.setVisible(true);
     	}
     	if(vo.job == Job.FINANCEMAN){
     		this.setVisible(false);
             FinanceFrame frame = new FinanceFrame();
+            FrameUtil.setFrameCenter(frame);
             frame.setVisible(true);
     	}
     	if(vo.job == Job.SALESOFCENTRE){
     		LogisticsBLService logisticsBLService = new LogisticsBLController();
             this.setVisible(false);
             TransitCenterclerkFrame frame = new TransitCenterclerkFrame(logisticsBLService);
+            FrameUtil.setFrameCenter(frame);
             frame.setVisible(true);
     	}
     	if(vo.job == Job.ADMIN){
     		this.setVisible(false);
-    		AdminFrame admin = new AdminFrame();
-    		admin.setVisible(true);
+    		AdminFrame frame = new AdminFrame();
+            FrameUtil.setFrameCenter(frame);
+    		frame.setVisible(true);
     	}
     	
-
     	PublicMessage.staffID = vo.id;
     	PublicMessage.institutionID = vo.institutionid;
     }

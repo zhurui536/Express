@@ -2,7 +2,7 @@ package presentation.userui.tool;
 
 import javax.swing.JButton;
 
-import presentation.ToolPane;
+import presentation.mainui.ToolPane;
 import presentation.userui.listener.AdminToolListener;
 
 public class AdminTool extends ToolPane {

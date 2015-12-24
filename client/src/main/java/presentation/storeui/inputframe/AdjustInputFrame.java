@@ -1,15 +1,11 @@
 package presentation.storeui.inputframe;
 
+import presentation.WarningDialog;
+import presentation.storeui.listener.toollistener.AdjustToolListener;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-
-import presentation.WarningFrame;
-import presentation.storeui.listener.toollistener.AdjustToolListener;
 
 @SuppressWarnings("serial")
 public class AdjustInputFrame extends JFrame implements ActionListener {
@@ -98,7 +94,7 @@ public class AdjustInputFrame extends JFrame implements ActionListener {
 					this.setVisible(false);
 				}
 			}catch(Exception ex){
-				WarningFrame warning = new WarningFrame("输入有误，请重新输入");
+				WarningDialog warning = new WarningDialog(this, "输入有误，请重新输入");
 			}
 			//如果输入无法进行转换，那么将输入框重置
 			for(int i=0;i<4;i++){
