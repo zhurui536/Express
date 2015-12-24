@@ -16,11 +16,12 @@ public class LogDataPane extends JPanel{
         
         public LogDataPane(ArrayList<SystemlogVO> systemlogVOs) {
                 this.systemlogVOs = systemlogVOs;
+                this.setLayout(null);
                 paintData();
         }
         
         private void paintData() {
-                Object[] header = {"时间","来源","用户","时间"};
+                Object[] header = {"时间","来源","用户","事件"};
                 Object[][] data = new Object[systemlogVOs.size()][4];
                 for (int i = 0; i < systemlogVOs.size(); i++) {
                        data[i][0] = systemlogVOs.get(i).time.toString();
@@ -38,7 +39,7 @@ public class LogDataPane extends JPanel{
                 table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
                 table.setRowHeight(30);
                 table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-                table.getColumnModel().getColumn(0).setPreferredWidth(130);
+                table.getColumnModel().getColumn(0).setPreferredWidth(190);
                 table.getColumnModel().getColumn(1).setPreferredWidth(200);
                 table.getColumnModel().getColumn(2).setPreferredWidth(200);
                 table.getColumnModel().getColumn(3).setPreferredWidth(200);
