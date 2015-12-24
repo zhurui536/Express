@@ -31,6 +31,7 @@ public class DeliveryDataServiceImpl extends UnicastRemoteObject implements Deli
         
         @Override
         public GoodsPO findGoods(String id) throws RemoteException {
+                init();
                 for (SendBillPO sendBillPO : sendBillPOs) {
                         if(sendBillPO.getId().equals(id)){
                                 return sendBillPO.getGoodsPO();

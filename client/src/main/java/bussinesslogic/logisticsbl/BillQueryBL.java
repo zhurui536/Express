@@ -32,7 +32,11 @@ public class BillQueryBL implements BillQueryBLService {
                         e.printStackTrace();
                         return new ResultMessage("FAIL");
                 }
-                return new ResultMessage("SUCCESS", sendBillPO.poToVo());
+                if(sendBillPO != null)
+                        return new ResultMessage("SUCCESS",  sendBillPO.poToVo());
+                else{
+                        return new ResultMessage("FAIL");
+                }
         }
 
 }

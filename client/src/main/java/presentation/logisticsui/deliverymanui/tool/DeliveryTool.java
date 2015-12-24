@@ -14,7 +14,7 @@ public class DeliveryTool extends ToolPane{
                 super.buttons = new JButton[NUMBER_OF_BUTTIONS];
                 
                 buttons[0] = new JButton("输入收件信息");
-                buttons[0].setSize(105, 25);
+                buttons[0].setSize(135, 25);
                 buttons[0].setLocation(145, 40);
                 buttons[0].addActionListener(toolListener);
                 this.add(buttons[0]);

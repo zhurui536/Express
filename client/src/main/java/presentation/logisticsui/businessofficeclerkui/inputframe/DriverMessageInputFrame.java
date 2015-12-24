@@ -44,6 +44,8 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
         
         private BusinessOfficeClerkFrame ui;
         
+        private JLabel errOutputLabel;
+        
         public DriverMessageInputFrame(DriverMessageToolListener listener) {
                 this.state = frameState.ADD;
                 this.ui = listener.getUi();

@@ -3,7 +3,9 @@ package presentation.logisticsui.deliverymanui.inputframe;
 
 import presentation.logisticsui.deliverymanui.listener.toollistener.ReceivingToolListener;
 import util.ExpressType;
+import util.GoodsDeliveryState;
 import util.PackageType;
+import util.Time;
 import vo.GoodsVO;
 import vo.logisticvo.PeopleMessageVO;
 import vo.logisticvo.SendBillVO;
@@ -135,8 +137,8 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                         
                         goodsVO.packageType = PackageType.stringToType((String)packageTypeBox.getSelectedItem());
                         goodsVO.expressType = ExpressType.stringToType((String)expressTypeBox.getSelectedItem());
-//                        goodsVO.goodsDeliveryState = GoodsDeliveryState.stringToType(textAreas[2][2].getText());
-                        
+                        goodsVO.goodsDeliveryState = GoodsDeliveryState.TRANSPORT;
+                        goodsVO.startTime = new Time();
                         return goodsVO;
                 }
         }
@@ -165,9 +167,9 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                 peoplePanel(String people){
                        
                         this.setLayout(null);
-                         name = new JLabel(people + "姓名：");
-                        name.setSize(50,35);
-                        name.setLocation(15,15);
+                         name = new JLabel(people + ":");
+                        name.setSize(80,35);
+                        name.setLocation(5,15);
                         this.add(name);
                          nameArea = new JTextArea();
                         nameArea.setSize(100,35);
@@ -194,20 +196,20 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                         
                          telephoneNum = new JLabel("电话：");
                         telephoneNum.setSize(50,35);
-                        telephoneNum.setLocation(180,65);
+                        telephoneNum.setLocation(200,65);
                         this.add(telephoneNum);
                          telArea = new JTextArea();
                         telArea.setSize(100,35);
-                        telArea.setLocation(230,65);
+                        telArea.setLocation(250,65);
                         this.add(telArea);
                         
                          mobliephoneNum = new JLabel("手机：" );
                         mobliephoneNum.setSize(50, 35);
-                        mobliephoneNum.setLocation(345,65);
+                        mobliephoneNum.setLocation(365,65);
                         this.add(mobliephoneNum);
                          mobArea = new JTextArea();
                         mobArea.setSize(100,35);
-                        mobArea.setLocation(395,65);
+                        mobArea.setLocation(415,65);
                         this.add(mobArea);
                 }
                 

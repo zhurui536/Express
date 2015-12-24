@@ -18,7 +18,7 @@ public class ReceivingTool extends ToolPane{
                 this.setLocation(0, 0);
                 
                 buttons[0] = new JButton("输入订单信息");
-                buttons[0].setSize(105, 25);
+                buttons[0].setSize(135, 25);
                 buttons[0].setLocation(145, 40);
                 buttons[0].addActionListener(toolListener);
                 this.add(buttons[0]);

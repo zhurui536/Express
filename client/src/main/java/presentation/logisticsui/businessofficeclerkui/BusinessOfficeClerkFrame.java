@@ -5,6 +5,7 @@ import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogicservice.infoblservice.InfoBLSerivce;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import connection.ClientInitException;
+import connection.ClientRMIHelper;
 import presentation.logisticsui.businessofficeclerkui.listerner.MenuListener;
 
 import javax.swing.*;
@@ -32,6 +33,8 @@ public class BusinessOfficeClerkFrame extends JFrame {
 
         public static void main(String[] args) throws ClientInitException {
 //                ClientRMIHelper.init();
+                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+                clientRMIHelper.init();
                 LogisticsBLService logisticsBLService = new LogisticsBLController();
                 BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
                 frame.setVisible(true);
