@@ -15,8 +15,8 @@ import java.util.Map;
 
 public class ClientRMIHelper {
 
-//    private static final String IP = "172.26.98.70"; //Can be read from config file
-        private static final String IP = "localhost";
+    private static final String IP = "172.26.98.70"; //Can be read from config file
+//        private static final String IP = "localhost";
     private static boolean init = false;
 
     private static Map<String, Object> OBJECT_MAP = new HashMap<>();

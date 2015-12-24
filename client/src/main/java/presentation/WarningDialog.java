@@ -82,7 +82,8 @@ public class WarningDialog {
 	private void init(JFrame parent) {
 		dialog = new JDialog(parent);
 		dialog.setLayout(null);
-		dialog.setBounds(parent.getX() + 400, parent.getY() + 290, 220, 130);
+		dialog.setBounds(parent.getX() + parent.getWidth() / 5 * 2, 
+				parent.getY() + parent.getHeight() / 3, 220, 130);
 		dialog.setModal(true);
 	}
 }
