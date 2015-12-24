@@ -1,5 +1,7 @@
 package presentation.managerui.listener;
 
+import bussinesslogic.infobl.SystemlogBL;
+import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import presentation.billui.listener.BillJudgeToolListener;
 import presentation.billui.tool.BillJudgeTool;
 import presentation.infoui.listener.InstitutionInfoToolListener;
@@ -11,9 +13,12 @@ import presentation.strategyui.listener.SalaryToolListener;
 import presentation.strategyui.listener.StrategyToolListener;
 import presentation.strategyui.tool.SalaryTool;
 import presentation.strategyui.tool.StrategyTool;
+import presentation.userui.data.LogDataPane;
+import vo.SystemlogVO;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MenuListener implements ActionListener {
 	private ManagerFrame ui;
@@ -26,7 +31,7 @@ public class MenuListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		int i = 0;
 		
-		for(i=0;i<6;i++){
+		for(i=0;i<7;i++){
 			if(e.getSource() == ui.getButton(i))
 				break;
 		}
@@ -66,6 +71,12 @@ public class MenuListener implements ActionListener {
 			ui.paintdata(null);
 		}
 		if(i==5){
+			SystemlogMaintenanceBLService temp = new SystemlogBL();
+			ArrayList<SystemlogVO> list = (ArrayList<SystemlogVO>) temp.showSystemlog().getValue();
+			ui.paintdata(new LogDataPane(list));
+			ui.replaceTool(null);
+		}
+		if(i==6){
 			ui.close();
 		}
 	}

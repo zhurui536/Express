@@ -7,17 +7,17 @@ import javax.swing.*;
 public class WarningDialog {
 	//璀﹀憡绐楀彛锛�2绉掑悗鑷姩娑堝け
 	private JDialog dialog;
-	private Thread thread = new Thread(new Runnable(){
-		@Override
-		public void run() {
-			try {
-				Thread.sleep(2000);
-				dialog.dispose();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	});
+//	private Thread thread = new Thread(new Runnable(){
+//		@Override
+//		public void run() {
+//			try {
+//				Thread.sleep(2000);
+//				dialog.dispose();
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	});
 
 	public WarningDialog(JFrame parent, String text){
 		init(parent);
@@ -52,7 +52,7 @@ public class WarningDialog {
 	
 	private void warn(){
 		dialog.setVisible(true);
-		thread.start();
+//		thread.start();
 	}
 	
 	private String resultToString(ResultMessage result){
@@ -83,5 +83,6 @@ public class WarningDialog {
 		dialog = new JDialog(parent);
 		dialog.setLayout(null);
 		dialog.setBounds(parent.getX() + 400, parent.getY() + 290, 220, 130);
+		dialog.setModal(true);
 	}
 }

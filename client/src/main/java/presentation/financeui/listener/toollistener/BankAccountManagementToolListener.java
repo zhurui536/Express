@@ -37,11 +37,16 @@ public class BankAccountManagementToolListener extends ToolListener {
             BankAccountAddDialog dialog = new BankAccountAddDialog(ui);
             dialog.setVisible(true);
             BankAccountVO bankAccountVO = dialog.getBankAccountVO();
-            processAdd(bankAccountVO);
+            if (bankAccountVO != null) {
+                processAdd(bankAccountVO);
+            }
         } else if (button == toolPanel.getButton("del")) {
             BankAccountDelDialog dialog = new BankAccountDelDialog(ui);
             dialog.setVisible(true);
-            processDel(dialog.getID());
+            String id = dialog.getID();
+            if (id != null) {
+                processDel(dialog.getID());
+            }
         } else if (button == toolPanel.getButton("find")) {
             BankAccountFindDialog dialog = new BankAccountFindDialog(ui);
             dialog.setVisible(true);
@@ -83,9 +88,9 @@ public class BankAccountManagementToolListener extends ToolListener {
 	private void processDel(String id) {
     	ResultMessage msg = financeController.deleteMember(id);
         if (isFail(msg)) {
-            // TODO
+            new WarningDialog(ui, "未找到该用户");
         } else {
-            System.out.println(msg.getKey());
+            new WarningDialog(ui, "删除成功");
         }
 	}
 

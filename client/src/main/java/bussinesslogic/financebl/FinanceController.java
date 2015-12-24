@@ -1,15 +1,18 @@
 package bussinesslogic.financebl;
 
-import java.io.OutputStream;
-import java.math.BigDecimal;
-
 import bussinesslogicservice.financeblservice.*;
+import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
+import util.LogFactory;
 import util.PayItem;
 import util.ResultMessage;
 import util.Time;
+import vo.SystemlogVO;
 import vo.financevo.AccountVO;
 import vo.financevo.BankAccountVO;
 import vo.financevo.PayBillVO;
+
+import java.io.OutputStream;
+import java.math.BigDecimal;
 
 /**
  * 控制器，用于控制财务层的逻辑
@@ -30,7 +33,9 @@ public class FinanceController implements FinanceBLService {
     private ShowReceiptBLService showReceiptBL;
 
     private CreateAccountingBLService createAccountingBL;
-    
+
+    private SystemlogMaintenanceBLService systemlogMaintenanceBL;
+
     public FinanceController() {
         bankAccountManagement = new BankAccountManagementBL();
         createPayBillBL = new CreatePayBillBL();
@@ -38,6 +43,7 @@ public class FinanceController implements FinanceBLService {
         showStatementBL = new ShowStatementBL();
         showReceiptBL = new ShowReceiptBL();
         createAccountingBL = new CreateAccountingBL();
+        systemlogMaintenanceBL = LogFactory.getInstance();
     }
 
     // TODO
@@ -107,61 +113,79 @@ public class FinanceController implements FinanceBLService {
 
     @Override
     public ResultMessage createMember(BankAccountVO vo) {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("增加账户"));
         return bankAccountManagement.createMember(vo);
     }
 
     @Override
     public ResultMessage deleteMember(String id) {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("删除账户"));
         return bankAccountManagement.deleteMember(id);
     }
 
     @Override
     public ResultMessage updateMember(BankAccountVO vo) {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("更新账户"));
         return bankAccountManagement.updateMember(vo);
     }
 
     @Override
     public ResultMessage inquireMember(BankAccountVO vo) {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("查询账户"));
         return bankAccountManagement.inquireMember(vo);
     }
 
     @Override
     public ResultMessage createAccounting(AccountVO accountVO) {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("期初建账"));
         return createAccountingBL.createAccounting(accountVO);
     }
 
     @Override
     public ResultMessage inquireInitInfo() {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("期初信息查询"));
         return createAccountingBL.inquireInitInfo();
     }
 
     @Override
     public ResultMessage createPayBill(PayBillVO payBillVO) {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("创建付款单"));
         return createPayBillBL.createPayBill(payBillVO);
     }
 
     @Override
     public ResultMessage showProfitList() {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("显示成本收益表"));
         return showProfitListBL.showProfitList();
     }
 
     @Override
     public ResultMessage profitListToExcel(OutputStream out) {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("导出成本收益表"));
         return showProfitListBL.profitListToExcel(out);
     }
 
     @Override
     public ResultMessage showReceipt(Time time, String id) {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("查看收款单"));
         return showReceiptBL.showReceipt(time, id);
     }
 
     @Override
     public ResultMessage showStatement(Time startTime, Time endTime) {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("显示经营情况表"));
         return showStatementBL.showStatement(startTime, endTime);
     }
 
     @Override
     public ResultMessage statementToExcel(OutputStream out) {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("导出经营情况表"));
         return showStatementBL.statementToExcel(out);
     }
+
+    public ResultMessage showLog() {
+        systemlogMaintenanceBL.addSystemlog(new SystemlogVO("查看系统日志"));
+        return systemlogMaintenanceBL.showSystemlog();
+    }
+
 }

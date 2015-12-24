@@ -68,46 +68,51 @@ public class ManagerFrame extends JFrame {
 		menu.setSize(140, 500);
 		menu.setLocation(0, 100);
 		
-		buttons = new JButton[6];
-		for(int i=0;i<6;i++){
+		buttons = new JButton[7];
+		for(int i=0;i<7;i++){
 			buttons[i] = new JButton(this.buttonname[i]);
-			buttons[i].setSize(100, 35);
+			buttons[i].setSize(100, 30);
 			buttons[i].setBackground(Color.PINK);
 			buttons[i].addActionListener(menulistener);
 		}
-		buttons[5].setBackground(Color.RED);
+		buttons[6].setBackground(Color.RED);
 		
-		JLabel[] list = new JLabel[3];
-		for(int i=0;i<3;i++){
+		JLabel[] list = new JLabel[4];
+		for(int i=0;i<=3;i++){
 			list[i] = new JLabel(listname[i]);
-			list[i].setSize(80, 40);
+			list[i].setSize(80, 30);
 		}
 		
 		//添加策略制定及其按钮
 		list[0].setLocation(0, 10);
 		menu.add(list[0]);
-		buttons[0].setLocation(20, 55);
+		buttons[0].setLocation(20, 45);
 		menu.add(buttons[0]);
-		buttons[1].setLocation(20, 95);
+		buttons[1].setLocation(20, 80);
 		menu.add(buttons[1]);
 		
 		//添加单据审批及按钮
-		list[1].setLocation(0, 140);
+		list[1].setLocation(0, 115);
 		menu.add(list[1]);
-		buttons[2].setLocation(20, 185);
+		buttons[2].setLocation(20, 155);
 		menu.add(buttons[2]);
 		
 		//添加机构管理及按钮
-		list[2].setLocation(0, 230);
+		list[2].setLocation(0, 190);
 		menu.add(list[2]);
 		for(int i=3;i<5;i++){
-			buttons[i].setLocation(20, 275+40*(i-3));
+			buttons[i].setLocation(20, 225+35*(i-3));
 			menu.add(buttons[i]);
 		}
+
+		list[3].setLocation(0, 295);
+		menu.add(list[3]);
+		buttons[5].setLocation(20, 330);
+		menu.add(buttons[5]);
 		
 		//添加退出键
-		buttons[5].setLocation(20, 440);
-		menu.add(buttons[5]);
+		buttons[6].setLocation(20, 440);
+		menu.add(buttons[6]);
 		
 		this.getContentPane().add(menu);
 	}
@@ -195,6 +200,6 @@ public class ManagerFrame extends JFrame {
 		System.exit(0);
 	}
 	
-	private final String[] buttonname = {"运费策略制定", "薪水策略制定", "单据审批", "机构信息管理", "人员信息管理", "退出"};
-	private final String[] listname = {"策略制定", "单据审批", "机构管理"};
+	private final String[] buttonname = {"运费制定", "薪水制定", "单据审批", "机构信息管理", "人员信息管理", "查看日志", "退出"};
+	private final String[] listname = {"策略制定", "单据审批", "机构管理", "日志"};
 }
