@@ -48,7 +48,7 @@ public class ShowStatementBL implements ShowStatementBLService {
     @SuppressWarnings("unchecked")
     @Override
     public ResultMessage showStatement(Time startTime, Time endTime) {
-        if (isBefore(startTime, endTime)) {
+        if (isAfter(startTime, endTime)) {
             return new ResultMessage("fail");
         }
 
@@ -64,6 +64,7 @@ public class ShowStatementBL implements ShowStatementBLService {
 
             updateStatementVO(startTime, endTime, payBillPOs, receiptBillPOs);
             System.out.println(statementVO.payBillVOs.size());
+            System.out.println(statementVO.receiptBillVOs.size());
             return new ResultMessage("success", statementVO);
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -71,8 +72,8 @@ public class ShowStatementBL implements ShowStatementBLService {
         }
     }
 
-    private boolean isBefore(Time startTime, Time endTime) {
-        return startTime.compareTo(endTime) < 0;
+    private boolean isAfter(Time startTime, Time endTime) {
+        return startTime.compareTo(endTime) > 0;
     }
 
     /**
@@ -111,10 +112,11 @@ public class ShowStatementBL implements ShowStatementBLService {
         if (!isUpdated) {
             return new ResultMessage("fail");
         }
-        String[] headers = { "付款时间", "付款单编号", "付款人ID", "付款账号", "条目", "备注", "付款金额" };
-
+        String[] payHeaders = { "付款时间", "付款单编号", "付款人ID", "付款账号", "条目", "备注", "付款金额" };
+        String[] receiveHeaders = { "收款时间", "收款单编号", "营业厅编号", "快递员编号", "订单条形码号", "收款金额" };
         Excel excel = new Excel();
-        excel.createSheet(statementVO.payBillVOs, "付款单", headers);
+        excel.createSheet(statementVO.payBillVOs, "付款单", payHeaders);
+        excel.createSheet(statementVO.receiptBillVOs, "收款单", receiveHeaders);
         excel.export(out);
         isUpdated = false;
         try {

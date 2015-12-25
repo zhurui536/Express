@@ -1,23 +1,17 @@
 package presentation.logisticsui.businessofficeclerkui.inputframe;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-
 import bussinesslogicservice.infoblservice.InfoBLSerivce;
-
+import presentation.WarningDialog;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
-import presentation.logisticsui.businessofficeclerkui.datapane.ResultDialog;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.DriverMessageToolListener;
 import util.ResultMessage;
 import util.Sex;
 import util.Time;
 import vo.DriverMessageVO;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class DriverMessageInputFrame extends JFrame implements ActionListener{
@@ -184,13 +178,11 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
                         
                         if(state == frameState.ADD){
                                 ResultMessage resultMessage = infoBLSerivce.addDriverMessage(driverMessageVO);
-                                ResultDialog resultDialog = new ResultDialog(resultMessage.getKey());
-                                resultDialog.setVisible(true);
+                            new WarningDialog(ui, resultMessage.getKey());
                         }
                         else {
                                 ResultMessage resultMessage = infoBLSerivce.modDriverMessage(driverMessageVO);
-                                ResultDialog resultDialog = new ResultDialog(resultMessage.getKey());
-                                resultDialog.setVisible(true);
+                            new WarningDialog(ui, resultMessage.getKey());
                         }
                        
                         this.setVisible(false);

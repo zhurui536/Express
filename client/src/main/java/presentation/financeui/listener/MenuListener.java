@@ -1,11 +1,17 @@
 package presentation.financeui.listener;
 
+import bussinesslogicservice.financeblservice.FinanceBLService;
+import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.tool.*;
+import presentation.userui.data.LogDataPane;
+import util.ResultMessage;
+import vo.SystemlogVO;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Created by Away
@@ -26,6 +32,8 @@ public class MenuListener implements ActionListener {
 
     private ToolPanel initTool;
 
+    private LogDataPane logDataPane;
+
     public MenuListener(FinanceFrame ui) {
         this.ui = ui;
         bankAcManageTool = new BankAccountManagementTool(ui);
@@ -35,10 +43,12 @@ public class MenuListener implements ActionListener {
         initTool = new InitTool(ui);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton button = (JButton) e.getSource();
         ui.paintData(new JPanel());
+
         if (button == ui.getButton("账户管理")) {
             ui.replaceTool(bankAcManageTool);
         } else if (button == ui.getButton("付款")) {
@@ -49,9 +59,21 @@ public class MenuListener implements ActionListener {
             ui.replaceTool(reportTool);
         } else if (button == ui.getButton("期初建账")) {
             ui.replaceTool(initTool);
-        } else {
-            System.err.println("error");
+        } else if (button == ui.getButton("日志查看")) {
+            ui.replaceTool(new ToolPanel());
+            FinanceBLService financeController = ui.getFinanceController();
+            ResultMessage msg = financeController.showLog();
+            if (isFail(msg)) {
+                new WarningDialog(ui, "查看日志失败");
+            } else {
+                ArrayList<SystemlogVO> systemlogVOs = (ArrayList<SystemlogVO>) msg.getValue();
+                logDataPane = new LogDataPane(systemlogVOs);
+                ui.paintData(logDataPane);
+            }
         }
+    }
 
+    private boolean isFail(ResultMessage message) {
+        return message.getKey().equals("FAIL");
     }
 }

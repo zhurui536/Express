@@ -1,5 +1,17 @@
 package presentation.mainui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
+import javax.swing.UIManager;
+import javax.swing.WindowConstants;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+
 import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogic.userbl.UserBLServiceImpl;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
@@ -17,10 +29,6 @@ import util.Job;
 import util.PublicMessage;
 import util.ResultMessage;
 import vo.StaffMessageVO;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by Away
@@ -41,6 +49,7 @@ public class MainUI extends JFrame implements ActionListener{
     public static void main(String[] args){
 //    	initRMI();
         MainUI ui = new MainUI();
+        FrameUtil.setFrameCenter(ui);
         ui.setVisible(true);
     }
 
@@ -50,6 +59,20 @@ public class MainUI extends JFrame implements ActionListener{
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
+        try {
+            UIManager.setLookAndFeel(new NimbusLookAndFeel());
+//            JFrame.setDefaultLookAndFeelDecorated(true);
+//            JDialog.setDefaultLookAndFeelDecorated(true);
+//            SubstanceLookAndFeel.setCurrentTheme(new SubstanceTerracottaTheme());
+//          SubstanceLookAndFeel.setSkin(new EmeraldDuskSkin());
+//          SubstanceLookAndFeel.setCurrentButtonShaper(new ClassicButtonShaper());
+//          SubstanceLookAndFeel.setCurrentWatermark(new SubstanceBubblesWatermark());
+//          SubstanceLookAndFeel.setCurrentBorderPainter(new StandardBorderPainter());
+//            SubstanceLookAndFeel.setCurrentGradientPainter(new StandardGradientPainter());
+//            SubstanceLookAndFeel.setCurrentTitlePainter(new FlatTitePainter());
+        } catch (Exception e) {
+//            System.err.println("Something went wrong!");
+        }
     	this.bl = new UserBLServiceImpl();
         this.setLayout(null);
         this.setBounds(300, 300, 330, 260);
@@ -148,7 +171,7 @@ public class MainUI extends JFrame implements ActionListener{
         		 this.OpenFrame(vo);
         	 }
         	 else{
-        		 WarningDialog warning = new WarningDialog(this, result);
+        		 new WarningDialog(this, result);
         	 }
         }
     }

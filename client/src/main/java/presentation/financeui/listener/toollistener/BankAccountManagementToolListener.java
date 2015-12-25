@@ -37,21 +37,30 @@ public class BankAccountManagementToolListener extends ToolListener {
             BankAccountAddDialog dialog = new BankAccountAddDialog(ui);
             dialog.setVisible(true);
             BankAccountVO bankAccountVO = dialog.getBankAccountVO();
-            processAdd(bankAccountVO);
+            if (bankAccountVO != null) {
+                processAdd(bankAccountVO);
+            }
         } else if (button == toolPanel.getButton("del")) {
             BankAccountDelDialog dialog = new BankAccountDelDialog(ui);
             dialog.setVisible(true);
-            processDel(dialog.getID());
+            String id = dialog.getID();
+            if (id != null) {
+                processDel(dialog.getID());
+            }
         } else if (button == toolPanel.getButton("find")) {
             BankAccountFindDialog dialog = new BankAccountFindDialog(ui);
             dialog.setVisible(true);
             BankAccountVO bankAccountVO = dialog.getBankAccountVO();
-            processFind(bankAccountVO);
+            if (bankAccountVO != null) {
+                processFind(bankAccountVO);
+            }
         } else if (button == toolPanel.getButton("update")) {
             BankAccountUpdateDialog dialog = new BankAccountUpdateDialog(ui);
             dialog.setVisible(true);
             BankAccountVO bankAccountVO = dialog.getBankAccountVO();
-            processUpdate(bankAccountVO);
+            if (bankAccountVO != null) {
+                processUpdate(bankAccountVO);
+            }
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
         } else {
@@ -62,9 +71,9 @@ public class BankAccountManagementToolListener extends ToolListener {
     private void processUpdate(BankAccountVO bankAccountVO) {
     	ResultMessage msg = financeController.updateMember(bankAccountVO);
         if (isFail(msg)) {
-            // TODO
+            new WarningDialog(ui, "未找到该用户");
         } else {
-
+            new WarningDialog(ui, "更新成功");
         }		
 	}
 
@@ -72,7 +81,7 @@ public class BankAccountManagementToolListener extends ToolListener {
 	private void processFind(BankAccountVO bankAccountVO) {
     	ResultMessage msg = financeController.inquireMember(bankAccountVO);
         if (isFail(msg)) {
-            // TODO
+            new WarningDialog(ui, "未找到该用户");
         } else {
         	List<BankAccountVO> bankAccountVOs = (List<BankAccountVO>) msg.getValue();
             BankAccountPanel bankAccountPanel = new BankAccountPanel(bankAccountVOs);
@@ -83,19 +92,18 @@ public class BankAccountManagementToolListener extends ToolListener {
 	private void processDel(String id) {
     	ResultMessage msg = financeController.deleteMember(id);
         if (isFail(msg)) {
-            // TODO
+            new WarningDialog(ui, "未找到该用户");
         } else {
-            System.out.println(msg.getKey());
+            new WarningDialog(ui, "删除成功");
         }
 	}
 
 	private void processAdd(BankAccountVO bankAccountVO) {
     	ResultMessage msg = financeController.createMember(bankAccountVO);
     	if (isFail(msg)) {
-            // TODO
-            System.err.println("fail");
+            new WarningDialog(ui, "新增用户失败");
         } else {
-            new WarningDialog(ui, "sucess");
+            new WarningDialog(ui, "新增成功");
         }
 	}
 

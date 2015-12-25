@@ -1,16 +1,12 @@
 package presentation.financeui.dialog;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
+import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import vo.financevo.BankAccountVO;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Away
@@ -23,13 +19,15 @@ public class BankAccountUpdateDialog extends JDialog {
 	private JTextField acID;
     private JTextField afterName;
     private BankAccountVO bankAccountVO;
+    private FinanceFrame ui;
     
     public BankAccountUpdateDialog(FinanceFrame ui) {
         super(ui);
-        init(ui);
+        this.ui = ui;
+        init();
     }
 
-    private void init(FinanceFrame ui) {
+    private void init() {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 250);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -65,11 +63,25 @@ public class BankAccountUpdateDialog extends JDialog {
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String name = afterName.getText().isEmpty() ? null : afterName.getText();
-            String id = acID.getText().isEmpty() ? null : acID.getText();
-            bankAccountVO = new BankAccountVO(name, null, id);
-            close();
+            String name = afterName.getText();
+            String id = acID.getText();
+            boolean success = check(name, id);
+            if (success) {
+                bankAccountVO = new BankAccountVO(name, null, id);
+                close();
+            }
         }
+    }
+
+    private boolean check(String name, String id) {
+        if (name.length() == 0) {
+            new WarningDialog(ui, "请输入账户名称");
+            return false;
+        } else if (id.length() == 0) {
+            new WarningDialog(ui, "请输入账户id");
+            return false;
+        }
+        return true;
     }
 
     private void close() {

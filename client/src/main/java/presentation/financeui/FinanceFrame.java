@@ -18,7 +18,7 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class FinanceFrame extends JFrame {
 
-    private final String[] names = {"账户管理", "付款", "收款", "报表查看", "期初建账" };
+    private final String[] names = {"账户管理", "付款", "收款", "报表查看", "期初建账", "日志查看"};
 
     private JPanel menu;
     private MenuListener menuListener;
@@ -58,6 +58,16 @@ public class FinanceFrame extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setVisible(true);
+//        JPanel panel = new JPanel(){
+//            @Override
+//            protected void paintComponent(Graphics g) {
+//                super.paintComponent(g);
+//                Image image = new ImageIcon("client/graphic/index.png").getImage();
+//                g.drawImage(image, 0, 0, 1000, 630, null);
+//            }
+//        };
+//        panel.setLayout(null);
+
     }
 
     private void initMenu() {
@@ -93,7 +103,7 @@ public class FinanceFrame extends JFrame {
             scroll = new JScrollPane(this.data);
             scroll.setBounds(150, 100, 830, 500);
             scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-            scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+            scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
             data.setPreferredSize(new Dimension(data.getWidth(), data.getHeight()));
             this.add(scroll);
         }
@@ -103,8 +113,9 @@ public class FinanceFrame extends JFrame {
     }
 
     private void createButton() {
-        buttons = new JButton[5];
-        for (int i = 0; i < 5; i++) {
+        int len = names.length;
+        buttons = new JButton[len];
+        for (int i = 0; i < len; i++) {
             buttons[i] = new JButton(names[i]);
             buttons[i].setBounds(15, 35 + 75 * i, 100, 35);
             buttons[i].addActionListener(menuListener);

@@ -1,10 +1,7 @@
 package presentation.financeui.listener.toollistener;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.JPanel;
-
 import bussinesslogicservice.financeblservice.FinanceBLService;
+import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.ReceiptPanel;
 import presentation.financeui.dialog.ReceiptDialog;
@@ -13,6 +10,9 @@ import presentation.financeui.tool.ToolPanel;
 import util.ResultMessage;
 import util.Time;
 import vo.logisticvo.ReceiptBillVO;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 /**
  * 查看收款单监听
@@ -41,7 +41,9 @@ public class ReceiptToolListener extends ToolListener {
             
             Time time = dialog.getTime();
             String id = dialog.getID();
-            processShow(time, id);
+            if (time != null && id != null) {
+                processShow(time, id);
+            }
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
         }
@@ -50,12 +52,13 @@ public class ReceiptToolListener extends ToolListener {
 	private void processShow(Time time, String id) {
 		ResultMessage msg = financeController.showReceipt(time, id);
 		if (isFail(msg)) {
-			// TODO
+            new WarningDialog(ui, "生成失败！");
 		} else {
 			@SuppressWarnings("unchecked")
 			java.util.List<ReceiptBillVO> billVOList = (java.util.List<ReceiptBillVO>) msg.getValue();
 			ReceiptPanel receiptPanel = new ReceiptPanel(billVOList);
 			ui.paintData(receiptPanel);
+            new WarningDialog(ui, "生成成功！");
 		}	
 	}
 

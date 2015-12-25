@@ -5,6 +5,7 @@ import vo.logisticvo.ReceiptLineItemVO;
 
 import javax.swing.*;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -21,8 +22,11 @@ public class ReceiptPanel extends JPanel {
 
     private JTable table;
 
+    private DecimalFormat format;
+
     public ReceiptPanel(List<ReceiptBillVO> receiptBillVOs) {
         this.receiptBillVOs = receiptBillVOs;
+        format = new DecimalFormat("#.00");
         init();
     }
 
@@ -41,9 +45,10 @@ public class ReceiptPanel extends JPanel {
         }
 
         table = new JTable(numOfRow, row.length);
-        table.setRowHeight(60);
-        table.setBounds(0, 0, 830, 60 * numOfRow);
-
+        table.setRowHeight(40);
+        table.setBounds(0, 0, 830, 40 * numOfRow);
+        table.setShowGrid(true);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         for (int i = 0; i < row.length; i++) {
             table.setValueAt(row[i], 0, i);
         }
@@ -69,7 +74,7 @@ public class ReceiptPanel extends JPanel {
                 table.setValueAt(receiptBillVO.institutionID, len, 2);
                 table.setValueAt(receiptLineItemVO.deliveryManID, len, 3);
                 table.setValueAt(receiptLineItemVO.barCode, len, 4);
-                table.setValueAt(receiptLineItemVO.money, len, 5);
+                table.setValueAt(format.format(receiptLineItemVO.money), len, 5);
                 len++;
             }
 
@@ -79,6 +84,6 @@ public class ReceiptPanel extends JPanel {
         for (ReceiptBillVO receiptBillVO : receiptBillVOs) {
             sum = sum.add(receiptBillVO.totalMoney);
         }
-        table.setValueAt(sum, len + 1, 4);
+        table.setValueAt(format.format(sum), len + 1, 5);
     }
 }

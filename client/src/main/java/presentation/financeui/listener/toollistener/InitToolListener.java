@@ -1,6 +1,7 @@
 package presentation.financeui.listener.toollistener;
 
 import bussinesslogicservice.financeblservice.FinanceBLService;
+import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.InitPanel;
 import presentation.financeui.listener.ToolListener;
@@ -45,19 +46,18 @@ public class InitToolListener extends ToolListener {
             inquire();
         } else if (button == toolPanel.getButton("back")) {
             ui.replaceTool(new ToolPanel());
-        } else {
-            System.out.println("0");
         }
     }
 
     private void inquire() {
         ResultMessage msg = financeController.inquireInitInfo();
         if (isFail(msg)) {
-            // TODO
+            new WarningDialog(ui, "查询期初账本失败");
         } else {
             AccountVO accountVO = (AccountVO) msg.getValue();
             InitPanel initPanel = new InitPanel(accountVO);
             ui.paintData(initPanel);
+            new WarningDialog(ui, "查询期初账本成功");
         }
     }
 

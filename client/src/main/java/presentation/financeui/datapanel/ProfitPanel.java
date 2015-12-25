@@ -4,6 +4,7 @@ package presentation.financeui.datapanel;
 import vo.financevo.ProfitListVO;
 
 import javax.swing.*;
+import java.text.DecimalFormat;
 
 /**
  * Created by Away
@@ -33,15 +34,18 @@ public class ProfitPanel extends JPanel {
 
     private void createTable() {
         table = new JTable(2, 3);
-        table.setRowHeight(60);
-        table.setBounds(0, 0, 830, 60 * 2);
+        table.setRowHeight(40);
+        table.setBounds(0, 0, 830, 40 * 2);
+        table.setShowGrid(true);
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
         for (int i = 0; i < row.length; i++) {
             table.setValueAt(row[i], 0, i);
         }
 
-        table.setValueAt(profitListVO.income, 1, 0);
-        table.setValueAt(profitListVO.pay, 1, 1);
-        table.setValueAt(profitListVO.profit, 1, 2);
+        DecimalFormat format = new DecimalFormat("0.00");
+        table.setValueAt(format.format(profitListVO.income), 1, 0);
+        table.setValueAt(format.format(profitListVO.pay), 1, 1);
+        table.setValueAt(format.format(profitListVO.profit), 1, 2);
     }
 }

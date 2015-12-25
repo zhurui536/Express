@@ -1,21 +1,16 @@
 package presentation.logisticsui.businessofficeclerkui.inputframe;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-
 import bussinesslogicservice.infoblservice.InfoBLSerivce;
-
+import presentation.WarningDialog;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
-import presentation.logisticsui.businessofficeclerkui.datapane.ResultDialog;
 import presentation.logisticsui.businessofficeclerkui.datapane.TruckMessageDataPane;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.TruckMessageToolListener;
 import util.ResultMessage;
 import vo.TruckMessageVO;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class TruckIdInputFrame extends JFrame implements ActionListener{
@@ -73,8 +68,7 @@ public class TruckIdInputFrame extends JFrame implements ActionListener{
                         InfoBLSerivce infoBLSerivce = ui.getInfoBLSerivce();
                         if(kind == 0){
                                 ResultMessage resultMessage = infoBLSerivce.delTruckMessage(textArea.getText());
-                                ResultDialog resultDialog = new ResultDialog(resultMessage.getKey());
-                                resultDialog.setVisible(true);
+                                new WarningDialog(ui, resultMessage.getKey());
                         }else if(kind == 1){
                                 ResultMessage resultMessage = infoBLSerivce.showTruckMessage(textArea.getText());
                                 if(resultMessage.getKey().equals("SUCCESS")){
@@ -89,8 +83,7 @@ public class TruckIdInputFrame extends JFrame implements ActionListener{
                                         truckMessageInputFrame.setVisible(true);
                                 }
                                 if(resultMessage.getKey().equals("FAIL")){
-                                        ResultDialog resultDialog = new ResultDialog(resultMessage.getKey());
-                                        resultDialog.setVisible(true);
+                                        new WarningDialog(ui, resultMessage.getKey());
                                 }
                         }
                 }
