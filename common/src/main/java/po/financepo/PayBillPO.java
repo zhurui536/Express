@@ -40,6 +40,7 @@ public class PayBillPO extends BillPO {
     public PayBillPO(Time time, BigDecimal money, String staffID,
                      String bankAccountID, String id, PayItem item, String remark) {
     	super(id, BillType.PAYMENT, staffID);
+    	this.staffID = staffID;
         this.time = time;
         this.money = money;
         this.bankAccountID = bankAccountID;
