@@ -1,7 +1,11 @@
 package presentation.billui.datapanel;
 
+import java.awt.Dimension;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import po.logisticpo.ArrivalBillPO;
 import vo.logisticvo.ArrivalBillVO;
@@ -29,37 +33,34 @@ public class ArrivalBillDataPane extends JPanel {
 	}
 	
 	private void initialize(ArrivalBillVO vo){
-		JLabel[] listname = new JLabel[5];
-		for(int i=0;i<listname.length;i++){
-			listname[i] = new JLabel(listnames[i]);
-			listname[i].setSize(120, 40);
-			this.add(listname[i]);
-		}
+		Object[] header = {"录入机构", "到达日期", "中转单编号", "出发地", "货物到达状态"};
+		Object[][] rowdata = new Object[1][5];
+		rowdata[0][0] = vo.institution;
+		rowdata[0][1] = vo.date;
+		rowdata[0][2] = vo.transferBillNum;
+		rowdata[0][3] = vo.departurePlace;
+		rowdata[0][4] = vo.goodsState.name();
 		
-		listname[0].setLocation(10, 10);
-		JLabel institution = new JLabel(vo.institution);
-		institution.setBounds(130, 10, 200, 40);
-		this.add(institution);
+		JTable table = new JTable(rowdata, header){
+			public boolean isCellEditable(int row, int column) {
+				 return false;
+				 }
+		};
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		table.setRowHeight(30);
+		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
+		table.getColumnModel().getColumn(0).setPreferredWidth(160);
+		table.getColumnModel().getColumn(1).setPreferredWidth(160);
+		table.getColumnModel().getColumn(2).setPreferredWidth(160);
+		table.getColumnModel().getColumn(3).setPreferredWidth(160);
+		table.getColumnModel().getColumn(4).setPreferredWidth(160);
+		table.setShowGrid(true);
+		table.setLocation(0, 0);
 		
-		listname[1].setLocation(340, 10);
-		JLabel date = new JLabel(vo.date);
-		date.setBounds(460, 10, 200, 40);
-		this.add(date);
+		JScrollPane scroller = new JScrollPane(table);
+		scroller.setBounds(0, 0, 810, 500);
 		
-		listname[2].setLocation(10, 70);
-		JLabel transid = new JLabel(vo.transferBillNum);
-		transid.setBounds(130, 70, 200, 40);
-		this.add(transid);
-		
-		listname[3].setLocation(10, 130);
-		JLabel startplace = new JLabel(vo.departurePlace);
-		startplace.setBounds(130, 130, 200, 40);
-		this.add(startplace);
-		
-		listname[4].setLocation(350, 130);
-		JLabel state = new JLabel(vo.goodsState.name());
-		state.setBounds(470, 130, 80, 40);
-		this.add(state);
+		this.add(scroller);
 	}
 	
 	private final String[] listnames = { "录入机构", "到达日期", "中转单编号", "出发地", "货物到达状态"};
