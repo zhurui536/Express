@@ -66,6 +66,7 @@ public class StaffInfoInputFrame extends JFrame implements ActionListener{
 		this.getContentPane().add(id);
 		input[0] = new JTextArea(vo.id);
 		input[0].setBounds(105, 50, 100, 30);
+		input[0].setEditable(false);
 		this.getContentPane().add(input[0]);
 		
 		JLabel institution = new JLabel("机构id：");
@@ -129,7 +130,7 @@ public class StaffInfoInputFrame extends JFrame implements ActionListener{
 	}
 	
 	private void initialize() {
-		JLabel title = new JLabel("员工信息修改");
+		JLabel title = new JLabel("员工信息输入");
 		title.setBounds(150, 10, 130, 30);
 		this.getContentPane().add(title);
 		

@@ -72,12 +72,14 @@ public class StoreMenuListener implements ActionListener {
 		else if(i==3){//3为库存盘点，在这里画data区是因为data区并不需要监听事件来改变
 			ResultMessage result = sc.verification();
 			if(result.getKey().equals("success")){
+				VerificationVO vo = (VerificationVO) result.getValue();
+				
 				VerificationToolListener tl = new VerificationToolListener(storeui);
 				VerificationTool tool = new VerificationTool(tl);
+				tool.setPihao(vo.pihao);
 				storeui.replaceTool(tool);
 				tl.setTool(tool);
 				
-				VerificationVO vo = (VerificationVO) result.getValue();
 				VerificationDataPane panel = new VerificationDataPane(vo);
 				storeui.paintdata(panel);
 				tl.setTable(panel.getTable());

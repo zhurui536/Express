@@ -17,12 +17,16 @@ public class VerificationVO {
 	public ArrayList<String> goodsid;
 	public ArrayList<String> destination;
 	public ArrayList<Calendar> date;
+	public String pici;
+	public int pihao;
 	
-	public VerificationVO(StorePO store){
+	public VerificationVO(StorePO store, String pici, int pihao){
 		storeplace = new ArrayList<int[]>();
 		goodsid = new ArrayList<String>();
 		destination = new ArrayList<String>();
 		date = new ArrayList<Calendar>();
+		this.pici = pici;
+		this.pihao = pihao;
 		
 		for(int area=0;area<store.getArea();area++){
 			for(int row=0;row<store.getRow();row++){

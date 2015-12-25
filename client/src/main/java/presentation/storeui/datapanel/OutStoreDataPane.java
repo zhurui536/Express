@@ -29,28 +29,28 @@ public class OutStoreDataPane extends JPanel implements ActionListener {
 		deletes = new ArrayList<JButton>();
 		 
 		//将容器的大小设计为货物数量加1对应的大小
-		this.setSize(810, goodslist.size()*60 + 60);
+		this.setSize(810, goodslist.size()*40 + 40);
 		this.setLayout(null);
 		 
 		//第一行放置对应的目录
 		JPanel type = new JPanel();
-		type.setSize(810, 60);
+		type.setSize(810, 40);
 		type.setLocation(0, 0);
 		type.setLayout(null);
 		type.setBackground(Color.MAGENTA);
 		 
 		JLabel number = new JLabel("货物编号");
-		number.setSize(150, 57);
+		number.setSize(150, 37);
 		number.setLocation(10, 0);
 		type.add(number);
 		
 		JLabel tran = new JLabel("装运方式");
-		tran.setSize(200, 57);
+		tran.setSize(200, 37);
 		tran.setLocation(200, 0);
 		type.add(tran);
 		
 		JLabel dest = new JLabel("目的地");
-		dest.setSize(200, 57);
+		dest.setSize(200, 37);
 		dest.setLocation(430, 0);
 		type.add(dest);
 		
@@ -58,7 +58,7 @@ public class OutStoreDataPane extends JPanel implements ActionListener {
 		
 		for(int i=0;i<goodslist.size();i++){
 			JPanel temp = makeItem(goodslist.get(i), trans.get(i), destination.get(i));
-			temp.setLocation(10, 60*i+60);
+			temp.setLocation(10, 40*i+40);
 			if(i%2==0){
 				temp.setBackground(Color.cyan);
 			}
@@ -73,31 +73,31 @@ public class OutStoreDataPane extends JPanel implements ActionListener {
 	//制作一个出库项显示的方法
 	private JPanel makeItem(String id, String trans, String destination){
 		JPanel item = new JPanel();
-		item.setSize(810, 60);
+		item.setSize(810, 40);
 		item.setLayout(null);
 		
 		//加入id
 		JLabel number = new JLabel(id);
-		number.setSize(150, 57);
+		number.setSize(150, 37);
 		number.setLocation(10, 0);
 		item.add(number);
 		
 		//加入转运方式
 		JLabel tran = new JLabel(trans);
-		tran.setSize(100, 57);
+		tran.setSize(100, 37);
 		tran.setLocation(200, 0);
 		item.add(tran);
 		
 		//加入目的地
 		JLabel dest = new JLabel(destination);
-		dest.setSize(200, 57);
+		dest.setSize(200, 37);
 		dest.setLocation(430, 0);
 		item.add(dest);
 		
 		//加入删除按钮
 		JButton delete = new JButton("删除");
 		delete.setSize(75, 30);
-		delete.setLocation(705, 15);
+		delete.setLocation(705, 5);
 		delete.addActionListener(this);
 		delete.setBackground(Color.red);
 		item.add(delete);

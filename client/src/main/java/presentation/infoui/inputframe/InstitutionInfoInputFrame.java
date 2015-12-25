@@ -95,6 +95,7 @@ public class InstitutionInfoInputFrame extends JFrame implements ActionListener 
 		this.initialize();
 		
 		input[0].setText(vo.id);
+		input[0].setEditable(false);
 		input[1].setText(vo.name);
 		
 		if(vo.institutionType == this.institutionType[0]){

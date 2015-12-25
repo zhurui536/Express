@@ -11,6 +11,7 @@ import presentation.storeui.listener.ToolListener;
 
 @SuppressWarnings("serial")
 public class VerificationTool extends ToolPane{
+	private JLabel pihao;
 	
 	public VerificationTool(ToolListener tl){
 		super.buttons = new JButton[3];
@@ -32,10 +33,17 @@ public class VerificationTool extends ToolPane{
 		buttons[2].addActionListener(tl);
 		this.add(buttons[2]);
 		
-		JLabel batch = new JLabel(df.format(Calendar.getInstance().getTime()));
-		batch.setSize(150, 60);
+		JLabel batch = new JLabel("批次："+df.format(Calendar.getInstance().getTime()));
+		batch.setSize(200, 30);
 		batch.setLocation(145, 30);
 		this.add(batch);
+	}
+	
+	public void setPihao(int pihao){
+		this.pihao = new JLabel("批号："+pihao);
+		this.pihao.setSize(120, 60);
+		this.pihao.setLocation(145, 30);
+		this.add(this.pihao);
 	}
 	
 	private final SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");

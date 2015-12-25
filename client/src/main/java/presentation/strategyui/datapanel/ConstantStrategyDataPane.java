@@ -99,19 +99,20 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 				City b = this.boxToCity(1);
 				
 				if(a==b){
-					distance = 0;
-				}
-				
-				ResultMessage result = bl.inputDistanceInfo(new DistanceVO(a, b, distance));
-				if(result.getKey().equals("success")){
-					WarningDialog tip = new WarningDialog(ui, "设置成功！");
-					ui.validate();
-					ui.repaint();
+					WarningDialog tip = new WarningDialog(ui, "城市不能相同");
 				}
 				else{
-					WarningDialog tip = new WarningDialog(ui, result.getKey());
-					ui.validate();
-					ui.repaint();
+					ResultMessage result = bl.inputDistanceInfo(new DistanceVO(a, b, distance));
+					if(result.getKey().equals("success")){
+						WarningDialog tip = new WarningDialog(ui, "设置成功！");
+						ui.validate();
+						ui.repaint();
+					}
+					else{
+						WarningDialog tip = new WarningDialog(ui, result.getKey());
+						ui.validate();
+						ui.repaint();
+					}
 				}
 			}catch(Exception ex){
 				WarningDialog tip = new WarningDialog(ui, "输入有误，请重新输入");

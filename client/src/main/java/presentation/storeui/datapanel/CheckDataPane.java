@@ -3,6 +3,7 @@ package presentation.storeui.datapanel;
 import vo.storevo.CheckVO;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.Calendar;
 public class CheckDataPane extends JPanel {
 	
 	public CheckDataPane(CheckVO vo){
+		this.setBounds(0, 0, 860, 1000);
 		this.setLayout(null);
 		ArrayList<Calendar> timeOfIn = vo.getTimeOfIn();
 		ArrayList<String> IDOfIn = vo.getIDOfIn();
@@ -22,173 +24,116 @@ public class CheckDataPane extends JPanel {
 		ArrayList<int[]> placeOfOut = vo.getPlaceOfOut();
 		
 		//合计部分的图块
-		JPanel total = new JPanel();
-		total.setBounds(0, 0, 810, 80);
-		total.setLayout(null);
-		total.setBackground(Color.GREEN);
+		Object[] header = {"入库数量：", "出库数量：", "入库总金额：", "出库总金额：", "已用库存：", "空闲库存："};
+		Object[][] rowdata = new Object[1][6];
+		rowdata[0][0] = IDOfIn.size();
+		rowdata[0][1] = IDOfOut.size();
+		rowdata[0][2] = vo.getValueOfIn();
+		rowdata[0][3] = vo.getValueOfOut();
+		rowdata[0][4] = vo.getNumOfUsed();
+		rowdata[0][5] = vo.getNumOfEmpty();
 		
-		JLabel numOfIn = new JLabel("入库数量："+IDOfIn.size());
-		numOfIn.setBounds(10, 0, 200, 40);
-		total.add(numOfIn);
-		JLabel numOfOut = new JLabel("出库数量："+IDOfOut.size());
-		numOfOut.setBounds(10, 40, 200, 40);
-		total.add(numOfOut);
-		JLabel valueOfIn = new JLabel("入库总金额："+vo.getValueOfIn());
-		valueOfIn.setBounds(250, 0, 300, 40);
-		total.add(valueOfIn);
-		JLabel valueOfOut = new JLabel("出库总金额："+vo.getValueOfOut());
-		valueOfOut.setBounds(250, 40, 300, 40);
-		total.add(valueOfOut);
-		JLabel numOfUsed = new JLabel("已用库存："+vo.getNumOfUsed());
-		numOfUsed.setBounds(600, 0, 200, 40);
-		total.add(numOfUsed);
-		JLabel numOfEmpty = new JLabel("空闲库存："+vo.getNumOfEmpty());
-		numOfEmpty.setBounds(600, 40, 200, 40);
-		total.add(numOfEmpty);
+		JTable table = new JTable(rowdata, header){
+			public boolean isCellEditable(int row, int column) {
+				 return false;
+				 }
+		};
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		table.setRowHeight(30);
+		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
+		table.getColumnModel().getColumn(0).setPreferredWidth(135);
+		table.getColumnModel().getColumn(1).setPreferredWidth(135);
+		table.getColumnModel().getColumn(2).setPreferredWidth(135);
+		table.getColumnModel().getColumn(3).setPreferredWidth(135);
+		table.getColumnModel().getColumn(4).setPreferredWidth(135);
+		table.getColumnModel().getColumn(5).setPreferredWidth(135);
+		table.setShowGrid(true);
+		table.setLocation(0, 0);
 		
-		JPanel inrecord = inrecord(timeOfIn, placeOfIn, IDOfIn);
-		JPanel outrecord = outrecord(timeOfOut, placeOfOut, IDOfOut);
-		
-		this.setSize(810, 80+inrecord.getHeight()+outrecord.getHeight());
-		
+		JScrollPane total = new JScrollPane(table);
+		total.setBounds(0, 0, 810, 60);
 		this.add(total);
 		
-		inrecord.setLocation(0, 80);
-		this.add(inrecord);
-		
-		outrecord.setLocation(0, 80+inrecord.getHeight());
-		this.add(outrecord);
+		this.inrecord(timeOfIn, placeOfIn, IDOfIn);
+		this.outrecord(timeOfOut, placeOfOut, IDOfOut);
 	}
 	
-	private JPanel inrecord(ArrayList<Calendar> timeOfIn, ArrayList<int[]> placeOfIn, ArrayList<String> IDOfIn){
-		JPanel inrecord = new JPanel();
-		inrecord.setLayout(null);
-		inrecord.setSize(810, 60*IDOfIn.size()+60);
-		
-		JPanel type = new JPanel();
-		type.setSize(810, 60);
-		type.setLocation(10, 0);
-		type.setLayout(null);
-		type.setBackground(Color.ORANGE);
-
-		//加入id
-		JLabel number = new JLabel("货物编号");
-		number.setSize(150, 57);
-		number.setLocation(10, 0);
-		type.add(number);
-		
-		//加入存储位置
-		JLabel[] places = new JLabel[4];
-		for(int i=0;i<4;i++){
-			places[i] = new JLabel(this.places[i]);
-			places[i].setSize(50, 57);
-			places[i].setBackground(Color.PINK);
-			places[i].setLocation(230 + 50*i, 0);
-			type.add(places[i]);
-		}
-
-		//加入时间
-		JLabel intime = new JLabel("入库时间");
-		intime.setSize(200, 57);
-		intime.setLocation(530, 0);
-		type.add(intime);
-		
-		inrecord.add(type);
-		
+	private void inrecord(ArrayList<Calendar> timeOfIn, ArrayList<int[]> placeOfIn, ArrayList<String> IDOfIn){
+		//表头
+		Object[] header = {"货物编号", "区", "排", "架", "位", "入库时间"};
+		//构建表中的数据
+		Object[][] rowdata = new Object[6][IDOfIn.size()];
 		for(int i=0;i<IDOfIn.size();i++){
-			JPanel item = makeItem(timeOfIn.get(i), placeOfIn.get(i), IDOfIn.get(i));
-			item.setLocation(10, 60*i+60);
-			if(i%2==0){
-				item.setBackground(Color.CYAN);
+			//id
+			rowdata[i][0] = IDOfIn.get(i);
+			for(int j=1;j<5;j++){
+				//存储位置
+				int[] places = placeOfIn.get(i);
+				rowdata[i][j] = places[j-1];
 			}
-			else{
-				item.setBackground(Color.PINK);
-			}
-			inrecord.add(item);
+			//时间
+			rowdata[i][5] = df.format(timeOfIn.get(i).getTime());
 		}
 		
-		return inrecord;
-	}
-	private JPanel makeItem(Calendar time, int[] place, String id){
-		JPanel item = new JPanel();
-		item.setSize(810, 60);
-		item.setLayout(null);
+		JTable table = new JTable(rowdata, header){
+			public boolean isCellEditable(int row, int column) {
+				 return false;
+				 }
+		};
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		table.setRowHeight(30);
+		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
+		table.getColumnModel().getColumn(0).setPreferredWidth(200);
+		table.getColumnModel().getColumn(1).setPreferredWidth(100);
+		table.getColumnModel().getColumn(2).setPreferredWidth(100);
+		table.getColumnModel().getColumn(3).setPreferredWidth(100);
+		table.getColumnModel().getColumn(4).setPreferredWidth(100);
+		table.getColumnModel().getColumn(5).setPreferredWidth(200);
+		table.setShowGrid(true);
+		table.setLocation(0, 0);
 		
-		//加入id
-		JLabel number = new JLabel(id);
-		number.setSize(150, 57);
-		number.setLocation(10, 0);
-		item.add(number);
-		
-		//加入存储位置
-		JLabel[] places = new JLabel[4];
-		for(int i=0;i<4;i++){
-			places[i] = new JLabel(place[i]+"");
-			places[i].setSize(50, 57);
-			places[i].setBackground(Color.PINK);
-			places[i].setLocation(230 + 50*i, 0);
-			item.add(places[i]);
-		}
-
-		//加入时间
-		JLabel intime = new JLabel(df.format(time.getTime()));
-		intime.setSize(200, 57);
-		intime.setLocation(530, 0);
-		item.add(intime);
-		
-		return item;
+		JScrollPane data = new JScrollPane(table);
+		data.setBounds(0, 65, 810, 420);
+		this.add(data);
 	}
 	
-	private JPanel outrecord(ArrayList<Calendar> timeOfOut, ArrayList<int[]> placeOfOut, ArrayList<String> IDOfOut){
-		JPanel outrecord = new JPanel();
-		outrecord.setLayout(null);
-		outrecord.setSize(810, 60*IDOfOut.size()+60);
-		
-		JPanel type = new JPanel();
-		type.setSize(810, 60);
-		type.setLocation(10, 0);
-		type.setLayout(null);
-		type.setBackground(Color.ORANGE);
-
-		//加入id
-		JLabel number = new JLabel("货物编号");
-		number.setSize(150, 57);
-		number.setLocation(10, 0);
-		type.add(number);
-		
-		//加入存储位置
-		JLabel[] places = new JLabel[4];
-		for(int i=0;i<4;i++){
-			places[i] = new JLabel(this.places[i]);
-			places[i].setSize(50, 57);
-			places[i].setBackground(Color.PINK);
-			places[i].setLocation(230 + 50*i, 0);
-			type.add(places[i]);
-		}
-
-		//加入时间
-		JLabel intime = new JLabel("出库时间");
-		intime.setSize(200, 57);
-		intime.setLocation(530, 0);
-		type.add(intime);
-		
-		outrecord.add(type);
-		
+	private void outrecord(ArrayList<Calendar> timeOfOut, ArrayList<int[]> placeOfOut, ArrayList<String> IDOfOut){
+		//表头
+		Object[] header = {"货物编号", "区", "排", "架", "位", "入库时间"};
+		//构建表中的数据
+		Object[][] rowdata = new Object[6][IDOfOut.size()];
 		for(int i=0;i<IDOfOut.size();i++){
-			JPanel item = makeItem(timeOfOut.get(i), placeOfOut.get(i), IDOfOut.get(i));
-			item.setLocation(10, 60*i+60);
-			if(i%2==0){
-				item.setBackground(Color.CYAN);
+			rowdata[i][0] = IDOfOut.get(i);
+			for(int j=1;j<5;j++){
+				//存储位置
+				int[] places = placeOfOut.get(i);
+				rowdata[i][j] = places[j-1];
 			}
-			else{
-				item.setBackground(Color.PINK);
-			}
-			outrecord.add(item);
+			//时间
+			rowdata[i][5] = df.format(timeOfOut.get(i).getTime());
 		}
 		
-		return outrecord;
+		JTable table = new JTable(rowdata, header){
+			public boolean isCellEditable(int row, int column) {
+				 return false;
+				 }
+		};
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		table.setRowHeight(30);
+		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
+		table.getColumnModel().getColumn(0).setPreferredWidth(200);
+		table.getColumnModel().getColumn(1).setPreferredWidth(100);
+		table.getColumnModel().getColumn(2).setPreferredWidth(100);
+		table.getColumnModel().getColumn(3).setPreferredWidth(100);
+		table.getColumnModel().getColumn(4).setPreferredWidth(100);
+		table.getColumnModel().getColumn(5).setPreferredWidth(200);
+		table.setShowGrid(true);
+		table.setLocation(0, 0);
+		
+		JScrollPane data = new JScrollPane(table);
+		data.setBounds(0, 490, 810, 420);
+		this.add(data);
 	}
 
 	private final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-	private final String[] places = {"区", "排", "架", "位"};
 }

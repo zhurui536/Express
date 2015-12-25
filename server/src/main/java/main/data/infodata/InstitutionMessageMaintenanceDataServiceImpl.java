@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import dataservice.infodataservice.InstitutionMessageMaintenanceDataService;
 import main.dao.Database;
 import po.InstitutionMessagePO;
+import util.InstitutionType;
 import util.ResultMessage;
 
 public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteObject implements InstitutionMessageMaintenanceDataService{
@@ -17,6 +18,7 @@ public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteO
         private static final String PATH = "src/main/java/save/infodata/institutionMessagePO.dat";
         
         private ArrayList<InstitutionMessagePO> institutionMessagePOs;
+        private StaffMessageMaintenanceDataServiceImpl staffdata;
         
         public InstitutionMessageMaintenanceDataServiceImpl()
                         throws RemoteException {
@@ -27,8 +29,17 @@ public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteO
         @SuppressWarnings("unchecked")
         private void init(){
                 institutionMessagePOs = (ArrayList<InstitutionMessagePO>) Database.load(PATH);
-                if(institutionMessagePOs == null)
+                if(institutionMessagePOs == null){
                         institutionMessagePOs = new ArrayList<>();
+                        //添加默认机构
+                        institutionMessagePOs.add(new InstitutionMessagePO("默认机构", "admin", InstitutionType.BUSINESS_HALL));
+                }
+                
+                try {
+					staffdata = new StaffMessageMaintenanceDataServiceImpl();
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
         }
         
         @Override
@@ -58,6 +69,8 @@ public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteO
                 if(resultMessage.getKey().equals("FOUND")){
                         institutionMessagePOs.remove(resultMessage.getValue());
                         Database.save(PATH, institutionMessagePOs);
+                        //将该机构下的员工的机构id设为默认值
+                        staffdata.delInstitution(id);
                         return new ResultMessage("SUCCESS");
                 }
                 return new ResultMessage("NO_EXIST");

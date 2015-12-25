@@ -344,5 +344,35 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		objout.close();
 	}
 	
+	//这个格式用于生成出入库的单据号
 	private final SimpleDateFormat df= new SimpleDateFormat("yyyyMMddHHmmss");
+	//这个格式用于生成批次
+	private final SimpleDateFormat df2= new SimpleDateFormat("yyyyMMdd");
+	
+	@Override
+	public ResultMessage getPihao() throws RemoteException {
+		ArrayList<VerificationPO> records = null;
+		
+		try {//读入盘点记录数据
+			records = (ArrayList<VerificationPO>) this.readList(verificationrecord);
+			String pici = df2.format(Calendar.getInstance());
+			int pihao = 1;
+			
+			for(int i=0;i<records.size();i++){
+				//找出相同的批次
+				if(records.get(i).getPici().equals(pici)){
+					if(pihao<=records.get(i).getPihao()){
+						//批号则为所有批次里的最大值+1
+						pihao = records.get(i).getPihao() + 1;
+					}
+				}
+			}
+			return new ResultMessage("success", pihao);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResultMessage("dataerror", null);
+		}
+	}
+	
+	
 }

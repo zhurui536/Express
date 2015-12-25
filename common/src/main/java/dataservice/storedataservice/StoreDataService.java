@@ -43,6 +43,13 @@ public interface StoreDataService extends Remote {
 	 */
 	public ResultMessage saveOutStore(ArrayList<OutStorePO> po) throws RemoteException;
 	
+	/*获得货物的批号
+	 * 无
+	 * 返回查找结果和int型的批号
+	 * success dataerror
+	 */
+	public ResultMessage getPihao() throws RemoteException;
+	
 	/*保存库存盘点记录
 	 * po
 	 * 返回存储结果和null

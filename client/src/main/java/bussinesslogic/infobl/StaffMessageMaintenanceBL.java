@@ -1,11 +1,14 @@
 package bussinesslogic.infobl;
 
 import bussinesslogicservice.infoblservice.StaffMessageMaintenanceBLService;
+import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import connection.ClientRMIHelper;
 import dataservice.infodataservice.StaffMessageMaintenanceDataService;
 import po.StaffMessagePO;
+import util.LogFactory;
 import util.ResultMessage;
 import vo.StaffMessageVO;
+import vo.SystemlogVO;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -14,9 +17,11 @@ import java.util.ArrayList;
 public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLService {
 
         private StaffMessageMaintenanceDataService staffMessageMaintenanceDataService;
+        private SystemlogMaintenanceBLService service;
         
         public StaffMessageMaintenanceBL() {
                 ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+                service = LogFactory.getInstance();
                 staffMessageMaintenanceDataService = (StaffMessageMaintenanceDataService) clientRMIHelper.getServiceByName("StaffMessageMaintenanceDataServiceImpl");
         }
         
@@ -27,6 +32,7 @@ public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLServi
                         resultMessage = staffMessageMaintenanceDataService
                                         .insert(new StaffMessagePO(
                                                         staffMessage));
+                        service.addSystemlog(new SystemlogVO("新增人员信息"));
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -41,6 +47,7 @@ public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLServi
                 try {
                         resultMessage = staffMessageMaintenanceDataService
                                         .delete(staffId);
+                        service.addSystemlog(new SystemlogVO("删除人员信息"));
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -56,6 +63,7 @@ public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLServi
                         resultMessage = staffMessageMaintenanceDataService
                                         .update(new StaffMessagePO(
                                                         staffMessage));
+                        service.addSystemlog(new SystemlogVO("修改人员信息"));
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -76,6 +84,7 @@ public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLServi
                         return new ResultMessage("FAIL");
                 }
                 if (resultMessage.getKey().equals("FOUND")) {
+                	service.addSystemlog(new SystemlogVO("查看人员信息"));
                         return new ResultMessage("SUCCESS",
                                         ((StaffMessagePO) resultMessage
                                                         .getValue()).poToVo());
@@ -96,6 +105,7 @@ public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLServi
 					vos.add(pos.get(i).poToVo());
 				}
 				
+				service.addSystemlog(new SystemlogVO("查看所有人员信息"));
 				return new ResultMessage("success", vos);
 			} catch (RemoteException e) {
 				e.printStackTrace();

@@ -22,12 +22,12 @@ public class VerificationPO implements Serializable {
 	private Calendar time;
 	/*批次和批号*/
 	private String pici;
-	private String pihao;
+	private int pihao;
 	
-	public VerificationPO(StorePO store, String user){
+	public VerificationPO(StorePO store, String user, int pihao){
 		time = Calendar.getInstance();
 		this.pici = df.format(time.getTime());
-		this.pihao = time.getTime().getHours()+"";
+		this.pihao = pihao;
 		this.user = user;
 		int area = store.getArea();
 		int row = store.getRow();
@@ -70,7 +70,7 @@ public class VerificationPO implements Serializable {
 		return this.pici;
 	}
 	
-	public String getPihao(){
+	public int getPihao(){
 		return this.pihao;
 	}
 	

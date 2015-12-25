@@ -16,9 +16,6 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 	public StrategyConstantBLServiceImpl(){
 		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
 		dataservice = (StrategyDataService) clientRMIHelper.getServiceByName("StrategyDataServiceImpl");
-		if(dataservice == null){
-			System.out.println("打他service is null!");
-		}
 	}
 
 	@SuppressWarnings("unchecked")
