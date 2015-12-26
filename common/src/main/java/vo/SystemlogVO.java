@@ -1,6 +1,8 @@
 package vo;
 
 
+import util.City;
+import util.InstitutionType;
 import util.PublicMessage;
 import util.Time;
 
@@ -29,7 +31,7 @@ public class SystemlogVO {
         }
         
         public SystemlogVO(String event) {
-                this(new Time(), PublicMessage.institutionID, PublicMessage.staffID, event);
+                this(new Time(), City.cityToString(PublicMessage.location) + InstitutionType.typeTpString(PublicMessage.institutionType), PublicMessage.staffID, event);
         }
         
 }

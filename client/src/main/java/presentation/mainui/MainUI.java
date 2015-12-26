@@ -12,10 +12,9 @@ import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
-import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogic.userbl.UserBLServiceImpl;
-import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import bussinesslogicservice.userblservice.UserBLService;
+import po.InstitutionMessagePO;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
@@ -24,7 +23,6 @@ import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.StoreFrame;
 import presentation.userui.AdminFrame;
-import util.City;
 import util.FrameUtil;
 import util.Job;
 import util.PublicMessage;
@@ -146,9 +144,8 @@ public class MainUI extends JFrame implements ActionListener{
     
     private void OpenFrame(StaffMessageVO vo){
     	if(vo.job == Job.COURIER){
-    		LogisticsBLService logisticsBLService = new LogisticsBLController();
             this.setVisible(false);
-            DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
+            DeliveryManFrame frame = new DeliveryManFrame();
             FrameUtil.setFrameCenter(frame);
             frame.setVisible(true);
     	}
@@ -165,9 +162,8 @@ public class MainUI extends JFrame implements ActionListener{
             frame.setVisible(true);
     	}
     	if(vo.job == Job.SALESOFOFFICE){
-    		LogisticsBLService logisticsBLService = new LogisticsBLController();
             this.setVisible(false);
-            BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
+            BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame();
             FrameUtil.setFrameCenter(frame);
             frame.setVisible(true);
     	}
@@ -178,9 +174,8 @@ public class MainUI extends JFrame implements ActionListener{
             frame.setVisible(true);
     	}
     	if(vo.job == Job.SALESOFCENTRE){
-    		LogisticsBLService logisticsBLService = new LogisticsBLController();
             this.setVisible(false);
-            TransitCenterclerkFrame frame = new TransitCenterclerkFrame(logisticsBLService);
+            TransitCenterclerkFrame frame = new TransitCenterclerkFrame();
             FrameUtil.setFrameCenter(frame);
             frame.setVisible(true);
     	}
@@ -190,10 +185,21 @@ public class MainUI extends JFrame implements ActionListener{
             FrameUtil.setFrameCenter(frame);
     		frame.setVisible(true);
     	}
-    	ResultMessage resultMessage = bl.getCity(vo.institutionid);
-    	if(resultMessage.getKey().equals("success"))
-    	        PublicMessage.location = (City) resultMessage.getValue();
-    	PublicMessage.staffID = vo.id;
-    	PublicMessage.institutionID = vo.institutionid;
+    	initPublicMessage(vo);
+    }
+    
+    private void initPublicMessage(StaffMessageVO vo) {
+            PublicMessage.job = vo.job;
+            PublicMessage.staffID = vo.id;
+            PublicMessage.institutionID = vo.institutionid;
+            ResultMessage resultMessage = bl.getCity(vo.institutionid);
+            InstitutionMessagePO institutionMessagePO = null;
+            if(resultMessage.getKey().equals("success"))
+                    institutionMessagePO = (InstitutionMessagePO) resultMessage.getValue();
+            if(institutionMessagePO == null)
+                    return;
+            PublicMessage.institutionType = institutionMessagePO.getInstitutionType();
+            PublicMessage.location = institutionMessagePO.getCity();
+            
     }
 }
