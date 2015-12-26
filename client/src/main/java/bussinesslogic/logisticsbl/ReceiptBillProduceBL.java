@@ -20,8 +20,7 @@ public class ReceiptBillProduceBL implements ReceiptBillProduceBLService {
         private ReceiptBillProduceDataService receiptBillProduceDataService;
 
         public ReceiptBillProduceBL() {
-            ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-                receiptBillProduceDataService = (ReceiptBillProduceDataService) clientRMIHelper.getServiceByName("ReceiptBillProduceDataServiceImpl");
+                receiptBillProduceDataService = (ReceiptBillProduceDataService) ClientRMIHelper.getServiceByName("ReceiptBillProduceDataServiceImpl");
         }
         
         @Override

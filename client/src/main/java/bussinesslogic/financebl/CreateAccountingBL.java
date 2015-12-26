@@ -22,8 +22,7 @@ public class CreateAccountingBL implements CreateAccountingBLService {
     CreateAccountingDataService createAccountingDataImpl;
 
     public CreateAccountingBL() {
-        ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-        createAccountingDataImpl = (CreateAccountingDataService) clientRMIHelper.
+        createAccountingDataImpl = (CreateAccountingDataService) ClientRMIHelper.
                 getServiceByName("CreateAccountingDataServiceImpl");
     }
 

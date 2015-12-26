@@ -14,8 +14,7 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 	private StrategyDataService dataservice;
 	
 	public StrategyConstantBLServiceImpl(){
-		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-		dataservice = (StrategyDataService) clientRMIHelper.getServiceByName("StrategyDataServiceImpl");
+		dataservice = (StrategyDataService) ClientRMIHelper.getServiceByName("StrategyDataServiceImpl");
 	}
 
 	@SuppressWarnings("unchecked")

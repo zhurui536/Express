@@ -16,8 +16,7 @@ public class UserBLServiceImpl implements UserBLService {
 	private AdminDataService dataservice;
 	
 	public UserBLServiceImpl(){
-		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-		dataservice = (AdminDataService) clientRMIHelper.getServiceByName("AdminDataServiceImpl");
+		dataservice = (AdminDataService) ClientRMIHelper.getServiceByName("AdminDataServiceImpl");
 	}
 
 	@Override

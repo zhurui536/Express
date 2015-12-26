@@ -24,9 +24,8 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
         private ArrayList<String> ids;
 
         public GoodsReceiptBL() {
-                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
                 ids = new ArrayList<>();
-                goodsReceiptDataService = (GoodsReceiptDataService) clientRMIHelper.getServiceByName("GoodsReceiptDataServiceImpl");
+                goodsReceiptDataService = (GoodsReceiptDataService) ClientRMIHelper.getServiceByName("GoodsReceiptDataServiceImpl");
         }
 
         @Override

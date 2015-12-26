@@ -23,8 +23,7 @@ public class ShowReceiptBL implements ShowReceiptBLService {
     private ShowReceiptDataService showReceiptDataServiceImpl;
 
     public ShowReceiptBL() {
-        ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-        showReceiptDataServiceImpl = (ShowReceiptDataService) clientRMIHelper.
+        showReceiptDataServiceImpl = (ShowReceiptDataService) ClientRMIHelper.
                 getServiceByName("ShowReceiptDataServiceImpl");
     }
 
