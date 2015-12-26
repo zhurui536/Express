@@ -16,11 +16,11 @@ public class OutStoreBillPO extends BillPO {
 	private String billid;
 	private ArrayList<OutStorePO> pos;
 	
-	public OutStoreBillPO(String userid, ArrayList<OutStorePO> pos, String billid){
-		super(billid, BillType.OUTSTORE, userid);
+	public OutStoreBillPO(String userid, ArrayList<OutStorePO> pos){
+		super(BillType.OUTSTORE, userid);
 		this.userid = userid;
 		this.pos = pos;
-		this.billid = billid;
+		this.billid = super.getBillID();
 	}
 	
 	public String getUser(){

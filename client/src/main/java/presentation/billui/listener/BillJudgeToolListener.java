@@ -1,22 +1,34 @@
 package presentation.billui.listener;
 
-import bussinesslogicservice.billblservice.BillBLService;
-import po.logisticpo.*;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
+import po.financepo.PayBillPO;
+import po.logisticpo.ArrivalBillPO;
+import po.logisticpo.DeliveryBillPO;
+import po.logisticpo.LoadingBillPO;
+import po.logisticpo.ReceiptBillPO;
+import po.logisticpo.SendBillPO;
 import po.storepo.InStoreBillPO;
 import po.storepo.OutStoreBillPO;
 import presentation.WarningDialog;
-import presentation.billui.datapanel.*;
+import presentation.billui.datapanel.ArrivalBillDataPane;
+import presentation.billui.datapanel.BillDataPane;
+import presentation.billui.datapanel.DeliveryBillDataPane;
+import presentation.billui.datapanel.InStoreBillDataPane;
+import presentation.billui.datapanel.LoadingBillDataPane;
+import presentation.billui.datapanel.OutStoreBillDataPane;
+import presentation.billui.datapanel.PayBillDataPane;
+import presentation.billui.datapanel.ReceiptBillDataPane;
+import presentation.billui.datapanel.SendBillDataPane;
+import presentation.billui.tool.BillJudgeTool;
 import presentation.mainui.ToolPane;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
 import util.BillType;
 import util.ResultMessage;
 import vo.BillVO;
-
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-
-//import presentation.billui.datapanel.PayBillDataPane;
+import bussinesslogicservice.billblservice.BillBLService;
 
 public class BillJudgeToolListener extends ToolListener {
 	private BillBLService bc;
@@ -71,6 +83,18 @@ public class BillJudgeToolListener extends ToolListener {
 				WarningDialog frame = new WarningDialog(ui, result);
 			}
 		}
+		if(i==3){
+			BillJudgeTool billtool = (BillJudgeTool) tool;
+			ResultMessage result = bc.getBills(this.types[billtool.billType.getSelectedIndex()]);
+			
+			if(result.getKey().equals("success")){
+				BillDataPane data = new BillDataPane((ArrayList<BillVO>) result.getValue(), this);
+				ui.paintdata(data);
+			}
+			else{
+				WarningDialog frame = new WarningDialog(ui, result);
+			}
+		}
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -105,10 +129,10 @@ public class BillJudgeToolListener extends ToolListener {
 				ui.paintdata(data);
 			}
 			else if(type == BillType.PAYMENT){
-//				PayBillPO po = (PayBillPO) result.getValue();
-//				
-//				PayBillDataPane data = new PayBillDataPane(po);
-//				ui.paintdata(data);
+				PayBillPO po = (PayBillPO) result.getValue();
+				
+				PayBillDataPane data = new PayBillDataPane(po);
+				ui.paintdata(data);
 			}
 			else if(type == BillType.RECEIPT){
 				ReceiptBillPO po = (ReceiptBillPO) result.getValue();
@@ -146,4 +170,8 @@ public class BillJudgeToolListener extends ToolListener {
 		}
 	}
 
+	private final BillType[] types = {
+			BillType.OUTSTORE, BillType.INSTORE, BillType.PAYMENT, BillType.RECEIPT, BillType.ARRIVAL, BillType.DELIVERY,
+			BillType.LOADING, BillType.SEND, BillType.TRANSIT
+	};
 }

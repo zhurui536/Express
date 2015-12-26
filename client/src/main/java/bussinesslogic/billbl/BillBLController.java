@@ -31,6 +31,7 @@ public class BillBLController implements BillBLService {
 		bills = new ArrayList<BillPO>();
 	}
 //获得所有未审批单据
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage getBills() {
 		vos = new ArrayList<BillVO>();
@@ -46,7 +47,7 @@ public class BillBLController implements BillBLService {
 						
 						for(int j=0;j<temp.size();j++){
 							bill = temp.get(j);
-							if(bill.getState() == BillState.DRAFT){
+							if(bill.getState() != BillState.APPROVED){
 								bills.add(bill);
 							}
 						}
@@ -57,7 +58,7 @@ public class BillBLController implements BillBLService {
 						
 						for(int j=0;j<temp.size();j++){
 							bill = temp.get(j);
-							if(bill.getState() == BillState.DRAFT){
+							if(bill.getState() != BillState.APPROVED){
 								bills.add(bill);
 							}
 						}
@@ -68,7 +69,7 @@ public class BillBLController implements BillBLService {
 						
 						for(int j=0;j<temp.size();j++){
 							bill = temp.get(j);
-							if(bill.getState() == BillState.DRAFT){
+							if(bill.getState() != BillState.APPROVED){
 								bills.add(bill);
 							}
 						}
@@ -79,7 +80,7 @@ public class BillBLController implements BillBLService {
 						
 						for(int j=0;j<temp.size();j++){
 							bill = temp.get(j);
-							if(bill.getState() == BillState.DRAFT){
+							if(bill.getState() != BillState.APPROVED){
 								bills.add(bill);
 							}
 						}
@@ -90,7 +91,7 @@ public class BillBLController implements BillBLService {
 						
 						for(int j=0;j<temp.size();j++){
 							bill = temp.get(j);
-							if(bill.getState() == BillState.DRAFT){
+							if(bill.getState() != BillState.APPROVED){
 								bills.add(bill);
 							}
 						}
@@ -101,7 +102,7 @@ public class BillBLController implements BillBLService {
 						
 						for(int j=0;j<temp.size();j++){
 							bill = temp.get(j);
-							if(bill.getState() == BillState.DRAFT){
+							if(bill.getState() != BillState.APPROVED){
 								bills.add(bill);
 							}
 						}
@@ -112,7 +113,7 @@ public class BillBLController implements BillBLService {
 						
 						for(int j=0;j<temp.size();j++){
 							bill = temp.get(j);
-							if(bill.getState() == BillState.DRAFT){
+							if(bill.getState() != BillState.APPROVED){
 								bills.add(bill);
 							}
 						}
@@ -123,7 +124,7 @@ public class BillBLController implements BillBLService {
 						
 						for(int j=0;j<temp.size();j++){
 							bill = temp.get(j);
-							if(bill.getState() == BillState.DRAFT){
+							if(bill.getState() != BillState.APPROVED){
 								bills.add(bill);
 							}
 						}
@@ -134,7 +135,7 @@ public class BillBLController implements BillBLService {
 						
 						for(int j=0;j<temp.size();j++){
 							bill = temp.get(j);
-							if(bill.getState() == BillState.DRAFT){
+							if(bill.getState() != BillState.APPROVED){
 								bills.add(bill);
 							}
 						}
@@ -154,10 +155,105 @@ public class BillBLController implements BillBLService {
 		for(int j=0;j<bills.size();j++){
 			vos.add(bills.get(j).toVO());
 		}
-		System.out.println(vos.size());
 		return new ResultMessage("success", vos);
-		
-		
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResultMessage getBills(BillType type){
+		ResultMessage result;
+		try {
+			ArrayList<BillVO> bills = new ArrayList<BillVO>();
+			result = dataservice.getBills(type);
+			if(result.getKey().equals("success")){
+				if(type == BillType.INSTORE){
+					ArrayList<InStoreBillPO> temp = (ArrayList<InStoreBillPO>) result.getValue();
+					
+					for(int i=0;i<temp.size();i++){
+						if(temp.get(i).getState() != BillState.APPROVED){
+							bills.add(temp.get(i).toVO());
+						}
+					}
+					return new ResultMessage("success", bills);
+				}
+				else if(type == BillType.OUTSTORE){
+					ArrayList<OutStoreBillPO> temp = (ArrayList<OutStoreBillPO>) result.getValue();
+					
+					for(int i=0;i<temp.size();i++){
+						if(temp.get(i).getState() != BillState.APPROVED){
+							bills.add(temp.get(i).toVO());
+						}
+					}
+					return new ResultMessage("success", bills);
+				}
+				else if(type == BillType.PAYMENT){
+					ArrayList<PayBillPO> temp = (ArrayList<PayBillPO>) result.getValue();
+					
+					for(int i=0;i<temp.size();i++){
+						if(temp.get(i).getState() != BillState.APPROVED){
+							bills.add(temp.get(i).toVO());
+						}
+					}
+					return new ResultMessage("success", bills);
+				}
+				else if(type == BillType.RECEIPT){
+					ArrayList<ReceiptBillPO> temp = (ArrayList<ReceiptBillPO>) result.getValue();
+					
+					for(int i=0;i<temp.size();i++){
+						if(temp.get(i).getState() != BillState.APPROVED){
+							bills.add(temp.get(i).toVO());
+						}
+					}
+					return new ResultMessage("success", bills);
+				}
+				else if(type == BillType.ARRIVAL){
+					ArrayList<ArrivalBillPO> temp = (ArrayList<ArrivalBillPO>) result.getValue();
+					
+					for(int i=0;i<temp.size();i++){
+						if(temp.get(i).getState() != BillState.APPROVED){
+							bills.add(temp.get(i).toVO());
+						}
+					}
+					return new ResultMessage("success", bills);
+				}
+				else if(type == BillType.DELIVERY){
+					ArrayList<DeliveryBillPO> temp = (ArrayList<DeliveryBillPO>) result.getValue();
+					
+					for(int i=0;i<temp.size();i++){
+						if(temp.get(i).getState() != BillState.APPROVED){
+							bills.add(temp.get(i).toVO());
+						}
+					}
+					return new ResultMessage("success", bills);
+				}
+				else if(type == BillType.LOADING){
+					ArrayList<LoadingBillPO> temp = (ArrayList<LoadingBillPO>) result.getValue();
+					
+					for(int i=0;i<temp.size();i++){
+						if(temp.get(i).getState() != BillState.APPROVED){
+							bills.add(temp.get(i).toVO());
+						}
+					}
+					return new ResultMessage("success", bills);
+				}
+				else if(type == BillType.SEND){
+					ArrayList<SendBillPO> temp = (ArrayList<SendBillPO>) result.getValue();
+					
+					for(int i=0;i<temp.size();i++){
+						if(temp.get(i).getState() != BillState.APPROVED){
+							bills.add(temp.get(i).toVO());
+						}
+					}
+					return new ResultMessage("success", bills);
+				}
+			}
+			else{
+				return result;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return new ResultMessage("internet error", null);
+		}
+		return new ResultMessage("unknownerror", null);
 	}
 //获得某个被选中的单据
 	@SuppressWarnings("unchecked")
@@ -276,7 +372,7 @@ public class BillBLController implements BillBLService {
 					
 					for(int i=0;i<temp.size();i++){
 						if(temp.get(i).getBillID().equals(id)){
-							temp.get(i).setState(BillState.APPROVED);
+							temp.get(i).approve();
 							dataservice.saveBills(temp, type);
 							return new ResultMessage("success", null);
 						}
@@ -289,7 +385,7 @@ public class BillBLController implements BillBLService {
 					
 					for(int i=0;i<temp.size();i++){
 						if(temp.get(i).getBillID().equals(id)){
-							temp.get(i).setState(BillState.APPROVED);
+							temp.get(i).approve();
 							dataservice.saveBills(temp, type);
 							return new ResultMessage("success", null);
 						}
@@ -302,7 +398,7 @@ public class BillBLController implements BillBLService {
 					
 					for(int i=0;i<temp.size();i++){
 						if(temp.get(i).getBillID().equals(id)){
-							temp.get(i).setState(BillState.APPROVED);
+							temp.get(i).approve();
 							dataservice.saveBills(temp, type);
 							return new ResultMessage("success", null);
 						}
@@ -315,7 +411,7 @@ public class BillBLController implements BillBLService {
 					
 					for(int i=0;i<temp.size();i++){
 						if(temp.get(i).getBillID().equals(id)){
-							temp.get(i).setState(BillState.APPROVED);
+							temp.get(i).approve();
 							dataservice.saveBills(temp, type);
 							return new ResultMessage("success", null);
 						}
@@ -328,7 +424,7 @@ public class BillBLController implements BillBLService {
 					
 					for(int i=0;i<temp.size();i++){
 						if(temp.get(i).getBillID().equals(id)){
-							temp.get(i).setState(BillState.APPROVED);
+							temp.get(i).approve();
 							dataservice.saveBills(temp, type);
 							return new ResultMessage("success", null);
 						}
@@ -341,7 +437,7 @@ public class BillBLController implements BillBLService {
 					
 					for(int i=0;i<temp.size();i++){
 						if(temp.get(i).getBillID().equals(id)){
-							temp.get(i).setState(BillState.APPROVED);
+							temp.get(i).approve();
 							dataservice.saveBills(temp, type);
 							return new ResultMessage("success", null);
 						}
@@ -354,7 +450,7 @@ public class BillBLController implements BillBLService {
 					
 					for(int i=0;i<temp.size();i++){
 						if(temp.get(i).getBillID().equals(id)){
-							temp.get(i).setState(BillState.APPROVED);
+							temp.get(i).approve();
 							dataservice.saveBills(temp, type);
 							return new ResultMessage("success", null);
 						}
@@ -367,7 +463,7 @@ public class BillBLController implements BillBLService {
 					
 					for(int i=0;i<temp.size();i++){
 						if(temp.get(i).getBillID().equals(id)){
-							temp.get(i).setState(BillState.APPROVED);
+							temp.get(i).approve();
 							dataservice.saveBills(temp, type);
 							return new ResultMessage("success", null);
 						}
@@ -380,7 +476,7 @@ public class BillBLController implements BillBLService {
 					
 					for(int i=0;i<temp.size();i++){
 						if(temp.get(i).getBillID().equals(id)){
-							temp.get(i).setState(BillState.APPROVED);
+							temp.get(i).approve();
 							dataservice.saveBills(temp, type);
 							return new ResultMessage("success", null);
 						}
@@ -396,6 +492,7 @@ public class BillBLController implements BillBLService {
 			return new ResultMessage("internet error", null);
 		}
 	}
+	
 //批量审批
 	@Override
 	public ResultMessage approves() {

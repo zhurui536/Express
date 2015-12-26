@@ -37,9 +37,9 @@ public class TransferBillPO extends BillPO {
         public TransferBillPO(String transferBillNum, Trans trans,
                         String depaturePlace, String arrivalPlace,
                         ArrayList<String> ids) {
-                super(transferBillNum, BillType.TRANSIT, transferBillNum);
+                super(BillType.TRANSIT, transferBillNum);
                 this.time = new Time();
-                this.transferBillNum = transferBillNum;
+                this.transferBillNum = super.getBillID();
                 this.trans = trans;
                 this.depaturePlace = depaturePlace;
                 this.arrivalPlace = arrivalPlace;

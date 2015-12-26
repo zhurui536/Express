@@ -20,6 +20,7 @@ import po.storepo.OutStoreBillPO;
 import po.storepo.OutStorePO;
 import po.storepo.StorePO;
 import po.storepo.VerificationPO;
+import util.BillState;
 import util.ResultMessage;
 
 public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDataService {
@@ -142,8 +143,9 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			this.writeList(instorerecord, records);
 			
 			//接着保存入库单
-			if(po.size()>0){//暂时现将第一个货物的编号作为入库单id
-				InStoreBillPO bill = new InStoreBillPO(po.get(0).getUser(), po, df.format(Calendar.getInstance().getTime()));
+			if(po.size()>0){
+				InStoreBillPO bill = new InStoreBillPO(po.get(0).getUser(), po);
+				bill.setState(BillState.SUBMTTED);
 				ArrayList<InStoreBillPO> temp;
 				
 				//读入已有的单据数据
@@ -183,7 +185,8 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			
 			//接着保存出库单
 			if(po.size()>0){//暂时现将第一个货物的编号作为出库单id
-				OutStoreBillPO bill = new OutStoreBillPO(po.get(0).getUser(), po, df.format(Calendar.getInstance().getTime()));
+				OutStoreBillPO bill = new OutStoreBillPO(po.get(0).getUser(), po);
+				bill.setState(BillState.SUBMTTED);
 				ArrayList<OutStoreBillPO> temp;
 				
 				//读入已有的单据数据

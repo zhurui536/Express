@@ -16,11 +16,11 @@ public class InStoreBillPO extends BillPO {
 	private ArrayList<InStorePO> pos;
 	private String billid;
 	
-	public InStoreBillPO(String userid, ArrayList<InStorePO> pos, String billid){
-		super(billid, BillType.INSTORE, userid);
+	public InStoreBillPO(String userid, ArrayList<InStorePO> pos){
+		super(BillType.INSTORE, userid);
 		this.userid = userid;
 		this.pos = pos;
-		this.billid = billid;
+		this.billid = super.getBillID();
 	}
 	
 	public ArrayList<InStorePO> getPOS(){
@@ -33,5 +33,11 @@ public class InStoreBillPO extends BillPO {
 	
 	public String getBill(){
 		return this.billid;
+	}
+	
+	//填写对于库存对象修改的实现
+	@Override
+	public void approve(){
+		super.approve();
 	}
 }

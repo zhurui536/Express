@@ -39,7 +39,7 @@ public class LoadingBillPO extends BillPO {
                         String arrivalPlace, String numOfTruck,
                         String supervisor, String supercargo,
                         ArrayList<String> ids) {
-                super(institution, BillType.LOADING, supervisor);
+                super(BillType.LOADING, supervisor);
                 this.institution = institution;
                 this.date = date;
                 this.transferNum = transferNum;

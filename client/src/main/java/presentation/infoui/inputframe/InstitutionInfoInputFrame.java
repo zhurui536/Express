@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import presentation.infoui.listener.InstitutionInfoToolListener;
+import util.City;
 import util.InstitutionType;
 import vo.InstitutionMessageVO;
 
@@ -20,14 +21,15 @@ public class InstitutionInfoInputFrame extends JFrame implements ActionListener 
 	private JButton cancle;
 	private JTextArea[] input;
 	private JComboBox<String> type;
+	private JComboBox<String> city;
 	
 	//表示窗口的用途，0代表增加，1代表修改
 	private int condition;
 	
-//	public static void main(String[] args){
-//		InstitutionInfoInputFrame test = new InstitutionInfoInputFrame(null);
-//		test.setVisible(true);
-//	}
+	public static void main(String[] args){
+		InstitutionInfoInputFrame test = new InstitutionInfoInputFrame(null);
+		test.setVisible(true);
+	}
 	
 	public InstitutionInfoInputFrame(InstitutionInfoToolListener tl){
 		this.condition = 0;
@@ -61,7 +63,7 @@ public class InstitutionInfoInputFrame extends JFrame implements ActionListener 
 		id.setBounds(20, 50, 70, 30);
 		this.getContentPane().add(id);
 		input[0] = new JTextArea();
-		input[0].setBounds(85, 50, 100, 30);
+		input[0].setBounds(95, 50, 100, 30);
 		this.getContentPane().add(input[0]);
 		
 		JLabel institution = new JLabel("机构名称：");
@@ -73,11 +75,21 @@ public class InstitutionInfoInputFrame extends JFrame implements ActionListener 
 		
 		
 		JLabel institutiontype = new JLabel("机构类型：");
-		institutiontype.setBounds(110, 90, 70, 30);
+		institutiontype.setBounds(20, 90, 70, 30);
 		this.getContentPane().add(institutiontype);
 		this.type = new JComboBox<String>(this.institutiontype);
-		this.type.setBounds(185, 90, 120, 30);
+		this.type.setBounds(95, 90, 100, 30);
 		this.getContentPane().add(this.type);
+		
+		JLabel cityname = new JLabel("城市：");
+		cityname.setBounds(200, 90, 70, 30);
+		this.getContentPane().add(cityname);
+		city = new JComboBox<String>();
+		for(int j=0;j<Cities.length;j++){
+			city.addItem(City.cityToString(Cities[j]));
+		}
+		city.setBounds(275, 90, 70, 30);
+		this.getContentPane().add(city);
 		
 		confirm = new JButton("确定");
 		cancle = new JButton("取消");
@@ -116,6 +128,7 @@ public class InstitutionInfoInputFrame extends JFrame implements ActionListener 
 			vo.id = input[0].getText();
 			vo.name = input[1].getText();
 			vo.institutionType = this.institutionType[type.getSelectedIndex()];
+			vo.city = Cities[this.city.getSelectedIndex()];
 			
 			boolean result = tl.getInput(vo, condition);
 			if(result){
@@ -126,4 +139,5 @@ public class InstitutionInfoInputFrame extends JFrame implements ActionListener 
 	
 	private final String[] institutiontype = {"营业厅", "中转中心"};
 	private final InstitutionType[] institutionType = {InstitutionType.BUSINESS_HALL, InstitutionType.TRANSIT_CENTER};
+	private final City[] Cities = {City.NANJING, City.SHANGHAI, City.GUANGZHOU, City.BEIJING};
 }

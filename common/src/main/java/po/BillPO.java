@@ -2,9 +2,13 @@ package po;
 
 import util.BillState;
 import util.BillType;
+import util.City;
+import util.PublicMessage;
 import vo.BillVO;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class BillPO implements Serializable {
 
@@ -15,11 +19,11 @@ public class BillPO implements Serializable {
 	private BillType type;
 	private BillState state;
 	
-	public BillPO(String billid, BillType type, String userid){
-		this.billid = billid;
+	public BillPO(BillType type, String userid){
 		this.userid = userid;
 		this.type = type;
 		this.state = BillState.DRAFT;
+		this.billid = PublicMessage.institutionID + df.format(Calendar.getInstance()) + BillType.BillTypeToTypeNum(type) + df2.format(Calendar.getInstance());
 	}
 	
 	public String getBillID(){
@@ -45,4 +49,11 @@ public class BillPO implements Serializable {
 	public void setState(BillState state){
 		this.state = state;
 	}
+	
+	public void approve(){
+		this.state = BillState.APPROVED;
+	}
+	
+	private SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");
+	private SimpleDateFormat df2 = new SimpleDateFormat("HHmmss");
 }
