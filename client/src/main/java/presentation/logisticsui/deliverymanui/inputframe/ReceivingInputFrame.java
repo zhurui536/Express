@@ -36,7 +36,7 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                 this.listener = listener;
                 this.setName("快递单号输入");
                 this.setLayout(null);
-                this.setSize(590, 520);
+                this.setSize(590, 550);
                 this.setLocation(350, 150);
                 init();
         }
@@ -59,7 +59,7 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                 
                 panelForGoods = new goodsPanel();
                 panelForGoods.setLayout(null);
-                panelForGoods.setSize(510,165);
+                panelForGoods.setSize(580,165);
                 panelForGoods.setLocation(15,45);
                 
                 this.add(panelForGoods);
@@ -126,7 +126,7 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                         startPlace.setBounds(250,15,100, 30);
                         this.add(startPlace);
                         
-                        endPlace.setBounds(435,15,100,30);
+                        endPlace.setBounds(415,15,100,30);
                         this.add(endPlace);
                         
                         packageTypeBox.setBounds(65, 115, 100, 30);

@@ -32,8 +32,8 @@ public class DeliveryManFrame extends JFrame{
         private static final int NUMBER_OF_BUTTONS = 3;
         
         public static void main(String[] args) throws ClientInitException {
-                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-                clientRMIHelper.init();
+//                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+//                clientRMIHelper.init();
                 LogisticsBLService logisticsBLService = new LogisticsBLController();
                 DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
                 frame.setVisible(true);
