@@ -24,8 +24,6 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 	public AdminDataServiceImpl() throws RemoteException{
 		super();
 		
-//		this.generatePath();
-		
 		File file = new File(userrecord);
 		
 		if(file.exists()){
@@ -51,6 +49,7 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage getUser() throws RemoteException {
 		ArrayList<UserPO> users;
@@ -77,6 +76,7 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage getStaff() throws RemoteException {
 		ArrayList<StaffMessagePO> staff = null;

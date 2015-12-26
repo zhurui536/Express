@@ -27,15 +27,15 @@ public class AdminDataTester {
 			ArrayList<UserPO> users = new ArrayList<UserPO>();
 			
 			users.add(new UserPO("admin", "admin", "admin", AuthorityLevel.HIGH));
-			
+			users.add(new UserPO("1", "1", "admin", AuthorityLevel.HIGH));
 			ResultMessage result = test.saveUser(users);
 			
 			System.out.println(result.getKey());
-			
 
 			StaffMessageMaintenanceDataServiceImpl staffdata = new StaffMessageMaintenanceDataServiceImpl();
 			staffdata.insert(new StaffMessagePO("141250212", "朱浩然", "admin", Job.MANAGER, SalaryType.MONTHLY, 0));
 			staffdata.insert(new StaffMessagePO("admin", "admin", "admin", Job.ADMIN, SalaryType.MONTHLY, 0));
+			staffdata.insert(new StaffMessagePO("1", "1", "admin", Job.FINANCEMAN, SalaryType.MONTHLY, 0));
 			ReceivingDataServiceImpl receidata = new ReceivingDataServiceImpl();
 			PeopleMessagePO people = new PeopleMessagePO("朱浩然", "南京大学", "南京大学", "785693057", "785693057");
 			GoodsPO[] goods = new GoodsPO[10];

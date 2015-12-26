@@ -14,7 +14,8 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import bussinesslogic.userbl.UserBLServiceImpl;
 import bussinesslogicservice.userblservice.UserBLService;
-
+import connection.ClientInitException;
+import connection.ClientRMIHelper;
 import connection.ConnectTest;
 import po.InstitutionMessagePO;
 import presentation.WarningDialog;
@@ -48,11 +49,11 @@ public class MainUI extends JFrame implements ActionListener{
     public static String USER_ID;
 
     public static void main(String[] args){
-//    	initRMI();
+    	initRMI();
     	
-//        MainUI ui = new MainUI();
-//        FrameUtil.setFrameCenter(ui);
-//        ui.setVisible(true);
+        MainUI ui = new MainUI();
+        FrameUtil.setFrameCenter(ui);
+        ui.setVisible(true);
         
     	testConnect();
     }
@@ -85,13 +86,13 @@ public class MainUI extends JFrame implements ActionListener{
         this.initialize();
     }
 
-//    private static void initRMI() {
-//        try {
-//            ClientRMIHelper.init();
-//        } catch (ClientInitException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private static void initRMI() {
+        try {
+            ClientRMIHelper.init();
+        } catch (ClientInitException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void initialize(){
         JLabel title = new JLabel("用户登录");
@@ -190,6 +191,7 @@ public class MainUI extends JFrame implements ActionListener{
             FrameUtil.setFrameCenter(frame);
     		frame.setVisible(true);
     	}
+    	
     	initPublicMessage(vo);
     }
     
