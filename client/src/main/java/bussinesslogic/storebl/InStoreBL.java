@@ -2,13 +2,16 @@ package bussinesslogic.storebl;
 
 import bussinesslogicservice.storeblservice.InStoreBLService;
 import connection.ClientRMIHelper;
+import dataservice.logisticsdataservice.DeliveryDataService;
 import dataservice.storedataservice.StoreDataService;
 import po.GoodsPO;
 import po.storepo.InStorePO;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
+import util.InstitutionType;
 import util.PublicMessage;
 import util.ResultMessage;
+import util.Time;
 import vo.storevo.InStoreVO;
 import vo.storevo.StorePlaceVO;
 
@@ -19,10 +22,12 @@ public class InStoreBL implements InStoreBLService {
 	private StoreDataService dataservice;
 	private String user;
 	private ArrayList<InStorePO> goodslist;
+	private DeliveryDataService goodsdata;
 	
 	public InStoreBL(){
 		this.user = PublicMessage.staffID;
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		goodsdata = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
 	}
 
 	@Override
@@ -100,7 +105,7 @@ public class InStoreBL implements InStoreBLService {
 		if(condition == 0){//0表示确定结束入库
 			try {
 				ResultMessage result = dataservice.getStore();
-				
+				//改写库存
 				if(result.getKey().equals("success")){
 					StorePO store = (StorePO) result.getValue();
 					
@@ -109,8 +114,18 @@ public class InStoreBL implements InStoreBLService {
 						StorePlacePO place = temp.getStorePlace();
 						place.setGoods(temp.getGoods());
 						store.setStorePlace(place);
+						
+						//更新货物的货运状态
+						goodslist.get(i).getGoods().addLocation(new Time().toString()
+	                            + " "
+	                            + PublicMessage.location
+	                            + " "
+	                            + InstitutionType
+	                                            .typeTpString(PublicMessage.institutionType)
+	                                            + " " + "已入库");
+						goodsdata.updateGoods(goodslist.get(i).getGoods());
 					}
-					
+					//保存新的库存
 					result = dataservice.saveStore(store);
 					
 					if(!result.getKey().equals("success")){

@@ -2,12 +2,15 @@ package bussinesslogic.storebl;
 
 import bussinesslogicservice.storeblservice.OutStoreBLService;
 import connection.ClientRMIHelper;
+import dataservice.logisticsdataservice.DeliveryDataService;
 import dataservice.storedataservice.StoreDataService;
 import po.storepo.OutStorePO;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
+import util.InstitutionType;
 import util.PublicMessage;
 import util.ResultMessage;
+import util.Time;
 import util.Trans;
 import vo.storevo.OutStoreVO;
 
@@ -17,11 +20,13 @@ import java.util.ArrayList;
 public class OutStoreBL implements OutStoreBLService {
 	
 	private StoreDataService dataservice;
+	private DeliveryDataService goodsdata;
 	private String user;
 	private ArrayList<OutStorePO> goodslist;
 	
 	public OutStoreBL(){
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		goodsdata = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
 		this.user = PublicMessage.staffID;
 		
 	}
@@ -102,6 +107,16 @@ public class OutStoreBL implements OutStoreBLService {
 						StorePlacePO place = temp.getStorePlace();
 						StorePlacePO newplace = new StorePlacePO(place.getArea(), place.getRow(), place.getShelf(), place.getPlace());
 						store.setStorePlace(newplace);
+
+						//更新货物的货运状态
+						goodslist.get(i).getGoods().addLocation(new Time().toString()
+	                            + " "
+	                            + PublicMessage.location
+	                            + " "
+	                            + InstitutionType
+	                                            .typeTpString(PublicMessage.institutionType)
+	                                            + " " + "已出库");
+						goodsdata.updateGoods(goodslist.get(i).getGoods());
 					}
 					
 					result = dataservice.saveStore(store);

@@ -205,6 +205,7 @@ public class StoreBLController implements StoreBLService {
 				ResultMessage result = dataservice.getIntStoreBill();
 				if(result.getKey().equals("success")){
 					ArrayList<InStoreBillPO> bills = (ArrayList<InStoreBillPO>) result.getValue();
+					this.logservice.addSystemlog(new SystemlogVO("查看入库单审批情况"));
 					return new ResultMessage("success", bills);
 				}
 				else{
@@ -228,6 +229,7 @@ public class StoreBLController implements StoreBLService {
 				ResultMessage result = dataservice.getOutStoreBill();
 				if(result.getKey().equals("success")){
 					ArrayList<OutStoreBillPO> bills = (ArrayList<OutStoreBillPO>) result.getValue();
+					this.logservice.addSystemlog(new SystemlogVO("查看出库单审批情况"));
 					return new ResultMessage("success", bills);
 				}
 				else{
@@ -240,6 +242,23 @@ public class StoreBLController implements StoreBLService {
 		}
 		else{
 			return new ResultMessage("busy", null);
+		}
+	}
+
+	@Override
+	public ResultMessage checkStore() {
+		StoreDataService dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		try {
+			ResultMessage result = dataservice.getStore();
+			if(result.getKey().equals("success")){
+				return new ResultMessage("success", result.getValue());
+			}
+			else{
+				return result;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return new ResultMessage("internet error", null);
 		}
 	}
 
