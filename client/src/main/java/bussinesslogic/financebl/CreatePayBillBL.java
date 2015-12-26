@@ -1,6 +1,7 @@
 package bussinesslogic.financebl;
 
 import java.util.List;
+import java.math.BigDecimal;
 import java.rmi.RemoteException;
 
 import bussinesslogicservice.financeblservice.CreatePayBillBLService;
@@ -33,7 +34,10 @@ public class CreatePayBillBL implements CreatePayBillBLService {
 
     @Override
     public ResultMessage createPayBill(PayBillVO payBillVO) {
-    	boolean valid = checkAccount(payBillVO.bankAccountID);
+    	ResultMessage msg = processAccount(payBillVO.bankAccountID, payBillVO.getMoney());
+    	if (!isValidMsg(msg)) {
+    		return msg;
+    	}
         PayBillPO payBillPO = new PayBillPO(payBillVO);
         try {
             return createPayBillDataServiceImpl.insert(payBillPO);
@@ -43,25 +47,40 @@ public class CreatePayBillBL implements CreatePayBillBLService {
         }
     }
 
-	private boolean checkAccount(String id) {
+	private ResultMessage processAccount(String id, BigDecimal money) {
 		try {
 			ResultMessage msg = bankAccountManagementDataServiceImpl.findAll();
 			if (!isValidMsg(msg)) {
-				return false;
+				return new ResultMessage("id not found");
 			}
 			@SuppressWarnings("unchecked")
 			List<BankAccountPO> bankAccountPOs = (List<BankAccountPO>) msg.getValue();
 			for (BankAccountPO po : bankAccountPOs) {
 				if (po.getId().equals(id)) {
-					
+					return subtract(po, money);
 				}
 			}
+			return new ResultMessage("id not found");
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return new ResultMessage("fail");
 		}
 	}
 	
+	private ResultMessage subtract(BankAccountPO po, BigDecimal money) {
+		money = po.getBalance().subtract(money);
+		if (money.compareTo(BigDecimal.ZERO) < 0) {
+			return new ResultMessage("money not enough");
+		}
+		po.setBalance(money);
+		try {
+			return bankAccountManagementDataServiceImpl.update(po);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return new ResultMessage("fail");
+		}
+	}
+
 	private boolean isValidMsg(ResultMessage message) {
 		return message.getKey().equals("success");
 	}

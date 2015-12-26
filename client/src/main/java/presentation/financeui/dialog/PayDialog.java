@@ -1,17 +1,28 @@
 package presentation.financeui.dialog;
 
-import presentation.WarningDialog;
-import presentation.financeui.FinanceFrame;
-import util.PayItem;
-import util.PublicMessage;
-import util.Time;
-import vo.financevo.PayBillVO;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import bussinesslogicservice.financeblservice.FinanceBLService;
+import presentation.WarningDialog;
+import presentation.financeui.FinanceFrame;
+import presentation.financeui.datapanel.PayPanel;
+import util.PayItem;
+import util.PublicMessage;
+import util.ResultMessage;
+import util.Time;
+import vo.financevo.PayBillVO;
 
 /**
  * Created by Away
@@ -25,12 +36,13 @@ public class PayDialog extends JDialog {
     private JTextField payAccountID;
     private JComboBox<String> payItem;
     private JTextField payRemark;
-    private PayBillVO payBillVO;
     private FinanceFrame ui;
-
+    private FinanceBLService financeController;
+    
     public PayDialog(FinanceFrame ui) {
         super(ui);
         this.ui = ui;
+        this.financeController = ui.getFinanceController();
         init();
     }
 
@@ -103,8 +115,8 @@ public class PayDialog extends JDialog {
             String id = "111" + new Random().nextInt(100000);
             boolean success = check(money, accountID, remark);
             if (success) {
-                payBillVO = new PayBillVO(current, new BigDecimal(money), staffID, accountID, id, item, remark);
-                close();
+                PayBillVO payBillVO = new PayBillVO(current, new BigDecimal(money), staffID, accountID, id, item, remark);
+                processPay(payBillVO);
             }
         }
     }
@@ -122,12 +134,29 @@ public class PayDialog extends JDialog {
         }
         return true;
     }
-
-    private void close() {
-        this.setVisible(false);
-    }
     
-    public PayBillVO getPayBillVO() {
-    	return payBillVO;
+    private void processPay(PayBillVO payBillVO) {
+    	ResultMessage msg = financeController.createPayBill(payBillVO);
+
+        if (MoneyNotEnough(msg)) {
+            new WarningDialog(ui, "该账户没有足够的余额");
+        } else if (IDNotFound(msg)) {
+        	new WarningDialog(ui, "未找到该用户");
+        }
+        else {
+            List<PayBillVO> payBillVOList = new ArrayList<>();
+            payBillVOList.add(payBillVO);
+            PayPanel payPanel = new PayPanel(payBillVOList);
+            ui.paintData(payPanel);
+            this.setVisible(false);
+        }
+	}
+    
+    private boolean MoneyNotEnough(ResultMessage message) {
+        return message.getKey().equals("money not enough");
+    }
+	
+	private boolean IDNotFound(ResultMessage message) {
+        return message.getKey().equals("id not found");
     }
 }
