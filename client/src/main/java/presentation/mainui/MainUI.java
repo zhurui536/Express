@@ -14,6 +14,8 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import bussinesslogic.userbl.UserBLServiceImpl;
 import bussinesslogicservice.userblservice.UserBLService;
+
+import connection.ConnectTest;
 import po.InstitutionMessagePO;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
@@ -47,9 +49,12 @@ public class MainUI extends JFrame implements ActionListener{
 
     public static void main(String[] args){
 //    	initRMI();
-        MainUI ui = new MainUI();
-        FrameUtil.setFrameCenter(ui);
-        ui.setVisible(true);
+    	
+//        MainUI ui = new MainUI();
+//        FrameUtil.setFrameCenter(ui);
+//        ui.setVisible(true);
+        
+    	testConnect();
     }
 
     public MainUI(){
@@ -201,5 +206,10 @@ public class MainUI extends JFrame implements ActionListener{
             PublicMessage.institutionType = institutionMessagePO.getInstitutionType();
             PublicMessage.location = institutionMessagePO.getCity();
             
+    }
+    
+    private static void testConnect() {
+    	ConnectTest connectTest = new ConnectTest();
+    	connectTest.init();
     }
 }
