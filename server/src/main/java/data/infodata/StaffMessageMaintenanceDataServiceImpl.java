@@ -18,7 +18,6 @@ public class StaffMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
         private static final String PATH = "src/main/java/save/infodata/staffMessagePO.dat";
         
         private ArrayList<StaffMessagePO> staffMessagePOs;
-        private InstitutionMessageMaintenanceDataServiceImpl instdata;
 
         public StaffMessageMaintenanceDataServiceImpl()
                         throws RemoteException {
@@ -26,25 +25,12 @@ public class StaffMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
                 init();
         }
         
-//        public StaffMessageMaintenanceDataServiceImpl(InstitutionMessageMaintenanceDataServiceImpl instdata)
-//                throws RemoteException {
-//        	super();
-//        	this.instdata = instdata;
-//        	init();
-//        }
-        
         @SuppressWarnings("unchecked")
         private void init(){
                 staffMessagePOs = (ArrayList<StaffMessagePO>) Database.load(PATH);
                 if(staffMessagePOs == null)
                         staffMessagePOs = new ArrayList<>();
-                try {
-					instdata = new InstitutionMessageMaintenanceDataServiceImpl();
-				} catch (RemoteException e) {
-					e.printStackTrace();
-				}
         }
-
 
         @Override
         public ResultMessage find(String id) throws RemoteException {
@@ -60,15 +46,9 @@ public class StaffMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
                         throws RemoteException {
                 ResultMessage resultMessage = find(message.getId());
                 if(resultMessage.getKey().equals("NO_EXIST")){
-                	resultMessage = instdata.find(message.getInstitutionid());
-                	if(resultMessage.getKey().equals("FOUND")){
                         staffMessagePOs.add(message);
                         Database.save(PATH, staffMessagePOs);
                         return new ResultMessage("SUCCESS");
-                	}
-                	else{//否则返回提示机构不存在
-                		return new ResultMessage("noinstitution");
-                	}
                 }
                 return new ResultMessage("EXIST");
         }
@@ -89,17 +69,10 @@ public class StaffMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
                         throws RemoteException {
                 ResultMessage resultMessage = find(message.getId());
                 if(resultMessage.getKey().equals("FOUND")){
-                	//查找到对应的id之后检查机构id
-                	resultMessage = instdata.find(message.getInstitutionid());
-                	if(resultMessage.getKey().equals("FOUND")){
                 		staffMessagePOs.remove(resultMessage.getValue());
                         staffMessagePOs.add(message);
                         Database.save(PATH, staffMessagePOs);
                         return new ResultMessage("SUCCESS");
-                	}
-                	else{//否则返回提示机构不存在
-                		return new ResultMessage("noinstitution");
-                	}
                 }
                 return new ResultMessage("NO_EXIST");
         }
@@ -109,14 +82,4 @@ public class StaffMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
 			return new ResultMessage("SUCCESS", this.staffMessagePOs);
 		}
 		
-		public ResultMessage delInstitution(String instid){
-			for(int i=0;i<this.staffMessagePOs.size();i++){
-				if(this.staffMessagePOs.get(i).getInstitutionid().equals(instid)){
-					//如果有员工的机构被删除，则将机构id改为默认值
-					this.staffMessagePOs.get(i).setInstitutionid("admin");
-				}
-			}
-			Database.save(PATH, staffMessagePOs);
-			return new ResultMessage("SUCCESS");
-		}
 }

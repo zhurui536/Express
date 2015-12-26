@@ -1,28 +1,27 @@
 package bussinesslogic.infobl;
 
-import bussinesslogicservice.infoblservice.InstitutionMessageMaintenanceBLService;
-import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
-import connection.ClientRMIHelper;
-import dataservice.infodataservice.InstitutionMessageMaintenanceDataService;
-import po.InstitutionMessagePO;
-import util.LogFactory;
-import util.ResultMessage;
-import vo.InstitutionMessageVO;
-import vo.SystemlogVO;
-
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+
+import bussinesslogicservice.infoblservice.InstitutionMessageMaintenanceBLService;
+import connection.ClientRMIHelper;
+import dataservice.infodataservice.InstitutionMessageMaintenanceDataService;
+import dataservice.infodataservice.StaffMessageMaintenanceDataService;
+import po.InstitutionMessagePO;
+import po.StaffMessagePO;
+import util.ResultMessage;
+import vo.InstitutionMessageVO;
 
 public class InstitutionMessageMaintenanceBL implements
         InstitutionMessageMaintenanceBLService {
 
         private InstitutionMessageMaintenanceDataService institutionMessageMaintenanceDataService;
-        private SystemlogMaintenanceBLService service;
         private ArrayList<InstitutionMessagePO> pos;
+		private StaffMessageMaintenanceDataService staffMessageMaintenanceDataService;
 
         public InstitutionMessageMaintenanceBL() {
-                service = LogFactory.getInstance();
                 institutionMessageMaintenanceDataService = (InstitutionMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("InstitutionMessageMaintenanceDataServiceImpl");
+                staffMessageMaintenanceDataService = (StaffMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("StaffMessageMaintenanceDataServiceImpl");
         }
 
         @Override
@@ -33,9 +32,7 @@ public class InstitutionMessageMaintenanceBL implements
                         resultMessage = institutionMessageMaintenanceDataService
                                         .insert(new InstitutionMessagePO(
                                                         institutionMessage));
-                        service.addSystemlog(new SystemlogVO("新增机构信息"));
                 } catch (RemoteException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                         return new ResultMessage("FAIL");
                 }
@@ -47,11 +44,9 @@ public class InstitutionMessageMaintenanceBL implements
         public ResultMessage delInstitutionMessage(String institutionId) {
                 ResultMessage resultMessage = null;
                 try {
-                        resultMessage = institutionMessageMaintenanceDataService
-                                        .delete(institutionId);
-                        service.addSystemlog(new SystemlogVO("删除机构信息"));
+                        resultMessage = institutionMessageMaintenanceDataService.delete(institutionId);
+                        
                 } catch (RemoteException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                         return new ResultMessage("FAIL");
                 }
@@ -66,9 +61,7 @@ public class InstitutionMessageMaintenanceBL implements
                         resultMessage = institutionMessageMaintenanceDataService
                                         .update(new InstitutionMessagePO(
                                                         institutionMessage));
-                        service.addSystemlog(new SystemlogVO("修改人员信息"));
                 } catch (RemoteException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                         return new ResultMessage("FAIL");
                 }
@@ -82,12 +75,10 @@ public class InstitutionMessageMaintenanceBL implements
                         resultMessage = institutionMessageMaintenanceDataService
                                         .find(institutionId);
                 } catch (RemoteException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                         return new ResultMessage("FAIL");
                 }
                 if (resultMessage.getKey().equals("FOUND")) {
-                	service.addSystemlog(new SystemlogVO("查看机构信息"));
                         return new ResultMessage("SUCCESS",
                                         ((InstitutionMessagePO) resultMessage
                                                         .getValue()).poToVo());
@@ -96,6 +87,7 @@ public class InstitutionMessageMaintenanceBL implements
                 }
         }
 
+		@SuppressWarnings("unchecked")
 		@Override
 		public ResultMessage getInstitutionMessage() {
 			try {
@@ -107,12 +99,26 @@ public class InstitutionMessageMaintenanceBL implements
 					vos.add(pos.get(i).poToVo());
 				}
 				
-				service.addSystemlog(new SystemlogVO("查看所有机构信息"));
 				return new ResultMessage("SUCCESS", vos);
 			} catch (RemoteException e) {
 				e.printStackTrace();
 				return new ResultMessage("FAIL");
 			}
+		}
+		
+		public ResultMessage delInstitution(ArrayList<StaffMessagePO> staffMessagePOs, String instid){
+			for(int i=0;i<staffMessagePOs.size();i++){
+				if(staffMessagePOs.get(i).getInstitutionid().equals(instid)){
+					//如果有员工的机构被删除，则将机构id改为默认值
+					staffMessagePOs.get(i).setInstitutionid("admin");
+					try {
+						staffMessageMaintenanceDataService.update(staffMessagePOs.get(i));
+					} catch (RemoteException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			return new ResultMessage("SUCCESS");
 		}
 
 }

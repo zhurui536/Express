@@ -54,7 +54,6 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
         return new ResultMessage("success");
     }
 
-    // TODO 改文档
     @Override
     public ResultMessage delete(String id) throws RemoteException {
         ResultMessage message = find(id);

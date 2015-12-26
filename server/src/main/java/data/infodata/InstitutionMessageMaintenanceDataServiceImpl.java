@@ -15,11 +15,9 @@ public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteO
 
         private static final long serialVersionUID = -2566534132857071603L;
         
-//        private static final String PATH = "server/src/main/java/save/infodata/institutionMessagePO.dat";
         private static final String PATH = "src/main/java/save/infodata/institutionMessagePO.dat";
         
         private ArrayList<InstitutionMessagePO> institutionMessagePOs;
-        private StaffMessageMaintenanceDataServiceImpl staffdata;
         
         public InstitutionMessageMaintenanceDataServiceImpl()
                         throws RemoteException {
@@ -61,17 +59,10 @@ public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteO
 
         @Override
         public ResultMessage delete(String id) throws RemoteException {
-	        	try {
-					staffdata = new StaffMessageMaintenanceDataServiceImpl();
-				} catch (RemoteException e) {
-					e.printStackTrace();
-				}
                 ResultMessage resultMessage = find(id);
                 if(resultMessage.getKey().equals("FOUND")){
                         institutionMessagePOs.remove(resultMessage.getValue());
                         Database.save(PATH, institutionMessagePOs);
-                        //将该机构下的员工的机构id设为默认值
-                        staffdata.delInstitution(id);
                         return new ResultMessage("SUCCESS");
                 }
                 return new ResultMessage("NO_EXIST");
@@ -94,5 +85,5 @@ public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteO
 		public ResultMessage get() throws RemoteException {
 			return new ResultMessage("SUCCESS", this.institutionMessagePOs);
 		}
-
+		
 }
