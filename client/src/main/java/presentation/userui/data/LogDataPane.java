@@ -1,12 +1,10 @@
 package presentation.userui.data;
 
-import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
+import util.MyJTable;
 import vo.SystemlogVO;
 
 public class LogDataPane extends JPanel{
@@ -29,22 +27,10 @@ public class LogDataPane extends JPanel{
                        data[i][2] = systemlogVOs.get(i).userID;
                        data[i][3] = systemlogVOs.get(i).event;
                 }
-                JTable table = new JTable(data, header){
+                MyJTable table = new MyJTable(data, header){
                         private static final long serialVersionUID = 4793447602889900829L;
-
-                        public boolean isCellEditable(int row, int column) {
-                                 return false;
-                                 }
                 };
-                table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-                table.setRowHeight(30);
-                table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-                table.getColumnModel().getColumn(0).setPreferredWidth(190);
-                table.getColumnModel().getColumn(1).setPreferredWidth(200);
-                table.getColumnModel().getColumn(2).setPreferredWidth(200);
-                table.getColumnModel().getColumn(3).setPreferredWidth(200);
-                table.setShowGrid(true);
-                table.setLocation(0, 0);
+                table.setWidth(new int[]{190, 200, 200, 200});
                 
                 JScrollPane scroller = new JScrollPane(table);
                 scroller.setBounds(0, 0, 810, 500);

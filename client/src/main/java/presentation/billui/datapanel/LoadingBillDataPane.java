@@ -1,13 +1,11 @@
 package presentation.billui.datapanel;
 
-import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
 import po.logisticpo.LoadingBillPO;
+import util.MyJTable;
 import util.Time;
 import vo.logisticvo.LoadingBillVO;
 
@@ -72,18 +70,8 @@ public class LoadingBillDataPane extends JPanel {
 			rowdata[i+9][1] = ids.get(i);
 		}
 		
-		JTable table = new JTable(rowdata, columnnames){
-			public boolean isCellEditable(int row, int column) {
-				 return false;
-				 }
-		};
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table.setRowHeight(30);
-		table.setPreferredScrollableViewportSize(new Dimension(780, 30));
-		table.getColumnModel().getColumn(0).setPreferredWidth(300);
-		table.getColumnModel().getColumn(1).setPreferredWidth(480);
-		table.setShowGrid(true);
-		table.setLocation(0, 0);
+		MyJTable table = new MyJTable(rowdata, columnnames);
+		table.setWidth(new int[]{300, 480});
 		
 		JScrollPane scroller = new JScrollPane(table);
 		scroller.setBounds(0, 0, 810, 500);

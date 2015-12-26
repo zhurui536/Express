@@ -17,10 +17,12 @@ public class OutStoreToolListener extends ToolListener {
 
 	private StoreBLService sc;
 	private StoreFrame ui;
+	private String billid;
 	
 	public OutStoreToolListener(StoreFrame ui) {
 		this.sc = ui.getController();
 		this.ui = ui;
+		this.billid = "";
 	}
 	
 	@Override
@@ -34,7 +36,7 @@ public class OutStoreToolListener extends ToolListener {
 		}
 		
 		if(i==0){
-			OutStoreInputFrame frame = new OutStoreInputFrame(this);
+			OutStoreInputFrame frame = new OutStoreInputFrame(this, billid);
 			frame.setVisible(true);
 		}
 		else if(i==1){
@@ -60,6 +62,7 @@ public class OutStoreToolListener extends ToolListener {
 		ResultMessage result = sc.addOutStoreGoods(number, trans, destination, billid);
 		
 		if(result.getKey().equals("success")){
+			this.billid = billid;
 			ui.paintdata(new OutStoreDataPane((OutStoreVO) result.getValue(), this));
 			return true;
 		}

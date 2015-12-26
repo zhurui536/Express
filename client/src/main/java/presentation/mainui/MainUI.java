@@ -122,39 +122,6 @@ public class MainUI extends JFrame implements ActionListener{
             this.setVisible(false);
             System.exit(0);
         }
-//        if(e.getSource() == confirm){
-//            String id = this.id.getText();
-//            if(id.charAt(0) == '0'){
-//                this.setVisible(false);
-//                StoreFrame frame = new StoreFrame();
-//                frame.setVisible(true);
-//            }
-//            else if(id.charAt(0) == '1'){
-//                this.setVisible(false);
-//                ManagerFrame frame = new ManagerFrame();
-//                frame.setVisible(true);
-//            } else if (id.charAt(0) == '2'){
-//                this.setVisible(false);
-//                FinanceFrame frame = new FinanceFrame();
-//                frame.setVisible(true);
-//            } else if (id.charAt(0) == '3') {
-//                LogisticsBLService logisticsBLService = new LogisticsBLController();
-//                this.setVisible(false);
-//                DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
-//                frame.setVisible(true);
-//            } else if (id.charAt(0) == '4') {
-//                LogisticsBLService logisticsBLService = new LogisticsBLController();
-//                this.setVisible(false);
-//                TransitCenterclerkFrame frame = new TransitCenterclerkFrame(logisticsBLService);
-//                frame.setVisible(true);
-//            }else if(id.charAt(0) == '5'){
-//                LogisticsBLService logisticsBLService = new LogisticsBLController();
-//                this.setVisible(false);
-//                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
-//                frame.setVisible(true);
-//            }
-//            PublicMessage.userID = id;
-//        }
         if(e.getSource() == confirm){
         	 String id = this.id.getText();
         	 String password = new String(this.password.getPassword());
