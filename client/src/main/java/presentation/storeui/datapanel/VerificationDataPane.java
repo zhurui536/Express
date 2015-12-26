@@ -1,10 +1,10 @@
 package presentation.storeui.datapanel;
 
+import util.MyJTable;
 import vo.storevo.VerificationVO;
 
 import javax.swing.*;
 
-import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -12,7 +12,7 @@ import java.util.Calendar;
 
 @SuppressWarnings("serial")
 public class VerificationDataPane extends JPanel {
-	private JTable table;
+	private MyJTable table;
 	
 	public VerificationDataPane(VerificationVO store){
 		this.setLayout(null);
@@ -40,23 +40,8 @@ public class VerificationDataPane extends JPanel {
 			rowdata[i][6] = destination.get(i);
 		}
 		
-		table = new JTable(rowdata, header){
-			public boolean isCellEditable(int row, int column) {
-				 return false;
-				 }
-		};
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table.setRowHeight(30);
-		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-		table.getColumnModel().getColumn(0).setPreferredWidth(130);
-		table.getColumnModel().getColumn(1).setPreferredWidth(50);
-		table.getColumnModel().getColumn(2).setPreferredWidth(50);
-		table.getColumnModel().getColumn(3).setPreferredWidth(50);
-		table.getColumnModel().getColumn(4).setPreferredWidth(50);
-		table.getColumnModel().getColumn(5).setPreferredWidth(200);
-		table.getColumnModel().getColumn(6).setPreferredWidth(200);
-		table.setShowGrid(true);
-		table.setLocation(0, 0);
+		table = new MyJTable(rowdata, header);
+		table.setWidth(new int[]{130, 50, 50, 50, 50, 200, 200});
 		
 		JScrollPane scroller = new JScrollPane(table);
 		scroller.setBounds(0, 0, 810, 500);

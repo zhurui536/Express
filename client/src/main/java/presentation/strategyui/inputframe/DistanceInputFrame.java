@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import presentation.WarningDialog;
 import presentation.strategyui.listener.StrategyToolListener;
 import util.City;
 
@@ -86,7 +87,31 @@ public class DistanceInputFrame extends JFrame implements ActionListener{
 			this.dispose();
 		}
 		if(e.getSource() == confirm){
-			
+			try{
+				double distance = Double.parseDouble(input.getText());
+				City a = this.boxToCity(0);
+				City b = this.boxToCity(1);
+				if(a==b){
+					WarningDialog tip = new WarningDialog(this, "城市不能相同");
+				}
+				else{
+					boolean result = tl.getInput(a, b, distance);
+					if(result){
+						this.dispose();
+					}
+				}
+			}catch(Exception ex){
+				WarningDialog tip = new WarningDialog(this, "输入有误，请重新输入");
+				input.setText("");
+				this.repaint();
+				this.validate();
+			}
 		}
+	}
+	
+	private City boxToCity(int i){
+		int num = this.cities[i].getSelectedIndex();
+		
+		return city[num];
 	}
 }

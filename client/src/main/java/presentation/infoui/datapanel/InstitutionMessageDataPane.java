@@ -1,12 +1,10 @@
 package presentation.infoui.datapanel;
 
-import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
+import util.MyJTable;
 import vo.InstitutionMessageVO;
 
 public class InstitutionMessageDataPane extends JPanel {
@@ -26,19 +24,8 @@ public class InstitutionMessageDataPane extends JPanel {
 			rowdata[i][2] = vos.get(i).institutionType;
 		}
 		
-		JTable table = new JTable(rowdata, header){
-			public boolean isCellEditable(int row, int column) {
-				 return false;
-				 }
-		};
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table.setRowHeight(30);
-		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-		table.getColumnModel().getColumn(0).setPreferredWidth(200);
-		table.getColumnModel().getColumn(1).setPreferredWidth(200);
-		table.getColumnModel().getColumn(2).setPreferredWidth(200);
-		table.setShowGrid(true);
-		table.setLocation(0, 0);
+		MyJTable table = new MyJTable(rowdata, header);
+		table.setWidth(new int[]{200, 200, 200});
 		
 		JScrollPane scroller = new JScrollPane(table);
 		scroller.setBounds(0, 0, 810, 500);

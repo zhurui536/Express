@@ -1,13 +1,11 @@
 package presentation.billui.datapanel;
 
-import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
 import po.logisticpo.TransferBillPO;
+import util.MyJTable;
 import util.Trans;
 
 public class TransferBillDataPane extends JPanel {
@@ -15,6 +13,7 @@ public class TransferBillDataPane extends JPanel {
 		this.setLayout(null);
 		this.setBounds(140, 100, 810, 500);
 		
+		this.initialize(po);
 	}
 	
 	private void initialize(TransferBillPO po){
@@ -68,20 +67,8 @@ public class TransferBillDataPane extends JPanel {
 			}
 		}
 		
-		JTable table = new JTable(rowdata, columnname){
-			public boolean isCellEditable(int row, int column) {
-				 return false;
-				 }
-		};
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table.setRowHeight(30);
-		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-		table.getColumnModel().getColumn(0).setPreferredWidth(200);
-		table.getColumnModel().getColumn(1).setPreferredWidth(200);
-		table.getColumnModel().getColumn(2).setPreferredWidth(200);
-		table.getColumnModel().getColumn(3).setPreferredWidth(200);
-		table.setShowGrid(true);
-		table.setLocation(0, 0);
+		MyJTable table = new MyJTable(rowdata, columnname);
+		table.setWidth(new int[]{200, 200, 200, 200});
 		
 		JScrollPane scroller = new JScrollPane(table);
 		scroller.setBounds(0, 0, 810, 500);

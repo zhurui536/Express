@@ -12,8 +12,8 @@ public class ConnectTestServer {
 
 	private ServerSocket serverSocket;
 	private PrintWriter clientOutputStream;
-
-	public void init() {
+	
+	public synchronized void init() {
 		try {
 			serverSocket = new ServerSocket(RMIConfig.getPORT());
 			Socket clientSocket = serverSocket.accept();
@@ -46,8 +46,8 @@ public class ConnectTestServer {
 			while (!this.isInterrupted()) {
 				try {
 					String msg = reader.readLine();
-					if (msg != null) {
-						clientOutputStream.println("get");
+					if (msg.equals(ConnectTestConfig.getSendMsg())) {
+						clientOutputStream.println(ConnectTestConfig.getSuccessMsg());
 					}
 
 				} catch (SocketException se) {

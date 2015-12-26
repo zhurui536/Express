@@ -1,13 +1,11 @@
 package presentation.billui.datapanel;
 
-import java.awt.Dimension;
 import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
 import po.logisticpo.ReceiptBillPO;
+import util.MyJTable;
 import vo.logisticvo.ReceiptBillVO;
 import vo.logisticvo.ReceiptLineItemVO;
 
@@ -63,20 +61,8 @@ public class ReceiptBillDataPane extends JPanel {
 			data[3+i][3] = items.get(i).money;
 		}
 		
-		JTable table = new JTable(data, columnname){
-			public boolean isCellEditable(int row, int column) {
-				 return false;
-				 }
-		};
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table.setRowHeight(30);
-		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-		table.getColumnModel().getColumn(0).setPreferredWidth(200);
-		table.getColumnModel().getColumn(1).setPreferredWidth(200);
-		table.getColumnModel().getColumn(2).setPreferredWidth(200);
-		table.getColumnModel().getColumn(3).setPreferredWidth(200);
-		table.setShowGrid(true);
-		table.setLocation(0, 0);
+		MyJTable table = new MyJTable(data, columnname);
+		table.setWidth(new int[]{200, 200, 200, 200});
 		
 		JScrollPane scroller = new JScrollPane(table);
 		scroller.setBounds(0, 0, 810, 500);
