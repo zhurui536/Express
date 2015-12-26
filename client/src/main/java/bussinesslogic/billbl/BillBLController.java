@@ -26,8 +26,7 @@ public class BillBLController implements BillBLService {
 	ArrayList<BillVO> vos;
 	
 	public BillBLController(){
-		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-		dataservice = (BilldataService) clientRMIHelper.getServiceByName("BillDataServiceImpl");
+		dataservice = (BilldataService) ClientRMIHelper.getServiceByName("BillDataServiceImpl");
 		vos = new ArrayList<BillVO>();
 		bills = new ArrayList<BillPO>();
 	}

@@ -34,10 +34,9 @@ public class ShowProfitListBL implements ShowProfitListBLService {
     private boolean isUpdated;
 
     public ShowProfitListBL() {
-        ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-        showStatementDataServiceImpl = (ShowStatementDataService) clientRMIHelper.
+        showStatementDataServiceImpl = (ShowStatementDataService) ClientRMIHelper.
                 getServiceByName("ShowStatementDataServiceImpl");
-        showReceiptDataServiceImpl = (ShowReceiptDataService) clientRMIHelper.
+        showReceiptDataServiceImpl = (ShowReceiptDataService) ClientRMIHelper.
                 getServiceByName("ShowReceiptDataServiceImpl");
         isUpdated = false;
     }

@@ -19,8 +19,7 @@ public class DeliveryBL implements DeliveryBLService {
         
         public DeliveryBL() {
                 super();
-                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-                deliveryDataService = (DeliveryDataService) clientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
+                deliveryDataService = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
                 goodsPOsList = new ArrayList<>();
         }
 

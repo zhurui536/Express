@@ -21,9 +21,8 @@ public class InstitutionMessageMaintenanceBL implements
         private ArrayList<InstitutionMessagePO> pos;
 
         public InstitutionMessageMaintenanceBL() {
-                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
                 service = LogFactory.getInstance();
-                institutionMessageMaintenanceDataService = (InstitutionMessageMaintenanceDataService) clientRMIHelper.getServiceByName("InstitutionMessageMaintenanceDataServiceImpl");
+                institutionMessageMaintenanceDataService = (InstitutionMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("InstitutionMessageMaintenanceDataServiceImpl");
         }
 
         @Override

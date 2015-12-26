@@ -9,9 +9,8 @@ import util.PublicMessage;
 import util.ResultMessage;
 import vo.storevo.VerificationVO;
 
+import javax.swing.*;
 import java.rmi.RemoteException;
-
-import javax.swing.JTable;
 
 public class VerificationBL implements VerificationBLService {
 	private StoreDataService dataservice;
@@ -20,9 +19,8 @@ public class VerificationBL implements VerificationBLService {
 	private VerificationPO po;
 	
 	public VerificationBL(){
-		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
 		this.user = PublicMessage.staffID;
-		dataservice = (StoreDataService) clientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 	}
 	
 	@Override
