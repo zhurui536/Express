@@ -127,7 +127,7 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
                 }
                 for (InstitutionMessagePO institutionMessagePO : institutionMessagePOs) {
                         if(institutionMessagePO.getId().equals(institutionId)){
-                                return new ResultMessage("success",institutionMessagePO.getCity());
+                                return new ResultMessage("success",institutionMessagePO);
                         }
                 }
                 return new ResultMessage("not_found");

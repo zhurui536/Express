@@ -16,17 +16,17 @@ public class InstitutionMessagePO implements Serializable {
 
     private static final long serialVersionUID = 1374906017869308736L;
 
-    // 机构名称
-    private String name;
+        // 机构名称
+        private String name;
 
-    // 机构编号
-    private String id;
+        // 机构编号
+        private String id;
 
-    //机构类型
-    private InstitutionType institutionType;
-    
-    //机构所在城市
-    private City city;
+        // 机构类型
+        private InstitutionType institutionType;
+
+        // 机构所在城市
+        private City city;
     
     public InstitutionMessagePO(String name, String id,
                 InstitutionType institutionType, City city) {

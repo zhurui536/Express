@@ -27,8 +27,8 @@ public class TransitCenterclerkFrame extends JFrame {
 
         private static final int NUMBER_OF_BUTTONS = 3;
 
-        public TransitCenterclerkFrame(LogisticsBLService logisticsBLService) {
-            this.logisticsBLService = logisticsBLService;
+        public TransitCenterclerkFrame() {
+            this.logisticsBLService = new LogisticsBLController();
                 this.setLayout(null);
                 this.setSize(1000, 630);
                 this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -38,8 +38,7 @@ public class TransitCenterclerkFrame extends JFrame {
         }
 
         public static void main(String[] args) {
-                LogisticsBLService logisticsBLService = new LogisticsBLController();
-                TransitCenterclerkFrame frame = new TransitCenterclerkFrame(logisticsBLService);
+                TransitCenterclerkFrame frame = new TransitCenterclerkFrame();
                 frame.setVisible(true);
         }
 

@@ -35,12 +35,12 @@ public class DeliveryManFrame extends JFrame{
 //                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
 //                clientRMIHelper.init();
                 LogisticsBLService logisticsBLService = new LogisticsBLController();
-                DeliveryManFrame frame = new DeliveryManFrame(logisticsBLService);
+                DeliveryManFrame frame = new DeliveryManFrame();
                 frame.setVisible(true);
         }
         
-        public DeliveryManFrame(LogisticsBLService logisticsBLService) {
-            this.logisticsBLService = logisticsBLService;
+        public DeliveryManFrame() {
+            this.logisticsBLService = new LogisticsBLController();
                 this.setLayout(null);
                 this.setSize(1000, 630);
                 this.setDefaultCloseOperation(EXIT_ON_CLOSE);

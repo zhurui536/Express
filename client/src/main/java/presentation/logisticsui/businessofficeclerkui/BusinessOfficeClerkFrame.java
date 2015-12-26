@@ -35,13 +35,12 @@ public class BusinessOfficeClerkFrame extends JFrame {
 //                ClientRMIHelper.init();
                 ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
                 clientRMIHelper.init();
-                LogisticsBLService logisticsBLService = new LogisticsBLController();
-                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame(logisticsBLService);
+                BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame();
                 frame.setVisible(true);
         }
 
-        public BusinessOfficeClerkFrame(LogisticsBLService logisticsBLService) {
-            this.logisticsBLService = logisticsBLService;
+        public BusinessOfficeClerkFrame() {
+            this.logisticsBLService = new LogisticsBLController();
             this.infoBLSerivce = new InfoBLController();
                 this.setLayout(null);
                 this.setSize(1000, 630);
