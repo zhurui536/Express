@@ -40,7 +40,9 @@ public class CreatePayBillBL implements CreatePayBillBLService {
     	}
         PayBillPO payBillPO = new PayBillPO(payBillVO);
         try {
-            return createPayBillDataServiceImpl.insert(payBillPO);
+            ResultMessage resultMessage = createPayBillDataServiceImpl.insert(payBillPO);
+            resultMessage.setValue(payBillPO.getId());
+            return resultMessage;
         } catch (RemoteException e) {
             e.printStackTrace();
             return new ResultMessage("fail");

@@ -48,9 +48,14 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
 
     @Override
     public ResultMessage updateMember(BankAccountVO vo) {
-        BankAccountPO bankAccountPO = new BankAccountPO(vo.name, vo.id);
         try {
-            return bankAccountManagementDataServiceImpl.update(bankAccountPO);
+        	ResultMessage message = bankAccountManagementDataServiceImpl.find(vo.id);
+        	if (message.getKey().equals("fail")) {
+        		return message;
+        	}
+        	BankAccountPO po = (BankAccountPO) message.getValue();
+        	po.setName(vo.name);
+            return bankAccountManagementDataServiceImpl.update(po);
         } catch (RemoteException e) {
             e.printStackTrace();
             return new ResultMessage("fail");

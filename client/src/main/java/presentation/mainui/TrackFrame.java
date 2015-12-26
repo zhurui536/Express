@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
+import util.FrameUtil;
 import util.MyJTable;
 import util.Time;
 import vo.GoodsVO;
@@ -39,7 +40,9 @@ public class TrackFrame extends JFrame {
                 this.sendBillVO = sendBillVO;
                 this.setLayout(null);
                 this.setSize(500,350);
+                this.setUndecorated(true);
                 init();
+                FrameUtil.setFrameCenter(this);
         }
 
         private void init() {

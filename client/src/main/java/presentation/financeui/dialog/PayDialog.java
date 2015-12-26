@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -18,6 +17,7 @@ import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.PayPanel;
+import presentation.logisticsui.InputChecker;
 import util.PayItem;
 import util.PublicMessage;
 import util.ResultMessage;
@@ -58,7 +58,7 @@ public class PayDialog extends JDialog {
         ok.setBounds(150, 280, 100, 40);
         ok.addActionListener(new okListener());
 
-        JLabel personID = new JLabel("付款人ID:              " + PublicMessage.staffID);
+        JLabel personID = new JLabel("付款人ID:               " + PublicMessage.staffID);
         personID.setBounds(50, 20, 180, 50);
 
         JLabel money = new JLabel("付款金额");
@@ -112,10 +112,9 @@ public class PayDialog extends JDialog {
             PayItem item = PayItem.getItem((String) payItem.getSelectedItem());
             String remark = payRemark.getText();
             Time current = new Time();
-            String id = "111" + new Random().nextInt(100000);
             boolean success = check(money, accountID, remark);
             if (success) {
-                PayBillVO payBillVO = new PayBillVO(current, new BigDecimal(money), staffID, accountID, id, item, remark);
+                PayBillVO payBillVO = new PayBillVO(current, new BigDecimal(money), staffID, accountID, null, item, remark);
                 processPay(payBillVO);
             }
         }
@@ -131,6 +130,12 @@ public class PayDialog extends JDialog {
         } else if (remark.length() == 0) {
             new WarningDialog(ui, "请输入备注");
             return false;
+        } else if (!InputChecker.isNum(money)) {
+        	new WarningDialog(ui, "付款金额必须是数字");
+        	return false;
+        } else if (isMinus(money)) {
+        	new WarningDialog(ui, "付款金额必须为整数");
+        	return false;
         }
         return true;
     }
@@ -144,6 +149,7 @@ public class PayDialog extends JDialog {
         	new WarningDialog(ui, "未找到该用户");
         }
         else {
+        	payBillVO.id = (String) msg.getValue();
             List<PayBillVO> payBillVOList = new ArrayList<>();
             payBillVOList.add(payBillVO);
             PayPanel payPanel = new PayPanel(payBillVOList);
@@ -159,4 +165,13 @@ public class PayDialog extends JDialog {
 	private boolean IDNotFound(ResultMessage message) {
         return message.getKey().equals("id not found");
     }
+	
+	/**
+	 * 检测数字是否为负
+	 * @param num
+	 * @return
+	 */
+	private boolean isMinus(String num) {
+		return num.charAt(0) == '-';
+	}
 }

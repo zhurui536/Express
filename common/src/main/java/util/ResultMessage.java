@@ -29,4 +29,8 @@ public class ResultMessage implements Serializable {
 	public Object getValue(){
 		return value;
 	}
+	
+	public void setValue(Object value) {
+		this.value = value;
+	}
 }

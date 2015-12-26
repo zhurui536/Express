@@ -25,12 +25,13 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     public BankAccountManagementDataServiceImpl() throws RemoteException {
         super();
-        init();
+        read();
     }
 
     @Override
     // TODO 改文档
     public ResultMessage find(String id) throws RemoteException {
+    	read();
         for (BankAccountPO bankAccountPO : bankAccountPOs) {
             if (bankAccountPO.getId().equals(id))
                 return new ResultMessage("success", bankAccountPO);
@@ -40,6 +41,7 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     @Override
     public ResultMessage findAll() throws RemoteException {
+    	read();
         return new ResultMessage("success", bankAccountPOs);
     }
 
@@ -72,7 +74,9 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
     public ResultMessage update(BankAccountPO po) throws RemoteException {
         ResultMessage message = find(po.getId());
 
+        System.out.println(po.getBalance().doubleValue());
         if (message.getKey().equals("success")) {
+        	System.out.println("data: " + po.getBalance().doubleValue());
             BankAccountPO bankAccountPO = (BankAccountPO) message.getValue();
             bankAccountPO.setPO(po);
             Database.save(PATH, bankAccountPOs);
@@ -83,7 +87,7 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
     }
 
     @SuppressWarnings("unchecked")
-	private void init() {
+	private void read() {
         bankAccountPOs = (ArrayList<BankAccountPO>) Database.load(PATH);
         if (bankAccountPOs == null)
             bankAccountPOs = new ArrayList<>();
