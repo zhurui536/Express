@@ -1,32 +1,32 @@
 package util;
 
+import java.util.HashMap;
+
 /**
  * @author zhuding
  *
  */
 public enum ExpressType {
         ECONOMIC , COURIER,EXPRESS;
-        public static ExpressType stringToType(String string) {
-                ExpressType expressType = null;
-                if(string.contains("经济"))
-                        expressType = ECONOMIC;
-                else if(string.contains("普通"))
-                        expressType = COURIER;
-                else if(string.contains("特快"))
-                        expressType = EXPRESS;
-                return expressType;
+        
+        private static HashMap<String, ExpressType> nameMap;
+        
+        static{
+                nameMap = new HashMap<>();
+                nameMap.put("经济", ECONOMIC);
+                nameMap.put("普通", COURIER);
+                nameMap.put("特快", EXPRESS);
         }
+        
+        public static ExpressType stringToType(String string) {
+                return nameMap.get(string);
+        }
+        
         public static String typeToString(ExpressType type) {
                 String result = null;
-                switch (type) {
-                        case ECONOMIC:
-                                result = "经济";
-                                break;
-                        case COURIER:
-                                result = "普通";
-                                break;
-                        case EXPRESS:
-                                result = "特快";
+                for (String key : nameMap.keySet()) {
+                        if(nameMap.get(key) == type)
+                                result = key;
                 }
                 return result;
         }

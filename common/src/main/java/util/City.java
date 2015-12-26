@@ -1,43 +1,30 @@
 package util;
 
+import java.util.HashMap;
+
 public enum City {
 	NANJING, BEIJING, SHANGHAI, GUANGZHOU;
 	
-	public static String cityToString(City city){
-		String result = null;
-        switch (city) {
-                case NANJING:
-                        result = "南京";
-                        break;
-                case BEIJING:
-                        result = "北京";
-                        break;
-                case SHANGHAI:
-                        result = "上海";
-                        break;
-                case GUANGZHOU:
-                		result = "广州";
-                		break;
+	private static HashMap<String, City> nameMap;
+        
+        static{
+                nameMap = new HashMap<>();
+                nameMap.put("南京", NANJING);
+                nameMap.put("北京", BEIJING);
+                nameMap.put("上海", SHANGHAI);
+                nameMap.put("广州", GUANGZHOU);
         }
-        return result;
-	}
-	
-	public static City stringToCity(String string) {
-                City city = null;
-                switch (string) {
-                        case "南京":
-                                city = NANJING;
-                                break;
-                        case "北京":
-                                city = BEIJING;
-                                break;
-                        case "广州":
-                                city = GUANGZHOU;
-                                break;
-                        case "上海":
-                                city = SHANGHAI;
-                                break;
+        
+        public static City stringToType(String string) {
+                return nameMap.get(string);
+        }
+        
+        public static String cityToString(City type) {
+                String result = null;
+                for (String key : nameMap.keySet()) {
+                        if(nameMap.get(key) == type)
+                                result = key;
                 }
-                return city;
+                return result;
         }
 }

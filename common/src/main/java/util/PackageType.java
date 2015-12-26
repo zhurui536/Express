@@ -1,30 +1,28 @@
 package util;
 
+import java.util.HashMap;
+
 public enum PackageType {
         CARTONS, WOODEN_BOX, COURIER_BAG;
         
+        private static HashMap<String, PackageType> nameMap;
+        
+        static{
+                nameMap = new HashMap<>();
+                nameMap.put("纸箱", CARTONS);
+                nameMap.put("木箱", WOODEN_BOX);
+                nameMap.put("快递袋", COURIER_BAG);
+        }
+        
         public static PackageType stringToType(String string) {
-                PackageType packageType = null;
-                if(string.contains("纸箱"))
-                        packageType = CARTONS;
-                else if(string.contains("木箱"))
-                        packageType = WOODEN_BOX;
-                else if(string.contains("快递袋"))
-                        packageType = COURIER_BAG;
-                return packageType;
+                return nameMap.get(string);
         }
         
         public static String typeToString(PackageType type) {
                 String result = null;
-                switch (type) {
-                        case CARTONS:
-                                result = "纸箱";
-                                break;
-                        case WOODEN_BOX:
-                                result = "木箱";
-                                break;
-                        case COURIER_BAG:
-                                result = "快递袋";
+                for (String key : nameMap.keySet()) {
+                        if(nameMap.get(key) == type)
+                                result = key;
                 }
                 return result;
         }

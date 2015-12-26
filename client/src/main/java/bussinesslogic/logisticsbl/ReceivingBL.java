@@ -96,7 +96,7 @@ public class ReceivingBL implements ReceivingBLService {
                 @SuppressWarnings("unchecked")
                 ArrayList<DistancePO> distancePos = (ArrayList<DistancePO>) resultMessage.getValue();
                 for (DistancePO distancePO : distancePos) {
-                        if(distancePO.ifMatch(City.stringToCity(goods.departurePlace), City.stringToCity(goods.destination))){
+                        if(distancePO.ifMatch(City.stringToType(goods.departurePlace), City.stringToType(goods.destination))){
                                 distance = distancePO.getDistance();
                         }
                 }

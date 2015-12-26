@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import dao.Database;
 import dataservice.infodataservice.InstitutionMessageMaintenanceDataService;
 import po.InstitutionMessagePO;
+import util.City;
 import util.InstitutionType;
 import util.ResultMessage;
 
@@ -32,7 +33,7 @@ public class InstitutionMessageMaintenanceDataServiceImpl extends UnicastRemoteO
                 if(institutionMessagePOs == null){
                         institutionMessagePOs = new ArrayList<>();
                         //添加默认机构
-                        institutionMessagePOs.add(new InstitutionMessagePO("默认机构", "admin", InstitutionType.BUSINESS_HALL));
+                        institutionMessagePOs.add(new InstitutionMessagePO("默认机构", "admin", InstitutionType.BUSINESS_HALL,City.NANJING));
                 }
                 
         }

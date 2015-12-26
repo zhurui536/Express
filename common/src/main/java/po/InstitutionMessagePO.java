@@ -1,5 +1,6 @@
 package po;
 
+import util.City;
 import util.InstitutionType;
 import vo.InstitutionMessageVO;
 
@@ -24,12 +25,16 @@ public class InstitutionMessagePO implements Serializable {
     //机构类型
     private InstitutionType institutionType;
     
+    //机构所在城市
+    private City city;
+    
     public InstitutionMessagePO(String name, String id,
-                InstitutionType institutionType) {
+                InstitutionType institutionType, City city) {
         super();
         this.name = name;
         this.id = id;
         this.institutionType = institutionType;
+        this.city = city;
 }
     
     public InstitutionMessagePO(InstitutionMessageVO institutionMessageVO) {
@@ -37,10 +42,11 @@ public class InstitutionMessagePO implements Serializable {
         this.name = institutionMessageVO.name;
         this.id = institutionMessageVO.id;
         this.institutionType = institutionMessageVO.institutionType;
+        this.city = institutionMessageVO.city;
     }
 
     public InstitutionMessageVO poToVo(){
-            return new InstitutionMessageVO(name, id, institutionType);
+            return new InstitutionMessageVO(name, id, institutionType,city);
     }
     
 public InstitutionType getInstitutionType() {
@@ -66,4 +72,14 @@ public String getName() {
     public void setId(String id) {
         this.id = id;
     }
+
+        public City getCity() {
+                return city;
+        }
+        
+        public void setCity(City city) {
+                this.city = city;
+        }
+    
+    
 }
