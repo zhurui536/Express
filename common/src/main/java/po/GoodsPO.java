@@ -24,7 +24,7 @@ public class GoodsPO implements Serializable {
         // 货物目的地
         private City destination;
         // 货物轨迹
-        private ArrayList<City> track;
+        private ArrayList<String> track;
         // 货物重量
         private double weight;
         // 货物体积
@@ -59,7 +59,6 @@ public class GoodsPO implements Serializable {
                 this.packageType = packageType;
                 this.expressType = expressType;
                 this.track = new ArrayList<>();
-                this.track.add(departurePlace);
                 this.startTime = new Time();
                 this.goodsDeliveryState = GoodsDeliveryState.TRANSPORT;
         }
@@ -127,7 +126,7 @@ public class GoodsPO implements Serializable {
                 return serialVersionUID;
         }
 
-        public void setTrack(ArrayList<City> track) {
+        public void setTrack(ArrayList<String> track) {
                 this.track = track;
         }
 
@@ -143,7 +142,7 @@ public class GoodsPO implements Serializable {
                 this.recipient = recipient;
         }
 
-        public void addLocation(City location) {
+        public void addLocation(String location) {
                 this.track.add(location);
         }
 
@@ -212,7 +211,7 @@ public class GoodsPO implements Serializable {
                 this.departurePlace = departurePlace;
         }
 
-        public ArrayList<City> getTrack() {
+        public ArrayList<String> getTrack() {
                 return track;
         }
 

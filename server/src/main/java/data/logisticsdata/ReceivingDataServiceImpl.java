@@ -13,7 +13,7 @@ public class ReceivingDataServiceImpl extends UnicastRemoteObject implements Rec
 
         private static final long serialVersionUID = -6643024262710089533L;
         
-        private static final String PATH = "src/main/java/save/logisticsdata/sendBillPO.dat";
+        private static final String PATH_SEND_BILL = "src/main/java/save/logisticsdata/sendBillPO.dat";
         
         private ArrayList<SendBillPO> sendBillPOs;
 
@@ -24,7 +24,7 @@ public class ReceivingDataServiceImpl extends UnicastRemoteObject implements Rec
         
         @SuppressWarnings("unchecked")
         private void init(){
-                sendBillPOs = (ArrayList<SendBillPO>) Database.load(PATH);
+                sendBillPOs = (ArrayList<SendBillPO>) Database.load(PATH_SEND_BILL);
                 if(sendBillPOs == null)
                         sendBillPOs = new ArrayList<>();
         }
@@ -37,7 +37,7 @@ public class ReceivingDataServiceImpl extends UnicastRemoteObject implements Rec
                               return new ResultMessage("EXIST");
                 }
                 sendBillPOs.add(bill);
-                Database.save(PATH, sendBillPOs);
+                Database.save(PATH_SEND_BILL, sendBillPOs);
                 return new ResultMessage("SUCCESS");
         }
 

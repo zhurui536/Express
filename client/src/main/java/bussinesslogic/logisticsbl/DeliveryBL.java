@@ -37,6 +37,7 @@ public class DeliveryBL implements DeliveryBLService {
                 goodsPO.setRecipient(Recipients);
                 goodsPO.setReceiveTime(time);
                 goodsPO.setGoodsDeliveryState(GoodsDeliveryState.DELIVERED);
+                goodsPO.addLocation(time  + " 收件人" + Recipients + " 已接受");
                 goodsPOsList.add(goodsPO);
                
                 return new ResultMessage("SUCCESS", null);

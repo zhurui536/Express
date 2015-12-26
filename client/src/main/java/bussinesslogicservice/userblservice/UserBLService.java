@@ -10,5 +10,5 @@ import util.ResultMessage;
 public interface UserBLService {
 	public ResultMessage login(String id, String password);
 	
-	public ResultMessage getCity(String insID);
+	public ResultMessage getInstitution(String insID);
 }

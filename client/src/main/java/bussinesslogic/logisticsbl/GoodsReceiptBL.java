@@ -8,6 +8,7 @@ import po.logisticpo.ArrivalBillPO;
 import po.logisticpo.DeliveryBillPO;
 import po.logisticpo.LoadingBillPO;
 import po.logisticpo.TransferBillPO;
+import util.InstitutionType;
 import util.PublicMessage;
 import util.ResultMessage;
 import util.Time;
@@ -54,6 +55,27 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
                 ids = loadingBillPO == null ? transferBillPO.getIds()
                                 : loadingBillPO.getIds();
 
+                for (String goodsId : ids) {
+                        GoodsPO goodsPO = null;
+                        try {
+                                goodsPO = goodsReceiptDataService.findGoods(goodsId);
+                        } catch (RemoteException e) {
+                                e.printStackTrace();
+                        } 
+                        goodsPO.addLocation(new Time().toString()
+                                        + " "
+                                        + PublicMessage.location
+                                        + " "
+                                        + InstitutionType
+                                                        .typeTpString(PublicMessage.institutionType)
+                                                        + " " + "已接收");
+                        try {
+                                goodsReceiptDataService.updateGoods(goodsPO);
+                        } catch (RemoteException e) {
+                                e.printStackTrace();
+                        }
+                }
+                
                 ArrivalBillPO arrivalBillPO = new ArrivalBillPO(
                                 arrivalBillVO.institution, arrivalBillVO.date,
                                 arrivalBillVO.transferBillNum,
@@ -78,7 +100,8 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
                         } catch (RemoteException e) {
                                 e.printStackTrace();
                         } 
-                        goodsPO.addLocation(PublicMessage.location);
+                        goodsPO.addLocation(new Time().toString()
+                                        + " 快递员 派件中");
                         try {
                                 goodsReceiptDataService.updateGoods(goodsPO);
                         } catch (RemoteException e) {

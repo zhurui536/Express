@@ -8,7 +8,6 @@ import presentation.logisticsui.deliverymanui.listener.MenuListener;
 import javax.swing.*;
 
 import connection.ClientInitException;
-import connection.ClientRMIHelper;
 
 import java.awt.*;
 
@@ -34,7 +33,6 @@ public class DeliveryManFrame extends JFrame{
         public static void main(String[] args) throws ClientInitException {
 //                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
 //                clientRMIHelper.init();
-                LogisticsBLService logisticsBLService = new LogisticsBLController();
                 DeliveryManFrame frame = new DeliveryManFrame();
                 frame.setVisible(true);
         }

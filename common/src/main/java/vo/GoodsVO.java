@@ -21,7 +21,7 @@ public class GoodsVO {
         //货物目的地
         public City destination;
         //货物轨迹
-        public ArrayList<City> track;
+        public ArrayList<String> track;
         //货物重量
         public double weight;
         //货物体积
