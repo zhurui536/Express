@@ -1,10 +1,17 @@
 package bussinesslogicservice.storeblservice;
 
+import util.ResultMessage;
+
 /**
  * Created by ZHR
  * 2015/10/26
  */
 public interface StoreBLService extends InStoreBLService, OutStoreBLService, AdjustBLService, CheckBLService, VerificationBLService{
+	//查看入库单的审批状态
+	public ResultMessage checkInStore();
+	
+	//查看出库单的审批状态
+	public ResultMessage checkOutStore();
 
 //	//出库部分所用接口方法
 //	public void newInStore();

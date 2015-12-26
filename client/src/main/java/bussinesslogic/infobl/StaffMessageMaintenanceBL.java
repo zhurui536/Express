@@ -56,7 +56,7 @@ public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLServi
         public ResultMessage modStaffMessage(StaffMessageVO staffMessage) {
                 ResultMessage resultMessage = null;
                 try {
-                	//查找到对应的id之后检查机构id
+                	//检查机构id
                 	resultMessage = institutionMessageMaintenanceDataService.find(staffMessage.institutionid);
                 	if(resultMessage.getKey().equals("FOUND")){
                         resultMessage = staffMessageMaintenanceDataService

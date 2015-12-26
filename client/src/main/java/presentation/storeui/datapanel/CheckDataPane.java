@@ -36,23 +36,6 @@ public class CheckDataPane extends JPanel {
 		MyJTable table = new MyJTable(rowdata, header);
 		table.setWidth(new int[]{135, 135, 135, 135, 135, 135});
 		
-//		JTable table = new JTable(rowdata, header){
-//			public boolean isCellEditable(int row, int column) {
-//				 return false;
-//				 }
-//		};
-//		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-//		table.setRowHeight(30);
-//		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-//		table.getColumnModel().getColumn(0).setPreferredWidth(135);
-//		table.getColumnModel().getColumn(1).setPreferredWidth(135);
-//		table.getColumnModel().getColumn(2).setPreferredWidth(135);
-//		table.getColumnModel().getColumn(3).setPreferredWidth(135);
-//		table.getColumnModel().getColumn(4).setPreferredWidth(135);
-//		table.getColumnModel().getColumn(5).setPreferredWidth(135);
-//		table.setShowGrid(true);
-//		table.setLocation(0, 0);
-		
 		JScrollPane total = new JScrollPane(table);
 		total.setBounds(0, 0, 810, 60);
 		this.add(total);

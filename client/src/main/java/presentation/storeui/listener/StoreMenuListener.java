@@ -100,6 +100,18 @@ public class StoreMenuListener implements ActionListener {
 				WarningDialog warning = new WarningDialog(storeui, "请结束当前任务");
 			}
 		}
+		else if(i==5){
+			ResultMessage result = sc.checkInStore();
+			if(result.getKey().equals("busy")){
+				WarningDialog warning = new WarningDialog(storeui, "请结束当前任务");
+			}
+			if(result.getKey().equals("success")){
+				CheckBillToolListener tl = new CheckBillToolListener(storeui);
+				CheckBillTool tool = new CheckBillTool(tl);
+				storeui.replaceTool(tool);
+				tl.setTool(tool);
+			}
+		}
 		else//最后为退出
 			storeui.close();
 	}

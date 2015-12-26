@@ -62,8 +62,9 @@ public class InstitutionInfoInputFrame extends JFrame implements ActionListener 
 		JLabel id = new JLabel("机构id：");
 		id.setBounds(20, 50, 70, 30);
 		this.getContentPane().add(id);
-		input[0] = new JTextArea();
+		input[0] = new JTextArea("自动生成");
 		input[0].setBounds(95, 50, 100, 30);
+		input[0].setEditable(false);
 		this.getContentPane().add(input[0]);
 		
 		JLabel institution = new JLabel("机构名称：");
