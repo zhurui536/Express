@@ -88,9 +88,10 @@ public class WarningDialog {
 		dialog.setLayout(null);
 		if (parent == null) {
 			FrameUtil.setFrameCenter(dialog);
+		} else {
+			dialog.setBounds(parent.getX() + parent.getWidth() / 5 * 2, 
+					parent.getY() + parent.getHeight() / 3, 220, 130);
+			dialog.setModal(true);
 		}
-		dialog.setBounds(parent.getX() + parent.getWidth() / 5 * 2, 
-				parent.getY() + parent.getHeight() / 3, 220, 130);
-		dialog.setModal(true);
 	}
 }

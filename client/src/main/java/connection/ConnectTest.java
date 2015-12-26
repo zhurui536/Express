@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import javax.swing.JFrame;
+
 import presentation.WarningDialog;
 
 public class ConnectTest {
@@ -14,14 +16,14 @@ public class ConnectTest {
 	private PrintWriter writer;
 	private Socket sock;
 
-	public synchronized void init() {
+	public synchronized void init(JFrame ui) {
 		try {
 			sock = new Socket(RMIConfig.getIP(), RMIConfig.getPORT() + 1);
 			InputStreamReader streamReader = new InputStreamReader(sock.getInputStream());
 			reader = new BufferedReader(streamReader);
 			writer = new PrintWriter(sock.getOutputStream());
 			System.out.println("networking established");
-			Thread readerThread = new Send();
+			Thread readerThread = new Send(ui);
 			readerThread.start();
 			
 		} catch (IOException ex) {
@@ -31,6 +33,13 @@ public class ConnectTest {
 	}
 
 	public class Send extends Thread {
+		
+		private JFrame ui;
+		
+		public Send(JFrame ui) {
+			this.ui = ui;
+		}
+		
 		public void run() {
 			while (true) {
 				try {
@@ -42,7 +51,8 @@ public class ConnectTest {
 					e.printStackTrace();	
 					break;
 				} catch (IOException e) {
-					new WarningDialog(null, "断线啦");
+					new WarningDialog(ui, "断线啦");
+//					JOptionPane.showConfirmDialog(null, "断线啦");
 //					e.printStackTrace();
 					break;
 				}

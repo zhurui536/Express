@@ -3,6 +3,7 @@ package po;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import util.BillState;
 import util.BillType;
@@ -23,7 +24,7 @@ public class BillPO implements Serializable {
 		this.userid = userid;
 		this.type = type;
 		this.state = BillState.DRAFT;
-		this.billid = PublicMessage.institutionID + df.format(Calendar.getInstance()) + BillType.BillTypeToTypeNum(type) + df2.format(Calendar.getInstance());
+		this.billid = PublicMessage.institutionID + df.format(new Date()) + BillType.BillTypeToTypeNum(type) + df2.format(new Date());
 		time = Calendar.getInstance();
 	}
 	
