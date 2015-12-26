@@ -7,7 +7,8 @@ public class RMIConfig {
     private static int PORT;
     
     public RMIConfig() {
-		IP = "172.26.98.70";
+//		IP = "172.26.98.70";
+    	IP = "localhost";
 		PORT = 1099;
 	}
 
