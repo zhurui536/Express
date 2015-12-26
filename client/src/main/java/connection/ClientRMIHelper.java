@@ -15,8 +15,7 @@ import java.util.Map;
 
 public class ClientRMIHelper {
 
-    private static final String IP = "172.26.98.70"; //Can be read from config file
-//        private static final String IP = "localhost";
+    private static String IP = RMIConfig.getIP();
     
     private static boolean init = false;
 
@@ -75,7 +74,7 @@ public class ClientRMIHelper {
     }
 
     public Object getServiceByName(String name) {
-        System.out.println(OBJECT_MAP.get(name));
+//        System.out.println(OBJECT_MAP.get(name));
         return OBJECT_MAP.get(name);
     }
 }
