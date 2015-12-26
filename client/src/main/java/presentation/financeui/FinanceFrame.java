@@ -72,7 +72,8 @@ public class FinanceFrame extends JFrame {
 
     private void initMenu() {
         menu = new JPanel();
-        menu.setBackground(Color.RED);
+        menu.setBackground(new Color(50, 200, 100, 100));
+//        menu.setBackground(Color.RED);
         menu.setLayout(null);
         menu.setSize(140, 500);
         menu.setLocation(0, 100);
@@ -133,7 +134,9 @@ public class FinanceFrame extends JFrame {
         this.tool = newTool;
 
         if (newTool != null) {
-            tool.setBackground(Color.BLUE);
+//            tool.setBackground(Color.BLUE);
+        	tool.setBackground(new Color(0, 0, 0, 100));
+        	
             this.getContentPane().add(tool);
         }
         this.validate();
