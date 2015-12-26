@@ -16,6 +16,7 @@ import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogic.userbl.UserBLServiceImpl;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import bussinesslogicservice.userblservice.UserBLService;
+import connection.ConnectTest;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
@@ -49,9 +50,12 @@ public class MainUI extends JFrame implements ActionListener{
 
     public static void main(String[] args){
 //    	initRMI();
-        MainUI ui = new MainUI();
-        FrameUtil.setFrameCenter(ui);
-        ui.setVisible(true);
+    	
+//        MainUI ui = new MainUI();
+//        FrameUtil.setFrameCenter(ui);
+//        ui.setVisible(true);
+        
+    	testConnect();
     }
 
     public MainUI(){
@@ -195,5 +199,10 @@ public class MainUI extends JFrame implements ActionListener{
     	        PublicMessage.location = (City) resultMessage.getValue();
     	PublicMessage.staffID = vo.id;
     	PublicMessage.institutionID = vo.institutionid;
+    }
+    
+    private static void testConnect() {
+    	ConnectTest connectTest = new ConnectTest();
+    	connectTest.init();
     }
 }

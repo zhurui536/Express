@@ -15,13 +15,15 @@ public class ConnectTestServer {
 	
 	public synchronized void init() {
 		try {
-			serverSocket = new ServerSocket(RMIConfig.getPORT());
-			Socket clientSocket = serverSocket.accept();
-			clientOutputStream = new PrintWriter(
-					clientSocket.getOutputStream());
-			Thread t = new ClientHandler(clientSocket);
-			t.start();
-			System.out.println("got a connetcion");
+			serverSocket = new ServerSocket(RMIConfig.getPORT() + 1);
+			while (true) {
+				Socket clientSocket = serverSocket.accept();
+				clientOutputStream = new PrintWriter(
+						clientSocket.getOutputStream());
+				Thread t = new ClientHandler(clientSocket);
+				t.start();
+				System.out.println("got a connetcion");
+			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -41,22 +43,15 @@ public class ConnectTestServer {
 				ex.printStackTrace();
 			}
 		}
-
+		
+		@Override
 		public void run() {
-			while (!this.isInterrupted()) {
+			while (true) {
 				try {
 					String msg = reader.readLine();
-					if (msg.equals(ConnectTestConfig.getSendMsg())) {
-						clientOutputStream.println(ConnectTestConfig.getSuccessMsg());
-					}
-
+					clientOutputStream.println(msg);
+					clientOutputStream.flush();
 				} catch (SocketException se) {
-					System.out.println("socket connection is closed!!!");
-					try {
-						serverSocket.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
 					break;
 				} catch (IOException e1) {
 					e1.printStackTrace();

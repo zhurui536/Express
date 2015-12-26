@@ -1,7 +1,8 @@
 package util;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  * 将窗体设为中间
@@ -11,7 +12,7 @@ import java.awt.*;
 
 public class FrameUtil {
 
-    public static void setFrameCenter(JFrame frame) {
+    public static void setFrameCenter(Container frame) {
 
 //        FrameConfig frameConfig = GameConfig.getFrameConfig();
         Toolkit toolkit = Toolkit.getDefaultToolkit();

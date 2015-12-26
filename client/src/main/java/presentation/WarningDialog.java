@@ -1,8 +1,12 @@
 package presentation;
 
-import util.ResultMessage;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-import javax.swing.*;
+import util.FrameUtil;
+import util.ResultMessage;
 
 public class WarningDialog {
 	//璀﹀憡绐楀彛锛�2绉掑悗鑷姩娑堝け
@@ -82,6 +86,9 @@ public class WarningDialog {
 	private void init(JFrame parent) {
 		dialog = new JDialog(parent);
 		dialog.setLayout(null);
+		if (parent == null) {
+			FrameUtil.setFrameCenter(dialog);
+		}
 		dialog.setBounds(parent.getX() + parent.getWidth() / 5 * 2, 
 				parent.getY() + parent.getHeight() / 3, 220, 130);
 		dialog.setModal(true);
