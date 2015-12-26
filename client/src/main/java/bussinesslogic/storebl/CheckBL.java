@@ -16,8 +16,7 @@ public class CheckBL implements CheckBLService {
 	private CheckVO vo;
 	
 	public CheckBL(){
-		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-		dataservice = (StoreDataService) clientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 	}
 	
 	@Override

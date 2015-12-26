@@ -20,8 +20,7 @@ public class CreatePayBillBL implements CreatePayBillBLService {
     private CreatePayBillDataService createPayBillDataServiceImpl;
 
     public CreatePayBillBL() {
-        ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-        createPayBillDataServiceImpl = (CreatePayBillDataService) clientRMIHelper.getServiceByName("CreatePayBillDataServiceImpl");
+        createPayBillDataServiceImpl = (CreatePayBillDataService) ClientRMIHelper.getServiceByName("CreatePayBillDataServiceImpl");
     }
 
     @Override

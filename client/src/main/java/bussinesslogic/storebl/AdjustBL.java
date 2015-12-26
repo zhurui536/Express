@@ -21,8 +21,7 @@ public class AdjustBL implements AdjustBLService {
 	private String user;
 	
 	public AdjustBL(){
-		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
-		dataservice = (StoreDataService) clientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 		this.user = PublicMessage.staffID;
 	}
 
