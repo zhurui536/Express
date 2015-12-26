@@ -35,7 +35,8 @@ public class CreatePayBillDataServiceImpl extends UnicastRemoteObject implements
         return new ResultMessage("success");
     }
 
-    private void init() {
+    @SuppressWarnings("unchecked")
+	private void init() {
         payBillPOs = (ArrayList<PayBillPO>) Database.load(PATH);
         if (payBillPOs == null)
             payBillPOs = new ArrayList<>();

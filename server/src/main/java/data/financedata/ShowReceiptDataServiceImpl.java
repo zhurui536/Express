@@ -25,7 +25,8 @@ public class ShowReceiptDataServiceImpl extends UnicastRemoteObject implements S
         super();
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public ResultMessage findAll() throws RemoteException {
         List<ReceiptBillPO> receiptBillPOs = (List<ReceiptBillPO>) Database.load(PATH);
         if (receiptBillPOs == null) {

@@ -48,22 +48,9 @@ public class BillDataServiceImpl extends UnicastRemoteObject implements Billdata
 	private String sendbill = "src/main/java/save/logisticsdata/sendBillPO.dat";
 	//中转单
 	private String transferbill = "src/main/java/save/logisticsdata/transferBillPO.dat";
-	
-	private void generatePath(){
-//		instorebill = PathMaker.getPath() + "save/storedata/instoreBillPO.dat";
-//		outstorebill = PathMaker.getPath() + "save/storedata/outstoreBillPO.dat";
-//		paybill = PathMaker.getPath() + "save/financedata/payBillPO.dat";
-//		receiptbill = PathMaker.getPath() + "save/logisticsdata/receiptBillPO.dat";
-//		arrivalbill = PathMaker.getPath() + "save/logisticsdata/arrivalBillPO.dat";
-//		deliverybill = PathMaker.getPath() + "save/logisticsdata/deliveryBillPO.dat";
-//		loadingbill = PathMaker.getPath() + "save/logisticsdata/loadingBillPO.dat";
-//		sendbill = PathMaker.getPath() + "save/logisticsdata/sendBillPO.dat";
-//		transferbill = PathMaker.getPath() + "save/logisticsdata/transferBillPO.dat";
-	}
 
 	public BillDataServiceImpl() throws RemoteException {
 		super();
-		this.generatePath();
 		try {
 			FileInputStream in = new FileInputStream(instorebill);
 			if(in.available()==0){

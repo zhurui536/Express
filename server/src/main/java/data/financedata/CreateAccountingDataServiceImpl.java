@@ -29,7 +29,8 @@ public class CreateAccountingDataServiceImpl extends UnicastRemoteObject impleme
         init();
     }
 
-    private void init() {
+    @SuppressWarnings("unchecked")
+	private void init() {
         initAccountPOs = (List<AccountPO>) Database.load(INIT_PATH);
         if (initAccountPOs == null) {
             initAccountPOs = new ArrayList<>();

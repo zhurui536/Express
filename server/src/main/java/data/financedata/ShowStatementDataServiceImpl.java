@@ -28,7 +28,8 @@ public class ShowStatementDataServiceImpl extends UnicastRemoteObject implements
 
     @Override
     public ResultMessage findAllPayBill() throws RemoteException {
-        List<PayBillPO> payBillPOs = (List<PayBillPO>) Database.load(PATH);
+        @SuppressWarnings("unchecked")
+		List<PayBillPO> payBillPOs = (List<PayBillPO>) Database.load(PATH);
         if (payBillPOs == null) {
             payBillPOs = new ArrayList<>();
         }

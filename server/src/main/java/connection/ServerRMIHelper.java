@@ -37,16 +37,17 @@ import data.userdata.AdminDataServiceImpl;
 public class ServerRMIHelper {
 
     private static Map<String, Class<? extends UnicastRemoteObject>> NAMING_MAP = new HashMap<>();
-  
 
-    private static final String IP = "172.26.98.70";
-//  private static final String IP = "localhost";
+    private static String IP;
 
-    private static final int PORT = 1099;
+    private static int PORT;
 
-    private static boolean init = false;
-
+    private static boolean init;
+    
     static {
+    	IP = RMIConfig.getIP();
+    	PORT = RMIConfig.getPORT();
+    	init = false;
         NAMING_MAP.put("BankAccountManagementDataServiceImpl", BankAccountManagementDataServiceImpl.class);
         NAMING_MAP.put("CreateAccountingDataServiceImpl", CreateAccountingDataServiceImpl.class);
         NAMING_MAP.put("CreatePayBillDataServiceImpl", CreatePayBillDataServiceImpl.class);
@@ -80,7 +81,7 @@ public class ServerRMIHelper {
         	Registry registry = LocateRegistry.createRegistry(PORT, myRMIFactory, myRMIFactory);
         	
             for (Entry<String, Class<? extends UnicastRemoteObject>> entry : NAMING_MAP.entrySet()) {
-                System.out.println(entry.getKey());
+//                System.out.println(entry.getKey());
                 String name = entry.getKey();
                 Class<? extends UnicastRemoteObject> clazz = entry.getValue();
                 UnicastRemoteObject proxy = clazz.newInstance();
