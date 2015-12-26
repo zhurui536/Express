@@ -1,11 +1,21 @@
 package presentation.mainui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
+import javax.swing.UIManager;
+import javax.swing.WindowConstants;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+
 import bussinesslogic.logisticsbl.LogisticsBLController;
 import bussinesslogic.userbl.UserBLServiceImpl;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import bussinesslogicservice.userblservice.UserBLService;
-import connection.ClientInitException;
-import connection.ClientRMIHelper;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
@@ -19,11 +29,6 @@ import util.Job;
 import util.PublicMessage;
 import util.ResultMessage;
 import vo.StaffMessageVO;
-
-import javax.swing.*;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by Away
@@ -42,7 +47,7 @@ public class MainUI extends JFrame implements ActionListener{
     public static String USER_ID;
 
     public static void main(String[] args){
-    	initRMI();
+//    	initRMI();
         MainUI ui = new MainUI();
         FrameUtil.setFrameCenter(ui);
         ui.setVisible(true);
@@ -76,13 +81,13 @@ public class MainUI extends JFrame implements ActionListener{
         this.initialize();
     }
 
-    private static void initRMI() {
-        try {
-            ClientRMIHelper.init();
-        } catch (ClientInitException e) {
-            e.printStackTrace();
-        }
-    }
+//    private static void initRMI() {
+//        try {
+//            ClientRMIHelper.init();
+//        } catch (ClientInitException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private void initialize(){
         JLabel title = new JLabel("用户登录");
