@@ -77,4 +77,16 @@ public interface StoreDataService extends Remote {
 	 * 结果：success  dataerror
 	 */
 	public ResultMessage saveStore(StorePO store)  throws RemoteException;
+	
+	/*获得出库单
+	 * 
+	 * 
+	 */
+	public ResultMessage getOutStoreBill() throws RemoteException;
+	
+	/*获得入库单
+	 * 
+	 * 
+	 */
+	public ResultMessage getIntStoreBill() throws RemoteException;
 }

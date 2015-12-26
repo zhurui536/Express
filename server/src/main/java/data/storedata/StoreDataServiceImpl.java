@@ -347,8 +347,6 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		objout.close();
 	}
 	
-	//这个格式用于生成出入库的单据号
-	private final SimpleDateFormat df= new SimpleDateFormat("yyyyMMddHHmmss");
 	//这个格式用于生成批次
 	private final SimpleDateFormat df2= new SimpleDateFormat("yyyyMMdd");
 	
@@ -371,6 +369,32 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 				}
 			}
 			return new ResultMessage("success", pihao);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResultMessage("dataerror", null);
+		}
+	}
+
+	@Override
+	public ResultMessage getOutStoreBill() throws RemoteException {
+		ArrayList<OutStoreBillPO> records = null;
+		
+		try {//读入已有的单据数据
+			records = (ArrayList<OutStoreBillPO>) this.readList(outstorebill);
+			return new ResultMessage("success", records);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResultMessage("dataerror", null);
+		}
+	}
+
+	@Override
+	public ResultMessage getIntStoreBill() throws RemoteException {
+		ArrayList<InStoreBillPO> records = null;
+		
+		try {//读入已有的单据数据
+			records = (ArrayList<InStoreBillPO>) this.readList(instorebill);
+			return new ResultMessage("success", records);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResultMessage("dataerror", null);
