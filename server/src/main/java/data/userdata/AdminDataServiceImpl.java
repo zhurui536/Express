@@ -10,6 +10,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import dataservice.userdataservice.AdminDataService;
+import po.InstitutionMessagePO;
 import po.StaffMessagePO;
 import po.UserPO;
 import util.ResultMessage;
@@ -111,5 +112,25 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 	
 	private String userrecord = "src/main/java/save/userdata/userPO.dat";
 	private String staffmessage = "src/main/java/save/infodata/staffMessagePO.dat";
+	private static final String INSTITUTION_MESSAGE_PATH = "src/main/java/save/infodata/institutionMessagePO.dat";
+
+        @SuppressWarnings("unchecked")
+        @Override
+        public ResultMessage getInstCity(String institutionId)
+                        throws RemoteException {
+                ArrayList<InstitutionMessagePO> institutionMessagePOs = null;
+                try {
+                        institutionMessagePOs = (ArrayList<InstitutionMessagePO>) this.readList(INSTITUTION_MESSAGE_PATH);
+                } catch (Exception e) {
+                        e.printStackTrace();
+                        return new ResultMessage("dataerror", null);
+                }
+                for (InstitutionMessagePO institutionMessagePO : institutionMessagePOs) {
+                        if(institutionMessagePO.getId().equals(institutionId)){
+                                return new ResultMessage("success",institutionMessagePO.getCity());
+                        }
+                }
+                return new ResultMessage("not_found");
+        }
 
 }

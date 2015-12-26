@@ -11,6 +11,7 @@ import po.UserPO;
 import po.logisticpo.PeopleMessagePO;
 import po.logisticpo.SendBillPO;
 import util.AuthorityLevel;
+import util.City;
 import util.ExpressType;
 import util.Job;
 import util.PackageType;
@@ -39,7 +40,7 @@ public class AdminDataTester {
 			PeopleMessagePO people = new PeopleMessagePO("朱浩然", "南京大学", "南京大学", "785693057", "785693057");
 			GoodsPO[] goods = new GoodsPO[10];
 			for(int i=0;i<10;i++){
-				goods[i] = new GoodsPO(141250212+i+"", "货物"+i, "南京大学", "北京大学", 4, 6, PackageType.CARTONS, ExpressType.COURIER);
+				goods[i] = new GoodsPO(141250212+i+"", "货物"+i, City.NANJING, City.BEIJING, 4, 6, PackageType.CARTONS, ExpressType.COURIER);
 				SendBillPO po = new SendBillPO(people, people, goods[i], "1222"+i, "141250212");
 				receidata.insertBill(po);
 			}

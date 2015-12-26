@@ -24,6 +24,7 @@ import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.StoreFrame;
 import presentation.userui.AdminFrame;
+import util.City;
 import util.FrameUtil;
 import util.Job;
 import util.PublicMessage;
@@ -222,7 +223,9 @@ public class MainUI extends JFrame implements ActionListener{
             FrameUtil.setFrameCenter(frame);
     		frame.setVisible(true);
     	}
-    	
+    	ResultMessage resultMessage = bl.getCity(vo.institutionid);
+    	if(resultMessage.getKey().equals("success"))
+    	        PublicMessage.location = (City) resultMessage.getValue();
     	PublicMessage.staffID = vo.id;
     	PublicMessage.institutionID = vo.institutionid;
     }

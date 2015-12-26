@@ -2,6 +2,7 @@ package presentation.logisticsui.deliverymanui.inputframe;
 
 
 import presentation.logisticsui.deliverymanui.listener.toollistener.ReceivingToolListener;
+import util.City;
 import util.ExpressType;
 import util.GoodsDeliveryState;
 import util.PackageType;
@@ -87,10 +88,13 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
         
         class goodsPanel extends JPanel{
                 JLabel[][] labels = new JLabel[3][3];
-                JTextArea[][] textAreas = new JTextArea[3][3];
+                JTextArea[] textAreas = new JTextArea[3];
                 final String[][] nameStrings = { { "名称：", "出发地：", "目的地：" },
                                 { "重量：", "体积：", null },
                                 { "包装：", "快递方式：", null} };
+                final String[] citys = {"南京","北京","上海","广州"};
+                JComboBox<String> startPlace = new JComboBox<String>(citys);
+                JComboBox<String> endPlace = new JComboBox<String>(citys);
                 final String[] stringsP = {"纸箱", "木箱", "快递袋"};
                 JComboBox<String> packageTypeBox = new JComboBox<String>(stringsP);
                 final String[] stringsE = {"普通", "经济", "特快"};
@@ -105,14 +109,25 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                                         labels[i][j].setLocation(15 + j * 175, 15 + i * 50);
                                         labels[i][j].setSize(70,35);
                                         this.add(labels[i][j]);
-                                        if(i == 2)
-                                                continue;
-                                        textAreas[i][j] = new JTextArea();
-                                        textAreas[i][j].setLocation(65 + j * 185, 15 + i * 50);
-                                        textAreas[i][j].setSize(100, 35);
-                                        this.add(textAreas[i][j]);
                                 }
                         }
+                        textAreas[0] = new JTextArea();
+                        textAreas[0].setBounds(65,15,100,35);
+                        this.add(textAreas[0]);
+                        
+                        textAreas[1] = new JTextArea();
+                        textAreas[1].setBounds(65, 65, 100, 35);
+                        this.add(textAreas[1]);
+                        
+                        textAreas[2] = new JTextArea();
+                        textAreas[2].setBounds(250,65,100,35);
+                        this.add(textAreas[2]);
+                        
+                        startPlace.setBounds(250,15,100, 30);
+                        this.add(startPlace);
+                        
+                        endPlace.setBounds(435,15,100,30);
+                        this.add(endPlace);
                         
                         packageTypeBox.setBounds(65, 115, 100, 30);
                         this.add(packageTypeBox);
@@ -124,14 +139,14 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                 
                 GoodsVO getInput(){
                         GoodsVO goodsVO = new GoodsVO();
-                        goodsVO.name = textAreas[0][0].getText();
-                        goodsVO.departurePlace = textAreas[0][1].getText();
-                        goodsVO.destination = textAreas[0][2].getText();
+                        goodsVO.name = textAreas[0].getText();
+                        goodsVO.departurePlace =  City.stringToType((String)startPlace.getSelectedItem());
+                        goodsVO.destination =City.stringToType((String)endPlace.getSelectedItem());
                         
-                        double w = Double.parseDouble(textAreas[1][0].getText());
+                        double w = Double.parseDouble(textAreas[1].getText());
                         if(w > 0)
                                 goodsVO.weight = w;
-                        double v = Double.parseDouble(textAreas[1][1].getText());
+                        double v = Double.parseDouble(textAreas[2].getText());
                         if(v > 0)
                                 goodsVO.volume = v;
                         

@@ -1,5 +1,6 @@
 package po;
 
+import util.City;
 import util.ExpressType;
 import util.GoodsDeliveryState;
 import util.PackageType;
@@ -14,18 +15,16 @@ import java.util.ArrayList;
  */
 
 public class GoodsPO implements Serializable {
-        /**
-         * 
-         */
-		private static final long serialVersionUID = 6366213867793889079L;
-		// 货物名称
+
+	private static final long serialVersionUID = 6366213867793889079L;
+	// 货物名称
         private String name;
         // 货物出发地
-        private String departurePlace;
+        private City departurePlace;
         // 货物目的地
-        private String destination;
+        private City destination;
         // 货物轨迹
-        private ArrayList<String> track;
+        private ArrayList<City> track;
         // 货物重量
         private double weight;
         // 货物体积
@@ -47,8 +46,8 @@ public class GoodsPO implements Serializable {
         // 金额
         private double price;
 
-        public GoodsPO(String id, String name, String departurePlace,
-                        String destination, double weight, double volume,
+        public GoodsPO(String id, String name, City departurePlace,
+                        City destination, double weight, double volume,
                         PackageType packageType, ExpressType expressType) {
 
                 this.id = id;
@@ -85,7 +84,7 @@ public class GoodsPO implements Serializable {
                 goodsVO.price = this.price;
                 return goodsVO;
         }
-
+        
         public static GoodsPO voToPo(GoodsVO goodsVO) {
                 GoodsPO goodsPO =  new GoodsPO(goodsVO.id, goodsVO.name,
                                 goodsVO.departurePlace, goodsVO.destination,
@@ -128,7 +127,7 @@ public class GoodsPO implements Serializable {
                 return serialVersionUID;
         }
 
-        public void setTrack(ArrayList<String> track) {
+        public void setTrack(ArrayList<City> track) {
                 this.track = track;
         }
 
@@ -144,7 +143,7 @@ public class GoodsPO implements Serializable {
                 this.recipient = recipient;
         }
 
-        public void addLocation(String location) {
+        public void addLocation(City location) {
                 this.track.add(location);
         }
 
@@ -156,11 +155,11 @@ public class GoodsPO implements Serializable {
                 this.goodsDeliveryState = goodsDeliveryState;
         }
 
-        public String getDestination() {
+        public City getDestination() {
                 return destination;
         }
 
-        public void setDestination(String destination) {
+        public void setDestination(City destination) {
                 this.destination = destination;
         }
 
@@ -205,15 +204,15 @@ public class GoodsPO implements Serializable {
                 this.expressType = expressType;
         }
 
-        public String getDeparturePlace() {
+        public City getDeparturePlace() {
                 return departurePlace;
         }
 
-        public void setDeparturePlace(String departurePlace) {
+        public void setDeparturePlace(City departurePlace) {
                 this.departurePlace = departurePlace;
         }
 
-        public ArrayList<String> getTrack() {
+        public ArrayList<City> getTrack() {
                 return track;
         }
 

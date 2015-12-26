@@ -13,4 +13,6 @@ public interface AdminDataService  extends Remote {
 	public ResultMessage getStaff() throws RemoteException;
 	
 	public ResultMessage saveUser(ArrayList<UserPO> users)throws RemoteException;
+	
+	public ResultMessage getInstCity(String institutionId) throws RemoteException;
 }

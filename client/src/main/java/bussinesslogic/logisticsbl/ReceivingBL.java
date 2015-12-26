@@ -8,11 +8,7 @@ import dataservice.strategydataservice.StrategyDataService;
 import po.DistancePO;
 import po.GoodsPO;
 import po.logisticpo.SendBillPO;
-import util.City;
-import util.ExpressType;
-import util.PackageType;
-import util.PublicMessage;
-import util.ResultMessage;
+import util.*;
 import vo.GoodsVO;
 import vo.logisticvo.SendBillVO;
 
@@ -53,7 +49,7 @@ public class ReceivingBL implements ReceivingBLService {
 
         @SuppressWarnings("unchecked")
         @Override
-        public long getTime(String departurePlace, String destination) {
+        public long getTime(City departurePlace, City destination) {
                 ArrayList<SendBillPO> sendBillPOs = null;
                 try {
                         sendBillPOs = (ArrayList<SendBillPO>) (receivingDataService.findAll()).getValue();
@@ -96,7 +92,7 @@ public class ReceivingBL implements ReceivingBLService {
                 @SuppressWarnings("unchecked")
                 ArrayList<DistancePO> distancePos = (ArrayList<DistancePO>) resultMessage.getValue();
                 for (DistancePO distancePO : distancePos) {
-                        if(distancePO.ifMatch(City.stringToType(goods.departurePlace), City.stringToType(goods.destination))){
+                        if(distancePO.ifMatch(goods.departurePlace, goods.destination)){
                                 distance = distancePO.getDistance();
                         }
                 }

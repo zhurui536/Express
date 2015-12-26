@@ -2,7 +2,7 @@ package util;
 
 public class PublicMessage {
 
-        public static String location;
+        public static City location;
 
         public static String staffID;
 

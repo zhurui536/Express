@@ -1,6 +1,7 @@
 package bussinesslogicservice.logisticsblservice;
 
 
+import util.City;
 import util.ResultMessage;
 import vo.GoodsVO;
 import vo.logisticvo.SendBillVO;
@@ -20,7 +21,7 @@ public interface ReceivingBLService {
          * @param departurePlace TODO
          * @param destination TODO
          */
-        public long getTime(String departurePlace, String destination);
+        public long getTime(City departurePlace, City destination);
         
         /**
          * 获取快递所需费用

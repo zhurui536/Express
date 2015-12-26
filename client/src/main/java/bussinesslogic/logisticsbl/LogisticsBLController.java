@@ -2,6 +2,7 @@ package bussinesslogic.logisticsbl;
 
 import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import bussinesslogicservice.logisticsblservice.*;
+import util.City;
 import util.LogFactory;
 import util.ResultMessage;
 import util.Time;
@@ -45,7 +46,7 @@ public class LogisticsBLController implements LogisticsBLService {
         }
 
         @Override
-        public long getTime(String departurePlace, String destination) {
+        public long getTime(City departurePlace, City destination) {
                 return receivingBLService.getTime(null, null);
         }
 

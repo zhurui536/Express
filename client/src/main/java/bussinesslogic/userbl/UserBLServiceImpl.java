@@ -10,6 +10,7 @@ import util.ResultMessage;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+
 public class UserBLServiceImpl implements UserBLService {
 	
 	private AdminDataService dataservice;
@@ -24,7 +25,8 @@ public class UserBLServiceImpl implements UserBLService {
 		try {
 			ResultMessage result = dataservice.getUser();
 			if(result.getKey().equals("success")){
-				ArrayList<UserPO> users = (ArrayList<UserPO>) result.getValue();
+				@SuppressWarnings("unchecked")
+                                ArrayList<UserPO> users = (ArrayList<UserPO>) result.getValue();
 				//检查用户id是否存在
 				for(int i=0;i<users.size();i++){
 					//如果存在，则比较密码
@@ -35,7 +37,8 @@ public class UserBLServiceImpl implements UserBLService {
 							result = dataservice.getStaff();
 							
 							if(result.getKey().equals("success")){
-								ArrayList<StaffMessagePO> staff = (ArrayList<StaffMessagePO>) result.getValue();
+								@SuppressWarnings("unchecked")
+                                                                ArrayList<StaffMessagePO> staff = (ArrayList<StaffMessagePO>) result.getValue();
 								
 								//如果员工编号存在，则将该编号返回作为之后工作的编号
 								for(int j=0;j<staff.size();j++){
@@ -64,4 +67,16 @@ public class UserBLServiceImpl implements UserBLService {
 			return new ResultMessage("internet error", null);
 		}
 	}
+
+        @Override
+        public ResultMessage getCity(String insID) {
+                ResultMessage resultMessage = null;
+                try {
+                        resultMessage = dataservice.getInstCity(insID);
+                } catch (RemoteException e) {
+                        e.printStackTrace();
+                        return new ResultMessage("internet error");
+                }
+                return resultMessage;
+        }
 }
