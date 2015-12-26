@@ -33,12 +33,12 @@ public class ReceiptBillPO extends BillPO {
         public ReceiptBillPO(Time time, BigDecimal totalMoney,
                         String institutionID,
                         List<ReceiptLineItemPO> receiptLineItemPOs, String billID, String staffID) {
-                super(billID, BillType.RECEIPT, staffID);
+                super(BillType.RECEIPT, staffID);
                 this.time = time;
                 this.totalMoney = totalMoney;
                 this.institutionID = institutionID;
                 this.receiptLineItemPOs = receiptLineItemPOs;
-                this.billID = billID;
+                this.billID = super.getBillID();
                 this.staffID = staffID;
         }
         

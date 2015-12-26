@@ -27,4 +27,17 @@ public enum City {
                 }
                 return result;
         }
+        
+        public static String CityToNum(City city){
+        	if(city == NANJING)
+        		return "025";
+        	if(city == BEIJING)
+        		return "010";
+        	if(city == SHANGHAI)
+        		return "021";
+        	if(city == GUANGZHOU)
+        		return "020";
+        	
+        	return null;
+        }
 }

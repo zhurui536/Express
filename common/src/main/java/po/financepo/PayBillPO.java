@@ -39,24 +39,24 @@ public class PayBillPO extends BillPO {
 
     public PayBillPO(Time time, BigDecimal money, String staffID,
                      String bankAccountID, String id, PayItem item, String remark) {
-    	super(id, BillType.PAYMENT, staffID);
+    	super(BillType.PAYMENT, staffID);
     	this.staffID = staffID;
         this.time = time;
         this.money = money;
         this.bankAccountID = bankAccountID;
-        this.id = id;
+        this.id = super.getBillID();
         this.item = item;
         this.remark = remark;
     }
 
     public PayBillPO(PayBillVO payBillVO) {
-    	super(payBillVO.id, BillType.PAYMENT, payBillVO.staffID);
+    	super(BillType.PAYMENT, payBillVO.staffID);
         
         this.time = payBillVO.time;
         this.money = payBillVO.money;
         this.staffID = payBillVO.staffID;
         this.bankAccountID = payBillVO.bankAccountID;
-        this.id = payBillVO.id;
+        this.id = super.getBillID();
         this.item = payBillVO.item;
         this.remark = payBillVO.remark;
     }

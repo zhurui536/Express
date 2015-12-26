@@ -29,11 +29,11 @@ public class SendBillPO extends BillPO {
 
         public SendBillPO(PeopleMessagePO senderPO,
                         PeopleMessagePO recipientPO, GoodsPO goodsPO, String id,String deliveryManID) {
-                super(id, BillType.SEND, deliveryManID);
+                super(BillType.SEND, deliveryManID);
                 this.senderPO = senderPO;
                 this.recipientPO = recipientPO;
                 this.goodsPO = goodsPO;
-                this.id = id;
+                this.id = super.getBillID();
                 this.deliveryManID = deliveryManID;
                 this.billState = BillState.DRAFT;
         }

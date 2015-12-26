@@ -3,6 +3,7 @@ package vo.storevo;
 import po.GoodsPO;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
+import util.City;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -43,7 +44,7 @@ public class VerificationVO {
 							storeplace.add(places);
 							
 							goodsid.add(goods.getId());
-							destination.add(goods.getDestination());
+							destination.add(City.cityToString(goods.getDestination()));
 							date.add(temp.getDate());
 						}
 					}

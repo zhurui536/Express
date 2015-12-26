@@ -15,6 +15,8 @@ public interface BillBLService {
 	 */
 	public ResultMessage getBills();
 	
+	public ResultMessage getBills(BillType type);
+	
 	/*返回选中单据的详细信息
 	 * id
 	 * BillVO

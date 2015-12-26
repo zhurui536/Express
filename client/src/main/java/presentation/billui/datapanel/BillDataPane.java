@@ -150,7 +150,7 @@ public class BillDataPane extends JPanel implements ActionListener {
 			billname = "付款单";
 		}
 		else if(type == BillType.RECEIPT){
-			billname = "接收单";
+			billname = "收款单";
 		}
 		else if(type == BillType.ARRIVAL){
 			billname = "到达单";

@@ -28,7 +28,7 @@ public class ArrivalBillPO extends BillPO {
         public ArrivalBillPO(String institution, String date,
                         String transferBillNum, String departurePlace,
                         GoodsState goodsState) {
-                super(transferBillNum, BillType.ARRIVAL, institution);
+                super(BillType.ARRIVAL, institution);
                 this.institution = institution;
                 this.date = date;
                 this.transferBillNum = transferBillNum;
