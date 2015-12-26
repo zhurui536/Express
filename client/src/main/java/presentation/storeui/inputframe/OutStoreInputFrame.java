@@ -25,17 +25,17 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 	
 	private OutStoreToolListener listener;
 	
-	public OutStoreInputFrame(OutStoreToolListener listener){
+	public OutStoreInputFrame(OutStoreToolListener listener, String billid){
 		this.setName("出库货物输入");
 		this.setLayout(null);
 		this.setSize(430, 275);
 		this.setLocation(400, 250);
 		
 		this.listener = listener;
-		initialize();
+		initialize(billid);
 	}
 	
-	private void initialize(){
+	private void initialize(String id){
 		title = new JLabel("出库货物输入");
 		title.setSize(90, 30);
 		title.setLocation(170, 10);
@@ -70,7 +70,7 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 		destination.setLocation(110, 130);
 		this.getContentPane().add(destination);
 		
-		billid = new JTextArea();
+		billid = new JTextArea(id);
 		billid.setSize(260, 30);
 		billid.setLocation(110, 170);
 		this.getContentPane().add(billid);

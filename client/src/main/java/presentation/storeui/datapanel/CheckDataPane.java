@@ -1,10 +1,10 @@
 package presentation.storeui.datapanel;
 
+import util.MyJTable;
 import vo.storevo.CheckVO;
 
 import javax.swing.*;
 
-import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,22 +33,25 @@ public class CheckDataPane extends JPanel {
 		rowdata[0][4] = vo.getNumOfUsed();
 		rowdata[0][5] = vo.getNumOfEmpty();
 		
-		JTable table = new JTable(rowdata, header){
-			public boolean isCellEditable(int row, int column) {
-				 return false;
-				 }
-		};
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table.setRowHeight(30);
-		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-		table.getColumnModel().getColumn(0).setPreferredWidth(135);
-		table.getColumnModel().getColumn(1).setPreferredWidth(135);
-		table.getColumnModel().getColumn(2).setPreferredWidth(135);
-		table.getColumnModel().getColumn(3).setPreferredWidth(135);
-		table.getColumnModel().getColumn(4).setPreferredWidth(135);
-		table.getColumnModel().getColumn(5).setPreferredWidth(135);
-		table.setShowGrid(true);
-		table.setLocation(0, 0);
+		MyJTable table = new MyJTable(rowdata, header);
+		table.setWidth(new int[]{135, 135, 135, 135, 135, 135});
+		
+//		JTable table = new JTable(rowdata, header){
+//			public boolean isCellEditable(int row, int column) {
+//				 return false;
+//				 }
+//		};
+//		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+//		table.setRowHeight(30);
+//		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
+//		table.getColumnModel().getColumn(0).setPreferredWidth(135);
+//		table.getColumnModel().getColumn(1).setPreferredWidth(135);
+//		table.getColumnModel().getColumn(2).setPreferredWidth(135);
+//		table.getColumnModel().getColumn(3).setPreferredWidth(135);
+//		table.getColumnModel().getColumn(4).setPreferredWidth(135);
+//		table.getColumnModel().getColumn(5).setPreferredWidth(135);
+//		table.setShowGrid(true);
+//		table.setLocation(0, 0);
 		
 		JScrollPane total = new JScrollPane(table);
 		total.setBounds(0, 0, 810, 60);
@@ -75,22 +78,8 @@ public class CheckDataPane extends JPanel {
 			rowdata[i][5] = df.format(timeOfIn.get(i).getTime());
 		}
 		
-		JTable table = new JTable(rowdata, header){
-			public boolean isCellEditable(int row, int column) {
-				 return false;
-				 }
-		};
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table.setRowHeight(30);
-		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-		table.getColumnModel().getColumn(0).setPreferredWidth(200);
-		table.getColumnModel().getColumn(1).setPreferredWidth(100);
-		table.getColumnModel().getColumn(2).setPreferredWidth(100);
-		table.getColumnModel().getColumn(3).setPreferredWidth(100);
-		table.getColumnModel().getColumn(4).setPreferredWidth(100);
-		table.getColumnModel().getColumn(5).setPreferredWidth(200);
-		table.setShowGrid(true);
-		table.setLocation(0, 0);
+		MyJTable table = new MyJTable(rowdata, header);
+		table.setWidth(new int[]{200, 100, 100, 100, 100, 200});
 		
 		JScrollPane data = new JScrollPane(table);
 		data.setBounds(0, 65, 810, 420);
@@ -113,22 +102,8 @@ public class CheckDataPane extends JPanel {
 			rowdata[i][5] = df.format(timeOfOut.get(i).getTime());
 		}
 		
-		JTable table = new JTable(rowdata, header){
-			public boolean isCellEditable(int row, int column) {
-				 return false;
-				 }
-		};
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table.setRowHeight(30);
-		table.setPreferredScrollableViewportSize(new Dimension(810, 30));
-		table.getColumnModel().getColumn(0).setPreferredWidth(200);
-		table.getColumnModel().getColumn(1).setPreferredWidth(100);
-		table.getColumnModel().getColumn(2).setPreferredWidth(100);
-		table.getColumnModel().getColumn(3).setPreferredWidth(100);
-		table.getColumnModel().getColumn(4).setPreferredWidth(100);
-		table.getColumnModel().getColumn(5).setPreferredWidth(200);
-		table.setShowGrid(true);
-		table.setLocation(0, 0);
+		MyJTable table = new MyJTable(rowdata, header);
+		table.setWidth(new int[]{200, 100, 100, 100, 100, 200});
 		
 		JScrollPane data = new JScrollPane(table);
 		data.setBounds(0, 490, 810, 420);
