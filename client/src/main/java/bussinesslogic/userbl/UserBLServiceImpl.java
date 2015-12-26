@@ -3,6 +3,7 @@ package bussinesslogic.userbl;
 import bussinesslogicservice.userblservice.UserBLService;
 import connection.ClientRMIHelper;
 import dataservice.userdataservice.AdminDataService;
+import po.InstitutionMessagePO;
 import po.StaffMessagePO;
 import po.UserPO;
 import util.ResultMessage;
@@ -68,14 +69,14 @@ public class UserBLServiceImpl implements UserBLService {
 	}
 
         @Override
-        public ResultMessage getCity(String insID) {
+        public ResultMessage getInstitution(String insID) {
                 ResultMessage resultMessage = null;
                 try {
-                        resultMessage = dataservice.getInstCity(insID);
+                        resultMessage = dataservice.getInstitution(insID);
                 } catch (RemoteException e) {
                         e.printStackTrace();
                         return new ResultMessage("internet error");
                 }
-                return resultMessage;
+                return new ResultMessage("success", ((InstitutionMessagePO)resultMessage.getValue()).poToVo());
         }
 }

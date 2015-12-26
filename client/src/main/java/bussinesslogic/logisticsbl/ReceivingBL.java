@@ -35,7 +35,13 @@ public class ReceivingBL implements ReceivingBLService {
                 GoodsVO goodsVO = billVO.goodsVO;
                 goodsVO.price = getCharge(goodsVO);
                 GoodsPO goodsPO = GoodsPO.voToPo(goodsVO);
-                goodsPO.addLocation(PublicMessage.location);
+                goodsPO.addLocation(new Time().toString()
+                                + " "
+                                + PublicMessage.location
+                                + " "
+                                + InstitutionType
+                                                .typeTpString(PublicMessage.institutionType)
+                                                + " " + "已收件");
                 sendBillPO.setGoodsPO(goodsPO);
                 sendBillPOs.add(sendBillPO);
                 try {

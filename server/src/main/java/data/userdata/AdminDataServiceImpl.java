@@ -16,9 +16,7 @@ import po.UserPO;
 import util.ResultMessage;
 
 public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDataService {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 2560801151861337295L;
 	
 	public AdminDataServiceImpl() throws RemoteException{
@@ -116,7 +114,7 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 
         @SuppressWarnings("unchecked")
         @Override
-        public ResultMessage getInstCity(String institutionId)
+        public ResultMessage getInstitution(String institutionId)
                         throws RemoteException {
                 ArrayList<InstitutionMessagePO> institutionMessagePOs = null;
                 try {

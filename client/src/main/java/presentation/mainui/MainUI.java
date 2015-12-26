@@ -17,7 +17,6 @@ import bussinesslogicservice.userblservice.UserBLService;
 import connection.ClientInitException;
 import connection.ClientRMIHelper;
 import connection.ConnectTest;
-import po.InstitutionMessagePO;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
@@ -30,6 +29,7 @@ import util.FrameUtil;
 import util.Job;
 import util.PublicMessage;
 import util.ResultMessage;
+import vo.InstitutionMessageVO;
 import vo.StaffMessageVO;
 
 /**
@@ -186,14 +186,14 @@ public class MainUI extends JFrame implements ActionListener{
             PublicMessage.job = vo.job;
             PublicMessage.staffID = vo.id;
             PublicMessage.institutionID = vo.institutionid;
-            ResultMessage resultMessage = bl.getCity(vo.institutionid);
-            InstitutionMessagePO institutionMessagePO = null;
+            ResultMessage resultMessage = bl.getInstitution(vo.institutionid);
+            InstitutionMessageVO institutionMessageVO = null;
             if(resultMessage.getKey().equals("success"))
-                    institutionMessagePO = (InstitutionMessagePO) resultMessage.getValue();
-            if(institutionMessagePO == null)
+                    institutionMessageVO = (InstitutionMessageVO) resultMessage.getValue();
+            if(institutionMessageVO == null)
                     return;
-            PublicMessage.institutionType = institutionMessagePO.getInstitutionType();
-            PublicMessage.location = institutionMessagePO.getCity();
+            PublicMessage.institutionType = institutionMessageVO.institutionType;
+            PublicMessage.location = institutionMessageVO.city;
             
     }
     
