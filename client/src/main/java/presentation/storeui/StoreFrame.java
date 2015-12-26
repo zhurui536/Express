@@ -47,13 +47,13 @@ public class StoreFrame extends JFrame{
 	
 	private void paintmenu(){
 		menu = new JPanel();
-		menu.setBackground(Color.RED);
+		menu.setBackground(Color.GRAY);
 		menu.setLayout(null);
 		menu.setSize(140, 500);
 		menu.setLocation(0, 100);
 		
-		buttons = new JButton[6];
-		for(int i=0;i<6;i++){
+		buttons = new JButton[7];
+		for(int i=0;i<7;i++){
 			buttons[i] = createButton(i);
 			buttons[i].setLocation(15, 35 + 75*i);
 			menu.add(buttons[i], 0);
@@ -67,7 +67,7 @@ public class StoreFrame extends JFrame{
 		tool.setLayout(null);
 		tool.setSize(1000, 100);
 		tool.setLocation(0, 0);
-		tool.setBackground(Color.BLUE);
+		tool.setBackground(Color.CYAN);
 		
 		this.getContentPane().add(tool);
 	}
@@ -119,7 +119,7 @@ public class StoreFrame extends JFrame{
 		this.tool = newtool;
 		
 		if(newtool != null){
-			tool.setBackground(Color.BLUE);
+			tool.setBackground(Color.CYAN);
 			this.getContentPane().add(tool);
 		}
 		else{
@@ -138,5 +138,5 @@ public class StoreFrame extends JFrame{
 		return this.sc;
 	}
 	
-	private final String[] names = {"入库", "出库", "库存查看", "库存盘点", "库存调整", "退出"};
+	private final String[] names = {"入库", "出库", "库存查看", "库存盘点", "库存调整", "审批查看", "退出"};
 }

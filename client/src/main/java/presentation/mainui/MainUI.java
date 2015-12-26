@@ -14,7 +14,8 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import bussinesslogic.userbl.UserBLServiceImpl;
 import bussinesslogicservice.userblservice.UserBLService;
-
+import connection.ClientInitException;
+import connection.ClientRMIHelper;
 import connection.ConnectTest;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
@@ -48,13 +49,12 @@ public class MainUI extends JFrame implements ActionListener{
     public static String USER_ID;
 
     public static void main(String[] args){
-//    	initRMI();
+    	initRMI();
     	
-//        MainUI ui = new MainUI();
-//        FrameUtil.setFrameCenter(ui);
-//        ui.setVisible(true);
+        MainUI ui = new MainUI();
+        FrameUtil.setFrameCenter(ui);
+        ui.setVisible(true);
         
-    	testConnect();
     }
 
     public MainUI(){
@@ -85,13 +85,13 @@ public class MainUI extends JFrame implements ActionListener{
         this.initialize();
     }
 
-//    private static void initRMI() {
-//        try {
-//            ClientRMIHelper.init();
-//        } catch (ClientInitException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private static void initRMI() {
+        try {
+            ClientRMIHelper.init();
+        } catch (ClientInitException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void initialize(){
         JLabel title = new JLabel("用户登录");
@@ -148,48 +148,37 @@ public class MainUI extends JFrame implements ActionListener{
     }
     
     private void OpenFrame(StaffMessageVO vo){
+    	JFrame frame = null;
+    	this.setVisible(false);
+    	
     	if(vo.job == Job.COURIER){
-            this.setVisible(false);
-            DeliveryManFrame frame = new DeliveryManFrame();
-            FrameUtil.setFrameCenter(frame);
-            frame.setVisible(true);
+            frame = new DeliveryManFrame();
     	}
     	if(vo.job == Job.STOCKMAN){
-            this.setVisible(false);
-            StoreFrame frame = new StoreFrame();
-            FrameUtil.setFrameCenter(frame);
-            frame.setVisible(true);
+            frame = new StoreFrame();
     	}
     	if(vo.job == Job.MANAGER){
-    		this.setVisible(false);
-            ManagerFrame frame = new ManagerFrame();
-            FrameUtil.setFrameCenter(frame);
-            frame.setVisible(true);
+            frame = new ManagerFrame();
     	}
     	if(vo.job == Job.SALESOFOFFICE){
-            this.setVisible(false);
-            BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame();
-            FrameUtil.setFrameCenter(frame);
-            frame.setVisible(true);
+            frame = new BusinessOfficeClerkFrame();
     	}
     	if(vo.job == Job.FINANCEMAN){
-    		this.setVisible(false);
-            FinanceFrame frame = new FinanceFrame();
-            FrameUtil.setFrameCenter(frame);
-            frame.setVisible(true);
+            frame = new FinanceFrame();
     	}
     	if(vo.job == Job.SALESOFCENTRE){
-            this.setVisible(false);
-            TransitCenterclerkFrame frame = new TransitCenterclerkFrame();
-            FrameUtil.setFrameCenter(frame);
-            frame.setVisible(true);
+            frame = new TransitCenterclerkFrame();
     	}
     	if(vo.job == Job.ADMIN){
-    		this.setVisible(false);
-    		AdminFrame frame = new AdminFrame();
-            FrameUtil.setFrameCenter(frame);
-    		frame.setVisible(true);
+    		frame = new AdminFrame();
     	}
+    	
+    	FrameUtil.setFrameCenter(frame);
+    	frame.setVisible(true);
+    	
+    	// 测试网络连接
+    	testConnect(frame);
+    	
     	initPublicMessage(vo);
     }
     
@@ -208,8 +197,8 @@ public class MainUI extends JFrame implements ActionListener{
             
     }
     
-    private static void testConnect() {
+    private static void testConnect(JFrame ui) {
     	ConnectTest connectTest = new ConnectTest();
-    	connectTest.init();
+    	connectTest.init(ui);
     }
 }
