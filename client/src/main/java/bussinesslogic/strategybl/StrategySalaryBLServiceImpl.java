@@ -15,7 +15,8 @@ public class StrategySalaryBLServiceImpl implements StrategySalaryBLService {
 	private ArrayList<StaffMessagePO> pos;
 	
 	public StrategySalaryBLServiceImpl(){
-		dataservice = (StrategyDataService) ClientRMIHelper.getServiceByName("StrategyDataServiceImpl");
+		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+		dataservice = (StrategyDataService) clientRMIHelper.getServiceByName("StrategyDataServiceImpl");
 		pos = new ArrayList<StaffMessagePO>();
 	}
 

@@ -21,7 +21,8 @@ public class OutStoreBL implements OutStoreBLService {
 	private ArrayList<OutStorePO> goodslist;
 	
 	public OutStoreBL(){
-		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+		dataservice = (StoreDataService) clientRMIHelper.getServiceByName("StoreDataServiceImpl");
 		this.user = PublicMessage.staffID;
 		
 	}

@@ -17,7 +17,8 @@ public class GoodsLoadBL implements GoodsLoadBLService {
 
 
         public GoodsLoadBL() {
-                goodsLoadDataService = (GoodsLoadDataService) ClientRMIHelper.getServiceByName("GoodsLoadDataServiceImpl");
+                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+                goodsLoadDataService = (GoodsLoadDataService) clientRMIHelper.getServiceByName("GoodsLoadDataServiceImpl");
         }
 
         // TODO

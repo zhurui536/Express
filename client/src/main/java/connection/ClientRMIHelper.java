@@ -44,7 +44,15 @@ public class ClientRMIHelper {
             "AdminDataServiceImpl"
     };
 
-    public static synchronized void init() throws ClientInitException {
+    public ClientRMIHelper() {
+        try {
+            init();
+        } catch (ClientInitException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public synchronized void init() throws ClientInitException {
         if (init) {
             return;
         }
@@ -57,7 +65,7 @@ public class ClientRMIHelper {
         }
     }
 
-    private static void initObjects() throws MalformedURLException, RemoteException, NotBoundException {
+    private void initObjects() throws MalformedURLException, RemoteException, NotBoundException {
 //        System.out.println(LocateRegistry.getRegistry(IP));
         Registry registry = LocateRegistry.getRegistry(IP);
         for (String name : CLASS_NAMES) {
@@ -65,7 +73,7 @@ public class ClientRMIHelper {
         }
     }
 
-    public static Object getServiceByName(String name) {
+    public Object getServiceByName(String name) {
 //        System.out.println(OBJECT_MAP.get(name));
         return OBJECT_MAP.get(name);
     }

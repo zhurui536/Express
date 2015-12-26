@@ -37,9 +37,10 @@ public class ShowStatementBL implements ShowStatementBLService {
     private boolean isUpdated;
 
     public ShowStatementBL() {
-        showStatementDataServiceImpl = (ShowStatementDataService) ClientRMIHelper.
+        ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+        showStatementDataServiceImpl = (ShowStatementDataService) clientRMIHelper.
                 getServiceByName("ShowStatementDataServiceImpl");
-        showReceiptDataServiceImpl = (ShowReceiptDataService) ClientRMIHelper.
+        showReceiptDataServiceImpl = (ShowReceiptDataService) clientRMIHelper.
                 getServiceByName("ShowReceiptDataServiceImpl");
         isUpdated = false;
     }

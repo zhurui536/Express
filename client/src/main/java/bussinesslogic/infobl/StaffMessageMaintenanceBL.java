@@ -20,8 +20,9 @@ public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLServi
         private SystemlogMaintenanceBLService service;
         
         public StaffMessageMaintenanceBL() {
+                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
                 service = LogFactory.getInstance();
-                staffMessageMaintenanceDataService = (StaffMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("StaffMessageMaintenanceDataServiceImpl");
+                staffMessageMaintenanceDataService = (StaffMessageMaintenanceDataService) clientRMIHelper.getServiceByName("StaffMessageMaintenanceDataServiceImpl");
         }
         
         @Override

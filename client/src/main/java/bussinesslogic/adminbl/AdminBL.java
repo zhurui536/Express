@@ -17,7 +17,8 @@ public class AdminBL implements AdminBLService {
 	private AdminDataService dataservice;
 	
 	public AdminBL(){
-		dataservice = (AdminDataService) ClientRMIHelper.getServiceByName("AdminDataServiceImpl");
+		ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+		dataservice = (AdminDataService) clientRMIHelper.getServiceByName("AdminDataServiceImpl");
 		users = new ArrayList<UserPO>();
 		staff = new ArrayList<StaffMessagePO>();
 	}

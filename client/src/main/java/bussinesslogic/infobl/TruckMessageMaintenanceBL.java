@@ -14,7 +14,8 @@ public class TruckMessageMaintenanceBL implements TruckMessageMaintenanceBLServi
         private TruckMessageMaintenanceDataService truckMessageMaintenanceDataService;
         
         public TruckMessageMaintenanceBL() {
-                truckMessageMaintenanceDataService = (TruckMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("TruckMessageMaintenanceDataServiceImpl");
+                ClientRMIHelper clientRMIHelper = new ClientRMIHelper();
+                truckMessageMaintenanceDataService = (TruckMessageMaintenanceDataService) clientRMIHelper.getServiceByName("TruckMessageMaintenanceDataServiceImpl");
         }
         
         @Override
