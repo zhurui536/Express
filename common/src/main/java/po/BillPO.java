@@ -1,14 +1,13 @@
 package po;
 
-import util.BillState;
-import util.BillType;
-import util.City;
-import util.PublicMessage;
-import vo.BillVO;
-
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import util.BillState;
+import util.BillType;
+import util.PublicMessage;
+import vo.BillVO;
 
 public class BillPO implements Serializable {
 
