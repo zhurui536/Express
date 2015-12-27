@@ -7,10 +7,8 @@ import dataservice.storedataservice.StoreDataService;
 import po.storepo.OutStorePO;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
-import util.InstitutionType;
 import util.PublicMessage;
 import util.ResultMessage;
-import util.Time;
 import util.Trans;
 import vo.storevo.OutStoreVO;
 
@@ -97,46 +95,50 @@ public class OutStoreBL implements OutStoreBLService {
 		if(condition == 0){//0代表确定结束出库
 			//保存出库记录
 			try {
-				ResultMessage result = dataservice.getStore();
+//				ResultMessage result = dataservice.getStore();
+//				
+//				if(result.getKey().equals("success")){
+//					StorePO store = (StorePO) result.getValue();
+//					
+//					for(int i=0;i<goodslist.size();i++){//改写库存
+//						OutStorePO temp = goodslist.get(i);
+//						StorePlacePO place = temp.getStorePlace();
+//						StorePlacePO newplace = new StorePlacePO(place.getArea(), place.getRow(), place.getShelf(), place.getPlace());
+//						store.setStorePlace(newplace);
+//
+//						//更新货物的货运状态
+//						goodslist.get(i).getGoods().addLocation(new Time().toString()
+//	                            + " "
+//	                            + PublicMessage.location
+//	                            + " "
+//	                            + InstitutionType
+//	                                            .typeTpString(PublicMessage.institutionType)
+//	                                            + " " + "已出库");
+//						goodsdata.updateGoods(goodslist.get(i).getGoods());
+//					}
+//					
+//					result = dataservice.saveStore(store);
+//					
+//					if(!result.getKey().equals("success")){
+//						return new ResultMessage("dataerror", new OutStoreVO(goodslist));
+//					}
+//					
+//				}
+//				else{
+//					return new ResultMessage("dataerror", new OutStoreVO(goodslist));
+//				}
 				
+				ResultMessage result = dataservice.saveOutStore(goodslist);
 				if(result.getKey().equals("success")){
-					StorePO store = (StorePO) result.getValue();
-					
-					for(int i=0;i<goodslist.size();i++){//改写库存
-						OutStorePO temp = goodslist.get(i);
-						StorePlacePO place = temp.getStorePlace();
-						StorePlacePO newplace = new StorePlacePO(place.getArea(), place.getRow(), place.getShelf(), place.getPlace());
-						store.setStorePlace(newplace);
-
-						//更新货物的货运状态
-						goodslist.get(i).getGoods().addLocation(new Time().toString()
-	                            + " "
-	                            + PublicMessage.location
-	                            + " "
-	                            + InstitutionType
-	                                            .typeTpString(PublicMessage.institutionType)
-	                                            + " " + "已出库");
-						goodsdata.updateGoods(goodslist.get(i).getGoods());
-					}
-					
-					result = dataservice.saveStore(store);
-					
-					if(!result.getKey().equals("success")){
-						return new ResultMessage("dataerror", new OutStoreVO(goodslist));
-					}
-					
+					return new ResultMessage(result.getKey(), null);
 				}
 				else{
-					return new ResultMessage("dataerror", new OutStoreVO(goodslist));
+					return new ResultMessage(result.getKey(), new OutStoreVO(goodslist));
 				}
-				
-				dataservice.saveOutStore(goodslist);
 			} catch (RemoteException e) {
 				e.printStackTrace();
 				return new ResultMessage("internet error", new OutStoreVO(goodslist));
 			}
-			
-			return new ResultMessage("success", new OutStoreVO(goodslist));
 		}
 		else if(condition == 1){//1代表取消出库
 			return new ResultMessage("success", new OutStoreVO(goodslist));
