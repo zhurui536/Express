@@ -105,12 +105,7 @@ public class AdjustBL implements AdjustBLService {
 					
 					result = dataservice.saveStore(store);
 					if(result.getKey().equals("success")){
-						result = dataservice.saveAdjust(adjusts);
-						
-						if(result.getKey().equals("success"))
-							return new ResultMessage("success", null);
-						else
-							return new ResultMessage(result.getKey(), null);
+						return new ResultMessage("success", null);
 					}
 					else{
 						return new ResultMessage(result.getKey(), null);

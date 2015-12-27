@@ -2,16 +2,13 @@ package bussinesslogic.storebl;
 
 import bussinesslogicservice.storeblservice.InStoreBLService;
 import connection.ClientRMIHelper;
-import dataservice.logisticsdataservice.DeliveryDataService;
 import dataservice.storedataservice.StoreDataService;
 import po.GoodsPO;
 import po.storepo.InStorePO;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
-import util.InstitutionType;
 import util.PublicMessage;
 import util.ResultMessage;
-import util.Time;
 import vo.storevo.InStoreVO;
 import vo.storevo.StorePlaceVO;
 
@@ -22,12 +19,12 @@ public class InStoreBL implements InStoreBLService {
 	private StoreDataService dataservice;
 	private String user;
 	private ArrayList<InStorePO> goodslist;
-	private DeliveryDataService goodsdata;
+//	private DeliveryDataService goodsdata;
 	
 	public InStoreBL(){
 		this.user = PublicMessage.staffID;
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
-		goodsdata = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
+//		goodsdata = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
 	}
 
 	@Override
@@ -104,41 +101,46 @@ public class InStoreBL implements InStoreBLService {
 	public ResultMessage endInStore(int condition) {
 		if(condition == 0){//0表示确定结束入库
 			try {
-				ResultMessage result = dataservice.getStore();
-				//改写库存
+//				ResultMessage result = dataservice.getStore();
+//				//改写库存
+//				if(result.getKey().equals("success")){
+//					StorePO store = (StorePO) result.getValue();
+//					
+//					for(int i=0;i<goodslist.size();i++){//进行改写
+//						InStorePO temp = goodslist.get(i);
+//						StorePlacePO place = temp.getStorePlace();
+//						place.setGoods(temp.getGoods());
+//						store.setStorePlace(place);
+//						
+//						//更新货物的货运状态
+//						goodslist.get(i).getGoods().addLocation(new Time().toString()
+//	                            + " "
+//	                            + PublicMessage.location
+//	                            + " "
+//	                            + InstitutionType
+//	                                            .typeTpString(PublicMessage.institutionType)
+//	                                            + " " + "已入库");
+//						goodsdata.updateGoods(goodslist.get(i).getGoods());
+//					}
+//					//保存新的库存
+//					result = dataservice.saveStore(store);
+//					
+//					if(!result.getKey().equals("success")){
+//						return new ResultMessage("dataerror", new InStoreVO(goodslist));
+//					}
+//				}
+				//提交入库单，等待审批
+				ResultMessage result = dataservice.saveInStore(goodslist);
 				if(result.getKey().equals("success")){
-					StorePO store = (StorePO) result.getValue();
-					
-					for(int i=0;i<goodslist.size();i++){//进行改写
-						InStorePO temp = goodslist.get(i);
-						StorePlacePO place = temp.getStorePlace();
-						place.setGoods(temp.getGoods());
-						store.setStorePlace(place);
-						
-						//更新货物的货运状态
-						goodslist.get(i).getGoods().addLocation(new Time().toString()
-	                            + " "
-	                            + PublicMessage.location
-	                            + " "
-	                            + InstitutionType
-	                                            .typeTpString(PublicMessage.institutionType)
-	                                            + " " + "已入库");
-						goodsdata.updateGoods(goodslist.get(i).getGoods());
-					}
-					//保存新的库存
-					result = dataservice.saveStore(store);
-					
-					if(!result.getKey().equals("success")){
-						return new ResultMessage("dataerror", new InStoreVO(goodslist));
-					}
+					return new ResultMessage(result.getKey(), null);
 				}
-				dataservice.saveInStore(goodslist);
+				else{
+					return new ResultMessage(result.getKey(), new InStoreVO(goodslist));
+				}
 			} catch (RemoteException e) {
 				e.printStackTrace();
 				return new ResultMessage("internet error", null);
 			}
-			
-			return new ResultMessage("success", null);
 		}
 		else if(condition == 1){//1表示取消入库
 			return new ResultMessage("success", null);

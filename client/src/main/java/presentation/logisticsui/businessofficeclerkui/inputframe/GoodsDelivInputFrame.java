@@ -1,8 +1,12 @@
 package presentation.logisticsui.businessofficeclerkui.inputframe;
 
+import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsDelivToolListener;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +20,8 @@ public class GoodsDelivInputFrame extends JFrame implements ActionListener{
         private JLabel label;
         
         private JTextArea textArea;
+        
+        private JLabel errOutPutLabel;
         
         public GoodsDelivInputFrame(
                         GoodsDelivToolListener goodsDelivToolListener) {
@@ -49,12 +55,22 @@ public class GoodsDelivInputFrame extends JFrame implements ActionListener{
                 textArea.setLocation(110, 90);
                 this.getContentPane().add(textArea);
                 
+                errOutPutLabel = new JLabel();
+                errOutPutLabel.setBounds(30, 190, 190, 30);
+                errOutPutLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
+                errOutPutLabel.setForeground(Color.RED);
+                this.add(errOutPutLabel);
+                
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
                 if(e.getSource() == confirm){
                         String ID = textArea.getText();
+                        if(!InputChecker.isNum(ID)){
+                                errOutPutLabel.setText("快递员ID必须是数字！");
+                                return;
+                        }
                         boolean result = listener.getInput(ID);
                         if(result){
                                 this.setVisible(false);

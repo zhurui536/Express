@@ -33,6 +33,8 @@ public class MenuListener implements ActionListener{
                                 i++;
                         }
                 }
+                ui.refreshMenu();
+                ui.getButton(i).clicked();
                 if(i == 0){
                         GoodsRecToolListener goodsRecToolListener = new GoodsRecToolListener(ui);
                         GoodsRecTool tool = new GoodsRecTool(goodsRecToolListener);

@@ -17,6 +17,7 @@ import presentation.mainui.component.MyMenu;
 import presentation.mainui.component.MyTool;
 import util.UIImage;
 
+@SuppressWarnings("serial")
 public class ExpressFrame extends JFrame{
 	
 	private int xOld = 0;  
