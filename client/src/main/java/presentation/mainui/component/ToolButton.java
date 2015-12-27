@@ -37,6 +37,7 @@ public class ToolButton extends JButton  implements MouseListener{
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		if(!ifClicked){
+			this.remove(bg);
 			bg = new JLabel();
 			bg.setBounds(0, 0, 125, 60);
 			bg.setIcon(UIImage.TOOLBUTTON_OVER);
@@ -47,6 +48,7 @@ public class ToolButton extends JButton  implements MouseListener{
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 		if(!ifClicked){
+			this.remove(bg);
 			bg = new JLabel();
 			bg.setBounds(0, 0, 125, 60);
 			bg.setIcon(UIImage.TOOLBUTTON);

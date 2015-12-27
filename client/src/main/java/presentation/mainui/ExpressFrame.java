@@ -61,6 +61,7 @@ public class ExpressFrame extends JFrame{
 		}
 		else{
 			this.painttool();
+			this.refreshMenu();
 		}
 		this.validate();
 		this.repaint();

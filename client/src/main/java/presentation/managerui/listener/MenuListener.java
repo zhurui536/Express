@@ -35,6 +35,10 @@ public class MenuListener implements ActionListener {
 			if(e.getSource() == ui.getButton(i))
 				break;
 		}
+		//更改菜单中的按钮显示
+		ui.refreshMenu();
+		ui.getButton(i).clicked();
+		
 		if(i==0){
 			StrategyToolListener tl = new StrategyToolListener(ui);
 			StrategyTool tool = new StrategyTool(tl);

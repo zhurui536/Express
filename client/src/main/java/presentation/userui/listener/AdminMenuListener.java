@@ -29,6 +29,8 @@ public class AdminMenuListener implements ActionListener {
 				break;
 		}
 		
+		ui.refreshMenu();
+		ui.getButton(i).clicked();
 		if(i==0){
 			AdminToolListener tl = new AdminToolListener(ui);
 			AdminTool tool = new AdminTool(tl);
