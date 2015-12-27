@@ -11,13 +11,16 @@ import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
+import bussinesslogic.logisticsbl.BillQueryBL;
 import bussinesslogic.userbl.UserBLServiceImpl;
+import bussinesslogicservice.logisticsblservice.BillQueryBLService;
 import bussinesslogicservice.userblservice.UserBLService;
 import connection.ClientInitException;
 import connection.ClientRMIHelper;
 import connection.ConnectTest;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
+import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.deliverymanui.DeliveryManFrame;
 import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
@@ -32,6 +35,7 @@ import util.ResultMessage;
 import util.UIImage;
 import vo.InstitutionMessageVO;
 import vo.StaffMessageVO;
+import vo.logisticvo.SendBillVO;
 
 /**
  * Created by Away
@@ -165,6 +169,20 @@ public class MainUI extends JFrame implements ActionListener{
         }
         if(e.getSource() == check){
         	String goodsid = this.goodsid.getText();
+        	if(!InputChecker.isNum(goodsid)){
+        	        new WarningDialog(this, "订单编号必须是数字！");
+        	        return;
+        	}
+        	BillQueryBLService billQueryBLService = new BillQueryBL();
+        	ResultMessage resultMessage = billQueryBLService.queryBill(goodsid);
+        	if(resultMessage.getKey().equals("SUCCESS")){
+        	        TrackFrame trackFrame = new TrackFrame((SendBillVO) resultMessage.getValue());
+        	        trackFrame.setVisible(true);
+        	}else if(resultMessage.getKey().equals("FAIL")){
+        	        new WarningDialog(this, "无对应的订单！");
+        	}else{
+        	        new WarningDialog(this, resultMessage);
+        	}
         }
     }
     

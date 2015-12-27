@@ -165,16 +165,16 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
                  this.getContentPane().add(cancle);
                  
                  errOutputLabel = new JLabel();
-                 errOutputLabel.setBounds(295, 15 , 190, 30);
+                 errOutputLabel.setBounds(295, 15 , 230, 30);
                  errOutputLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
                  errOutputLabel.setForeground(Color.RED);
                  this.getContentPane().add(errOutputLabel);
         }
         
-        public static void main(String[] args) {
-                DriverMessageInputFrame driverMessageInputFrame = new DriverMessageInputFrame(null);
-                driverMessageInputFrame.setVisible(true);
-        }
+//        public static void main(String[] args) {
+//                DriverMessageInputFrame driverMessageInputFrame = new DriverMessageInputFrame(null);
+//                driverMessageInputFrame.setVisible(true);
+//        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -190,12 +190,13 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
                         driverMessageVO.driverId = jTextAreas[0].getText();
                         if(!InputChecker.isIdNum(jTextAreas[3].getText())){
                                 errOutputLabel.setText("不合法的身份证号！");
-                                System.out.println(jTextAreas[3].getText());
-                                System.out.println(InputChecker.isNum(jTextAreas[3].getText()));
-                                System.out.println(!InputChecker.isIdNum(jTextAreas[3].getText()));
                                 return;
                         }
                         driverMessageVO.ID = jTextAreas[3].getText();
+                        if(jTextAreas[1].getText().equals("")){
+                                errOutputLabel.setText("请输入姓名！");
+                                return;
+                        }
                         driverMessageVO.name = jTextAreas[1].getText();
                         if(!InputChecker.isNum(jTextAreas[2].getText())){
                                 errOutputLabel.setText("手机号必须是数字！");
@@ -221,7 +222,7 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
                                 else if(resultMessage.getKey().equals("EXIST"))
                                         new WarningDialog(ui, "司机信息已存在");
                                 else
-                                        new WarningDialog(ui, resultMessage.getKey());
+                                        new WarningDialog(ui, resultMessage);
                         }
                         else {
                                 ResultMessage resultMessage = infoBLSerivce.modDriverMessage(driverMessageVO);

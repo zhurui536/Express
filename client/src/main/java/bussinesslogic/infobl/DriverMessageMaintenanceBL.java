@@ -69,7 +69,6 @@ public class DriverMessageMaintenanceBL implements
                         resultMessage = driverMessageMaintenanceDataService
                                         .find(driverId);
                 } catch (RemoteException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                         return new ResultMessage("internet error");
                 }

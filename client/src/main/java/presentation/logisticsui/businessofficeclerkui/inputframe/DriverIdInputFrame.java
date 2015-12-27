@@ -77,29 +77,45 @@ public class DriverIdInputFrame extends JFrame implements ActionListener{
         public void actionPerformed(ActionEvent e) {
                 if(e.getSource() == confirm){
                         String ID = textArea.getText();
+                        if(ID.equals("")){
+                                errOutPutLabel.setText("请填入司机ID！");
+                                return;
+                        }
                         if(!InputChecker.isNum(ID)){
                                 errOutPutLabel.setText("司机ID必须为纯数字！");
                                 return;
                         }
                         InfoBLSerivce infoBLSerivce = ui.getInfoBLSerivce();
                         if(kind == 0){
-                                ResultMessage resultMessage = infoBLSerivce.delDriverMessage(textArea.getText());
-                                new WarningDialog(ui, resultMessage.getKey());
+                                ResultMessage resultMessage = infoBLSerivce.delDriverMessage(ID);
+                                if(resultMessage.getKey().equals("SUCCESS")){
+                                        new WarningDialog(ui, "成功删除");
+                                }else if(resultMessage.getKey().equals("NO_EXIST")){
+                                        new WarningDialog(ui, "不存在对应信息");
+                                }else{
+                                        new WarningDialog(ui, resultMessage);
+                                }
+                                
                         }else if(kind == 1){
-                                ResultMessage resultMessage = infoBLSerivce.showDriverMessage(textArea.getText());
+                                ResultMessage resultMessage = infoBLSerivce.showDriverMessage(ID);
                                 if(resultMessage.getKey().equals("SUCCESS")){
                                         DriverMessageDataPanel dataPanel = new DriverMessageDataPanel((DriverMessageVO)resultMessage.getValue());
                                         ui.paintdata(dataPanel);
+                                }else if(resultMessage.getKey().equals("FAIL")){
+                                        new WarningDialog(ui, "不存在对应信息");
+                                }else{
+                                        new WarningDialog(ui, resultMessage);
                                 }
                         }else if(kind == -1){
-                                ResultMessage resultMessage = infoBLSerivce.showDriverMessage(textArea.getText());
+                                ResultMessage resultMessage = infoBLSerivce.showDriverMessage(ID);
                                 if(resultMessage.getKey().equals("SUCCESS")){
                                         DriverMessageVO driverMessageVO = (DriverMessageVO) resultMessage.getValue();
                                         DriverMessageInputFrame driverMessageInputFrame = new DriverMessageInputFrame(listener, driverMessageVO);
                                         driverMessageInputFrame.setVisible(true);
-                                }
-                                if(resultMessage.getKey().equals("FAIL")){
-                                        new WarningDialog(ui, resultMessage.getKey());
+                                }else if(resultMessage.getKey().equals("FAIL")){
+                                        new WarningDialog(ui, "不存在对应信息");
+                                }else{
+                                        new WarningDialog(ui, resultMessage);
                                 }
                         }
                 }

@@ -29,7 +29,7 @@ public class BillQueryBL implements BillQueryBLService {
                         sendBillPO = billQueryDataService.findBill(id);
                 } catch (RemoteException e) {
                         e.printStackTrace();
-                        return new ResultMessage("FAIL");
+                        return new ResultMessage("internet error");
                 }
                 if(sendBillPO != null)
                         return new ResultMessage("SUCCESS",  sendBillPO.poToVo());

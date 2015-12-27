@@ -85,7 +85,7 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
                         goodsReceiptDataService.insertBill(arrivalBillPO);
                 } catch (RemoteException e) {
                         e.printStackTrace();
-                        return new ResultMessage("FAIL_TO_INSERT");
+                        return new ResultMessage("internet error");
                 }
 
                 return new ResultMessage("SUCCESS");
@@ -99,6 +99,7 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
                                 goodsPO = goodsReceiptDataService.findGoods(id);
                         } catch (RemoteException e) {
                                 e.printStackTrace();
+                                return new ResultMessage("internet error");
                         } 
                         goodsPO.addLocation(new Time().toString()
                                         + " 快递员 派件中");
@@ -106,6 +107,7 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
                                 goodsReceiptDataService.updateGoods(goodsPO);
                         } catch (RemoteException e) {
                                 e.printStackTrace();
+                                return new ResultMessage("internet error");
                         }
                 }
                 DeliveryBillPO deliveryBillPO = new DeliveryBillPO(new Time(),
@@ -115,7 +117,7 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
-                        return new ResultMessage("FAIL");
+                        return new ResultMessage("internet error");
                 }
                 endGoodsreceipt();
                 return new ResultMessage("SUCCESS");

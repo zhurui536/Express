@@ -2,6 +2,7 @@ package presentation.logisticsui.transitcenterclerkui.listener.toollistener;
 
 import java.awt.event.ActionEvent;
 
+import presentation.WarningDialog;
 import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import presentation.logisticsui.transitcenterclerkui.inputframe.GoodsRecInputFrame;
 import presentation.mainui.component.MyTool;
@@ -25,7 +26,11 @@ public class GoodsRecToolListener extends ToolListener{
                 if(resultMessage.getKey().equals("SUCCESS")){
                         ui.paintdata(null);
                         return true;
-                }else {
+                }else if(resultMessage.getKey().equals("FAIL")){
+                        new WarningDialog(ui, "无对应的中转单！");
+                        return false;
+                }else{
+                        new WarningDialog(ui, resultMessage);
                         return false;
                 }
                 

@@ -1,11 +1,16 @@
 package presentation.logisticsui.transitcenterclerkui.inputframe;
 
+import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.transitcenterclerkui.listener.toollistener.GoodsRecToolListener;
 import util.GoodsState;
 import util.PublicMessage;
+import util.Time;
 import vo.logisticvo.ArrivalBillVO;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,15 +19,23 @@ public class GoodsRecInputFrame extends JFrame implements ActionListener{
 
         private GoodsRecToolListener listener;
         
+        private final String[] namesString = {"单据编号","出发地","货物状态"};
+        
+        private final String[] citys = {"南京","北京","上海","广州"};
+        
+        private final String[] institutions = {"营业厅","中转中心"};
+        
+        private final String[] goodsStates = {"损坏","完整","丢失"};
+        
         private JButton confirm, cancle;
         
         private JLabel[] jLabels;
         
-        private JTextArea[] jTextAreas;
+        private JTextArea jTextAreas;
         
-        private JComboBox<String> year, month,day;
+        private JComboBox<String> city, institution, goodsState;
         
-        private final String[] namesString = {"单据编号","出发地","货物状态"};
+        private JLabel errOutputLabel;
         
         public GoodsRecInputFrame(GoodsRecToolListener listener) {
                 this.listener = listener;
@@ -33,6 +46,11 @@ public class GoodsRecInputFrame extends JFrame implements ActionListener{
                 init();
         }
 
+//        public static void main(String[] args) {
+//                GoodsRecInputFrame goodsRecInputFrame = new GoodsRecInputFrame(null);
+//                goodsRecInputFrame.setVisible(true);
+//        }
+        
         private void init() {
                 confirm = new JButton("确定");
                 cancle = new JButton("取消");
@@ -45,54 +63,56 @@ public class GoodsRecInputFrame extends JFrame implements ActionListener{
                 this.getContentPane().add(confirm);
                 this.getContentPane().add(cancle);
                 
+                jTextAreas = new JTextArea();
+                jTextAreas.setSize(255,30);
+                jTextAreas.setLocation(115, 50);
+                this.getContentPane().add(jTextAreas);
+                
+                
                 jLabels = new JLabel[3];
-                jTextAreas = new JTextArea[3];
                 for(int i=0;i<3;i++){
                         jLabels[i] = new JLabel(namesString[i]);
                         jLabels[i].setSize(75, 30);
                         jLabels[i].setLocation(15, 50+40*i);
                         this.getContentPane().add(jLabels[i]);
                         
-                        jTextAreas[i] = new JTextArea();
-                        jTextAreas[i].setSize(255,30);
-                        jTextAreas[i].setLocation(115, 50 + 40 * i);
-                        this.getContentPane().add(jTextAreas[i]);
                 }
                 
-                year = new JComboBox<>();
-                for (int i = 2000; i <= 2020; i++) {
-                    year.addItem(i + "年");
-                }
-                year.setBounds(15, 170, 120, 30);
-                this.getContentPane().add(year);
+                city = new JComboBox<String>(citys);
+                city.setBounds(115, 90, 100, 30);
+                this.getContentPane().add(city);
                 
-                month = new JComboBox<>();
-                for (int i = 1; i <= 12; i++) {
-                        String s = i  < 10 ? "0" : "";
-                        month.addItem(s + i + "月");
-                }
-                month.setBounds(185, 170, 60, 30);
-                this.getContentPane().add(month);
+                institution = new JComboBox<String>(institutions);
+                institution.setBounds(250, 90, 100, 30);
+                this.getContentPane().add(institution);
                 
-                day = new JComboBox<>();
-                for (int i = 1; i <= 31; i++) {
-                        String s = i  < 10 ? "0" : "";
-                        day.addItem(s + i + "日");
-                }
-                day.setBounds(295, 170, 60, 30);
-                this.getContentPane().add(day);
+                goodsState = new JComboBox<String>(goodsStates);
+                goodsState.setBounds(115, 130, 100, 30);
+                this.getContentPane().add(goodsState);
+                
+                errOutputLabel = new JLabel();
+                errOutputLabel.setBounds(30, 190, 190, 30);
+                errOutputLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
+                errOutputLabel.setForeground(Color.RED);
+                this.getContentPane().add(errOutputLabel);
+                
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
                 if(e.getSource() == confirm){
                         ArrivalBillVO arrivalBillVO = new ArrivalBillVO();
-                        arrivalBillVO.date = ((String)year.getSelectedItem()).substring(0,4) + "-" 
-                        + ((String)month.getSelectedItem()).substring(0,2) + "-" 
-                                        + ((String)day.getSelectedItem()).substring(0, 2);
-                        arrivalBillVO.transferBillNum = jTextAreas[0].getText();
-                        arrivalBillVO.departurePlace = jTextAreas[1].getText();
-                        arrivalBillVO.goodsState = GoodsState.stringToGoodsState(jTextAreas[2].getText());
+//                        arrivalBillVO.date = ((String)year.getSelectedItem()).substring(0,4) + "-" 
+//                        + ((String)month.getSelectedItem()).substring(0,2) + "-" 
+//                                        + ((String)day.getSelectedItem()).substring(0, 2);
+                        arrivalBillVO.date = new Time();
+                        if(!InputChecker.isIdNum(jTextAreas.getText())){
+                                errOutputLabel.setText("中转单编号必须是数字！");
+                                return;
+                        }
+                        arrivalBillVO.transferBillNum = jTextAreas.getText();
+                        arrivalBillVO.departurePlace = (String)city.getSelectedItem() + (String)institution.getSelectedItem();
+                        arrivalBillVO.goodsState = GoodsState.stringToGoodsState((String)goodsState.getSelectedItem());
                         arrivalBillVO.institution =  PublicMessage.institutionID;
                         boolean result = listener.getInput(arrivalBillVO);
                         if(result){

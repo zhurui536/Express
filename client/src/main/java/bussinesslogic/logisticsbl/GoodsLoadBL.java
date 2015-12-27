@@ -35,7 +35,7 @@ public class GoodsLoadBL implements GoodsLoadBLService {
                         resultMessage = goodsLoadDataService.findSendBills(loadingBillVO.ids);
                 } catch (RemoteException e1) {
                         e1.printStackTrace();
-                        return new ResultMessage("internet_error");
+                        return new ResultMessage("internet error");
                 }
                 ArrayList<SendBillPO> sendBillPOs = null;
                 if(resultMessage.getKey().equals("success")){
@@ -53,7 +53,7 @@ public class GoodsLoadBL implements GoodsLoadBLService {
                                 goodsLoadDataService.updateSendBills(sendBillPOs);
                         } catch (RemoteException e) {
                                 e.printStackTrace();
-                                return new ResultMessage("internet_error");
+                                return new ResultMessage("internet error");
                         }
                 }
                         
@@ -61,7 +61,7 @@ public class GoodsLoadBL implements GoodsLoadBLService {
                         goodsLoadDataService.insertBill(LoadingBillPO
                                 .voToPo(loadingBillVO));
                 } catch (RemoteException e) {
-                        return new ResultMessage("INSERT_FAIL", null);
+                        return new ResultMessage("internet error", null);
                 }
                 return new ResultMessage("SUCCESS", null);
         }

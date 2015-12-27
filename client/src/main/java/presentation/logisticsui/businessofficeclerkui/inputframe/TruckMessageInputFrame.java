@@ -2,12 +2,16 @@ package presentation.logisticsui.businessofficeclerkui.inputframe;
 
 import bussinesslogicservice.infoblservice.InfoBLSerivce;
 import presentation.WarningDialog;
+import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.TruckMessageToolListener;
 import util.ResultMessage;
 import vo.TruckMessageVO;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,6 +35,8 @@ public class TruckMessageInputFrame extends JFrame implements ActionListener {
         private BusinessOfficeClerkFrame ui;
 
         private TruckMessageVO truckMessageVO;
+        
+        private JLabel errOutputLabel;
 
         public TruckMessageInputFrame(
                         TruckMessageToolListener truckMessageToolListener,
@@ -82,6 +88,12 @@ public class TruckMessageInputFrame extends JFrame implements ActionListener {
                 cancle.setBounds(255, 150, 60, 25);
                 cancle.addActionListener(this);
                 this.getContentPane().add(cancle);
+                
+                errOutputLabel = new JLabel();
+                errOutputLabel.setBounds(15, 150 , 230, 30);
+                errOutputLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
+                errOutputLabel.setForeground(Color.RED);
+                this.getContentPane().add(errOutputLabel);
         }
 
         public TruckMessageInputFrame(
@@ -91,9 +103,28 @@ public class TruckMessageInputFrame extends JFrame implements ActionListener {
                 init();
         }
 
+//        public static void main(String[] args) {
+//                TruckMessageInputFrame truckMessageInputFrame = new TruckMessageInputFrame(null);
+//                truckMessageInputFrame.setVisible(true);
+//        }
+        
         @Override
         public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == confirm) {
+                        if(!InputChecker.isNum( jTextAreas[0].getText())){
+                                errOutputLabel.setText("车辆编号必须为数字！");
+                                return;
+                        }
+                        if(!InputChecker.isChineseChar(jTextAreas[1].getText())){
+                                errOutputLabel.setText("车牌号非法！");
+                                return;
+                        }
+                        if (!InputChecker.isNum(jTextAreas[2].getText())
+                                        || InputChecker.isMinus(jTextAreas[2]
+                                                        .getText())) {
+                                errOutputLabel.setText("服役时间必须为正数！");
+                                return;
+                        }
                         TruckMessageVO truckMessageVO = new TruckMessageVO(
                                         jTextAreas[0].getText(),
                                         jTextAreas[1].getText(),

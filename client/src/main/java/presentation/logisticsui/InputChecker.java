@@ -12,6 +12,8 @@ public class InputChecker {
          * @return 
          */
         public static boolean isChineseChar(String str){
+                if(str.equals(""))
+                        return false;
                 Pattern p=Pattern.compile("[\u4e00-\u9fa5]");
                 Matcher m=p.matcher(str);
                 return m.find();
@@ -22,6 +24,8 @@ public class InputChecker {
          * @return
          */
         public static boolean isNum(String str){
+                if(str.equals(""))
+                        return false;
                 return str.matches("^[-+]?(([0-9]+)([.]([0-9]+))?|([.]([0-9]+))?)$");
         }
         /**
@@ -30,6 +34,8 @@ public class InputChecker {
          * @return
          */
         public static boolean isChar(String str) {
+                if(str.equals(""))
+                        return false;
                 return str.matches("[a-zA-Z]");
         }
         
@@ -39,6 +45,8 @@ public class InputChecker {
          * @return
          */
         public static boolean isMinus(String str) {
+                if(str.equals(""))
+                        return false;
         	return isNum(str) && str.charAt(0) == '-';
         }
         
@@ -49,6 +57,8 @@ public class InputChecker {
          */
         public static boolean isIdNum(String str) {
 //                str = str.toLowerCase();
+                if(str.equals(""))
+                        return false;
                 return isNum(str) || (isNum(str.substring(0,str.length()-1))&& str.charAt(str.length() - 1) == 'x');
         }
 }

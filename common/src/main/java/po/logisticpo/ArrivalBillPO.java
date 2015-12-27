@@ -3,6 +3,7 @@ package po.logisticpo;
 import po.BillPO;
 import util.BillType;
 import util.GoodsState;
+import util.Time;
 import vo.logisticvo.ArrivalBillVO;
 
 /**
@@ -17,7 +18,7 @@ public class ArrivalBillPO extends BillPO {
         // 录入机构
         private String institution;
         // 到达日期
-        private String date;
+        private Time date;
         // 中转单编号
         private String transferBillNum;
         // 出发地
@@ -25,7 +26,7 @@ public class ArrivalBillPO extends BillPO {
         // 货物到达状态（损坏、完整、丢失）
         private GoodsState goodsState;
 
-        public ArrivalBillPO(String institution, String date,
+        public ArrivalBillPO(String institution, Time date,
                         String transferBillNum, String departurePlace,
                         GoodsState goodsState) {
                 super(BillType.ARRIVAL, institution);
@@ -51,11 +52,11 @@ public class ArrivalBillPO extends BillPO {
                 this.institution = institution;
         }
 
-        public String getDate() {
+        public Time getDate() {
                 return date;
         }
 
-        public void setDate(String date) {
+        public void setDate(Time date) {
                 this.date = date;
         }
 

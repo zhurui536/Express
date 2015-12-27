@@ -3,6 +3,7 @@ package presentation.logisticsui.businessofficeclerkui.listerner.toollistener;
 import java.awt.event.ActionEvent;
 
 import po.logisticpo.ArrivalBillPO;
+import presentation.WarningDialog;
 import presentation.billui.datapanel.ArrivalBillDataPane;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.inputframe.GoodsRecInputFrame;
@@ -27,7 +28,11 @@ public class GoodsRecToolListener extends ToolListener{
                 if(resultMessage.getKey().equals("SUCCESS")){
                         ui.paintdata(new ArrivalBillDataPane(new ArrivalBillPO(arrivalBillVO)));
                         return true;
-                }else {
+                }else if(resultMessage.getKey().equals("FAIL")){
+                        new WarningDialog(ui, "无对应的中转单！");
+                        return false;
+                }else{
+                        new WarningDialog(ui, resultMessage);
                         return false;
                 }
                 

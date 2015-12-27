@@ -3,12 +3,13 @@ package vo.logisticvo;
 
 import po.logisticpo.ArrivalBillPO;
 import util.GoodsState;
+import util.Time;
 
 public class ArrivalBillVO {
         // 录入机构
         public String institution;
         // 到达日期
-        public String date;
+        public Time date;
         // 中转单编号
         public String transferBillNum;
         // 出发地
@@ -24,7 +25,7 @@ public class ArrivalBillVO {
         	this.goodsState = po.getGoodsState();
         }
 
-        public ArrivalBillVO(String institution, String date,
+        public ArrivalBillVO(String institution, Time date,
                         String transferBillNum, String departurePlace,
                         GoodsState goodsState) {
                 super();

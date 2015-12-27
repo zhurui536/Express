@@ -2,6 +2,7 @@ package presentation.logisticsui.businessofficeclerkui.listerner.toollistener;
 
 import java.awt.event.ActionEvent;
 
+import presentation.WarningDialog;
 import presentation.mainui.component.MyTool;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.inputframe.GoodsDelivInputFrame;
@@ -25,6 +26,7 @@ public class GoodsDelivToolListener extends ToolListener{
                         ui.paintdata(null);
                         return true;
                 }else {
+                        new WarningDialog(ui, resultMessage);
                         return false;
                 }
         }
