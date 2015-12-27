@@ -13,17 +13,20 @@ public class ToolButton extends JButton  implements MouseListener{
 	private JLabel bg;
 	private JLabel text;
 	
+	private int w = 125;
+	private int h = 60;
+	
 	public ToolButton(int x, int y, String text){
 		this.setLayout(null);
-		this.setBounds(x, y, 125, 60);
+		this.setBounds(x, y, w, h);
 		this.addMouseListener(this);
 		this.setContentAreaFilled(false);
 		
 		this.text = new JLabel(text, JLabel.CENTER);
-		this.text.setBounds(0,  0, 125, 60);
+		this.text.setBounds(0,  0, w, h);
 		this.add(this.text, 0);
 		bg = new JLabel();
-		bg.setBounds(0, 0, 125, 60);
+		bg.setBounds(0, 0, w, h);
 		bg.setIcon(UIImage.TOOLBUTTON);
 		this.add(bg, -1);
 		ifClicked = false;
@@ -39,7 +42,7 @@ public class ToolButton extends JButton  implements MouseListener{
 		if(!ifClicked){
 			this.remove(bg);
 			bg = new JLabel();
-			bg.setBounds(0, 0, 125, 60);
+			bg.setBounds(0, 0, w, h);
 			bg.setIcon(UIImage.TOOLBUTTON_OVER);
 			this.add(bg, -1);
 		}
@@ -50,7 +53,7 @@ public class ToolButton extends JButton  implements MouseListener{
 		if(!ifClicked){
 			this.remove(bg);
 			bg = new JLabel();
-			bg.setBounds(0, 0, 125, 60);
+			bg.setBounds(0, 0, w, h);
 			bg.setIcon(UIImage.TOOLBUTTON);
 			this.add(bg, -1);
 		}
@@ -60,7 +63,7 @@ public class ToolButton extends JButton  implements MouseListener{
 		ifClicked = false;
 		this.setContentAreaFilled(false);
 		bg = new JLabel();
-		bg.setBounds(0, 0, 125, 60);
+		bg.setBounds(0, 0, w, h);
 		bg.setIcon(UIImage.TOOLBUTTON);
 		this.add(bg, -1);
 	}
@@ -68,6 +71,13 @@ public class ToolButton extends JButton  implements MouseListener{
 	public void clicked(){
 		ifClicked = true;
 		this.remove(bg);
+	}
+	
+	public void setSize(int w, int h){
+		this.w = w;
+		this.h = h;
+		bg.setBounds(0, 0, w, h);
+		text.setBounds(0, 0, w, h);
 	}
 
 	@Override

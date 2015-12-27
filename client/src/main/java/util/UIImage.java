@@ -31,4 +31,5 @@ public class UIImage {
 	public static final ImageIcon BUTTON_OVER = createImageIcon("graphic/ButtonOver.png");
 	public static final ImageIcon TOOLBUTTON_OVER = createImageIcon("graphic/ToolButtonOver.png");
 	public static final ImageIcon TOOLBUTTON = createImageIcon("graphic/ToolButtonBackground.png");
+	public static final ImageIcon BACKGROUND_INPUTFRAME = createImageIcon("graphic/InputFrameBackground.png");
 }

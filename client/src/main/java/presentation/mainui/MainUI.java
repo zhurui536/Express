@@ -3,7 +3,6 @@ package presentation.mainui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -22,6 +21,7 @@ import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.deliverymanui.DeliveryManFrame;
 import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
+import presentation.mainui.component.ToolButton;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.StoreFrame;
 import presentation.userui.AdminFrame;
@@ -29,6 +29,7 @@ import util.FrameUtil;
 import util.Job;
 import util.PublicMessage;
 import util.ResultMessage;
+import util.UIImage;
 import vo.InstitutionMessageVO;
 import vo.StaffMessageVO;
 
@@ -41,8 +42,8 @@ import vo.StaffMessageVO;
 public class MainUI extends JFrame implements ActionListener{
     private JTextArea id;
     private JPasswordField password;
-    private JButton confirm;
-    private JButton exit;
+    private ToolButton confirm;
+    private ToolButton exit;
     
     private UserBLService bl;
 
@@ -81,6 +82,10 @@ public class MainUI extends JFrame implements ActionListener{
         this.setLayout(null);
         this.setBounds(300, 300, 330, 260);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        JLabel bg = new JLabel();
+		bg.setIcon(UIImage.BACKGROUND_FRAME);
+		bg.setBounds(0, 0, 1000, 600);
+		this.getContentPane().add(bg, -1);
 
         this.initialize();
     }
@@ -96,33 +101,33 @@ public class MainUI extends JFrame implements ActionListener{
     private void initialize(){
         JLabel title = new JLabel("用户登录");
         title.setBounds(120, 10, 100, 35);
-        this.getContentPane().add(title);
+        this.getContentPane().add(title, 0);
 
         JLabel id = new JLabel("用户ID");
         id.setBounds(20, 50, 50, 40);
-        this.getContentPane().add(id);
+        this.getContentPane().add(id, 0);
 
         JLabel password = new JLabel("密码");
         password.setBounds(20, 100, 50, 40);
-        this.getContentPane().add(password);
+        this.getContentPane().add(password, 0);
 
         this.id = new JTextArea();
         this.id.setBounds(90, 50, 200, 40);
-        this.getContentPane().add(this.id);
+        this.getContentPane().add(this.id, 0);
 
         this.password = new JPasswordField();
         this.password.setBounds(90, 100, 200, 40);
-        this.getContentPane().add(this.password);
+        this.getContentPane().add(this.password, 0);
 
-        confirm = new JButton("确定");
-        confirm.setBounds(40, 160, 80, 30);
+        confirm = new ToolButton(40, 160, "确定");
+        confirm.setSize(80, 30);
         confirm.addActionListener(this);
-        this.getContentPane().add(confirm);
+        this.getContentPane().add(confirm, 0);
 
-        exit = new JButton("退出");
-        exit.setBounds(150, 160, 80, 30);
+        exit = new ToolButton(150, 160, "退出");
+        exit.setSize(80, 30);
         exit.addActionListener(this);
-        this.getContentPane().add(exit);
+        this.getContentPane().add(exit, 0);
     }
 
     @Override
