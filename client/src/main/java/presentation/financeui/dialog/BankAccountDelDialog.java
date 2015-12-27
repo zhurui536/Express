@@ -1,15 +1,19 @@
 package presentation.financeui.dialog;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.InputChecker;
-
-import javax.swing.*;
-
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import util.MyFont;
 
 /**
  * Created by Away
@@ -24,8 +28,6 @@ public class BankAccountDelDialog extends JDialog {
     private String id;
 
     private FinanceFrame ui;
-    
-    Font myFont = new Font("微软雅黑", Font.PLAIN, 15);
   
     public BankAccountDelDialog(FinanceFrame ui) {
         super(ui);
@@ -51,7 +53,7 @@ public class BankAccountDelDialog extends JDialog {
         
         JLabel warn = new JLabel("删除后将无法恢复！");
         warn.setForeground(Color.RED);
-        warn.setFont(myFont);
+        warn.setFont(MyFont.getFont1());
         warn.setBounds(130, 50, 200, 50);
         
         acID = new JTextField();

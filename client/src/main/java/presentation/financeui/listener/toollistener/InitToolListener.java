@@ -43,9 +43,7 @@ public class InitToolListener extends ToolListener {
             initAccount();
         } else if (button == toolPanel.getButton(1)) {
             inquire();
-        } else if (button == toolPanel.getButton(2)) {
-            ui.replaceTool(null);
-        }
+        } 
     }
 
     private void inquire() {

@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 
 import util.UIImage;
 
+@SuppressWarnings("serial")
 public class MyMenu extends JPanel {
 	public MenuButton[] buttons;
 	

@@ -51,11 +51,9 @@ public class MainUI extends JFrame implements ActionListener{
 
     public static void main(String[] args){
     	initRMI();
-    	
         MainUI ui = new MainUI();
         FrameUtil.setFrameCenter(ui);
         ui.setVisible(true);
-        
     }
 
     public MainUI(){
@@ -172,6 +170,7 @@ public class MainUI extends JFrame implements ActionListener{
     		frame = new AdminFrame();
     	}
     	
+    	FrameUtil.setFrameCenter(frame);
     	frame.setVisible(true);
     	
     	// 测试网络连接
@@ -188,11 +187,11 @@ public class MainUI extends JFrame implements ActionListener{
             InstitutionMessageVO institutionMessageVO = null;
             if(resultMessage.getKey().equals("success"))
                     institutionMessageVO = (InstitutionMessageVO) resultMessage.getValue();
-            if(institutionMessageVO == null)
-                    return;
+            if(institutionMessageVO == null) {
+            	return;
+            }
             PublicMessage.institutionType = institutionMessageVO.institutionType;
             PublicMessage.location = institutionMessageVO.city;
-            
     }
     
     private static void testConnect(JFrame ui) {

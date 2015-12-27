@@ -6,8 +6,10 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import util.MyFont;
 import util.UIImage;
 
+@SuppressWarnings("serial")
 public class ToolButton extends JButton  implements MouseListener{
 	private boolean ifClicked;
 	private JLabel bg;
@@ -24,6 +26,7 @@ public class ToolButton extends JButton  implements MouseListener{
 		
 		this.text = new JLabel(text, JLabel.CENTER);
 		this.text.setBounds(0,  0, w, h);
+		this.text.setFont(MyFont.getFont1());
 		this.add(this.text, 0);
 		bg = new JLabel();
 		bg.setBounds(0, 0, w, h);

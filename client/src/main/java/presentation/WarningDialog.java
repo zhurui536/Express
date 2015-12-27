@@ -6,57 +6,27 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import util.FrameUtil;
+import util.MyFont;
 import util.ResultMessage;
 
 public class WarningDialog {
-	//璀﹀憡绐楀彛锛�2绉掑悗鑷姩娑堝け
+	
 	private JDialog dialog;
-//	private Thread thread = new Thread(new Runnable(){
-//		@Override
-//		public void run() {
-//			try {
-//				Thread.sleep(2000);
-//				dialog.dispose();
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	});
-
-	public WarningDialog(JFrame parent, String text){
-		init(parent);
-		
-		JPanel container = new JPanel();
-		container.setBounds(0, 0, 200, 100);
-		container.setLayout(null);
-		
-		JLabel warning = new JLabel(text, JLabel.CENTER);
-		warning.setBounds(0, 0, 200, 100);
-		container.add(warning);
-		
-		dialog.getContentPane().add(container);
+	
+	public WarningDialog(JFrame parent, String text) {
+		initLocation(parent);
+		initComponents(text);
 		this.warn();
 	}
 	
-	public WarningDialog(JFrame parent, ResultMessage result){
-		init(parent);
-
-		String text = this.resultToString(result);
-		JPanel container = new JPanel();
-		container.setBounds(0, 0, 200, 100);
-		container.setLayout(null);
-		
-		JLabel warning = new JLabel(text, JLabel.CENTER);
-		warning.setBounds(0, 0, 200, 100);
-		container.add(warning);
-		
-		dialog.getContentPane().add(container);
+	public WarningDialog(JFrame parent, ResultMessage result) {
+		initLocation(parent);
+		initComponents(resultToString(result));
 		this.warn();
 	}
 	
 	private void warn(){
 		dialog.setVisible(true);
-//		thread.start();
 	}
 	
 	private String resultToString(ResultMessage result){
@@ -83,15 +53,28 @@ public class WarningDialog {
 		}
 	}
 
-	private void init(JFrame parent) {
+	private void initLocation(JFrame parent) {
 		dialog = new JDialog(parent);
 		dialog.setLayout(null);
 		if (parent == null) {
 			FrameUtil.setFrameCenter(dialog);
 		} else {
 			dialog.setBounds(parent.getX() + parent.getWidth() / 5 * 2, 
-					parent.getY() + parent.getHeight() / 3, 220, 130);
+					parent.getY() + parent.getHeight() / 3, 220, 150);
 			dialog.setModal(true);
 		}
+	}
+	
+	private void initComponents(String text) {
+		JPanel container = new JPanel();
+		container.setBounds(0, 0, 200, 100);
+		container.setLayout(null);
+		
+		JLabel warning = new JLabel(text, JLabel.CENTER);
+		warning.setFont(MyFont.getFont1());
+		warning.setBounds(0, 0, 200, 100);
+		container.add(warning);
+		
+		dialog.setContentPane(container);
 	}
 }

@@ -12,7 +12,7 @@ import presentation.mainui.component.MyTool;
 @SuppressWarnings("serial")
 public class InitTool extends MyTool {
 	
-	private static String[] buttonname = { "新建账本", "查询", "返回"};
+	private static String[] buttonname = { "新建账本", "查询" };
 
     public InitTool(FinanceFrame ui) {
     	super(buttonname, new InitToolListener(ui));

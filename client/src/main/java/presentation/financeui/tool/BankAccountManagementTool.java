@@ -12,7 +12,7 @@ import presentation.mainui.component.MyTool;
 @SuppressWarnings("serial")
 public class BankAccountManagementTool extends MyTool {
 
-    private static String[] buttonname = {"新增账户", "删除账户", "查询账户", "修改账户", "返回"};
+    private static String[] buttonname = {"新增账户", "删除账户", "查询账户", "修改账户" };
     
     public BankAccountManagementTool(FinanceFrame ui) {
     	super(buttonname, new BankAccountManagementToolListener(ui));

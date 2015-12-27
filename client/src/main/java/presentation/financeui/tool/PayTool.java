@@ -12,7 +12,7 @@ import presentation.mainui.component.MyTool;
 @SuppressWarnings("serial")
 public class PayTool extends MyTool {
 	
-	private static String[] buttonname = { "生成付款单", "返回"};
+	private static String[] buttonname = { "生成付款单" };
 
     public PayTool(FinanceFrame ui) {
     	super(buttonname, new PayToolListener(ui));
