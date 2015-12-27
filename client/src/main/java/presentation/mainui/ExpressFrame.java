@@ -14,6 +14,7 @@ import presentation.mainui.component.MyMenu;
 import presentation.mainui.component.MyTool;
 import util.UIImage;
 
+@SuppressWarnings("serial")
 public class ExpressFrame extends JFrame{
 	//窗口中的成员组件，窗口分为菜单、工具和数据三个部分
 	protected MyMenu menu;

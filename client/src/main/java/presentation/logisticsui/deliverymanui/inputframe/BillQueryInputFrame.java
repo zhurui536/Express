@@ -1,9 +1,13 @@
 package presentation.logisticsui.deliverymanui.inputframe;
 
 import presentation.WarningDialog;
+import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.deliverymanui.listener.toollistener.BillQueryToolListener;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +22,8 @@ public class BillQueryInputFrame extends JFrame implements ActionListener{
         private JLabel title;
         
         private BillQueryToolListener listener;
+        
+        private JLabel errOutPutLabel;
         
         public BillQueryInputFrame(BillQueryToolListener listener) {
                 this.listener = listener;
@@ -49,6 +55,12 @@ public class BillQueryInputFrame extends JFrame implements ActionListener{
                 number.setSize(260,30);
                 number.setLocation(110,90);
                 this.getContentPane().add(number);
+                
+                errOutPutLabel = new JLabel();
+                errOutPutLabel.setBounds(30, 190, 150, 30);
+                errOutPutLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
+                errOutPutLabel.setForeground(Color.RED);
+                this.add(errOutPutLabel);
         }
 
         @Override
@@ -57,6 +69,10 @@ public class BillQueryInputFrame extends JFrame implements ActionListener{
                         String ID = this.number.getText();
                         if(ID == null)
                                 return;
+                        if( !InputChecker.isNum(ID)){
+                                errOutPutLabel.setText("订单号必须是数字！");
+                                return;
+                        }
                         boolean result = listener.getInput(ID);
                         if(result){
                                 this.setVisible(false);

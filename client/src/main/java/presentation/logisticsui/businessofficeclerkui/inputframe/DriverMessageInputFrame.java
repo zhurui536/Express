@@ -2,6 +2,7 @@ package presentation.logisticsui.businessofficeclerkui.inputframe;
 
 import bussinesslogicservice.infoblservice.InfoBLSerivce;
 import presentation.WarningDialog;
+import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.DriverMessageToolListener;
 import util.ResultMessage;
@@ -10,6 +11,9 @@ import util.Time;
 import vo.DriverMessageVO;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -88,6 +92,10 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
                 }
                 this.getContentPane().add(jTextAreas[0]);
                 
+                JLabel year = new JLabel("年");
+                year.setBounds(270, 240, 40, 30);
+                this.getContentPane().add(year);
+                
                 jTextAreas[1].setBounds(115, 60, 150 , 30);
                 jTextAreas[2].setBounds(395, 60, 150 , 30);
                 jTextAreas[3].setBounds(115, 105, 150 , 30);
@@ -155,6 +163,17 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
                  cancle.setBounds(485, 285, 60 ,25);
                  cancle.addActionListener(this);
                  this.getContentPane().add(cancle);
+                 
+                 errOutputLabel = new JLabel();
+                 errOutputLabel.setBounds(295, 15 , 190, 30);
+                 errOutputLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
+                 errOutputLabel.setForeground(Color.RED);
+                 this.getContentPane().add(errOutputLabel);
+        }
+        
+        public static void main(String[] args) {
+                DriverMessageInputFrame driverMessageInputFrame = new DriverMessageInputFrame(null);
+                driverMessageInputFrame.setVisible(true);
         }
 
         @Override
@@ -164,25 +183,54 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
                         driverMessageVO.birth = new Time(((String)yearBirth.getSelectedItem()).substring(0,4) + "-" 
                         + ((String)monthBirth.getSelectedItem()).substring(0,2) + "-" 
                                         + ((String)dayBirth.getSelectedItem()).substring(0, 2));
+                        if(!InputChecker.isNum(jTextAreas[0].getText())){
+                                errOutputLabel.setText("司机ID必须是数字！");
+                                return;
+                        }
                         driverMessageVO.driverId = jTextAreas[0].getText();
-                        driverMessageVO.ID = jTextAreas[2].getText();
+                        if(!InputChecker.isIdNum(jTextAreas[3].getText())){
+                                errOutputLabel.setText("不合法的身份证号！");
+                                System.out.println(jTextAreas[3].getText());
+                                System.out.println(InputChecker.isNum(jTextAreas[3].getText()));
+                                System.out.println(!InputChecker.isIdNum(jTextAreas[3].getText()));
+                                return;
+                        }
+                        driverMessageVO.ID = jTextAreas[3].getText();
                         driverMessageVO.name = jTextAreas[1].getText();
-                        driverMessageVO.phoneNum = jTextAreas[3].getText();
+                        if(!InputChecker.isNum(jTextAreas[2].getText())){
+                                errOutputLabel.setText("手机号必须是数字！");
+                                return;
+                        }
+                        driverMessageVO.phoneNum = jTextAreas[2].getText();
                         driverMessageVO.sex = Sex.stringToSex((String)sex.getSelectedItem());
                         driverMessageVO.registrationTime = new Time(((String)yearStart.getSelectedItem()).substring(0,4) + "-" 
                         + ((String)monthStart.getSelectedItem()).substring(0,2) + "-" 
                                         + ((String)dayStart.getSelectedItem()).substring(0, 2));
+                        if (!InputChecker.isNum(jTextAreas[4].getText()) ||InputChecker.isMinus(jTextAreas[4].getText())) {
+                                errOutputLabel.setText("驾照有效时间必须是正数！");
+                                return;
+                        }
                         driverMessageVO.yearsOfLicense = Integer.parseInt(jTextAreas[4].getText());
                         driverMessageVO.terminationTime = driverMessageVO.registrationTime.add(driverMessageVO.yearsOfLicense);
                         InfoBLSerivce infoBLSerivce = ui.getInfoBLSerivce();
                         
                         if(state == frameState.ADD){
                                 ResultMessage resultMessage = infoBLSerivce.addDriverMessage(driverMessageVO);
-                            new WarningDialog(ui, resultMessage.getKey());
+                                if(resultMessage.getKey().equals("SUCCESS"))
+                                        new WarningDialog(ui, "成功添加司机信息");
+                                else if(resultMessage.getKey().equals("EXIST"))
+                                        new WarningDialog(ui, "司机信息已存在");
+                                else
+                                        new WarningDialog(ui, resultMessage.getKey());
                         }
                         else {
                                 ResultMessage resultMessage = infoBLSerivce.modDriverMessage(driverMessageVO);
-                            new WarningDialog(ui, resultMessage.getKey());
+                                if(resultMessage.getKey().equals("SUCCESS"))
+                                        new WarningDialog(ui, "成功修改司机信息");
+                                else if(resultMessage.getKey().equals("NO_EXIST"))
+                                        new WarningDialog(ui, "司机信息不存在");
+                                else
+                                        new WarningDialog(ui, resultMessage.getKey());
                         }
                        
                         this.setVisible(false);

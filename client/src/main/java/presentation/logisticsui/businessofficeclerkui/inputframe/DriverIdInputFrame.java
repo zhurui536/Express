@@ -2,6 +2,7 @@ package presentation.logisticsui.businessofficeclerkui.inputframe;
 
 import bussinesslogicservice.infoblservice.InfoBLSerivce;
 import presentation.WarningDialog;
+import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.datapane.DriverMessageDataPanel;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.DriverMessageToolListener;
@@ -9,6 +10,9 @@ import util.ResultMessage;
 import vo.DriverMessageVO;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,6 +30,8 @@ public class DriverIdInputFrame extends JFrame implements ActionListener{
         private int kind;
         
         private BusinessOfficeClerkFrame ui;
+        
+        private JLabel errOutPutLabel;
 
         public DriverIdInputFrame(DriverMessageToolListener listener, int kind) {
                 this.listener = listener;
@@ -59,11 +65,22 @@ public class DriverIdInputFrame extends JFrame implements ActionListener{
                 textArea.setSize(260,30);
                 textArea.setLocation(110, 90);
                 this.getContentPane().add(textArea);
+                
+                errOutPutLabel = new JLabel();
+                errOutPutLabel.setBounds(30, 190, 190, 30);
+                errOutPutLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
+                errOutPutLabel.setForeground(Color.RED);
+                this.getContentPane().add(errOutPutLabel);
         }
-
+        
         @Override
         public void actionPerformed(ActionEvent e) {
                 if(e.getSource() == confirm){
+                        String ID = textArea.getText();
+                        if(!InputChecker.isNum(ID)){
+                                errOutPutLabel.setText("司机ID必须为纯数字！");
+                                return;
+                        }
                         InfoBLSerivce infoBLSerivce = ui.getInfoBLSerivce();
                         if(kind == 0){
                                 ResultMessage resultMessage = infoBLSerivce.delDriverMessage(textArea.getText());

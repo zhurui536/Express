@@ -39,6 +39,16 @@ public class InputChecker {
          * @return
          */
         public static boolean isMinus(String str) {
-        	return str.charAt(0) == '-';
+        	return isNum(str) && str.charAt(0) == '-';
+        }
+        
+        /**
+         * 判断字符串是否为合法的身份证号
+         * @param str 长度为18的字符串
+         * @return
+         */
+        public static boolean isIdNum(String str) {
+//                str = str.toLowerCase();
+                return isNum(str) || (isNum(str.substring(0,str.length()-1))&& str.charAt(str.length() - 1) == 'x');
         }
 }

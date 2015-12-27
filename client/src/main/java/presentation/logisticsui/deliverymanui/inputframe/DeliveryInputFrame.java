@@ -1,10 +1,14 @@
 package presentation.logisticsui.deliverymanui.inputframe;
 
 import presentation.WarningDialog;
+import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.deliverymanui.listener.toollistener.DeliveryToolListener;
 import util.Time;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,7 +24,7 @@ public class DeliveryInputFrame extends JFrame implements ActionListener{
         
         private JLabel numberLabel,recLabel;
         
-        private JComboBox<String> year, month, day;
+        private JLabel errOutPutLabel;
         
         public DeliveryInputFrame(DeliveryToolListener listener) {
                 this.listener = listener;
@@ -61,28 +65,11 @@ public class DeliveryInputFrame extends JFrame implements ActionListener{
                 rec.setLocation(110, 90);
                 this.getContentPane().add(rec);
                 
-                year = new JComboBox<>();
-                for (int i = 2000; i <= 2020; i++) {
-                    year.addItem(i + "年");
-                }
-                year.setBounds(15, 130, 120, 30);
-                this.getContentPane().add(year);
-                
-                month = new JComboBox<>();
-                for (int i = 1; i <= 12; i++) {
-                        String s = i  < 10 ? "0" : "";
-                        month.addItem( s + i + "月");
-                }
-                month.setBounds(185, 130, 60, 30);
-                this.getContentPane().add(month);
-                
-                day = new JComboBox<>();
-                for (int i = 1; i <= 31; i++) {
-                        String s = i  < 10 ? "0" : "";
-                        day.addItem(s + i + "日");
-                }
-                day.setBounds(295, 130, 60, 30);
-                this.getContentPane().add(day);
+                errOutPutLabel = new JLabel();
+                errOutPutLabel.setBounds(30, 190, 150, 30);
+                errOutPutLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
+                errOutPutLabel.setForeground(Color.RED);
+                this.add(errOutPutLabel);
                 
         }
         
@@ -91,9 +78,11 @@ public class DeliveryInputFrame extends JFrame implements ActionListener{
                 if(e.getSource() == confirm){
                         String recp = rec.getText();
                         String id = number.getText();
-                        Time time = new Time(((String)year.getSelectedItem()).substring(0,4) + "-"
-                        + ((String)month.getSelectedItem()).substring(0,2) + "-" 
-                                        + ((String)day.getSelectedItem()).substring(0, 2));
+                        if(!InputChecker.isNum(id)){
+                                errOutPutLabel.setText("订单号必须是数字！");
+                                return;
+                        }
+                        Time time = new Time();
                         boolean result = listener.getInput(recp, id, time);
                         if(result){
                                 new WarningDialog(this, "收件信息已记录");

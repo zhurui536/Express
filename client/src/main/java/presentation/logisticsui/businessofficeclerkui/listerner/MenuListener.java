@@ -29,6 +29,8 @@ public class MenuListener implements ActionListener{
                                 i++;
                         }
                 }
+                ui.refreshMenu();
+                ui.getButton(i).clicked();
                 if(i == 0){
                         GoodsLoadToolListener goodsLoadToolListener = new GoodsLoadToolListener(ui);
                         GoodsLoadTool tool = new GoodsLoadTool(goodsLoadToolListener);

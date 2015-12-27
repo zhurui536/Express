@@ -1,17 +1,22 @@
 package presentation.logisticsui.deliverymanui.inputframe;
 
 
+import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.deliverymanui.listener.toollistener.ReceivingToolListener;
 import util.City;
 import util.ExpressType;
 import util.GoodsDeliveryState;
 import util.PackageType;
+import util.ResultMessage;
 import util.Time;
 import vo.GoodsVO;
 import vo.logisticvo.PeopleMessageVO;
 import vo.logisticvo.SendBillVO;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,6 +36,8 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
         private peoplePanel panelForSender;
         
         private peoplePanel panelForRec;
+        
+        private JLabel errOutPutLabel;
         
         public ReceivingInputFrame(ReceivingToolListener listener) {
                 this.listener = listener;
@@ -84,6 +91,13 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                 cancle.addActionListener(this);
                 this.getContentPane().add(confirm);
                 this.getContentPane().add(cancle);
+                
+                errOutPutLabel = new JLabel();
+                errOutPutLabel.setBounds(325, 15, 240, 30);
+                errOutPutLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
+                errOutPutLabel.setForeground(Color.RED);
+                this.getContentPane().add(errOutPutLabel);
+                
         }
         
         class goodsPanel extends JPanel{
@@ -137,24 +151,26 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                         
                 }
                 
-                GoodsVO getInput(){
+                ResultMessage getInput(){
                         GoodsVO goodsVO = new GoodsVO();
                         goodsVO.name = textAreas[0].getText();
                         goodsVO.departurePlace =  City.stringToType((String)startPlace.getSelectedItem());
                         goodsVO.destination =City.stringToType((String)endPlace.getSelectedItem());
                         
-                        double w = Double.parseDouble(textAreas[1].getText());
-                        if(w > 0)
-                                goodsVO.weight = w;
-                        double v = Double.parseDouble(textAreas[2].getText());
-                        if(v > 0)
-                                goodsVO.volume = v;
+                        if(!InputChecker.isNum(textAreas[1].getText())||InputChecker.isMinus(textAreas[1].getText())){
+                                return new ResultMessage("重量必须是正数！");
+                        }
+                        goodsVO.weight = Double.parseDouble(textAreas[1].getText());
+                        if(!InputChecker.isNum(textAreas[2].getText())||InputChecker.isMinus(textAreas[2].getText())){
+                                return new ResultMessage("体积必须是正数！");
+                        }
+                        goodsVO.volume = Double.parseDouble(textAreas[2].getText());
                         
                         goodsVO.packageType = PackageType.stringToType((String)packageTypeBox.getSelectedItem());
                         goodsVO.expressType = ExpressType.stringToType((String)expressTypeBox.getSelectedItem());
                         goodsVO.goodsDeliveryState = GoodsDeliveryState.TRANSPORT;
                         goodsVO.startTime = new Time();
-                        return goodsVO;
+                        return new ResultMessage("success",goodsVO);
                 }
         }
         
@@ -179,8 +195,12 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                 
                 JTextArea mobArea;
                 
+                String peopleString;
+                
                 peoplePanel(String people){
                        
+                        this.peopleString = people;
+                        
                         this.setLayout(null);
                          name = new JLabel(people + ":");
                         name.setSize(80,35);
@@ -228,35 +248,57 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                         this.add(mobArea);
                 }
                 
-                PeopleMessageVO getInput(){
+                ResultMessage getInput(){
                         PeopleMessageVO peopleMessageVO = new PeopleMessageVO();
                         peopleMessageVO.institution = insArea.getText();
                         peopleMessageVO.location = locationArea.getText();
+                        if(!InputChecker.isNum(mobArea.getText()))
+                                return new ResultMessage(peopleString + "手机号必须是纯数字！");
                         peopleMessageVO.mobliephoneNum = mobArea.getText();
                         peopleMessageVO.name = nameArea.getText();
+                        if(!InputChecker.isNum(telArea.getText()))
+                                return new ResultMessage(peopleString + "电话号码必须是纯数字！");
                         peopleMessageVO.telephoneNum = telArea.getText();
-                        return peopleMessageVO;
+                        return new ResultMessage("success",peopleMessageVO);
                 }
         }
         
-        
+        public static void main(String[] args) {
+                ReceivingInputFrame receivingInputFrame = new ReceivingInputFrame(null);
+                receivingInputFrame.setVisible(true);
+        }
         
         @Override
         public void actionPerformed(ActionEvent e) {
                 if(e.getSource() == confirm){
                         SendBillVO sendBillVO = new SendBillVO();
-                        sendBillVO.goodsVO = panelForGoods.getInput();
-                        sendBillVO.senderVO = panelForSender.getInput();
-                        sendBillVO.recipientVO = panelForRec.getInput();
+                        if(!InputChecker.isNum(number.getText())){
+                                errOutPutLabel.setText("订单号必须是数字！");
+                                return;
+                        }
                         sendBillVO.id = number.getText();
-
-                        boolean result = listener.getInput(sendBillVO);
-                        if(result){
-                                this.setVisible(false);
+                        //检查货物信息的输入
+                        ResultMessage goodsInputMes = panelForGoods.getInput();
+                        if(!goodsInputMes.getKey().equals("success")){
+                                errOutPutLabel.setText(goodsInputMes.getKey());
+                                return;
                         }
-                        else{
-                                //TODO
+                        sendBillVO.goodsVO = (GoodsVO) goodsInputMes.getValue();
+                        //检查寄件人和收件人信息的输入
+                        ResultMessage senderInputMes = panelForSender.getInput();
+                        if(!senderInputMes.getKey().equals("success")){
+                                errOutPutLabel.setText(senderInputMes.getKey());
+                                return;
                         }
+                        sendBillVO.senderVO = (PeopleMessageVO) senderInputMes.getValue();
+                        ResultMessage recipientInputMes = panelForRec.getInput();
+                        if(!recipientInputMes.getKey().equals("success")){
+                                errOutPutLabel.setText(recipientInputMes.getKey());
+                                return;
+                        }
+                        sendBillVO.recipientVO = (PeopleMessageVO) recipientInputMes.getValue();
+                        listener.getInput(sendBillVO);
+                        this.setVisible(false);
                 }else if(e.getSource() == cancle){
                         this.setVisible(false);
                 }
