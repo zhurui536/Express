@@ -45,6 +45,9 @@ public class MainUI extends JFrame implements ActionListener{
     private ToolButton confirm;
     private ToolButton exit;
     
+    private JTextArea goodsid;
+    private ToolButton check;
+    
     private UserBLService bl;
 
     public static String USER_ID;
@@ -78,11 +81,11 @@ public class MainUI extends JFrame implements ActionListener{
         }
     	this.bl = new UserBLServiceImpl();
         this.setLayout(null);
-        this.setBounds(300, 300, 330, 260);
+        this.setBounds(300, 300, 330, 360);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         JLabel bg = new JLabel();
-		bg.setIcon(UIImage.BACKGROUND_FRAME);
-		bg.setBounds(0, 0, 1000, 600);
+		bg.setIcon(UIImage.BACKGROUND_INPUTFRAME);
+		bg.setBounds(0, 0, 330, 360);
 		this.getContentPane().add(bg, -1);
 
         this.initialize();
@@ -126,6 +129,18 @@ public class MainUI extends JFrame implements ActionListener{
         exit.setSize(80, 30);
         exit.addActionListener(this);
         this.getContentPane().add(exit, 0);
+        
+        JLabel goods = new JLabel("订单编号");
+        goods.setBounds(10, 220, 80, 40);
+        this.getContentPane().add(goods, 0);
+        this.goodsid = new JTextArea();
+        this.goodsid.setBounds(90, 220, 200, 40);
+        this.getContentPane().add(goodsid, 0);
+        
+        check = new ToolButton(100, 280, "查询物流信息");
+        check.setSize(100, 30);
+        check.addActionListener(this);
+        this.getContentPane().add(check, 0);
     }
 
     @Override
@@ -147,6 +162,9 @@ public class MainUI extends JFrame implements ActionListener{
         	 else{
         		 new WarningDialog(this, result);
         	 }
+        }
+        if(e.getSource() == check){
+        	String goodsid = this.goodsid.getText();
         }
     }
     
