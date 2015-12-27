@@ -37,4 +37,10 @@ public interface BankAccountManagementBLService {
      * @return ResultMessage
      */
     ResultMessage inquireMember(BankAccountVO vo);
+    
+    /**
+     * 显示所有账户信息
+     * @return
+     */
+    ResultMessage showAllMember();
 }

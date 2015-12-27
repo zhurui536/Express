@@ -2,8 +2,12 @@ package presentation.financeui.dialog;
 
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
+import presentation.logisticsui.InputChecker;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,7 +24,9 @@ public class BankAccountDelDialog extends JDialog {
     private String id;
 
     private FinanceFrame ui;
-
+    
+    Font myFont = new Font("微软雅黑", Font.PLAIN, 15);
+  
     public BankAccountDelDialog(FinanceFrame ui) {
         super(ui);
         this.ui = ui;
@@ -37,12 +43,17 @@ public class BankAccountDelDialog extends JDialog {
         JPanel panel = new JPanel();
 
         JButton ok = new JButton("确定");
-        ok.setBounds(150, 80, 100, 40);
+        ok.setBounds(150, 90, 100, 40);
         ok.addActionListener(new okListener());
 
         JLabel id = new JLabel("账号ID");
-        id.setBounds(50, 20, 80, 50);
-
+        id.setBounds(90, 20, 80, 50);
+        
+        JLabel warn = new JLabel("删除后将无法恢复！");
+        warn.setForeground(Color.RED);
+        warn.setFont(myFont);
+        warn.setBounds(130, 50, 200, 50);
+        
         acID = new JTextField();
         acID.setBounds(150, 30, 150, 30);
 
@@ -50,6 +61,7 @@ public class BankAccountDelDialog extends JDialog {
         panel.add(ok);
         panel.add(id);
         panel.add(acID);
+        panel.add(warn);
         this.setContentPane(panel);
     }
 
@@ -70,6 +82,9 @@ public class BankAccountDelDialog extends JDialog {
         if (id.length() == 0) {
             new WarningDialog(ui, "请输入账户ID");
             return false;
+        } else if (!InputChecker.isNum(id)) {
+        	new WarningDialog(ui, "账户ID必须是数字");
+        	return false;
         }
         return true;
     }

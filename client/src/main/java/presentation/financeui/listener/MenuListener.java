@@ -3,15 +3,18 @@ package presentation.financeui.listener;
 import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
+import presentation.financeui.datapanel.BankAccountPanel;
 import presentation.financeui.tool.*;
 import presentation.userui.data.LogDataPane;
 import util.ResultMessage;
 import vo.SystemlogVO;
+import vo.financevo.BankAccountVO;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Away
@@ -51,6 +54,13 @@ public class MenuListener implements ActionListener {
 
         if (button == ui.getButton("账户管理")) {
             ui.replaceTool(bankAcManageTool);
+            FinanceBLService financeController = ui.getFinanceController();
+            ResultMessage msg = financeController.showAllMember();
+            if (!isFail(msg)) {
+            	List<BankAccountVO> bankAccountVOs = (List<BankAccountVO>) msg.getValue();
+                BankAccountPanel bankAccountPanel = new BankAccountPanel(bankAccountVOs);
+                ui.paintData(bankAccountPanel);
+            }
         } else if (button == ui.getButton("付款")) {
             ui.replaceTool(payTool);
         } else if (button == ui.getButton("收款")) {

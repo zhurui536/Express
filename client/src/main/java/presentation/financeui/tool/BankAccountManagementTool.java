@@ -19,7 +19,7 @@ public class BankAccountManagementTool extends ToolPanel {
     private JButton find;
     private JButton update;
     private JButton back;
-
+    
     public BankAccountManagementTool(FinanceFrame ui) {
         super();
         init();

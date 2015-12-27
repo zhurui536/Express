@@ -74,9 +74,7 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
     public ResultMessage update(BankAccountPO po) throws RemoteException {
         ResultMessage message = find(po.getId());
 
-        System.out.println(po.getBalance().doubleValue());
         if (message.getKey().equals("success")) {
-        	System.out.println("data: " + po.getBalance().doubleValue());
             BankAccountPO bankAccountPO = (BankAccountPO) message.getValue();
             bankAccountPO.setPO(po);
             Database.save(PATH, bankAccountPOs);

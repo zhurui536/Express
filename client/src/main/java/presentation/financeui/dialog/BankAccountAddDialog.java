@@ -2,9 +2,14 @@ package presentation.financeui.dialog;
 
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
+import presentation.logisticsui.InputChecker;
+import util.ResultMessage;
 import vo.financevo.BankAccountVO;
 
 import javax.swing.*;
+
+import bussinesslogicservice.financeblservice.FinanceBLService;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
@@ -20,13 +25,13 @@ public class BankAccountAddDialog extends JDialog {
     private JTextField acID;
     private JTextField acName;
     private JTextField acBalance;
-    private BankAccountVO bankAccountVO;
     private FinanceFrame ui;
-
+    private FinanceBLService financeController;
+    
     public BankAccountAddDialog(FinanceFrame ui) {
         super(ui);
         this.ui = ui;
-        bankAccountVO = null;
+       	financeController = ui.getFinanceController();
         init();
     }
 
@@ -78,11 +83,10 @@ public class BankAccountAddDialog extends JDialog {
             String balance = acBalance.getText();
             String id = acID.getText();
             boolean success = check(name, balance, id);
-            if (!success) {
-                return;
+            if (success) {
+            	BankAccountVO bankAccountVO = new BankAccountVO(name, new BigDecimal(balance), id);
+            	processAdd(bankAccountVO);
             }
-            bankAccountVO = new BankAccountVO(name, new BigDecimal(balance), id);
-            close();
         }
     }
 
@@ -96,15 +100,29 @@ public class BankAccountAddDialog extends JDialog {
         } else if (id.length() == 0) {
             new WarningDialog(ui, "请输入账户ID");
             return false;
+        } else if (!InputChecker.isNum(balance)) {
+        	new WarningDialog(ui, "账户余额必须是数字");
+        	return false;
+        } else if (InputChecker.isMinus(balance)) {
+        	new WarningDialog(ui, "账户余额不能是负数");
+        	return false;
+        } else if (!InputChecker.isNum(id)) {
+        	new WarningDialog(ui, "账号ID必须是数字");
+        	return false;
         }
         return true;
     }
-
-    private void close() {
-        this.setVisible(false);
-    }
     
-    public BankAccountVO getBankAccountVO() {
-    	return bankAccountVO;
+	private void processAdd(BankAccountVO bankAccountVO) {
+    	ResultMessage msg = financeController.createMember(bankAccountVO);
+    	if (!isSuccess(msg)) {
+            new WarningDialog(ui, "账号ID不能相同");
+        } else {
+        	this.setVisible(false);
+        }
+	}
+	
+	private boolean isSuccess(ResultMessage message) {
+        return message.getKey().equals("success");
     }
 }

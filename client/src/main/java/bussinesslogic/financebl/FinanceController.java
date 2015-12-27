@@ -188,4 +188,10 @@ public class FinanceController implements FinanceBLService {
         return systemlogMaintenanceBL.showSystemlog();
     }
 
+	@Override
+	public ResultMessage showAllMember() {
+		systemlogMaintenanceBL.addSystemlog(new SystemlogVO("查看所有银行账户"));
+		return bankAccountManagement.showAllMember();
+	}
+
 }

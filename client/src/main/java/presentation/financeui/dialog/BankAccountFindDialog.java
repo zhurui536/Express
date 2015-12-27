@@ -2,6 +2,7 @@ package presentation.financeui.dialog;
 
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
+import presentation.logisticsui.InputChecker;
 import vo.financevo.BankAccountVO;
 
 import javax.swing.*;
@@ -16,11 +17,11 @@ import java.awt.event.ActionListener;
 public class BankAccountFindDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	private JTextField acID;
-    private JTextField acName;
+	private JTextField input;
     private BankAccountVO bankAccountVO;
     private FinanceFrame ui;
-
+    private JComboBox<String> find;
+    
     public BankAccountFindDialog(FinanceFrame ui) {
         super(ui);
         this.ui = ui;
@@ -29,55 +30,62 @@ public class BankAccountFindDialog extends JDialog {
 
     private void init() {
         this.setLayout(null);
-        this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 250);
+        this.setBounds(ui.getX() + 300, ui.getY() + 200, 380, 220);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
         JPanel panel = new JPanel();
 
         JButton ok = new JButton("确定");
-        ok.setBounds(150, 130, 100, 40);
+        ok.setBounds(150, 100, 100, 40);
         ok.addActionListener(new okListener());
 
-        JLabel id = new JLabel("账号ID");
-        id.setBounds(50, 20, 80, 50);
-
-        acID = new JTextField();
-        acID.setBounds(150, 30, 150, 30);
-
-        JLabel name = new JLabel("账号名称");
-        name.setBounds(50, 70, 80, 50);
-
-        acName = new JTextField();
-        acName.setBounds(150, 80, 150, 30);
-
+        find = new JComboBox<>();
+        find.addItem("账号ID");
+        find.addItem("账号名称");
+        find.setBounds(50, 40, 100, 30);
+        
+        input = new JTextField();
+        input.setBounds(150, 40, 150, 30);
+        
         panel.setLayout(null);
         panel.add(ok);
-        panel.add(id);
-        panel.add(acID);
-        panel.add(name);
-        panel.add(acName);
+
+        panel.add(find);
+        panel.add(input);
         this.setContentPane(panel);
     }
 
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String name = acName.getText();
-            String id = acID.getText();
-            boolean success = check(name, id);
+            String in = input.getText();
+            String choose = (String) find.getSelectedItem();
+            boolean success = check(in, choose);
             if (success) {
-                name = name.length() == 0 ? null : name;
-                id = id.length() == 0 ? null : id;
+            	String id, name;
+                if (isID(choose)) {
+                	id = in;
+                	name = null;
+                } else {
+                	id = null;
+                	name = in;
+                }
                 bankAccountVO = new BankAccountVO(name, null, id);
                 close();
             }
         }
     }
 
-    private boolean check(String name, String id) {
-        if (name.length() == 0 && id.length() == 0) {
-            new WarningDialog(ui, "请输入账户名称或id");
+    private boolean check(String in, String choose) {
+        if (isID(choose) && in.length() == 0) {
+            new WarningDialog(ui, "请输入账户ID");
+            return false;
+        } else if (!isID(choose) && in.length() == 0) {
+        	new WarningDialog(ui, "请输入账户名称");
+            return false;
+        } else if (isID(choose) && !InputChecker.isNum(in)) {
+            new WarningDialog(ui, "账户ID必须是数字");
             return false;
         }
         return true;
@@ -89,5 +97,9 @@ public class BankAccountFindDialog extends JDialog {
     
     public BankAccountVO getBankAccountVO() {
     	return bankAccountVO;
+    }
+    
+    private boolean isID(String choose) {
+    	return choose.equals("账号ID");
     }
 }

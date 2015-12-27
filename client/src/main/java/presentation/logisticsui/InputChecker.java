@@ -32,4 +32,13 @@ public class InputChecker {
         public static boolean isChar(String str) {
                 return str.matches("[a-zA-Z]");
         }
+        
+        /**
+         * 判断字符串数字是否为负数
+         * @param str 字符串数字
+         * @return
+         */
+        public static boolean isMinus(String str) {
+        	return str.charAt(0) == '-';
+        }
 }

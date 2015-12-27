@@ -97,7 +97,6 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
         }
     }
 
-    // TODO 模糊匹配
     private ArrayList<BankAccountVO> matchName(ArrayList<BankAccountPO> bankAccountPOs, String name) {
         ArrayList<BankAccountVO> bankAccountVOs = new ArrayList<>();
         for (BankAccountPO bankAccountPO : bankAccountPOs) {
@@ -107,4 +106,26 @@ public class BankAccountManagementBL implements BankAccountManagementBLService {
         }
         return bankAccountVOs;
     }
+
+	@Override
+	public ResultMessage showAllMember() {
+		try {
+			ResultMessage message = bankAccountManagementDataServiceImpl.findAll();
+            if (message.getKey().equals("fail")) {
+                return message;
+            }
+
+            @SuppressWarnings("unchecked")
+			List<BankAccountPO> bankAccountPOs = (ArrayList<BankAccountPO>) message.getValue();
+            List<BankAccountVO> bankAccountVOs = new ArrayList<>();
+            for (BankAccountPO accountPO : bankAccountPOs) {
+            	bankAccountVOs.add(accountPO.poToVo());
+            }
+            
+            return new ResultMessage("success", bankAccountVOs);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return new ResultMessage("fail");
+		}
+	}
 }
