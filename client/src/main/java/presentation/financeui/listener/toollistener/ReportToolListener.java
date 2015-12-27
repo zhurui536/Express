@@ -38,13 +38,13 @@ public class ReportToolListener extends ToolListener {
         
         if (button == toolPanel.getButton(0)) {
             processProfit();
-        } else if (button == toolPanel.getButton(1)) {
+        } else if (button == toolPanel.getButton(2)) {
             StatementDialog dialog = new StatementDialog(ui);
             dialog.setVisible(true);
             Time sTime = dialog.getStartTime();
             Time eTime = dialog.getEndTime();
             processStatement(sTime, eTime);
-        } else if (button == toolPanel.getButton(2)) {
+        } else if (button == toolPanel.getButton(1)) {
         	OutputStream out = getPath();
             if (out != null) {
                 profitExport(out);
@@ -54,8 +54,6 @@ public class ReportToolListener extends ToolListener {
             if (out != null) {
                 statementExport(out);
             }
-        } else if (button == toolPanel.getButton(4)) {
-            ui.replaceTool(null);
         }
     }
 

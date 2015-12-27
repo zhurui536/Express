@@ -6,8 +6,10 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import util.MyFont;
 import util.UIImage;
 
+@SuppressWarnings("serial")
 public class MenuButton extends JButton  implements MouseListener{
 	private boolean ifClicked;
 	private JLabel text;
@@ -20,6 +22,7 @@ public class MenuButton extends JButton  implements MouseListener{
 		this.setContentAreaFilled(false);
 		
 		this.text = new JLabel(text, JLabel.CENTER);
+		this.text.setFont(MyFont.getFont1());
 		this.text.setBounds(0, 0, 140, 50);
 		this.add(this.text, 0);
 		ifClicked = false;

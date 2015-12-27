@@ -30,9 +30,7 @@ public class PayToolListener extends ToolListener {
         if (button == toolPanel.getButton(0)) {
             PayDialog dialog = new PayDialog(ui);
             dialog.setVisible(true);
-        } else if (button == toolPanel.getButton(1)) {
-            ui.replaceTool(null);
-        }
+        } 
     }
     
 }

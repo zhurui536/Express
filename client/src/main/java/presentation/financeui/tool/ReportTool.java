@@ -12,7 +12,7 @@ import presentation.mainui.component.MyTool;
 @SuppressWarnings("serial")
 public class ReportTool extends MyTool {
 
-	private static String[] buttonname = { "显示成本收益表", "导出成本收益表", "显示经营情况表", "导出经营情况表", "返回"};
+	private static String[] buttonname = { "显示成本收益表", "导出成本收益表", "显示经营情况表", "导出经营情况表" };
 
     public ReportTool(FinanceFrame ui) {
     	super(buttonname, new ReportToolListener(ui));

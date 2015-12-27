@@ -55,10 +55,7 @@ public class BankAccountManagementToolListener extends ToolListener {
             if (bankAccountVO != null) {
                 processUpdate(bankAccountVO);
             }
-        } else if (button == toolPanel.getButton(4)) {
-        	ui.replaceTool(null);
-        	ui.paintdata(null);
-        }
+        } 
     }
     
     @SuppressWarnings("unchecked")

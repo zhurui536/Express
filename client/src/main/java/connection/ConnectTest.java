@@ -52,9 +52,8 @@ public class ConnectTest {
 					break;
 				} catch (IOException e) {
 					new WarningDialog(ui, "断线啦");
-//					JOptionPane.showConfirmDialog(null, "断线啦");
+					System.exit(0);
 //					e.printStackTrace();
-					break;
 				}
 			}
 		}

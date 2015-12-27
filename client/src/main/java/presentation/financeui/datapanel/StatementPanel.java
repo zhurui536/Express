@@ -24,13 +24,12 @@ public class StatementPanel extends JPanel {
 
         this.setLayout(null);
         initPanel();
-        this.setSize(830, receiptPanel.getHeight() + payPanel.getHeight() + 200);
+        this.setSize(1000, receiptPanel.getHeight() + payPanel.getHeight() + 200);
     }
 
     private void initPanel() {
         JLabel receipt = new JLabel("收款单");
         receipt.setBounds(5, 20, 100, 30);
-
 
         receiptPanel = new ReceiptPanel(statementVO.receiptBillVOs);
         receiptPanel.setLocation(0, 60);

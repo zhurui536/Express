@@ -43,9 +43,7 @@ public class ReceiptToolListener extends ToolListener {
             if (time != null && id != null) {
                 processShow(time, id);
             }
-        } else if (button == toolPanel.getButton(1)) {
-            ui.replaceTool(null);
-        }
+        } 
     }
 
 	private void processShow(Time time, String id) {
