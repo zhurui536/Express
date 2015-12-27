@@ -2,6 +2,9 @@ package presentation.mainui;
 
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +19,11 @@ import util.UIImage;
 
 @SuppressWarnings("serial")
 public class ExpressFrame extends JFrame{
+	
+	private int xOld = 0;  
+    private int yOld = 0;  
+	private static final long serialVersionUID = -3828356405235725437L;
+	
 	//窗口中的成员组件，窗口分为菜单、工具和数据三个部分
 	protected MyMenu menu;
 	protected MyTool tool;
@@ -30,6 +38,7 @@ public class ExpressFrame extends JFrame{
 	}
 	
 	public ExpressFrame(){
+		this.setUndecorated(true);
 		this.setLayout(null);
 		this.setSize(1000, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -37,6 +46,7 @@ public class ExpressFrame extends JFrame{
 		bg.setIcon(UIImage.BACKGROUND_FRAME);
 		bg.setBounds(0, 0, 1000, 600);
 		this.getContentPane().add(bg, -1);
+		this.enableMove(); 
 	}
 	
 	protected void paintmenu(String[] buttons, ActionListener listener){
@@ -80,6 +90,7 @@ public class ExpressFrame extends JFrame{
 		if(data != null){
 			scroll = new JScrollPane(this.data);
 			scroll.setBounds(150, 100, 850, 500);
+			scroll.setOpaque(false);
 			scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 			scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			data.setPreferredSize(new Dimension(data.getWidth(), data.getHeight()));
@@ -96,5 +107,25 @@ public class ExpressFrame extends JFrame{
 	
 	public void refreshMenu(){
 		menu.refreshButton();
+	}
+	
+	private void enableMove() {
+		this.addMouseListener(new MouseAdapter() {  
+            @Override  
+            public void mousePressed(MouseEvent e) {  
+                xOld = e.getX();  
+                yOld = e.getY();  
+            }  
+        });  
+        this.addMouseMotionListener(new MouseMotionAdapter() {  
+            @Override  
+            public void mouseDragged(MouseEvent e) {  
+                int xOnScreen = e.getXOnScreen();  
+                int yOnScreen = e.getYOnScreen();  
+                int xx = xOnScreen - xOld;  
+                int yy = yOnScreen - yOld;  
+                ExpressFrame.this.setLocation(xx, yy);  
+            }  
+        });  		
 	}
 }

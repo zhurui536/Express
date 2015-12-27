@@ -1,17 +1,16 @@
 package presentation.financeui.datapanel;
 
-import vo.financevo.PayBillVO;
-import vo.logisticvo.ReceiptBillVO;
-import vo.logisticvo.ReceiptLineItemVO;
+import java.math.BigDecimal;
+import java.util.List;
 
-import javax.swing.*;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import util.MyFormat;
 import util.MyJTable;
-
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.util.List;
+import vo.logisticvo.ReceiptBillVO;
+import vo.logisticvo.ReceiptLineItemVO;
 
 /**
  * Created by Away
@@ -46,6 +45,9 @@ public class ReceiptPanel extends JPanel {
      */
     private void createTable() {
     	
+    	if (receiptBillVOs == null) {
+    		return;
+    	}
     	int len = 0;
     	for (ReceiptBillVO receiptBillVO : receiptBillVOs) {
     		List<ReceiptLineItemVO> receiptLineItemVOs = receiptBillVO.receiptLineItemVOs;
@@ -53,7 +55,7 @@ public class ReceiptPanel extends JPanel {
     	}
     	
         Object[][] value = new Object[len + 2][6];
-        int[] width = new int[] { 130, 150, 100, 120, 120, 150, 90 };
+        int[] width = new int[] { 130, 150, 120, 120, 150, 90 };
         
         len = 0;
         for (ReceiptBillVO receiptBillVO : receiptBillVOs) {
@@ -74,18 +76,8 @@ public class ReceiptPanel extends JPanel {
         for (ReceiptBillVO receiptBillVO : receiptBillVOs) {
             sum = sum.add(receiptBillVO.totalMoney);
         }
-        table.setValueAt(format.format(sum), len + 1, 5);
+        value[len + 1][5] = MyFormat.setFormat(sum);
         
         table = new MyJTable(value, header, width);
-        
-        int len = 1;
-
-        if (receiptBillVOs == null) {
-            return;
-        }
-
-        
-
-        
     }
 }

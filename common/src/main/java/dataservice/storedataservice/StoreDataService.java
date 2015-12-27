@@ -57,13 +57,6 @@ public interface StoreDataService extends Remote {
 	 */
 	public ResultMessage saveVerification(VerificationPO po) throws RemoteException;
 	
-	/*保存库存调整记录，并根据记录更新库存
-	 * po
-	 * 返回存储结果和null
-	 * 存储结果：success  dataerror
-	 */
-	public ResultMessage saveAdjust(ArrayList<AdjustPO> po) throws RemoteException;
-	
 	/*获得当前库存情况
 	 * 
 	 * 返回结果以及StorePO

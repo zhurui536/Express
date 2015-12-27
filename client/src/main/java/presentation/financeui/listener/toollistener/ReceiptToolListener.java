@@ -1,18 +1,17 @@
 package presentation.financeui.listener.toollistener;
 
+import java.awt.event.ActionEvent;
+
 import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.ReceiptPanel;
 import presentation.financeui.dialog.ReceiptDialog;
 import presentation.financeui.listener.ToolListener;
-import presentation.financeui.tool.ToolPanel;
+import presentation.mainui.component.MyTool;
 import util.ResultMessage;
 import util.Time;
 import vo.logisticvo.ReceiptBillVO;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 
 /**
  * 查看收款单监听
@@ -32,10 +31,10 @@ public class ReceiptToolListener extends ToolListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object button = e.getSource();
-        ToolPanel toolPanel = ui.getToolPanel();
-        ui.paintData(new JPanel());
+        MyTool toolPanel = ui.getTool();
+        ui.paintdata(null);
         
-        if (button == toolPanel.getButton("show")) {
+        if (button == toolPanel.getButton(0)) {
             ReceiptDialog dialog = new ReceiptDialog(ui);
             dialog.setVisible(true);
             
@@ -44,8 +43,8 @@ public class ReceiptToolListener extends ToolListener {
             if (time != null && id != null) {
                 processShow(time, id);
             }
-        } else if (button == toolPanel.getButton("back")) {
-            ui.replaceTool(new ToolPanel());
+        } else if (button == toolPanel.getButton(1)) {
+            ui.replaceTool(null);
         }
     }
 
@@ -57,7 +56,7 @@ public class ReceiptToolListener extends ToolListener {
 			@SuppressWarnings("unchecked")
 			java.util.List<ReceiptBillVO> billVOList = (java.util.List<ReceiptBillVO>) msg.getValue();
 			ReceiptPanel receiptPanel = new ReceiptPanel(billVOList);
-			ui.paintData(receiptPanel);
+			ui.paintdata(receiptPanel);
             new WarningDialog(ui, "生成成功！");
 		}	
 	}

@@ -151,29 +151,22 @@ public class MainUI extends JFrame implements ActionListener{
     	JFrame frame = null;
     	this.setVisible(false);
     	
-    	if(vo.job == Job.COURIER){
+    	if(vo.job == Job.COURIER) {
             frame = new DeliveryManFrame();
-    	}
-    	if(vo.job == Job.STOCKMAN){
+    	} else if(vo.job == Job.STOCKMAN) {
             frame = new StoreFrame();
-    	}
-    	if(vo.job == Job.MANAGER){
+    	} else if(vo.job == Job.MANAGER) {
             frame = new ManagerFrame();
-    	}
-    	if(vo.job == Job.SALESOFOFFICE){
+    	} else if(vo.job == Job.SALESOFOFFICE) {
             frame = new BusinessOfficeClerkFrame();
-    	}
-    	if(vo.job == Job.FINANCEMAN){
+    	} else if(vo.job == Job.FINANCEMAN) {
             frame = new FinanceFrame();
-    	}
-    	if(vo.job == Job.SALESOFCENTRE){
+    	} else if(vo.job == Job.SALESOFCENTRE) {
             frame = new TransitCenterclerkFrame();
-    	}
-    	if(vo.job == Job.ADMIN){
+    	} else if(vo.job == Job.ADMIN) {
     		frame = new AdminFrame();
     	}
     	
-    	FrameUtil.setFrameCenter(frame);
     	frame.setVisible(true);
     	
     	// 测试网络连接

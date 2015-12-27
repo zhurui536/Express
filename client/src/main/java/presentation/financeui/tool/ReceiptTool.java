@@ -1,46 +1,21 @@
 package presentation.financeui.tool;
 
 import presentation.financeui.FinanceFrame;
-import presentation.financeui.listener.ToolListener;
 import presentation.financeui.listener.toollistener.ReceiptToolListener;
-
-import javax.swing.*;
+import presentation.mainui.component.MyTool;
 
 /**
  * Created by Away
  * 2015/12/9
  */
 
-public class ReceiptTool extends ToolPanel {
+@SuppressWarnings("serial")
+public class ReceiptTool extends MyTool {
 
-    private JButton show;
-    private JButton back;
+	private static String[] buttonname = { "显示收款单", "返回"};
 
     public ReceiptTool(FinanceFrame ui) {
-        init();
-        initComponents(ui);
+    	super(buttonname, new ReceiptToolListener(ui));
     }
 
-    private void init() {
-        show = new JButton("显示收款单");
-        back = new JButton("返回");
-    }
-
-    private void initComponents(FinanceFrame ui) {
-        this.setLayout(null);
-        this.setSize(1000, 100);
-        this.setLocation(0, 0);
-
-        ToolListener toolListener = new ReceiptToolListener(ui);
-
-        show.setBounds(100, 25, 100, 50);
-        show.addActionListener(toolListener);
-        buttonMap.put("show", show);
-        this.add(show);
-
-        back.setBounds(815, 25, 100, 50);
-        back.addActionListener(toolListener);
-        buttonMap.put("back", back);
-        this.add(back);
-    }
 }

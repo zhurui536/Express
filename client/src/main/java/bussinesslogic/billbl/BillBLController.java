@@ -1,20 +1,34 @@
 package bussinesslogic.billbl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
+import po.BillPO;
+import po.financepo.PayBillPO;
+import po.logisticpo.ArrivalBillPO;
+import po.logisticpo.DeliveryBillPO;
+import po.logisticpo.LoadingBillPO;
+import po.logisticpo.ReceiptBillPO;
+import po.logisticpo.SendBillPO;
+import po.logisticpo.TransferBillPO;
+import po.storepo.InStoreBillPO;
+import po.storepo.InStorePO;
+import po.storepo.OutStoreBillPO;
+import po.storepo.OutStorePO;
+import po.storepo.StorePO;
+import po.storepo.StorePlacePO;
+import util.BillState;
+import util.BillType;
+import util.InstitutionType;
+import util.PublicMessage;
+import util.ResultMessage;
+import util.Time;
+import vo.BillVO;
 import bussinesslogicservice.billblservice.BillBLService;
 import connection.ClientRMIHelper;
 import dataservice.billdataservice.BilldataService;
-import po.BillPO;
-import po.financepo.PayBillPO;
-import po.logisticpo.*;
-import po.storepo.InStoreBillPO;
-import po.storepo.OutStoreBillPO;
-import util.BillState;
-import util.BillType;
-import util.ResultMessage;
-import vo.BillVO;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
+import dataservice.logisticsdataservice.DeliveryDataService;
+import dataservice.storedataservice.StoreDataService;
 //处理单据审批
 public class BillBLController implements BillBLService {
 	private BilldataService dataservice;
@@ -368,12 +382,50 @@ public class BillBLController implements BillBLService {
 			result = dataservice.getBills(type);
 			if(result.getKey().equals("success")){
 				if(type == BillType.INSTORE){
+					StoreDataService storedata = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+					DeliveryDataService goodsdata = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
 					ArrayList<InStoreBillPO> temp = (ArrayList<InStoreBillPO>) result.getValue();
 					
 					for(int i=0;i<temp.size();i++){
+						//查找与单据编号相同的单据
 						if(temp.get(i).getBillID().equals(id)){
+							//找到之后更改单据的审批状态
 							temp.get(i).approve();
 							dataservice.saveBills(temp, type);
+							
+							//对库存和货物的货运状态进行改写
+							result = storedata.getStore();
+							//改写库存
+							if(result.getKey().equals("success")){
+								StorePO store = (StorePO) result.getValue();
+								ArrayList<InStorePO> goodslist = temp.get(i).getPOS();
+								
+								for(int j=0;j<goodslist.size();j++){//进行改写
+									InStorePO ins = goodslist.get(j);
+									StorePlacePO place = ins.getStorePlace();
+									place.setGoods(ins.getGoods());
+									store.setStorePlace(place);
+									
+									//更新货物的货运状态
+									goodslist.get(i).getGoods().addLocation(new Time().toString()
+				                            + " "
+				                            + PublicMessage.location
+				                            + " "
+				                            + InstitutionType
+				                                            .typeTpString(PublicMessage.institutionType)
+				                                            + " " + "已入库");
+									goodsdata.updateGoods(goodslist.get(i).getGoods());
+								}
+								//保存新的库存
+								result = storedata.saveStore(store);
+								
+								if(!result.getKey().equals("success")){
+									return new ResultMessage("dataerror", null);
+								}
+							}
+							else{//如果读取库存失败，需要报错
+								return new ResultMessage("dataerror", null);
+							}
 							return new ResultMessage("success", null);
 						}
 					}
@@ -381,12 +433,50 @@ public class BillBLController implements BillBLService {
 					return new ResultMessage("noexist", null);
 				}
 				else if(type == BillType.OUTSTORE){
+					StoreDataService storedata = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+					DeliveryDataService goodsdata = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
 					ArrayList<OutStoreBillPO> temp = (ArrayList<OutStoreBillPO>) result.getValue();
 					
 					for(int i=0;i<temp.size();i++){
+						//读取所有单据，查找到需要审批通过的单据
 						if(temp.get(i).getBillID().equals(id)){
+							//更改单据的审批状态并保存
 							temp.get(i).approve();
 							dataservice.saveBills(temp, type);
+							
+							result = storedata.getStore();
+							
+							if(result.getKey().equals("success")){
+								StorePO store = (StorePO) result.getValue();
+								ArrayList<OutStorePO> goodslist = temp.get(i).getPOS();
+								
+								for(int j=0;j<goodslist.size();j++){//改写库存
+									OutStorePO tem = goodslist.get(i);
+									StorePlacePO place = tem.getStorePlace();
+									StorePlacePO newplace = new StorePlacePO(place.getArea(), place.getRow(), place.getShelf(), place.getPlace());
+									store.setStorePlace(newplace);
+
+									//更新货物的货运状态
+									goodslist.get(i).getGoods().addLocation(new Time().toString()
+				                            + " "
+				                            + PublicMessage.location
+				                            + " "
+				                            + InstitutionType
+				                                            .typeTpString(PublicMessage.institutionType)
+				                                            + " " + "已出库");
+									goodsdata.updateGoods(goodslist.get(i).getGoods());
+								}
+								
+								result = storedata.saveStore(store);
+								
+								if(!result.getKey().equals("success")){
+									return new ResultMessage("dataerror", null);
+								}
+							}
+						else{//读去库存失败时，需要报错
+							return new ResultMessage("dataerror", null);
+						}
+							
 							return new ResultMessage("success", null);
 						}
 					}

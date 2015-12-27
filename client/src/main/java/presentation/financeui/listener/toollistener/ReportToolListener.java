@@ -1,22 +1,23 @@
 package presentation.financeui.listener.toollistener;
 
+import java.awt.event.ActionEvent;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+
+import javax.swing.JFileChooser;
+
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.ProfitPanel;
 import presentation.financeui.datapanel.StatementPanel;
 import presentation.financeui.dialog.StatementDialog;
 import presentation.financeui.listener.ToolListener;
-import presentation.financeui.tool.ToolPanel;
+import presentation.mainui.component.MyTool;
 import util.ResultMessage;
 import util.Time;
 import vo.financevo.ProfitListVO;
 import vo.financevo.StatementVO;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 
 /**
  * Created by Away
@@ -32,29 +33,29 @@ public class ReportToolListener extends ToolListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object button = e.getSource();
-        ToolPanel toolPanel = ui.getToolPanel();
-        ui.paintData(new JPanel());
+        MyTool toolPanel = ui.getTool();
+        ui.paintdata(null);
         
-        if (button == toolPanel.getButton("profit")) {
+        if (button == toolPanel.getButton(0)) {
             processProfit();
-        } else if (button == toolPanel.getButton("statement")) {
+        } else if (button == toolPanel.getButton(1)) {
             StatementDialog dialog = new StatementDialog(ui);
             dialog.setVisible(true);
             Time sTime = dialog.getStartTime();
             Time eTime = dialog.getEndTime();
             processStatement(sTime, eTime);
-        } else if (button == toolPanel.getButton("profitExport")) {
+        } else if (button == toolPanel.getButton(2)) {
         	OutputStream out = getPath();
             if (out != null) {
                 profitExport(out);
             }
-        } else if (button == toolPanel.getButton("statementExport")) {
+        } else if (button == toolPanel.getButton(3)) {
         	OutputStream out = getPath();
             if (out != null) {
                 statementExport(out);
             }
-        } else if (button == toolPanel.getButton("back")) {
-            ui.replaceTool(new ToolPanel());
+        } else if (button == toolPanel.getButton(4)) {
+            ui.replaceTool(null);
         }
     }
 
@@ -99,7 +100,7 @@ public class ReportToolListener extends ToolListener {
         	StatementVO statementVO = (StatementVO) msg.getValue();
             StatementPanel statementPanel = new StatementPanel(statementVO);
             System.out.println("success");
-            ui.paintData(statementPanel);
+            ui.paintdata(statementPanel);
             new WarningDialog(ui, "生成成功！");
         }
 	}
@@ -111,7 +112,7 @@ public class ReportToolListener extends ToolListener {
         } else {
             ProfitListVO profitListVO = (ProfitListVO) msg.getValue();
             ProfitPanel profitPanel = new ProfitPanel(profitListVO);
-            ui.paintData(profitPanel);
+            ui.paintdata(profitPanel);
             new WarningDialog(ui, "生成成功！");
         }
     }

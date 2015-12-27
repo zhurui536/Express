@@ -42,7 +42,6 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		storerecord = "src/main/java/save/storedata/storePO.dat";
 		instorerecord = "src/main/java/save/storedata/instorePO.dat";
 		outstorerecord = "src/main/java/save/storedata/outstorePO.dat";
-		adjustrecord = "src/main/java/save/storedata/adjustPO.dat";
 		verificationrecord = "src/main/java/save/storedata/verificationPO.dat";
 		instorebill = "src/main/java/save/storedata/instoreBillPO.dat";
 		outstorebill = "src/main/java/save/storedata/outstoreBillPO.dat";
@@ -221,33 +220,6 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			this.writeList(verificationrecord, records);
 			
 			return new ResultMessage("success", null);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new ResultMessage("dataerror", null);
-		}
-	}
-	
-
-	//保存调整记录的同时更新库存
-	@SuppressWarnings("unchecked")
-	@Override
-	public ResultMessage saveAdjust(ArrayList<AdjustPO> po) throws RemoteException {
-		ArrayList<AdjustPO> records = null;
-		
-		try {
-			//读入调整记录数据
-			records = (ArrayList<AdjustPO>) this.readList(adjustrecord);
-			
-			//将记录加到现有记录的后面
-			for(int i=0;i<po.size();i++){
-				records.add(po.get(i));
-			}
-			
-			//接着将对象写回文件中
-			this.writeList(adjustrecord, records);
-				
-			return new ResultMessage("success", null);
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResultMessage("dataerror", null);
