@@ -2,7 +2,6 @@ package bussinesslogic.storebl;
 
 import bussinesslogicservice.storeblservice.InStoreBLService;
 import connection.ClientRMIHelper;
-import dataservice.logisticsdataservice.DeliveryDataService;
 import dataservice.storedataservice.StoreDataService;
 import po.GoodsPO;
 import po.storepo.InStorePO;
@@ -20,12 +19,12 @@ public class InStoreBL implements InStoreBLService {
 	private StoreDataService dataservice;
 	private String user;
 	private ArrayList<InStorePO> goodslist;
-	private DeliveryDataService goodsdata;
+//	private DeliveryDataService goodsdata;
 	
 	public InStoreBL(){
 		this.user = PublicMessage.staffID;
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
-		goodsdata = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
+//		goodsdata = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
 	}
 
 	@Override

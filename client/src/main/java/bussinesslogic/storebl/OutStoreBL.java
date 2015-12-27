@@ -2,7 +2,6 @@ package bussinesslogic.storebl;
 
 import bussinesslogicservice.storeblservice.OutStoreBLService;
 import connection.ClientRMIHelper;
-import dataservice.logisticsdataservice.DeliveryDataService;
 import dataservice.storedataservice.StoreDataService;
 import po.storepo.OutStorePO;
 import po.storepo.StorePO;
@@ -18,13 +17,13 @@ import java.util.ArrayList;
 public class OutStoreBL implements OutStoreBLService {
 	
 	private StoreDataService dataservice;
-	private DeliveryDataService goodsdata;
+//	private DeliveryDataService goodsdata;
 	private String user;
 	private ArrayList<OutStorePO> goodslist;
 	
 	public OutStoreBL(){
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
-		goodsdata = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
+//		goodsdata = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
 		this.user = PublicMessage.staffID;
 		
 	}
