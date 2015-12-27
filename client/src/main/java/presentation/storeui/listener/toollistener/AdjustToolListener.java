@@ -2,7 +2,7 @@ package presentation.storeui.listener.toollistener;
 
 import bussinesslogicservice.storeblservice.StoreBLService;
 import presentation.WarningDialog;
-import presentation.mainui.ToolPane;
+import presentation.mainui.component.MyTool;
 import presentation.storeui.StoreFrame;
 import presentation.storeui.datapanel.AdjustDataPane;
 import presentation.storeui.inputframe.AdjustInputFrame;
@@ -26,7 +26,7 @@ public class AdjustToolListener extends ToolListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		int i;
-		ToolPane tool = super.getTool();
+		MyTool tool = super.getTool();
 		
 		for(i=0;i<tool.getNumOfButton();i++){
 			if(arg0.getSource() == tool.getButton(i))

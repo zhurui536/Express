@@ -2,7 +2,7 @@ package presentation.strategyui.listener;
 
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
 import presentation.WarningDialog;
-import presentation.mainui.ToolPane;
+import presentation.mainui.component.MyTool;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
 import presentation.strategyui.datapanel.ConstantStrategyShowPane;
@@ -28,7 +28,7 @@ public class StrategyToolListener extends ToolListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		ToolPane tool = super.getTool();
+		MyTool tool = super.getTool();
 		
 		int i=0;
 		for(;i<tool.getNumOfButton();i++){

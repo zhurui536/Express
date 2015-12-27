@@ -38,8 +38,8 @@ public class StoreMenuListener implements ActionListener {
 			if(result.getKey().equals("success")){
 				InStoreToolListener tl = new InStoreToolListener(storeui);
 				InStoreTool tool = new InStoreTool(tl);
-				tl.setTool(tool);
-				storeui.replaceTool(tool);
+//				tl.setTool(tool);
+//				storeui.replaceTool(tool);
 			}
 			if(result.getKey().equals("busy")){
 				WarningDialog warning = new WarningDialog(storeui, "请结束当前任务");
@@ -50,8 +50,8 @@ public class StoreMenuListener implements ActionListener {
 			if(result.getKey().equals("success")){
 				OutStoreToolListener tl = new OutStoreToolListener(storeui);
 				OutStoreTool tool = new OutStoreTool(tl);
-				tl.setTool(tool);
-				storeui.replaceTool(tool);
+//				tl.setTool(tool);
+//				storeui.replaceTool(tool);
 			}
 			if(result.getKey().equals("busy")){
 				WarningDialog warning = new WarningDialog(storeui, "请结束当前任务");
@@ -62,8 +62,8 @@ public class StoreMenuListener implements ActionListener {
 			if(result.getKey().equals("success")){
 				CheckToolListener tl = new CheckToolListener(storeui);
 				CheckTool tool = new CheckTool(tl);
-				storeui.replaceTool(tool);
-				tl.setTool(tool);
+//				storeui.replaceTool(tool);
+//				tl.setTool(tool);
 			}
 			if(result.getKey().equals("busy")){
 				WarningDialog warning = new WarningDialog(storeui, "请结束当前任务");
@@ -77,8 +77,8 @@ public class StoreMenuListener implements ActionListener {
 				VerificationToolListener tl = new VerificationToolListener(storeui);
 				VerificationTool tool = new VerificationTool(tl);
 				tool.setPihao(vo.pihao);
-				storeui.replaceTool(tool);
-				tl.setTool(tool);
+//				storeui.replaceTool(tool);
+//				tl.setTool(tool);
 				
 				VerificationDataPane panel = new VerificationDataPane(vo);
 				storeui.paintdata(panel);
@@ -91,6 +91,7 @@ public class StoreMenuListener implements ActionListener {
 		else if(i==4){//4代表库存调整
 			ResultMessage result = sc.newAdjust();
 			if(result.getKey().equals("success")){
+				storeui.getButton(i).clicked();
 				AdjustToolListener tl = new AdjustToolListener(storeui);
 				AdjustTool tool = new AdjustTool(tl);
 				storeui.replaceTool(tool);
@@ -108,8 +109,8 @@ public class StoreMenuListener implements ActionListener {
 			if(result.getKey().equals("success")){
 				CheckBillToolListener tl = new CheckBillToolListener(storeui);
 				CheckBillTool tool = new CheckBillTool(tl);
-				storeui.replaceTool(tool);
-				tl.setTool(tool);
+//				storeui.replaceTool(tool);
+//				tl.setTool(tool);
 			}
 		}
 		else//最后为退出

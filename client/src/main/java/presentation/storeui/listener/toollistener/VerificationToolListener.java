@@ -2,12 +2,13 @@ package presentation.storeui.listener.toollistener;
 
 import bussinesslogicservice.storeblservice.StoreBLService;
 import presentation.WarningDialog;
-import presentation.mainui.ToolPane;
+import presentation.mainui.component.MyTool;
 import presentation.storeui.StoreFrame;
 import presentation.storeui.listener.ToolListener;
 import util.ResultMessage;
 
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 
 public class VerificationToolListener extends ToolListener {
@@ -23,7 +24,7 @@ public class VerificationToolListener extends ToolListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		ToolPane tool = super.getTool();
+		MyTool tool = super.getTool();
 		int i;
 		
 		for(i=0;i<tool.getNumOfButton();i++){

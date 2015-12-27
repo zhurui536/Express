@@ -2,10 +2,10 @@ package presentation.logisticsui.businessofficeclerkui.listerner.toollistener;
 
 import java.awt.event.ActionEvent;
 
-import presentation.mainui.ToolPane;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.inputframe.TruckIdInputFrame;
 import presentation.logisticsui.businessofficeclerkui.inputframe.TruckMessageInputFrame;
+import presentation.mainui.component.MyTool;
 import presentation.storeui.listener.ToolListener;
 
 public class TruckMessageToolListener extends ToolListener{
@@ -22,7 +22,7 @@ public class TruckMessageToolListener extends ToolListener{
         
         @Override
         public void actionPerformed(ActionEvent e) {
-                ToolPane tool = super.getTool();
+        	MyTool tool = super.getTool();
                 if(e.getSource() == tool.getButton(0)){
                         ui.paintdata(null);
                         TruckMessageInputFrame truckMessageInputFrame = new TruckMessageInputFrame(this);

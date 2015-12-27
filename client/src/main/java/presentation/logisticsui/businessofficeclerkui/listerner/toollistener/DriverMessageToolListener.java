@@ -2,7 +2,7 @@ package presentation.logisticsui.businessofficeclerkui.listerner.toollistener;
 
 import java.awt.event.ActionEvent;
 
-import presentation.mainui.ToolPane;
+import presentation.mainui.component.MyTool;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.inputframe.DriverIdInputFrame;
 import presentation.logisticsui.businessofficeclerkui.inputframe.DriverMessageInputFrame;
@@ -22,7 +22,7 @@ public class DriverMessageToolListener extends ToolListener{
         
         @Override
         public void actionPerformed(ActionEvent e) {
-                ToolPane tool = super.getTool();
+                MyTool tool = super.getTool();
                 if(e.getSource() == tool.getButton(0)){
                         ui.paintdata(null);
                         DriverMessageInputFrame driverMessageInputFrame = new DriverMessageInputFrame(this);
