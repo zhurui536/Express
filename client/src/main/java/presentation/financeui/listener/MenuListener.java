@@ -1,20 +1,25 @@
 package presentation.financeui.listener;
 
-import bussinesslogicservice.financeblservice.FinanceBLService;
-import presentation.WarningDialog;
-import presentation.financeui.FinanceFrame;
-import presentation.financeui.datapanel.BankAccountPanel;
-import presentation.financeui.tool.*;
-import presentation.userui.data.LogDataPane;
-import util.ResultMessage;
-import vo.SystemlogVO;
-import vo.financevo.BankAccountVO;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+
+import bussinesslogicservice.financeblservice.FinanceBLService;
+import presentation.WarningDialog;
+import presentation.financeui.FinanceFrame;
+import presentation.financeui.datapanel.BankAccountPanel;
+import presentation.financeui.tool.BankAccountManagementTool;
+import presentation.financeui.tool.InitTool;
+import presentation.financeui.tool.PayTool;
+import presentation.financeui.tool.ReceiptTool;
+import presentation.financeui.tool.ReportTool;
+import presentation.mainui.component.MenuButton;
+import presentation.mainui.component.MyTool;
+import presentation.userui.data.LogDataPane;
+import util.ResultMessage;
+import vo.SystemlogVO;
+import vo.financevo.BankAccountVO;
 
 /**
  * Created by Away
@@ -25,15 +30,15 @@ public class MenuListener implements ActionListener {
 
     private FinanceFrame ui;
 
-    private ToolPanel bankAcManageTool;
+    private MyTool bankAcManageTool;
 
-    private ToolPanel payTool;
+    private MyTool payTool;
 
-    private ToolPanel receiptTool;
+    private MyTool receiptTool;
 
-    private ToolPanel reportTool;
+    private MyTool reportTool;
 
-    private ToolPanel initTool;
+    private MyTool initTool;
 
     private LogDataPane logDataPane;
 
@@ -46,31 +51,35 @@ public class MenuListener implements ActionListener {
         initTool = new InitTool(ui);
     }
 
+//    private final String[] names = {"账户管理", "付款", "收款", "报表查看", "期初建账", "日志查看"};
+    
     @SuppressWarnings("unchecked")
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton button = (JButton) e.getSource();
-        ui.paintData(new JPanel());
+        MenuButton button = (MenuButton) e.getSource();
+        ui.refreshMenu();
+        button.clicked();
+        ui.paintdata(null);
 
-        if (button == ui.getButton("账户管理")) {
+        if (button == ui.getButton(0)) {
             ui.replaceTool(bankAcManageTool);
             FinanceBLService financeController = ui.getFinanceController();
             ResultMessage msg = financeController.showAllMember();
             if (!isFail(msg)) {
             	List<BankAccountVO> bankAccountVOs = (List<BankAccountVO>) msg.getValue();
                 BankAccountPanel bankAccountPanel = new BankAccountPanel(bankAccountVOs);
-                ui.paintData(bankAccountPanel);
+                ui.paintdata(bankAccountPanel);
             }
-        } else if (button == ui.getButton("付款")) {
+        } else if (button == ui.getButton(1)) {
             ui.replaceTool(payTool);
-        } else if (button == ui.getButton("收款")) {
+        } else if (button == ui.getButton(2)) {
             ui.replaceTool(receiptTool);
-        } else if (button == ui.getButton("报表查看")) {
+        } else if (button == ui.getButton(3)) {
             ui.replaceTool(reportTool);
-        } else if (button == ui.getButton("期初建账")) {
+        } else if (button == ui.getButton(4)) {
             ui.replaceTool(initTool);
-        } else if (button == ui.getButton("日志查看")) {
-            ui.replaceTool(new ToolPanel());
+        } else if (button == ui.getButton(5)) {
+            ui.replaceTool(null);
             FinanceBLService financeController = ui.getFinanceController();
             ResultMessage msg = financeController.showLog();
             if (isFail(msg)) {
@@ -78,7 +87,7 @@ public class MenuListener implements ActionListener {
             } else {
                 ArrayList<SystemlogVO> systemlogVOs = (ArrayList<SystemlogVO>) msg.getValue();
                 logDataPane = new LogDataPane(systemlogVOs);
-                ui.paintData(logDataPane);
+                ui.paintdata(logDataPane);
             }
         }
     }

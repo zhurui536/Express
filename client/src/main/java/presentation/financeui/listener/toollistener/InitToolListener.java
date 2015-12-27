@@ -1,11 +1,14 @@
 package presentation.financeui.listener.toollistener;
 
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
 import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.InitPanel;
 import presentation.financeui.listener.ToolListener;
-import presentation.financeui.tool.ToolPanel;
+import presentation.mainui.component.MyTool;
 import util.ResultMessage;
 import util.Time;
 import vo.InstitutionMessageVO;
@@ -15,10 +18,6 @@ import vo.financevo.AccountVO;
 import vo.financevo.BankAccountVO;
 import vo.storevo.StorePlaceVO;
 import vo.storevo.StoreVO;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 
 /**
  * Created by Away
@@ -37,15 +36,15 @@ public class InitToolListener extends ToolListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object button = e.getSource();
-        ToolPanel toolPanel = ui.getToolPanel();
-        ui.paintData(new JPanel());
+        MyTool toolPanel = ui.getTool();
+        ui.paintdata(null);
         
-        if (button == toolPanel.getButton("create")) {
+        if (button == toolPanel.getButton(0)) {
             initAccount();
-        } else if (button == toolPanel.getButton("inquire")) {
+        } else if (button == toolPanel.getButton(1)) {
             inquire();
-        } else if (button == toolPanel.getButton("back")) {
-            ui.replaceTool(new ToolPanel());
+        } else if (button == toolPanel.getButton(2)) {
+            ui.replaceTool(null);
         }
     }
 
@@ -56,7 +55,7 @@ public class InitToolListener extends ToolListener {
         } else {
             AccountVO accountVO = (AccountVO) msg.getValue();
             InitPanel initPanel = new InitPanel(accountVO);
-            ui.paintData(initPanel);
+            ui.paintdata(initPanel);
             new WarningDialog(ui, "查询期初账本成功");
         }
     }

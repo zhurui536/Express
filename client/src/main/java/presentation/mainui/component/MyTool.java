@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import util.UIImage;
 
+@SuppressWarnings("serial")
 public class MyTool extends JPanel {
 	private ToolButton[] buttons;
 	

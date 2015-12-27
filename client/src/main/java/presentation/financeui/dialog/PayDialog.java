@@ -153,7 +153,7 @@ public class PayDialog extends JDialog {
             List<PayBillVO> payBillVOList = new ArrayList<>();
             payBillVOList.add(payBillVO);
             PayPanel payPanel = new PayPanel(payBillVOList);
-            ui.paintData(payPanel);
+            ui.paintdata(payPanel);
             this.setVisible(false);
         }
 	}

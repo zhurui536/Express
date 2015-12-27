@@ -2,13 +2,11 @@ package presentation.financeui.listener.toollistener;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.JPanel;
-
 import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.dialog.PayDialog;
 import presentation.financeui.listener.ToolListener;
-import presentation.financeui.tool.ToolPanel;
+import presentation.mainui.component.MyTool;
 
 /**
  * Created by Away
@@ -26,14 +24,14 @@ public class PayToolListener extends ToolListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object button = e.getSource();
-        ToolPanel toolPanel = ui.getToolPanel();
-        ui.paintData(new JPanel());
+        MyTool toolPanel = ui.getTool();
+        ui.paintdata(null);
         
-        if (button == toolPanel.getButton("create")) {
+        if (button == toolPanel.getButton(0)) {
             PayDialog dialog = new PayDialog(ui);
             dialog.setVisible(true);
-        } else if (button == toolPanel.getButton("back")) {
-            ui.replaceTool(new ToolPanel());
+        } else if (button == toolPanel.getButton(1)) {
+            ui.replaceTool(null);
         }
     }
     

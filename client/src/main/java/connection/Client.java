@@ -8,8 +8,7 @@ package connection;
 public class Client {
     public static void main(String[] args) {
         try {
-            ClientRMIHelper client = new ClientRMIHelper();
-            client.init();
+            ClientRMIHelper.init();
         } catch (ClientInitException e) {
             e.printStackTrace();
         }
