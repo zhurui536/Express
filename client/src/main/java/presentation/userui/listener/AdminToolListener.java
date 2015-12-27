@@ -2,7 +2,7 @@ package presentation.userui.listener;
 
 import bussinesslogicservice.adminblservice.AdminBLService;
 import presentation.WarningDialog;
-import presentation.mainui.ToolPane;
+import presentation.mainui.component.MyTool;
 import presentation.storeui.listener.ToolListener;
 import presentation.userui.AdminFrame;
 import presentation.userui.data.AdminDataPane;
@@ -25,7 +25,7 @@ public class AdminToolListener extends ToolListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		ToolPane tool = super.getTool();
+		MyTool tool = super.getTool();
 		
 		int i;
 		for(i=0;i<tool.getNumOfButton();i++){

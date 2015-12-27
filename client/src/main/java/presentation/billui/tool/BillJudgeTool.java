@@ -1,36 +1,17 @@
 package presentation.billui.tool;
 
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 
-import presentation.mainui.ToolPane;
+import presentation.mainui.component.MyTool;
 import presentation.billui.listener.BillJudgeToolListener;
 import util.BillType;
 
 @SuppressWarnings("serial")
-public class BillJudgeTool extends ToolPane{
+public class BillJudgeTool extends MyTool{
 	public JComboBox<String> billType;
 	
 	public BillJudgeTool(BillJudgeToolListener tl){
-		super.buttons = new JButton[4];
-		
-		buttons[0] = new JButton("全部审批");
-		buttons[0].setSize(105, 25);
-		buttons[0].setLocation(145, 40);
-		buttons[0].addActionListener(tl);
-		this.add(buttons[0]);
-		
-		buttons[1] = new JButton("返回");
-		buttons[1].setSize(100, 30);
-		buttons[1].setLocation(880, 35);
-		buttons[1].addActionListener(tl);
-		this.add(buttons[1]);
-		
-		buttons[2] = new JButton("单据刷新");
-		buttons[2].setSize(105, 25);
-		buttons[2].setLocation(300, 40);
-		buttons[2].addActionListener(tl);
-		this.add(buttons[2]);
+		super(buttonname, tl);
 		
 		billType = new JComboBox();
 		for(int i=0;i<types.length;i++){
@@ -38,17 +19,13 @@ public class BillJudgeTool extends ToolPane{
 		}
 		billType.setBounds(420, 40, 200, 30);
 		this.add(billType);
-		
-		buttons[3] = new JButton("类型筛选");
-		buttons[3].setBounds(623, 40, 100, 40);
-		buttons[3].addActionListener(tl);
-		this.add(buttons[3]);
 	}
 	
 	private final BillType[] types = {
 			BillType.OUTSTORE, BillType.INSTORE, BillType.PAYMENT, BillType.RECEIPT, BillType.ARRIVAL, BillType.DELIVERY,
 			BillType.LOADING, BillType.SEND, BillType.TRANSIT
 	};
+	private static String[] buttonname = {"全部审批", "返回", "单据刷新", "类型筛选"};
 	
 	private String typeToString(BillType type){
 		String billname;

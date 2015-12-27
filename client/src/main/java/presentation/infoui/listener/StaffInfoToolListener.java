@@ -5,7 +5,7 @@ import presentation.WarningDialog;
 import presentation.infoui.datapanel.StaffMessageDataPane;
 import presentation.infoui.inputframe.StaffIDInputFrame;
 import presentation.infoui.inputframe.StaffInfoInputFrame;
-import presentation.mainui.ToolPane;
+import presentation.mainui.component.MyTool;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
 import util.ResultMessage;
@@ -25,7 +25,7 @@ public class StaffInfoToolListener extends ToolListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		ToolPane tool = super.getTool();
+		MyTool tool = super.getTool();
 		
 		int i=0;
 		for(;i<tool.getNumOfButton();i++){

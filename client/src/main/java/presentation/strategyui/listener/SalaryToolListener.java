@@ -2,7 +2,7 @@ package presentation.strategyui.listener;
 
 import bussinesslogicservice.strategyblservice.StrategySalaryBLService;
 import presentation.WarningDialog;
-import presentation.mainui.ToolPane;
+import presentation.mainui.component.MyTool;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
 import presentation.strategyui.datapanel.SalaryStrategyShowPane;
@@ -24,7 +24,7 @@ public class SalaryToolListener extends ToolListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		ToolPane tool = super.getTool();
+		MyTool tool = super.getTool();
 		
 		int i=0;
 		for(;i<tool.getNumOfButton();i++){

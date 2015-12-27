@@ -22,7 +22,7 @@ import presentation.billui.datapanel.PayBillDataPane;
 import presentation.billui.datapanel.ReceiptBillDataPane;
 import presentation.billui.datapanel.SendBillDataPane;
 import presentation.billui.tool.BillJudgeTool;
-import presentation.mainui.ToolPane;
+import presentation.mainui.component.MyTool;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
 import util.BillType;
@@ -43,7 +43,7 @@ public class BillJudgeToolListener extends ToolListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int i;
-		ToolPane tool = super.getTool();
+		MyTool tool = super.getTool();
 		
 		for(i=0;i<tool.getNumOfButton();i++){
 			if(e.getSource() == tool.getButton(i)){
