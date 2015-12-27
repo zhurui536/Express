@@ -26,6 +26,7 @@ public class AdminDataTester {
 			
 			users.add(new UserPO("admin", "admin", "admin", AuthorityLevel.HIGH));
 			users.add(new UserPO("1", "1", "1", AuthorityLevel.HIGH));
+			users.add(new UserPO("2", "2", "141250212", AuthorityLevel.HIGH));
 			ResultMessage result = test.saveUser(users);
 			
 			System.out.println(result.getKey());

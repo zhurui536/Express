@@ -81,7 +81,7 @@ public class ExpressFrame extends JFrame{
 			scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 			scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			data.setPreferredSize(new Dimension(data.getWidth(), data.getHeight()));
-			this.add(scroll);
+			this.add(scroll, 0);
 		}
 		
 		this.validate();
