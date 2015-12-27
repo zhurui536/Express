@@ -1,14 +1,21 @@
 package presentation.financeui;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.WindowConstants;
+
 import bussinesslogic.financebl.FinanceController;
 import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.financeui.listener.MenuListener;
 import presentation.financeui.tool.ToolPanel;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Away
@@ -108,7 +115,6 @@ public class FinanceFrame extends JFrame {
             data.setPreferredSize(new Dimension(data.getWidth(), data.getHeight()));
             this.add(scroll);
         }
-
         this.validate();
         this.repaint();
     }

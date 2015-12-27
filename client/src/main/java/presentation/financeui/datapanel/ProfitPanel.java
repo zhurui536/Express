@@ -1,10 +1,13 @@
 package presentation.financeui.datapanel;
 
 
-import vo.financevo.ProfitListVO;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
-import javax.swing.*;
-import java.text.DecimalFormat;
+import util.MyFormat;
+import util.MyJTable;
+import vo.financevo.ProfitListVO;
 
 /**
  * Created by Away
@@ -14,7 +17,7 @@ import java.text.DecimalFormat;
 @SuppressWarnings("serial")
 public class ProfitPanel extends JPanel {
 
-    private String[] row = { "总收入", "总支出", "总利润" };
+    private String[] header = { "总收入", "总支出", "总利润" };
 
     private ProfitListVO profitListVO;
 
@@ -28,24 +31,20 @@ public class ProfitPanel extends JPanel {
     private void init() {
         this.setLayout(null);
         createTable();
-        this.add(table);
+        JScrollPane scroller = new JScrollPane(table);
+		scroller.setBounds(0, 0, 830, 500);
+		this.add(scroller);
         this.setSize(830, table.getHeight());
     }
 
     private void createTable() {
-        table = new JTable(2, 3);
-        table.setRowHeight(40);
-        table.setBounds(0, 0, 830, 40 * 2);
-        table.setShowGrid(true);
-        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-
-        for (int i = 0; i < row.length; i++) {
-            table.setValueAt(row[i], 0, i);
-        }
-
-        DecimalFormat format = new DecimalFormat("0.00");
-        table.setValueAt(format.format(profitListVO.income), 1, 0);
-        table.setValueAt(format.format(profitListVO.pay), 1, 1);
-        table.setValueAt(format.format(profitListVO.profit), 1, 2);
+        Object[][] value = new Object[1][3];
+        int[] width = new int[] { 270, 270, 270 };
+   
+        value[0][0] = MyFormat.setFormat(profitListVO.income);
+        value[0][1] = MyFormat.setFormat(profitListVO.pay);
+        value[0][2] = MyFormat.setFormat(profitListVO.profit);
+        
+        table = new MyJTable(value, header, width);
     }
 }

@@ -1,10 +1,15 @@
 package presentation.financeui.datapanel;
 
-import vo.financevo.PayBillVO;
-
-import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.List;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import util.MyFormat;
+import util.MyJTable;
+import vo.financevo.PayBillVO;
 
 
 /**
@@ -15,7 +20,7 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class PayPanel extends JPanel {
 
-    private String[] header = { "付款时间", "付款单编号", "付款人ID", "付款账号", "条目", "备注", "付款金额" };
+    private String[] header = { "付款时间", "付款单编号", "付款人ID", "付款账号", "条目", "备注", "付款金额(元)" };
 
     private List<PayBillVO> payBillVOs;
 
@@ -29,39 +34,35 @@ public class PayPanel extends JPanel {
     private void init() {
         this.setLayout(null);
         createTable();
-        this.add(table);
-        this.setSize(830, table.getHeight());
+        JScrollPane scroller = new JScrollPane(table);
+		scroller.setBounds(0, 0, 860, 500);
+		this.add(scroller);
+        this.setSize(860, table.getHeight());
     }
 
     private void createTable() {
-        int numOfRow = payBillVOs.size() + 3;
-        table = new JTable(numOfRow, 7);
-        table.setRowHeight(40);
-        table.setBounds(0, 0, 830, 40 * numOfRow);
-        table.setShowGrid(true);
-        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-
-        for (int i = 0; i < header.length; i++) {
-            table.setValueAt(header[i], 0, i);
+    	int len = payBillVOs.size();
+        Object[][] value = new Object[len + 2][7];
+        int[] width = new int[] { 130, 150, 120, 120, 100, 150, 90 };
+        
+        for (int i = 0; i < len; i++) {
+            PayBillVO payBillVO = payBillVOs.get(i);
+            value[i][0] = payBillVO.time.toString();
+            value[i][1] = payBillVO.id;
+            value[i][2] = payBillVO.staffID;
+            value[i][3] = payBillVO.bankAccountID;
+            value[i][4] = payBillVO.item.getName();
+            value[i][5] = payBillVO.remark;
+            value[i][6] = payBillVO.money;
         }
-
-        for (int i = 1; i <= payBillVOs.size(); i++) {
-            PayBillVO payBillVO = payBillVOs.get(i - 1);
-            table.setValueAt(payBillVO.time.toString(), i, 0);
-            table.setValueAt(payBillVO.id, i, 1);
-            table.setValueAt(payBillVO.staffID, i, 2);
-            table.setValueAt(payBillVO.bankAccountID, i, 3);
-            table.setValueAt(payBillVO.item.getName(), i, 4);
-            table.setValueAt(payBillVO.remark, i, 5);
-            table.setValueAt(payBillVO.money, i, 6);
-        }
-
-        int len = payBillVOs.size() + 2;
-        table.setValueAt("总额", len, 0);
+         
+        value[len + 1][0] = "总额";
         BigDecimal sum = BigDecimal.ZERO;
         for (PayBillVO payBillVO : payBillVOs) {
             sum = sum.add(payBillVO.money);
         }
-        table.setValueAt(sum, len, 6);
+        value[len + 1][6] = MyFormat.setFormat(sum);
+        
+        table = new MyJTable(value, header, width);
     }
 }

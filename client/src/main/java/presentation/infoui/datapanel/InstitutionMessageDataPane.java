@@ -8,6 +8,9 @@ import util.MyJTable;
 import vo.InstitutionMessageVO;
 
 public class InstitutionMessageDataPane extends JPanel {
+
+	private static final long serialVersionUID = 7212210690140182888L;
+
 	public InstitutionMessageDataPane(ArrayList<InstitutionMessageVO> vos){
 		this.setBounds(140, 100, 810, 500);
 		this.setLayout(null);

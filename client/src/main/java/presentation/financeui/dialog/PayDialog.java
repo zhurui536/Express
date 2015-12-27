@@ -133,7 +133,7 @@ public class PayDialog extends JDialog {
         } else if (!InputChecker.isNum(money)) {
         	new WarningDialog(ui, "付款金额必须是数字");
         	return false;
-        } else if (isMinus(money)) {
+        } else if (InputChecker.isMinus(money)) {
         	new WarningDialog(ui, "付款金额必须为整数");
         	return false;
         }
@@ -166,12 +166,4 @@ public class PayDialog extends JDialog {
         return message.getKey().equals("id not found");
     }
 	
-	/**
-	 * 检测数字是否为负
-	 * @param num
-	 * @return
-	 */
-	private boolean isMinus(String num) {
-		return num.charAt(0) == '-';
-	}
 }
