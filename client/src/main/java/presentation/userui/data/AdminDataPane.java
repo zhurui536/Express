@@ -5,24 +5,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import presentation.mainui.component.ToolButton;
 import presentation.userui.listener.AdminToolListener;
 import util.AuthorityLevel;
 import vo.UserVO;
 
+@SuppressWarnings("serial")
 public class AdminDataPane extends JPanel implements ActionListener {
 	private ArrayList<UserVO> users;
-	private ArrayList<JButton> deletes;
-	private ArrayList<JButton> modifys;
+	private ArrayList<ToolButton> deletes;
+	private ArrayList<ToolButton> modifys;
 	private AdminToolListener listener;
 	
 	public AdminDataPane(ArrayList<UserVO> vos, AdminToolListener tl){
 		this.users = vos;
-		this.deletes = new ArrayList<JButton>();
-		this.modifys = new ArrayList<JButton>();
+		this.deletes = new ArrayList<ToolButton>();
+		this.modifys = new ArrayList<ToolButton>();
 		this.listener = tl;
 		
 		this.setBounds(140, 100, 810, vos.size()*40+40);
@@ -77,6 +79,7 @@ public class AdminDataPane extends JPanel implements ActionListener {
 		JPanel item = new JPanel();
 		item.setSize(810, 40);
 		item.setLayout(null);
+		item.setBorder(BorderFactory.createLoweredBevelBorder());
 		
 		JLabel userid = new JLabel(vo.getUserid());
 		userid.setBounds(0, 0, 150, 40);
@@ -94,14 +97,14 @@ public class AdminDataPane extends JPanel implements ActionListener {
 		password.setBounds(430, 0, 150, 40);
 		item.add(password);
 		
-		JButton modify = new JButton("修改");
-		modify.setBounds(600, 5, 60, 30);
+		ToolButton modify = new ToolButton(600, 5, "修改");
+		modify.setSize(60, 30);
 		modify.addActionListener(this);
 		item.add(modify);
 		this.modifys.add(modify);
 		
-		JButton delete = new JButton("删除");
-		delete.setBounds(670, 5, 60, 30);
+		ToolButton delete = new ToolButton(670, 5, "删除");
+		delete.setSize(60, 30);
 		delete.addActionListener(this);
 		item.add(delete);
 		this.deletes.add(delete);

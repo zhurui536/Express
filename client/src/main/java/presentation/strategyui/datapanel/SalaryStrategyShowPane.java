@@ -4,24 +4,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import presentation.mainui.component.ToolButton;
 import presentation.strategyui.listener.SalaryToolListener;
 import util.Job;
 import util.SalaryType;
 import vo.StaffMessageVO;
 
+@SuppressWarnings("serial")
 public class SalaryStrategyShowPane extends JPanel implements ActionListener{
 	private ArrayList<StaffMessageVO> vos;
-	private ArrayList<JButton> modify;
+	private ArrayList<ToolButton> modify;
 	private SalaryToolListener tl;
 	
 	public SalaryStrategyShowPane(ArrayList<StaffMessageVO> vos, SalaryToolListener tl){
 		this.vos = vos;
 		this.tl = tl;
-		modify = new ArrayList<JButton>();
+		modify = new ArrayList<ToolButton>();
 		this.setBounds(140, 100, 810, 500);
 		this.setLayout(null);
 		this.initialize();
@@ -71,6 +73,7 @@ public class SalaryStrategyShowPane extends JPanel implements ActionListener{
 		JPanel item = new JPanel();
 		item.setSize(810, 40);
 		item.setLayout(null);
+		item.setBorder(BorderFactory.createLoweredBevelBorder());
 		
 		JLabel staffid = new JLabel(vo.id);
 		staffid.setBounds(10, 0, 120, 40);
@@ -92,8 +95,8 @@ public class SalaryStrategyShowPane extends JPanel implements ActionListener{
 		salarytype.setBounds(480, 0, 60, 40);
 		item.add(salarytype);
 		
-		JButton modify = new JButton("修改");
-		modify.setBounds(560, 5, 70, 30);
+		ToolButton modify = new ToolButton(560, 5, "修改");
+		modify.setSize(70, 30);
 		modify.addActionListener(this);
 		this.modify.add(modify);
 		item.add(modify);

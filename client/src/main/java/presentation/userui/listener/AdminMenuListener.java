@@ -20,6 +20,7 @@ public class AdminMenuListener implements ActionListener {
 		this.bl = ui.getController();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int i;
@@ -43,7 +44,7 @@ public class AdminMenuListener implements ActionListener {
 				ui.paintdata(data);
 			}
 			else{
-				WarningDialog warning = new WarningDialog(ui, result);
+				new WarningDialog(ui, result);
 			}
 		}
 		if(i==1){

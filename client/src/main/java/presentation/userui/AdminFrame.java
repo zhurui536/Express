@@ -5,6 +5,7 @@ import bussinesslogicservice.adminblservice.AdminBLService;
 import presentation.mainui.ExpressFrame;
 import presentation.userui.listener.AdminMenuListener;
 
+@SuppressWarnings("serial")
 public class AdminFrame extends ExpressFrame {
 	//处理用例逻辑的对象
 	private AdminBLService bl;

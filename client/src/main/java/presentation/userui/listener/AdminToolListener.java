@@ -35,7 +35,7 @@ public class AdminToolListener extends ToolListener {
 		}
 		
 		if(i==0){//新建用户操作
-			AdminInputFrame input = new AdminInputFrame(this);
+			new AdminInputFrame(this);
 		}
 		if(i==1){//取消行为必定成功
 			ResultMessage result = bl.end(1);
@@ -57,18 +57,17 @@ public class AdminToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				WarningDialog frame;
 				if(result.getKey().equals("internet error")){
-					frame = new WarningDialog(ui, "网络连接出错！！");
+					new WarningDialog(ui, "网络连接出错！！");
 				}
 				if(result.getKey().equals("dataerror")){
-					frame = new WarningDialog(ui, "数据存储出错！！");
+					new WarningDialog(ui, "数据存储出错！！");
 				}
 				if(result.getKey().equals("existeduserid")){
-					frame = new WarningDialog(ui, "用户id已存在！！");
+					new WarningDialog(ui, "用户id已存在！！");
 				}
 				if(result.getKey().equals("nostaffid")){
-					frame = new WarningDialog(ui, "员工id不存在！！");
+					new WarningDialog(ui, "员工id不存在！！");
 				}
 			}
 		}
@@ -88,18 +87,18 @@ public class AdminToolListener extends ToolListener {
 			
 			ui.paintdata(data);
 			
-			WarningDialog warning = new WarningDialog(ui, "id已删除");
+			new WarningDialog(ui, "id已删除");
 		}
 	}
 	
 	//为修改而留下的方法入口
 	public void startmidify(UserVO vo){
-		AdminInputFrame input = new AdminInputFrame(this, vo);
+		new AdminInputFrame(this, vo);
 	}
 	
 	//为增加而留下的方法入口
 	public void startadd(){
-		AdminInputFrame input = new AdminInputFrame(this);
+		new AdminInputFrame(this);
 	}
 	
 	//为处理增加用户的输入而加入的方法
@@ -115,7 +114,7 @@ public class AdminToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningDialog warning  = new WarningDialog(ui, result);
+			new WarningDialog(ui, result);
 			return false;
 		}
 	}
@@ -133,7 +132,7 @@ public class AdminToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningDialog warning  = new WarningDialog(ui, result);
+			new WarningDialog(ui, result);
 			return false;
 		}
 	}
