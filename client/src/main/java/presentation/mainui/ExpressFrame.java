@@ -17,7 +17,6 @@ import presentation.mainui.component.MyMenu;
 import presentation.mainui.component.MyTool;
 import util.UIImage;
 
-@SuppressWarnings("serial")
 public class ExpressFrame extends JFrame{
 	
 	private int xOld = 0;  
@@ -127,5 +126,9 @@ public class ExpressFrame extends JFrame{
                 ExpressFrame.this.setLocation(xx, yy);  
             }  
         });  		
+	}
+	
+	public MyTool getTool() {
+		return tool;
 	}
 }

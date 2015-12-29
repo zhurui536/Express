@@ -1,5 +1,9 @@
 package presentation.financeui;
 
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
 import bussinesslogic.financebl.FinanceController;
 import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.financeui.listener.MenuListener;
@@ -37,5 +41,27 @@ public class FinanceFrame extends ExpressFrame {
     public MyTool getTool() {
     	return tool;
     }
+
+	@Override
+	public void paintdata(JPanel data) {
+		if(this.data != null){
+			this.remove(this.data);
+			data = null;
+		}
+		
+		this.data = data;
+		
+		if(data != null) {
+			data.setBounds(150, 100, 850, 500);
+			data.setOpaque(false);
+			data.setPreferredSize(new Dimension(data.getWidth(), data.getHeight()));
+			this.add(data, 0);
+		}
+		
+		this.validate();
+		this.repaint();
+	}
+    
+    
 }
 

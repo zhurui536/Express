@@ -10,6 +10,7 @@ import util.MyJTable;
 import util.Time;
 import vo.logisticvo.DeliveryBillVO;
 
+@SuppressWarnings("serial")
 public class DeliveryBillDataPane extends JPanel {
 //	public static void main(String[] args){
 //		JFrame test = new JFrame();

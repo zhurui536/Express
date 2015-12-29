@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
 import util.Job;
 import util.MyJTable;
 import util.SalaryType;
 import vo.StaffMessageVO;
 
+@SuppressWarnings("serial")
 public class StaffMessageDataPane extends JPanel {
 	
 	public StaffMessageDataPane(ArrayList<StaffMessageVO> vos){

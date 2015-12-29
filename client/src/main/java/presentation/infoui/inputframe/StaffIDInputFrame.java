@@ -11,6 +11,7 @@ import presentation.infoui.listener.StaffInfoToolListener;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
 
+@SuppressWarnings("serial")
 public class StaffIDInputFrame extends InputFrame implements ActionListener {
 	//确定、取消按钮
 	private JButton confirm, cancle;

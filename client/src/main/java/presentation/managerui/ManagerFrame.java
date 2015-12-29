@@ -1,11 +1,13 @@
 package presentation.managerui;
 
 import bussinesslogic.billbl.BillBLController;
+import bussinesslogic.financebl.FinanceController;
 import bussinesslogic.infobl.InstitutionMessageMaintenanceBL;
 import bussinesslogic.infobl.StaffMessageMaintenanceBL;
 import bussinesslogic.strategybl.StrategyConstantBLServiceImpl;
 import bussinesslogic.strategybl.StrategySalaryBLServiceImpl;
 import bussinesslogicservice.billblservice.BillBLService;
+import bussinesslogicservice.financeblservice.FinanceBLService;
 import bussinesslogicservice.infoblservice.InstitutionMessageMaintenanceBLService;
 import bussinesslogicservice.infoblservice.StaffMessageMaintenanceBLService;
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
@@ -24,6 +26,7 @@ public class ManagerFrame extends ExpressFrame {
 	private StrategySalaryBLService ss;
 	private StaffMessageMaintenanceBLService sms;
 	private InstitutionMessageMaintenanceBLService ims;
+	private FinanceBLService fs;
 	
 	public static void main(String[] args){
 //		ClientRMIHelper.init();
@@ -38,6 +41,7 @@ public class ManagerFrame extends ExpressFrame {
 		ss = new StrategySalaryBLServiceImpl();
 		sms = new StaffMessageMaintenanceBL();
 		ims = new InstitutionMessageMaintenanceBL();
+		fs = new FinanceController();
 		this.paintFrame();
 	}
 	
@@ -66,11 +70,15 @@ public class ManagerFrame extends ExpressFrame {
 	public InstitutionMessageMaintenanceBLService getInstitutionMessageController(){
 		return this.ims;
 	}
+	
+	public FinanceBLService getFinanceController(){
+		return this.fs;
+	}
 	//点击退出键时的方法
 	public void close(){
 		this.dispose();
 		System.exit(0);
 	}
 	
-	private final String[] buttonname = {"运费制定", "薪水制定", "单据审批", "机构信息管理", "人员信息管理", "查看日志", "退出"};
+	private final String[] buttonname = {"运费制定", "薪水制定", "单据审批", "机构信息管理", "人员信息管理", "查看日志", "报表查看", "退出"};
 }

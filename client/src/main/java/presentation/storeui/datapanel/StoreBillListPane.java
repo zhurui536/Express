@@ -10,6 +10,7 @@ import po.storepo.InStoreBillPO;
 import po.storepo.OutStoreBillPO;
 import util.MyJTable;
 
+@SuppressWarnings("serial")
 public class StoreBillListPane extends JPanel {
 	
 	public StoreBillListPane(ArrayList<InStoreBillPO> bills){

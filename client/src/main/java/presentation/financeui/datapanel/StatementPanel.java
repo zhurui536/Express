@@ -1,9 +1,14 @@
 package presentation.financeui.datapanel;
 
 
-import vo.financevo.StatementVO;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import presentation.mainui.component.MenuButton;
+import vo.financevo.StatementVO;
 
 /**
  * Created by Away
@@ -12,37 +17,47 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class StatementPanel extends JPanel {
-
-    private StatementVO statementVO;
-
-    private JPanel receiptPanel;
-
-    private JPanel payPanel;
-
+    
+    private ReceiptPanel receiptPanel;
+    
+    private PayPanel payPanel;
+    
     public StatementPanel(StatementVO statementVO) {
-        this.statementVO = statementVO;
-
+        receiptPanel = new ReceiptPanel(statementVO.receiptBillVOs);
+        payPanel = new PayPanel(statementVO.payBillVOs);
         this.setLayout(null);
         initPanel();
-        this.setSize(1000, receiptPanel.getHeight() + payPanel.getHeight() + 200);
+        this.setSize(1000, 830);
     }
 
     private void initPanel() {
-        JLabel receipt = new JLabel("收款单");
-        receipt.setBounds(5, 20, 100, 30);
-
-        receiptPanel = new ReceiptPanel(statementVO.receiptBillVOs);
-        receiptPanel.setLocation(0, 60);
-
-        JLabel pay = new JLabel("付款单");
-        pay.setBounds(5, 100 + receiptPanel.getHeight(), 100, 30);
-
-        payPanel = new PayPanel(statementVO.payBillVOs);
-        payPanel.setLocation(0, receiptPanel.getHeight() + 150);
-
-        this.add(receiptPanel);
-        this.add(payPanel);
+        JButton receipt = new MenuButton(0, 0, "收款单");
+        JButton pay = new MenuButton(140, 0, "付款单");
+        
+        receiptPanel.setBounds(0, 60, 1000, 860);
+        payPanel.setBounds(0, 60, 1000, 860);
+        receipt.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				payPanel.setVisible(false);
+				receiptPanel.setVisible(true);
+			}
+		});
+        
+        pay.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				receiptPanel.setVisible(false);
+				payPanel.setVisible(true);
+			}
+		});
+        
         this.add(receipt);
         this.add(pay);
+        this.add(receiptPanel);
+        this.add(payPanel);
+        
+        receiptPanel.setVisible(false);
+        payPanel.setVisible(false);
     }
 }

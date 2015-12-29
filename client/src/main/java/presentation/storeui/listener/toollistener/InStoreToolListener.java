@@ -33,28 +33,30 @@ public class InStoreToolListener extends ToolListener {
 				break;
 		}
 		
-		if(i==0){
+		if(i==0){//点击了新建入库项
 			InStoreInputFrame frame = new InStoreInputFrame(this);
 			frame.setVisible(true);
 		}
-		else if(i==1){
+		else if(i==1){//点击了确定入库
 			ResultMessage result = sc.endInStore(0);
 			if(result.getKey().equals("success")){
 				ui.replaceTool(null);
 				ui.paintdata(null);
 			}
 			else{
-				WarningDialog frame = new WarningDialog(ui, result);
+				if(result.getKey().equals("internet error")){
+					new WarningDialog(ui, "网络连接出错！！");
+				}
+				if(result.getKey().equals("dataerror")){
+					new WarningDialog(ui, "数据存储出错！！");
+				}
 			}
 		}
-		else if(i==2){
+		else if(i==2){//点击了取消入库
 			ResultMessage result = sc.endInStore(1);
 			if(result.getKey().equals("success")){
 				ui.replaceTool(null);
 				ui.paintdata(null);
-			}
-			else{
-				WarningDialog frame = new WarningDialog(ui, result);
 			}
 		}
 	}
@@ -67,7 +69,24 @@ public class InStoreToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningDialog frame = new WarningDialog(ui, result);
+			if(result.getKey().equals("internet error")){
+				new WarningDialog(ui, "网络连接出错！！");
+			}
+			if(result.getKey().equals("dataerror")){
+				new WarningDialog(ui, "数据存储出错！！");
+			}
+			if(result.getKey().equals("usedplace")){
+				new WarningDialog(ui, "该位置已被占用！！");
+			}
+			if(result.getKey().equals("noexist")){
+				new WarningDialog(ui, "货物不存在！！");
+			}
+			if(result.getKey().equals("wrongplace")){
+				new WarningDialog(ui, "输入的位置越界啦！！");
+			}
+			if(result.getKey().equals("inputedid")){
+				new WarningDialog(ui, "不能重复输入货物！！");
+			}
 			return false;
 		}
 	}
@@ -78,7 +97,9 @@ public class InStoreToolListener extends ToolListener {
 			ui.paintdata(new InStoreDataPane((InStoreVO) result.getValue(), this));
 		}
 		else{
-			WarningDialog frame = new WarningDialog(ui, result);
+			if(result.getKey().equals("noexist")){
+				new WarningDialog(ui, "入库项不存在！！");
+			}
 		}
 	}
 }

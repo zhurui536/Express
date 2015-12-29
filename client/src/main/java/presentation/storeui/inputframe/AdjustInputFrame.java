@@ -91,10 +91,10 @@ public class AdjustInputFrame extends InputFrame implements ActionListener {
 				
 				boolean result = listener.getInput(startplace, endplace);
 				if(result){
-					this.setVisible(false);
+					this.dispose();
 				}
 			}catch(Exception ex){
-				WarningDialog warning = new WarningDialog(null, "输入有误，请重新输入");
+				new WarningDialog(null, "输入有误，请重新输入");
 			}
 			//如果输入无法进行转换，那么将输入框重置
 			for(int i=0;i<4;i++){

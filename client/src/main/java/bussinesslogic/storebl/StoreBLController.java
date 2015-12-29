@@ -197,6 +197,7 @@ public class StoreBLController implements StoreBLService {
 		return verification.exportVerification(table);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage checkInStore() {
 		StoreDataService dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
@@ -221,6 +222,7 @@ public class StoreBLController implements StoreBLService {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage checkOutStore() {
 		StoreDataService dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
@@ -247,19 +249,8 @@ public class StoreBLController implements StoreBLService {
 
 	@Override
 	public ResultMessage checkStore() {
-		StoreDataService dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
-		try {
-			ResultMessage result = dataservice.getStore();
-			if(result.getKey().equals("success")){
-				return new ResultMessage("success", result.getValue());
-			}
-			else{
-				return result;
-			}
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			return new ResultMessage("internet error", null);
-		}
+		this.logservice.addSystemlog(new SystemlogVO("查看所有库存"));
+		return check.checkStore();
 	}
 
 }

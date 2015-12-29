@@ -129,7 +129,7 @@ public class CheckInputFrame extends InputFrame implements ActionListener {
 					this.starttime[i].setText("");
 					this.endtime[i].setText("");
 				}
-				WarningDialog warning = new WarningDialog(null, "输入有误，请重新输入");
+				new WarningDialog(null, "输入有误，请重新输入");
 				this.validate();
 				this.repaint();
 			}

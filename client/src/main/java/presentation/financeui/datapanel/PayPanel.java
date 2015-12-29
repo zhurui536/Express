@@ -35,15 +35,15 @@ public class PayPanel extends JPanel {
         this.setLayout(null);
         createTable();
         JScrollPane scroller = new JScrollPane(table);
-		scroller.setBounds(0, 0, 860, 500);
+		scroller.setBounds(0, 0, 840, 500);
 		this.add(scroller);
-        this.setSize(860, table.getHeight());
+        this.setSize(840, table.getHeight());
     }
 
     private void createTable() {
     	int len = payBillVOs.size();
         Object[][] value = new Object[len + 2][7];
-        int[] width = new int[] { 130, 150, 120, 120, 100, 150, 90 };
+        int[] width = new int[] { 130, 150, 120, 120, 80, 150, 90 };
         
         for (int i = 0; i < len; i++) {
             PayBillVO payBillVO = payBillVOs.get(i);

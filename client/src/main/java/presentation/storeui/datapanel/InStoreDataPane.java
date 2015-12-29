@@ -1,9 +1,11 @@
 package presentation.storeui.datapanel;
 
+import presentation.mainui.component.ToolButton;
 import presentation.storeui.listener.toollistener.InStoreToolListener;
 import vo.storevo.InStoreVO;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class InStoreDataPane extends JPanel implements ActionListener{
 	//删除按钮
-	private ArrayList<JButton> deletes;
+	private ArrayList<ToolButton> deletes;
 	//保存了与删除按钮对应的货物编号作为删除依据
 	private ArrayList<String> goodslist;
 	//删除指令的执行者
@@ -23,7 +25,7 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 		goodslist = list.getIDs();
 		ArrayList<int[]> place = list.getPlace();
 		ArrayList<String> destination = list.getDestination();
-		deletes = new ArrayList<JButton>();
+		deletes = new ArrayList<ToolButton>();
 		 
 		//将容器的大小设计为货物数量加1对应的大小
 		this.setSize(810, goodslist.size()*40 + 40);
@@ -62,10 +64,10 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 			item.setLocation(10, 40*i + 40);
 			
 			if(i%2==1){
-				item.setBackground(Color.YELLOW);
+				item.setBackground(new Color(20, 30, 30, 40));
 			}
 			else{
-				item.setBackground(Color.CYAN);
+				item.setBackground(new Color(30, 30, 20, 40));
 			}
 			 
 			this.add(item);
@@ -78,6 +80,7 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 		JPanel item = new JPanel();
 		item.setSize(810, 40);
 		item.setLayout(null);
+		item.setBorder(BorderFactory.createLoweredBevelBorder());
 		
 		//加入id
 		JLabel number = new JLabel(id);
@@ -90,7 +93,6 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 		for(int i=0;i<4;i++){
 			places[i] = new JLabel(place[i]+"");
 			places[i].setSize(50, 40);
-			places[i].setBackground(Color.PINK);
 			places[i].setLocation(230 + 50*i, 0);
 			item.add(places[i]);
 		}
@@ -102,11 +104,9 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 		item.add(dest);
 		
 		//删除按钮
-		JButton delete = new JButton("删除");
+		ToolButton delete = new ToolButton(735, 5, "删除");
 		delete.setSize(75, 30);
-		delete.setLocation(735, 5);
 		delete.addActionListener(this);
-		delete.setBackground(Color.red);
 		item.add(delete);
 		deletes.add(delete);
 		

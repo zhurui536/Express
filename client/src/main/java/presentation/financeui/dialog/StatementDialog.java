@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import presentation.financeui.FinanceFrame;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
+import presentation.mainui.ExpressFrame;
 import util.Time;
 
 /**
@@ -28,7 +28,7 @@ public class StatementDialog extends InputFrame {
     private Time sTime;
     private Time eTime;
     
-    public StatementDialog(FinanceFrame ui) {
+    public StatementDialog(ExpressFrame ui) {
         super(ui);
         init(ui);
     }

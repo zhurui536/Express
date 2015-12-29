@@ -8,11 +8,11 @@ import java.io.OutputStream;
 import javax.swing.JFileChooser;
 
 import presentation.WarningDialog;
-import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.ProfitPanel;
 import presentation.financeui.datapanel.StatementPanel;
 import presentation.financeui.dialog.StatementDialog;
 import presentation.financeui.listener.ToolListener;
+import presentation.mainui.ExpressFrame;
 import presentation.mainui.component.MyTool;
 import util.ResultMessage;
 import util.Time;
@@ -26,7 +26,7 @@ import vo.financevo.StatementVO;
 
 public class ReportToolListener extends ToolListener {
     
-    public ReportToolListener(FinanceFrame ui) {
+    public ReportToolListener(ExpressFrame ui) {
         super(ui);
     }
 
@@ -99,7 +99,6 @@ public class ReportToolListener extends ToolListener {
             StatementPanel statementPanel = new StatementPanel(statementVO);
             System.out.println("success");
             ui.paintdata(statementPanel);
-            new WarningDialog(ui, "生成成功！");
         }
 	}
 

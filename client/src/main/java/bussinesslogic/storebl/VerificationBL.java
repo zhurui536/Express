@@ -54,6 +54,7 @@ public class VerificationBL implements VerificationBLService {
 
 	@Override
 	public ResultMessage endVerification(int condition) {
+		//0代表结束盘点，保存库存盘点记录
 		if(condition == 0){
 			try {
 				dataservice.saveVerification(po);
@@ -63,6 +64,7 @@ public class VerificationBL implements VerificationBLService {
 				return new ResultMessage("internet error", null);
 			}
 		}
+		//1代表取消盘点
 		else if(condition == 1){
 			return new ResultMessage("success", null);
 		}

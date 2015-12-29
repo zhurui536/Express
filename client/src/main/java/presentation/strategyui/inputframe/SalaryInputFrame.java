@@ -10,9 +10,11 @@ import vo.SalaryVO;
 import vo.StaffMessageVO;
 
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+@SuppressWarnings("serial")
 public class SalaryInputFrame extends InputFrame implements ActionListener{
 	private StaffMessageVO vo;
 	private SalaryToolListener tl;
@@ -119,7 +121,7 @@ public class SalaryInputFrame extends InputFrame implements ActionListener{
 				}
 			}catch(Exception e){
 				e.printStackTrace();
-				WarningDialog warning = new WarningDialog(null, "输入有误，请重新输入");
+				new WarningDialog(null, "输入有误，请重新输入");
 				this.salary.setText(vo.salary.getSalary()+"");
 			}
 			

@@ -23,6 +23,7 @@ public class AdminBL implements AdminBLService {
 	}
 	
 	//创建了这个对象之后必须立即调用的方法
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage getUser() {
 		try {
@@ -41,6 +42,7 @@ public class AdminBL implements AdminBLService {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage addUser(UserVO user) {
 		//检查登录账户是否存在，如果已经存在，则返回错误

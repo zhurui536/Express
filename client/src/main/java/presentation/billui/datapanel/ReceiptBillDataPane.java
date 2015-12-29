@@ -4,11 +4,13 @@ import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
 import po.logisticpo.ReceiptBillPO;
 import util.MyJTable;
 import vo.logisticvo.ReceiptBillVO;
 import vo.logisticvo.ReceiptLineItemVO;
 
+@SuppressWarnings("serial")
 public class ReceiptBillDataPane extends JPanel {
 //	public static void main(String[] args){
 //		JFrame test = new JFrame();

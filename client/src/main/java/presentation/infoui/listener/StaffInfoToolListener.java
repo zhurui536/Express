@@ -23,6 +23,7 @@ public class StaffInfoToolListener extends ToolListener {
 		this.bl = ui.getStaffMessageController();
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		MyTool tool = super.getTool();
@@ -59,6 +60,7 @@ public class StaffInfoToolListener extends ToolListener {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean getID(String id, int condition){
 		if(condition == 0){
 			ResultMessage result = bl.delStaffMessage(id);
@@ -72,7 +74,7 @@ public class StaffInfoToolListener extends ToolListener {
 				return true;
 			}
 			else{
-				WarningDialog warning = new WarningDialog(ui, result.getKey());
+				new WarningDialog(ui, result.getKey());
 				return false;
 			}
 		}
@@ -86,7 +88,7 @@ public class StaffInfoToolListener extends ToolListener {
 				return true;
 			}
 			else{
-				WarningDialog warning = new WarningDialog(ui, result.getKey());
+				new WarningDialog(ui, result.getKey());
 				return false;
 			}
 		}
@@ -94,6 +96,7 @@ public class StaffInfoToolListener extends ToolListener {
 		return false;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean getInput(StaffMessageVO vo, int condition){
 		ResultMessage result = null;
 		if(condition == 0){
@@ -112,7 +115,7 @@ public class StaffInfoToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningDialog warning = new WarningDialog(ui, result.getKey());
+			new WarningDialog(ui, result.getKey());
 			return false;
 		}
 	}

@@ -23,6 +23,7 @@ public class InstitutionInfoToolListener extends ToolListener {
 		this.bl = ui.getInstitutionMessageController();
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		MyTool tool = super.getTool();
@@ -59,8 +60,9 @@ public class InstitutionInfoToolListener extends ToolListener {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean getID(String id, int condition){
-		if(condition == 0){
+		if(condition == 0){//0代表删除该机构
 			ResultMessage result = bl.delInstitutionMessage(id);
 			
 			if(result.getKey().equals("SUCCESS")){
@@ -69,10 +71,23 @@ public class InstitutionInfoToolListener extends ToolListener {
 					InstitutionMessageDataPane data = new InstitutionMessageDataPane((ArrayList<InstitutionMessageVO>) result.getValue());
 					ui.paintdata(data);
 				}
+				else{
+					if(result.getKey().equals("FAIL")){
+						new WarningDialog(ui, "获取机构信息失败！");
+					}
+				}
 				return true;
 			}
 			else{
-				WarningDialog warning = new WarningDialog(ui, result.getKey());
+				if(result.getKey().equals("NO_EXIST")){
+					new WarningDialog(ui, "机构不存在！");
+				}
+				if(result.getKey().equals("staffininst")){
+					new WarningDialog(ui, "无法删除有员工的机构！");
+				}
+				if(result.getKey().equals("FAIL")){
+					new WarningDialog(ui, "网络连接出错！");
+				}
 				return false;
 			}
 		}
@@ -86,7 +101,12 @@ public class InstitutionInfoToolListener extends ToolListener {
 				return true;
 			}
 			else{
-				WarningDialog warning = new WarningDialog(ui, result.getKey());
+				if(result.getKey().equals("FAIL")){
+					new WarningDialog(ui, "网络连接出错！");
+				}
+				if(result.getKey().equals("NO_EXIST")){
+					new WarningDialog(ui, "机构不存在！");
+				}
 				return false;
 			}
 		}
@@ -94,6 +114,7 @@ public class InstitutionInfoToolListener extends ToolListener {
 		return false;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean getInput(InstitutionMessageVO vo, int condition){
 		ResultMessage result = null;
 		if(condition == 0){
@@ -112,7 +133,12 @@ public class InstitutionInfoToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningDialog warning = new WarningDialog(ui, result.getKey());
+			if(result.getKey().equals("FAIL")){
+				new WarningDialog(ui, "网络连接出错！");
+			}
+			if(result.getKey().equals("EXIST")){
+				new WarningDialog(ui, "机构已存在，无法新建");
+			}
 			return false;
 		}
 	}

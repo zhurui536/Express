@@ -1,9 +1,11 @@
 package presentation.storeui.datapanel;
 
+import presentation.mainui.component.ToolButton;
 import presentation.storeui.listener.toollistener.OutStoreToolListener;
 import vo.storevo.OutStoreVO;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +16,7 @@ import java.util.ArrayList;
 public class OutStoreDataPane extends JPanel implements ActionListener {
 	
 	//删除按钮的数组
-	private ArrayList<JButton> deletes;
+	private ArrayList<ToolButton> deletes;
 	//并非监听者，作为上一级，处理这里发生点击时的事务
 	private OutStoreToolListener listener;
 	//方便与按钮相对应
@@ -26,7 +28,7 @@ public class OutStoreDataPane extends JPanel implements ActionListener {
 		ArrayList<String> destination = vo.getDestination();
 		ArrayList<String> trans = vo.getTrans();
 		
-		deletes = new ArrayList<JButton>();
+		deletes = new ArrayList<ToolButton>();
 		 
 		//将容器的大小设计为货物数量加1对应的大小
 		this.setSize(810, goodslist.size()*40 + 40);
@@ -60,10 +62,10 @@ public class OutStoreDataPane extends JPanel implements ActionListener {
 			JPanel temp = makeItem(goodslist.get(i), trans.get(i), destination.get(i));
 			temp.setLocation(10, 40*i+40);
 			if(i%2==0){
-				temp.setBackground(Color.cyan);
+				temp.setBackground(new Color(20, 30, 30, 40));
 			}
 			else{
-				temp.setBackground(Color.LIGHT_GRAY);
+				temp.setBackground(new Color(30, 30, 20, 40));
 			}
 			this.add(temp);
 		}
@@ -75,6 +77,7 @@ public class OutStoreDataPane extends JPanel implements ActionListener {
 		JPanel item = new JPanel();
 		item.setSize(810, 40);
 		item.setLayout(null);
+		item.setBorder(BorderFactory.createLoweredBevelBorder());
 		
 		//加入id
 		JLabel number = new JLabel(id);
@@ -95,11 +98,9 @@ public class OutStoreDataPane extends JPanel implements ActionListener {
 		item.add(dest);
 		
 		//加入删除按钮
-		JButton delete = new JButton("删除");
+		ToolButton delete = new ToolButton(705, 5, "删除");
 		delete.setSize(75, 30);
-		delete.setLocation(705, 5);
 		delete.addActionListener(this);
-		delete.setBackground(Color.red);
 		item.add(delete);
 		deletes.add(delete);
 		

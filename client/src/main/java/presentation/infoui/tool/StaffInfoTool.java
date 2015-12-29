@@ -3,6 +3,7 @@ package presentation.infoui.tool;
 import presentation.infoui.listener.StaffInfoToolListener;
 import presentation.mainui.component.MyTool;
 
+@SuppressWarnings("serial")
 public class StaffInfoTool extends MyTool {
 	
 	public StaffInfoTool(StaffInfoToolListener tl){

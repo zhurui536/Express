@@ -5,12 +5,14 @@ import java.math.BigDecimal;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
 import po.financepo.PayBillPO;
 import util.MyJTable;
 import util.PayItem;
 import util.Time;
 import vo.financevo.PayBillVO;
 //
+@SuppressWarnings("serial")
 public class PayBillDataPane extends JPanel {
 
 	public static void main(String[] args){
