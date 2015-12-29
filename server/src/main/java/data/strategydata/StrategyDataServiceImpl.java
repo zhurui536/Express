@@ -133,6 +133,7 @@ public class StrategyDataServiceImpl extends UnicastRemoteObject implements Stra
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage getSalary() throws RemoteException {
 		try {

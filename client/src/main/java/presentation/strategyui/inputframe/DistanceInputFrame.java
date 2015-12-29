@@ -13,6 +13,7 @@ import presentation.WarningDialog;
 import presentation.strategyui.listener.StrategyToolListener;
 import util.City;
 
+@SuppressWarnings("serial")
 public class DistanceInputFrame extends JFrame implements ActionListener{
 	private JButton confirm;
 	private JButton cancle;
@@ -36,6 +37,7 @@ public class DistanceInputFrame extends JFrame implements ActionListener{
 		this.initialize();
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void initialize(){
 		//窗口的标题
 		JLabel title = new JLabel("城市距离输入");
@@ -92,7 +94,7 @@ public class DistanceInputFrame extends JFrame implements ActionListener{
 				City a = this.boxToCity(0);
 				City b = this.boxToCity(1);
 				if(a==b){
-					WarningDialog tip = new WarningDialog(this, "城市不能相同");
+					new WarningDialog(this, "城市不能相同");
 				}
 				else{
 					boolean result = tl.getInput(a, b, distance);
@@ -101,7 +103,7 @@ public class DistanceInputFrame extends JFrame implements ActionListener{
 					}
 				}
 			}catch(Exception ex){
-				WarningDialog tip = new WarningDialog(this, "输入有误，请重新输入");
+				new WarningDialog(this, "输入有误，请重新输入");
 				input.setText("");
 				this.repaint();
 				this.validate();

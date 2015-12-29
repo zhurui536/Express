@@ -26,6 +26,7 @@ public class StrategyToolListener extends ToolListener {
 		bl = ui.getStrategyBLController();
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		MyTool tool = super.getTool();
@@ -64,11 +65,11 @@ public class StrategyToolListener extends ToolListener {
 					ui.paintdata(data);
 				}
 				else{
-					WarningDialog warning = new WarningDialog(ui, result.getKey());
+					new WarningDialog(ui, result.getKey());
 				}
 			}
 			else{
-				WarningDialog warning = new WarningDialog(ui, result.getKey());
+				new WarningDialog(ui, result.getKey());
 			}
 		}
 		if(i==3){//点击了返回
@@ -77,6 +78,7 @@ public class StrategyToolListener extends ToolListener {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public boolean getInput(City a, City b, double distance){//输入框完成了输入及检查
 		ResultMessage result = bl.inputDistanceInfo(new DistanceVO(a, b, distance));
 		
@@ -92,7 +94,7 @@ public class StrategyToolListener extends ToolListener {
 					ui.paintdata(data);
 				}
 				else{
-					WarningDialog warning = new WarningDialog(ui, result.getKey());
+					new WarningDialog(ui, result.getKey());
 				}
 			}
 		}
@@ -104,7 +106,7 @@ public class StrategyToolListener extends ToolListener {
 		if(result.getKey().equals("success")){
 			return true;
 		}
-		WarningDialog warning = new WarningDialog(ui, result.getKey());
+		new WarningDialog(ui, result.getKey());
 		return false;
 	}
 }

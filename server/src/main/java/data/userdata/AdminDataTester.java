@@ -17,7 +17,7 @@ import util.ResultMessage;
 import util.SalaryType;
 
 public class AdminDataTester {
-	private static final String PATH = "src/main/java/save/logisticsdata/sendBillPO.dat";
+//	private static final String PATH = "src/main/java/save/logisticsdata/sendBillPO.dat";
 	
 	public static void main(String[] args){
 		try {

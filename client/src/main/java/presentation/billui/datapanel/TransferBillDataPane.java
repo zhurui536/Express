@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
 import po.logisticpo.TransferBillPO;
 import util.MyJTable;
 import util.Trans;
 
+@SuppressWarnings("serial")
 public class TransferBillDataPane extends JPanel {
 	public TransferBillDataPane(TransferBillPO po){
 		this.setLayout(null);

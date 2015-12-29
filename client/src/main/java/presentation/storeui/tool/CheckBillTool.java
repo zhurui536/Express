@@ -3,6 +3,7 @@ package presentation.storeui.tool;
 import presentation.mainui.component.MyTool;
 import presentation.storeui.listener.ToolListener;
 
+@SuppressWarnings("serial")
 public class CheckBillTool extends MyTool {
 	
 	public CheckBillTool(ToolListener tl){

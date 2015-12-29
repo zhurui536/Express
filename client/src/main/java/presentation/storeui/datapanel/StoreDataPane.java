@@ -11,6 +11,7 @@ import po.storepo.StorePlacePO;
 import util.City;
 import util.MyJTable;
 
+@SuppressWarnings("serial")
 public class StoreDataPane extends JPanel {
 	public StoreDataPane(StorePO store){
 		this.setLayout(null);

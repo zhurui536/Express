@@ -99,23 +99,23 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 				City b = this.boxToCity(1);
 				
 				if(a==b){
-					WarningDialog tip = new WarningDialog(ui, "城市不能相同");
+					new WarningDialog(ui, "城市不能相同");
 				}
 				else{
 					ResultMessage result = bl.inputDistanceInfo(new DistanceVO(a, b, distance));
 					if(result.getKey().equals("success")){
-						WarningDialog tip = new WarningDialog(ui, "设置成功！");
+						new WarningDialog(ui, "设置成功！");
 						ui.validate();
 						ui.repaint();
 					}
 					else{
-						WarningDialog tip = new WarningDialog(ui, result.getKey());
+						new WarningDialog(ui, result.getKey());
 						ui.validate();
 						ui.repaint();
 					}
 				}
 			}catch(Exception ex){
-				WarningDialog tip = new WarningDialog(ui, "输入有误，请重新输入");
+				new WarningDialog(ui, "输入有误，请重新输入");
 				ui.validate();
 				ui.repaint();
 			}
@@ -126,17 +126,17 @@ public class ConstantStrategyDataPane extends JPanel implements ActionListener {
 				ResultMessage result = bl.inputPriceInfo(price);
 				
 				if(result.getKey().equals("success")){
-					WarningDialog tip = new WarningDialog(ui, "输入成功！");
+					new WarningDialog(ui, "输入成功！");
 					input[0].setText("");
 					input[1].setText("");
 					ui.validate();
 					ui.repaint();
 				}
 				else{
-					WarningDialog tip = new WarningDialog(ui, result.getKey());
+					new WarningDialog(ui, result.getKey());
 				}
 			}catch(Exception ex){
-				WarningDialog tip = new WarningDialog(ui, "输入有误，请重新输入");
+				new WarningDialog(ui, "输入有误，请重新输入");
 				input[0].setText("");
 				input[1].setText("");
 				ui.validate();

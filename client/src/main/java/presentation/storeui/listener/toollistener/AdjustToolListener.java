@@ -44,12 +44,11 @@ public class AdjustToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				WarningDialog frame;
 				if(result.getKey().equals("internet error")){
-					frame = new WarningDialog(ui, "网络连接出错！！");
+					new WarningDialog(ui, "网络连接出错！！");
 				}
 				if(result.getKey().equals("dataerror")){
-					frame = new WarningDialog(ui, "数据存储出错！！");
+					new WarningDialog(ui, "数据存储出错！！");
 				}
 			}
 		}
@@ -61,7 +60,7 @@ public class AdjustToolListener extends ToolListener {
 			}
 			else{
 				//提示错误
-				WarningDialog frame = new WarningDialog(ui, result);
+				new WarningDialog(ui, result);
 			}
 		}
 	}
@@ -79,21 +78,20 @@ public class AdjustToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningDialog frame;
 			if(result.getKey().equals("appearedplace")){
-				frame = new WarningDialog(ui, "不能多次输入同个位置！");
+				new WarningDialog(ui, "不能多次输入同个位置！");
 			}
 			if(result.getKey().equals("emptystart")){
-				frame = new WarningDialog(ui, "起始位置是空的！");
+				new WarningDialog(ui, "起始位置是空的！");
 			}
 			if(result.getKey().equals("usedend")){
-				frame = new WarningDialog(ui, "目标位置已有货物！");
+				new WarningDialog(ui, "目标位置已有货物！");
 			}
 			if(result.getKey().equals("internet error")){
-				frame = new WarningDialog(ui, "网络连接出错！！");
+				new WarningDialog(ui, "网络连接出错！！");
 			}
 			if(result.getKey().equals("dataerror")){
-				frame = new WarningDialog(ui, "数据存储出错！！");
+				new WarningDialog(ui, "数据存储出错！！");
 			}
 			return false;
 		}

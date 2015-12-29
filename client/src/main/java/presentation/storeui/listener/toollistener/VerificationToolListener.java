@@ -40,12 +40,11 @@ public class VerificationToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				WarningDialog frame;
 				if(result.getKey().equals("internet error")){
-					frame = new WarningDialog(ui, "网络连接出错！！");
+					new WarningDialog(ui, "网络连接出错！！");
 				}
 				if(result.getKey().equals("dataerror")){
-					frame = new WarningDialog(ui, "数据存储出错！！");
+					new WarningDialog(ui, "数据存储出错！！");
 				}
 			}
 		}
@@ -56,12 +55,11 @@ public class VerificationToolListener extends ToolListener {
 		}
 		else if(i==2){
 			ResultMessage result = sc.exportVerification(table);
-			WarningDialog frame;
 			if(result.getKey().equals("success")){
-				frame = new WarningDialog(ui, "导出成功");
+				new WarningDialog(ui, "导出成功");
 			}
 			else{
-				frame = new WarningDialog(ui, "导出失败");
+				new WarningDialog(ui, "导出失败");
 			}
 		}
 	}

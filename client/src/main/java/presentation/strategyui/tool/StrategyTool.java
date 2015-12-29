@@ -6,8 +6,6 @@ import presentation.strategyui.listener.StrategyToolListener;
 @SuppressWarnings("serial")
 public class StrategyTool extends MyTool {
 	
-	private StrategyToolListener tl;
-	
 	public StrategyTool(StrategyToolListener tl){
 		super(buttonname, tl);
 	}

@@ -35,6 +35,7 @@ public class StrategySalaryBLServiceImpl implements StrategySalaryBLService {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage getSalary() {
 		try {

@@ -28,6 +28,7 @@ public class TableExport {
 		this.table = table;
 	}
 	
+	@SuppressWarnings("resource")
 	public boolean export(){
 		jfc.addChoosableFileFilter(new FileFilter() {
 		      public boolean accept(File file) {
