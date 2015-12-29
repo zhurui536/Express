@@ -97,6 +97,8 @@ public class StrategyToolListener extends ToolListener {
 					new WarningDialog(ui, result.getKey());
 				}
 			}
+			
+			return true;
 		}
 		return false;
 	}

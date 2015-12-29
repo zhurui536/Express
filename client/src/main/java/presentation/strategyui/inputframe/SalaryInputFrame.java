@@ -47,23 +47,23 @@ public class SalaryInputFrame extends InputFrame implements ActionListener{
 	private void initialize(StaffMessageVO vo) {
 		JLabel title = new JLabel("员工薪水修改");
 		title.setBounds(150, 10, 130, 30);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		JLabel id = new JLabel("员工id："+vo.id);
 		id.setBounds(20, 50, 240, 30);
-		this.getContentPane().add(id);
+		this.getContentPane().add(id, 0);
 		
 		JLabel name = new JLabel("员工姓名："+vo.name);
 		name.setBounds(20, 90, 180, 30);
-		this.getContentPane().add(name);
+		this.getContentPane().add(name, 0);
 		
 		JLabel job = new JLabel("职业："+Job.jobToString(vo.job));
 		job.setBounds(210, 90, 160, 30);
-		this.getContentPane().add(job);
+		this.getContentPane().add(job, 0);
 		
 		JLabel sala = new JLabel("薪水类型及数额：");
 		sala.setBounds(20, 130, 140, 30);
-		this.getContentPane().add(sala);
+		this.getContentPane().add(sala, 0);
 		
 		type = new JComboBox<String>(salarytype);
 		if(vo.salary.getType() == SalaryType.MONTHLY){
@@ -88,8 +88,8 @@ public class SalaryInputFrame extends InputFrame implements ActionListener{
 		cancle.setSize(60, 25);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
-		this.getContentPane().add(confirm);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(confirm, 0);
+		this.getContentPane().add(cancle, 0);
 	}
 	
 	private final String[] salarytype = {"月薪", "按次", "提成"};

@@ -70,11 +70,11 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                 
                 city = new JComboBox<String>(citys);
                 city.setBounds(90, 115, 80, 35);
-                this.getContentPane().add(city);
+                this.getContentPane().add(city, 0);
                 
                 institution = new JComboBox<String>(institutions);
                 institution.setBounds(180, 115, 80, 35);
-                this.getContentPane().add(institution);
+                this.getContentPane().add(institution, 0);
                 
                 confirm = new ToolButton(250, 220,"确定");
                 cancle = new ToolButton(330, 220,"取消");
@@ -82,14 +82,14 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                 cancle.setSize(60, 25);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
-                this.getContentPane().add(confirm);
-                this.getContentPane().add(cancle);
+                this.getContentPane().add(confirm, 0);
+                this.getContentPane().add(cancle, 0);
                 
                 errOutputLabel = new JLabel();
                 errOutputLabel.setBounds(15, 220, 190, 30);
                 errOutputLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
                 errOutputLabel.setForeground(Color.RED);
-                this.getContentPane().add(errOutputLabel);
+                this.getContentPane().add(errOutputLabel, 0);
                 
         }
 

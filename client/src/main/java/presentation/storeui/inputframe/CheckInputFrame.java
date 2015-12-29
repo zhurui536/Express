@@ -41,7 +41,7 @@ public class CheckInputFrame extends InputFrame implements ActionListener {
 		title = new JLabel("库存查看输入");
 		title.setSize(90, 30);
 		title.setLocation(170, 10);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		confirm = new ToolButton(250, 190,"确定");
 		cancle = new ToolButton(330, 190,"取消");
@@ -49,15 +49,15 @@ public class CheckInputFrame extends InputFrame implements ActionListener {
 		cancle.setSize(60, 25);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
-		this.getContentPane().add(confirm);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(confirm, 0);
+		this.getContentPane().add(cancle, 0);
 		
 		type = new JLabel[4];
 		for(int i=0;i<4;i++){
 			type[i] = new JLabel(typename[i]);
 			type[i].setSize(45, 30);
 			type[i].setLocation(120+55*i, 50);
-			this.getContentPane().add(type[i]);
+			this.getContentPane().add(type[i], 0);
 		}
 		
 		list = new JLabel[2];
@@ -65,7 +65,7 @@ public class CheckInputFrame extends InputFrame implements ActionListener {
 			list[i] = new JLabel(listname[i]);
 			list[i].setSize(70, 30);
 			list[i].setLocation(15, 90+40*i);
-			this.getContentPane().add(list[i]);
+			this.getContentPane().add(list[i], 0);
 		}
 		
 		starttime = new JTextArea[4];
@@ -73,7 +73,7 @@ public class CheckInputFrame extends InputFrame implements ActionListener {
 			starttime[i] = new JTextArea();
 			starttime[i].setSize(45, 30);
 			starttime[i].setLocation(110+55*i, 90);
-			this.getContentPane().add(starttime[i]);
+			this.getContentPane().add(starttime[i], 0);
 		}
 		
 		endtime = new JTextArea[4];
@@ -81,7 +81,7 @@ public class CheckInputFrame extends InputFrame implements ActionListener {
 			endtime[i] = new JTextArea();
 			endtime[i].setSize(45, 30);
 			endtime[i].setLocation(110+55*i, 130);
-			this.getContentPane().add(endtime[i]);
+			this.getContentPane().add(endtime[i], 0);
 		}
 	}
 
@@ -129,7 +129,7 @@ public class CheckInputFrame extends InputFrame implements ActionListener {
 					this.starttime[i].setText("");
 					this.endtime[i].setText("");
 				}
-				new WarningDialog(null, "输入有误，请重新输入");
+				new WarningDialog(new JFrame(), "输入有误，请重新输入");
 				this.validate();
 				this.repaint();
 			}

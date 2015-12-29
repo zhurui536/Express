@@ -38,7 +38,7 @@ public class AdjustInputFrame extends InputFrame implements ActionListener {
 		title = new JLabel("货物调整输入");
 		title.setSize(90, 30);
 		title.setLocation(170, 10);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		confirm = new ToolButton(250, 190,"确定");
 		cancle = new ToolButton(330, 190,"取消");
@@ -46,15 +46,15 @@ public class AdjustInputFrame extends InputFrame implements ActionListener {
 		cancle.setSize(60, 25);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
-		this.getContentPane().add(confirm);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(confirm, 0);
+		this.getContentPane().add(cancle, 0);
 		
 		list = new JLabel[2];
 		for(int i=0;i<2;i++){
 			list[i] = new JLabel(listname[i]);
 			list[i].setSize(70, 30);
 			list[i].setLocation(15, 50+40*i);
-			this.getContentPane().add(list[i]);
+			this.getContentPane().add(list[i], 0);
 		}
 		
 		startplace = new JTextArea[4];
@@ -62,7 +62,7 @@ public class AdjustInputFrame extends InputFrame implements ActionListener {
 			startplace[i] = new JTextArea();
 			startplace[i].setSize(45, 30);
 			startplace[i].setLocation(110+55*i, 50);
-			this.getContentPane().add(startplace[i]);
+			this.getContentPane().add(startplace[i], 0);
 		}
 		
 		endplace = new JTextArea[4];
@@ -70,7 +70,7 @@ public class AdjustInputFrame extends InputFrame implements ActionListener {
 			endplace[i] = new JTextArea();
 			endplace[i].setSize(45, 30);
 			endplace[i].setLocation(110+55*i, 90);
-			this.getContentPane().add(endplace[i]);
+			this.getContentPane().add(endplace[i], 0);
 		}
 	}
 

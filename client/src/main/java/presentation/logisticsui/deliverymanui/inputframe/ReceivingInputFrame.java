@@ -58,12 +58,12 @@ public class ReceivingInputFrame extends InputFrame implements ActionListener{
                 numberLabel = new JLabel("订单号：");
                 numberLabel.setSize(70,35);
                 numberLabel.setLocation(15,15);
-                this.getContentPane().add(numberLabel);
+                this.getContentPane().add(numberLabel, 0);
                 
                 number = new JTextArea();
                 number.setLocation(65,25);
                 number.setSize(100,15);
-                this.getContentPane().add(number);
+                this.getContentPane().add(number, 0);
                 
                 
                 panelForGoods = new goodsPanel();
@@ -71,12 +71,12 @@ public class ReceivingInputFrame extends InputFrame implements ActionListener{
                 panelForGoods.setSize(580,165);
                 panelForGoods.setLocation(15,45);
                 
-                this.add(panelForGoods);
+                this.getContentPane().add(panelForGoods, 0);
                 
                 panelForSender = new peoplePanel("寄件人");
                 panelForSender.setLocation(15,220);
                 panelForSender.setSize(510,115);
-                this.getContentPane().add(panelForSender);
+                this.getContentPane().add(panelForSender, 0);
                 
                 panelForRec = new peoplePanel("收件人");
                 panelForRec.setLocation(15,350);
@@ -89,14 +89,14 @@ public class ReceivingInputFrame extends InputFrame implements ActionListener{
                 cancle.setSize(60,35);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
-                this.getContentPane().add(confirm);
-                this.getContentPane().add(cancle);
+                this.getContentPane().add(confirm, 0);
+                this.getContentPane().add(cancle, 0);
                 
                 errOutPutLabel = new JLabel();
                 errOutPutLabel.setBounds(325, 15, 240, 30);
                 errOutPutLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
                 errOutPutLabel.setForeground(Color.RED);
-                this.getContentPane().add(errOutPutLabel);
+                this.getContentPane().add(errOutPutLabel, 0);
                 
         }
         
@@ -122,37 +122,38 @@ public class ReceivingInputFrame extends InputFrame implements ActionListener{
                                         labels[i][j] = new JLabel(nameStrings[i][j]);
                                         labels[i][j].setLocation(15 + j * 175, 15 + i * 50);
                                         labels[i][j].setSize(70,35);
-                                        this.add(labels[i][j]);
+                                        this.add(labels[i][j], 0);
                                 }
                         }
                         textAreas[0] = new JTextArea();
                         textAreas[0].setBounds(65,15,100,35);
-                        this.add(textAreas[0]);
+                        this.add(textAreas[0], 0);
                         
                         textAreas[1] = new JTextArea();
                         textAreas[1].setBounds(65, 65, 100, 35);
-                        this.add(textAreas[1]);
+                        this.add(textAreas[1], 0);
                         
                         textAreas[2] = new JTextArea();
                         textAreas[2].setBounds(250,65,100,35);
-                        this.add(textAreas[2]);
+                        this.add(textAreas[2], 0);
                         
                         startPlace.setBounds(250,15,100, 30);
-                        this.add(startPlace);
+                        this.add(startPlace, 0);
                         
                         endPlace.setBounds(415,15,100,30);
-                        this.add(endPlace);
+                        this.add(endPlace, 0);
                         
                         packageTypeBox.setBounds(65, 115, 100, 30);
-                        this.add(packageTypeBox);
+                        this.add(packageTypeBox, 0);
                        
                         expressTypeBox.setBounds(65 + 185, 115, 100, 30);
-                        this.add(expressTypeBox);
+                        this.add(expressTypeBox, 0);
                         
                 }
                 
                 ResultMessage getInput(){
                         GoodsVO goodsVO = new GoodsVO();
+                        goodsVO.id = number.getText();
                         goodsVO.name = textAreas[0].getText();
                         goodsVO.departurePlace =  City.stringToType((String)startPlace.getSelectedItem());
                         goodsVO.destination =City.stringToType((String)endPlace.getSelectedItem());

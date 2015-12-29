@@ -43,7 +43,7 @@ public class PriceInputFrame extends InputFrame implements ActionListener {
 		JLabel title = new JLabel("运费价格输入");
 		title.setSize(90, 30);
 		title.setLocation(170, 10);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		Object[] header = {"", ""};
 		Object[][] rowdata = new Object[3][2];
@@ -98,7 +98,7 @@ public class PriceInputFrame extends InputFrame implements ActionListener {
 		panel.add(table);
 //		JScrollPane panel = new JScrollPane(table);
 //		panel.setBounds(40, 60, 335, 100);
-		this.getContentPane().add(panel);
+		this.getContentPane().add(panel, 0);
 		
 		
 		confirm = new ToolButton(250, 190,"确定");
@@ -107,8 +107,8 @@ public class PriceInputFrame extends InputFrame implements ActionListener {
 		cancle.setSize(60, 25);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
-		this.getContentPane().add(confirm);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(confirm, 0);
+		this.getContentPane().add(cancle, 0);
 	}
 
 	@Override

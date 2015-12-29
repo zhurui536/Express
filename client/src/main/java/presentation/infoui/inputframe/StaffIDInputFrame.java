@@ -36,7 +36,7 @@ public class StaffIDInputFrame extends InputFrame implements ActionListener {
 		JLabel title = new JLabel("员工id输入");
 		title.setSize(90, 30);
 		title.setLocation(70, 10);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		id = new JTextArea();
 		id.setBounds(20, 50, 200, 30);
@@ -48,8 +48,8 @@ public class StaffIDInputFrame extends InputFrame implements ActionListener {
 		cancle.setSize(60, 25);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
-		this.getContentPane().add(confirm);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(confirm, 0);
+		this.getContentPane().add(cancle, 0);
 	}
 
 	@Override

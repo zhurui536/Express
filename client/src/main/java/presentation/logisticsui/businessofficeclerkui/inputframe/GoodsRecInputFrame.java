@@ -56,40 +56,40 @@ public class GoodsRecInputFrame extends InputFrame implements ActionListener{
                 cancle.setSize(60, 25);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
-                this.getContentPane().add(confirm);
-                this.getContentPane().add(cancle);
+                this.getContentPane().add(confirm, 0);
+                this.getContentPane().add(cancle, 0);
                 
                 
                 jTextAreas = new JTextArea();
                 jTextAreas.setSize(255,30);
                 jTextAreas.setLocation(115, 50);
-                this.getContentPane().add(jTextAreas);
+                this.getContentPane().add(jTextAreas, 0);
                 
                 jLabels = new JLabel[3];
                 for(int i=0;i<3;i++){
                         jLabels[i] = new JLabel(namesString[i]);
                         jLabels[i].setSize(75, 30);
                         jLabels[i].setLocation(15, 50+40*i);
-                        this.getContentPane().add(jLabels[i]);
+                        this.getContentPane().add(jLabels[i], 0);
                 }
                 
                 city = new JComboBox<String>(citys);
                 city.setBounds(115, 90, 100, 30);
-                this.getContentPane().add(city);
+                this.getContentPane().add(city, 0);
                 
                 institution = new JComboBox<String>(institutions);
                 institution.setBounds(250, 90, 100, 30);
-                this.getContentPane().add(institution);
+                this.getContentPane().add(institution, 0);
                 
                 goodsState = new JComboBox<String>(goodsStates);
                 goodsState.setBounds(115, 130, 100, 30);
-                this.getContentPane().add(goodsState);
+                this.getContentPane().add(goodsState, 0);
                 
                 errOutputLabel = new JLabel();
                 errOutputLabel.setBounds(30, 190, 190, 30);
                 errOutputLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
                 errOutputLabel.setForeground(Color.RED);
-                this.getContentPane().add(errOutputLabel);
+                this.getContentPane().add(errOutputLabel, 0);
         }
 
         @Override

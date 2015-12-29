@@ -44,32 +44,32 @@ public class DeliveryInputFrame extends InputFrame implements ActionListener{
                 cancle.setSize(60, 25);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
-                this.getContentPane().add(confirm);
-                this.getContentPane().add(cancle);
+                this.getContentPane().add(confirm, 0);
+                this.getContentPane().add(cancle, 0);
                 
                 numberLabel = new JLabel("订单号");
                 numberLabel.setSize(70,30);
                 numberLabel.setLocation(15, 50);
-                this.getContentPane().add(numberLabel);
+                this.getContentPane().add(numberLabel, 0);
                 number = new JTextArea();
                 number.setSize(260, 30);
                 number.setLocation(110,50);
-                this.getContentPane().add(number);
+                this.getContentPane().add(number, 0);
                 
                 recLabel = new JLabel("收件人");
                 recLabel.setSize(70,30);
                 recLabel.setLocation(15,90);
-                this.getContentPane().add(recLabel);
+                this.getContentPane().add(recLabel, 0);
                 rec = new JTextArea();
                 rec.setSize(260,30);
                 rec.setLocation(110, 90);
-                this.getContentPane().add(rec);
+                this.getContentPane().add(rec, 0);
                 
                 errOutPutLabel = new JLabel();
                 errOutPutLabel.setBounds(30, 190, 150, 30);
                 errOutPutLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
                 errOutPutLabel.setForeground(Color.RED);
-                this.add(errOutPutLabel);
+                this.add(errOutPutLabel, 0);
                 
         }
         

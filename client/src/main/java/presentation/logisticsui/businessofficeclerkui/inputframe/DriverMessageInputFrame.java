@@ -74,7 +74,7 @@ public class DriverMessageInputFrame extends InputFrame implements ActionListene
                 this.setLocation(400, 250);
                 
                 labels[0].setBounds(15, 15, 100, 30);
-                this.getContentPane().add(labels[0]);
+                this.getContentPane().add(labels[0], 0);
                 for (int i = 0; i < 2; i++) {
                         for (int j = 0; j < 2; j++) {
                                 labels[i * 2 + j + 1].setBounds(15 + i * 280, 60 + j * 45, 100, 30);
@@ -84,7 +84,7 @@ public class DriverMessageInputFrame extends InputFrame implements ActionListene
                 
                 for (int i = 0; i < 3; i++) {
                         labels[i + 5].setBounds(15, 150 + i * 45, 100, 30);
-                        this.getContentPane().add(labels[i + 5]);
+                        this.getContentPane().add(labels[i + 5], 0);
                 }
                 
                 jTextAreas[0].setBounds(115, 15, 150, 30);
@@ -92,11 +92,11 @@ public class DriverMessageInputFrame extends InputFrame implements ActionListene
                         jTextAreas[0].setText(driverMessageVO.driverId);
                         jTextAreas[0].setEditable(false);
                 }
-                this.getContentPane().add(jTextAreas[0]);
+                this.getContentPane().add(jTextAreas[0], 0);
                 
                 JLabel year = new JLabel("年");
                 year.setBounds(270, 240, 40, 30);
-                this.getContentPane().add(year);
+                this.getContentPane().add(year, 0);
                 
                 jTextAreas[1].setBounds(115, 60, 150 , 30);
                 jTextAreas[2].setBounds(395, 60, 150 , 30);
@@ -109,7 +109,7 @@ public class DriverMessageInputFrame extends InputFrame implements ActionListene
                         jTextAreas[4].setText(driverMessageVO.yearsOfLicense+"");
                 }
                 for (int i = 1; i < 5; i++) {
-                        this.getContentPane().add(jTextAreas[i]);
+                        this.getContentPane().add(jTextAreas[i], 0);
                 }
                 
                 sex = new JComboBox<String>();
@@ -117,21 +117,21 @@ public class DriverMessageInputFrame extends InputFrame implements ActionListene
                 sex.addItem("女");
                 sex.setBounds(395, 105, 60, 30);
                 
-                this.getContentPane().add(sex);
+                this.getContentPane().add(sex, 0);
                 
                 yearBirth = new JComboBox<>();
                for (int i = 1960; i <= 1999; i++) {
                        yearBirth.addItem(i + "年");
                }
                 yearBirth.setBounds(115 , 150, 120 , 30);
-                this.getContentPane().add(yearBirth);
+                this.getContentPane().add(yearBirth, 0);
                 
                 yearStart = new JComboBox<>();
                 for (int i = 2000; i <= 2020; i++) {
                         yearStart.addItem(i + "年");
                 }
                 yearStart.setBounds(115 , 195, 120 , 30);
-                 this.getContentPane().add(yearStart);
+                 this.getContentPane().add(yearStart, 0);
                  
                  monthBirth = new JComboBox<>();
                  monthStart = new JComboBox<String>();
@@ -142,8 +142,8 @@ public class DriverMessageInputFrame extends InputFrame implements ActionListene
                 }
                  monthBirth.setBounds(250, 150, 60, 30);
                  monthStart.setBounds(250, 195, 60, 30);
-                 this.getContentPane().add(monthBirth);
-                 this.getContentPane().add(monthStart);
+                 this.getContentPane().add(monthBirth, 0);
+                 this.getContentPane().add(monthStart, 0);
                  
                  dayBirth = new JComboBox<>();
                  dayStart = new JComboBox<String>();
@@ -154,23 +154,23 @@ public class DriverMessageInputFrame extends InputFrame implements ActionListene
                 }
                  dayBirth.setBounds(325, 150, 60, 30);
                  dayStart.setBounds(325, 195, 60, 30);
-                 this.getContentPane().add(dayBirth);
-                 this.getContentPane().add(dayStart);
+                 this.getContentPane().add(dayBirth, 0);
+                 this.getContentPane().add(dayStart, 0);
                  
                  confirm = new ToolButton(410, 285, "确定");
                  confirm.setSize(60, 25);
                  confirm.addActionListener(this);
-                 this.getContentPane().add(confirm);
+                 this.getContentPane().add(confirm, 0);
                  cancle = new ToolButton(485, 285,"取消");
                  cancle.setSize(60 ,25);
                  cancle.addActionListener(this);
-                 this.getContentPane().add(cancle);
+                 this.getContentPane().add(cancle, 0);
                  
                  errOutputLabel = new JLabel();
                  errOutputLabel.setBounds(295, 15 , 230, 30);
                  errOutputLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
                  errOutputLabel.setForeground(Color.RED);
-                 this.getContentPane().add(errOutputLabel);
+                 this.getContentPane().add(errOutputLabel, 0);
         }
         
 //        public static void main(String[] args) {
