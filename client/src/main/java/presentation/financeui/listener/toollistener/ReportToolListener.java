@@ -9,15 +9,12 @@ import javax.swing.JFileChooser;
 
 import presentation.WarningDialog;
 import presentation.financeui.datapanel.ProfitPanel;
-import presentation.financeui.datapanel.StatementPanel;
 import presentation.financeui.dialog.StatementDialog;
 import presentation.financeui.listener.ToolListener;
 import presentation.mainui.ExpressFrame;
 import presentation.mainui.component.MyTool;
 import util.ResultMessage;
-import util.Time;
 import vo.financevo.ProfitListVO;
-import vo.financevo.StatementVO;
 
 /**
  * Created by Away
@@ -41,9 +38,6 @@ public class ReportToolListener extends ToolListener {
         } else if (button == toolPanel.getButton(2)) {
             StatementDialog dialog = new StatementDialog(ui);
             dialog.setVisible(true);
-            Time sTime = dialog.getStartTime();
-            Time eTime = dialog.getEndTime();
-            processStatement(sTime, eTime);
         } else if (button == toolPanel.getButton(1)) {
         	OutputStream out = getPath();
             if (out != null) {
@@ -89,19 +83,6 @@ public class ReportToolListener extends ToolListener {
         }
 	}
 
-	private void processStatement(Time sTime, Time eTime) {
-    	ResultMessage msg = financeController.showStatement(sTime, eTime);
-        if (isFail(msg)) {
-            new WarningDialog(ui, "生成失败！");
-        	System.out.println(msg.getKey());
-        } else {
-        	StatementVO statementVO = (StatementVO) msg.getValue();
-            StatementPanel statementPanel = new StatementPanel(statementVO);
-            System.out.println("success");
-            ui.paintdata(statementPanel);
-        }
-	}
-
 	private void processProfit() {
         ResultMessage msg = financeController.showProfitList();
         if (isFail(msg)) {
@@ -118,7 +99,4 @@ public class ReportToolListener extends ToolListener {
         return message.getKey().equals("fail");
     }
     
-    public static void main(String args[]) {
-    	
-    }
 }

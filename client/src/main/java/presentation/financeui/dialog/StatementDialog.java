@@ -4,12 +4,21 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
+import bussinesslogicservice.financeblservice.FinanceBLService;
+import presentation.WarningDialog;
+import presentation.financeui.FinanceFrame;
+import presentation.financeui.datapanel.StatementPanel;
+import presentation.mainui.ExpressFrame;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
-import presentation.mainui.ExpressFrame;
+import util.DateChooser;
+import util.ResultMessage;
 import util.Time;
+import vo.financevo.StatementVO;
 
 /**
  * Created by Away
@@ -19,17 +28,14 @@ import util.Time;
 @SuppressWarnings("serial")
 public class StatementDialog extends InputFrame {
 
-    private JComboBox<String> startYear;
-    private JComboBox<String> startMonth;
-    private JComboBox<String> startDay;
-    private JComboBox<String> endYear;
-    private JComboBox<String> endMonth;
-    private JComboBox<String> endDay;
-    private Time sTime;
-    private Time eTime;
-    
+	private DateChooser start;
+	private DateChooser end;
+    private FinanceBLService financeController;
+    private FinanceFrame ui;
     public StatementDialog(ExpressFrame ui) {
         super(ui);
+        this.ui = (FinanceFrame) ui;
+        this.financeController = ((FinanceFrame)ui).getFinanceController();
         init(ui);
     }
 
@@ -38,12 +44,11 @@ public class StatementDialog extends InputFrame {
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 220);
         this.setBackgroundSize(400, 220);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.setModal(true);
 
         JPanel panel = new JPanel();
 
         JButton ok = new ToolButton(150, 130,"确定");
-        ok.setSize( 80, 30);
+        ok.setSize(80, 30);
         ok.addActionListener(new okListener());
 
         JLabel sTime = new JLabel("开始时间");
@@ -51,80 +56,54 @@ public class StatementDialog extends InputFrame {
 
         JLabel eTime = new JLabel("结束时间");
         eTime.setBounds(50, 70, 80, 50);
-
-        startYear = new JComboBox<>();
-        for (int i = 2000; i <= 2020; i++) {
-            startYear.addItem(i + "");
-        }
-        startYear.setBounds(150, 30, 100, 30);
-
-        startMonth = new JComboBox<>();
-        for (int i = 1; i < 12; i++) {
-            startMonth.addItem(i + "");
-        }
-        startMonth.setBounds(260, 30, 50, 30);
-
-        startDay = new JComboBox<>();
-        for (int i = 1; i <= 31; i++) {
-            startDay.addItem(i + "");
-        }
-        startDay.setBounds(320, 30, 50, 30);
-
-        endYear = new JComboBox<>();
-        for (int i = 2000; i <= 2020; i++) {
-            endYear.addItem(i + "");
-        }
-        endYear.setBounds(150, 80, 100, 30);
-
-        endMonth = new JComboBox<>();
-        for (int i = 1; i < 12; i++) {
-            endMonth.addItem(i + "");
-        }
-        endMonth.setBounds(260, 80, 50, 30);
-
-        endDay = new JComboBox<>();
-        for (int i = 1; i <= 31; i++) {
-            endDay.addItem(i + "");
-        }
-        endDay.setBounds(320, 80, 50, 30);
+        
+        start = new DateChooser(this);
+        start.setBounds(130, 30, 200, 30);
+        
+        end = new DateChooser(this);
+        end.setBounds(130, 80, 200, 30);
         
         panel.setLayout(null);
         panel.add(ok);
-        panel.add(startYear);
-        panel.add(startMonth);
-        panel.add(startDay);
-        panel.add(endYear);
-        panel.add(endMonth);
-        panel.add(endDay);
         panel.add(sTime);
         panel.add(eTime);
+        panel.add(start);
+        panel.add(end);
         this.setContentPane(panel);
     }
 
     private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	String sy = (String) startYear.getSelectedItem();
-            String sm = (String) startMonth.getSelectedItem();
-            String sd = (String) startDay.getSelectedItem();
-            sTime = new Time(sy + "-" + sm + "-" + sd);
-            String ey = (String) endYear.getSelectedItem();
-            String em = (String) endMonth.getSelectedItem();
-            String ed = (String) endDay.getSelectedItem();
-            eTime = new Time(ey + "-" + em + "-" + ed);
-            close();
+        	Time sTime = new Time(start.getDateField().getText());
+        	Time eTime = new Time(end.getDateField().getText());
+        	if (isAfter(sTime, eTime)) {
+        		new WarningDialog(ui, "开始日期必须早于结束日期");
+        		return;
+        	} else {
+        		processStatement(sTime, eTime);
+        	}
         }
     }
 	
-	public Time getStartTime() {
-		return sTime;
+    private void processStatement(Time sTime, Time eTime) {
+    	ResultMessage msg = financeController.showStatement(sTime, eTime);
+        if (isFail(msg)) {
+            new WarningDialog(ui, "生成失败！");
+        	System.out.println(msg.getKey());
+        } else {
+        	StatementVO statementVO = (StatementVO) msg.getValue();
+            StatementPanel statementPanel = new StatementPanel(statementVO);
+            ui.paintdata(statementPanel);
+            this.setVisible(false);
+        }
 	}
-	
-	public Time getEndTime() {
-		return eTime;
-	}
-	
-    private void close() {
-        this.setVisible(false);
+    
+    private boolean isAfter(Time startTime, Time endTime) {
+        return startTime.compareTo(endTime) > 0;
+    }
+    
+    private boolean isFail(ResultMessage message) {
+        return message.getKey().equals("fail");
     }
 }
