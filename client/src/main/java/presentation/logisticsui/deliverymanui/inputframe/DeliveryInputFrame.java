@@ -3,6 +3,8 @@ package presentation.logisticsui.deliverymanui.inputframe;
 import presentation.WarningDialog;
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.deliverymanui.listener.toollistener.DeliveryToolListener;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.Time;
 
 import javax.swing.*;
@@ -14,7 +16,7 @@ import java.awt.event.ActionListener;
 
 
 @SuppressWarnings("serial")
-public class DeliveryInputFrame extends JFrame implements ActionListener{
+public class DeliveryInputFrame extends InputFrame implements ActionListener{
 
         private DeliveryToolListener listener;
         
@@ -36,12 +38,10 @@ public class DeliveryInputFrame extends JFrame implements ActionListener{
         }
         
         private void init() {
-                confirm = new JButton("确定");
-                cancle = new JButton("取消");
+                confirm = new ToolButton(250, 190,"确定");
+                cancle = new ToolButton(330, 190,"取消");
                 confirm.setSize(60, 25);
                 cancle.setSize(60, 25);
-                confirm.setLocation(250, 190);
-                cancle.setLocation(330, 190);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
                 this.getContentPane().add(confirm);
@@ -85,11 +85,11 @@ public class DeliveryInputFrame extends JFrame implements ActionListener{
                         Time time = new Time();
                         boolean result = listener.getInput(recp, id, time);
                         if(result){
-                                new WarningDialog(this, "收件信息已记录");
+                                new WarningDialog(null, "收件信息已记录");
                                 this.setVisible(false);
                         }
                         else {
-                                new WarningDialog(this, "订单号不存在");
+                                new WarningDialog(null, "订单号不存在");
                         }
                 }else if(e.getSource() == cancle){
                         this.setVisible(false);

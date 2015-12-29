@@ -3,6 +3,8 @@ package presentation.logisticsui.deliverymanui.inputframe;
 import presentation.WarningDialog;
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.deliverymanui.listener.toollistener.BillQueryToolListener;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 
 import javax.swing.*;
 
@@ -13,7 +15,7 @@ import java.awt.event.ActionListener;
 
 
 @SuppressWarnings("serial")
-public class BillQueryInputFrame extends JFrame implements ActionListener{
+public class BillQueryInputFrame extends InputFrame implements ActionListener{
         
         private JButton confirm, cancle;
         
@@ -35,12 +37,10 @@ public class BillQueryInputFrame extends JFrame implements ActionListener{
         }
         
         private void init() {
-                confirm = new JButton("确定");
-                cancle = new JButton("取消");
+                confirm = new ToolButton(250, 190,"确定");
+                cancle = new ToolButton(330, 190,"取消");
                 confirm.setSize(60, 25);
                 cancle.setSize(60, 25);
-                confirm.setLocation(250, 190);
-                cancle.setLocation(330, 190);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
                 this.getContentPane().add(confirm);
@@ -79,7 +79,7 @@ public class BillQueryInputFrame extends JFrame implements ActionListener{
                         }
                         else{
                                 this.setVisible(false);
-                                new WarningDialog(this, "无该订单");
+                                new WarningDialog(null, "无该订单");
                         }
                 }else if(e.getSource() == cancle){
                         this.setVisible(false);

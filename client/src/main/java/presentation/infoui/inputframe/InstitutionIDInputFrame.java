@@ -4,13 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import presentation.infoui.listener.InstitutionInfoToolListener;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 
-public class InstitutionIDInputFrame extends JFrame implements ActionListener {
+public class InstitutionIDInputFrame extends InputFrame implements ActionListener {
 	//确定、取消按钮
 	private JButton confirm, cancle;
 	//ID的输入框
@@ -40,12 +41,10 @@ public class InstitutionIDInputFrame extends JFrame implements ActionListener {
 		id.setBounds(20, 50, 200, 30);
 		this.getContentPane().add(id);
 		
-		confirm = new JButton("确定");
-		cancle = new JButton("取消");
+		confirm = new ToolButton(30, 90,"确定");
+		cancle = new ToolButton(110, 90,"取消");
 		confirm.setSize(60, 25);
 		cancle.setSize(60, 25);
-		confirm.setLocation(30, 90);
-		cancle.setLocation(110, 90);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
 		this.getContentPane().add(confirm);

@@ -10,10 +10,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import presentation.WarningDialog;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import presentation.strategyui.listener.StrategyToolListener;
 import util.City;
 
-public class DistanceInputFrame extends JFrame implements ActionListener{
+public class DistanceInputFrame extends InputFrame implements ActionListener{
 	private JButton confirm;
 	private JButton cancle;
 	
@@ -30,6 +32,7 @@ public class DistanceInputFrame extends JFrame implements ActionListener{
 	
 	public DistanceInputFrame(StrategyToolListener tl){
 		this.setBounds(400, 250, 350, 290);
+		this.setBackgroundSize(350, 290);
 		this.setLayout(null);
 		this.tl = tl;
 		
@@ -67,13 +70,13 @@ public class DistanceInputFrame extends JFrame implements ActionListener{
 		input.setBounds(95, 120, 170, 30);
 		this.getContentPane().add(input);
 		
-		confirm = new JButton("确定");
-		confirm.setBounds(100, 170, 60, 30);
+		confirm = new ToolButton(100, 170,"确定");
+		confirm.setSize( 60, 30);
 		confirm.addActionListener(this);
 		this.getContentPane().add(confirm);
 		
-		cancle = new JButton("取消");
-		cancle.setBounds(180, 170, 60, 30);
+		cancle = new ToolButton(180, 170,"取消");
+		cancle.setSize( 60, 30);
 		cancle.addActionListener(this);
 		this.getContentPane().add(cancle);
 	}
@@ -92,7 +95,7 @@ public class DistanceInputFrame extends JFrame implements ActionListener{
 				City a = this.boxToCity(0);
 				City b = this.boxToCity(1);
 				if(a==b){
-					WarningDialog tip = new WarningDialog(this, "城市不能相同");
+					WarningDialog tip = new WarningDialog(null, "城市不能相同");
 				}
 				else{
 					boolean result = tl.getInput(a, b, distance);
@@ -101,7 +104,7 @@ public class DistanceInputFrame extends JFrame implements ActionListener{
 					}
 				}
 			}catch(Exception ex){
-				WarningDialog tip = new WarningDialog(this, "输入有误，请重新输入");
+				WarningDialog tip = new WarningDialog(null, "输入有误，请重新输入");
 				input.setText("");
 				this.repaint();
 				this.validate();

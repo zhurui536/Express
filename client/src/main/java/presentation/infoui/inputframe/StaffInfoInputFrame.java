@@ -2,6 +2,7 @@ package presentation.infoui.inputframe;
 
 import presentation.WarningDialog;
 import presentation.infoui.listener.StaffInfoToolListener;
+import presentation.mainui.InputFrame;
 import util.Job;
 import util.SalaryType;
 import vo.SalaryVO;
@@ -11,7 +12,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StaffInfoInputFrame extends JFrame implements ActionListener{
+public class StaffInfoInputFrame extends InputFrame implements ActionListener{
 	//表示窗口的用途，0代表增加，1代表修改
 	private int condition;
 	
@@ -215,7 +216,7 @@ public class StaffInfoInputFrame extends JFrame implements ActionListener{
 				}
 			}catch(Exception e){
 				e.printStackTrace();
-				WarningDialog warning = new WarningDialog(this, "输入有误，请重新输入");
+				WarningDialog warning = new WarningDialog(null, "输入有误，请重新输入");
 				this.input[3].setText("");
 			}
 			

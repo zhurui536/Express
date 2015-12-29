@@ -9,11 +9,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import presentation.storeui.listener.toollistener.OutStoreToolListener;
 import util.Trans;
 
 @SuppressWarnings("serial")
-public class OutStoreInputFrame extends JFrame implements ActionListener{
+public class OutStoreInputFrame extends InputFrame implements ActionListener{
 	
 	private JButton confirm, cancle;
 	private JTextArea number, destination, billid;
@@ -41,12 +43,10 @@ public class OutStoreInputFrame extends JFrame implements ActionListener{
 		title.setLocation(170, 10);
 		this.getContentPane().add(title);
 		
-		confirm = new JButton("确定");
-		cancle = new JButton("取消");
+		confirm = new ToolButton(250, 210,"确定");
+		cancle = new ToolButton(330, 210,"取消");
 		confirm.setSize(60, 25);
 		cancle.setSize(60, 25);
-		confirm.setLocation(250, 210);
-		cancle.setLocation(330, 210);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
 		this.getContentPane().add(confirm);

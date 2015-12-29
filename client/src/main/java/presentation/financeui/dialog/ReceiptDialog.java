@@ -1,6 +1,8 @@
 package presentation.financeui.dialog;
 
 import presentation.financeui.FinanceFrame;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.Time;
 
 import javax.swing.*;
@@ -14,7 +16,7 @@ import java.awt.event.ActionListener;
  */
 
 @SuppressWarnings("serial")
-public class ReceiptDialog extends JDialog {
+public class ReceiptDialog extends InputFrame {
 
     private JComboBox<String> year;
     private JComboBox<String> month;
@@ -31,13 +33,14 @@ public class ReceiptDialog extends JDialog {
     private void init(Frame ui) {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 200);
+        this.setBackgroundSize(400, 200);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
         JPanel panel = new JPanel();
 
-        JButton ok = new JButton("确定");
-        ok.setBounds(150, 120, 80, 30);
+        JButton ok = new ToolButton(150, 120,"确定");
+        ok.setSize( 80, 30);
         ok.addActionListener(new okListener());
 
         JLabel time = new JLabel("时间");

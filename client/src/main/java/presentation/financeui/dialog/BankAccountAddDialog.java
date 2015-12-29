@@ -3,6 +3,8 @@ package presentation.financeui.dialog;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.InputChecker;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.ResultMessage;
 import vo.financevo.BankAccountVO;
 
@@ -20,7 +22,7 @@ import java.math.BigDecimal;
  */
 
 @SuppressWarnings("serial")
-public class BankAccountAddDialog extends JDialog {
+public class BankAccountAddDialog extends InputFrame {
 
     private JTextField acID;
     private JTextField acName;
@@ -34,17 +36,18 @@ public class BankAccountAddDialog extends JDialog {
        	financeController = ui.getFinanceController();
         init();
     }
-
+    
     private void init() {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 300);
+        this.setBackgroundSize(400, 300);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
         JPanel panel = new JPanel();
 
-        JButton ok = new JButton("确定");
-        ok.setBounds(150, 180, 100, 40);
+        JButton ok = new ToolButton(150, 180,"确定");
+        ok.setSize(100, 40);
         ok.addActionListener(new okListener());
 
         JLabel id = new JLabel("账号ID");

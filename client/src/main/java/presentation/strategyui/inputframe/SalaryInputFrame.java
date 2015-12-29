@@ -1,6 +1,8 @@
 package presentation.strategyui.inputframe;
 
 import presentation.WarningDialog;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import presentation.strategyui.listener.SalaryToolListener;
 import util.Job;
 import util.SalaryType;
@@ -11,7 +13,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SalaryInputFrame extends JFrame implements ActionListener{
+public class SalaryInputFrame extends InputFrame implements ActionListener{
 	private StaffMessageVO vo;
 	private SalaryToolListener tl;
 	
@@ -78,12 +80,10 @@ public class SalaryInputFrame extends JFrame implements ActionListener{
 		salary.setBounds(140, 170, 100, 30);
 		this.getContentPane().add(salary);
 		
-		confirm = new JButton("确定");
-		cancle = new JButton("取消");
+		confirm = new ToolButton(120, 210,"确定");
+		cancle = new ToolButton(200, 210,"取消");
 		confirm.setSize(60, 25);
 		cancle.setSize(60, 25);
-		confirm.setLocation(120, 210);
-		cancle.setLocation(200, 210);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
 		this.getContentPane().add(confirm);
@@ -119,7 +119,7 @@ public class SalaryInputFrame extends JFrame implements ActionListener{
 				}
 			}catch(Exception e){
 				e.printStackTrace();
-				WarningDialog warning = new WarningDialog(this, "输入有误，请重新输入");
+				WarningDialog warning = new WarningDialog(null, "输入有误，请重新输入");
 				this.salary.setText(vo.salary.getSalary()+"");
 			}
 			

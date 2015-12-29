@@ -1,6 +1,8 @@
 package presentation.storeui.inputframe;
 
 import presentation.WarningDialog;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import presentation.storeui.listener.toollistener.AdjustToolListener;
 
 import javax.swing.*;
@@ -8,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
-public class AdjustInputFrame extends JFrame implements ActionListener {
+public class AdjustInputFrame extends InputFrame implements ActionListener {
 	//确定、取消按钮
 	private JButton confirm, cancle;
 	//起始位置的输入框
@@ -38,12 +40,10 @@ public class AdjustInputFrame extends JFrame implements ActionListener {
 		title.setLocation(170, 10);
 		this.getContentPane().add(title);
 		
-		confirm = new JButton("确定");
-		cancle = new JButton("取消");
+		confirm = new ToolButton(250, 190,"确定");
+		cancle = new ToolButton(330, 190,"取消");
 		confirm.setSize(60, 25);
 		cancle.setSize(60, 25);
-		confirm.setLocation(250, 190);
-		cancle.setLocation(330, 190);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
 		this.getContentPane().add(confirm);
@@ -94,7 +94,7 @@ public class AdjustInputFrame extends JFrame implements ActionListener {
 					this.setVisible(false);
 				}
 			}catch(Exception ex){
-				WarningDialog warning = new WarningDialog(this, "输入有误，请重新输入");
+				WarningDialog warning = new WarningDialog(null, "输入有误，请重新输入");
 			}
 			//如果输入无法进行转换，那么将输入框重置
 			for(int i=0;i<4;i++){

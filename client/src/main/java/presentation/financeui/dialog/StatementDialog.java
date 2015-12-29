@@ -4,13 +4,11 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import presentation.financeui.FinanceFrame;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.Time;
 
 /**
@@ -19,7 +17,7 @@ import util.Time;
  */
 
 @SuppressWarnings("serial")
-public class StatementDialog extends JDialog {
+public class StatementDialog extends InputFrame {
 
     private JComboBox<String> startYear;
     private JComboBox<String> startMonth;
@@ -38,13 +36,14 @@ public class StatementDialog extends JDialog {
     private void init(Frame ui) {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 220);
+        this.setBackgroundSize(400, 220);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
         JPanel panel = new JPanel();
 
-        JButton ok = new JButton("确定");
-        ok.setBounds(150, 130, 80, 30);
+        JButton ok = new ToolButton(150, 130,"确定");
+        ok.setSize( 80, 30);
         ok.addActionListener(new okListener());
 
         JLabel sTime = new JLabel("开始时间");

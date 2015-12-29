@@ -3,6 +3,8 @@ package presentation.logisticsui.deliverymanui.inputframe;
 
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.deliverymanui.listener.toollistener.ReceivingToolListener;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.City;
 import util.ExpressType;
 import util.GoodsDeliveryState;
@@ -21,7 +23,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
-public class ReceivingInputFrame extends JFrame implements ActionListener{
+public class ReceivingInputFrame extends InputFrame implements ActionListener{
         
         private ReceivingToolListener listener;
         
@@ -81,12 +83,10 @@ public class ReceivingInputFrame extends JFrame implements ActionListener{
                 panelForRec.setSize(510,115);
                 this.getContentPane().add(panelForRec);
                 
-                confirm = new JButton("确定");
-                cancle = new JButton("取消");
+                confirm = new ToolButton(385,465,"确定");
+                cancle = new ToolButton(465,465,"取消");
                 confirm.setSize(60,35);
-                confirm.setLocation(385,465);
                 cancle.setSize(60,35);
-                cancle.setLocation(465,465);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
                 this.getContentPane().add(confirm);

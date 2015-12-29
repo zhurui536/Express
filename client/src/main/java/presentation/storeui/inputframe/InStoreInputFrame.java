@@ -1,6 +1,8 @@
 package presentation.storeui.inputframe;
 
 import presentation.WarningDialog;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import presentation.storeui.listener.toollistener.InStoreToolListener;
 
 import javax.swing.*;
@@ -8,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
-public class InStoreInputFrame extends JFrame implements ActionListener{
+public class InStoreInputFrame extends InputFrame implements ActionListener{
 	private JButton confirm, cancle;
 	private JTextArea number, destination;
 	private JTextArea[] place;
@@ -34,12 +36,10 @@ public class InStoreInputFrame extends JFrame implements ActionListener{
 		title.setLocation(170, 10);
 		this.getContentPane().add(title);
 		
-		confirm = new JButton("确定");
-		cancle = new JButton("取消");
+		confirm = new ToolButton(250, 190,"确定");
+		cancle = new ToolButton(330, 190,"取消");
 		confirm.setSize(60, 25);
 		cancle.setSize(60, 25);
-		confirm.setLocation(250, 190);
-		cancle.setLocation(330, 190);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
 		this.getContentPane().add(confirm);
@@ -93,7 +93,7 @@ public class InStoreInputFrame extends JFrame implements ActionListener{
 					this.dispose();
 				}
 			}catch(Exception ex){//如果转换成整数发生错误，说明输入有误
-				WarningDialog warning = new WarningDialog(this, "输入有误，请重新输入");
+				WarningDialog warning = new WarningDialog(null, "输入有误，请重新输入");
 				for(int i=0;i<4;i++){
 					this.place[i].setText("");
 				}

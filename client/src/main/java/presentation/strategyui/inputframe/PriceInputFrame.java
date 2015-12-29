@@ -13,9 +13,11 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 
 import presentation.WarningDialog;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import presentation.strategyui.listener.StrategyToolListener;
 
-public class PriceInputFrame extends JFrame implements ActionListener {
+public class PriceInputFrame extends InputFrame implements ActionListener {
 	//确定、取消按钮
 	private JButton confirm, cancle;
 	
@@ -99,12 +101,10 @@ public class PriceInputFrame extends JFrame implements ActionListener {
 		this.getContentPane().add(panel);
 		
 		
-		confirm = new JButton("确定");
-		cancle = new JButton("取消");
+		confirm = new ToolButton(250, 190,"确定");
+		cancle = new ToolButton(330, 190,"取消");
 		confirm.setSize(60, 25);
 		cancle.setSize(60, 25);
-		confirm.setLocation(250, 190);
-		cancle.setLocation(330, 190);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
 		this.getContentPane().add(confirm);
@@ -125,7 +125,7 @@ public class PriceInputFrame extends JFrame implements ActionListener {
 					this.dispose();
 				}
 			}catch(Exception e){
-				WarningDialog tip = new WarningDialog(this, "输入有误，请重新输入");
+				WarningDialog tip = new WarningDialog(null, "输入有误，请重新输入");
 				table.setValueAt("", 0, 1);
 				table.setValueAt("", 1, 1);
 				table.setValueAt("", 2, 1);

@@ -9,11 +9,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import presentation.userui.listener.AdminToolListener;
 import util.AuthorityLevel;
 import vo.UserVO;
 
-public class AdminInputFrame extends JFrame implements ActionListener{
+public class AdminInputFrame extends InputFrame implements ActionListener{
 	private AdminToolListener listener;
 	private JTextArea[] texts;
 	private JComboBox<String> level;
@@ -76,13 +78,13 @@ public class AdminInputFrame extends JFrame implements ActionListener{
 		}
 		this.getContentPane().add(level);
 		
-		confirm = new JButton("确定");
-		confirm.setBounds(200, 220, 60, 25);
+		confirm = new ToolButton(200, 220,"确定");
+		confirm.setSize( 60, 25);
 		confirm.addActionListener(this);
 		this.getContentPane().add(confirm);
 		
-		cancle = new JButton("取消");
-		cancle.setBounds(265, 220, 60, 25);
+		cancle = new ToolButton(265, 220,"取消");
+		cancle.setSize( 60, 25);
 		cancle.addActionListener(this);
 		this.getContentPane().add(cancle);
 	}

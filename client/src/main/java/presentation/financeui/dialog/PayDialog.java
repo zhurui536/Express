@@ -6,18 +6,15 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.PayPanel;
 import presentation.logisticsui.InputChecker;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.PayItem;
 import util.PublicMessage;
 import util.ResultMessage;
@@ -30,7 +27,7 @@ import vo.financevo.PayBillVO;
  */
 
 @SuppressWarnings("serial")
-public class PayDialog extends JDialog {
+public class PayDialog extends InputFrame {
 
     private JTextField payMoney;
     private JTextField payAccountID;
@@ -49,13 +46,14 @@ public class PayDialog extends JDialog {
     private void init() {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 400);
+        this.setBackgroundSize(400, 400);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
         JPanel panel = new JPanel();
 
-        JButton ok = new JButton("确定");
-        ok.setBounds(150, 280, 100, 40);
+        JButton ok = new ToolButton(150, 280,"确定");
+        ok.setSize( 100, 40);
         ok.addActionListener(new okListener());
 
         JLabel personID = new JLabel("付款人ID:               " + PublicMessage.staffID);

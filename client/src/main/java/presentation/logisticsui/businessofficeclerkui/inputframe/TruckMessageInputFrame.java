@@ -5,6 +5,8 @@ import presentation.WarningDialog;
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.TruckMessageToolListener;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.ResultMessage;
 import vo.TruckMessageVO;
 
@@ -16,7 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
-public class TruckMessageInputFrame extends JFrame implements ActionListener {
+public class TruckMessageInputFrame extends InputFrame implements ActionListener {
 
         private final String[] nameStrings = { "车辆编号", "车牌号", "服役时间", "年" };
 
@@ -80,12 +82,12 @@ public class TruckMessageInputFrame extends JFrame implements ActionListener {
                         this.getContentPane().add(jTextAreas[i]);
                 }
 
-                confirm = new JButton("确定");
-                confirm.setBounds(180, 150, 60, 25);
+                confirm = new ToolButton(180, 150,"确定");
+                confirm.setSize( 60, 25);
                 confirm.addActionListener(this);
                 this.getContentPane().add(confirm);
-                cancle = new JButton("取消");
-                cancle.setBounds(255, 150, 60, 25);
+                cancle = new ToolButton(255, 150,"取消");
+                cancle.setSize( 60, 25);
                 cancle.addActionListener(this);
                 this.getContentPane().add(cancle);
                 

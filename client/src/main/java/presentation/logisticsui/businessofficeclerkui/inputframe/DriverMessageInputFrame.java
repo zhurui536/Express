@@ -5,6 +5,8 @@ import presentation.WarningDialog;
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.DriverMessageToolListener;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.ResultMessage;
 import util.Sex;
 import util.Time;
@@ -18,7 +20,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
-public class DriverMessageInputFrame extends JFrame implements ActionListener{
+public class DriverMessageInputFrame extends InputFrame implements ActionListener{
 
         private final String[] nameStrings = {"司机编号","姓名","身份证号","手机号码","性别","出生日期","驾照起始","有效时间"};
         
@@ -155,12 +157,12 @@ public class DriverMessageInputFrame extends JFrame implements ActionListener{
                  this.getContentPane().add(dayBirth);
                  this.getContentPane().add(dayStart);
                  
-                 confirm = new JButton("确定");
-                 confirm.setBounds(410, 285, 60, 25);
+                 confirm = new ToolButton(410, 285, "确定");
+                 confirm.setSize(60, 25);
                  confirm.addActionListener(this);
                  this.getContentPane().add(confirm);
-                 cancle = new JButton("取消");
-                 cancle.setBounds(485, 285, 60 ,25);
+                 cancle = new ToolButton(485, 285,"取消");
+                 cancle.setSize(60 ,25);
                  cancle.addActionListener(this);
                  this.getContentPane().add(cancle);
                  

@@ -2,6 +2,8 @@ package presentation.logisticsui.transitcenterclerkui.inputframe;
 
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.transitcenterclerkui.listener.toollistener.GoodsTranToolListener;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.Time;
 import util.Trans;
 import vo.logisticvo.TransferBillVO;
@@ -17,7 +19,7 @@ import java.util.HashMap;
 
 
 @SuppressWarnings("serial")
-public class GoodsTranInputFrame extends JFrame implements ActionListener{
+public class GoodsTranInputFrame extends InputFrame implements ActionListener{
 
         private GoodsTranToolListener listener;
         
@@ -107,12 +109,10 @@ public class GoodsTranInputFrame extends JFrame implements ActionListener{
 //                day.setBounds(295, 170, 60, 30);
 //                this.getContentPane().add(day);
                 
-                confirm = new JButton("确定");
-                cancle = new JButton("取消");
+                confirm = new ToolButton(250, 220,"确定");
+                cancle = new ToolButton(330, 220,"取消");
                 confirm.setSize(60, 25);
                 cancle.setSize(60, 25);
-                confirm.setLocation(250, 220);
-                cancle.setLocation(330, 220);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
                 this.getContentPane().add(confirm);

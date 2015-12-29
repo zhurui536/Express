@@ -3,6 +3,8 @@ package presentation.financeui.dialog;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.InputChecker;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import vo.financevo.BankAccountVO;
 
 import javax.swing.*;
@@ -14,7 +16,7 @@ import java.awt.event.ActionListener;
  * 2015/12/8
  */
 
-public class BankAccountFindDialog extends JDialog {
+public class BankAccountFindDialog extends InputFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField input;
@@ -31,13 +33,14 @@ public class BankAccountFindDialog extends JDialog {
     private void init() {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 380, 220);
+        this.setBackgroundSize(380, 220);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
         JPanel panel = new JPanel();
 
-        JButton ok = new JButton("确定");
-        ok.setBounds(150, 100, 100, 40);
+        JButton ok = new ToolButton(150, 100,"确定");
+        ok.setSize(100, 40);
         ok.addActionListener(new okListener());
 
         find = new JComboBox<>();

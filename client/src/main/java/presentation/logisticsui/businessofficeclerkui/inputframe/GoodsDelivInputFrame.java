@@ -2,6 +2,8 @@ package presentation.logisticsui.businessofficeclerkui.inputframe;
 
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsDelivToolListener;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 
 import javax.swing.*;
 
@@ -11,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
-public class GoodsDelivInputFrame extends JFrame implements ActionListener{
+public class GoodsDelivInputFrame extends InputFrame implements ActionListener{
 
         private GoodsDelivToolListener listener;
 
@@ -34,12 +36,10 @@ public class GoodsDelivInputFrame extends JFrame implements ActionListener{
         }
 
         private void init() {
-                confirm = new JButton("确定");
-                cancle = new JButton("取消");
+                confirm = new ToolButton(250, 190,"确定");
+                cancle = new ToolButton(330, 190,"取消");
                 confirm.setSize(60, 25);
                 cancle.setSize(60, 25);
-                confirm.setLocation(250, 190);
-                cancle.setLocation(330, 190);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
                 this.getContentPane().add(confirm);

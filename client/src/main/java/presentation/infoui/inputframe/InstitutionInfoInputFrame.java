@@ -5,16 +5,17 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import presentation.infoui.listener.InstitutionInfoToolListener;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.City;
 import util.InstitutionType;
 import vo.InstitutionMessageVO;
 
-public class InstitutionInfoInputFrame extends JFrame implements ActionListener {
+public class InstitutionInfoInputFrame extends InputFrame implements ActionListener {
 	private InstitutionInfoToolListener tl;
 	
 	private JButton confirm;
@@ -92,12 +93,10 @@ public class InstitutionInfoInputFrame extends JFrame implements ActionListener 
 		city.setBounds(275, 90, 70, 30);
 		this.getContentPane().add(city);
 		
-		confirm = new JButton("确定");
-		cancle = new JButton("取消");
+		confirm = new ToolButton(120, 130,"确定");
+		cancle = new ToolButton(200, 130,"取消");
 		confirm.setSize(60, 25);
 		cancle.setSize(60, 25);
-		confirm.setLocation(120, 130);
-		cancle.setLocation(200, 130);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
 		this.getContentPane().add(confirm);

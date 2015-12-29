@@ -2,6 +2,8 @@ package presentation.financeui.dialog;
 
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import vo.financevo.BankAccountVO;
 
 import javax.swing.*;
@@ -13,7 +15,7 @@ import java.awt.event.ActionListener;
  * 2015/12/9
  */
 
-public class BankAccountUpdateDialog extends JDialog {
+public class BankAccountUpdateDialog extends InputFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField acID;
@@ -30,13 +32,14 @@ public class BankAccountUpdateDialog extends JDialog {
     private void init() {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 250);
+        this.setBackgroundSize(400, 250);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
         JPanel panel = new JPanel();
 
-        JButton ok = new JButton("确定");
-        ok.setBounds(150, 130, 100, 40);
+        JButton ok = new ToolButton(150, 130,"确定");
+        ok.setSize(100, 40);
         ok.addActionListener(new okListener());
 
         JLabel id = new JLabel("账号ID");

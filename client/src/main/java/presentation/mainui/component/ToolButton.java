@@ -77,6 +77,7 @@ public class ToolButton extends JButton  implements MouseListener{
 	}
 	
 	public void setSize(int w, int h){
+	        super.setSize(w, h);
 		this.w = w;
 		this.h = h;
 		bg.setBounds(0, 0, w, h);

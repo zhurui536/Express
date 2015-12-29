@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -13,6 +12,8 @@ import javax.swing.JTextField;
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.InputChecker;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.MyFont;
 
 /**
@@ -21,7 +22,7 @@ import util.MyFont;
  */
 
 @SuppressWarnings("serial")
-public class BankAccountDelDialog extends JDialog {
+public class BankAccountDelDialog extends InputFrame {
 
     private JTextField acID;
     
@@ -39,13 +40,14 @@ public class BankAccountDelDialog extends JDialog {
     private void init() {
         this.setLayout(null);
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 180);
+        this.setBackgroundSize(400, 180);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
         JPanel panel = new JPanel();
 
-        JButton ok = new JButton("确定");
-        ok.setBounds(150, 90, 100, 40);
+        JButton ok = new ToolButton(150, 90,"确定");
+        ok.setSize(100, 40);
         ok.addActionListener(new okListener());
 
         JLabel id = new JLabel("账号ID");
