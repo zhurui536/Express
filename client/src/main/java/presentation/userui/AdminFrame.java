@@ -25,12 +25,12 @@ public class AdminFrame extends ExpressFrame {
 	}
 	
 	public AdminFrame(){
-		this.menulistener = new AdminMenuListener(this);
 		this.setLayout(null);
 		this.setSize(1000, 630);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		bl = new AdminBL();
+		this.menulistener = new AdminMenuListener(this);
 		this.paintFrame();
 	}
 	
@@ -40,7 +40,7 @@ public class AdminFrame extends ExpressFrame {
 	}
 	
 	public AdminBLService getController(){
-		return this.bl;
+		return bl;
 	}
 	
 	String[] menubutton = {"用户管理", "退出"};

@@ -23,6 +23,7 @@ public class PayToolListener extends ToolListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+    	FinanceFrame ui = (FinanceFrame) this.ui;
         Object button = e.getSource();
         MyTool toolPanel = ui.getTool();
         ui.paintdata(null);

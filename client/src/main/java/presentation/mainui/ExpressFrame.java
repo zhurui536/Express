@@ -127,4 +127,8 @@ public class ExpressFrame extends JFrame{
             }  
         });  		
 	}
+	
+	public MyTool getTool() {
+		return tool;
+	}
 }

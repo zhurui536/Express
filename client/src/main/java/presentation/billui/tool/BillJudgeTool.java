@@ -17,8 +17,8 @@ public class BillJudgeTool extends MyTool{
 		for(int i=0;i<types.length;i++){
 			billType.addItem(typeToString(types[i]));
 		}
-		billType.setBounds(420, 40, 200, 30);
-		this.add(billType);
+		billType.setBounds(650, 50, 200, 40);
+		this.add(billType, 0);
 	}
 	
 	private final BillType[] types = {

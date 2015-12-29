@@ -61,12 +61,12 @@ public class ReceiptPanel extends JPanel {
         for (ReceiptBillVO receiptBillVO : receiptBillVOs) {
         	List<ReceiptLineItemVO> receiptLineItemVOs = receiptBillVO.receiptLineItemVOs;
         	for (ReceiptLineItemVO receiptLineItemVO : receiptLineItemVOs) {
-        		value[len][1] = receiptBillVO.time.toString();
-        		value[len][2] = receiptBillVO.billID;
-        		value[len][3] = receiptBillVO.institutionID;
-        		value[len][4] = receiptLineItemVO.deliveryManID;
-        		value[len][5] = receiptLineItemVO.barCode;
-        		value[len][6] = MyFormat.setFormat(receiptLineItemVO.money);
+        		value[len][0] = receiptBillVO.time.toString();
+        		value[len][1] = receiptBillVO.billID;
+        		value[len][2] = receiptBillVO.institutionID;
+        		value[len][3] = receiptLineItemVO.deliveryManID;
+        		value[len][4] = receiptLineItemVO.barCode;
+        		value[len][5] = MyFormat.setFormat(receiptLineItemVO.money);
         		len++;
         	}
         }

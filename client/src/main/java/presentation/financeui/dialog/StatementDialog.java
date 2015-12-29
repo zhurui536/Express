@@ -10,7 +10,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import presentation.financeui.FinanceFrame;
+import presentation.mainui.ExpressFrame;
 import util.Time;
 
 /**
@@ -30,7 +30,7 @@ public class StatementDialog extends JDialog {
     private Time sTime;
     private Time eTime;
     
-    public StatementDialog(FinanceFrame ui) {
+    public StatementDialog(ExpressFrame ui) {
         super(ui);
         init(ui);
     }

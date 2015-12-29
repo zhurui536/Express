@@ -1,11 +1,12 @@
 package presentation.financeui.listener;
 
-import presentation.financeui.FinanceFrame;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import bussinesslogicservice.financeblservice.FinanceBLService;
+import presentation.financeui.FinanceFrame;
+import presentation.mainui.ExpressFrame;
+import presentation.managerui.ManagerFrame;
 
 /**
  * Created by Away
@@ -14,13 +15,17 @@ import bussinesslogicservice.financeblservice.FinanceBLService;
 
 public abstract class ToolListener implements ActionListener {
 
-    protected FinanceFrame ui;
+    protected ExpressFrame ui;
     
     protected FinanceBLService financeController;
     
-    public ToolListener(FinanceFrame ui) {
+    public ToolListener(ExpressFrame ui) {
         this.ui = ui;
-        this.financeController = ui.getFinanceController();
+        if (ui instanceof FinanceFrame) {
+        	this.financeController = ((FinanceFrame)ui).getFinanceController();
+        } else {
+        	this.financeController = ((ManagerFrame)ui).getFinanceController();
+        }
     }
 
     @Override

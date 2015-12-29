@@ -21,7 +21,7 @@ public class StoreDataPane extends JPanel {
 
 	private void makeTable(StorePO store) {
 		Object[] header = {"货物编号", "区号", "排号", "架号", "位号", "入库时间", "目的地"};
-		Object[][] rowdata = new Object[store.getNumOfEmpty()+store.getNumOfEmpty()][7];
+		Object[][] rowdata = new Object[store.getArea()*store.getRow()*store.getShelf()*store.getPlace()][7];
 		
 		int i=0;
 		for(int area=0;area<store.getArea();area++){
@@ -43,6 +43,8 @@ public class StoreDataPane extends JPanel {
 							rowdata[i][5] = df.format(temp.getDate().getTime());
 							rowdata[i][6] = City.cityToString(goods.getDestination());
 						}
+						
+						i++;
 					}
 				}
 			}

@@ -28,6 +28,7 @@ public class BankAccountManagementToolListener extends ToolListener {
 
 	@Override
     public void actionPerformed(ActionEvent e) {
+		FinanceFrame ui = (FinanceFrame) this.ui;
         Object button = e.getSource();
         MyTool toolPanel = ui.getTool();
         if (button == toolPanel.getButton(0)) {

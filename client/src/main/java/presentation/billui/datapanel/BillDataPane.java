@@ -1,6 +1,7 @@
 package presentation.billui.datapanel;
 
 import presentation.billui.listener.BillJudgeToolListener;
+import presentation.mainui.component.ToolButton;
 import util.BillType;
 import vo.BillVO;
 
@@ -31,28 +32,28 @@ public class BillDataPane extends JPanel implements ActionListener {
 		this.details = new ArrayList<JButton>();
 		this.listener = tl;
 		
-		this.setSize(810, 60*bills.size()+60);
+		this.setSize(810, 40*bills.size()+40);
 		this.setLayout(null);
 		
 		//制作信息显示目录
 		JPanel type = new JPanel();
-		type.setSize(810, 60);
+		type.setSize(810, 40);
 		type.setLocation(0, 0);
 		type.setLayout(null);
 		type.setBackground(Color.CYAN);
 		
 		JLabel number = new JLabel("单据编号");
-		number.setSize(200, 57);
+		number.setSize(200, 40);
 		number.setLocation(10, 0);
 		type.add(number);
 		
 		JLabel billtype = new JLabel("单据类型");
-		billtype.setSize(100, 57);
+		billtype.setSize(100, 40);
 		billtype.setLocation(250, 0);
 		type.add(billtype);
 		
 		JLabel userid = new JLabel("编写者编号");
-		userid.setSize(200, 57);
+		userid.setSize(200, 40);
 		userid.setLocation(400, 0);
 		type.add(userid);
 		//把目录加到大panel的开头
@@ -65,11 +66,11 @@ public class BillDataPane extends JPanel implements ActionListener {
 			billstype.add(temp.getBillType());
 			
 			JPanel item = this.makeItem(temp);
-			item.setLocation(10, 60*i+60);
+			item.setLocation(10, 40*i+40);
 			if(i%2==0)
-				item.setBackground(Color.LIGHT_GRAY);
+				item.setBackground(new Color(20, 30, 30, 40));
 			else
-				item.setBackground(Color.PINK);
+				item.setBackground(new Color(30, 30, 20, 40));
 			
 			this.add(item);
 		}
@@ -77,40 +78,37 @@ public class BillDataPane extends JPanel implements ActionListener {
 	
 	private JPanel makeItem(BillVO vo){
 		JPanel item = new JPanel();
-		item.setSize(810, 60);
+		item.setSize(810, 40);
 		item.setLocation(0, 0);
 		item.setLayout(null);
+		item.setBorder(BorderFactory.createLoweredBevelBorder());
 		
 		JLabel number = new JLabel(vo.getBillID());
-		number.setSize(200, 57);
+		number.setSize(200, 40);
 		number.setLocation(10, 0);
 		item.add(number);
 		
 		JLabel billtype = new JLabel(this.typeToString(vo.getBillType()));
-		billtype.setSize(100, 57);
+		billtype.setSize(100, 40);
 		billtype.setLocation(250, 0);
 		item.add(billtype);
 		
 		JLabel userid = new JLabel(vo.getUserID()+"");
-		userid.setSize(200, 57);
+		userid.setSize(200, 40);
 		userid.setLocation(400, 0);
 		item.add(userid);
 		
 		//审批按钮，用于单个审批
-		JButton approve = new JButton("审批");
+		ToolButton approve = new ToolButton(635, 15, "审批");
 		approve.setSize(75, 30);
-		approve.setLocation(635, 15);
 		approve.addActionListener(this);
-		approve.setBackground(Color.GREEN);
 		item.add(approve);
 		approves.add(approve);
 		
 		//查看按钮，用于查看某个单据
-		JButton detail = new JButton("查看");
+		ToolButton detail = new ToolButton(715, 15, "查看");
 		detail.setSize(75, 30);
-		detail.setLocation(715, 15);
 		detail.addActionListener(this);
-		detail.setBackground(Color.GREEN);
 		item.add(detail);
 		details.add(detail);
 		

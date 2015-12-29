@@ -9,6 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import dataservice.storedataservice.StoreDataService;
 import po.logisticpo.SendBillPO;
@@ -318,7 +319,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		
 		try {//读入盘点记录数据
 			records = (ArrayList<VerificationPO>) this.readList(verificationrecord);
-			String pici = df2.format(Calendar.getInstance());
+			String pici = df2.format(new Date());
 			int pihao = 1;
 			
 			for(int i=0;i<records.size();i++){
