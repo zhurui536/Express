@@ -8,9 +8,11 @@ import vo.SalaryVO;
 import vo.StaffMessageVO;
 
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+@SuppressWarnings("serial")
 public class StaffInfoInputFrame extends JFrame implements ActionListener{
 	//表示窗口的用途，0代表增加，1代表修改
 	private int condition;
@@ -215,7 +217,7 @@ public class StaffInfoInputFrame extends JFrame implements ActionListener{
 				}
 			}catch(Exception e){
 				e.printStackTrace();
-				WarningDialog warning = new WarningDialog(this, "输入有误，请重新输入");
+				WarningDialog warning = new WarningDialog(this, "薪水输入有误，请重新输入");
 				this.input[3].setText("");
 			}
 			

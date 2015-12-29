@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 
 import presentation.infoui.listener.InstitutionInfoToolListener;
 
+@SuppressWarnings("serial")
 public class InstitutionIDInputFrame extends JFrame implements ActionListener {
 	//确定、取消按钮
 	private JButton confirm, cancle;

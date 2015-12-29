@@ -35,21 +35,27 @@ public class OutStoreToolListener extends ToolListener {
 				break;
 		}
 		
-		if(i==0){
+		if(i==0){//点击了新建出库项
 			OutStoreInputFrame frame = new OutStoreInputFrame(this, billid);
 			frame.setVisible(true);
 		}
-		else if(i==1){
+		else if(i==1){//点击了确定结束出库
 			ResultMessage result = sc.endOutStore(0);
 			if(result.getKey().equals("success")){
 				ui.replaceTool(null);
 				ui.paintdata(null);
 			}
 			else{
-				WarningDialog frame = new WarningDialog(ui, result);
+				WarningDialog frame;
+				if(result.getKey().equals("internet error")){
+					frame = new WarningDialog(ui, "网络连接出错！！");
+				}
+				if(result.getKey().equals("dataerror")){
+					frame = new WarningDialog(ui, "数据存储出错！！");
+				}
 			}
 		}
-		else if(i==2){
+		else if(i==2){//点击了取消出库
 			sc.endOutStore(1);
 			ui.replaceTool(null);
 			ui.paintdata(null);
@@ -67,7 +73,19 @@ public class OutStoreToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningDialog warning = new WarningDialog(ui, result.getKey());
+			WarningDialog frame;
+			if(result.getKey().equals("internet error")){
+				frame = new WarningDialog(ui, "网络连接出错！！");
+			}
+			if(result.getKey().equals("dataerror")){
+				frame = new WarningDialog(ui, "数据存储出错！！");
+			}
+			if(result.getKey().equals("inputedid")){
+				frame = new WarningDialog(ui, "不能重复输入货物！！");
+			}
+			if(result.getKey().equals("noexist")){
+				frame = new WarningDialog(ui, "货物不存在！！");
+			}
 			return false;
 		}
 	}

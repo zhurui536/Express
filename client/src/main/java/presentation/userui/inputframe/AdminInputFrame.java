@@ -13,6 +13,7 @@ import presentation.userui.listener.AdminToolListener;
 import util.AuthorityLevel;
 import vo.UserVO;
 
+@SuppressWarnings("serial")
 public class AdminInputFrame extends JFrame implements ActionListener{
 	private AdminToolListener listener;
 	private JTextArea[] texts;

@@ -44,6 +44,8 @@ public class BillJudgeToolListener extends ToolListener {
 	public void actionPerformed(ActionEvent e) {
 		int i;
 		MyTool tool = super.getTool();
+		//为了减少警告，放到上面来
+		WarningDialog frame;
 		
 		for(i=0;i<tool.getNumOfButton();i++){
 			if(e.getSource() == tool.getButton(i)){
@@ -53,18 +55,30 @@ public class BillJudgeToolListener extends ToolListener {
 		
 		if(i==0){
 			ResultMessage result = bc.approves();
+			
 			if(result.getKey().equals("success")){
 				result = bc.getBills();
-				if(result.getKey().endsWith("success")){
+				if(result.getKey().equals("success")){
 					BillDataPane data = new BillDataPane((ArrayList<BillVO>) result.getValue(), this);
 					ui.paintdata(data);
 				}
 				else{
-					WarningDialog frame = new WarningDialog(ui, result);
+					if(result.getKey().equals("internet error")){
+						frame = new WarningDialog(ui, "网络连接出错！！");
+					}
+					if(result.getKey().equals("dataerror")){
+						frame = new WarningDialog(ui, "数据存储出错！！");
+					}
+					if(result.getKey().equals("noexist")){
+						frame = new WarningDialog(ui, "单据不存在！！");
+					}
+					if(result.getKey().equals("unknownerror")){
+						frame = new WarningDialog(ui, "未知错误");
+					}
 				}
 			}
 			else{
-				WarningDialog frame = new WarningDialog(ui, result);
+				frame = new WarningDialog(ui, result);
 			}
 		}
 		else if(i==1){
@@ -80,7 +94,7 @@ public class BillJudgeToolListener extends ToolListener {
 				ui.paintdata(data);
 			}
 			else{
-				WarningDialog frame = new WarningDialog(ui, result);
+				frame = new WarningDialog(ui, result);
 			}
 		}
 		if(i==3){
@@ -92,7 +106,7 @@ public class BillJudgeToolListener extends ToolListener {
 				ui.paintdata(data);
 			}
 			else{
-				WarningDialog frame = new WarningDialog(ui, result);
+				frame = new WarningDialog(ui, result);
 			}
 		}
 	}

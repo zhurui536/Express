@@ -56,4 +56,21 @@ public class CheckBL implements CheckBLService {
 		vo = null;
 	}
 
+	@Override
+	public ResultMessage checkStore() {
+		StoreDataService dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		try {
+			ResultMessage result = dataservice.getStore();
+			if(result.getKey().equals("success")){
+				return new ResultMessage("success", result.getValue());
+			}
+			else{
+				return result;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return new ResultMessage("internet error", null);
+		}
+	}
+
 }

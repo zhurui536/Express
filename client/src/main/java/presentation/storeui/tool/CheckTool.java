@@ -10,5 +10,5 @@ public class CheckTool extends MyTool{
 		super(buttonname, tl);
 	}
 	
-	private static String[] buttonname = {"search", "返回"};
+	private static String[] buttonname = {"查看当前库存", "出入库记录查询", "返回"};
 }

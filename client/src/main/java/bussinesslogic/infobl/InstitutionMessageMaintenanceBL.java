@@ -26,7 +26,8 @@ public class InstitutionMessageMaintenanceBL implements
                 staffMessageMaintenanceDataService = (StaffMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("StaffMessageMaintenanceDataServiceImpl");
         }
 
-        @Override
+        @SuppressWarnings("unchecked")
+		@Override
         public ResultMessage addInstitutionMessage(
                         InstitutionMessageVO inst) {
                 ResultMessage resultMessage = null;
@@ -64,7 +65,8 @@ public class InstitutionMessageMaintenanceBL implements
                 return new ResultMessage(resultMessage.getKey());
         }
 
-        @Override
+        @SuppressWarnings("unchecked")
+		@Override
         public ResultMessage delInstitutionMessage(String institutionId) {
                 try {//读取所有人员信息
                 	ResultMessage resultMessage = this.staffMessageMaintenanceDataService.getStaff();

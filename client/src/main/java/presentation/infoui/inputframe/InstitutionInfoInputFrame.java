@@ -14,6 +14,7 @@ import util.City;
 import util.InstitutionType;
 import vo.InstitutionMessageVO;
 
+@SuppressWarnings("serial")
 public class InstitutionInfoInputFrame extends JFrame implements ActionListener {
 	private InstitutionInfoToolListener tl;
 	

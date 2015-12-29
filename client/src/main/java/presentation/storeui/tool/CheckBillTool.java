@@ -9,5 +9,5 @@ public class CheckBillTool extends MyTool {
 		super(buttons, tl);
 	}
 	
-	private static String[] buttons = {"查看入库单", "查看入库单", "查看当前库存", "返回"};
+	private static String[] buttons = {"查看入库单", "查看入库单", "返回"};
 }

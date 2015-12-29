@@ -34,7 +34,7 @@ public class AdminToolListener extends ToolListener {
 			}
 		}
 		
-		if(i==0){
+		if(i==0){//新建用户操作
 			AdminInputFrame input = new AdminInputFrame(this);
 		}
 		if(i==1){//取消行为必定成功
@@ -49,7 +49,7 @@ public class AdminToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 		}
-		if(i==2){
+		if(i==2){//确定用户修改操作后
 			ResultMessage result = bl.end(0);
 			
 			if(result.getKey().equals("success")){
@@ -57,12 +57,25 @@ public class AdminToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				WarningDialog warning = new WarningDialog(ui, result);
+				WarningDialog frame;
+				if(result.getKey().equals("internet error")){
+					frame = new WarningDialog(ui, "网络连接出错！！");
+				}
+				if(result.getKey().equals("dataerror")){
+					frame = new WarningDialog(ui, "数据存储出错！！");
+				}
+				if(result.getKey().equals("existeduserid")){
+					frame = new WarningDialog(ui, "用户id已存在！！");
+				}
+				if(result.getKey().equals("nostaffid")){
+					frame = new WarningDialog(ui, "员工id不存在！！");
+				}
 			}
 		}
 	}
 	
 	//处理删除信息而留下的方法入口
+	@SuppressWarnings("unchecked")
 	public void delete(UserVO vo){
 		ResultMessage result = bl.delUser(vo);
 		if(result.getKey().equals("success")){
@@ -90,6 +103,7 @@ public class AdminToolListener extends ToolListener {
 	}
 	
 	//为处理增加用户的输入而加入的方法
+	@SuppressWarnings("unchecked")
 	public boolean addInput(String userid, String staffid, String password, AuthorityLevel level){
 		UserVO user = new UserVO(userid, staffid, password, level);
 		
@@ -107,6 +121,7 @@ public class AdminToolListener extends ToolListener {
 	}
 	
 	//为处理修改用户信息的输入而留下的方法
+	@SuppressWarnings("unchecked")
 	public boolean modifyInput(String userid, String staffid, String password, AuthorityLevel level){
 		UserVO user = new UserVO(userid, staffid, password, level);
 		
