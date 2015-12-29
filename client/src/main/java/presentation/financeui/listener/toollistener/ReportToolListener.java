@@ -99,7 +99,6 @@ public class ReportToolListener extends ToolListener {
             StatementPanel statementPanel = new StatementPanel(statementVO);
             System.out.println("success");
             ui.paintdata(statementPanel);
-            new WarningDialog(ui, "生成成功！");
         }
 	}
 
