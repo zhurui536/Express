@@ -46,7 +46,8 @@ public class CreateAccountingBL implements CreateAccountingBLService {
             }
 
             List<AccountVO> initAccountVOs = new ArrayList<>();
-            List<AccountPO> initAccountPOs = (List<AccountPO>) msg.getValue();
+            @SuppressWarnings("unchecked")
+			List<AccountPO> initAccountPOs = (List<AccountPO>) msg.getValue();
             for (AccountPO po : initAccountPOs) {
                 initAccountVOs.add(po.poToVo());
             }

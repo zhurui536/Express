@@ -55,7 +55,7 @@ public class ReceiptPanel extends JPanel {
     	}
     	
         Object[][] value = new Object[len + 2][6];
-        int[] width = new int[] { 130, 150, 120, 120, 150, 90 };
+        int[] width = { 150, 150, 120, 120, 150, 120 };
         
         len = 0;
         for (ReceiptBillVO receiptBillVO : receiptBillVOs) {

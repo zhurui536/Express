@@ -2,6 +2,7 @@ package presentation.financeui.dialog;
 
 import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
+import presentation.logisticsui.InputChecker;
 import vo.financevo.BankAccountVO;
 
 import javax.swing.*;
@@ -79,6 +80,9 @@ public class BankAccountUpdateDialog extends JDialog {
             return false;
         } else if (id.length() == 0) {
             new WarningDialog(ui, "请输入账户id");
+            return false;
+        } else if (!InputChecker.isNum(id)) {
+            new WarningDialog(ui, "账户ID必须是数字");
             return false;
         }
         return true;
