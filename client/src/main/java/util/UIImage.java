@@ -32,4 +32,6 @@ public class UIImage {
 	public static final ImageIcon TOOLBUTTON_OVER = createImageIcon("graphic/ToolButtonOver.png");
 	public static final ImageIcon TOOLBUTTON = createImageIcon("graphic/ToolButtonBackground.png");
 	public static final ImageIcon BACKGROUND_INPUTFRAME = createImageIcon("graphic/InputFrameBackground.png");
+	public static final ImageIcon EXIT_LIGHT = createImageIcon("graphic/gameExitLight.png");
+	public static final ImageIcon EXIT_DARK = createImageIcon("graphic/1.png");
 }
