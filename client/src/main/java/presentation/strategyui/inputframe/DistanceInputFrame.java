@@ -44,14 +44,14 @@ public class DistanceInputFrame extends InputFrame implements ActionListener{
 		//窗口的标题
 		JLabel title = new JLabel("城市距离输入");
 		title.setBounds(130, 10, 90, 30);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		//窗口左边的列表
 		JLabel[] list = new JLabel[3];
 		for(int i=0;i<3;i++){
 			list[i] = new JLabel(listname[i]);
 			list[i].setBounds(15, 40+40*i, 70, 30);
-			this.getContentPane().add(list[i]);
+			this.getContentPane().add(list[i], 0);
 		}
 		
 		cities = new JComboBox[2];
@@ -64,22 +64,22 @@ public class DistanceInputFrame extends InputFrame implements ActionListener{
 			}
 			
 			cities[i].setBounds(95, 40+40*i, 70, 30);
-			this.getContentPane().add(cities[i]);
+			this.getContentPane().add(cities[i], 0);
 		}
 		
 		input = new JTextArea();
 		input.setBounds(95, 120, 170, 30);
-		this.getContentPane().add(input);
+		this.getContentPane().add(input, 0);
 		
 		confirm = new ToolButton(100, 170,"确定");
 		confirm.setSize( 60, 30);
 		confirm.addActionListener(this);
-		this.getContentPane().add(confirm);
+		this.getContentPane().add(confirm, 0);
 		
 		cancle = new ToolButton(180, 170,"取消");
 		cancle.setSize( 60, 30);
 		cancle.addActionListener(this);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(cancle, 0);
 	}
 	
 	private final String[] listname = {"城市A：", "城市B：", "距离："};

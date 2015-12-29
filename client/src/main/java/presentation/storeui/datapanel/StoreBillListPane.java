@@ -23,7 +23,7 @@ public class StoreBillListPane extends JPanel {
 		for(int i=0;i<bills.size();i++){
 			rowdata[i][0] = bills.get(i).getBillID();
 			rowdata[i][1] = bills.get(i).getUserID();
-			rowdata[i][2] = df.format(bills.get(i).getGenerateTime());
+			rowdata[i][2] = df.format(bills.get(i).getGenerateTime().getTime());
 			rowdata[i][3] = bills.get(i).getState();
 		}
 		

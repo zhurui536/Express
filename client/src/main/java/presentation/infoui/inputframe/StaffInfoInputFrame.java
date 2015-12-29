@@ -59,38 +59,38 @@ public class StaffInfoInputFrame extends InputFrame implements ActionListener{
 	private void initialize(StaffMessageVO vo) {
 		JLabel title = new JLabel("员工信息修改");
 		title.setBounds(150, 10, 130, 30);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		this.input = new JTextArea[4];
 		
 		
 		JLabel id = new JLabel("员工id：");
 		id.setBounds(20, 50, 70, 30);
-		this.getContentPane().add(id);
+		this.getContentPane().add(id, 0);
 		input[0] = new JTextArea(vo.id);
 		input[0].setBounds(105, 50, 100, 30);
 		input[0].setEditable(false);
-		this.getContentPane().add(input[0]);
+		this.getContentPane().add(input[0], 0);
 		
 		JLabel institution = new JLabel("机构id：");
 		institution.setBounds(210, 50, 70, 30);
-		this.getContentPane().add(institution);
+		this.getContentPane().add(institution, 0);
 		input[1] = new JTextArea(vo.institutionid);
 		input[1].setBounds(285, 50, 100, 30);
-		this.getContentPane().add(input[1]);
+		this.getContentPane().add(input[1], 0);
 		
 		
 		JLabel name = new JLabel("员工姓名：");
 		name.setBounds(20, 90, 100, 30);
-		this.getContentPane().add(name);
+		this.getContentPane().add(name, 0);
 		input[2] = new JTextArea(vo.name);
 		input[2].setBounds(105, 90, 80, 30);
-		this.getContentPane().add(input[2]);
+		this.getContentPane().add(input[2], 0);
 		
 		
 		JLabel job = new JLabel("职业：");
 		job.setBounds(210, 90, 70, 30);
-		this.getContentPane().add(job);
+		this.getContentPane().add(job, 0);
 		this.job = new JComboBox<String>(this.jobstring);
 		for(int i=0;i<this.jobs.length;i++){
 			if(vo.job == jobs[i]){
@@ -99,12 +99,12 @@ public class StaffInfoInputFrame extends InputFrame implements ActionListener{
 			}
 		}
 		this.job.setBounds(285, 90, 120, 30);
-		this.getContentPane().add(this.job);
+		this.getContentPane().add(this.job, 0);
 		
 		
 		JLabel sala = new JLabel("薪水类型及数额：");
 		sala.setBounds(20, 130, 140, 30);
-		this.getContentPane().add(sala);
+		this.getContentPane().add(sala, 0);
 		
 		type = new JComboBox<String>(salarytype);
 		type.setBounds(20, 170, 100, 30);
@@ -114,11 +114,11 @@ public class StaffInfoInputFrame extends InputFrame implements ActionListener{
 				break;
 			}
 		}
-		this.getContentPane().add(type);
+		this.getContentPane().add(type, 0);
 		
 		input[3] = new JTextArea(vo.salary.getSalary()+"");
 		input[3].setBounds(140, 170, 100, 30);
-		this.getContentPane().add(input[3]);
+		this.getContentPane().add(input[3], 0);
 		
 		confirm = new JButton("确定");
 		cancle = new JButton("取消");
@@ -128,60 +128,60 @@ public class StaffInfoInputFrame extends InputFrame implements ActionListener{
 		cancle.setLocation(200, 210);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
-		this.getContentPane().add(confirm);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(confirm, 0);
+		this.getContentPane().add(cancle, 0);
 	}
 	
 	private void initialize() {
 		JLabel title = new JLabel("员工信息输入");
 		title.setBounds(150, 10, 130, 30);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		this.input = new JTextArea[4];
 		
 		
 		JLabel id = new JLabel("员工id：");
 		id.setBounds(20, 50, 70, 30);
-		this.getContentPane().add(id);
+		this.getContentPane().add(id, 0);
 		input[0] = new JTextArea();
 		input[0].setBounds(105, 50, 100, 30);
-		this.getContentPane().add(input[0]);
+		this.getContentPane().add(input[0], 0);
 		
 		JLabel institution = new JLabel("机构id");
 		institution.setBounds(210, 50, 90, 30);
-		this.getContentPane().add(institution);
+		this.getContentPane().add(institution, 0);
 		input[1] = new JTextArea();
 		input[1].setBounds(315, 50, 100, 30);
-		this.getContentPane().add(input[1]);
+		this.getContentPane().add(input[1], 0);
 		
 		
 		JLabel name = new JLabel("员工姓名：");
 		name.setBounds(20, 90, 100, 30);
-		this.getContentPane().add(name);
+		this.getContentPane().add(name, 0);
 		input[2] = new JTextArea();
 		input[2].setBounds(125, 90, 80, 30);
-		this.getContentPane().add(input[2]);
+		this.getContentPane().add(input[2], 0);
 		
 		
 		JLabel job = new JLabel("职业：");
 		job.setBounds(210, 90, 70, 30);
-		this.getContentPane().add(job);
+		this.getContentPane().add(job, 0);
 		this.job = new JComboBox<String>(this.jobstring);
 		this.job.setBounds(285, 90, 120, 30);
-		this.getContentPane().add(this.job);
+		this.getContentPane().add(this.job, 0);
 		
 		
 		JLabel sala = new JLabel("薪水类型及数额：");
 		sala.setBounds(20, 130, 140, 30);
-		this.getContentPane().add(sala);
+		this.getContentPane().add(sala, 0);
 		
 		type = new JComboBox<String>(salarytype);
 		type.setBounds(20, 170, 100, 30);
-		this.getContentPane().add(type);
+		this.getContentPane().add(type, 0);
 		
 		input[3] = new JTextArea();
 		input[3].setBounds(140, 170, 100, 30);
-		this.getContentPane().add(input[3]);
+		this.getContentPane().add(input[3], 0);
 		
 		confirm = new JButton("确定");
 		cancle = new JButton("取消");
@@ -191,8 +191,8 @@ public class StaffInfoInputFrame extends InputFrame implements ActionListener{
 		cancle.setLocation(200, 210);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
-		this.getContentPane().add(confirm);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(confirm, 0);
+		this.getContentPane().add(cancle, 0);
 	}
 	
 	private final String[] salarytype = {"月薪", "按次", "提成"};

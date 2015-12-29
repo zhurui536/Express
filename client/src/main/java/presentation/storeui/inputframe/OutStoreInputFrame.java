@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
@@ -41,7 +40,7 @@ public class OutStoreInputFrame extends InputFrame implements ActionListener{
 		title = new JLabel("出库货物输入");
 		title.setSize(90, 30);
 		title.setLocation(170, 10);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		confirm = new ToolButton(250, 210,"确定");
 		cancle = new ToolButton(330, 210,"取消");
@@ -49,31 +48,31 @@ public class OutStoreInputFrame extends InputFrame implements ActionListener{
 		cancle.setSize(60, 25);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
-		this.getContentPane().add(confirm);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(confirm, 0);
+		this.getContentPane().add(cancle, 0);
 		
 		list = new JLabel[4];
 		for(int i=0;i<4;i++){
 			list[i] = new JLabel(listname[i]);
 			list[i].setSize(70, 30);
 			list[i].setLocation(15, 50+40*i);
-			this.getContentPane().add(list[i]);
+			this.getContentPane().add(list[i], 0);
 		}
 		
 		number = new JTextArea();
 		number.setSize(260, 30);
 		number.setLocation(110, 50);
-		this.getContentPane().add(number);
+		this.getContentPane().add(number, 0);
 		
 		destination = new JTextArea();
 		destination.setSize(260, 30);
 		destination.setLocation(110, 130);
-		this.getContentPane().add(destination);
+		this.getContentPane().add(destination, 0);
 		
 		billid = new JTextArea(id);
 		billid.setSize(260, 30);
 		billid.setLocation(110, 170);
-		this.getContentPane().add(billid);
+		this.getContentPane().add(billid, 0);
 		
 		trans = new JComboBox<String>();
 		for(int i=0;i<transport.length;i++){
@@ -81,7 +80,7 @@ public class OutStoreInputFrame extends InputFrame implements ActionListener{
 		}
 		trans.setSize(70, 30);
 		trans.setLocation(110, 90);
-		this.getContentPane().add(trans);
+		this.getContentPane().add(trans, 0);
 	}
 	
 	@Override

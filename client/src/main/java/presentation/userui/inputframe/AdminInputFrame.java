@@ -54,39 +54,39 @@ public class AdminInputFrame extends InputFrame implements ActionListener{
 		//窗口的标题
 		JLabel title = new JLabel("用户信息输入");
 		title.setBounds(170, 10, 90, 30);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		//窗口左边的列表
 		JLabel[] list = new JLabel[4];
 		for(int i=0;i<4;i++){
 			list[i] = new JLabel(listname[i]);
 			list[i].setBounds(15, 40+40*i, 70, 30);
-			this.getContentPane().add(list[i]);
+			this.getContentPane().add(list[i], 0);
 		}
 		
 		texts = new JTextArea[3];
 		for(int i=0;i<3;i++){
 			texts[i] = new JTextArea();
 			texts[i].setBounds(95, 40+40*i, 250, 30);
-			this.getContentPane().add(texts[i]);
+			this.getContentPane().add(texts[i], 0);
 		}
 		
 		level = new JComboBox<String>();
-		level.setBounds(95, 160, 40, 30);
+		level.setBounds(95, 160, 60, 30);
 		for(int i=0;i<levels.length;i++){
 			level.addItem(AuthorityLevel.authorityToString(levels[i]));
 		}
-		this.getContentPane().add(level);
+		this.getContentPane().add(level, 0);
 		
 		confirm = new ToolButton(200, 220,"确定");
 		confirm.setSize( 60, 25);
 		confirm.addActionListener(this);
-		this.getContentPane().add(confirm);
+		this.getContentPane().add(confirm, 0);
 		
 		cancle = new ToolButton(265, 220,"取消");
 		cancle.setSize( 60, 25);
 		cancle.addActionListener(this);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(cancle, 0);
 	}
 	
 	//对输入框的初始化

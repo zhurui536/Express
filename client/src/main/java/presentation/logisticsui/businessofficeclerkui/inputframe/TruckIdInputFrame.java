@@ -54,25 +54,25 @@ public class TruckIdInputFrame extends InputFrame implements ActionListener{
                 cancle.setSize(60, 25);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
-                this.getContentPane().add(confirm);
-                this.getContentPane().add(cancle);
+                this.getContentPane().add(confirm, 0);
+                this.getContentPane().add(cancle, 0);
                 
                 label = new JLabel("输入ID:");
                 label.setSize(70, 30);
                 label.setFont(new Font("微软雅黑", Font.BOLD, 15));
                 label.setLocation(15, 90);
-                this.getContentPane().add(label);
+                this.getContentPane().add(label, 0);
                 
                 textArea = new JTextArea();
                 textArea.setSize(260,30);
                 textArea.setLocation(110, 90);
-                this.getContentPane().add(textArea);
+                this.getContentPane().add(textArea, 0);
                 
                 errOutPutLabel = new JLabel();
                 errOutPutLabel.setBounds(30, 180, 190, 30);
                 errOutPutLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
                 errOutPutLabel.setForeground(Color.RED);
-                this.getContentPane().add(errOutPutLabel);
+                this.getContentPane().add(errOutPutLabel, 0);
         }
 
         @Override

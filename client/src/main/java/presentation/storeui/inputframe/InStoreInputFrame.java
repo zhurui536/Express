@@ -34,7 +34,7 @@ public class InStoreInputFrame extends InputFrame implements ActionListener{
 		title = new JLabel("入库货物输入");
 		title.setSize(90, 30);
 		title.setLocation(170, 10);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		confirm = new ToolButton(250, 190,"确定");
 		cancle = new ToolButton(330, 190,"取消");
@@ -42,33 +42,33 @@ public class InStoreInputFrame extends InputFrame implements ActionListener{
 		cancle.setSize(60, 25);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
-		this.getContentPane().add(confirm);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(confirm, 0);
+		this.getContentPane().add(cancle, 0);
 		
 		list = new JLabel[3];
 		for(int i=0;i<3;i++){
 			list[i] = new JLabel(listname[i]);
 			list[i].setSize(70, 30);
 			list[i].setLocation(15, 50+40*i);
-			this.getContentPane().add(list[i]);
+			this.getContentPane().add(list[i], 0);
 		}
 		
 		number = new JTextArea();
 		number.setSize(260, 30);
 		number.setLocation(110, 50);
-		this.getContentPane().add(number);
+		this.getContentPane().add(number, 0);
 		
 		destination = new JTextArea();
 		destination.setSize(260, 30);
 		destination.setLocation(110, 130);
-		this.getContentPane().add(destination);
+		this.getContentPane().add(destination, 0);
 		
 		place = new JTextArea[4];
 		for(int i=0;i<4;i++){
 			place[i] = new JTextArea();
 			place[i].setSize(45, 30);
 			place[i].setLocation(110+55*i, 90);
-			this.getContentPane().add(place[i]);
+			this.getContentPane().add(place[i], 0);
 		}
 		
 	}

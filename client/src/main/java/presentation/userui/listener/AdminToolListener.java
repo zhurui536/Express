@@ -114,7 +114,15 @@ public class AdminToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			new WarningDialog(ui, result);
+			if(result.getKey().equals("internet error")){
+				new WarningDialog(ui, "网络连接出错！！");
+			}
+			if(result.getKey().equals("dataerror")){
+				new WarningDialog(ui, "数据存储出错！！");
+			}
+			if(result.getKey().equals("existeduserid")){
+				new WarningDialog(ui, "用户名已存在！！");
+			}
 			return false;
 		}
 	}
@@ -132,7 +140,15 @@ public class AdminToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			new WarningDialog(ui, result);
+			if(result.getKey().equals("internet error")){
+				new WarningDialog(ui, "网络连接出错！！");
+			}
+			if(result.getKey().equals("dataerror")){
+				new WarningDialog(ui, "数据存储出错！！");
+			}
+			if(result.getKey().equals("deletedid")){
+				new WarningDialog(ui, "该id已被删除！！");
+			}
 			return false;
 		}
 	}

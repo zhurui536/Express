@@ -11,6 +11,7 @@ import presentation.infoui.listener.InstitutionInfoToolListener;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
 
+@SuppressWarnings("serial")
 public class InstitutionIDInputFrame extends InputFrame implements ActionListener {
 	//确定、取消按钮
 	private JButton confirm, cancle;
@@ -35,11 +36,11 @@ public class InstitutionIDInputFrame extends InputFrame implements ActionListene
 		JLabel title = new JLabel("机构id输入");
 		title.setSize(90, 30);
 		title.setLocation(70, 10);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		id = new JTextArea();
 		id.setBounds(20, 50, 200, 30);
-		this.getContentPane().add(id);
+		this.getContentPane().add(id, 0);
 		
 		confirm = new ToolButton(30, 90,"确定");
 		cancle = new ToolButton(110, 90,"取消");
@@ -47,8 +48,8 @@ public class InstitutionIDInputFrame extends InputFrame implements ActionListene
 		cancle.setSize(60, 25);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
-		this.getContentPane().add(confirm);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(confirm, 0);
+		this.getContentPane().add(cancle, 0);
 	}
 
 	@Override

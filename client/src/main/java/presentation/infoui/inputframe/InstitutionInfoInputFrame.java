@@ -56,43 +56,43 @@ public class InstitutionInfoInputFrame extends InputFrame implements ActionListe
 	private void initialize(){
 		JLabel title = new JLabel("机构信息输入");
 		title.setBounds(150, 10, 130, 30);
-		this.getContentPane().add(title);
+		this.getContentPane().add(title, 0);
 		
 		this.input = new JTextArea[2];
 		
 		
 		JLabel id = new JLabel("机构id：");
 		id.setBounds(20, 50, 70, 30);
-		this.getContentPane().add(id);
+		this.getContentPane().add(id, 0);
 		input[0] = new JTextArea("自动生成");
 		input[0].setBounds(95, 50, 100, 30);
 		input[0].setEditable(false);
-		this.getContentPane().add(input[0]);
+		this.getContentPane().add(input[0], 0);
 		
 		JLabel institution = new JLabel("机构名称：");
 		institution.setBounds(200, 50, 70, 30);
-		this.getContentPane().add(institution);
+		this.getContentPane().add(institution, 0);
 		input[1] = new JTextArea();
 		input[1].setBounds(275, 50, 100, 30);
-		this.getContentPane().add(input[1]);
+		this.getContentPane().add(input[1], 0);
 		
 		
 		JLabel institutiontype = new JLabel("机构类型：");
 		institutiontype.setBounds(20, 90, 70, 30);
-		this.getContentPane().add(institutiontype);
+		this.getContentPane().add(institutiontype, 0);
 		this.type = new JComboBox<String>(this.institutiontype);
 		this.type.setBounds(95, 90, 100, 30);
-		this.getContentPane().add(this.type);
+		this.getContentPane().add(this.type, 0);
 		
 		JLabel cityname = new JLabel("城市：");
 		cityname.setBounds(200, 90, 70, 30);
-		this.getContentPane().add(cityname);
+		this.getContentPane().add(cityname, 0);
 		city = new JComboBox<String>();
 		for(int j=0;j<Cities.length;j++){
 			city.addItem(City.cityToString(Cities[j]));
 		}
 		city.setBounds(275, 90, 70, 30);
-		this.getContentPane().add(city);
+		this.getContentPane().add(city, 0);
 		
 		confirm = new ToolButton(120, 130,"确定");
 		cancle = new ToolButton(200, 130,"取消");
@@ -100,8 +100,8 @@ public class InstitutionInfoInputFrame extends InputFrame implements ActionListe
 		cancle.setSize(60, 25);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
-		this.getContentPane().add(confirm);
-		this.getContentPane().add(cancle);
+		this.getContentPane().add(confirm, 0);
+		this.getContentPane().add(cancle, 0);
 	}
 	
 	private void initialize(InstitutionMessageVO vo){

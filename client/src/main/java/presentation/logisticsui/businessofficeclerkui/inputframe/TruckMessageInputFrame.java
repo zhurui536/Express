@@ -65,10 +65,10 @@ public class TruckMessageInputFrame extends InputFrame implements ActionListener
 
                 for (int i = 0; i < 3; i++) {
                         labels[i].setBounds(15, 15 + 45 * i, 100, 30);
-                        this.getContentPane().add(labels[i]);
+                        this.getContentPane().add(labels[i], 0);
                 }
                 labels[3].setBounds(285, 105, 50, 30);
-                this.getContentPane().add(labels[3]);
+                this.getContentPane().add(labels[3], 0);
 
                 if (state == frameState.MOD) {
                         jTextAreas[0].setText(truckMessageVO.id);
@@ -79,23 +79,23 @@ public class TruckMessageInputFrame extends InputFrame implements ActionListener
                 for (int i = 0; i < 3; i++) {
                         jTextAreas[i].setBounds(115, 15 + 45 * i, i == 2 ? 150
                                         : 200, 30);
-                        this.getContentPane().add(jTextAreas[i]);
+                        this.getContentPane().add(jTextAreas[i], 0);
                 }
 
                 confirm = new ToolButton(180, 150,"确定");
                 confirm.setSize( 60, 25);
                 confirm.addActionListener(this);
-                this.getContentPane().add(confirm);
+                this.getContentPane().add(confirm, 0);
                 cancle = new ToolButton(255, 150,"取消");
                 cancle.setSize( 60, 25);
                 cancle.addActionListener(this);
-                this.getContentPane().add(cancle);
+                this.getContentPane().add(cancle, 0);
                 
                 errOutputLabel = new JLabel();
                 errOutputLabel.setBounds(15, 150 , 230, 30);
                 errOutputLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
                 errOutputLabel.setForeground(Color.RED);
-                this.getContentPane().add(errOutputLabel);
+                this.getContentPane().add(errOutputLabel, 0);
         }
 
         public TruckMessageInputFrame(

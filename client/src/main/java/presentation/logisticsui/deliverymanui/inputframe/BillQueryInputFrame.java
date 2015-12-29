@@ -43,24 +43,24 @@ public class BillQueryInputFrame extends InputFrame implements ActionListener{
                 cancle.setSize(60, 25);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
-                this.getContentPane().add(confirm);
-                this.getContentPane().add(cancle);
+                this.getContentPane().add(confirm, 0);
+                this.getContentPane().add(cancle, 0);
                 
                 title = new JLabel("输入单号:");
                 title.setSize(70,30);
                 title.setLocation(15,90);
-                this.getContentPane().add(title);
+                this.getContentPane().add(title, 0);
                 
                 number = new JTextArea();
                 number.setSize(260,30);
                 number.setLocation(110,90);
-                this.getContentPane().add(number);
+                this.getContentPane().add(number, 0);
                 
                 errOutPutLabel = new JLabel();
                 errOutPutLabel.setBounds(30, 190, 150, 30);
                 errOutPutLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
                 errOutPutLabel.setForeground(Color.RED);
-                this.add(errOutPutLabel);
+                this.add(errOutPutLabel, 0);
         }
 
         @Override
