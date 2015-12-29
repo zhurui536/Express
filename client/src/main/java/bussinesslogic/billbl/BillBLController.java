@@ -407,7 +407,7 @@ public class BillBLController implements BillBLService {
 									store.setStorePlace(place);
 									
 									//更新货物的货运状态
-									goodslist.get(i).getGoods().addLocation(new Time().toString()
+									goodslist.get(j).getGoods().addLocation(new Time().toString()
 				                            + " "
 				                            + PublicMessage.location
 				                            + " "
