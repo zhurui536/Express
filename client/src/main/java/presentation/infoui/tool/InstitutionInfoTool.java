@@ -3,6 +3,7 @@ package presentation.infoui.tool;
 import presentation.mainui.component.MyTool;
 import presentation.infoui.listener.InstitutionInfoToolListener;
 
+@SuppressWarnings("serial")
 public class InstitutionInfoTool extends MyTool {
 	public InstitutionInfoTool(InstitutionInfoToolListener tl){
 		super(buttonname, tl);

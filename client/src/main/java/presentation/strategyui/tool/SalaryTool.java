@@ -3,6 +3,7 @@ package presentation.strategyui.tool;
 import presentation.mainui.component.MyTool;
 import presentation.strategyui.listener.SalaryToolListener;
 
+@SuppressWarnings("serial")
 public class SalaryTool extends MyTool {
 	
 	public SalaryTool(SalaryToolListener tl){

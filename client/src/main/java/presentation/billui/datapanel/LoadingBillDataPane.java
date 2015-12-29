@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
 import po.logisticpo.LoadingBillPO;
 import util.MyJTable;
 import util.Time;
 import vo.logisticvo.LoadingBillVO;
 
+@SuppressWarnings("serial")
 public class LoadingBillDataPane extends JPanel {
 //	public static void main(String[] args){
 //		JFrame test = new JFrame();

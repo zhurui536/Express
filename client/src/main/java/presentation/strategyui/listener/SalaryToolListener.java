@@ -22,6 +22,7 @@ public class SalaryToolListener extends ToolListener {
 		this.bl = ui.getStrategySalaryController();
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		MyTool tool = super.getTool();
@@ -40,7 +41,12 @@ public class SalaryToolListener extends ToolListener {
 				ui.paintdata(data);
 			}
 			else{
-				WarningDialog warning = new WarningDialog(ui, result.getKey());
+				if(result.getKey().equals("internet error")){
+					new WarningDialog(ui, "网络连接出错！！");
+				}
+				if(result.getKey().equals("dataerror")){
+					new WarningDialog(ui, "数据存储出错！！");
+				}
 			}
 		}
 		if(i==1){
@@ -50,7 +56,12 @@ public class SalaryToolListener extends ToolListener {
 				ui.replaceTool(null);
 			}
 			else{
-				WarningDialog warning = new WarningDialog(ui, result.getKey());
+				if(result.getKey().equals("internet error")){
+					new WarningDialog(ui, "网络连接出错！！");
+				}
+				if(result.getKey().equals("dataerror")){
+					new WarningDialog(ui, "数据存储出错！！");
+				}
 			}
 		}
 		if(i==2){
@@ -60,7 +71,12 @@ public class SalaryToolListener extends ToolListener {
 				ui.replaceTool(null);
 			}
 			else{
-				WarningDialog warning = new WarningDialog(ui, result.getKey());
+				if(result.getKey().equals("internet error")){
+					new WarningDialog(ui, "网络连接出错！！");
+				}
+				if(result.getKey().equals("dataerror")){
+					new WarningDialog(ui, "数据存储出错！！");
+				}
 			}
 		}
 	}
@@ -76,7 +92,12 @@ public class SalaryToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningDialog warning = new WarningDialog(ui, result.getKey());
+			if(result.getKey().equals("internet error")){
+				new WarningDialog(ui, "网络连接出错！！");
+			}
+			if(result.getKey().equals("dataerror")){
+				new WarningDialog(ui, "数据存储出错！！");
+			}
 			return false;
 		}
 	}

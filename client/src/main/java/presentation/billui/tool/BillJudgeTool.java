@@ -13,7 +13,7 @@ public class BillJudgeTool extends MyTool{
 	public BillJudgeTool(BillJudgeToolListener tl){
 		super(buttonname, tl);
 		
-		billType = new JComboBox();
+		billType = new JComboBox<String>();
 		for(int i=0;i<types.length;i++){
 			billType.addItem(typeToString(types[i]));
 		}

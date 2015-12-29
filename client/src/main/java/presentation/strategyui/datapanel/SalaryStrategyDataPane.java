@@ -1,11 +1,12 @@
 package presentation.strategyui.datapanel;
 
-import bussinesslogicservice.strategyblservice.StrategySalaryBLService;
 import presentation.managerui.ManagerFrame;
 import util.Job;
 import util.ResultMessage;
 import util.SalaryType;
+
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,11 +20,9 @@ public class SalaryStrategyDataPane extends JPanel implements ActionListener {
 	private JButton cancle;
 	
 	private ManagerFrame ui;
-	private StrategySalaryBLService bl;
 	
 	public SalaryStrategyDataPane(ManagerFrame ui){
 		this.ui = ui;
-		this.bl = ui.getStrategySalaryController();
 		this.setBounds(140, 100, 810, 500);
 		this.setLayout(null);
 		this.initialize();
@@ -66,16 +65,17 @@ public class SalaryStrategyDataPane extends JPanel implements ActionListener {
 		this.add(cancle);
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == cancle){
 			ui.paintdata(null);
 		}
 		if(e.getSource() == confirm){
-			Job job = this.boxToJob();
-			String id = this.input[0].getText();
+			this.boxToJob();
+			this.input[0].getText();
 			try{
-				double salary = Double.parseDouble(input[1].getText());
+				Double.parseDouble(input[1].getText());
 				ResultMessage result = null;
 				if(result.getKey().equals("success")){
 					input[1].setText("设置成功");
@@ -115,6 +115,7 @@ public class SalaryStrategyDataPane extends JPanel implements ActionListener {
 			return Job.DRIVER;
 	}
 	
+	@SuppressWarnings("unused")
 	private SalaryType boxToType(){
 		int i = this.type.getSelectedIndex();
 		if(i==0)

@@ -27,6 +27,7 @@ public class MenuListener implements ActionListener {
 		this.ui = ui;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int i = 0;

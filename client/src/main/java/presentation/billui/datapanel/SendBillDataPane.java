@@ -2,12 +2,14 @@ package presentation.billui.datapanel;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
 import po.logisticpo.SendBillPO;
 import vo.logisticvo.SendBillVO;
 import util.ExpressType;
 import util.MyJTable;
 import util.PackageType;
 
+@SuppressWarnings("serial")
 public class SendBillDataPane extends JPanel {
 	public SendBillDataPane(SendBillPO po){
 		SendBillVO vo = po.poToVo();

@@ -41,7 +41,12 @@ public class CheckBillToolListener extends ToolListener {
 				ui.paintdata(data);
 			}
 			else{
-				WarningDialog tip = new WarningDialog(ui, result.getKey());
+				if(result.getKey().equals("internet error")){
+					new WarningDialog(ui, "网络连接出错！！");
+				}
+				if(result.getKey().equals("dataerror")){
+					new WarningDialog(ui, "数据存储出错！！");
+				}
 			}
 		}
 		if(i==1){
@@ -52,12 +57,11 @@ public class CheckBillToolListener extends ToolListener {
 				ui.paintdata(data);
 			}
 			else{
-				WarningDialog tip;
 				if(result.getKey().equals("internet error")){
-					tip = new WarningDialog(ui, "网络连接出错！！");
+					new WarningDialog(ui, "网络连接出错！！");
 				}
 				if(result.getKey().equals("dataerror")){
-					tip = new WarningDialog(ui, "数据存储出错！！");
+					new WarningDialog(ui, "数据存储出错！！");
 				}
 			}
 		}

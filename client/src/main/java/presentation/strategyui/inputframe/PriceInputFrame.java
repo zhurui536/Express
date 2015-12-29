@@ -15,6 +15,7 @@ import javax.swing.event.TableModelListener;
 import presentation.WarningDialog;
 import presentation.strategyui.listener.StrategyToolListener;
 
+@SuppressWarnings("serial")
 public class PriceInputFrame extends JFrame implements ActionListener {
 	//确定、取消按钮
 	private JButton confirm, cancle;
@@ -125,7 +126,7 @@ public class PriceInputFrame extends JFrame implements ActionListener {
 					this.dispose();
 				}
 			}catch(Exception e){
-				WarningDialog tip = new WarningDialog(this, "输入有误，请重新输入");
+				new WarningDialog(this, "输入有误，请重新输入");
 				table.setValueAt("", 0, 1);
 				table.setValueAt("", 1, 1);
 				table.setValueAt("", 2, 1);

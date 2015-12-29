@@ -93,7 +93,7 @@ public class InStoreInputFrame extends JFrame implements ActionListener{
 					this.dispose();
 				}
 			}catch(Exception ex){//如果转换成整数发生错误，说明输入有误
-				WarningDialog warning = new WarningDialog(this, "输入有误，请重新输入");
+				new WarningDialog(this, "输入有误，请重新输入");
 				for(int i=0;i<4;i++){
 					this.place[i].setText("");
 				}

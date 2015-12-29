@@ -46,12 +46,11 @@ public class OutStoreToolListener extends ToolListener {
 				ui.paintdata(null);
 			}
 			else{
-				WarningDialog frame;
 				if(result.getKey().equals("internet error")){
-					frame = new WarningDialog(ui, "网络连接出错！！");
+					new WarningDialog(ui, "网络连接出错！！");
 				}
 				if(result.getKey().equals("dataerror")){
-					frame = new WarningDialog(ui, "数据存储出错！！");
+					new WarningDialog(ui, "数据存储出错！！");
 				}
 			}
 		}
@@ -73,18 +72,17 @@ public class OutStoreToolListener extends ToolListener {
 			return true;
 		}
 		else{
-			WarningDialog frame;
 			if(result.getKey().equals("internet error")){
-				frame = new WarningDialog(ui, "网络连接出错！！");
+				new WarningDialog(ui, "网络连接出错！！");
 			}
 			if(result.getKey().equals("dataerror")){
-				frame = new WarningDialog(ui, "数据存储出错！！");
+				new WarningDialog(ui, "数据存储出错！！");
 			}
 			if(result.getKey().equals("inputedid")){
-				frame = new WarningDialog(ui, "不能重复输入货物！！");
+				new WarningDialog(ui, "不能重复输入货物！！");
 			}
 			if(result.getKey().equals("noexist")){
-				frame = new WarningDialog(ui, "货物不存在！！");
+				new WarningDialog(ui, "货物不存在！！");
 			}
 			return false;
 		}

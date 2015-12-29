@@ -5,11 +5,13 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
 import po.storepo.OutStoreBillPO;
 import po.storepo.OutStorePO;
 import util.MyJTable;
 import util.Trans;
 
+@SuppressWarnings("serial")
 public class OutStoreBillDataPane extends JPanel {
 	public OutStoreBillDataPane(OutStoreBillPO bill){
 		//先进行一些简单的数据处理，因为懒不想再写单据的VO了。。。

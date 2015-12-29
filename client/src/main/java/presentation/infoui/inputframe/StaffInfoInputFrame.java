@@ -217,7 +217,7 @@ public class StaffInfoInputFrame extends JFrame implements ActionListener{
 				}
 			}catch(Exception e){
 				e.printStackTrace();
-				WarningDialog warning = new WarningDialog(this, "薪水输入有误，请重新输入");
+				new WarningDialog(this, "薪水输入有误，请重新输入");
 				this.input[3].setText("");
 			}
 			
