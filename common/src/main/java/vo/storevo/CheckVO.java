@@ -38,7 +38,7 @@ public class CheckVO {
 			valueOfIn += in.get(i).getPrice();
 			StorePlacePO place = in.get(i).getStorePlace();
 			placeOfIn.add(new int[]{place.getArea()+1, place.getRow()+1, place.getShelf()+1, place.getPlace()+1});
-			idOfIn.add(place.getGoods().getId());
+			idOfIn.add(in.get(i).getGoodsID());
 			timeOfIn.add(in.get(i).getDate());
 		}
 		

@@ -37,7 +37,7 @@ public class CheckDataPane extends JPanel {
 		table.setWidth(new int[]{135, 135, 135, 135, 135, 135});
 		
 		JScrollPane total = new JScrollPane(table);
-		total.setBounds(0, 0, 810, 60);
+		total.setBounds(0, 0, 810, 90);
 		this.add(total);
 		
 		this.inrecord(timeOfIn, placeOfIn, IDOfIn);
@@ -48,7 +48,7 @@ public class CheckDataPane extends JPanel {
 		//表头
 		Object[] header = {"货物编号", "区", "排", "架", "位", "入库时间"};
 		//构建表中的数据
-		Object[][] rowdata = new Object[6][IDOfIn.size()];
+		Object[][] rowdata = new Object[IDOfIn.size()][6];
 		for(int i=0;i<IDOfIn.size();i++){
 			//id
 			rowdata[i][0] = IDOfIn.get(i);
@@ -65,7 +65,7 @@ public class CheckDataPane extends JPanel {
 		table.setWidth(new int[]{200, 100, 100, 100, 100, 200});
 		
 		JScrollPane data = new JScrollPane(table);
-		data.setBounds(0, 65, 810, 420);
+		data.setBounds(0, 105, 810, 420);
 		this.add(data);
 	}
 	
@@ -73,7 +73,7 @@ public class CheckDataPane extends JPanel {
 		//表头
 		Object[] header = {"货物编号", "区", "排", "架", "位", "入库时间"};
 		//构建表中的数据
-		Object[][] rowdata = new Object[6][IDOfOut.size()];
+		Object[][] rowdata = new Object[IDOfOut.size()][6];
 		for(int i=0;i<IDOfOut.size();i++){
 			rowdata[i][0] = IDOfOut.get(i);
 			for(int j=1;j<5;j++){
@@ -89,7 +89,7 @@ public class CheckDataPane extends JPanel {
 		table.setWidth(new int[]{200, 100, 100, 100, 100, 200});
 		
 		JScrollPane data = new JScrollPane(table);
-		data.setBounds(0, 490, 810, 420);
+		data.setBounds(0, 530, 810, 420);
 		this.add(data);
 	}
 
