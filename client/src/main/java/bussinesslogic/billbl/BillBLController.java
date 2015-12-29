@@ -615,7 +615,6 @@ public class BillBLController implements BillBLService {
 //结束审批
 	@Override
 	public void end() {
-		dataservice = null;
 	}
 
 }

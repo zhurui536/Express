@@ -52,7 +52,6 @@ public class CheckBL implements CheckBLService {
 
 	@Override
 	public void endCheck() {
-		dataservice = null;
 		vo = null;
 	}
 

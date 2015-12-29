@@ -14,7 +14,7 @@ public class BillPO implements Serializable {
 
 	private static final long serialVersionUID = 186782065848074416L;
 
-	private String billid;
+	protected String billid;
 	private String userid;
 	private BillType type;
 	private BillState state;

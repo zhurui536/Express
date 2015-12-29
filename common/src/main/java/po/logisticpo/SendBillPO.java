@@ -33,7 +33,8 @@ public class SendBillPO extends BillPO {
                 this.senderPO = senderPO;
                 this.recipientPO = recipientPO;
                 this.goodsPO = goodsPO;
-                this.id = super.getBillID();
+                this.id = id;
+                super.billid = id;
                 this.deliveryManID = deliveryManID;
                 this.billState = BillState.DRAFT;
         }
