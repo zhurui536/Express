@@ -12,7 +12,6 @@ import java.util.Calendar;
 
 import dataservice.storedataservice.StoreDataService;
 import po.logisticpo.SendBillPO;
-import po.storepo.AdjustPO;
 import po.storepo.IORecordPO;
 import po.storepo.InStoreBillPO;
 import po.storepo.InStorePO;
@@ -32,7 +31,6 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	private String storerecord;
 	private String instorerecord;
 	private String outstorerecord;
-	private String adjustrecord;
 	private String verificationrecord;
 	private String instorebill;
 	private String outstorebill;
@@ -77,15 +75,6 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 				
 				//写入文件
 				this.writeList(outstorerecord, records);
-			}
-			
-			in = new FileInputStream(adjustrecord);
-			if(in.available() == 0){
-				ArrayList<AdjustPO> records = new ArrayList<AdjustPO>();
-				in.close();
-				
-				//写入文件
-				this.writeList(adjustrecord, records);
 			}
 			
 			in = new FileInputStream(verificationrecord);
@@ -322,6 +311,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	//这个格式用于生成批次
 	private final SimpleDateFormat df2= new SimpleDateFormat("yyyyMMdd");
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage getPihao() throws RemoteException {
 		ArrayList<VerificationPO> records = null;
@@ -347,6 +337,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage getOutStoreBill() throws RemoteException {
 		ArrayList<OutStoreBillPO> records = null;
@@ -360,6 +351,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage getIntStoreBill() throws RemoteException {
 		ArrayList<InStoreBillPO> records = null;
