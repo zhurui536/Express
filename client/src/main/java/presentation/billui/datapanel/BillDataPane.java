@@ -103,14 +103,14 @@ public class BillDataPane extends JPanel implements ActionListener {
 		item.add(userid);
 		
 		//审批按钮，用于单个审批
-		ToolButton approve = new ToolButton(635, 15, "审批");
+		ToolButton approve = new ToolButton(635, 5, "审批");
 		approve.setSize(75, 30);
 		approve.addActionListener(this);
 		item.add(approve);
 		approves.add(approve);
 		
 		//查看按钮，用于查看某个单据
-		ToolButton detail = new ToolButton(715, 15, "查看");
+		ToolButton detail = new ToolButton(715, 5, "查看");
 		detail.setSize(75, 30);
 		detail.addActionListener(this);
 		item.add(detail);
