@@ -89,7 +89,7 @@ public class BillBLController implements BillBLService {
 						}
 					}
 					if(i==3){
-						ArrayList<ReceiptBillPO> temp = new ArrayList<ReceiptBillPO>();
+						ArrayList<ReceiptBillPO> temp = (ArrayList<ReceiptBillPO>) result.getValue();
 						ReceiptBillPO bill = null;
 						
 						for(int j=0;j<temp.size();j++){
@@ -100,7 +100,7 @@ public class BillBLController implements BillBLService {
 						}
 					}
 					if(i==4){
-						ArrayList<ArrivalBillPO> temp = new ArrayList<ArrivalBillPO>();
+						ArrayList<ArrivalBillPO> temp = (ArrayList<ArrivalBillPO>) result.getValue();
 						ArrivalBillPO bill = null;
 						
 						for(int j=0;j<temp.size();j++){
@@ -111,7 +111,7 @@ public class BillBLController implements BillBLService {
 						}
 					}
 					if(i==5){
-						ArrayList<DeliveryBillPO> temp = new ArrayList<DeliveryBillPO>();
+						ArrayList<DeliveryBillPO> temp = (ArrayList<DeliveryBillPO>) result.getValue();
 						DeliveryBillPO bill = null;
 						
 						for(int j=0;j<temp.size();j++){
@@ -122,7 +122,7 @@ public class BillBLController implements BillBLService {
 						}
 					}
 					if(i==6){
-						ArrayList<LoadingBillPO> temp = new ArrayList<LoadingBillPO>();
+						ArrayList<LoadingBillPO> temp = (ArrayList<LoadingBillPO>) result.getValue();
 						LoadingBillPO bill = null;
 						
 						for(int j=0;j<temp.size();j++){
@@ -407,14 +407,14 @@ public class BillBLController implements BillBLService {
 									store.setStorePlace(place);
 									
 									//更新货物的货运状态
-									goodslist.get(j).getGoods().addLocation(new Time().toString()
+									ins.getGoods().addLocation(new Time().toString()
 				                            + " "
 				                            + PublicMessage.location
 				                            + " "
 				                            + InstitutionType
 				                                            .typeTpString(PublicMessage.institutionType)
 				                                            + " " + "已入库");
-									goodsdata.updateGoods(goodslist.get(i).getGoods());
+									goodsdata.updateGoods(ins.getGoods());
 								}
 								//保存新的库存
 								result = storedata.saveStore(store);
@@ -451,20 +451,20 @@ public class BillBLController implements BillBLService {
 								ArrayList<OutStorePO> goodslist = temp.get(i).getPOS();
 								
 								for(int j=0;j<goodslist.size();j++){//改写库存
-									OutStorePO tem = goodslist.get(i);
+									OutStorePO tem = goodslist.get(j);
 									StorePlacePO place = tem.getStorePlace();
 									StorePlacePO newplace = new StorePlacePO(place.getArea(), place.getRow(), place.getShelf(), place.getPlace());
 									store.setStorePlace(newplace);
 
 									//更新货物的货运状态
-									goodslist.get(i).getGoods().addLocation(new Time().toString()
+									tem.getGoods().addLocation(new Time().toString()
 				                            + " "
 				                            + PublicMessage.location
 				                            + " "
 				                            + InstitutionType
 				                                            .typeTpString(PublicMessage.institutionType)
 				                                            + " " + "已出库");
-									goodsdata.updateGoods(goodslist.get(i).getGoods());
+									goodsdata.updateGoods(tem.getGoods());
 								}
 								
 								result = storedata.saveStore(store);

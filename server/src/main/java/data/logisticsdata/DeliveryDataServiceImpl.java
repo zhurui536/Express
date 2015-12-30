@@ -45,6 +45,7 @@ public class DeliveryDataServiceImpl extends UnicastRemoteObject implements Deli
                 for (SendBillPO sendBillPO : sendBillPOs) {
                         if(sendBillPO.getId().equals(goodsPO.getId())){
                                 sendBillPO.setGoodsPO(goodsPO);
+                                System.out.println("updated!");
                         }
                 }
                 Database.save(PATH, sendBillPOs);

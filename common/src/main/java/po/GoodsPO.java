@@ -77,7 +77,7 @@ public class GoodsPO implements Serializable {
                 goodsVO.startTime = this.startTime;
                 goodsVO.receiveTime = this.receiveTime;
                 goodsVO.track = new ArrayList<>();
-                track.addAll(this.track);
+                goodsVO.track.addAll(this.track);
                 goodsVO.volume = this.volume;
                 goodsVO.weight = this.weight;
                 goodsVO.price = this.price;

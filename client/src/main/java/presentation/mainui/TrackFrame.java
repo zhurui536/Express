@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JTable;
-
+import javax.swing.JScrollPane;
 import util.FrameUtil;
 import util.MyJTable;
 import util.Time;
@@ -20,7 +19,7 @@ public class TrackFrame extends JFrame {
         
         private SendBillVO sendBillVO;
         
-        private JTable jTable;
+        private MyJTable jTable;
         
         private JButton confirm;
         
@@ -52,10 +51,14 @@ public class TrackFrame extends JFrame {
                         object[i][0] = sendBillVO.goodsVO.track.get(i);
                 }
                 jTable = new MyJTable(object, strings);
-                jTable.setSize(500,300);
                 Font font = new Font(Font.DIALOG, Font.BOLD, 20);
                 jTable.setFont(font);
-                this.getContentPane().add(jTable);
+                jTable.setWidth(new int[]{500});
+                
+                JScrollPane scroller = new JScrollPane(jTable);
+        		scroller.setBounds(0, 0, 500, 300);
+        		
+        		this.getContentPane().add(scroller);
                 
                 confirm = new JButton("我知道了");
                 confirm.setBounds(360, 300, 120, 30);

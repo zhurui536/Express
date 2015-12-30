@@ -181,7 +181,7 @@ public class MainUI extends JFrame implements ActionListener{
         	}else if(resultMessage.getKey().equals("FAIL")){
         	        new WarningDialog(this, "无对应的订单！");
         	}else{
-        	        new WarningDialog(this, resultMessage);
+        	        new WarningDialog(this, "网络连接出错！");
         	}
         }
     }
