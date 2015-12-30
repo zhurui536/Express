@@ -33,6 +33,7 @@ public class BillQueryDataServiceImpl extends UnicastRemoteObject implements Bil
         public SendBillPO findBill(String id) throws RemoteException {
                 init();
                 for (SendBillPO sendBillPO : sendBillPOs) {
+                	
                         if(sendBillPO.getId().equals(id))
                                 return sendBillPO;
                 }
