@@ -402,9 +402,6 @@ public class BillBLController implements BillBLService {
 								
 								for(int j=0;j<goodslist.size();j++){//进行改写
 									InStorePO ins = goodslist.get(j);
-									StorePlacePO place = ins.getStorePlace();
-									place.setGoods(ins.getGoods());
-									store.setStorePlace(place);
 									
 									//更新货物的货运状态
 									ins.getGoods().addLocation(new Time().toString()
@@ -415,6 +412,10 @@ public class BillBLController implements BillBLService {
 				                                            .typeTpString(PublicMessage.institutionType)
 				                                            + " " + "已入库");
 									goodsdata.updateGoods(ins.getGoods());
+									
+									StorePlacePO place = ins.getStorePlace();
+									place.setGoods(ins.getGoods());
+									store.setStorePlace(place);
 								}
 								//保存新的库存
 								result = storedata.saveStore(store);
@@ -552,6 +553,7 @@ public class BillBLController implements BillBLService {
 					ArrayList<SendBillPO> temp = (ArrayList<SendBillPO>) result.getValue();
 					
 					for(int i=0;i<temp.size();i++){
+						System.out.println(temp.get(i).getBillID());
 						if(temp.get(i).getBillID().equals(id)){
 							temp.get(i).approve();
 							dataservice.saveBills(temp, type);

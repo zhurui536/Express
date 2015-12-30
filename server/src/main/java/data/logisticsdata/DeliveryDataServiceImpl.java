@@ -42,10 +42,11 @@ public class DeliveryDataServiceImpl extends UnicastRemoteObject implements Deli
 
         @Override
         public void updateGoods(GoodsPO goodsPO) throws RemoteException {
+        		init();
                 for (SendBillPO sendBillPO : sendBillPOs) {
+                	System.out.println(sendBillPO.getId()+" "+sendBillPO.getGoodsPO().getId());
                         if(sendBillPO.getId().equals(goodsPO.getId())){
                                 sendBillPO.setGoodsPO(goodsPO);
-                                System.out.println("updated!");
                         }
                 }
                 Database.save(PATH, sendBillPOs);

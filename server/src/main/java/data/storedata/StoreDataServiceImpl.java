@@ -53,7 +53,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			FileInputStream in = new FileInputStream(storerecord);
 			//判断文档是否为空，如果是空的，那么新建一个对象，并将其写入文件中
 			if(in.available() == 0){
-				StorePO store = new StorePO(4, 10, 10, 10);
+				StorePO store = new StorePO(4, 5, 5, 5);
 				in.close();
 				
 				//写回文件中

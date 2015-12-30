@@ -186,6 +186,7 @@ public class BillDataServiceImpl extends UnicastRemoteObject implements Billdata
 	@Override
 	public ResultMessage saveBills(ArrayList<? extends BillPO> bills, BillType type) {
 		String path = this.getPathByType(type);
+		
 		try {
 			this.writeBill(path, bills);
 			return new ResultMessage("success", null);
