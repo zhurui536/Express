@@ -1,14 +1,18 @@
 package presentation.storeui.inputframe;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
 import presentation.WarningDialog;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
 import presentation.storeui.listener.toollistener.CheckToolListener;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Calendar;
 
 @SuppressWarnings("serial")
 public class CheckInputFrame extends InputFrame implements ActionListener {

@@ -1,6 +1,17 @@
 package presentation.logisticsui.deliverymanui.inputframe;
 
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.deliverymanui.listener.toollistener.ReceivingToolListener;
 import presentation.mainui.InputFrame;
@@ -14,13 +25,6 @@ import util.Time;
 import vo.GoodsVO;
 import vo.logisticvo.PeopleMessageVO;
 import vo.logisticvo.SendBillVO;
-
-import javax.swing.*;
-
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class ReceivingInputFrame extends InputFrame implements ActionListener{

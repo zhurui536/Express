@@ -1,12 +1,12 @@
 package vo;
 
+import java.util.ArrayList;
+
 import util.City;
 import util.ExpressType;
 import util.GoodsDeliveryState;
 import util.PackageType;
 import util.Time;
-
-import java.util.ArrayList;
 
 /**
  * Created by Away

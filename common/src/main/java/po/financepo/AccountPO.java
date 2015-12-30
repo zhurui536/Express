@@ -1,5 +1,7 @@
 package po.financepo;
 
+import java.io.Serializable;
+
 import po.InstitutionMessagePO;
 import po.StaffMessagePO;
 import po.TruckMessagePO;
@@ -11,8 +13,6 @@ import vo.TruckMessageVO;
 import vo.financevo.AccountVO;
 import vo.financevo.BankAccountVO;
 import vo.storevo.StoreVO;
-
-import java.io.Serializable;
 
 /**
  * 账本PO

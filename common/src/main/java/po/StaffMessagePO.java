@@ -1,11 +1,11 @@
 package po;
 
 
+import java.io.Serializable;
+
 import util.Job;
 import util.SalaryType;
 import vo.StaffMessageVO;
-
-import java.io.Serializable;
 
 /**
  * 人员PO

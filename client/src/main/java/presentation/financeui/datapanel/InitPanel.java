@@ -1,9 +1,10 @@
 package presentation.financeui.datapanel;
 
 
-import vo.financevo.AccountVO;
+import javax.swing.JPanel;
+import javax.swing.JTable;
 
-import javax.swing.*;
+import vo.financevo.AccountVO;
 
 /**
  * Created by Away

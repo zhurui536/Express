@@ -1,12 +1,15 @@
 package presentation.strategyui.datapanel;
 
-import util.City;
-import vo.DistanceVO;
-
-import javax.swing.*;
-
 import java.awt.Dimension;
 import java.util.ArrayList;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import util.City;
+import vo.DistanceVO;
 
 
 @SuppressWarnings("serial")

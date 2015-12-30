@@ -1,8 +1,8 @@
 package po;
 
-import util.Time;
-
 import java.io.Serializable;
+
+import util.Time;
 
 /**
  * @author zhuding

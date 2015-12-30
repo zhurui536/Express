@@ -1,5 +1,8 @@
 package bussinesslogic.adminbl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import bussinesslogicservice.adminblservice.AdminBLService;
 import connection.ClientRMIHelper;
 import dataservice.userdataservice.AdminDataService;
@@ -7,9 +10,6 @@ import po.StaffMessagePO;
 import po.UserPO;
 import util.ResultMessage;
 import vo.UserVO;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public class AdminBL implements AdminBLService {
 	private ArrayList<UserPO> users;

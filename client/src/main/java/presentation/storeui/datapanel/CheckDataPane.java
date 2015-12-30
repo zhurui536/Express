@@ -1,13 +1,14 @@
 package presentation.storeui.datapanel;
 
-import util.MyJTable;
-import vo.storevo.CheckVO;
-
-import javax.swing.*;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import util.MyJTable;
+import vo.storevo.CheckVO;
 
 
 @SuppressWarnings("serial")

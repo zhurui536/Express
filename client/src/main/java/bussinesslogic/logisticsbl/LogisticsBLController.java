@@ -1,7 +1,13 @@
 package bussinesslogic.logisticsbl;
 
 import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
-import bussinesslogicservice.logisticsblservice.*;
+import bussinesslogicservice.logisticsblservice.BillQueryBLService;
+import bussinesslogicservice.logisticsblservice.DeliveryBLService;
+import bussinesslogicservice.logisticsblservice.GoodsLoadBLService;
+import bussinesslogicservice.logisticsblservice.GoodsReceiptBLService;
+import bussinesslogicservice.logisticsblservice.LogisticsBLService;
+import bussinesslogicservice.logisticsblservice.ReceiptBillProduceBLService;
+import bussinesslogicservice.logisticsblservice.ReceivingBLService;
 import util.City;
 import util.LogFactory;
 import util.ResultMessage;

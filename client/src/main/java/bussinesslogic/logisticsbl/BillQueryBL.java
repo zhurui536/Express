@@ -1,12 +1,12 @@
 package bussinesslogic.logisticsbl;
 
+import java.rmi.RemoteException;
+
 import bussinesslogicservice.logisticsblservice.BillQueryBLService;
 import connection.ClientRMIHelper;
 import dataservice.logisticsdataservice.BillQueryDataService;
 import po.logisticpo.SendBillPO;
 import util.ResultMessage;
-
-import java.rmi.RemoteException;
 
 /**
  * 

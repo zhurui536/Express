@@ -1,7 +1,8 @@
 package vo.storevo;
 
-import vo.GoodsVO;
 import java.util.Calendar;
+
+import vo.GoodsVO;
 
 public class StorePlaceVO {
 	public int area;

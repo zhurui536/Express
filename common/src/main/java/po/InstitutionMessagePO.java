@@ -1,10 +1,10 @@
 package po;
 
+import java.io.Serializable;
+
 import util.City;
 import util.InstitutionType;
 import vo.InstitutionMessageVO;
-
-import java.io.Serializable;
 
 /**
  * 机构信息PO

@@ -1,9 +1,9 @@
 package po.storepo;
 
+import java.util.ArrayList;
+
 import po.BillPO;
 import util.BillType;
-
-import java.util.ArrayList;
 
 public class InStoreBillPO extends BillPO {
 

@@ -1,8 +1,8 @@
 package po.logisticpo;
 
-import vo.logisticvo.PeopleMessageVO;
-
 import java.io.Serializable;
+
+import vo.logisticvo.PeopleMessageVO;
 
 /**
  * @author zhuding

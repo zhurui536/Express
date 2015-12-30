@@ -1,10 +1,10 @@
 package po.financepo;
 
 
-import vo.financevo.BankAccountVO;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+
+import vo.financevo.BankAccountVO;
 
 /**
  * Created by Away

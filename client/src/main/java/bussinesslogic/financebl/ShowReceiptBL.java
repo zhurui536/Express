@@ -1,5 +1,9 @@
 package bussinesslogic.financebl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+
 import bussinesslogicservice.financeblservice.ShowReceiptBLService;
 import connection.ClientRMIHelper;
 import dataservice.financedataservice.ShowReceiptDataService;
@@ -7,10 +11,6 @@ import po.logisticpo.ReceiptBillPO;
 import util.ResultMessage;
 import util.Time;
 import vo.logisticvo.ReceiptBillVO;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 查看收款单实现

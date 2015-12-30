@@ -1,14 +1,14 @@
 package bussinesslogic.strategybl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import bussinesslogicservice.strategyblservice.StrategySalaryBLService;
 import connection.ClientRMIHelper;
 import dataservice.strategydataservice.StrategyDataService;
 import po.StaffMessagePO;
 import util.ResultMessage;
 import vo.StaffMessageVO;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public class StrategySalaryBLServiceImpl implements StrategySalaryBLService {
 	private StrategyDataService dataservice;

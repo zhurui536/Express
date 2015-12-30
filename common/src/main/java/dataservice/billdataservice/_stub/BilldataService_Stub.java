@@ -1,11 +1,11 @@
 package dataservice.billdataservice._stub;
 
+import java.util.ArrayList;
+
 import dataservice.billdataservice.BilldataService;
 import po.BillPO;
 import util.BillType;
 import util.ResultMessage;
-
-import java.util.ArrayList;
 /*
  * Created By ZHR
  * 2015/10/26

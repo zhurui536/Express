@@ -1,5 +1,16 @@
 package presentation.logisticsui.businessofficeclerkui.inputframe;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsLoadToolListener;
 import presentation.mainui.InputFrame;
@@ -7,14 +18,6 @@ import presentation.mainui.component.ToolButton;
 import util.PublicMessage;
 import util.Time;
 import vo.logisticvo.LoadingBillVO;
-
-import javax.swing.*;
-
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 
 @SuppressWarnings("serial")

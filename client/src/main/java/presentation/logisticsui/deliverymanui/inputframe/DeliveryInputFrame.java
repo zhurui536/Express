@@ -1,18 +1,20 @@
 package presentation.logisticsui.deliverymanui.inputframe;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
 import presentation.WarningDialog;
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.deliverymanui.listener.toollistener.DeliveryToolListener;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
 import util.Time;
-
-import javax.swing.*;
-
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 @SuppressWarnings("serial")

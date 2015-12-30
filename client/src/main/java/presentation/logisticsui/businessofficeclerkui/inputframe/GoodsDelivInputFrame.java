@@ -1,16 +1,18 @@
 package presentation.logisticsui.businessofficeclerkui.inputframe;
 
-import presentation.logisticsui.InputChecker;
-import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsDelivToolListener;
-import presentation.mainui.InputFrame;
-import presentation.mainui.component.ToolButton;
-
-import javax.swing.*;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
+import presentation.logisticsui.InputChecker;
+import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsDelivToolListener;
+import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 
 @SuppressWarnings("serial")
 public class GoodsDelivInputFrame extends InputFrame implements ActionListener{

@@ -1,12 +1,12 @@
 package po.financepo;
 
+import java.math.BigDecimal;
+
 import po.BillPO;
 import util.BillType;
 import util.PayItem;
 import util.Time;
 import vo.financevo.PayBillVO;
-
-import java.math.BigDecimal;
 
 /**
  * 付款单PO

@@ -1,9 +1,9 @@
 package po.logisticpo;
 
-import vo.logisticvo.ReceiptLineItemVO;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+
+import vo.logisticvo.ReceiptLineItemVO;
 
 
 public class ReceiptLineItemPO implements Serializable{

@@ -1,13 +1,13 @@
 package bussinesslogic.infobl;
 
+import java.rmi.RemoteException;
+
 import bussinesslogicservice.infoblservice.DriverMessageMaintenanceBLService;
 import connection.ClientRMIHelper;
 import dataservice.infodataservice.DriverMessageMaintenanceDataService;
 import po.DriverMessagePO;
 import util.ResultMessage;
 import vo.DriverMessageVO;
-
-import java.rmi.RemoteException;
 
 public class DriverMessageMaintenanceBL implements
         DriverMessageMaintenanceBLService {

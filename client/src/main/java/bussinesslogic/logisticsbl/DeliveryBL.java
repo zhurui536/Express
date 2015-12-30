@@ -1,5 +1,8 @@
 package bussinesslogic.logisticsbl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import bussinesslogicservice.logisticsblservice.DeliveryBLService;
 import connection.ClientRMIHelper;
 import dataservice.logisticsdataservice.DeliveryDataService;
@@ -7,9 +10,6 @@ import po.GoodsPO;
 import util.GoodsDeliveryState;
 import util.ResultMessage;
 import util.Time;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public class DeliveryBL implements DeliveryBLService {
 

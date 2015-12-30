@@ -1,13 +1,13 @@
 package dataservice.logisticsdataservice;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import po.logisticpo.LoadingBillPO;
 import po.logisticpo.SendBillPO;
 import po.logisticpo.TransferBillPO;
 import util.ResultMessage;
-
-import java.rmi.Remote;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public interface GoodsLoadDataService extends Remote{
 

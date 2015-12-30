@@ -1,10 +1,10 @@
 package dataservice.logisticsdataservice;
 
-import po.logisticpo.SendBillPO;
-import util.ResultMessage;
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+
+import po.logisticpo.SendBillPO;
+import util.ResultMessage;
 
 /**
  * @author zhuding

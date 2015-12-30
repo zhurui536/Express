@@ -1,5 +1,8 @@
 package presentation.strategyui.listener;
 
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
 import bussinesslogicservice.strategyblservice.StrategySalaryBLService;
 import presentation.WarningDialog;
 import presentation.mainui.component.MyTool;
@@ -9,9 +12,6 @@ import presentation.strategyui.datapanel.SalaryStrategyShowPane;
 import presentation.strategyui.inputframe.SalaryInputFrame;
 import util.ResultMessage;
 import vo.StaffMessageVO;
-
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 
 public class SalaryToolListener extends ToolListener {
 	private ManagerFrame ui;

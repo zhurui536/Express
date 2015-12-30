@@ -1,16 +1,20 @@
 package presentation.strategyui.datapanel;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
 import presentation.WarningDialog;
 import presentation.managerui.ManagerFrame;
 import util.City;
 import util.ResultMessage;
 import vo.DistanceVO;
-
-import javax.swing.*;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class ConstantStrategyDataPane extends JPanel implements ActionListener {

@@ -1,15 +1,19 @@
 package presentation.financeui.dialog;
 
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import presentation.financeui.FinanceFrame;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
 import util.DateChooser;
 import util.Time;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by Away

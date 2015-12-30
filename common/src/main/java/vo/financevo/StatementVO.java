@@ -1,8 +1,8 @@
 package vo.financevo;
 
-import vo.logisticvo.ReceiptBillVO;
-
 import java.util.List;
+
+import vo.logisticvo.ReceiptBillVO;
 
 /**
  * Created by Away

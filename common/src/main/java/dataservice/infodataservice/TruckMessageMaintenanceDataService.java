@@ -1,10 +1,10 @@
 package dataservice.infodataservice;
 
-import po.TruckMessagePO;
-import util.ResultMessage;
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+
+import po.TruckMessagePO;
+import util.ResultMessage;
 
 /**
  * @author zhuding

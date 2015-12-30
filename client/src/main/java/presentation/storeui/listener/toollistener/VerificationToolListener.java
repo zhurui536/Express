@@ -1,15 +1,15 @@
 package presentation.storeui.listener.toollistener;
 
+import java.awt.event.ActionEvent;
+
+import javax.swing.JTable;
+
 import bussinesslogicservice.storeblservice.StoreBLService;
 import presentation.WarningDialog;
 import presentation.mainui.component.MyTool;
 import presentation.storeui.StoreFrame;
 import presentation.storeui.listener.ToolListener;
 import util.ResultMessage;
-
-import javax.swing.*;
-
-import java.awt.event.ActionEvent;
 
 public class VerificationToolListener extends ToolListener {
 

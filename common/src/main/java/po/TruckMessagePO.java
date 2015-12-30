@@ -1,9 +1,9 @@
 package po;
 
 
-import vo.TruckMessageVO;
-
 import java.io.Serializable;
+
+import vo.TruckMessageVO;
 
 /**
  * 车辆信息PO

@@ -1,13 +1,16 @@
 package presentation.storeui.inputframe;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
 import presentation.WarningDialog;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
 import presentation.storeui.listener.toollistener.InStoreToolListener;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class InStoreInputFrame extends InputFrame implements ActionListener{

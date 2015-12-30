@@ -2,8 +2,8 @@ package presentation.billui.tool;
 
 import javax.swing.JComboBox;
 
-import presentation.mainui.component.MyTool;
 import presentation.billui.listener.BillJudgeToolListener;
+import presentation.mainui.component.MyTool;
 import util.BillType;
 
 @SuppressWarnings("serial")

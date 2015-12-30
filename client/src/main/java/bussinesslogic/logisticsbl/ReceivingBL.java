@@ -1,6 +1,9 @@
 package bussinesslogic.logisticsbl;
 
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import bussinesslogicservice.logisticsblservice.ReceivingBLService;
 import connection.ClientRMIHelper;
 import dataservice.logisticsdataservice.ReceivingDataService;
@@ -8,12 +11,15 @@ import dataservice.strategydataservice.StrategyDataService;
 import po.DistancePO;
 import po.GoodsPO;
 import po.logisticpo.SendBillPO;
-import util.*;
+import util.City;
+import util.ExpressType;
+import util.InstitutionType;
+import util.PackageType;
+import util.PublicMessage;
+import util.ResultMessage;
+import util.Time;
 import vo.GoodsVO;
 import vo.logisticvo.SendBillVO;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public class ReceivingBL implements ReceivingBLService {
 

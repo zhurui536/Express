@@ -1,9 +1,9 @@
 package vo.logisticvo;
 
+import java.util.ArrayList;
+
 import util.Time;
 import util.Trans;
-
-import java.util.ArrayList;
 
 
 public class TransferBillVO {

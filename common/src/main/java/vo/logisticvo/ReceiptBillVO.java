@@ -1,9 +1,9 @@
 package vo.logisticvo;
 
-import util.Time;
-
 import java.math.BigDecimal;
 import java.util.List;
+
+import util.Time;
 
 
 /**

@@ -1,11 +1,11 @@
 package dataservice.logisticsdataservice;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
 import po.logisticpo.ReceiptBillPO;
 import util.ResultMessage;
 import util.Time;
-
-import java.rmi.Remote;
-import java.rmi.RemoteException;
 
 
 /**

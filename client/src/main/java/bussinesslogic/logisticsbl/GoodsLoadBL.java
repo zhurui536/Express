@@ -1,5 +1,8 @@
 package bussinesslogic.logisticsbl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import bussinesslogicservice.logisticsblservice.GoodsLoadBLService;
 import connection.ClientRMIHelper;
 import dataservice.logisticsdataservice.GoodsLoadDataService;
@@ -12,9 +15,6 @@ import util.ResultMessage;
 import util.Time;
 import vo.logisticvo.LoadingBillVO;
 import vo.logisticvo.TransferBillVO;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public class GoodsLoadBL implements GoodsLoadBLService {
 

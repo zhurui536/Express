@@ -1,7 +1,7 @@
 package presentation.infoui.tool;
 
-import presentation.mainui.component.MyTool;
 import presentation.infoui.listener.InstitutionInfoToolListener;
+import presentation.mainui.component.MyTool;
 
 @SuppressWarnings("serial")
 public class InstitutionInfoTool extends MyTool {

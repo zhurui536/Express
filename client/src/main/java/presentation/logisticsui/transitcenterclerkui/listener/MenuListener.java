@@ -1,5 +1,8 @@
 package presentation.logisticsui.transitcenterclerkui.listener;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import presentation.logisticsui.transitcenterclerkui.listener.toollistener.GoodsLoadToolListener;
 import presentation.logisticsui.transitcenterclerkui.listener.toollistener.GoodsRecToolListener;
@@ -7,9 +10,6 @@ import presentation.logisticsui.transitcenterclerkui.listener.toollistener.Goods
 import presentation.logisticsui.transitcenterclerkui.tool.GoodsLoadTool;
 import presentation.logisticsui.transitcenterclerkui.tool.GoodsRecTool;
 import presentation.logisticsui.transitcenterclerkui.tool.GoodsTranTool;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class MenuListener implements ActionListener{

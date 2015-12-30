@@ -4,10 +4,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import po.logisticpo.SendBillPO;
-import vo.logisticvo.SendBillVO;
 import util.ExpressType;
 import util.MyJTable;
 import util.PackageType;
+import vo.logisticvo.SendBillVO;
 
 @SuppressWarnings("serial")
 public class SendBillDataPane extends JPanel {

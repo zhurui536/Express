@@ -3,6 +3,7 @@ package presentation.billui.listener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
+import bussinesslogicservice.billblservice.BillBLService;
 import po.financepo.PayBillPO;
 import po.logisticpo.ArrivalBillPO;
 import po.logisticpo.DeliveryBillPO;
@@ -28,7 +29,6 @@ import presentation.storeui.listener.ToolListener;
 import util.BillType;
 import util.ResultMessage;
 import vo.BillVO;
-import bussinesslogicservice.billblservice.BillBLService;
 
 public class BillJudgeToolListener extends ToolListener {
 	private BillBLService bc;

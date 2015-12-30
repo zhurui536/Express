@@ -1,5 +1,8 @@
 package presentation.strategyui.listener;
 
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
 import presentation.WarningDialog;
 import presentation.mainui.component.MyTool;
@@ -11,9 +14,6 @@ import presentation.strategyui.inputframe.PriceInputFrame;
 import util.City;
 import util.ResultMessage;
 import vo.DistanceVO;
-
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 
 public class StrategyToolListener extends ToolListener {
 	private ManagerFrame ui;

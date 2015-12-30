@@ -1,14 +1,14 @@
 package bussinesslogic.strategybl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
 import connection.ClientRMIHelper;
 import dataservice.strategydataservice.StrategyDataService;
 import po.DistancePO;
 import util.ResultMessage;
 import vo.DistanceVO;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public class StrategyConstantBLServiceImpl implements StrategyConstantBLService {
 	private StrategyDataService dataservice;

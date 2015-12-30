@@ -1,9 +1,9 @@
 package po;
 
 
-import util.City;
-
 import java.io.Serializable;
+
+import util.City;
 
 public class DistancePO implements Serializable {
 	/**

@@ -1,5 +1,10 @@
 package bussinesslogic.logisticsbl;
 
+import java.math.BigDecimal;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+
 import bussinesslogicservice.logisticsblservice.ReceiptBillProduceBLService;
 import connection.ClientRMIHelper;
 import dataservice.logisticsdataservice.ReceiptBillProduceDataService;
@@ -9,11 +14,6 @@ import po.logisticpo.SendBillPO;
 import util.PublicMessage;
 import util.ResultMessage;
 import util.Time;
-
-import java.math.BigDecimal;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ReceiptBillProduceBL implements ReceiptBillProduceBLService {
 

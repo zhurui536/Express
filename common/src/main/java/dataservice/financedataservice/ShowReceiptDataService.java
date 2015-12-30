@@ -1,10 +1,10 @@
 package dataservice.financedataservice;
 
 
-import util.ResultMessage;
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+
+import util.ResultMessage;
 
 /**
  * 显示收款单数据层

@@ -1,8 +1,8 @@
 package po;
 
-import util.SalaryType;
-
 import java.io.Serializable;
+
+import util.SalaryType;
 
 public class SalaryPO implements Serializable {
 	/**

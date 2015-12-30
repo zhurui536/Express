@@ -1,9 +1,9 @@
 package vo.storevo;
 
+import java.util.ArrayList;
+
 import po.storepo.OutStorePO;
 import util.Trans;
-
-import java.util.ArrayList;
 
 public class OutStoreVO {
 	private ArrayList<String> goodsid;

@@ -1,13 +1,13 @@
 package bussinesslogic.infobl;
 
+import java.rmi.RemoteException;
+
 import bussinesslogicservice.infoblservice.TruckMessageMaintenanceBLService;
 import connection.ClientRMIHelper;
 import dataservice.infodataservice.TruckMessageMaintenanceDataService;
 import po.TruckMessagePO;
 import util.ResultMessage;
 import vo.TruckMessageVO;
-
-import java.rmi.RemoteException;
 
 public class TruckMessageMaintenanceBL implements TruckMessageMaintenanceBLService {
 

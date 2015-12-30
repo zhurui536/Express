@@ -1,5 +1,8 @@
 package presentation.infoui.listener;
 
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
 import bussinesslogicservice.infoblservice.StaffMessageMaintenanceBLService;
 import presentation.WarningDialog;
 import presentation.infoui.datapanel.StaffMessageDataPane;
@@ -10,9 +13,6 @@ import presentation.managerui.ManagerFrame;
 import presentation.storeui.listener.ToolListener;
 import util.ResultMessage;
 import vo.StaffMessageVO;
-
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 
 public class StaffInfoToolListener extends ToolListener {
 	private StaffMessageMaintenanceBLService bl;

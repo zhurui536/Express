@@ -1,14 +1,18 @@
 package presentation.strategyui.datapanel;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
 import presentation.managerui.ManagerFrame;
 import util.Job;
 import util.ResultMessage;
 import util.SalaryType;
-
-import javax.swing.*;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class SalaryStrategyDataPane extends JPanel implements ActionListener {

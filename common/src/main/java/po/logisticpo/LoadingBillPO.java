@@ -1,11 +1,11 @@
 package po.logisticpo;
 
+import java.util.ArrayList;
+
 import po.BillPO;
 import util.BillType;
 import util.Time;
 import vo.logisticvo.LoadingBillVO;
-
-import java.util.ArrayList;
 
 /**
  * 装车单

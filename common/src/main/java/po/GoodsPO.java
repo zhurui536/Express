@@ -1,14 +1,14 @@
 package po;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 import util.City;
 import util.ExpressType;
 import util.GoodsDeliveryState;
 import util.PackageType;
 import util.Time;
 import vo.GoodsVO;
-
-import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Created by Away 2015/10/26

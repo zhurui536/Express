@@ -2,6 +2,7 @@ package presentation.logisticsui.transitcenterclerkui.listener.toollistener;
 
 import java.awt.event.ActionEvent;
 
+import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import presentation.WarningDialog;
 import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import presentation.logisticsui.transitcenterclerkui.inputframe.GoodsRecInputFrame;
@@ -9,7 +10,6 @@ import presentation.mainui.component.MyTool;
 import presentation.storeui.listener.ToolListener;
 import util.ResultMessage;
 import vo.logisticvo.ArrivalBillVO;
-import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 
 public class GoodsRecToolListener extends ToolListener{
         private LogisticsBLService logisticsBLService;

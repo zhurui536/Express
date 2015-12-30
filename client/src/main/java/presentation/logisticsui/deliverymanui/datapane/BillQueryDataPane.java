@@ -1,14 +1,15 @@
 package presentation.logisticsui.deliverymanui.datapane;
 
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 import util.ExpressType;
 import util.GoodsDeliveryState;
 import util.PackageType;
 import vo.GoodsVO;
 import vo.logisticvo.PeopleMessageVO;
 import vo.logisticvo.SendBillVO;
-
-import javax.swing.*;
 
 
 @SuppressWarnings("serial")

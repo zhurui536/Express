@@ -1,11 +1,11 @@
 package po.storepo;
 
-import vo.storevo.StorePlaceVO;
-import vo.storevo.StoreVO;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import vo.storevo.StorePlaceVO;
+import vo.storevo.StoreVO;
 
 /**
  * 库存PO

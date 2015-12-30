@@ -1,5 +1,9 @@
 package bussinesslogic.storebl;
 
+import java.rmi.RemoteException;
+
+import javax.swing.JTable;
+
 import bussinesslogicservice.storeblservice.VerificationBLService;
 import connection.ClientRMIHelper;
 import dataservice.storedataservice.StoreDataService;
@@ -8,9 +12,6 @@ import po.storepo.VerificationPO;
 import util.PublicMessage;
 import util.ResultMessage;
 import vo.storevo.VerificationVO;
-
-import javax.swing.*;
-import java.rmi.RemoteException;
 
 public class VerificationBL implements VerificationBLService {
 	private StoreDataService dataservice;

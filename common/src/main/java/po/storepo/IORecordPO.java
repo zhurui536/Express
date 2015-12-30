@@ -1,9 +1,9 @@
 package po.storepo;
 
-import vo.storevo.CheckVO;
-
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import vo.storevo.CheckVO;
 
 public class IORecordPO implements Serializable {
 	/**

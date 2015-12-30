@@ -1,14 +1,14 @@
 package po.logisticpo;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 import po.BillPO;
 import util.BillType;
 import util.Time;
 import vo.logisticvo.ReceiptBillVO;
 import vo.logisticvo.ReceiptLineItemVO;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 收款单PO 2015/12/6

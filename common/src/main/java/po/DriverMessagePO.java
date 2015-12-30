@@ -1,10 +1,10 @@
 package po;
 
+import java.io.Serializable;
+
 import util.Sex;
 import util.Time;
 import vo.DriverMessageVO;
-
-import java.io.Serializable;
 
 /**
  * @author zhuding

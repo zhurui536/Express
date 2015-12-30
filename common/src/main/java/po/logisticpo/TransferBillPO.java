@@ -1,11 +1,11 @@
 package po.logisticpo;
 
+import java.util.ArrayList;
+
 import po.BillPO;
 import util.BillType;
 import util.Time;
 import util.Trans;
-
-import java.util.ArrayList;
 
 public class TransferBillPO extends BillPO {
 

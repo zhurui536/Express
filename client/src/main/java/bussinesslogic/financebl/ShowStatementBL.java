@@ -1,5 +1,11 @@
 package bussinesslogic.financebl;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+
 import bussinesslogicservice.financeblservice.ShowStatementBLService;
 import connection.ClientRMIHelper;
 import dataservice.financedataservice.ShowReceiptDataService;
@@ -12,12 +18,6 @@ import util.Time;
 import vo.financevo.PayBillVO;
 import vo.financevo.StatementVO;
 import vo.logisticvo.ReceiptBillVO;
-
-import java.io.IOException;
-import java.io.OutputStream;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 经营情况表逻辑层实现

@@ -1,9 +1,9 @@
 package dataservice.logisticsdataservice;
 
-import po.GoodsPO;
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+
+import po.GoodsPO;
 
 /**
  * @author zhuding

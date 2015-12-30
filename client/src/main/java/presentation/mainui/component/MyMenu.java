@@ -1,6 +1,7 @@
 package presentation.mainui.component;
 
 import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
