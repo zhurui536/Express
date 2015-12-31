@@ -8,6 +8,7 @@ import javax.swing.JScrollPane;
 
 import po.storepo.InStoreBillPO;
 import po.storepo.OutStoreBillPO;
+import util.BillState;
 import util.MyJTable;
 
 @SuppressWarnings("serial")
@@ -24,7 +25,7 @@ public class StoreBillListPane extends JPanel {
 			rowdata[i][0] = bills.get(i).getBillID();
 			rowdata[i][1] = bills.get(i).getUserID();
 			rowdata[i][2] = df.format(bills.get(i).getGenerateTime().getTime());
-			rowdata[i][3] = bills.get(i).getState();
+			rowdata[i][3] = BillState.billStateToString(bills.get(i).getState());
 		}
 		
 		MyJTable table = new MyJTable(rowdata, columnnames);
@@ -46,7 +47,7 @@ public class StoreBillListPane extends JPanel {
 			rowdata[i][0] = bills.get(i).getBillID();
 			rowdata[i][1] = bills.get(i).getUserID();
 			rowdata[i][2] = df.format(bills.get(i).getGenerateTime().getTime());
-			rowdata[i][3] = bills.get(i).getState();
+			rowdata[i][3] = BillState.billStateToString(bills.get(i).getState());
 		}
 		
 		MyJTable table = new MyJTable(rowdata, columnnames);
