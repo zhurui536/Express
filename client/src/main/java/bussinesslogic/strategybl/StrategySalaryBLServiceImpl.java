@@ -3,20 +3,27 @@ package bussinesslogic.strategybl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import bussinesslogicservice.strategyblservice.StrategySalaryBLService;
 import connection.ClientRMIHelper;
 import dataservice.strategydataservice.StrategyDataService;
 import po.StaffMessagePO;
+import util.LogFactory;
 import util.ResultMessage;
 import vo.StaffMessageVO;
+import vo.SystemlogVO;
 
 public class StrategySalaryBLServiceImpl implements StrategySalaryBLService {
 	private StrategyDataService dataservice;
+	//编写系统日志
+	private SystemlogMaintenanceBLService logservice;
+	
 	private ArrayList<StaffMessagePO> pos;
 	
 	public StrategySalaryBLServiceImpl(){
 		dataservice = (StrategyDataService) ClientRMIHelper.getServiceByName("StrategyDataServiceImpl");
 		pos = new ArrayList<StaffMessagePO>();
+		logservice = LogFactory.getInstance();
 	}
 
 //	@Override
@@ -41,6 +48,8 @@ public class StrategySalaryBLServiceImpl implements StrategySalaryBLService {
 		try {
 			ResultMessage result = dataservice.getSalary();
 			
+			this.logservice.addSystemlog(new SystemlogVO("读取员工薪水"));
+			
 			if(result.getKey().equals("success")){
 				pos = (ArrayList<StaffMessagePO>) result.getValue();
 				
@@ -61,6 +70,7 @@ public class StrategySalaryBLServiceImpl implements StrategySalaryBLService {
 			try {
 				ResultMessage result = dataservice.saveSalary(pos);
 				if(result.getKey().equals("success")){
+					this.logservice.addSystemlog(new SystemlogVO("保存员工薪水"));
 					return new ResultMessage("success", null);
 				}
 				else{
@@ -92,6 +102,7 @@ public class StrategySalaryBLServiceImpl implements StrategySalaryBLService {
 			if(vo.id.equals(pos.get(i).getId())){
 				pos.remove(i);
 				pos.add(new StaffMessagePO(vo));
+				this.logservice.addSystemlog(new SystemlogVO("修改员工薪水"));
 				return new ResultMessage("success", this.getVO());
 			}
 		}

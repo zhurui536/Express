@@ -3,18 +3,24 @@ package bussinesslogic.strategybl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
 import connection.ClientRMIHelper;
 import dataservice.strategydataservice.StrategyDataService;
 import po.DistancePO;
+import util.LogFactory;
 import util.ResultMessage;
 import vo.DistanceVO;
+import vo.SystemlogVO;
 
 public class StrategyConstantBLServiceImpl implements StrategyConstantBLService {
 	private StrategyDataService dataservice;
+	//编写系统日志
+	private SystemlogMaintenanceBLService logservice;
 	
 	public StrategyConstantBLServiceImpl(){
 		dataservice = (StrategyDataService) ClientRMIHelper.getServiceByName("StrategyDataServiceImpl");
+		logservice = LogFactory.getInstance();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -35,6 +41,7 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 						
 						//对新距离信息进行保存
 						result = dataservice.SaveDistance(distances);
+						this.logservice.addSystemlog(new SystemlogVO("修改城市距离"));
 						if(result.getKey().equals("success")){//保存成功
 							ArrayList<DistanceVO> vos = new ArrayList<DistanceVO>();
 							
@@ -55,6 +62,8 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 				distances.add(po);
 				result = dataservice.SaveDistance(distances);
 				if(result.getKey().equals("success")){
+					this.logservice.addSystemlog(new SystemlogVO("修改城市距离"));
+					
 					ArrayList<DistanceVO> vos = new ArrayList<DistanceVO>();
 					
 					//将新的距离信息返回
@@ -78,6 +87,7 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 		try {
 			ResultMessage result = dataservice.savePrice(price);
 			if(result.getKey().equals("success")){
+				this.logservice.addSystemlog(new SystemlogVO("修改运费常量"));
 				return new ResultMessage("success", null);
 			}
 		} catch (RemoteException e) {
@@ -93,7 +103,9 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 		try {
 			ResultMessage result = dataservice.getDistance();
 			
-			if(result.getKey().equalsIgnoreCase("success")){
+			if(result.getKey().equals("success")){
+				this.logservice.addSystemlog(new SystemlogVO("读取城市距离"));
+				
 				ArrayList<DistancePO> distances = (ArrayList<DistancePO>) result.getValue();
 				ArrayList<DistanceVO> vos = new ArrayList<DistanceVO>();
 				
@@ -117,7 +129,9 @@ public class StrategyConstantBLServiceImpl implements StrategyConstantBLService 
 		try {
 			ResultMessage result = dataservice.getPrice();
 			
-			if(result.getKey().equalsIgnoreCase("success")){
+			if(result.getKey().equals("success")){
+				this.logservice.addSystemlog(new SystemlogVO("读取运费常量"));
+				
 				double price = (double) result.getValue();
 				
 				return new ResultMessage("success", price);

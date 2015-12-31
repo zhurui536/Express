@@ -17,6 +17,7 @@ public class StaffMessageMaintenanceBL implements StaffMessageMaintenanceBLServi
         private StaffMessageMaintenanceDataService staffMessageMaintenanceDataService;
         private InstitutionMessageMaintenanceDataService institutionMessageMaintenanceDataService;
         
+        
         public StaffMessageMaintenanceBL() {
                 staffMessageMaintenanceDataService = (StaffMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("StaffMessageMaintenanceDataServiceImpl");
                 institutionMessageMaintenanceDataService = (InstitutionMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("InstitutionMessageMaintenanceDataServiceImpl");

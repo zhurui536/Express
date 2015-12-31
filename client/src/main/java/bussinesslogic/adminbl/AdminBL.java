@@ -4,20 +4,26 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bussinesslogicservice.adminblservice.AdminBLService;
+import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import connection.ClientRMIHelper;
 import dataservice.userdataservice.AdminDataService;
 import po.StaffMessagePO;
 import po.UserPO;
+import util.LogFactory;
 import util.ResultMessage;
+import vo.SystemlogVO;
 import vo.UserVO;
 
 public class AdminBL implements AdminBLService {
 	private ArrayList<UserPO> users;
 	private ArrayList<StaffMessagePO> staff;
 	private AdminDataService dataservice;
+	//编写系统日志
+	private SystemlogMaintenanceBLService logservice;
 	
 	public AdminBL(){
 		dataservice = (AdminDataService) ClientRMIHelper.getServiceByName("AdminDataServiceImpl");
+		logservice = LogFactory.getInstance();
 		users = new ArrayList<UserPO>();
 		staff = new ArrayList<StaffMessagePO>();
 	}
@@ -27,6 +33,7 @@ public class AdminBL implements AdminBLService {
 	@Override
 	public ResultMessage getUser() {
 		try {
+			this.logservice.addSystemlog(new SystemlogVO("查看用户"));
 			ResultMessage result = dataservice.getUser();
 			if(result.getKey().equals("success")){
 				this.users = (ArrayList<UserPO>) result.getValue();
@@ -45,6 +52,7 @@ public class AdminBL implements AdminBLService {
 	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage addUser(UserVO user) {
+		this.logservice.addSystemlog(new SystemlogVO("增加用户"));
 		//检查登录账户是否存在，如果已经存在，则返回错误
 		for(int i=0;i<users.size();i++){
 			UserPO temp = users.get(i);
@@ -82,6 +90,7 @@ public class AdminBL implements AdminBLService {
 
 	@Override
 	public ResultMessage delUser(UserVO user) {
+		this.logservice.addSystemlog(new SystemlogVO("删除用户"));
 		for(int i=0;i<users.size();i++){
 			UserPO temp = users.get(i);
 			//直接遍历当前用户，存在id相同的便删除
@@ -123,6 +132,7 @@ public class AdminBL implements AdminBLService {
 	public ResultMessage end(int condition) {
 		if(condition == 0){
 			try {
+				this.logservice.addSystemlog(new SystemlogVO("保存用户信息"));
 				ResultMessage result = dataservice.saveUser(users);
 				if(result.getKey().equals("success")){
 					return new ResultMessage("success", null);
@@ -136,6 +146,7 @@ public class AdminBL implements AdminBLService {
 			}
 		}
 		else{
+			this.logservice.addSystemlog(new SystemlogVO("取消之前对用户信息的修改"));
 			return new ResultMessage("success", null);
 		}
 	}

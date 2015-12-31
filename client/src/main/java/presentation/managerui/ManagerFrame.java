@@ -2,14 +2,11 @@ package presentation.managerui;
 
 import bussinesslogic.billbl.BillBLController;
 import bussinesslogic.financebl.FinanceController;
-import bussinesslogic.infobl.InstitutionMessageMaintenanceBL;
-import bussinesslogic.infobl.StaffMessageMaintenanceBL;
+import bussinesslogic.infobl.InfoBLController;
 import bussinesslogic.strategybl.StrategyConstantBLServiceImpl;
 import bussinesslogic.strategybl.StrategySalaryBLServiceImpl;
 import bussinesslogicservice.billblservice.BillBLService;
 import bussinesslogicservice.financeblservice.FinanceBLService;
-import bussinesslogicservice.infoblservice.InstitutionMessageMaintenanceBLService;
-import bussinesslogicservice.infoblservice.StaffMessageMaintenanceBLService;
 import bussinesslogicservice.strategyblservice.StrategyConstantBLService;
 import bussinesslogicservice.strategyblservice.StrategySalaryBLService;
 import presentation.mainui.ExpressFrame;
@@ -24,8 +21,7 @@ public class ManagerFrame extends ExpressFrame {
 	private BillBLService bs;
 	private StrategyConstantBLService cs;
 	private StrategySalaryBLService ss;
-	private StaffMessageMaintenanceBLService sms;
-	private InstitutionMessageMaintenanceBLService ims;
+	private InfoBLController inf;
 	private FinanceBLService fs;
 	
 	public static void main(String[] args){
@@ -39,8 +35,7 @@ public class ManagerFrame extends ExpressFrame {
 		bs = new BillBLController();
 		cs = new StrategyConstantBLServiceImpl();
 		ss = new StrategySalaryBLServiceImpl();
-		sms = new StaffMessageMaintenanceBL();
-		ims = new InstitutionMessageMaintenanceBL();
+		inf = new InfoBLController();
 		fs = new FinanceController();
 		this.paintFrame();
 	}
@@ -63,12 +58,8 @@ public class ManagerFrame extends ExpressFrame {
 		return this.ss;
 	}
 	
-	public StaffMessageMaintenanceBLService getStaffMessageController(){
-		return this.sms;
-	}
-	
-	public InstitutionMessageMaintenanceBLService getInstitutionMessageController(){
-		return this.ims;
+	public InfoBLController getInfoController(){
+		return this.inf;
 	}
 	
 	public FinanceBLService getFinanceController(){

@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bussinesslogicservice.billblservice.BillBLService;
+import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import connection.ClientRMIHelper;
 import dataservice.billdataservice.BilldataService;
 import dataservice.logisticsdataservice.DeliveryDataService;
@@ -25,13 +26,18 @@ import po.storepo.StorePlacePO;
 import util.BillState;
 import util.BillType;
 import util.InstitutionType;
+import util.LogFactory;
 import util.PublicMessage;
 import util.ResultMessage;
 import util.Time;
 import vo.BillVO;
+import vo.SystemlogVO;
 //处理单据审批
 public class BillBLController implements BillBLService {
 	private BilldataService dataservice;
+	//编写系统日志
+	private SystemlogMaintenanceBLService logservice;
+	
 	private final BillType[] types = {
 			BillType.OUTSTORE, BillType.INSTORE, BillType.PAYMENT, BillType.RECEIPT, BillType.ARRIVAL, BillType.DELIVERY,
 			BillType.LOADING, BillType.SEND, BillType.TRANSIT
@@ -41,6 +47,7 @@ public class BillBLController implements BillBLService {
 	
 	public BillBLController(){
 		dataservice = (BilldataService) ClientRMIHelper.getServiceByName("BillDataServiceImpl");
+		logservice = LogFactory.getInstance();
 		vos = new ArrayList<BillVO>();
 		bills = new ArrayList<BillPO>();
 	}
@@ -50,6 +57,7 @@ public class BillBLController implements BillBLService {
 	public ResultMessage getBills() {
 		vos = new ArrayList<BillVO>();
 		bills = new ArrayList<BillPO>();
+		this.logservice.addSystemlog(new SystemlogVO("查看所有未审批单据"));
 		for(int i=0;i<types.length;i++){
 			ResultMessage result;
 			try {
@@ -175,6 +183,7 @@ public class BillBLController implements BillBLService {
 	@Override
 	public ResultMessage getBills(BillType type){
 		ResultMessage result;
+		this.logservice.addSystemlog(new SystemlogVO("筛选某类单据"));
 		try {
 			ArrayList<BillVO> bills = new ArrayList<BillVO>();
 			result = dataservice.getBills(type);
@@ -274,6 +283,7 @@ public class BillBLController implements BillBLService {
 	@Override
 	public ResultMessage chooseBill(String id, BillType type) {
 		ResultMessage result;
+		this.logservice.addSystemlog(new SystemlogVO("查看单据"));
 		try {
 			result = dataservice.getBills(type);
 			if(result.getKey().equals("success")){
@@ -378,6 +388,7 @@ public class BillBLController implements BillBLService {
 	@Override
 	public ResultMessage approve(String id, BillType type) {
 		ResultMessage result;
+		this.logservice.addSystemlog(new SystemlogVO("审批单据"+id));
 		try {
 			result = dataservice.getBills(type);
 			if(result.getKey().equals("success")){

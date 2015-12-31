@@ -3,7 +3,7 @@ package presentation.infoui.listener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
-import bussinesslogicservice.infoblservice.StaffMessageMaintenanceBLService;
+import bussinesslogic.infobl.InfoBLController;
 import presentation.WarningDialog;
 import presentation.infoui.datapanel.StaffMessageDataPane;
 import presentation.infoui.inputframe.StaffIDInputFrame;
@@ -15,12 +15,12 @@ import util.ResultMessage;
 import vo.StaffMessageVO;
 
 public class StaffInfoToolListener extends ToolListener {
-	private StaffMessageMaintenanceBLService bl;
+	private InfoBLController bl;
 	private ManagerFrame ui;
 	
 	public StaffInfoToolListener(ManagerFrame ui){
 		this.ui = ui;
-		this.bl = ui.getStaffMessageController();
+		this.bl = ui.getInfoController();
 	}
 	
 	@SuppressWarnings("unchecked")

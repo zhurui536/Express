@@ -3,42 +3,49 @@ package bussinesslogic.userbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import bussinesslogicservice.userblservice.UserBLService;
 import connection.ClientRMIHelper;
 import dataservice.userdataservice.AdminDataService;
 import po.InstitutionMessagePO;
 import po.StaffMessagePO;
 import po.UserPO;
+import util.LogFactory;
 import util.ResultMessage;
+import vo.SystemlogVO;
 
 
 public class UserBLServiceImpl implements UserBLService {
 	
 	private AdminDataService dataservice;
+	//编写系统日志
+	private SystemlogMaintenanceBLService logservice;
 	
 	public UserBLServiceImpl(){
 		dataservice = (AdminDataService) ClientRMIHelper.getServiceByName("AdminDataServiceImpl");
+		logservice = LogFactory.getInstance();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage login(String id, String password) {
 		try {
+			this.logservice.addSystemlog(new SystemlogVO("用户登录"+id+" "+password));
 			ResultMessage result = dataservice.getUser();
 			if(result.getKey().equals("success")){
-				@SuppressWarnings("unchecked")
-                                ArrayList<UserPO> users = (ArrayList<UserPO>) result.getValue();
+				ArrayList<UserPO> users = (ArrayList<UserPO>) result.getValue();
 				//检查用户id是否存在
 				for(int i=0;i<users.size();i++){
 					//如果存在，则比较密码
 					System.out.println(users.get(i).getid()+" "+users.get(i).getPassword());
+					
 					if(users.get(i).getid().equals(id)){
 						//如果密码正确，则查询员工编号
 						if(users.get(i).getPassword().equals(password)){
 							result = dataservice.getStaff();
 							
 							if(result.getKey().equals("success")){
-								@SuppressWarnings("unchecked")
-                                                                ArrayList<StaffMessagePO> staff = (ArrayList<StaffMessagePO>) result.getValue();
+								ArrayList<StaffMessagePO> staff = (ArrayList<StaffMessagePO>) result.getValue();
 								
 								//如果员工编号存在，则将该编号返回作为之后工作的编号
 								for(int j=0;j<staff.size();j++){
