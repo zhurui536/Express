@@ -11,7 +11,7 @@ import vo.StaffMessageVO;
 public interface StrategySalaryBLService {
 	public ResultMessage getSalary();
 	
-	public ResultMessage inputSalaryInfo(StaffMessageVO vo);
+//	public ResultMessage inputSalaryInfo(StaffMessageVO vo);
 	
 	public ResultMessage endSalary(int condition);
 	

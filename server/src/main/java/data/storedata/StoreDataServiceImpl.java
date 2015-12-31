@@ -115,13 +115,15 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	//保存入库记录的同时更新库存
 	@SuppressWarnings("unchecked")
 	@Override
-	public ResultMessage saveInStore(ArrayList<InStorePO> po)
+	public ResultMessage saveInStore(InStoreBillPO bill)
 			throws RemoteException {
 		ArrayList<InStorePO> records = null;
 		
 		try {
 			//读入入库记录数据
 			records = (ArrayList<InStorePO>) this.readList(instorerecord);
+			
+			ArrayList<InStorePO> po = bill.getPOS();
 			
 			//将记录加到现有记录的后面
 			for(int i=0;i<po.size();i++){
@@ -133,7 +135,6 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			
 			//接着保存入库单
 			if(po.size()>0){
-				InStoreBillPO bill = new InStoreBillPO(po.get(0).getUser(), po);
 				bill.setState(BillState.SUBMTTED);
 				ArrayList<InStoreBillPO> temp;
 				
@@ -156,7 +157,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	//保存出库记录的同时更新库存
 	@SuppressWarnings("unchecked")
 	@Override
-	public ResultMessage saveOutStore(ArrayList<OutStorePO> po)
+	public ResultMessage saveOutStore(OutStoreBillPO bill)
 			throws RemoteException {
 		ArrayList<OutStorePO> records = null;
 		
@@ -164,6 +165,7 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			//读入出库记录数据
 			records = (ArrayList<OutStorePO>) this.readList(outstorerecord);
 			
+			ArrayList<OutStorePO> po = bill.getPOS();
 			//将记录加到现有记录的后面
 			for(int i=0;i<po.size();i++){
 				records.add(po.get(i));
@@ -174,7 +176,6 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 			
 			//接着保存出库单
 			if(po.size()>0){//暂时现将第一个货物的编号作为出库单id
-				OutStoreBillPO bill = new OutStoreBillPO(po.get(0).getUser(), po);
 				bill.setState(BillState.SUBMTTED);
 				ArrayList<OutStoreBillPO> temp;
 				

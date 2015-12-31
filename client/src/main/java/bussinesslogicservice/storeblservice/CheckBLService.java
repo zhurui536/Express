@@ -16,6 +16,12 @@ public interface CheckBLService {
 	//获得整个库存的情况
 	public ResultMessage checkStore();
 	
+	//查看入库单的审批状态
+	public ResultMessage checkInStore();
+	
+	//查看出库单的审批状态
+	public ResultMessage checkOutStore();
+	
 	/*查看时间段内的出入库记录
 	 * start end
 	 * ResultMessage

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import bussinesslogicservice.storeblservice.OutStoreBLService;
 import connection.ClientRMIHelper;
 import dataservice.storedataservice.StoreDataService;
+import po.storepo.OutStoreBillPO;
 import po.storepo.OutStorePO;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
@@ -126,8 +127,8 @@ public class OutStoreBL implements OutStoreBLService {
 //				else{
 //					return new ResultMessage("dataerror", new OutStoreVO(goodslist));
 //				}
-				
-				ResultMessage result = dataservice.saveOutStore(goodslist);
+				OutStoreBillPO bill = new OutStoreBillPO(PublicMessage.staffID, goodslist);
+				ResultMessage result = dataservice.saveOutStore(bill);
 				if(result.getKey().equals("success")){
 					return new ResultMessage(result.getKey(), null);
 				}

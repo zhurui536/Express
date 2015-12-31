@@ -2,11 +2,10 @@ package dataservice.storedataservice;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.Calendar;
 
-import po.storepo.InStorePO;
-import po.storepo.OutStorePO;
+import po.storepo.InStoreBillPO;
+import po.storepo.OutStoreBillPO;
 import po.storepo.StorePO;
 import po.storepo.VerificationPO;
 import util.ResultMessage;
@@ -37,14 +36,14 @@ public interface StoreDataService extends Remote {
 	 * 返回存储结果和null
 	 * 存储结果：success  dataerror
 	 */
-	public ResultMessage saveInStore(ArrayList<InStorePO> po) throws RemoteException;
+	public ResultMessage saveInStore(InStoreBillPO po) throws RemoteException;
 	
 	/*保存出库记录
 	 * po
 	 * 返回存储结果和null
 	 * 存储结果：success  dataerror
 	 */
-	public ResultMessage saveOutStore(ArrayList<OutStorePO> po) throws RemoteException;
+	public ResultMessage saveOutStore(OutStoreBillPO po) throws RemoteException;
 	
 	/*获得货物的批号
 	 * 无

@@ -19,21 +19,21 @@ public class StrategySalaryBLServiceImpl implements StrategySalaryBLService {
 		pos = new ArrayList<StaffMessagePO>();
 	}
 
-	@Override
-	public ResultMessage inputSalaryInfo(StaffMessageVO vo) {
-		for(int i=0;i<pos.size();i++){
-			if(vo.id.equals(pos.get(i).getId())){
-				return new ResultMessage("existedstaff", null);
-			}
-		}
-		
-		StaffMessagePO po = new StaffMessagePO(vo);
-		
-		pos.add(po);
-		
-		return new ResultMessage("success", this.getVO());
-		
-	}
+//	@Override
+//	public ResultMessage inputSalaryInfo(StaffMessageVO vo) {
+//		for(int i=0;i<pos.size();i++){
+//			if(vo.id.equals(pos.get(i).getId())){
+//				return new ResultMessage("existedstaff", null);
+//			}
+//		}
+//		
+//		StaffMessagePO po = new StaffMessagePO(vo);
+//		
+//		pos.add(po);
+//		
+//		return new ResultMessage("success", this.getVO());
+//		
+//	}
 
 	@SuppressWarnings("unchecked")
 	@Override

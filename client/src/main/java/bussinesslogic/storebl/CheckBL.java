@@ -1,12 +1,15 @@
 package bussinesslogic.storebl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import bussinesslogicservice.storeblservice.CheckBLService;
 import connection.ClientRMIHelper;
 import dataservice.storedataservice.StoreDataService;
 import po.storepo.IORecordPO;
+import po.storepo.InStoreBillPO;
+import po.storepo.OutStoreBillPO;
 import po.storepo.StorePO;
 import util.ResultMessage;
 import vo.storevo.CheckVO;
@@ -70,6 +73,46 @@ public class CheckBL implements CheckBLService {
 			e.printStackTrace();
 			return new ResultMessage("internet error", null);
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResultMessage checkInStore() {
+		StoreDataService dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		
+		try {
+			ResultMessage result = dataservice.getIntStoreBill();
+			if(result.getKey().equals("success")){
+				ArrayList<InStoreBillPO> bills = (ArrayList<InStoreBillPO>) result.getValue();
+				return new ResultMessage("success", bills);
+			}
+			else{
+				return result;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return new ResultMessage("internet error", null);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public ResultMessage checkOutStore() {
+		StoreDataService dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		try {
+			ResultMessage result = dataservice.getOutStoreBill();
+			if(result.getKey().equals("success")){
+				ArrayList<OutStoreBillPO> bills = (ArrayList<OutStoreBillPO>) result.getValue();
+				return new ResultMessage("success", bills);
+			}
+			else{
+				return result;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return new ResultMessage("internet error", null);
+		}
+		
 	}
 
 }

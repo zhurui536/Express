@@ -1,17 +1,11 @@
 package bussinesslogic.storebl;
 
-import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.swing.JTable;
 
 import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import bussinesslogicservice.storeblservice.StoreBLService;
-import connection.ClientRMIHelper;
-import dataservice.storedataservice.StoreDataService;
-import po.storepo.InStoreBillPO;
-import po.storepo.OutStoreBillPO;
 import util.LogFactory;
 import util.ResultMessage;
 import util.Trans;
@@ -197,50 +191,22 @@ public class StoreBLController implements StoreBLService {
 		return verification.exportVerification(table);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage checkInStore() {
-		StoreDataService dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 		if(condition == 0){
-			try {
-				ResultMessage result = dataservice.getIntStoreBill();
-				if(result.getKey().equals("success")){
-					ArrayList<InStoreBillPO> bills = (ArrayList<InStoreBillPO>) result.getValue();
-					this.logservice.addSystemlog(new SystemlogVO("查看入库单审批情况"));
-					return new ResultMessage("success", bills);
-				}
-				else{
-					return result;
-				}
-			} catch (RemoteException e) {
-				e.printStackTrace();
-				return new ResultMessage("internet error", null);
-			}
+			this.logservice.addSystemlog(new SystemlogVO("查看入库单审批"));
+			return check.checkInStore();
 		}
 		else{
 			return new ResultMessage("busy", null);
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage checkOutStore() {
-		StoreDataService dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
 		if(condition == 0){
-			try {
-				ResultMessage result = dataservice.getOutStoreBill();
-				if(result.getKey().equals("success")){
-					ArrayList<OutStoreBillPO> bills = (ArrayList<OutStoreBillPO>) result.getValue();
-					this.logservice.addSystemlog(new SystemlogVO("查看出库单审批情况"));
-					return new ResultMessage("success", bills);
-				}
-				else{
-					return result;
-				}
-			} catch (RemoteException e) {
-				e.printStackTrace();
-				return new ResultMessage("internet error", null);
-			}
+			this.logservice.addSystemlog(new SystemlogVO("查看出库单审批"));
+			return check.checkOutStore();
 		}
 		else{
 			return new ResultMessage("busy", null);

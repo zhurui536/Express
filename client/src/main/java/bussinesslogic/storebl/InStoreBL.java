@@ -7,6 +7,7 @@ import bussinesslogicservice.storeblservice.InStoreBLService;
 import connection.ClientRMIHelper;
 import dataservice.storedataservice.StoreDataService;
 import po.GoodsPO;
+import po.storepo.InStoreBillPO;
 import po.storepo.InStorePO;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
@@ -130,7 +131,8 @@ public class InStoreBL implements InStoreBLService {
 //					}
 //				}
 				//提交入库单，等待审批
-				ResultMessage result = dataservice.saveInStore(goodslist);
+				InStoreBillPO bill = new InStoreBillPO(PublicMessage.staffID, goodslist);
+				ResultMessage result = dataservice.saveInStore(bill);
 				if(result.getKey().equals("success")){
 					return new ResultMessage(result.getKey(), null);
 				}
