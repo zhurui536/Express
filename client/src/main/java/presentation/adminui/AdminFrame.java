@@ -1,4 +1,4 @@
-package presentation.userui;
+package presentation.adminui;
 
 import bussinesslogic.adminbl.AdminBL;
 import bussinesslogicservice.adminblservice.AdminBLService;
@@ -12,17 +12,17 @@ public class AdminFrame extends ExpressFrame {
 	
 	private AdminMenuListener menulistener;
 	
-	public static void main(String[] args){
-		
-//	        try {
-//	            ClientRMIHelper.init();
-//	        } catch (ClientInitException e) {
-//	            e.printStackTrace();
-//	        }
-	    
-		AdminFrame frame = new AdminFrame();
-		frame.setVisible(true);
-	}
+//	public static void main(String[] args){
+//		
+////	        try {
+////	            ClientRMIHelper.init();
+////	        } catch (ClientInitException e) {
+////	            e.printStackTrace();
+////	        }
+//	    
+//		AdminFrame frame = new AdminFrame();
+//		frame.setVisible(true);
+//	}
 	
 	public AdminFrame(){
 		this.setLayout(null);
