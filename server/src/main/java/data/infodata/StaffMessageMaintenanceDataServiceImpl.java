@@ -6,9 +6,9 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import dao.Database;
 import dataservice.infodataservice.StaffMessageMaintenanceDataService;
 import po.StaffMessagePO;
+import serialutility.Database;
 import util.ResultMessage;
 
 public class StaffMessageMaintenanceDataServiceImpl extends UnicastRemoteObject implements StaffMessageMaintenanceDataService{

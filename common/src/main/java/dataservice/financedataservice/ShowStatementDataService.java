@@ -15,7 +15,6 @@ import util.ResultMessage;
 public interface ShowStatementDataService extends Remote {
 
     /**
-     * TODO
      * 返回所有付款单
      * @return ResultMessage 成功返回 SUCCESS 和 付款单，失败返回 FAIL。
      * @throws RemoteException

@@ -4,11 +4,11 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import dao.Database;
 import dataservice.logisticsdataservice.GoodsLoadDataService;
 import po.logisticpo.LoadingBillPO;
 import po.logisticpo.SendBillPO;
 import po.logisticpo.TransferBillPO;
+import serialutility.Database;
 import util.ResultMessage;
 
 public class GoodsLoadDataServiceImpl extends UnicastRemoteObject implements GoodsLoadDataService{

@@ -4,9 +4,9 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import dao.Database;
 import dataservice.infodataservice.InstitutionMessageMaintenanceDataService;
 import po.InstitutionMessagePO;
+import serialutility.Database;
 import util.City;
 import util.InstitutionType;
 import util.ResultMessage;

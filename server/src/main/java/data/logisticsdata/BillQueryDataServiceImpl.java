@@ -5,9 +5,9 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.Database;
 import dataservice.logisticsdataservice.BillQueryDataService;
 import po.logisticpo.SendBillPO;
+import serialutility.Database;
 
 public class BillQueryDataServiceImpl extends UnicastRemoteObject implements BillQueryDataService{
 

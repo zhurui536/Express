@@ -4,9 +4,9 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import dao.Database;
 import dataservice.infodataservice.TruckMessageMaintenanceDataService;
 import po.TruckMessagePO;
+import serialutility.Database;
 import util.ResultMessage;
 
 public class TruckMessageMaintenanceDataServiceImpl extends UnicastRemoteObject implements TruckMessageMaintenanceDataService{

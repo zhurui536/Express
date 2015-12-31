@@ -1,4 +1,4 @@
-package dao;
+package serialutility;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -4,9 +4,9 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import dao.Database;
 import dataservice.infodataservice.SystemlogMaintenanceDataService;
 import po.SystemlogPO;
+import serialutility.Database;
 
 public class SystemlogDataServiceImpl extends UnicastRemoteObject implements SystemlogMaintenanceDataService{
 

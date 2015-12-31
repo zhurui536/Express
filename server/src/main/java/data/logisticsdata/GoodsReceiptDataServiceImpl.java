@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import dao.Database;
 import dataservice.logisticsdataservice.GoodsReceiptDataService;
 import po.GoodsPO;
 import po.logisticpo.ArrivalBillPO;
@@ -12,6 +11,7 @@ import po.logisticpo.DeliveryBillPO;
 import po.logisticpo.LoadingBillPO;
 import po.logisticpo.SendBillPO;
 import po.logisticpo.TransferBillPO;
+import serialutility.Database;
 import util.ResultMessage;
 
 public class GoodsReceiptDataServiceImpl extends UnicastRemoteObject implements GoodsReceiptDataService{
