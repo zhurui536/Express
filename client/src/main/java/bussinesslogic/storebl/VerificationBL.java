@@ -9,6 +9,7 @@ import connection.ClientRMIHelper;
 import dataservice.storedataservice.StoreDataService;
 import po.storepo.StorePO;
 import po.storepo.VerificationPO;
+import util.Excel;
 import util.PublicMessage;
 import util.ResultMessage;
 import vo.storevo.VerificationVO;
@@ -76,8 +77,9 @@ public class VerificationBL implements VerificationBLService {
 
 	@Override
 	public ResultMessage exportVerification(JTable table) {
-		TableExport exportor = new TableExport(table);
-		if(exportor.export()){
+		Excel excel = new Excel();
+		excel.createSheet(table, "库存盘点快照");
+		if(excel.export()){
 			return new ResultMessage("success", null);
 		}
 		return new ResultMessage("failed", null);

@@ -1,10 +1,10 @@
 package bussinesslogic.financebl;
 
-import java.io.IOException;
-import java.io.OutputStream;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JTable;
 
 import bussinesslogicservice.financeblservice.ShowStatementBLService;
 import connection.ClientRMIHelper;
@@ -33,15 +33,11 @@ public class ShowStatementBL implements ShowStatementBLService {
 
     private StatementVO statementVO;
 
-    // 导出前是否已更新过经营情况表
-    private boolean isUpdated;
-
     public ShowStatementBL() {
         showStatementDataServiceImpl = (ShowStatementDataService) ClientRMIHelper.
                 getServiceByName("ShowStatementDataServiceImpl");
         showReceiptDataServiceImpl = (ShowReceiptDataService) ClientRMIHelper.
                 getServiceByName("ShowReceiptDataServiceImpl");
-        isUpdated = false;
     }
 
     @SuppressWarnings("unchecked")
@@ -89,7 +85,6 @@ public class ShowStatementBL implements ShowStatementBLService {
             }
         }
 
-        isUpdated = true;
         statementVO = new StatementVO(payBillVOs, receiptBillVOs);
     }
 
@@ -99,22 +94,11 @@ public class ShowStatementBL implements ShowStatementBLService {
     }
 
     @Override
-    public ResultMessage statementToExcel(OutputStream out) {
-        if (!isUpdated) {
-            return new ResultMessage("fail");
-        }
-        String[] payHeaders = { "付款时间", "付款单编号", "付款人ID", "付款账号", "条目", "备注", "付款金额" };
-        String[] receiveHeaders = { "收款时间", "收款单编号", "营业厅编号", "快递员编号", "订单条形码号", "收款金额" };
+    public ResultMessage statementToExcel(JTable payTable, JTable receiptTable) {
         Excel excel = new Excel();
-        excel.createSheet(statementVO.payBillVOs, "付款单", payHeaders);
-        excel.createSheet(statementVO.receiptBillVOs, "收款单", receiveHeaders);
-        excel.export(out);
-        isUpdated = false;
-        try {
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        excel.createSheet(payTable, "付款单");
+        excel.createSheet(receiptTable, "收款单");
+        excel.export();
         return new ResultMessage("success");
     }
 }

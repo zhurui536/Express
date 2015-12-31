@@ -1,10 +1,10 @@
 package bussinesslogic.financebl;
 
-import java.io.IOException;
-import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
 import java.util.List;
+
+import javax.swing.JTable;
 
 import bussinesslogicservice.financeblservice.ShowProfitListBLService;
 import connection.ClientRMIHelper;
@@ -31,14 +31,11 @@ public class ShowProfitListBL implements ShowProfitListBLService {
 
     private ProfitListVO profitListVO;
 
-    private boolean isUpdated;
-
     public ShowProfitListBL() {
         showStatementDataServiceImpl = (ShowStatementDataService) ClientRMIHelper.
                 getServiceByName("ShowStatementDataServiceImpl");
         showReceiptDataServiceImpl = (ShowReceiptDataService) ClientRMIHelper.
                 getServiceByName("ShowReceiptDataServiceImpl");
-        isUpdated = false;
     }
 
     @SuppressWarnings("unchecked")
@@ -47,9 +44,9 @@ public class ShowProfitListBL implements ShowProfitListBLService {
         try {
             ResultMessage payMsg = showStatementDataServiceImpl.findAllPayBill();
             ResultMessage receiptMsg = showReceiptDataServiceImpl.findAll();
-//            if (!isValidMsg(payMsg) || !isValidMsg(receiptMsg)) {
-//                return new ResultMessage("fail");
-//            }
+            if (!isValidMsg(payMsg) || !isValidMsg(receiptMsg)) {
+                return new ResultMessage("fail");
+            }
             List<PayBillPO> payBillPOs = (List<PayBillPO>) payMsg.getValue();
             System.out.println(payBillPOs);
             List<ReceiptBillPO> receiptBillPOs = (List<ReceiptBillPO>) receiptMsg.getValue();
@@ -85,25 +82,13 @@ public class ShowProfitListBL implements ShowProfitListBLService {
 
         profit = income.subtract(pay);
         profitListVO = new ProfitListVO(income, pay, profit);
-        isUpdated = true;
     }
 
     @Override
-    public ResultMessage profitListToExcel(OutputStream out) {
-        if (!isUpdated) {
-            return new ResultMessage("false");
-        }
-
-        String[] headers = { "总收入", "总支出", "总利润" };
+    public ResultMessage profitListToExcel(JTable table) {
         Excel excel = new Excel();
-        excel.createSheet(profitListVO, "成本收益表", headers);
-        excel.export(out);
-        isUpdated = false;
-        try {
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        excel.createSheet(table, "成本收益表");
+        excel.export();
         return new ResultMessage("success");
     }
 

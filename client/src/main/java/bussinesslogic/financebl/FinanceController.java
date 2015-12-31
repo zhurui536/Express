@@ -1,7 +1,8 @@
 package bussinesslogic.financebl;
 
-import java.io.OutputStream;
 import java.math.BigDecimal;
+
+import javax.swing.JTable;
 
 import bussinesslogicservice.financeblservice.BankAccountManagementBLService;
 import bussinesslogicservice.financeblservice.CreateAccountingBLService;
@@ -166,9 +167,9 @@ public class FinanceController implements FinanceBLService {
     }
 
     @Override
-    public ResultMessage profitListToExcel(OutputStream out) {
+    public ResultMessage profitListToExcel(JTable table) {
         systemlogMaintenanceBL.addSystemlog(new SystemlogVO("导出成本收益表"));
-        return showProfitListBL.profitListToExcel(out);
+        return showProfitListBL.profitListToExcel(table);
     }
 
     @Override
@@ -184,9 +185,9 @@ public class FinanceController implements FinanceBLService {
     }
 
     @Override
-    public ResultMessage statementToExcel(OutputStream out) {
+    public ResultMessage statementToExcel(JTable payTable, JTable receiptTable) {
         systemlogMaintenanceBL.addSystemlog(new SystemlogVO("导出经营情况表"));
-        return showStatementBL.statementToExcel(out);
+        return showStatementBL.statementToExcel(payTable, receiptTable);
     }
 
     public ResultMessage showLog() {

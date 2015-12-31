@@ -47,4 +47,8 @@ public class ProfitPanel extends JPanel {
         
         table = new MyJTable(value, header, width);
     }
+    
+    public JTable getTable() {
+    	return table;
+    }
 }

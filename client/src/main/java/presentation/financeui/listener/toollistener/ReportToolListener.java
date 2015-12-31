@@ -1,11 +1,8 @@
 package presentation.financeui.listener.toollistener;
 
 import java.awt.event.ActionEvent;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 
-import javax.swing.JFileChooser;
+import javax.swing.JTable;
 
 import presentation.WarningDialog;
 import presentation.financeui.datapanel.ProfitPanel;
@@ -23,8 +20,17 @@ import vo.financevo.ProfitListVO;
 
 public class ReportToolListener extends ToolListener {
     
+	private JTable table;
+	
+	private JTable payTable;
+	
+	private JTable receiptTable;
+	
+	private StatementDialog dialog;
+	
     public ReportToolListener(ExpressFrame ui) {
         super(ui);
+        table = null;
     }
 
     @Override
@@ -36,37 +42,29 @@ public class ReportToolListener extends ToolListener {
         if (button == toolPanel.getButton(0)) {
             processProfit();
         } else if (button == toolPanel.getButton(2)) {
-            StatementDialog dialog = new StatementDialog(ui);
+            dialog = new StatementDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton(1)) {
-        	OutputStream out = getPath();
-            if (out != null) {
-                profitExport(out);
-            }
+        	if (table == null) {
+        		new WarningDialog(ui, "请先生成成本收益表");
+        	} else {
+        		profitExport();
+        		table = null;
+        	}
         } else if (button == toolPanel.getButton(3)) {
-        	OutputStream out = getPath();
-            if (out != null) {
-                statementExport(out);
+            payTable = dialog.getPayTable();
+            receiptTable = dialog.getReceiptTable();
+            if (payTable == null || receiptTable == null) {
+            	new WarningDialog(ui, "请先生成经营情况表");
+            } else {
+            	statementExport();
+            	dialog.setEmpty();
             }
         }
     }
 
-    private OutputStream getPath() {
-    	JFileChooser fileChooser = new JFileChooser();
-        fileChooser.showSaveDialog(ui);
-    	OutputStream out;
-		try {
-			out = new FileOutputStream(fileChooser.getSelectedFile().getAbsolutePath());
-			System.out.println(fileChooser.getSelectedFile().getAbsolutePath());
-		} catch (FileNotFoundException e1) {
-            out = null;
-			e1.printStackTrace();
-		}
-		return out;
-	}
-
-	private void statementExport(OutputStream out) {
-		ResultMessage msg = financeController.statementToExcel(out);
+	private void statementExport() {
+		ResultMessage msg = financeController.statementToExcel(payTable, receiptTable);
 		if (isFail(msg)) {
             new WarningDialog(ui, "请先生成经营情况表！");
         } else {
@@ -74,8 +72,8 @@ public class ReportToolListener extends ToolListener {
         }
 	}
 
-	private void profitExport(OutputStream out) {
-		ResultMessage msg = financeController.profitListToExcel(out);
+	private void profitExport() {
+		ResultMessage msg = financeController.profitListToExcel(table);
 		if (isFail(msg)) {
             new WarningDialog(ui, "请先生成成本收益表！");
         } else {
@@ -92,6 +90,7 @@ public class ReportToolListener extends ToolListener {
             ProfitPanel profitPanel = new ProfitPanel(profitListVO);
             ui.paintdata(profitPanel);
             new WarningDialog(ui, "生成成功！");
+            table = profitPanel.getTable();
         }
     }
 

@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.WarningDialog;
@@ -32,6 +33,10 @@ public class StatementDialog extends InputFrame {
 	private DateChooser end;
     private FinanceBLService financeController;
     private FinanceFrame ui;
+    
+    private JTable payTable;
+    private JTable receiptTable;
+    
     public StatementDialog(ExpressFrame ui) {
         super(ui);
         this.ui = (FinanceFrame) ui;
@@ -44,7 +49,6 @@ public class StatementDialog extends InputFrame {
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 220);
         this.setBackgroundSize(400, 220);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
         JPanel panel = new JPanel();
 
         JButton ok = new ToolButton(150, 130,"确定");
@@ -95,6 +99,9 @@ public class StatementDialog extends InputFrame {
         	StatementVO statementVO = (StatementVO) msg.getValue();
             StatementPanel statementPanel = new StatementPanel(statementVO);
             ui.paintdata(statementPanel);
+            payTable = statementPanel.getPayTable();
+            System.err.println("py: " + payTable == null);
+            receiptTable = statementPanel.getReceiptTable();
             this.setVisible(false);
         }
 	}
@@ -105,5 +112,18 @@ public class StatementDialog extends InputFrame {
     
     private boolean isFail(ResultMessage message) {
         return message.getKey().equals("fail");
+    }
+    
+    public JTable getPayTable() {
+    	return payTable;
+    }
+    
+    public JTable getReceiptTable() {
+    	return receiptTable;
+    }
+    
+    public void setEmpty() {
+    	payTable = null;
+    	receiptTable = null;
     }
 }

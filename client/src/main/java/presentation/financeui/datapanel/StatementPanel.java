@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 import presentation.mainui.component.MenuButton;
 import vo.financevo.StatementVO;
@@ -21,7 +22,7 @@ public class StatementPanel extends JPanel {
     private ReceiptPanel receiptPanel;
     
     private PayPanel payPanel;
-    
+       
     public StatementPanel(StatementVO statementVO) {
         receiptPanel = new ReceiptPanel(statementVO.receiptBillVOs);
         payPanel = new PayPanel(statementVO.payBillVOs);
@@ -59,5 +60,13 @@ public class StatementPanel extends JPanel {
         
         receiptPanel.setVisible(false);
         payPanel.setVisible(false);
+    }
+    
+    public JTable getPayTable() {
+    	return payPanel.getTable();
+    }
+    
+    public JTable getReceiptTable() {
+    	return receiptPanel.getTable();
     }
 }
