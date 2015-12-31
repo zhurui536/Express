@@ -3,7 +3,9 @@ package presentation.billui.listener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
-import bussinesslogicservice.billblservice.BillBLService;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import po.financepo.PayBillPO;
 import po.logisticpo.ArrivalBillPO;
 import po.logisticpo.DeliveryBillPO;
@@ -29,6 +31,7 @@ import presentation.storeui.listener.ToolListener;
 import util.BillType;
 import util.ResultMessage;
 import vo.BillVO;
+import bussinesslogicservice.billblservice.BillBLService;
 
 public class BillJudgeToolListener extends ToolListener {
 	private BillBLService bc;
@@ -126,57 +129,57 @@ public class BillJudgeToolListener extends ToolListener {
 	
 	public void getDetail(String id, BillType type){
 		ResultMessage result = bc.chooseBill(id, type);
+		JPanel data = null;
 		
 		if(result.getKey().equals("success")){
 			//将单据显示出来
 			if(type == BillType.INSTORE){
 				InStoreBillPO po = (InStoreBillPO) result.getValue();
 				
-				InStoreBillDataPane data = new InStoreBillDataPane(po);
-				ui.paintdata(data);
+				data = new InStoreBillDataPane(po);
 			}
 			else if(type == BillType.OUTSTORE){
 				OutStoreBillPO po = (OutStoreBillPO) result.getValue();
 				
-				OutStoreBillDataPane data = new OutStoreBillDataPane(po);
-				ui.paintdata(data);
+				data = new OutStoreBillDataPane(po);
 			}
 			else if(type == BillType.PAYMENT){
 				PayBillPO po = (PayBillPO) result.getValue();
 				
-				PayBillDataPane data = new PayBillDataPane(po);
-				ui.paintdata(data);
+				data = new PayBillDataPane(po);
 			}
 			else if(type == BillType.RECEIPT){
 				ReceiptBillPO po = (ReceiptBillPO) result.getValue();
 				
-				ReceiptBillDataPane data = new ReceiptBillDataPane(po);
-				ui.paintdata(data);
+				data = new ReceiptBillDataPane(po);
 			}
 			else if(type == BillType.ARRIVAL){
 				ArrivalBillPO po = (ArrivalBillPO) result.getValue();
 				
-				ArrivalBillDataPane data = new ArrivalBillDataPane(po);
-				ui.paintdata(data);
+				data = new ArrivalBillDataPane(po);
 			}
 			else if(type == BillType.DELIVERY){
 				DeliveryBillPO po = (DeliveryBillPO) result.getValue();
 				
-				DeliveryBillDataPane data= new DeliveryBillDataPane(po);
-				ui.paintdata(data);
+				data= new DeliveryBillDataPane(po);
 			}
 			else if(type == BillType.LOADING){
 				LoadingBillPO po = (LoadingBillPO) result.getValue();
 				
-				LoadingBillDataPane data = new LoadingBillDataPane(po);
-				ui.paintdata(data);
+				data = new LoadingBillDataPane(po);
 			}
 			else if(type == BillType.SEND){
 				SendBillPO po = (SendBillPO) result.getValue();
 				
-				SendBillDataPane data = new SendBillDataPane(po);
-				ui.paintdata(data);
+				data = new SendBillDataPane(po);
 			}
+			
+			JFrame billdata = new JFrame();
+			billdata.setBounds(200, 200, 830, 500);
+			billdata.setLayout(null);
+			data.setLocation(0, 0);
+			billdata.getContentPane().add(data);
+			billdata.setVisible(true);
 		}
 		else{
 			new WarningDialog(ui, result);
