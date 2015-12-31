@@ -40,6 +40,7 @@ public class ConnectTest {
 			this.ui = ui;
 		}
 		
+		@Override
 		public void run() {
 			while (true) {
 				try {
@@ -51,7 +52,7 @@ public class ConnectTest {
 					e.printStackTrace();	
 					break;
 				} catch (IOException e) {
-					new WarningDialog(ui, "断线啦");
+					new WarningDialog(ui, "已断线，系统关闭");
 					System.exit(0);
 //					e.printStackTrace();
 				}
