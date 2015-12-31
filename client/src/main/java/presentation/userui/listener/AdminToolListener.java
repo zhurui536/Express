@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 import bussinesslogicservice.adminblservice.AdminBLService;
 import presentation.WarningDialog;
+import presentation.adminui.AdminFrame;
 import presentation.mainui.component.MyTool;
 import presentation.storeui.listener.ToolListener;
-import presentation.userui.AdminFrame;
 import presentation.userui.data.AdminDataPane;
 import presentation.userui.inputframe.AdminInputFrame;
 import util.AuthorityLevel;

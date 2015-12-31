@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import bussinesslogicservice.adminblservice.AdminBLService;
 import presentation.WarningDialog;
-import presentation.userui.AdminFrame;
+import presentation.adminui.AdminFrame;
 import presentation.userui.data.AdminDataPane;
 import presentation.userui.tool.AdminTool;
 import util.ResultMessage;
