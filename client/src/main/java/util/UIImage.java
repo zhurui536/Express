@@ -17,7 +17,6 @@ public class UIImage {
 			Image img = ImageIO.read(new FileInputStream(path));
 			return img;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
