@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import presentation.mainui.component.MenuButton;
@@ -22,10 +23,13 @@ public class StatementPanel extends JPanel {
     private ReceiptPanel receiptPanel;
     
     private PayPanel payPanel;
-       
+    
+    private JScrollPane scrollPane;
+    
     public StatementPanel(StatementVO statementVO) {
         receiptPanel = new ReceiptPanel(statementVO.receiptBillVOs);
         payPanel = new PayPanel(statementVO.payBillVOs);
+        scrollPane = new JScrollPane();
         this.setLayout(null);
         initPanel();
         this.setSize(1000, 830);
@@ -35,31 +39,28 @@ public class StatementPanel extends JPanel {
         JButton receipt = new MenuButton(0, 0, "收款单");
         JButton pay = new MenuButton(140, 0, "付款单");
         
-        receiptPanel.setBounds(0, 60, 1000, 860);
-        payPanel.setBounds(0, 60, 1000, 860);
+        scrollPane.setBounds(0, 50, 1000, 860);
+        scrollPane.setOpaque(false);
+        
         receipt.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				payPanel.setVisible(false);
-				receiptPanel.setVisible(true);
+				scrollPane.setViewportView(receiptPanel);
+				repaint();
 			}
 		});
         
         pay.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				receiptPanel.setVisible(false);
-				payPanel.setVisible(true);
+				scrollPane.setViewportView(payPanel);
+				repaint();
 			}
 		});
         
         this.add(receipt);
         this.add(pay);
-        this.add(receiptPanel);
-        this.add(payPanel);
-        
-        receiptPanel.setVisible(false);
-        payPanel.setVisible(false);
+        this.add(scrollPane, 0);
     }
     
     public JTable getPayTable() {

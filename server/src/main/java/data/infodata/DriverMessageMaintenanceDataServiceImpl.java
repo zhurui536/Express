@@ -13,7 +13,7 @@ public class DriverMessageMaintenanceDataServiceImpl extends UnicastRemoteObject
 
         private static final long serialVersionUID = 2363428936751059509L;
         
-        private static final String PATH = "src/main/java/save/infodata/driverMessagePO.dat";
+        private static final String PATH = "save/infodata/driverMessagePO.dat";
         
         private ArrayList<DriverMessagePO> driverMessagePOs;
 

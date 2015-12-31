@@ -38,13 +38,13 @@ public class StoreDataServiceImpl extends UnicastRemoteObject implements StoreDa
 	private String sendbill;
 	
 	private void generatePath(){
-		storerecord = "src/main/java/save/storedata/storePO.dat";
-		instorerecord = "src/main/java/save/storedata/instorePO.dat";
-		outstorerecord = "src/main/java/save/storedata/outstorePO.dat";
-		verificationrecord = "src/main/java/save/storedata/verificationPO.dat";
-		instorebill = "src/main/java/save/storedata/instoreBillPO.dat";
-		outstorebill = "src/main/java/save/storedata/outstoreBillPO.dat";
-		sendbill = "src/main/java/save/logisticsdata/sendBillPO.dat";
+		storerecord = "save/storedata/storePO.dat";
+		instorerecord = "save/storedata/instorePO.dat";
+		outstorerecord = "save/storedata/outstorePO.dat";
+		verificationrecord = "save/storedata/verificationPO.dat";
+		instorebill = "save/storedata/instoreBillPO.dat";
+		outstorebill = "save/storedata/outstoreBillPO.dat";
+		sendbill = "save/logisticsdata/sendBillPO.dat";
 	}
 	
 	public StoreDataServiceImpl() throws RemoteException {

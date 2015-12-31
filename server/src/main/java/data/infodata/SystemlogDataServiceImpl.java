@@ -12,7 +12,7 @@ public class SystemlogDataServiceImpl extends UnicastRemoteObject implements Sys
 
         private static final long serialVersionUID = 3772837929204546971L;
         
-        private static final String PATH = "src/main/java/save/infodata/systemLog.dat";
+        private static final String PATH = "save/infodata/systemLog.dat";
         
         private ArrayList<SystemlogPO> systemlogPOs;
 

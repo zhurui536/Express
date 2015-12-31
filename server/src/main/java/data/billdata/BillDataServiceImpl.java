@@ -31,23 +31,23 @@ public class BillDataServiceImpl extends UnicastRemoteObject implements Billdata
 	
 
 	//入库单
-	private String instorebill = "src/main/java/save/storedata/instoreBillPO.dat";
+	private String instorebill = "save/storedata/instoreBillPO.dat";
 	//出库单
-	private String outstorebill = "src/main/java/save/storedata/outstoreBillPO.dat";
+	private String outstorebill = "save/storedata/outstoreBillPO.dat";
 	//付款单
-	private String paybill = "src/main/java/save/financedata/payBillPO.dat";
+	private String paybill = "save/financedata/payBillPO.dat";
 	//收款单
-	private String receiptbill = "src/main/java/save/logisticsdata/receiptBillPO.dat";
+	private String receiptbill = "save/logisticsdata/receiptBillPO.dat";
 	//到达单
-	private String arrivalbill = "src/main/java/save/logisticsdata/arrivalBillPO.dat";
+	private String arrivalbill = "save/logisticsdata/arrivalBillPO.dat";
 	//派件单
-	private String deliverybill = "src/main/java/save/logisticsdata/deliveryBillPO.dat";
+	private String deliverybill = "save/logisticsdata/deliveryBillPO.dat";
 	//装车单
-	private String loadingbill = "src/main/java/save/logisticsdata/loadingBillPO.dat";
+	private String loadingbill = "save/logisticsdata/loadingBillPO.dat";
 	//寄件单
-	private String sendbill = "src/main/java/save/logisticsdata/sendBillPO.dat";
+	private String sendbill = "save/logisticsdata/sendBillPO.dat";
 	//中转单
-	private String transferbill = "src/main/java/save/logisticsdata/transferBillPO.dat";
+	private String transferbill = "save/logisticsdata/transferBillPO.dat";
 
 	public BillDataServiceImpl() throws RemoteException {
 		super();

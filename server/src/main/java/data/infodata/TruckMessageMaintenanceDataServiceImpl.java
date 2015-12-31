@@ -13,7 +13,7 @@ public class TruckMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
 
         private static final long serialVersionUID = 4360334337327289944L;
 
-        private static final String PATH = "src/main/java/save/infodata/truckMessagePO.dat";
+        private static final String PATH = "save/infodata/truckMessagePO.dat";
 
         private ArrayList<TruckMessagePO> truckMessagePOs;
         

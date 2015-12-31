@@ -19,7 +19,7 @@ public class BankAccountManagementDataServiceImpl extends UnicastRemoteObject im
 
     private static final long serialVersionUID = -7775445166515308020L;
 
-    private static final String PATH = "src/main/java/save/financedata/bankAccountPO.dat";
+    private static final String PATH = "save/financedata/bankAccountPO.dat";
 
     private List<BankAccountPO> bankAccountPOs;
 

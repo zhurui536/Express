@@ -13,6 +13,7 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import bussinesslogic.logisticsbl.BillQueryBL;
 import bussinesslogic.userbl.UserBLServiceImpl;
+import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import bussinesslogicservice.logisticsblservice.BillQueryBLService;
 import bussinesslogicservice.userblservice.UserBLService;
 import connection.ClientInitException;
@@ -30,11 +31,13 @@ import presentation.storeui.StoreFrame;
 import presentation.userui.AdminFrame;
 import util.FrameUtil;
 import util.Job;
+import util.LogFactory;
 import util.PublicMessage;
 import util.ResultMessage;
 import util.UIImage;
 import vo.InstitutionMessageVO;
 import vo.StaffMessageVO;
+import vo.SystemlogVO;
 import vo.logisticvo.SendBillVO;
 
 /**
@@ -53,6 +56,7 @@ public class MainUI extends JFrame implements ActionListener{
     private ToolButton check;
     
     private UserBLService bl;
+    private SystemlogMaintenanceBLService logservice;
 
     public static String USER_ID;
 
@@ -84,6 +88,7 @@ public class MainUI extends JFrame implements ActionListener{
 //            System.err.println("Something went wrong!");
         }
     	this.bl = new UserBLServiceImpl();
+    	logservice = LogFactory.getInstance();
         this.setLayout(null);
         this.setBounds(300, 300, 330, 360);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -228,6 +233,7 @@ public class MainUI extends JFrame implements ActionListener{
             }
             PublicMessage.institutionType = institutionMessageVO.institutionType;
             PublicMessage.location = institutionMessageVO.city;
+            this.logservice.addSystemlog(new SystemlogVO(id.getText() + ":  登录"));
     }
     
     private static void testConnect(JFrame ui) {

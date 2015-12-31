@@ -31,11 +31,11 @@ public class Excel {
 	private HSSFCellStyle style;
 
 	private HSSFCellStyle style2;
-	
+
 	private OutputStream outputStream;
-	
+
 	private JFileChooser jfc = new JFileChooser();
-	
+
 	public Excel() {
 		workbook = new HSSFWorkbook();
 		showFileChooser();
@@ -43,21 +43,20 @@ public class Excel {
 
 	private void showFileChooser() {
 		jfc.addChoosableFileFilter(new FileFilter() {
-		      public boolean accept(File file) {
-		        return (file.getName().indexOf("xls") != -1);
-		      }
+			public boolean accept(File file) {
+				return (file.getName().indexOf("xls") != -1);
+			}
 
-		      public String getDescription() {
-		        return "Excel";
-		      }
-		    });
+			public String getDescription() {
+				return "Excel";
+			}
+		});
 		jfc.showSaveDialog(null);
-		
+
 		File file = jfc.getSelectedFile();
 		try {
 			outputStream = new FileOutputStream(file + ".xls");
-		}
-		catch (FileNotFoundException ex) {
+		} catch (FileNotFoundException ex) {
 			ex.printStackTrace();
 		}
 	}
@@ -117,18 +116,20 @@ public class Excel {
 					hc.setCellStyle(style);
 					hc.setCellValue(srts);
 				} else {
-					System.out.println("vlue  " + tm.getValueAt(i - 1, j));
+					System.out.println("value  " + tm.getValueAt(i - 1, j));
+					String value = "";
 					if (tm.getValueAt(i - 1, j) != null) {
-						String value = tm.getValueAt(i - 1, j).toString();
-						HSSFRichTextString srts = new HSSFRichTextString(value);
-						HSSFCell hc = hr.createCell(j);
-						hc.setCellStyle(style2);
-						if (value.equals("") || value == null) {
-							hc.setCellValue(new HSSFRichTextString(""));
-						} else {
-							hc.setCellValue(srts);
-						}
+						value = tm.getValueAt(i - 1, j).toString();
 					}
+					HSSFRichTextString srts = new HSSFRichTextString(value);
+					HSSFCell hc = hr.createCell(j);
+					hc.setCellStyle(style2);
+					if (value.equals("") || value == null) {
+						hc.setCellValue(new HSSFRichTextString(""));
+					} else {
+						hc.setCellValue(srts);
+					}
+
 				}
 			}
 		}

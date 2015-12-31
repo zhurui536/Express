@@ -20,7 +20,7 @@ public class ShowStatementDataServiceImpl extends UnicastRemoteObject implements
 
     private static final long serialVersionUID = 2841175035701519270L;
 
-    private static final String PATH = "src/main/java/save/financedata/payBillPO.dat";
+    private static final String PATH = "save/financedata/payBillPO.dat";
 
     public ShowStatementDataServiceImpl() throws RemoteException {
         super();

@@ -42,7 +42,7 @@ public class ReportToolListener extends ToolListener {
         if (button == toolPanel.getButton(0)) {
             processProfit();
         } else if (button == toolPanel.getButton(2)) {
-            dialog = new StatementDialog(ui);
+        	dialog = new StatementDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton(1)) {
         	if (table == null) {
@@ -52,8 +52,10 @@ public class ReportToolListener extends ToolListener {
         		table = null;
         	}
         } else if (button == toolPanel.getButton(3)) {
-            payTable = dialog.getPayTable();
-            receiptTable = dialog.getReceiptTable();
+        	if (dialog != null) {
+        		payTable = dialog.getPayTable();
+        		receiptTable = dialog.getReceiptTable();
+        	}
             if (payTable == null || receiptTable == null) {
             	new WarningDialog(ui, "请先生成经营情况表");
             } else {

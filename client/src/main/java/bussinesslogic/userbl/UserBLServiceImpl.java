@@ -3,34 +3,27 @@ package bussinesslogic.userbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
 import bussinesslogicservice.userblservice.UserBLService;
 import connection.ClientRMIHelper;
 import dataservice.userdataservice.AdminDataService;
 import po.InstitutionMessagePO;
 import po.StaffMessagePO;
 import po.UserPO;
-import util.LogFactory;
 import util.ResultMessage;
-import vo.SystemlogVO;
 
 
 public class UserBLServiceImpl implements UserBLService {
 	
 	private AdminDataService dataservice;
-	//编写系统日志
-	private SystemlogMaintenanceBLService logservice;
 	
 	public UserBLServiceImpl(){
 		dataservice = (AdminDataService) ClientRMIHelper.getServiceByName("AdminDataServiceImpl");
-		logservice = LogFactory.getInstance();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage login(String id, String password) {
 		try {
-			this.logservice.addSystemlog(new SystemlogVO("用户登录"+id+" "+password));
 			ResultMessage result = dataservice.getUser();
 			if(result.getKey().equals("success")){
 				ArrayList<UserPO> users = (ArrayList<UserPO>) result.getValue();

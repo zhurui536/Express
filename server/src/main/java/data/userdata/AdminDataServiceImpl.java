@@ -108,9 +108,9 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 		objout.close();
 	}
 	
-	private String userrecord = "src/main/java/save/userdata/userPO.dat";
-	private String staffmessage = "src/main/java/save/infodata/staffMessagePO.dat";
-	private static final String INSTITUTION_MESSAGE_PATH = "src/main/java/save/infodata/institutionMessagePO.dat";
+	private String userrecord = "save/userdata/userPO.dat";
+	private String staffmessage = "save/infodata/staffMessagePO.dat";
+	private static final String INSTITUTION_MESSAGE_PATH = "save/infodata/institutionMessagePO.dat";
 
         @SuppressWarnings("unchecked")
         @Override
