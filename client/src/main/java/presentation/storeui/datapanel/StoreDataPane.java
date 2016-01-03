@@ -63,7 +63,7 @@ public class StoreDataPane extends JPanel {
 		}
 		
 		MyJTable totalTable = new MyJTable(totalData, column);
-		totalTable.setWidth(new int[]{200, 200, 200, 200});
+		totalTable.setWidth(new int[]{160, 160, 160, 160, 160});
 		
 		//如果有库存超过警戒值，则将该列改为红色
 		 DefaultTableCellRenderer backGroundColor = new DefaultTableCellRenderer();
