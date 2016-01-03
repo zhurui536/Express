@@ -36,10 +36,10 @@ public class InStoreBillDataPane extends JPanel {
 		
 		for(int i=0;i<pos.size();i++){
 			rowdata[i+2][0] = pos.get(i).getGoodsID();
-			rowdata[i+2][1] = pos.get(i).getStorePlace().getArea();
-			rowdata[i+2][2] = pos.get(i).getStorePlace().getRow();
-			rowdata[i+2][3] = pos.get(i).getStorePlace().getShelf();
-			rowdata[i+2][4] = pos.get(i).getStorePlace().getPlace();
+			rowdata[i+2][1] = pos.get(i).getStorePlace().getArea() + 1;
+			rowdata[i+2][2] = pos.get(i).getStorePlace().getRow() + 1;
+			rowdata[i+2][3] = pos.get(i).getStorePlace().getShelf() + 1;
+			rowdata[i+2][4] = pos.get(i).getStorePlace().getPlace() + 1;
 			rowdata[i+2][5] = pos.get(i).getDestination();
 			rowdata[i+2][6] = df.format(pos.get(i).getDate().getTime());
 		}
