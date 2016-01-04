@@ -70,7 +70,7 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                                 
 //                                if(i == 2 && j == 0)
 //                                        continue;
-                                this.getContentPane().add(jTextAreas[i][j]);
+                                this.getContentPane().add(jTextAreas[i][j], 0);
                         }
                 }
                 

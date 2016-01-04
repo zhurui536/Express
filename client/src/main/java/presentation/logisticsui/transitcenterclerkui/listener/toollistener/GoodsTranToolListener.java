@@ -81,13 +81,18 @@ public class GoodsTranToolListener extends ToolListener{
                         if(e.getSource() == tool.getButton(i))
                                 break;
                 }
-                if(i==3){
-                  ResultMessage resultMessage = logisticsBLService.produceTransferBill(vo);
-                  if(resultMessage.getKey().equals("SUCCESS")){
-                          ui.paintdata(null);
-                  }else {
-                	  new WarningDialog(ui, "生成失败");
-                  }
+                if(i==4){
+                	if(vo == null){
+                		new WarningDialog(ui, "请先填写中转单信息");
+                	}
+                	else{
+                		ResultMessage resultMessage = logisticsBLService.produceTransferBill(vo);
+                        if(resultMessage.getKey().equals("SUCCESS")){
+                                ui.paintdata(null);
+                        }else {
+                      	  new WarningDialog(ui, "生成失败");
+                        }
+                	}
                 }
                 else if(i>=0&&i<=2){
                         GoodsTranInputFrame frame = new GoodsTranInputFrame(this,i);
@@ -95,7 +100,7 @@ public class GoodsTranToolListener extends ToolListener{
                 }else if(i==5){
                         ui.replaceTool(null);
                         ui.paintdata(null);
-                }else if(i==4){
+                }else if(i==3){
                 	if(vo == null){
                 		new WarningDialog(ui, "请先填写中转单信息");
                 	}

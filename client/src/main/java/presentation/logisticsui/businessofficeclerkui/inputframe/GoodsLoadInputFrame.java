@@ -71,7 +71,7 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
 //                                        continue;
 //                                if(i == 2 && j == 1)
 //                                	continue;
-                                this.getContentPane().add(jTextAreas[i][j]);
+                                this.getContentPane().add(jTextAreas[i][j], 0);
                         }
                 }
                 jTextAreas[0][0].setText(BillIDMaker.getTransferNum());

@@ -84,7 +84,7 @@ public class GoodsLoadToolListener extends ToolListener{
                         logisticsBLService.endReceipt();
                         ui.replaceTool(null);
                         ui.paintdata(null);
-                }else if(e.getSource() == tool.getButton(1)){
+                }else if(e.getSource() == tool.getButton(2)){
 	                  if(vo == null){
 	                	  new WarningDialog(ui, "请先填写装车单信息");
 	                  }
@@ -99,7 +99,7 @@ public class GoodsLoadToolListener extends ToolListener{
 		                	  new WarningDialog(ui, "装车单生成失败");
 		                  }
 	                  }
-                }else if(e.getSource() == tool.getButton(2)){
+                }else if(e.getSource() == tool.getButton(1)){
                 	if(vo == null){
                 		new WarningDialog(ui, "请先填写装车单信息");
                 	}
