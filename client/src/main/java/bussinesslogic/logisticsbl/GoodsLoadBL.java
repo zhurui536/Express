@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import bussinesslogicservice.logisticsblservice.GoodsLoadBLService;
 import connection.ClientRMIHelper;
+import dataservice.infodataservice.TruckMessageMaintenanceDataService;
 import dataservice.logisticsdataservice.BillQueryDataService;
 import dataservice.logisticsdataservice.GoodsLoadDataService;
 import po.logisticpo.LoadingBillPO;
@@ -22,11 +23,12 @@ public class GoodsLoadBL implements GoodsLoadBLService {
 
         private GoodsLoadDataService goodsLoadDataService;
         private BillQueryDataService goodsdata;
-
+        private TruckMessageMaintenanceDataService truckdata;
 
         public GoodsLoadBL() {
                 goodsLoadDataService = (GoodsLoadDataService) ClientRMIHelper.getServiceByName("GoodsLoadDataServiceImpl");
                 goodsdata = (BillQueryDataService) ClientRMIHelper.getServiceByName("BillQueryDataServiceImpl");
+                truckdata = (TruckMessageMaintenanceDataService) ClientRMIHelper.getServiceByName("TruckMessageMaintenanceDataServiceImpl");
         }
 
         @SuppressWarnings("unchecked")
@@ -113,4 +115,22 @@ public class GoodsLoadBL implements GoodsLoadBLService {
 			}
 		}
 
+		@Override
+		public ResultMessage checkTruck(String id) {
+			ResultMessage result;
+			try {
+				result = truckdata.find(id);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				return new ResultMessage("internet error");
+			}
+			if(result.getKey().equals("FOUND")){
+				return result;
+			}
+			else{
+				return result;
+			}
+		}
+		
+		
 }
