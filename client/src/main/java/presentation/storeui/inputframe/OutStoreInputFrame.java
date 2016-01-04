@@ -54,7 +54,7 @@ public class OutStoreInputFrame extends InputFrame implements ActionListener{
 		list = new JLabel[4];
 		for(int i=0;i<4;i++){
 			list[i] = new JLabel(listname[i]);
-			list[i].setSize(70, 30);
+			list[i].setSize(90, 30);
 			list[i].setLocation(15, 50+40*i);
 			this.getContentPane().add(list[i], 0);
 		}
@@ -101,7 +101,7 @@ public class OutStoreInputFrame extends InputFrame implements ActionListener{
 		
 	}
 	
-	private final String[] listname = {"货物编号：", "装运方式", "目的地：", "单据编号："};
+	private final String[] listname = {"货物编号：", "装运方式", "目的地：", "中转单编号："};
 	private final String[] transport = {"飞机", "火车", "货车"};
 	private final Trans[] tran = {Trans.PLANE, Trans.TRAIN, Trans.TRUCK};
 }

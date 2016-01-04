@@ -62,7 +62,7 @@ public class OutStoreDataPane extends JPanel implements ActionListener {
 		
 		for(int i=0;i<goodslist.size();i++){
 			JPanel temp = makeItem(goodslist.get(i), trans.get(i), destination.get(i));
-			temp.setLocation(10, 40*i+40);
+			temp.setLocation(0, 40*i+40);
 			if(i%2==0){
 				temp.setBackground(new Color(20, 30, 30, 40));
 			}

@@ -1,4 +1,4 @@
-package presentation.adminui;
+package presentation.userui;
 
 import bussinesslogic.adminbl.AdminBL;
 import bussinesslogicservice.adminblservice.AdminBLService;

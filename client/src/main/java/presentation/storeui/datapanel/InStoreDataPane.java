@@ -63,7 +63,7 @@ public class InStoreDataPane extends JPanel implements ActionListener{
 		//接着加入入库项
 		for(int i=0;i<goodslist.size();i++){
 			JPanel item = makeItem(goodslist.get(i), place.get(i), destination.get(i));
-			item.setLocation(10, 40*i + 40);
+			item.setLocation(0, 40*i + 40);
 			
 			if(i%2==1){
 				item.setBackground(new Color(20, 30, 30, 40));

@@ -5,11 +5,14 @@ import java.util.ArrayList;
 
 import bussinesslogicservice.storeblservice.OutStoreBLService;
 import connection.ClientRMIHelper;
+import dataservice.billdataservice.BilldataService;
 import dataservice.storedataservice.StoreDataService;
+import po.logisticpo.TransferBillPO;
 import po.storepo.OutStoreBillPO;
 import po.storepo.OutStorePO;
 import po.storepo.StorePO;
 import po.storepo.StorePlacePO;
+import util.BillType;
 import util.PublicMessage;
 import util.ResultMessage;
 import util.Trans;
@@ -21,12 +24,13 @@ public class OutStoreBL implements OutStoreBLService {
 //	private DeliveryDataService goodsdata;
 	private String user;
 	private ArrayList<OutStorePO> goodslist;
+	private BilldataService billdata;
 	
 	public OutStoreBL(){
 		dataservice = (StoreDataService) ClientRMIHelper.getServiceByName("StoreDataServiceImpl");
+		billdata = (BilldataService) ClientRMIHelper.getServiceByName("BillDataServiceImpl");
 //		goodsdata = (DeliveryDataService) ClientRMIHelper.getServiceByName("DeliveryDataServiceImpl");
 		this.user = PublicMessage.staffID;
-		
 	}
 	
 	@Override
@@ -35,6 +39,7 @@ public class OutStoreBL implements OutStoreBLService {
 		return new ResultMessage("success", new OutStoreVO(goodslist));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ResultMessage addOutStoreGoods(String id, Trans trans,
 			String Destination, String billid) {
@@ -45,34 +50,53 @@ public class OutStoreBL implements OutStoreBLService {
 				return new ResultMessage("inputedid", new OutStoreVO(goodslist));
 			}
 		}
-		try {//id无误之后检查该id是否在库存中
-			ResultMessage result = dataservice.getStore();
+		
+		try {
+			//检查中转单编号是否存在
+			ResultMessage result = billdata.getBills(BillType.TRANSIT);
 			if(result.getKey().equals("success")){
-				StorePO store = (StorePO) result.getValue();
 				
-				for(int a=0;a<store.getArea();a++){
-					for(int r=0;r<store.getRow();r++){
-						for(int s=0;s<store.getShelf();s++){
-							for(int p=0;p<store.getPlace();p++){
-								//找到对应的库存位置
-								StorePlacePO temp = store.getStorePlace(a, r, s, p);
-								if(temp.ifEmpty()){//该位置为空时直接跳过
-									continue;
-								}
-								else if(temp.getGoods().getId().equals(id)){
-									this.goodslist.add(new OutStorePO(temp.getGoods(), temp, Destination, this.user, trans, billid));
-									return new ResultMessage("success", new OutStoreVO(goodslist));
+				ArrayList<TransferBillPO> bills = (ArrayList<TransferBillPO>) result.getValue();
+				for(int i=0;i<bills.size();i++){
+					
+					if(bills.get(i).getBillID().equals(billid)){
+						//检查该货物id是否在库存中
+						result = dataservice.getStore();
+						if(result.getKey().equals("success")){
+							StorePO store = (StorePO) result.getValue();
+							
+							for(int a=0;a<store.getArea();a++){
+								for(int r=0;r<store.getRow();r++){
+									for(int s=0;s<store.getShelf();s++){
+										for(int p=0;p<store.getPlace();p++){
+											//找到对应的库存位置
+											StorePlacePO temp = store.getStorePlace(a, r, s, p);
+											if(temp.ifEmpty()){//该位置为空时直接跳过
+												continue;
+											}
+											else if(temp.getGoods().getId().equals(id)){
+												this.goodslist.add(new OutStorePO(temp.getGoods(), temp, Destination, this.user, trans, billid));
+												return new ResultMessage("success", new OutStoreVO(goodslist));
+											}
+										}
+									}
 								}
 							}
+							
+							return new ResultMessage("noexist", new OutStoreVO(goodslist));
+						}
+						else{
+							return result;
 						}
 					}
 				}
-				
-				return new ResultMessage("noexist", new OutStoreVO(goodslist));
+				//如果中转单不存在，返回错误信息
+				return new ResultMessage("nobillid", new OutStoreVO(goodslist));
 			}
 			else{
 				return result;
 			}
+			
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return new ResultMessage("internet error", new OutStoreVO(goodslist));
@@ -147,5 +171,4 @@ public class OutStoreBL implements OutStoreBLService {
 		return new ResultMessage("unknown operation", new OutStoreVO(goodslist));
 
 	}
-
 }

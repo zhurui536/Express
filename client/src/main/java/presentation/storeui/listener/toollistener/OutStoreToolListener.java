@@ -84,6 +84,9 @@ public class OutStoreToolListener extends ToolListener {
 			if(result.getKey().equals("noexist")){
 				new WarningDialog(ui, "货物不存在！！");
 			}
+			if(result.getKey().equals("nobillid")){
+				new WarningDialog(ui, "中转单不存在！！");
+			}
 			return false;
 		}
 	}

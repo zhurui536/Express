@@ -11,6 +11,7 @@ import javax.swing.JTextArea;
 import presentation.WarningDialog;
 import presentation.infoui.listener.StaffInfoToolListener;
 import presentation.mainui.InputFrame;
+import presentation.mainui.component.ToolButton;
 import util.Job;
 import util.SalaryType;
 import vo.SalaryVO;
@@ -123,12 +124,10 @@ public class StaffInfoInputFrame extends InputFrame implements ActionListener{
 		input[3].setBounds(140, 170, 100, 30);
 		this.getContentPane().add(input[3], 0);
 		
-		confirm = new JButton("确定");
-		cancle = new JButton("取消");
+		confirm = new ToolButton(120, 210, "确定");
+		cancle = new ToolButton(200, 210, "取消");
 		confirm.setSize(60, 25);
 		cancle.setSize(60, 25);
-		confirm.setLocation(120, 210);
-		cancle.setLocation(200, 210);
 		confirm.addActionListener(this);
 		cancle.addActionListener(this);
 		this.getContentPane().add(confirm, 0);
