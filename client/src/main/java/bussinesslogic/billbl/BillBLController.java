@@ -10,6 +10,7 @@ import dataservice.billdataservice.BilldataService;
 import dataservice.logisticsdataservice.DeliveryDataService;
 import dataservice.storedataservice.StoreDataService;
 import po.BillPO;
+import po.GoodsPO;
 import po.financepo.PayBillPO;
 import po.logisticpo.ArrivalBillPO;
 import po.logisticpo.DeliveryBillPO;
@@ -415,17 +416,18 @@ public class BillBLController implements BillBLService {
 									InStorePO ins = goodslist.get(j);
 									
 									//更新货物的货运状态
-									ins.getGoods().addLocation(new Time().toString()
+									GoodsPO goods = goodsdata.findGoods(ins.getGoodsID());
+									goods.addLocation(new Time().toString()
 				                            + " "
 				                            + PublicMessage.location
 				                            + " "
 				                            + InstitutionType
 				                                            .typeTpString(PublicMessage.institutionType)
 				                                            + " " + "已入库");
-									goodsdata.updateGoods(ins.getGoods());
+									goodsdata.updateGoods(goods);
 									
 									StorePlacePO place = ins.getStorePlace();
-									place.setGoods(ins.getGoods());
+									place.setGoods(goods);
 									store.setStorePlace(place);
 								}
 								//保存新的库存
@@ -469,14 +471,15 @@ public class BillBLController implements BillBLService {
 									store.setStorePlace(newplace);
 
 									//更新货物的货运状态
-									tem.getGoods().addLocation(new Time().toString()
+									GoodsPO goods = goodsdata.findGoods(tem.getGoodsID());
+									goods.addLocation(new Time().toString()
 				                            + " "
 				                            + PublicMessage.location
 				                            + " "
 				                            + InstitutionType
 				                                            .typeTpString(PublicMessage.institutionType)
 				                                            + " " + "已出库");
-									goodsdata.updateGoods(tem.getGoods());
+									goodsdata.updateGoods(goods);
 								}
 								
 								result = storedata.saveStore(store);
