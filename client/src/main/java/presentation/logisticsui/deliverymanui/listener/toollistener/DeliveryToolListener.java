@@ -39,6 +39,7 @@ public class DeliveryToolListener extends ToolListener{
         }
         
         public boolean getInput(String Recipients, String id, Time time) {
+        	System.err.println(id);
                 ResultMessage resultMessage = logisticsBLService.addRecMessage(Recipients, id, time);
                 if(resultMessage.getKey().equals("SUCCESS")){
                         ui.paintdata(null);

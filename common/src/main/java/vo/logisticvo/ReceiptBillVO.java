@@ -27,14 +27,15 @@ public class ReceiptBillVO {
 
         public ReceiptBillVO(Time time, BigDecimal totalMoney,
                         String institutionID,
-                        List<ReceiptLineItemVO> receiptLineItemVOs) {
-                super();
+                        List<ReceiptLineItemVO> receiptLineItemVOs, String billID) {
                 this.time = time;
                 this.totalMoney = totalMoney;
                 this.institutionID = institutionID;
                 this.receiptLineItemVOs = receiptLineItemVOs;
+                this.billID = billID;
         }
-
+        
+        
 		public Time getTime() {
 			return time;
 		}

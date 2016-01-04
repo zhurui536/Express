@@ -11,6 +11,7 @@ import dataservice.strategydataservice.StrategyDataService;
 import po.DistancePO;
 import po.GoodsPO;
 import po.logisticpo.SendBillPO;
+import util.BillState;
 import util.City;
 import util.ExpressType;
 import util.InstitutionType;
@@ -51,6 +52,7 @@ public class ReceivingBL implements ReceivingBLService {
                 sendBillPO.setGoodsPO(goodsPO);
                 sendBillPOs.add(sendBillPO);
                 try {
+                	sendBillPO.setBillState(BillState.SUBMTTED);
                         receivingDataService.insertBill(sendBillPO);
                 } catch (RemoteException e) {
                         e.printStackTrace();

@@ -39,7 +39,7 @@ public class SettleDialog extends InputFrame {
 
     private void init() {
         this.setLayout(null);
-        this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 200);
+        this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 250);
         this.setBackgroundSize(400, 400);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
@@ -51,16 +51,16 @@ public class SettleDialog extends InputFrame {
         ok.addActionListener(new okListener());
         
         JLabel account = new JLabel("账户ID");
-        account.setBounds(50, 30, 100, 50);
+        account.setBounds(70, 30, 100, 50);
         
         accountID = new JComboBox<>();
-        accountID.setBounds(170, 30, 100, 30);
+        accountID.setBounds(170, 40, 100, 30);
         
         JLabel bill = new JLabel("收款单编号");
-        bill.setBounds(50, 80, 100, 50);
+        bill.setBounds(70, 80, 100, 50);
         
         billID = new JComboBox<>();
-        billID.setBounds(170, 80, 100, 30);
+        billID.setBounds(170, 90, 100, 30);
         
         initID();
         
@@ -115,5 +115,4 @@ public class SettleDialog extends InputFrame {
     	}
     	return ids;
     }
-    
 }

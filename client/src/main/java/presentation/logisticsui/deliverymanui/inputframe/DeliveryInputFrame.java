@@ -24,7 +24,7 @@ public class DeliveryInputFrame extends InputFrame implements ActionListener{
         
         private JButton confirm, cancle;
         
-        private JTextArea number,rec;
+        private JTextArea number, rec;
         
         private JLabel numberLabel,recLabel;
         

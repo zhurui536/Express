@@ -51,7 +51,7 @@ public class ReceiptBillPO extends BillPO {
                 for (ReceiptLineItemPO receiptLineItemPO : receiptLineItemPOs) {
                         receiptLineItemVOs.add(receiptLineItemPO.poToVo());
                 }
-                return new ReceiptBillVO(time, totalMoney, institutionID, receiptLineItemVOs);
+                return new ReceiptBillVO(time, totalMoney, institutionID, receiptLineItemVOs, billID);
         }
 
         public Time getTime() {

@@ -20,6 +20,7 @@ import util.City;
 import util.ExpressType;
 import util.GoodsDeliveryState;
 import util.PackageType;
+import util.PublicMessage;
 import util.ResultMessage;
 import util.Time;
 import vo.GoodsVO;
@@ -302,6 +303,7 @@ public class ReceivingInputFrame extends InputFrame implements ActionListener{
                                 return;
                         }
                         sendBillVO.recipientVO = (PeopleMessageVO) recipientInputMes.getValue();
+                        sendBillVO.deliveryManID = PublicMessage.staffID;
                         listener.getInput(sendBillVO);
                         this.setVisible(false);
                 }else if(e.getSource() == cancle){
