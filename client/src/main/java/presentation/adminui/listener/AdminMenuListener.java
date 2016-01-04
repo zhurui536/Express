@@ -1,4 +1,4 @@
-package presentation.userui.listener;
+package presentation.adminui.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 import bussinesslogicservice.adminblservice.AdminBLService;
 import presentation.WarningDialog;
-import presentation.userui.AdminFrame;
-import presentation.userui.data.AdminDataPane;
-import presentation.userui.tool.AdminTool;
+import presentation.adminui.AdminFrame;
+import presentation.adminui.data.AdminDataPane;
+import presentation.adminui.tool.AdminTool;
 import util.ResultMessage;
 import vo.UserVO;
 

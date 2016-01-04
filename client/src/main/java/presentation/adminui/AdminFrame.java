@@ -1,9 +1,9 @@
-package presentation.userui;
+package presentation.adminui;
 
 import bussinesslogic.adminbl.AdminBL;
 import bussinesslogicservice.adminblservice.AdminBLService;
+import presentation.adminui.listener.AdminMenuListener;
 import presentation.mainui.ExpressFrame;
-import presentation.userui.listener.AdminMenuListener;
 
 @SuppressWarnings("serial")
 public class AdminFrame extends ExpressFrame {

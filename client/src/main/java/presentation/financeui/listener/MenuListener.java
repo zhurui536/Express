@@ -7,6 +7,7 @@ import java.util.List;
 
 import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.WarningDialog;
+import presentation.adminui.data.LogDataPane;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.BankAccountPanel;
 import presentation.financeui.tool.BankAccountManagementTool;
@@ -17,7 +18,6 @@ import presentation.financeui.tool.ReceiptTool;
 import presentation.financeui.tool.ReportTool;
 import presentation.mainui.component.MenuButton;
 import presentation.mainui.component.MyTool;
-import presentation.userui.data.LogDataPane;
 import util.ResultMessage;
 import vo.SystemlogVO;
 import vo.financevo.BankAccountVO;

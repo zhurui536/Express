@@ -1,4 +1,4 @@
-package presentation.userui.data;
+package presentation.adminui.data;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -9,8 +9,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import presentation.adminui.listener.AdminToolListener;
 import presentation.mainui.component.ToolButton;
-import presentation.userui.listener.AdminToolListener;
 import util.AuthorityLevel;
 import vo.UserVO;
 

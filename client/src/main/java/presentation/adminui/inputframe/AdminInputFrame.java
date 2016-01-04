@@ -1,4 +1,4 @@
-package presentation.userui.inputframe;
+package presentation.adminui.inputframe;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,9 +8,9 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import presentation.adminui.listener.AdminToolListener;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
-import presentation.userui.listener.AdminToolListener;
 import util.AuthorityLevel;
 import vo.UserVO;
 

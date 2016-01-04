@@ -1,7 +1,7 @@
-package presentation.userui.tool;
+package presentation.adminui.tool;
 
+import presentation.adminui.listener.AdminToolListener;
 import presentation.mainui.component.MyTool;
-import presentation.userui.listener.AdminToolListener;
 
 @SuppressWarnings("serial")
 public class AdminTool extends MyTool {

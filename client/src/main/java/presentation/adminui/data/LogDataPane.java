@@ -1,4 +1,4 @@
-package presentation.userui.data;
+package presentation.adminui.data;
 
 import java.util.ArrayList;
 

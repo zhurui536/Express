@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import bussinesslogic.infobl.SystemlogBL;
 import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
+import presentation.adminui.data.LogDataPane;
 import presentation.billui.listener.BillJudgeToolListener;
 import presentation.billui.tool.BillJudgeTool;
 import presentation.financeui.tool.ReportTool;
@@ -19,7 +20,6 @@ import presentation.strategyui.listener.SalaryToolListener;
 import presentation.strategyui.listener.StrategyToolListener;
 import presentation.strategyui.tool.SalaryTool;
 import presentation.strategyui.tool.StrategyTool;
-import presentation.userui.data.LogDataPane;
 import vo.SystemlogVO;
 
 public class MenuListener implements ActionListener {
