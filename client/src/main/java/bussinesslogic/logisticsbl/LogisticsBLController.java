@@ -133,4 +133,9 @@ public class LogisticsBLController implements LogisticsBLService {
 			return goodsLoadBLService.addGoods(id);
 		}
 
+		@Override
+		public ResultMessage checkTruck(String id) {
+			return goodsLoadBLService.checkTruck(id);
+		}
+
 }
