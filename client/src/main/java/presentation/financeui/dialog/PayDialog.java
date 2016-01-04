@@ -54,7 +54,7 @@ public class PayDialog extends InputFrame {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
-        JPanel panel = new JPanel();
+        JPanel panel = (JPanel) this.getContentPane();
 
         JButton ok = new ToolButton(150, 280,"确定");
         ok.setSize( 100, 40);
@@ -92,17 +92,16 @@ public class PayDialog extends InputFrame {
         payRemark.setBounds(150, 230, 150, 30);
 
         panel.setLayout(null);
-        panel.add(ok);
-        panel.add(personID);
-        panel.add(money);
-        panel.add(payMoney);
-        panel.add(accountID);
-        panel.add(payAccountID);
-        panel.add(item);
-        panel.add(payItem);
-        panel.add(remark);
-        panel.add(payRemark);
-        this.setContentPane(panel);
+        panel.add(ok, 0);
+        panel.add(personID, 0);
+        panel.add(money, 0);
+        panel.add(payMoney, 0);
+        panel.add(accountID, 0);
+        panel.add(payAccountID, 0);
+        panel.add(item, 0);
+        panel.add(payItem, 0);
+        panel.add(remark, 0);
+        panel.add(payRemark, 0);
     }
 
     private class okListener implements ActionListener {

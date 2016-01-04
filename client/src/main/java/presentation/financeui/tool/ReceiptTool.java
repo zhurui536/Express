@@ -12,7 +12,7 @@ import presentation.mainui.component.MyTool;
 @SuppressWarnings("serial")
 public class ReceiptTool extends MyTool {
 
-	private static String[] buttonname = { "显示收款单" };
+	private static String[] buttonname = { "显示收款单", "结算管理" };
 
     public ReceiptTool(FinanceFrame ui) {
     	super(buttonname, new ReceiptToolListener(ui));

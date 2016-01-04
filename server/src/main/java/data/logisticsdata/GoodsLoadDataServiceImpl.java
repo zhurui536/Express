@@ -93,10 +93,20 @@ public class GoodsLoadDataServiceImpl extends UnicastRemoteObject implements Goo
                 init();
                 for (SendBillPO sendBillPO : newBills) {
                         for (SendBillPO sendBillPO1 : sendBillPOs) {
-                                if(sendBillPO1.getId().equals(sendBillPO.getId()))
-                                        sendBillPO1 = sendBillPO;
+                                if(sendBillPO1.getId().equals(sendBillPO.getId())){
+                                	System.out.println(sendBillPO1.getId() + " " + sendBillPO1.getGoodsPO().getTrack().size() + " "+ sendBillPO.getGoodsPO().getTrack().size());
+                                	sendBillPO1.setGoodsPO(sendBillPO.getGoodsPO());
+                                }
                         }
                 }
+                
+                for (SendBillPO sendBillPO1 : sendBillPOs) {
+                    
+                    	System.out.println(sendBillPO1.getId() + " " + sendBillPO1.getGoodsPO().getTrack().size());
+                    	
+                    
+            }
+                
                 Database.save(PATH_SEND_BILL, sendBillPOs);
                 return new ResultMessage("success");
         }

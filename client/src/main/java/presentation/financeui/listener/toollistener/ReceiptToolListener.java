@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import bussinesslogicservice.financeblservice.FinanceBLService;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.dialog.ReceiptDialog;
+import presentation.financeui.dialog.SettleDialog;
 import presentation.financeui.listener.ToolListener;
 import presentation.mainui.component.MyTool;
 
@@ -33,6 +34,9 @@ public class ReceiptToolListener extends ToolListener {
         if (button == toolPanel.getButton(0)) {
             ReceiptDialog dialog = new ReceiptDialog(ui);
             dialog.setVisible(true);
-        } 
+        } else if (button == toolPanel.getButton(1)) {
+        	SettleDialog dialog = new SettleDialog(ui);
+            dialog.setVisible(true);
+        }
     }
 }
