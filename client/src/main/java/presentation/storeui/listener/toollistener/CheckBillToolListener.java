@@ -7,9 +7,9 @@ import bussinesslogicservice.storeblservice.StoreBLService;
 import po.storepo.InStoreBillPO;
 import po.storepo.OutStoreBillPO;
 import presentation.WarningDialog;
+import presentation.billui.datapanel.BillListPane;
 import presentation.mainui.component.MyTool;
 import presentation.storeui.StoreFrame;
-import presentation.storeui.datapanel.StoreBillListPane;
 import presentation.storeui.listener.ToolListener;
 import util.ResultMessage;
 
@@ -37,7 +37,7 @@ public class CheckBillToolListener extends ToolListener {
 			ResultMessage result = sc.checkInStore();
 			if(result.getKey().equals("success")){
 				ArrayList<InStoreBillPO> bills = (ArrayList<InStoreBillPO>) result.getValue();
-				StoreBillListPane data = new StoreBillListPane(bills);
+				BillListPane data = new BillListPane(bills);
 				ui.paintdata(data);
 			}
 			else{
@@ -53,7 +53,7 @@ public class CheckBillToolListener extends ToolListener {
 			ResultMessage result = sc.checkOutStore();
 			if(result.getKey().equals("success")){
 				ArrayList<OutStoreBillPO> bills = (ArrayList<OutStoreBillPO>) result.getValue();
-				StoreBillListPane data = new StoreBillListPane(bills, 0);
+				BillListPane data = new BillListPane(bills);
 				ui.paintdata(data);
 			}
 			else{

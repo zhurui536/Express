@@ -18,7 +18,7 @@ import presentation.mainui.component.MyTool;
 @SuppressWarnings("serial")
 public class FinanceFrame extends ExpressFrame {
 
-    private final String[] names = {"账户管理", "付款", "收款", "报表查看", "期初建账", "日志查看"};
+    private final String[] names = {"账户管理", "付款", "收款", "报表查看", "期初建账", "日志查看", "审批查看" };
 
     private MenuListener menuListener;
     private FinanceBLService financeController;

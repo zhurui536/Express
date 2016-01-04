@@ -10,6 +10,7 @@ import dataservice.financedataservice.BankAccountManagementDataService;
 import dataservice.financedataservice.CreatePayBillDataService;
 import po.financepo.BankAccountPO;
 import po.financepo.PayBillPO;
+import util.BillState;
 import util.ResultMessage;
 import vo.financevo.PayBillVO;
 
@@ -40,6 +41,7 @@ public class CreatePayBillBL implements CreatePayBillBLService {
     	}
         PayBillPO payBillPO = new PayBillPO(payBillVO);
         try {
+        	payBillPO.setState(BillState.SUBMTTED);
             ResultMessage resultMessage = createPayBillDataServiceImpl.insert(payBillPO);
             resultMessage.setValue(payBillPO.getId());
             return resultMessage;

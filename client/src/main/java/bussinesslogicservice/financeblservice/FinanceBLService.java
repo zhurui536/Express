@@ -9,4 +9,6 @@ import util.ResultMessage;
 
 public interface FinanceBLService extends BankAccountManagementBLService, CreateAccountingBLService, CreatePayBillBLService, ShowProfitListBLService, ShowReceiptBLService, ShowStatementBLService{
     ResultMessage showLog();
+    
+    ResultMessage getAllPayBill();
 }

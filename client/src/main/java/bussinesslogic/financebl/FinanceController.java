@@ -1,6 +1,7 @@
 package bussinesslogic.financebl;
 
 import java.math.BigDecimal;
+import java.rmi.RemoteException;
 
 import javax.swing.JTable;
 
@@ -12,6 +13,8 @@ import bussinesslogicservice.financeblservice.ShowProfitListBLService;
 import bussinesslogicservice.financeblservice.ShowReceiptBLService;
 import bussinesslogicservice.financeblservice.ShowStatementBLService;
 import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
+import connection.ClientRMIHelper;
+import dataservice.financedataservice.ShowStatementDataService;
 import util.LogFactory;
 import util.PayItem;
 import util.ResultMessage;
@@ -190,7 +193,8 @@ public class FinanceController implements FinanceBLService {
         return showStatementBL.statementToExcel(payTable, receiptTable);
     }
 
-    public ResultMessage showLog() {
+    @Override
+	public ResultMessage showLog() {
         systemlogMaintenanceBL.addSystemlog(new SystemlogVO("查看系统日志"));
         return systemlogMaintenanceBL.showSystemlog();
     }
@@ -200,5 +204,20 @@ public class FinanceController implements FinanceBLService {
 		systemlogMaintenanceBL.addSystemlog(new SystemlogVO("查看所有银行账户"));
 		return bankAccountManagement.showAllMember();
 	}
-
+	
+	public ResultMessage getAllPayBill() {
+	    ShowStatementDataService showStatementDataServiceImpl = (ShowStatementDataService) ClientRMIHelper.
+                getServiceByName("ShowStatementDataServiceImpl");
+	    try {
+			ResultMessage payMsg = showStatementDataServiceImpl.findAllPayBill();
+			if (payMsg.getKey().equals("success")) {
+				return payMsg;
+			} else {
+				return new ResultMessage("fail");
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return new ResultMessage("fail");
+		}
+	}
 }

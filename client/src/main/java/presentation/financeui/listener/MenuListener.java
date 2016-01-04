@@ -10,6 +10,7 @@ import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.financeui.datapanel.BankAccountPanel;
 import presentation.financeui.tool.BankAccountManagementTool;
+import presentation.financeui.tool.CheckTool;
 import presentation.financeui.tool.InitTool;
 import presentation.financeui.tool.PayTool;
 import presentation.financeui.tool.ReceiptTool;
@@ -41,7 +42,9 @@ public class MenuListener implements ActionListener {
     private MyTool initTool;
 
     private LogDataPane logDataPane;
-
+    
+    private MyTool checkTool;
+    
     public MenuListener(FinanceFrame ui) {
         this.ui = ui;
         bankAcManageTool = new BankAccountManagementTool(ui);
@@ -49,9 +52,10 @@ public class MenuListener implements ActionListener {
         receiptTool = new ReceiptTool(ui);
         reportTool = new ReportTool(ui);
         initTool = new InitTool(ui);
+        checkTool = new CheckTool(ui);
     }
 
-//    private final String[] names = {"账户管理", "付款", "收款", "报表查看", "期初建账", "日志查看"};
+//    private final String[] names = {"账户管理", "付款", "收款", "报表查看", "期初建账", "日志查看", "审批查看"};
     
     @SuppressWarnings("unchecked")
     @Override
@@ -89,6 +93,8 @@ public class MenuListener implements ActionListener {
                 logDataPane = new LogDataPane(systemlogVOs);
                 ui.paintdata(logDataPane);
             }
+        } else if (button == ui.getButton(6)) {
+        	ui.replaceTool(checkTool);
         }
     }
 
