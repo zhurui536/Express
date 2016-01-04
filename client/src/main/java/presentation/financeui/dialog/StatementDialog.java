@@ -49,7 +49,7 @@ public class StatementDialog extends InputFrame {
         this.setBounds(ui.getX() + 300, ui.getY() + 200, 400, 220);
         this.setBackgroundSize(400, 220);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        JPanel panel = new JPanel();
+        JPanel panel = (JPanel) this.getContentPane();
 
         JButton ok = new ToolButton(150, 130,"确定");
         ok.setSize(80, 30);
@@ -68,12 +68,11 @@ public class StatementDialog extends InputFrame {
         end.setBounds(130, 80, 200, 30);
         
         panel.setLayout(null);
-        panel.add(ok);
-        panel.add(sTime);
-        panel.add(eTime);
-        panel.add(start);
-        panel.add(end);
-        this.setContentPane(panel);
+        panel.add(ok, 0);
+        panel.add(sTime, 0);
+        panel.add(eTime, 0);
+        panel.add(start, 0);
+        panel.add(end, 0);
     }
 
     private class okListener implements ActionListener {

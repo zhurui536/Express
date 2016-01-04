@@ -87,11 +87,13 @@ public class DateChooser extends JPanel {
 	}
 
 	private void init() throws Exception {
+		this.setOpaque(false);
 		dateField.setToolTipText("单击右边的按钮即可选择日期");
 		btnChoose.setToolTipText("单击即可选择日期");
 		this.setLayout(gridBagLayout1);
 		dateField.setEditable(false);
 		btnChoose.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				DateChooser.this.btnChoose_actionPerformed(e);
 			}
@@ -109,6 +111,7 @@ public class DateChooser extends JPanel {
 						new Insets(0, 0, 0, 0), 0, 0));
 	}
 
+	@Override
 	public void setToolTipText(String text) {
 		dateField.setToolTipText(text);
 		btnChoose.setToolTipText(text);
@@ -140,6 +143,7 @@ public class DateChooser extends JPanel {
 
 		dateFrame.addWindowListener(new WindowAdapter() {
 			// 在任意的非日期选择区单击，则日期选择组件将变为非活动状态，自动释放资源。
+			@Override
 			public void windowDeactivated(WindowEvent e) {
 				javax.swing.JDialog f = (javax.swing.JDialog) e.getSource();
 				f.dispose();
@@ -368,6 +372,7 @@ public class DateChooser extends JPanel {
 			return ((Integer) hourSpin.getValue()).intValue();
 		}
 
+		@Override
 		public void stateChanged(ChangeEvent e) {
 			JSpinner source = (JSpinner) e.getSource();
 			if (source.getName().equals("Hour")) {
@@ -394,6 +399,7 @@ public class DateChooser extends JPanel {
 			}
 		}
 
+		@Override
 		public void mouseClicked(MouseEvent e) {
 			if (e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 1) {
 				JButton source = (JButton) e.getSource();
@@ -413,16 +419,20 @@ public class DateChooser extends JPanel {
 			}
 		}
 
+		@Override
 		public void mousePressed(MouseEvent e) {}
 
+		@Override
 		public void mouseReleased(MouseEvent e) {}
 
+		@Override
 		public void mouseEntered(MouseEvent e) {
 			JButton jbutton = (JButton) e.getSource();
 			jbutton.setBackground(moveButtonColor);
 
 		}
 
+		@Override
 		public void mouseExited(MouseEvent e) {
 			JButton jbutton = (JButton) e.getSource();
 			int comm = Integer.parseInt(jbutton.getActionCommand());
@@ -440,6 +450,7 @@ public class DateChooser extends JPanel {
 			super(text);
 		}
 
+		@Override
 		public Insets getInsets() {
 			return new Insets(4, 2, 0, 2);
 		}

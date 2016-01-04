@@ -44,7 +44,7 @@ public class BankAccountDelDialog extends InputFrame {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
-        JPanel panel = new JPanel();
+        JPanel panel = (JPanel) this.getContentPane();
 
         JButton ok = new ToolButton(150, 90,"确定");
         ok.setSize(100, 40);
@@ -62,11 +62,10 @@ public class BankAccountDelDialog extends InputFrame {
         acID.setBounds(150, 30, 150, 30);
 
         panel.setLayout(null);
-        panel.add(ok);
-        panel.add(id);
-        panel.add(acID);
-        panel.add(warn);
-        this.setContentPane(panel);
+        panel.add(ok, 0);
+        panel.add(id, 0);
+        panel.add(acID, 0);
+        panel.add(warn, 0);
     }
 
     private class okListener implements ActionListener {

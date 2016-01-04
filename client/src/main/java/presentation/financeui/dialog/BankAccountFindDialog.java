@@ -41,7 +41,7 @@ public class BankAccountFindDialog extends InputFrame {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setModal(true);
 
-        JPanel panel = new JPanel();
+        JPanel panel = (JPanel) this.getContentPane();
 
         JButton ok = new ToolButton(150, 100,"确定");
         ok.setSize(100, 40);
@@ -56,11 +56,10 @@ public class BankAccountFindDialog extends InputFrame {
         input.setBounds(150, 40, 150, 30);
         
         panel.setLayout(null);
-        panel.add(ok);
+        panel.add(ok, 0);
 
-        panel.add(find);
-        panel.add(input);
-        this.setContentPane(panel);
+        panel.add(find, 0);
+        panel.add(input, 0);
     }
 
     private class okListener implements ActionListener {
