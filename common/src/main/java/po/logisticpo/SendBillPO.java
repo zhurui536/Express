@@ -22,8 +22,6 @@ public class SendBillPO extends BillPO {
         private GoodsPO goodsPO;
         // 订单条形码号
         private String id;
-        //单据审批状态
-        private BillState billState;
         //快递员
         private String deliveryManID;
 
@@ -36,7 +34,6 @@ public class SendBillPO extends BillPO {
                 this.id = id;
                 super.billid = id;
                 this.deliveryManID = deliveryManID;
-                this.billState = BillState.DRAFT;
         }
 
         public SendBillVO poToVo() {
@@ -46,7 +43,7 @@ public class SendBillPO extends BillPO {
                 sendBillVO.id = this.id;
                 sendBillVO.recipientVO = this.recipientPO.poToVo();
                 sendBillVO.senderVO = this.senderPO.poToVo();
-                sendBillVO.billState = this.billState;
+                sendBillVO.billState = super.getState();
                 sendBillVO.deliveryManID = this.deliveryManID;
                 return sendBillVO;
         }
@@ -72,11 +69,11 @@ public class SendBillPO extends BillPO {
         }
 
         public BillState getBillState() {
-                return billState;
+                return getState();
         }
 
         public void setBillState(BillState billState) {
-                this.billState = billState;
+                super.setState(billState);
         }
 
         public PeopleMessagePO getSenderPO() {

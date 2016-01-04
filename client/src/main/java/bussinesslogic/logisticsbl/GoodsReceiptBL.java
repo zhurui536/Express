@@ -11,6 +11,7 @@ import po.logisticpo.ArrivalBillPO;
 import po.logisticpo.DeliveryBillPO;
 import po.logisticpo.LoadingBillPO;
 import po.logisticpo.TransferBillPO;
+import util.BillState;
 import util.InstitutionType;
 import util.PublicMessage;
 import util.ResultMessage;
@@ -82,6 +83,7 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
                                 arrivalBillVO.departurePlace,
                                 arrivalBillVO.goodsState);
                 try {
+                	arrivalBillPO.setState(BillState.SUBMTTED);
                         goodsReceiptDataService.insertBill(arrivalBillPO);
                 } catch (RemoteException e) {
                         e.printStackTrace();
@@ -113,6 +115,7 @@ public class GoodsReceiptBL implements GoodsReceiptBLService {
                 DeliveryBillPO deliveryBillPO = new DeliveryBillPO(new Time(),
                                 ids, deliverManId);
                 try {
+                	deliveryBillPO.setState(BillState.SUBMTTED);
                         goodsReceiptDataService.insertBill(deliveryBillPO);
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block

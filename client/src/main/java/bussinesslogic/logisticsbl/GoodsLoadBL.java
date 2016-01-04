@@ -9,6 +9,7 @@ import dataservice.logisticsdataservice.GoodsLoadDataService;
 import po.logisticpo.LoadingBillPO;
 import po.logisticpo.SendBillPO;
 import po.logisticpo.TransferBillPO;
+import util.BillState;
 import util.InstitutionType;
 import util.PublicMessage;
 import util.ResultMessage;
@@ -58,8 +59,9 @@ public class GoodsLoadBL implements GoodsLoadBLService {
                 }
                         
                 try {
-                        goodsLoadDataService.insertBill(LoadingBillPO
-                                .voToPo(loadingBillVO));
+                	LoadingBillPO bill = LoadingBillPO.voToPo(loadingBillVO);
+                	bill.setState(BillState.SUBMTTED);
+                        goodsLoadDataService.insertBill(bill);
                 } catch (RemoteException e) {
                         return new ResultMessage("internet error", null);
                 }
@@ -78,6 +80,7 @@ public class GoodsLoadBL implements GoodsLoadBLService {
                 transferBillPO.setCharge(transferBillVO.charge);
                 transferBillPO.setSupercargo(transferBillVO.supercargo);
                 transferBillPO.setSupervisor(transferBillVO.supervisor);
+                transferBillPO.setState(BillState.SUBMTTED);
                 try {
                         goodsLoadDataService.insertBill(transferBillPO);
                 } catch (RemoteException e) {
