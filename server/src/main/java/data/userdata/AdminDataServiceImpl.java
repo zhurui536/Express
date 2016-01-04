@@ -9,11 +9,15 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import data.infodata.StaffMessageMaintenanceDataServiceImpl;
 import dataservice.userdataservice.AdminDataService;
 import po.InstitutionMessagePO;
 import po.StaffMessagePO;
 import po.UserPO;
+import util.AuthorityLevel;
+import util.Job;
 import util.ResultMessage;
+import util.SalaryType;
 
 public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDataService {
 
@@ -30,6 +34,8 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 				if(in.available() == 0){
 					in.close();
 					ArrayList<UserPO> users = new ArrayList<UserPO>();
+					users.add(new UserPO("admin", "admin", "admin", AuthorityLevel.HIGH));
+					users.add(new UserPO("2", "2", "141250212", AuthorityLevel.HIGH));
 					this.writeList(userrecord, users);
 				}
 			} catch (Exception e) {
@@ -40,7 +46,34 @@ public class AdminDataServiceImpl extends UnicastRemoteObject implements AdminDa
 			try {
 				file.createNewFile();
 				ArrayList<UserPO> users = new ArrayList<UserPO>();
+				users.add(new UserPO("admin", "admin", "admin", AuthorityLevel.HIGH));
+				users.add(new UserPO("2", "2", "141250212", AuthorityLevel.HIGH));
 				this.writeList(userrecord, users);	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		file = new File(this.staffmessage);
+		if(file.exists()){
+			try {
+				FileInputStream in = new FileInputStream(file);
+				if(in.available() == 0){
+					in.close();
+					StaffMessageMaintenanceDataServiceImpl staffdata = new StaffMessageMaintenanceDataServiceImpl();
+					staffdata.insert(new StaffMessagePO("admin", "admin", "admin", Job.ADMIN, SalaryType.MONTHLY, 0));
+					staffdata.insert(new StaffMessagePO("141250212", "朱浩然", "admin", Job.MANAGER, SalaryType.MONTHLY, 0));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else{
+			try {
+				file.createNewFile();
+				StaffMessageMaintenanceDataServiceImpl staffdata = new StaffMessageMaintenanceDataServiceImpl();
+				staffdata.insert(new StaffMessagePO("admin", "admin", "admin", Job.ADMIN, SalaryType.MONTHLY, 0));
+				staffdata.insert(new StaffMessagePO("141250212", "朱浩然", "admin", Job.MANAGER, SalaryType.MONTHLY, 0));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

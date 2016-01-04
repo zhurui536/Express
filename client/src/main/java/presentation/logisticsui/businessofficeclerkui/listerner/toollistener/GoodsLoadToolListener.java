@@ -26,17 +26,20 @@ public class GoodsLoadToolListener extends ToolListener{
         
         public boolean getInput(LoadingBillVO loadingBillVO){
         	vo = loadingBillVO;
-        	GoodsListDataPane data = new GoodsListDataPane(vo.ids, this);
-    		ui.paintdata(data);
-//                ResultMessage resultMessage = logisticsBLService.produceLoadBill(loadingBillVO);
-//                if(resultMessage.getKey().equals("SUCCESS")){
-//                        ui.paintdata(null);
-//                        return true;
-//                }else {
-//                        new WarningDialog(ui, resultMessage);
-//                        return false;
-//                }
-        	return true;
+        	ResultMessage result = this.logisticsBLService.checkTruck(vo.numOfTruck);
+        	if(result.getKey().equals("FOUND")){
+        		GoodsListDataPane data = new GoodsListDataPane(vo.ids, this);
+        		ui.paintdata(data);
+        		return true;
+        	}
+        	else if(result.getKey().equals("internet error")){
+        		new WarningDialog(ui, "网络连接出错");
+        		return false;
+        	}
+        	else{
+        		new WarningDialog(ui, "车辆代号不存在");
+        		return false;
+        	}
         }
         
         public boolean getID(String id){

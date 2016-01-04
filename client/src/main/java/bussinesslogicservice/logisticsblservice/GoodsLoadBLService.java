@@ -25,4 +25,8 @@ public interface GoodsLoadBLService {
          */
         public ResultMessage addGoods(String id);
         
+        /*输入车辆代号时使用
+         * id
+         */
+        public ResultMessage checkTruck(String id);
 }
