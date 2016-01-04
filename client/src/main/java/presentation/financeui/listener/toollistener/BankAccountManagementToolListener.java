@@ -31,6 +31,7 @@ public class BankAccountManagementToolListener extends ToolListener {
 		FinanceFrame ui = (FinanceFrame) this.ui;
         Object button = e.getSource();
         MyTool toolPanel = ui.getTool();
+        
         if (button == toolPanel.getButton(0)) {
             BankAccountAddDialog dialog = new BankAccountAddDialog(ui);
             dialog.setVisible(true);

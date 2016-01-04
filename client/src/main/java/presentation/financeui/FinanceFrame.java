@@ -38,7 +38,8 @@ public class FinanceFrame extends ExpressFrame {
         return financeController;
     }
     
-    public MyTool getTool() {
+    @Override
+	public MyTool getTool() {
     	return tool;
     }
 
@@ -46,7 +47,6 @@ public class FinanceFrame extends ExpressFrame {
 	public void paintdata(JPanel data) {
 		if(this.data != null){
 			this.remove(this.data);
-			data = null;
 		}
 		
 		this.data = data;
