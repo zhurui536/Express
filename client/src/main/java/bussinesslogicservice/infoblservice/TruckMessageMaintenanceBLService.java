@@ -14,7 +14,7 @@ public interface TruckMessageMaintenanceBLService {
         
         public ResultMessage modTruckMessage(TruckMessageVO truckMessage);
         
-        public ResultMessage showTruckMessage(String truckId);
+        public ResultMessage getTruckMessage(String truckId);
         
-
+        public ResultMessage showAllTruckMessage();
 }

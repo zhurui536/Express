@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -13,6 +14,7 @@ import bussinesslogicservice.infoblservice.InfoBLSerivce;
 import presentation.WarningDialog;
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
+import presentation.logisticsui.businessofficeclerkui.datapane.TruckMessageListPanel;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.TruckMessageToolListener;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
@@ -143,6 +145,14 @@ public class TruckMessageInputFrame extends InputFrame implements ActionListener
                                 new WarningDialog(ui, resultMessage.getKey());
                         }
                         this.setVisible(false);
+                        ResultMessage resultMessage = infoBLSerivce.showAllTruckMessage();
+                        if(resultMessage.getKey().equals("success")){
+                                @SuppressWarnings("unchecked")
+                                TruckMessageListPanel truckMessageListPanel = new TruckMessageListPanel((ArrayList<TruckMessageVO>) resultMessage.getValue());
+                                ui.paintdata(truckMessageListPanel);
+                        }else {
+                                new WarningDialog(null, resultMessage);
+                        }
                 } else if (e.getSource() == cancle) {
                         this.setVisible(false);
                 }

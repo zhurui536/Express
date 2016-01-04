@@ -3,7 +3,7 @@ package presentation.logisticsui.businessofficeclerkui.datapane;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
-import javax.swing.JTable;
+import javax.swing.JScrollPane;
 
 import util.MyJTable;
 import util.Sex;
@@ -38,7 +38,10 @@ public class DriverMessageListPanel extends JPanel{
                         data[i][5] = driverMessageVOs.get(i).birth.toDayString();
                         data[i][6] = driverMessageVOs.get(i).terminationTime.toDayString();
                 }
-                JTable jTable = new MyJTable(data, nameStrings);
-                this.add(jTable);
+                MyJTable jTable = new MyJTable(data, nameStrings);
+                jTable.setWidth(new int[]{115,115,115,115,115,115,115});
+                JScrollPane scroller = new JScrollPane(jTable);
+                scroller.setBounds(0, 0, 810,650);
+                this.add(scroller);
         }
 }

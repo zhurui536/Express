@@ -7,6 +7,7 @@ import bussinesslogicservice.infoblservice.DriverMessageMaintenanceBLService;
 import connection.ClientRMIHelper;
 import dataservice.infodataservice.DriverMessageMaintenanceDataService;
 import po.DriverMessagePO;
+import util.PublicMessage;
 import util.ResultMessage;
 import vo.DriverMessageVO;
 
@@ -87,7 +88,7 @@ public class DriverMessageMaintenanceBL implements
         public ResultMessage showAllDriverMessage() {
                 ResultMessage resultMessage = null;
                 try {
-                        resultMessage = driverMessageMaintenanceDataService.findAll();
+                        resultMessage = driverMessageMaintenanceDataService.findAll(PublicMessage.institutionID);
                 } catch (RemoteException e) {
                         e.printStackTrace();
                         return new ResultMessage("internet error");

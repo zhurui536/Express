@@ -127,9 +127,9 @@ public class InfoBLController implements InfoBLSerivce {
         }
 
         @Override
-        public ResultMessage showTruckMessage(String truckId) {
+        public ResultMessage getTruckMessage(String truckId) {
                 service.addSystemlog(new SystemlogVO("查看车辆信息"));
-                return truckMessageMaintenanceBLService.showTruckMessage(truckId);
+                return truckMessageMaintenanceBLService.getTruckMessage(truckId);
         }
 
 		@Override
@@ -145,6 +145,11 @@ public class InfoBLController implements InfoBLSerivce {
                 @Override
                 public ResultMessage showAllDriverMessage() {
                         return this.driverMessageMaintenanceBLService.showAllDriverMessage();
+                }
+
+                @Override
+                public ResultMessage showAllTruckMessage() {
+                        return this.truckMessageMaintenanceBLService.showAllTruckMessage();
                 }
 
 }

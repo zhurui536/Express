@@ -9,6 +9,7 @@ import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import presentation.WarningDialog;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.datapane.DriverMessageListPanel;
+import presentation.logisticsui.businessofficeclerkui.datapane.TruckMessageListPanel;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.BillCheckToolListener;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.DriverMessageToolListener;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsDelivToolListener;
@@ -23,6 +24,7 @@ import presentation.logisticsui.businessofficeclerkui.tool.GoodsRecTool;
 import presentation.logisticsui.businessofficeclerkui.tool.TruckMessageTool;
 import util.ResultMessage;
 import vo.DriverMessageVO;
+import vo.TruckMessageVO;
 
 
 public class MenuListener implements ActionListener{
@@ -73,12 +75,23 @@ public class MenuListener implements ActionListener{
                                 @SuppressWarnings("unchecked")
                                 DriverMessageListPanel driverMessageListPanel = new DriverMessageListPanel((ArrayList<DriverMessageVO>) resultMessage.getValue());
                                 ui.paintdata(driverMessageListPanel);
+                        }else{
+                                new WarningDialog(null, resultMessage);
                         }
                         DriverMessageToolListener driverMessageToolListener = new DriverMessageToolListener(ui);
                         DriverMessageTool tool = new DriverMessageTool(driverMessageToolListener);
                         driverMessageToolListener.setTool(tool);
                         ui.replaceTool(tool);
                 }else if(i == 5){
+                        InfoBLSerivce infoBLSerivce = ui.getInfoBLSerivce();
+                        ResultMessage resultMessage = infoBLSerivce.showAllTruckMessage();
+                        if(resultMessage.getKey().equals("success")){
+                                @SuppressWarnings("unchecked")
+                                TruckMessageListPanel truckMessageListPanel = new TruckMessageListPanel((ArrayList<TruckMessageVO>) resultMessage.getValue());
+                                ui.paintdata(truckMessageListPanel);
+                        }else {
+                                new WarningDialog(null, resultMessage);
+                        }
                         TruckMessageToolListener truckMessageToolListener = new TruckMessageToolListener(ui);
                         TruckMessageTool tool = new TruckMessageTool(truckMessageToolListener);
                         truckMessageToolListener.setTool(tool);

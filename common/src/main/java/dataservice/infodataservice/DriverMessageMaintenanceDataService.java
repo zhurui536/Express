@@ -14,6 +14,6 @@ public interface DriverMessageMaintenanceDataService extends Remote{
         public ResultMessage insert(DriverMessagePO message) throws RemoteException;
         public ResultMessage delete(String id) throws RemoteException;
         public ResultMessage update(DriverMessagePO message) throws RemoteException;
-        public ResultMessage findAll() throws RemoteException;
+        public ResultMessage findAll(String institutionID) throws RemoteException;
 
 }

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,6 +15,7 @@ import presentation.WarningDialog;
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.datapane.DriverMessageDataPanel;
+import presentation.logisticsui.businessofficeclerkui.datapane.DriverMessageListPanel;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.DriverMessageToolListener;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
@@ -127,6 +129,14 @@ public class DriverIdInputFrame extends InputFrame implements ActionListener{
                                 }else{
                                         new WarningDialog(ui, resultMessage);
                                 }
+                        }
+                        ResultMessage resultMessage = infoBLSerivce.showAllDriverMessage();
+                        if(resultMessage.getKey().equals("success")){
+                                @SuppressWarnings("unchecked")
+                                DriverMessageListPanel driverMessageListPanel = new DriverMessageListPanel((ArrayList<DriverMessageVO>) resultMessage.getValue());
+                                ui.paintdata(driverMessageListPanel);
+                        }else{
+                                new WarningDialog(null, resultMessage);
                         }
                 }
                 this.setVisible(false);

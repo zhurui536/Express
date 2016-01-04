@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import dataservice.infodataservice.TruckMessageMaintenanceDataService;
 import po.TruckMessagePO;
 import serialutility.Database;
+import util.PublicMessage;
 import util.ResultMessage;
 
 public class TruckMessageMaintenanceDataServiceImpl extends UnicastRemoteObject implements TruckMessageMaintenanceDataService{
@@ -73,6 +74,17 @@ public class TruckMessageMaintenanceDataServiceImpl extends UnicastRemoteObject 
                         return new ResultMessage("SUCCESS");
                 }
                 return new ResultMessage("NO_EXIST");
+        }
+
+        @Override
+        public ResultMessage findAll(String institutionID) throws RemoteException {
+                init();
+                ArrayList<TruckMessagePO> truckMessagePOs = new ArrayList<>();
+                for (TruckMessagePO truckMessagePO : this.truckMessagePOs) {
+                        if(truckMessagePO.getInstitutionID().equals(institutionID))
+                                truckMessagePOs.add(truckMessagePO);
+                }
+                return new ResultMessage("success", truckMessagePOs);
         }
 
 }

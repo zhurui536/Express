@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,6 +15,7 @@ import presentation.WarningDialog;
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
 import presentation.logisticsui.businessofficeclerkui.datapane.TruckMessageDataPane;
+import presentation.logisticsui.businessofficeclerkui.datapane.TruckMessageListPanel;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.TruckMessageToolListener;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
@@ -100,7 +102,7 @@ public class TruckIdInputFrame extends InputFrame implements ActionListener{
                                         new WarningDialog(ui, resultMessage);
                                 }
                         }else if(kind == 1){
-                                ResultMessage resultMessage = infoBLSerivce.showTruckMessage(ID);
+                                ResultMessage resultMessage = infoBLSerivce.getTruckMessage(ID);
                                 if(resultMessage.getKey().equals("SUCCESS")){
                                         TruckMessageDataPane dataPanel = new TruckMessageDataPane((TruckMessageVO)resultMessage.getValue());
                                         ui.paintdata(dataPanel);
@@ -110,7 +112,7 @@ public class TruckIdInputFrame extends InputFrame implements ActionListener{
                                         new WarningDialog(ui, resultMessage);
                                 }
                         }else if(kind == -1){
-                                ResultMessage resultMessage = infoBLSerivce.showTruckMessage(ID);
+                                ResultMessage resultMessage = infoBLSerivce.getTruckMessage(ID);
                                 if(resultMessage.getKey().equals("SUCCESS")){
                                         TruckMessageVO truckMessageVO = (TruckMessageVO) resultMessage.getValue();
                                         TruckMessageInputFrame truckMessageInputFrame = new TruckMessageInputFrame(listener, truckMessageVO);
@@ -123,6 +125,14 @@ public class TruckIdInputFrame extends InputFrame implements ActionListener{
                                 }else{
                                         new WarningDialog(ui, resultMessage);
                                 }
+                        }
+                        ResultMessage resultMessage = infoBLSerivce.showAllTruckMessage();
+                        if(resultMessage.getKey().equals("success")){
+                                @SuppressWarnings("unchecked")
+                                TruckMessageListPanel truckMessageListPanel = new TruckMessageListPanel((ArrayList<TruckMessageVO>) resultMessage.getValue());
+                                ui.paintdata(truckMessageListPanel);
+                        }else {
+                                new WarningDialog(null, resultMessage);
                         }
                 }
                 this.setVisible(false);

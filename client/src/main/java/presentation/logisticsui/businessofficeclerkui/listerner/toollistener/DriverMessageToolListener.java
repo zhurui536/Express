@@ -24,7 +24,6 @@ public class DriverMessageToolListener extends ToolListener{
         public void actionPerformed(ActionEvent e) {
                 MyTool tool = super.getTool();
                 if(e.getSource() == tool.getButton(0)){
-                        ui.paintdata(null);
                         DriverMessageInputFrame driverMessageInputFrame = new DriverMessageInputFrame(this);
                         driverMessageInputFrame.setVisible(true);
                 }else if(e.getSource() == tool.getButton(1)){

@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import dataservice.infodataservice.DriverMessageMaintenanceDataService;
 import po.DriverMessagePO;
 import serialutility.Database;
-import util.PublicMessage;
 import util.ResultMessage;
 
 public class DriverMessageMaintenanceDataServiceImpl extends UnicastRemoteObject implements DriverMessageMaintenanceDataService{
@@ -79,11 +78,11 @@ public class DriverMessageMaintenanceDataServiceImpl extends UnicastRemoteObject
         }
 
         @Override
-        public ResultMessage findAll() throws RemoteException{
+        public ResultMessage findAll(String institutionID) throws RemoteException{
                 init();
                 ArrayList<DriverMessagePO> driverMessagePOs = new ArrayList<DriverMessagePO>();
                 for (DriverMessagePO driverMessagePO : this.driverMessagePOs) {
-                        if(driverMessagePO.getInstitutionID().equals(PublicMessage.institutionID))
+                        if(driverMessagePO.getInstitutionID().equals(institutionID))
                                 driverMessagePOs.add(driverMessagePO);
                 }
                 return new ResultMessage("success",driverMessagePOs);
