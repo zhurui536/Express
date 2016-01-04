@@ -40,9 +40,6 @@ public class RMIConfig {
 			
 			IP = param.get("ip");
 			PORT = Integer.parseInt(param.get("port"));
-			
-			System.err.println(IP);
-			System.err.println(PORT);
 		}
 		else {
 			IP = "localhost";

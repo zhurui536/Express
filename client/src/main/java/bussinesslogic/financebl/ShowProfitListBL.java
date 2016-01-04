@@ -48,7 +48,6 @@ public class ShowProfitListBL implements ShowProfitListBLService {
                 return new ResultMessage("fail");
             }
             List<PayBillPO> payBillPOs = (List<PayBillPO>) payMsg.getValue();
-            System.out.println(payBillPOs);
             List<ReceiptBillPO> receiptBillPOs = (List<ReceiptBillPO>) receiptMsg.getValue();
             updateProfitListVO(new Time(), payBillPOs, receiptBillPOs);
             return new ResultMessage("success", profitListVO);
@@ -88,8 +87,11 @@ public class ShowProfitListBL implements ShowProfitListBLService {
     public ResultMessage profitListToExcel(JTable table) {
         Excel excel = new Excel();
         excel.createSheet(table, "成本收益表");
-        excel.export();
-        return new ResultMessage("success");
+        if (excel.export()) {
+        	return new ResultMessage("success");
+        } else {
+        	return new ResultMessage("no choose");
+        }
     }
 
     private boolean isValidReceiptBillPO(Time time, ReceiptBillPO po) {

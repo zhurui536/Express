@@ -9,6 +9,7 @@ import dataservice.userdataservice.AdminDataService;
 import po.InstitutionMessagePO;
 import po.StaffMessagePO;
 import po.UserPO;
+import util.PublicMessage;
 import util.ResultMessage;
 
 
@@ -30,11 +31,12 @@ public class UserBLServiceImpl implements UserBLService {
 				//检查用户id是否存在
 				for(int i=0;i<users.size();i++){
 					//如果存在，则比较密码
-					System.out.println(users.get(i).getid()+" "+users.get(i).getPassword());
+//					System.out.println(users.get(i).getid()+" "+users.get(i).getPassword());
 					
 					if(users.get(i).getid().equals(id)){
 						//如果密码正确，则查询员工编号
 						if(users.get(i).getPassword().equals(password)){
+							PublicMessage.lv = users.get(i).getLevel();
 							result = dataservice.getStaff();
 							
 							if(result.getKey().equals("success")){

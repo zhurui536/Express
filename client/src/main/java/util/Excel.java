@@ -43,10 +43,12 @@ public class Excel {
 
 	private void showFileChooser() {
 		jfc.addChoosableFileFilter(new FileFilter() {
+			@Override
 			public boolean accept(File file) {
 				return (file.getName().indexOf("xls") != -1);
 			}
 
+			@Override
 			public String getDescription() {
 				return "Excel";
 			}
@@ -55,7 +57,11 @@ public class Excel {
 
 		File file = jfc.getSelectedFile();
 		try {
-			outputStream = new FileOutputStream(file + ".xls");
+			if (file == null) {
+				outputStream = null;
+			} else {
+				outputStream = new FileOutputStream(file + ".xls");
+			}
 		} catch (FileNotFoundException ex) {
 			ex.printStackTrace();
 		}
@@ -137,6 +143,9 @@ public class Excel {
 
 	public boolean export() {
 		try {
+			if (outputStream == null) {
+				return false;
+			}
 			workbook.write(outputStream);
 			outputStream.close();
 			return true;

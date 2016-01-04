@@ -269,6 +269,16 @@ public class BillBLController implements BillBLService {
 					}
 					return new ResultMessage("success", bills);
 				}
+				else if(type == BillType.TRANSIT){
+					ArrayList<TransferBillPO> temp = (ArrayList<TransferBillPO>) result.getValue();
+					
+					for(int i=0;i<temp.size();i++){
+						if(temp.get(i).getState() != BillState.APPROVED){
+							bills.add(temp.get(i).toVO());
+						}
+					}
+					return new ResultMessage("success", bills);
+				}
 			}
 			else{
 				return result;
@@ -367,6 +377,17 @@ public class BillBLController implements BillBLService {
 				}
 				else if(type == BillType.SEND){
 					ArrayList<SendBillPO> temp = (ArrayList<SendBillPO>) result.getValue();
+
+					for(int i=0;i<temp.size();i++){
+						if(temp.get(i).getBillID().equals(id)){
+							return new ResultMessage("success", temp.get(i));
+						}
+					}
+					
+					return new ResultMessage("noexist", null);
+				}
+				else if(type == BillType.TRANSIT){
+					ArrayList<TransferBillPO> temp = (ArrayList<TransferBillPO>) result.getValue();
 
 					for(int i=0;i<temp.size();i++){
 						if(temp.get(i).getBillID().equals(id)){

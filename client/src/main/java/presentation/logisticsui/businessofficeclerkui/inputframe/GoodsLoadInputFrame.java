@@ -15,6 +15,7 @@ import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsLoadToolListener;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
+import util.BillIDMaker;
 import util.PublicMessage;
 import util.Time;
 import vo.logisticvo.LoadingBillVO;
@@ -70,7 +71,8 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                                 this.getContentPane().add(jTextAreas[i][j], 0);
                         }
                 }
-                
+                jTextAreas[0][0].setText(BillIDMaker.getTransferNum());
+                		
                 city = new JComboBox<String>(citys);
                 city.setBounds(90, 115, 80, 35);
                 this.getContentPane().add(city, 0);
@@ -107,10 +109,10 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                         LoadingBillVO loadingBillVO = new LoadingBillVO();
                         loadingBillVO.date = new Time();
                         loadingBillVO.institution = PublicMessage.institutionID;
-                        if(!InputChecker.isNum(jTextAreas[0][0].getText())){
-                                errOutputLabel.setText("汽运编号必须是数字！");
-                                return;
-                        }
+//                        if(!InputChecker.isNum(jTextAreas[0][0].getText())){
+//                                errOutputLabel.setText("汽运编号必须是数字！");
+//                                return;
+//                        }
                         loadingBillVO.transferNum = jTextAreas[0][0].getText();
                         if(!InputChecker.isNum(jTextAreas[0][1].getText())){
                                 errOutputLabel.setText("车辆代号必须是数字！");

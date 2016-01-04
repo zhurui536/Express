@@ -69,7 +69,7 @@ public class ReportToolListener extends ToolListener {
 		ResultMessage msg = financeController.statementToExcel(payTable, receiptTable);
 		if (isFail(msg)) {
             new WarningDialog(ui, "请先生成经营情况表！");
-        } else {
+        } else if(msg.getKey().equals("success")) {
         	new WarningDialog(ui, "导出成功！");
         }
 	}
@@ -78,7 +78,7 @@ public class ReportToolListener extends ToolListener {
 		ResultMessage msg = financeController.profitListToExcel(table);
 		if (isFail(msg)) {
             new WarningDialog(ui, "请先生成成本收益表！");
-        } else {
+        } else if (msg.getKey().equals("success")) {
         	new WarningDialog(ui, "导出成功！");
         }
 	}

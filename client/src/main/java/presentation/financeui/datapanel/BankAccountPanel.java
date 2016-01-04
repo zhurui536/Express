@@ -41,7 +41,6 @@ public class BankAccountPanel extends JPanel {
      */
     private void createTable() {
     	int len = bankAccountVOs.size();
-    	System.err.println(len);
         Object[][] value = new Object[len][3];
         int[] width = { 276, 276, 276 };
         for (int i = 0; i < len; i++) {

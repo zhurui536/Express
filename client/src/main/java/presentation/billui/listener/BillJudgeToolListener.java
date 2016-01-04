@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import bussinesslogicservice.billblservice.BillBLService;
 import po.financepo.PayBillPO;
 import po.logisticpo.ArrivalBillPO;
 import po.logisticpo.DeliveryBillPO;
 import po.logisticpo.LoadingBillPO;
 import po.logisticpo.ReceiptBillPO;
 import po.logisticpo.SendBillPO;
+import po.logisticpo.TransferBillPO;
 import po.storepo.InStoreBillPO;
 import po.storepo.OutStoreBillPO;
 import presentation.WarningDialog;
@@ -24,6 +26,7 @@ import presentation.billui.datapanel.OutStoreBillDataPane;
 import presentation.billui.datapanel.PayBillDataPane;
 import presentation.billui.datapanel.ReceiptBillDataPane;
 import presentation.billui.datapanel.SendBillDataPane;
+import presentation.billui.datapanel.TransferBillDataPane;
 import presentation.billui.tool.BillJudgeTool;
 import presentation.mainui.component.MyTool;
 import presentation.managerui.ManagerFrame;
@@ -31,7 +34,6 @@ import presentation.storeui.listener.ToolListener;
 import util.BillType;
 import util.ResultMessage;
 import vo.BillVO;
-import bussinesslogicservice.billblservice.BillBLService;
 
 public class BillJudgeToolListener extends ToolListener {
 	private BillBLService bc;
@@ -172,6 +174,11 @@ public class BillJudgeToolListener extends ToolListener {
 				SendBillPO po = (SendBillPO) result.getValue();
 				
 				data = new SendBillDataPane(po);
+			}
+			else if(type == BillType.TRANSIT){
+				TransferBillPO po = (TransferBillPO) result.getValue();
+				
+				data = new TransferBillDataPane(po);
 			}
 			
 			JFrame billdata = new JFrame();

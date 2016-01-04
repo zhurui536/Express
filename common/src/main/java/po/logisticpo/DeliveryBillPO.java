@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import po.BillPO;
 import util.BillType;
+import util.PublicMessage;
 import util.Time;
 
 public class DeliveryBillPO extends BillPO {
@@ -19,7 +20,7 @@ public class DeliveryBillPO extends BillPO {
 
         public DeliveryBillPO(Time time, ArrayList<String> ids,
                         String deliverManId) {
-                super(BillType.DELIVERY, deliverManId);
+                super(BillType.DELIVERY, PublicMessage.staffID);
                 this.time = time;
                 this.ids = ids;
                 this.deliverManId = deliverManId;

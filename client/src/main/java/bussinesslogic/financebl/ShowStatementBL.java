@@ -46,16 +46,14 @@ public class ShowStatementBL implements ShowStatementBLService {
         try {
             ResultMessage payMsg = showStatementDataServiceImpl.findAllPayBill();
             ResultMessage receiptMsg = showReceiptDataServiceImpl.findAll();
-//            if (payMsg.getKey().equals("fail") || receiptMsg.getKey().equals("fail")) {
-//                return new ResultMessage("fail");
-//            }
+            if (payMsg.getKey().equals("fail") || receiptMsg.getKey().equals("fail")) {
+                return new ResultMessage("fail");
+            }
 
             List<PayBillPO> payBillPOs = (List<PayBillPO>) payMsg.getValue();
             List<ReceiptBillPO> receiptBillPOs = (List<ReceiptBillPO>) receiptMsg.getValue();
 
             updateStatementVO(startTime, endTime, payBillPOs, receiptBillPOs);
-            System.out.println(statementVO.payBillVOs.size());
-            System.out.println(statementVO.receiptBillVOs.size());
             return new ResultMessage("success", statementVO);
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -89,8 +87,8 @@ public class ShowStatementBL implements ShowStatementBLService {
     }
 
     private boolean isBetween(Time t, Time start, Time end) {
-//        return t.compareTo(start) >= 0 && t.compareTo(end) <= 0;
-    	return true;
+    	end.addDay();
+        return t.compareTo(start) >= 0 && t.compareTo(end) <= 0;
     }
 
     @Override
@@ -98,7 +96,10 @@ public class ShowStatementBL implements ShowStatementBLService {
         Excel excel = new Excel();
         excel.createSheet(payTable, "付款单");
         excel.createSheet(receiptTable, "收款单");
-        excel.export();
-        return new ResultMessage("success");
+        if (excel.export()) {
+        	return new ResultMessage("success");
+        } else {
+        	return new ResultMessage("no choose");
+        }
     }
 }

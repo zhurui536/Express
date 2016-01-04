@@ -18,6 +18,8 @@ import presentation.financeui.tool.ReceiptTool;
 import presentation.financeui.tool.ReportTool;
 import presentation.mainui.component.MenuButton;
 import presentation.mainui.component.MyTool;
+import util.AuthorityLevel;
+import util.PublicMessage;
 import util.ResultMessage;
 import vo.SystemlogVO;
 import vo.financevo.BankAccountVO;
@@ -64,8 +66,12 @@ public class MenuListener implements ActionListener {
         ui.refreshMenu();
         button.clicked();
         ui.paintdata(null);
-
+        ui.replaceTool(null);
         if (button == ui.getButton(0)) {
+        	if (!isHighAuthority()) {
+        		new WarningDialog(ui, "当前用户权限不够");
+        		return;
+        	}
             ui.replaceTool(bankAcManageTool);
             FinanceBLService financeController = ui.getFinanceController();
             ResultMessage msg = financeController.showAllMember();
@@ -98,7 +104,11 @@ public class MenuListener implements ActionListener {
         }
     }
 
-    private boolean isFail(ResultMessage message) {
+    private boolean isHighAuthority() {
+		return PublicMessage.lv.equals(AuthorityLevel.HIGH);
+	}
+
+	private boolean isFail(ResultMessage message) {
         return message.getKey().equals("FAIL");
     }
 }

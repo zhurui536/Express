@@ -11,7 +11,9 @@ import dataservice.logisticsdataservice.ReceiptBillProduceDataService;
 import po.logisticpo.ReceiptBillPO;
 import po.logisticpo.ReceiptLineItemPO;
 import po.logisticpo.SendBillPO;
+import util.BillIDMaker;
 import util.BillState;
+import util.BillType;
 import util.PublicMessage;
 import util.ResultMessage;
 import util.Time;
@@ -31,7 +33,6 @@ public class ReceiptBillProduceBL implements ReceiptBillProduceBLService {
                 try {
                         result = receiptBillProduceDataService.findGoods(today);
                 } catch (RemoteException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                 }
 
@@ -54,7 +55,7 @@ public class ReceiptBillProduceBL implements ReceiptBillProduceBLService {
                 	ReceiptBillPO receiptbill = new ReceiptBillPO(
                             today, sum,
                             PublicMessage.institutionID,
-                            receiptLineItemPOs, PublicMessage.institutionID + today.toID(),
+                            receiptLineItemPOs, BillIDMaker.getID(BillType.RECEIPT),
                             PublicMessage.staffID);
                 	receiptbill.setState(BillState.SUBMTTED);
                 	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import po.BillPO;
 import util.BillType;
+import util.PublicMessage;
 import util.Time;
 import vo.logisticvo.LoadingBillVO;
 
@@ -39,10 +40,11 @@ public class LoadingBillPO extends BillPO {
                         String arrivalPlace, String numOfTruck,
                         String supervisor, String supercargo,
                         ArrayList<String> ids) {
-                super(BillType.LOADING, supervisor);
+                super(BillType.LOADING, PublicMessage.staffID);
                 this.institution = institution;
                 this.date = date;
                 this.transferNum = transferNum;
+                super.billid = transferNum;
                 this.arrivalPlace = arrivalPlace;
                 this.numOfTruck = numOfTruck;
                 this.supervisor = supervisor;

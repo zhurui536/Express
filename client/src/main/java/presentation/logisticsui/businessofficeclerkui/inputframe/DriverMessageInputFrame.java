@@ -81,7 +81,7 @@ public class DriverMessageInputFrame extends InputFrame implements ActionListene
                 for (int i = 0; i < 2; i++) {
                         for (int j = 0; j < 2; j++) {
                                 labels[i * 2 + j + 1].setBounds(15 + i * 280, 60 + j * 45, 100, 30);
-                                this.getContentPane().add(labels[i * 2 + j + 1]);
+                                this.getContentPane().add(labels[i * 2 + j + 1], 0);
                         }
                 }
                 

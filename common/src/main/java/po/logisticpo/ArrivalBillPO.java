@@ -3,6 +3,7 @@ package po.logisticpo;
 import po.BillPO;
 import util.BillType;
 import util.GoodsState;
+import util.PublicMessage;
 import util.Time;
 import vo.logisticvo.ArrivalBillVO;
 
@@ -29,7 +30,7 @@ public class ArrivalBillPO extends BillPO {
         public ArrivalBillPO(String institution, Time date,
                         String transferBillNum, String departurePlace,
                         GoodsState goodsState) {
-                super(BillType.ARRIVAL, institution);
+                super(BillType.ARRIVAL, PublicMessage.staffID);
                 this.institution = institution;
                 this.date = date;
                 this.transferBillNum = transferBillNum;

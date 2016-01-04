@@ -10,7 +10,6 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
-import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsRecToolListener;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
@@ -100,10 +99,10 @@ public class GoodsRecInputFrame extends InputFrame implements ActionListener{
                 if(e.getSource() == confirm){
                         ArrivalBillVO arrivalBillVO = new ArrivalBillVO();
                         arrivalBillVO.date = new Time();
-                        if(!InputChecker.isIdNum(jTextAreas.getText())){
-                                errOutputLabel.setText("中转单编号必须是数字！");
-                                return;
-                        }
+//                        if(!InputChecker.isIdNum(jTextAreas.getText())){
+//                                errOutputLabel.setText("中转单编号必须是数字！");
+//                                return;
+//                        }
                         arrivalBillVO.transferBillNum = jTextAreas.getText();
                         arrivalBillVO.departurePlace = (String)city.getSelectedItem() + (String)institution.getSelectedItem();
                         arrivalBillVO.goodsState = GoodsState.stringToGoodsState((String)goodsState.getSelectedItem());

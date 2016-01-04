@@ -38,7 +38,7 @@ public class ReceiptBillPO extends BillPO {
                 this.totalMoney = totalMoney;
                 this.institutionID = institutionID;
                 this.receiptLineItemPOs = receiptLineItemPOs;
-                this.billID = super.getBillID();
+                this.billID = billID;
                 this.staffID = staffID;
         }
         

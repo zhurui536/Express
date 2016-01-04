@@ -58,6 +58,8 @@ public class ShowReceiptBL implements ShowReceiptBLService {
      * @return 符合为 true， 否则为 false
      */
     private boolean isValid(ReceiptBillPO po, Time time, String id) {
+    	System.err.println("ID: " + po.getInstitutionID());
+    	System.err.println("time: " + po.getTime());
         return id.equals(po.getInstitutionID()) && time.equalsWithDay(po.getTime());
     }
 }
