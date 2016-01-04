@@ -1,6 +1,9 @@
 package presentation.logisticsui.deliverymanui.datapane;
 
 
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -33,18 +36,22 @@ public class BillQueryDataPane extends JPanel {
                 number = new JLabel("条形码号：" + sendBillVO.id);
                 number.setSize(200,35);
                 number.setLocation(15,15);
+                number.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 this.add(number);
                 
                 panelForGoods = panelForGoodsVO(sendBillVO.goodsVO);
                 panelForGoods.setLocation(15,65);
+                panelForGoods.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 this.add(panelForGoods);
                 
                 panelForSender = makeFromPeopleVO("寄件人信息：", sendBillVO.senderVO);
                 panelForSender.setLocation(15,245);
+                panelForSender.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 this.add(panelForSender);
                 
                 panelForRec = makeFromPeopleVO("收件人信息：", sendBillVO.recipientVO);
                 panelForRec.setLocation(15,445);
+                panelForRec.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 this.add(panelForRec);
         }
         

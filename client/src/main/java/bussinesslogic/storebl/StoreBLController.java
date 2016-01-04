@@ -195,6 +195,7 @@ public class StoreBLController implements StoreBLService {
 	public ResultMessage checkInStore() {
 		if(condition == 0){
 			this.logservice.addSystemlog(new SystemlogVO("查看入库单审批"));
+			check = new CheckBL();
 			return check.checkInStore();
 		}
 		else{
@@ -206,6 +207,7 @@ public class StoreBLController implements StoreBLService {
 	public ResultMessage checkOutStore() {
 		if(condition == 0){
 			this.logservice.addSystemlog(new SystemlogVO("查看出库单审批"));
+			check = new CheckBL();
 			return check.checkOutStore();
 		}
 		else{

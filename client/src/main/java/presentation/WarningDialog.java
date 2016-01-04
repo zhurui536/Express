@@ -57,6 +57,7 @@ public class WarningDialog {
 		dialog = new JDialog(parent);
 		dialog.setLayout(null);
 		if (parent == null) {
+			dialog.setSize(220, 150);
 			FrameUtil.setFrameCenter(dialog);
 		} else {
 			dialog.setBounds(parent.getX() + parent.getWidth() / 5 * 2, 

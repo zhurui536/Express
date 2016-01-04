@@ -68,14 +68,14 @@ public class StoreDataPane extends JPanel {
 		//如果有库存超过警戒值，则将该列改为红色
 		 DefaultTableCellRenderer backGroundColor = new DefaultTableCellRenderer();
 		for(int i=0;i<4;i++){
-			if(total[2][i]>0.8){
+			if(total[2][i]>0){
 				totalTable.getColumnModel().getColumn(i+1).setCellRenderer(backGroundColor);
 				backGroundColor.setBackground(Color.RED);
 			}
 		}
 		
 		JScrollPane totalscroller = new JScrollPane(totalTable);
-		totalscroller.setBounds(0, 0, 810, 400);
+		totalscroller.setBounds(0, 0, 810, 150);
 		
 		this.add(totalscroller);
 		
@@ -111,10 +111,10 @@ public class StoreDataPane extends JPanel {
 			}
 			
 			MyJTable table = new MyJTable(rowdata, header);
-			table.setWidth(new int[]{130, 50, 50, 50, 50, 200, 200});
+			table.setWidth(new int[]{180, 60, 60, 60, 60, 200, 200});
 			
 			JScrollPane scroller = new JScrollPane(table);
-			scroller.setBounds(0, 500*area + 400, 810, 500);
+			scroller.setBounds(0, 510*area + 150, 810, 500);
 			
 			this.add(scroller);
 			

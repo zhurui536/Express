@@ -27,7 +27,7 @@ public class StaffIDInputFrame extends InputFrame implements ActionListener {
 		this.condition = i;
 		this.setLayout(null);
 		this.setSize(250, 200);
-		this.setLocation(400, 250);
+		this.setLocation(800, 450);
 		
 		this.initialize();
 	}
@@ -40,7 +40,7 @@ public class StaffIDInputFrame extends InputFrame implements ActionListener {
 		
 		id = new JTextArea();
 		id.setBounds(20, 50, 200, 30);
-		this.getContentPane().add(id);
+		this.getContentPane().add(id, 0);
 		
 		confirm = new ToolButton(30, 90,"确定");
 		cancle = new ToolButton(110, 90,"取消");
