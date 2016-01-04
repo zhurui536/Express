@@ -60,11 +60,12 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                                 jLabels[i][j].setLocation(15 + j * 290,
                                                 15 + i * 50);
                                 jLabels[i][j].setSize(75, 35);
-                                this.getContentPane().add(jLabels[i][j]);
+                                this.getContentPane().add(jLabels[i][j], 0);
                                 jTextAreas[i][j] = new JTextArea();
                                 jTextAreas[i][j].setLocation(90 + j * 280,
                                                 15 + i * 50);
                                 jTextAreas[i][j].setSize(180, 35);
+
 //                                if(i == 2 && j == 0)
 //                                        continue;
 //                                if(i == 2 && j == 1)

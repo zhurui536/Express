@@ -10,6 +10,7 @@ public class GoodsTranTool extends MyTool{
 	
         private final static String[] transTypeName = {"火车装运","汽车装运","飞机装运","添加货物", "确定", "返回"};
 
+
         public GoodsTranTool(ToolListener toolListener) {
         	super(transTypeName, toolListener);
 //        		super.buttons = new JButton[NUMBER_OF_BUTTIONS];

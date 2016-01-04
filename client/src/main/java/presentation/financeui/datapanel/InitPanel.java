@@ -14,7 +14,7 @@ import vo.financevo.AccountVO;
 @SuppressWarnings("serial")
 public class InitPanel extends JPanel {
 
-    private String[] row = { "时间", "机构", "人员", "车辆", "库存", "银行账户" };
+    private String[] header = { "时间", "机构", "人员", "车辆", "库存", "银行账户" };
 
     private AccountVO accountVO;
 
@@ -29,11 +29,11 @@ public class InitPanel extends JPanel {
         this.setLayout(null);
         createTable();
         this.add(table);
-        this.setSize(830, table.getHeight());
+        this.setSize(830, 500);
     }
 
     private void createTable() {
-        table = new JTable(2, row.length);
+        table = new MyTable(2, row.length);
         table.setRowHeight(60);
         table.setBounds(0, 0, 830, 60 * 2);
 
