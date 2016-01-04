@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import bussinesslogicservice.financeblservice.FinanceBLService;
+import presentation.WarningDialog;
 import presentation.financeui.FinanceFrame;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
@@ -60,7 +61,7 @@ public class SettleDialog extends InputFrame {
         bill.setBounds(70, 80, 100, 50);
         
         billID = new JComboBox<>();
-        billID.setBounds(170, 90, 100, 30);
+        billID.setBounds(170, 90, 200, 30);
         
         initID();
         
@@ -76,10 +77,11 @@ public class SettleDialog extends InputFrame {
 	private class okListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            initID();
             String id1 = (String) billID.getSelectedItem();
             String id2 = (String) accountID.getSelectedItem();
             financeController.settleReceipt(id1, id2);
+            initID();
+            new WarningDialog(ui, "结算成功");
         }
 
     }
