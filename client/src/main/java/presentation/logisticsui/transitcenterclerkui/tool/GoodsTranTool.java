@@ -8,7 +8,8 @@ public class GoodsTranTool extends MyTool{
 
 //        private static final int NUMBER_OF_BUTTIONS = 4;
 	
-        private final static String[] transTypeName = {"火车装运","汽车装运","飞机装运", "返回"};
+        private final static String[] transTypeName = {"火车装运","汽车装运","飞机装运","添加货物", "确定", "返回"};
+
 
         public GoodsTranTool(ToolListener toolListener) {
         	super(transTypeName, toolListener);

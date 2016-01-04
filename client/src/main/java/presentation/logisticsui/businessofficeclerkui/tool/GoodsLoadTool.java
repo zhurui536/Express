@@ -9,5 +9,5 @@ public class GoodsLoadTool extends MyTool{
         public GoodsLoadTool(ToolListener toolListener) {
         	super(buttonname, toolListener);
         }
-        private static String[] buttonname = {"生成装车单", "返回"};
+        private static String[] buttonname = {"填写装车单","添加货物","确定", "返回"};
 }

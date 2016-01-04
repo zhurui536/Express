@@ -128,4 +128,9 @@ public class LogisticsBLController implements LogisticsBLService {
 			return billQueryBLService.queryBill(type);
 		}
 
+		@Override
+		public ResultMessage addGoods(String id) {
+			return goodsLoadBLService.addGoods(id);
+		}
+
 }

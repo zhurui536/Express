@@ -176,9 +176,9 @@ public class GoodsTranInputFrame extends InputFrame implements ActionListener{
                                 return;
                         }
                         transferBillVO.ids = new ArrayList<>();
-                        for (String id : jTextAreas[2][0].getText().split(",")) {
-                                transferBillVO.ids.add(id);
-                        }
+//                        for (String id : jTextAreas[2][0].getText().split(",")) {
+//                                transferBillVO.ids.add(id);
+//                        }
                         if(type == 0)
                                 transferBillVO.trans = Trans.TRAIN;
                         else if(type == 1)
