@@ -15,6 +15,8 @@ import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.transitcenterclerkui.listener.toollistener.GoodsTranToolListener;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
+import util.BillIDMaker;
+import util.BillType;
 import util.Time;
 import util.Trans;
 import vo.logisticvo.TransferBillVO;
@@ -58,7 +60,7 @@ public class GoodsTranInputFrame extends InputFrame implements ActionListener{
                 this.type = type;
                 this.setName("中转信息输入");
                 this.setLayout(null);
-                this.setSize(600, 280);
+                this.setSize(750, 330);
                 this.setLocation(350, 150);
                 init(typeToStrings.get(type));
         }
@@ -76,17 +78,19 @@ public class GoodsTranInputFrame extends InputFrame implements ActionListener{
                                 if (nameStrings[i][j] == null)
                                         continue;
                                 jLabels[i][j] = new JLabel(nameStrings[i][j]);
-                                jLabels[i][j].setLocation(15 + j * 200,
+                                jLabels[i][j].setLocation(15 + j * 250,
                                                 15 + i * 50);
                                 jLabels[i][j].setSize(75, 35);
-                                this.getContentPane().add(jLabels[i][j]);
+                                this.getContentPane().add(jLabels[i][j], 0);
                                 jTextAreas[i][j] = new JTextArea();
-                                jTextAreas[i][j].setLocation(90 + j * 190,
+                                jTextAreas[i][j].setLocation(90 + j * 240,
                                                 15 + i * 50);
-                                jTextAreas[i][j].setSize(100, 35);
-                                this.getContentPane().add(jTextAreas[i][j]);
+                                jTextAreas[i][j].setSize(150, 35);
+                                this.getContentPane().add(jTextAreas[i][j], 0);
                         }
                 }
+                
+                jTextAreas[0][0].setText(BillIDMaker.getID(BillType.TRANSIT));
                 
 //                year = new JComboBox<>();
 //                for (int i = 2000; i <= 2020; i++) {
@@ -117,15 +121,15 @@ public class GoodsTranInputFrame extends InputFrame implements ActionListener{
                 cancle.setSize(60, 25);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
-                this.getContentPane().add(confirm);
-                this.getContentPane().add(cancle);
+                this.getContentPane().add(confirm, 0);
+                this.getContentPane().add(cancle, 0);
                 
                 
                 errOutputLabel = new JLabel();
                 errOutputLabel.setBounds(30, 190, 190, 30);
                 errOutputLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
                 errOutputLabel.setForeground(Color.RED);
-                this.getContentPane().add(errOutputLabel);
+                this.getContentPane().add(errOutputLabel, 0);
         }
 
         @Override
@@ -137,10 +141,10 @@ public class GoodsTranInputFrame extends InputFrame implements ActionListener{
 //                                                        + ((String)day.getSelectedItem()).substring(0, 2));
                         transferBillVO.time = new Time();
                         
-                        if(!InputChecker.isNum(jTextAreas[0][0].getText())){
-                                errOutputLabel.setText(jLabels[0][0].getText() +"必须是数字！");
-                                return;
-                        }
+//                        if(!InputChecker.isNum(jTextAreas[0][0].getText())){
+//                                errOutputLabel.setText(jLabels[0][0].getText() +"必须是数字！");
+//                                return;
+//                        }
                         transferBillVO.transferBillNum = jTextAreas[0][0].getText();
                         if(!InputChecker.isNum(jTextAreas[0][1].getText())){
                                 errOutputLabel.setText(jLabels[0][1].getText() +"必须是数字！");

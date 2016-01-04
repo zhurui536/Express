@@ -65,8 +65,8 @@ public class ReceivingInputFrame extends InputFrame implements ActionListener{
                 this.getContentPane().add(numberLabel, 0);
                 
                 number = new JTextArea();
-                number.setLocation(65,25);
-                number.setSize(100,15);
+                number.setLocation(65,15);
+                number.setSize(100,25);
                 this.getContentPane().add(number, 0);
                 
                 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import po.BillPO;
 import util.BillType;
+import util.PublicMessage;
 import util.Time;
 import util.Trans;
 
@@ -37,9 +38,10 @@ public class TransferBillPO extends BillPO {
         public TransferBillPO(String transferBillNum, Trans trans,
                         String depaturePlace, String arrivalPlace,
                         ArrayList<String> ids) {
-                super(BillType.TRANSIT, transferBillNum);
+                super(BillType.TRANSIT, PublicMessage.staffID);
                 this.time = new Time();
-                this.transferBillNum = super.getBillID();
+                this.transferBillNum = transferBillNum;
+                super.billid = transferBillNum;
                 this.trans = trans;
                 this.depaturePlace = depaturePlace;
                 this.arrivalPlace = arrivalPlace;

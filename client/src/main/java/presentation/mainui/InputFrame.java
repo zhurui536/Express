@@ -1,5 +1,8 @@
 package presentation.mainui;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
@@ -27,7 +30,10 @@ public class InputFrame extends JDialog{
         }
         
         public void setBackgroundSize(int width, int height) {
-                bg.setSize(width, height);
+        	ImageIcon icon = (ImageIcon) bg.getIcon();
+        	icon.setImage(icon.getImage().getScaledInstance(width,height,Image.SCALE_DEFAULT));
+        	bg.setIcon(icon);
+            bg.setSize(width, height);
         }
         
 }

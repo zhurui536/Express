@@ -15,6 +15,7 @@ import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.transitcenterclerkui.listener.toollistener.GoodsLoadToolListener;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
+import util.BillIDMaker;
 import util.PublicMessage;
 import util.Time;
 import vo.logisticvo.LoadingBillVO;
@@ -47,7 +48,7 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                 this.listener = listener;
                 this.setName("装车信息输入");
                 this.setLayout(null);
-                this.setSize(600, 280);
+                this.setSize(600, 330);
                 this.setLocation(350, 150);
                 init();
         }
@@ -61,24 +62,26 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                                 jLabels[i][j].setLocation(15 + j * 290,
                                                 15 + i * 50);
                                 jLabels[i][j].setSize(75, 35);
-                                this.getContentPane().add(jLabels[i][j]);
+                                this.getContentPane().add(jLabels[i][j], 0);
                                 jTextAreas[i][j] = new JTextArea();
                                 jTextAreas[i][j].setLocation(90 + j * 280,
                                                 15 + i * 50);
                                 jTextAreas[i][j].setSize(180, 35);
                                 if(i == 2 && j == 0)
                                         continue;
-                                this.getContentPane().add(jTextAreas[i][j]);
+                                this.getContentPane().add(jTextAreas[i][j], 0);
                         }
                 }
                 
+                jTextAreas[0][0].setText(BillIDMaker.getTransferNum());
+                		
                 city = new JComboBox<String>(citys);
                 city.setBounds(90, 115, 80, 35);
-                this.getContentPane().add(city);
+                this.getContentPane().add(city, 0);
                 
                 institution = new JComboBox<String>(institutions);
-                institution.setBounds(180, 115, 80, 35);
-                this.getContentPane().add(institution);
+                institution.setBounds(180, 115, 100, 35);
+                this.getContentPane().add(institution, 0);
                 
                 confirm = new ToolButton(250, 220,"确定");
                 cancle = new ToolButton(330, 220,"取消");
@@ -86,14 +89,14 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                 cancle.setSize(60, 25);
                 confirm.addActionListener(this);
                 cancle.addActionListener(this);
-                this.getContentPane().add(confirm);
-                this.getContentPane().add(cancle);
+                this.getContentPane().add(confirm, 0);
+                this.getContentPane().add(cancle, 0);
                 
                 errOutputLabel = new JLabel();
                 errOutputLabel.setBounds(15, 220, 190, 30);
                 errOutputLabel.setFont(new Font("微软雅黑", Font.BOLD, 15));
                 errOutputLabel.setForeground(Color.RED);
-                this.getContentPane().add(errOutputLabel);
+                this.getContentPane().add(errOutputLabel, 0);
         }
 
         @Override
@@ -102,10 +105,10 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                         LoadingBillVO loadingBillVO = new LoadingBillVO();
                         loadingBillVO.date = new Time();
                         loadingBillVO.institution = PublicMessage.institutionID;
-                        if(!InputChecker.isNum(jTextAreas[0][0].getText())){
-                                errOutputLabel.setText("汽运编号必须是数字！");
-                                return;
-                        }
+//                        if(!InputChecker.isNum(jTextAreas[0][0].getText())){
+//                                errOutputLabel.setText("汽运编号必须是数字！");
+//                                return;
+//                        }
                         loadingBillVO.transferNum = jTextAreas[0][0].getText();
                         if(!InputChecker.isNum(jTextAreas[0][1].getText())){
                                 errOutputLabel.setText("车辆代号必须是数字！");
@@ -115,10 +118,10 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                         loadingBillVO.arrivalPlace = (String)city.getSelectedItem() + (String)institution.getSelectedItem();
                         loadingBillVO.supervisor = jTextAreas[1][0].getText();
                         loadingBillVO.supercargo = jTextAreas[1][1].getText();
-                        if(jTextAreas[2][0].getText().equals("")){
-                                errOutputLabel.setText("请输入" + jLabels[2][0].getText());
-                                return;
-                        }
+//                        if(jTextAreas[2][0].getText().equals("")){
+//                                errOutputLabel.setText("请输入" + jLabels[2][0].getText());
+//                                return;
+//                        }
                         loadingBillVO.ids = new ArrayList<>();
                         for (String id :jTextAreas[2][0].getText().split(",")) {
                                 loadingBillVO.ids.add(id);
