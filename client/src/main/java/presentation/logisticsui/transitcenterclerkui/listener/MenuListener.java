@@ -4,9 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
+import presentation.logisticsui.transitcenterclerkui.listener.toollistener.BillCheckToolListener;
 import presentation.logisticsui.transitcenterclerkui.listener.toollistener.GoodsLoadToolListener;
 import presentation.logisticsui.transitcenterclerkui.listener.toollistener.GoodsRecToolListener;
 import presentation.logisticsui.transitcenterclerkui.listener.toollistener.GoodsTranToolListener;
+import presentation.logisticsui.transitcenterclerkui.tool.BillCheckTool;
 import presentation.logisticsui.transitcenterclerkui.tool.GoodsLoadTool;
 import presentation.logisticsui.transitcenterclerkui.tool.GoodsRecTool;
 import presentation.logisticsui.transitcenterclerkui.tool.GoodsTranTool;
@@ -50,6 +52,11 @@ public class MenuListener implements ActionListener{
                         GoodsLoadTool tool = new GoodsLoadTool(goodsLoadToolListener);
                         goodsLoadToolListener.setTool(tool);
                         ui.replaceTool(tool);
+                }else if(i == 3){
+                	BillCheckToolListener tl = new BillCheckToolListener(ui);
+                	BillCheckTool tool = new BillCheckTool(tl);
+                	tl.setTool(tool);
+                	ui.replaceTool(tool);
                 }
                 
         }

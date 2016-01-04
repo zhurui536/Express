@@ -14,7 +14,7 @@ public class TransitCenterclerkFrame extends ExpressFrame {
 
         private MenuListener menulistener;
 
-        private static final String[] NAMES = { "货物接受", "货物转运", "货物装车" };
+        private static final String[] NAMES = { "货物接受", "货物转运", "货物装车", "审批查看" };
 
         public TransitCenterclerkFrame() {
             this.logisticsBLService = new LogisticsBLController();

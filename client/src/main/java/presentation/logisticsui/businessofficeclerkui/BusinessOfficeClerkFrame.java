@@ -15,7 +15,7 @@ public class BusinessOfficeClerkFrame extends ExpressFrame {
 
         private MenuListener menulistener;
 
-        private static final String[] NAMES = { "货物装车", "货物接受","分派货物","收款", "司机信息维护" ,"车辆信息维护"};
+        private static final String[] NAMES = { "货物装车", "货物接受","分派货物","收款", "司机信息维护" ,"车辆信息维护", "审批查看"};
 
         public static void main(String[] args)  {
                 BusinessOfficeClerkFrame frame = new BusinessOfficeClerkFrame();

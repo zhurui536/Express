@@ -8,6 +8,7 @@ import bussinesslogicservice.logisticsblservice.GoodsReceiptBLService;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import bussinesslogicservice.logisticsblservice.ReceiptBillProduceBLService;
 import bussinesslogicservice.logisticsblservice.ReceivingBLService;
+import util.BillType;
 import util.City;
 import util.LogFactory;
 import util.ResultMessage;
@@ -120,5 +121,11 @@ public class LogisticsBLController implements LogisticsBLService {
                 service.addSystemlog(new SystemlogVO("生成中转单"));
                 return goodsLoadBLService.produceTransferBill(transferBillVO);
         }
+
+		@Override
+		public ResultMessage queryBill(BillType type) {
+			service.addSystemlog(new SystemlogVO("查看单据审批状态"));
+			return billQueryBLService.queryBill(type);
+		}
 
 }

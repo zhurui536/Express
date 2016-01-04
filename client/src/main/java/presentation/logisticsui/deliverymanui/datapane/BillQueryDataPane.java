@@ -7,6 +7,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import util.BillState;
 import util.ExpressType;
 import util.GoodsDeliveryState;
 import util.PackageType;
@@ -19,6 +20,8 @@ import vo.logisticvo.SendBillVO;
 public class BillQueryDataPane extends JPanel {
 
         private JLabel number;
+        
+        private JLabel state;
         
         private JPanel panelForSender;
         
@@ -38,6 +41,12 @@ public class BillQueryDataPane extends JPanel {
                 number.setLocation(15,15);
                 number.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 this.add(number);
+                
+                state = new JLabel("审批状态：" + BillState.billStateToString(sendBillVO.billState));
+                state.setSize(200, 35);
+                state.setLocation(230, 15);
+                state.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+                this.add(state);
                 
                 panelForGoods = panelForGoodsVO(sendBillVO.goodsVO);
                 panelForGoods.setLocation(15,65);

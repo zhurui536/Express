@@ -6,11 +6,13 @@ import java.awt.event.ActionListener;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import presentation.WarningDialog;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
+import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.BillCheckToolListener;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.DriverMessageToolListener;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsDelivToolListener;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsLoadToolListener;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsRecToolListener;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.TruckMessageToolListener;
+import presentation.logisticsui.businessofficeclerkui.tool.BillCheckTool;
 import presentation.logisticsui.businessofficeclerkui.tool.DriverMessageTool;
 import presentation.logisticsui.businessofficeclerkui.tool.GoodsDelivTool;
 import presentation.logisticsui.businessofficeclerkui.tool.GoodsLoadTool;
@@ -70,6 +72,11 @@ public class MenuListener implements ActionListener{
                         TruckMessageTool tool = new TruckMessageTool(truckMessageToolListener);
                         truckMessageToolListener.setTool(tool);
                         ui.replaceTool(tool);
+                }else if(i == 6){
+                	BillCheckToolListener billchecktoollistener = new BillCheckToolListener(ui);
+                	BillCheckTool tool = new BillCheckTool(billchecktoollistener);
+                	billchecktoollistener.setTool(tool);
+                	ui.replaceTool(tool);
                 }
                 
         }

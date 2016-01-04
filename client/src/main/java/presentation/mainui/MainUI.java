@@ -11,15 +11,8 @@ import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
-import bussinesslogic.logisticsbl.BillQueryBL;
-import bussinesslogic.userbl.UserBLServiceImpl;
-import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
-import bussinesslogicservice.logisticsblservice.BillQueryBLService;
-import bussinesslogicservice.userblservice.UserBLService;
-import connection.ClientInitException;
-import connection.ClientRMIHelper;
-import connection.ConnectTest;
 import presentation.WarningDialog;
+import presentation.adminui.AdminFrame;
 import presentation.financeui.FinanceFrame;
 import presentation.logisticsui.InputChecker;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
@@ -28,7 +21,6 @@ import presentation.logisticsui.transitcenterclerkui.TransitCenterclerkFrame;
 import presentation.mainui.component.ToolButton;
 import presentation.managerui.ManagerFrame;
 import presentation.storeui.StoreFrame;
-import presentation.userui.AdminFrame;
 import util.FrameUtil;
 import util.Job;
 import util.LogFactory;
@@ -39,6 +31,14 @@ import vo.InstitutionMessageVO;
 import vo.StaffMessageVO;
 import vo.SystemlogVO;
 import vo.logisticvo.SendBillVO;
+import bussinesslogic.logisticsbl.BillQueryBL;
+import bussinesslogic.userbl.UserBLServiceImpl;
+import bussinesslogicservice.infoblservice.SystemlogMaintenanceBLService;
+import bussinesslogicservice.logisticsblservice.BillQueryBLService;
+import bussinesslogicservice.userblservice.UserBLService;
+import connection.ClientInitException;
+import connection.ClientRMIHelper;
+import connection.ConnectTest;
 
 /**
  * Created by Away
