@@ -29,7 +29,10 @@ public class ReceiptBillPO extends BillPO {
         private String billID;
         
         private String staffID;
-
+        
+        // 是否被结算过
+        private boolean isSettled;
+        
         public ReceiptBillPO(Time time, BigDecimal totalMoney,
                         String institutionID,
                         List<ReceiptLineItemPO> receiptLineItemPOs, String billID, String staffID) {
@@ -40,6 +43,7 @@ public class ReceiptBillPO extends BillPO {
                 this.receiptLineItemPOs = receiptLineItemPOs;
                 this.billID = billID;
                 this.staffID = staffID;
+                this.isSettled = false;
         }
         
         public ReceiptBillVO poToVo() {
@@ -91,5 +95,13 @@ public class ReceiptBillPO extends BillPO {
     	public String getBill(){
     		return this.billID;
     	}
+
+		public boolean isSettled() {
+			return isSettled;
+		}
+
+		public void setSettled(boolean isSettled) {
+			this.isSettled = isSettled;
+		}
 
 }

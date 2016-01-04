@@ -205,6 +205,7 @@ public class FinanceController implements FinanceBLService {
 		return bankAccountManagement.showAllMember();
 	}
 	
+	@Override
 	public ResultMessage getAllPayBill() {
 	    ShowStatementDataService showStatementDataServiceImpl = (ShowStatementDataService) ClientRMIHelper.
                 getServiceByName("ShowStatementDataServiceImpl");
@@ -219,5 +220,16 @@ public class FinanceController implements FinanceBLService {
 			e.printStackTrace();
 			return new ResultMessage("fail");
 		}
+	}
+
+	@Override
+	public ResultMessage getUnSettledReceipt() {
+		return showReceiptBL.getUnSettledReceipt();
+	}
+
+	@Override
+	public ResultMessage settleReceipt(String billID, String accountID) {
+		systemlogMaintenanceBL.addSystemlog(new SystemlogVO("结算管理"));
+		return showReceiptBL.settleReceipt(billID, accountID);
 	}
 }

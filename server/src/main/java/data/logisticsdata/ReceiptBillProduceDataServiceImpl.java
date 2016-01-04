@@ -3,6 +3,7 @@ package data.logisticsdata;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.List;
 
 import dataservice.logisticsdataservice.ReceiptBillProduceDataService;
 import po.logisticpo.ReceiptBillPO;
@@ -19,9 +20,9 @@ public class ReceiptBillProduceDataServiceImpl extends UnicastRemoteObject imple
         
         private static final String PATH_SEND_BILL = "save/logisticsdata/sendBillPO.dat";
         
-        private ArrayList<SendBillPO> sendBillPOs;
+        private List<SendBillPO> sendBillPOs;
         
-        private ArrayList<ReceiptBillPO> receiptBillPOs;
+        private List<ReceiptBillPO> receiptBillPOs;
         
         public ReceiptBillProduceDataServiceImpl() throws RemoteException {
                 super();
@@ -55,6 +56,13 @@ public class ReceiptBillProduceDataServiceImpl extends UnicastRemoteObject imple
                 receiptBillPOs.add(receiptBillPO);
                 Database.save(PATH_RECEIPT_BILL, receiptBillPOs);
                 return new ResultMessage("SUCCESS");
+        }
+        
+        @Override
+        public ResultMessage update(List<ReceiptBillPO> receiptBillPOs) throws RemoteException {
+        	this.receiptBillPOs = receiptBillPOs;
+        	Database.save(PATH_RECEIPT_BILL, receiptBillPOs);
+            return new ResultMessage("SUCCESS");
         }
 
 }
