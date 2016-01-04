@@ -19,4 +19,10 @@ public interface GoodsLoadBLService {
          */
         public ResultMessage produceTransferBill(TransferBillVO transferBillVO);
         
+        /*向中转单或者装车单进行添加货物的时候使用
+         * id 货物编号（订单号）
+         * 
+         */
+        public ResultMessage addGoods(String id);
+        
 }

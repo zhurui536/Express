@@ -54,7 +54,7 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
         private void init() {
                 jLabels = new JLabel[3][2];
                 jTextAreas = new JTextArea[3][2];
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 2; i++) {
                         for (int j = 0; j < 2; j++) {
                                 jLabels[i][j] = new JLabel(nameStrings[i][j]);
                                 jLabels[i][j].setLocation(15 + j * 290,
@@ -65,8 +65,10 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                                 jTextAreas[i][j].setLocation(90 + j * 280,
                                                 15 + i * 50);
                                 jTextAreas[i][j].setSize(180, 35);
-                                if(i == 2 && j == 0)
-                                        continue;
+//                                if(i == 2 && j == 0)
+//                                        continue;
+//                                if(i == 2 && j == 1)
+//                                	continue;
                                 this.getContentPane().add(jTextAreas[i][j]);
                         }
                 }
@@ -121,9 +123,9 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                         loadingBillVO.supervisor = jTextAreas[1][0].getText();
                         loadingBillVO.supercargo = jTextAreas[1][1].getText();
                         loadingBillVO.ids = new ArrayList<>();
-                        for (String id :jTextAreas[2][1].getText().split(",")) {
-                                loadingBillVO.ids.add(id);
-                        }
+//                        for (String id :jTextAreas[2][1].getText().split(",")) {
+//                                loadingBillVO.ids.add(id);
+//                        }
                         boolean result = listener.getInput(loadingBillVO);
                         if(result){
                                 this.setVisible(false);
