@@ -3,6 +3,7 @@ package po;
 
 import java.io.Serializable;
 
+import util.PublicMessage;
 import vo.TruckMessageVO;
 
 /**
@@ -23,17 +24,23 @@ public class TruckMessagePO implements Serializable {
 
     // 服役时间
     private int time;
+    
+ // 所属营业厅ID
+    private String institutionID;
+
 
     public TruckMessagePO(String id, String plateNumber, int time) {
         this.id = id;
         this.plateNumber = plateNumber;
         this.time = time;
+        this.setInstitutionID(PublicMessage.institutionID);
     }
     
     public TruckMessagePO(TruckMessageVO truckMessageVO) {
             this.id = truckMessageVO.id;
             this.plateNumber = truckMessageVO.plateNumber;
             this.time = truckMessageVO.time;
+            this.setInstitutionID(PublicMessage.institutionID);
 }
 
     public TruckMessageVO poToVo() {
@@ -63,4 +70,12 @@ public class TruckMessagePO implements Serializable {
     public void setTime(int time) {
         this.time = time;
     }
+
+public String getInstitutionID() {
+        return institutionID;
+}
+
+public void setInstitutionID(String institutionID) {
+        this.institutionID = institutionID;
+}
 }

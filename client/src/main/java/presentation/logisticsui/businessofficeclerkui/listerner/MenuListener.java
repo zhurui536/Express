@@ -2,10 +2,13 @@ package presentation.logisticsui.businessofficeclerkui.listerner;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import bussinesslogicservice.infoblservice.InfoBLSerivce;
 import bussinesslogicservice.logisticsblservice.LogisticsBLService;
 import presentation.WarningDialog;
 import presentation.logisticsui.businessofficeclerkui.BusinessOfficeClerkFrame;
+import presentation.logisticsui.businessofficeclerkui.datapane.DriverMessageListPanel;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.BillCheckToolListener;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.DriverMessageToolListener;
 import presentation.logisticsui.businessofficeclerkui.listerner.toollistener.GoodsDelivToolListener;
@@ -19,6 +22,7 @@ import presentation.logisticsui.businessofficeclerkui.tool.GoodsLoadTool;
 import presentation.logisticsui.businessofficeclerkui.tool.GoodsRecTool;
 import presentation.logisticsui.businessofficeclerkui.tool.TruckMessageTool;
 import util.ResultMessage;
+import vo.DriverMessageVO;
 
 
 public class MenuListener implements ActionListener{
@@ -63,6 +67,13 @@ public class MenuListener implements ActionListener{
                                 new WarningDialog(ui, "成功生成收款单");
                         }
                 }else if(i == 4){
+                        InfoBLSerivce infoBLSerivce = ui.getInfoBLSerivce();
+                        ResultMessage resultMessage = infoBLSerivce.showAllDriverMessage();
+                        if(resultMessage.getKey().equals("success")){
+                                @SuppressWarnings("unchecked")
+                                DriverMessageListPanel driverMessageListPanel = new DriverMessageListPanel((ArrayList<DriverMessageVO>) resultMessage.getValue());
+                                ui.paintdata(driverMessageListPanel);
+                        }
                         DriverMessageToolListener driverMessageToolListener = new DriverMessageToolListener(ui);
                         DriverMessageTool tool = new DriverMessageTool(driverMessageToolListener);
                         driverMessageToolListener.setTool(tool);

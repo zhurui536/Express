@@ -2,6 +2,7 @@ package po;
 
 import java.io.Serializable;
 
+import util.PublicMessage;
 import util.Sex;
 import util.Time;
 import vo.DriverMessageVO;
@@ -31,6 +32,8 @@ public class DriverMessagePO implements Serializable {
         private Time terminationTime;
         // 驾驶证有效期
         private int yearsOfLicense;
+        // 所属营业厅ID
+        private String institutionID;
 
         public DriverMessagePO(String driverId, String name, String iD,
                         String phoneNum, Sex sex, Time birth,
@@ -45,6 +48,7 @@ public class DriverMessagePO implements Serializable {
                 this.registrationTime = registrationTime;
                 this.yearsOfLicense = yearsOfLicense;
                 this.terminationTime = registrationTime.add(yearsOfLicense);
+                this.setInstitutionID(PublicMessage.institutionID);
         }
 
         public DriverMessagePO(DriverMessageVO driverMessageVO) {
@@ -57,6 +61,7 @@ public class DriverMessagePO implements Serializable {
                 this.registrationTime = driverMessageVO.registrationTime;
                 this.yearsOfLicense = driverMessageVO.yearsOfLicense;
                 this.terminationTime = registrationTime.add(yearsOfLicense);
+                this.setInstitutionID(PublicMessage.institutionID);
         }
 
         public DriverMessageVO poToVo() {
@@ -134,6 +139,14 @@ public class DriverMessagePO implements Serializable {
 
         public void setYearsOfLicense(int yearsOfLicense) {
                 this.yearsOfLicense = yearsOfLicense;
+        }
+
+        public String getInstitutionID() {
+                return institutionID;
+        }
+
+        public void setInstitutionID(String institutionID) {
+                this.institutionID = institutionID;
         }
 
 }

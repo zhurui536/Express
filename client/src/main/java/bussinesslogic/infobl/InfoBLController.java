@@ -53,9 +53,9 @@ public class InfoBLController implements InfoBLSerivce {
         }
 
         @Override
-        public ResultMessage showDriverMessage(String driverId) {
+        public ResultMessage getDriverMessage(String driverId) {
                 service.addSystemlog(new SystemlogVO("查看司机信息"));
-                return driverMessageMaintenanceBLService.showDriverMessage(driverId);
+                return driverMessageMaintenanceBLService.getDriverMessage(driverId);
         }
 
         @Override
@@ -141,5 +141,10 @@ public class InfoBLController implements InfoBLSerivce {
 		public ResultMessage getInstitutionMessage() {
 			return this.institutionMessageMaintenanceBLService.getInstitutionMessage();
 		}
+
+                @Override
+                public ResultMessage showAllDriverMessage() {
+                        return this.driverMessageMaintenanceBLService.showAllDriverMessage();
+                }
 
 }

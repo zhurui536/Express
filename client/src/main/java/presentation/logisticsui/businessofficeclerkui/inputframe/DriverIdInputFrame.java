@@ -107,7 +107,7 @@ public class DriverIdInputFrame extends InputFrame implements ActionListener{
                                 }
                                 
                         }else if(kind == 1){
-                                ResultMessage resultMessage = infoBLSerivce.showDriverMessage(ID);
+                                ResultMessage resultMessage = infoBLSerivce.getDriverMessage(ID);
                                 if(resultMessage.getKey().equals("SUCCESS")){
                                         DriverMessageDataPanel dataPanel = new DriverMessageDataPanel((DriverMessageVO)resultMessage.getValue());
                                         ui.paintdata(dataPanel);
@@ -117,7 +117,7 @@ public class DriverIdInputFrame extends InputFrame implements ActionListener{
                                         new WarningDialog(ui, resultMessage);
                                 }
                         }else if(kind == -1){
-                                ResultMessage resultMessage = infoBLSerivce.showDriverMessage(ID);
+                                ResultMessage resultMessage = infoBLSerivce.getDriverMessage(ID);
                                 if(resultMessage.getKey().equals("SUCCESS")){
                                         DriverMessageVO driverMessageVO = (DriverMessageVO) resultMessage.getValue();
                                         DriverMessageInputFrame driverMessageInputFrame = new DriverMessageInputFrame(listener, driverMessageVO);

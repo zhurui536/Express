@@ -1,6 +1,7 @@
 package bussinesslogic.infobl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bussinesslogicservice.infoblservice.DriverMessageMaintenanceBLService;
 import connection.ClientRMIHelper;
@@ -63,7 +64,7 @@ public class DriverMessageMaintenanceBL implements
         }
 
         @Override
-        public ResultMessage showDriverMessage(String driverId) {
+        public ResultMessage getDriverMessage(String driverId) {
                 ResultMessage resultMessage = null;
                 try {
                         resultMessage = driverMessageMaintenanceDataService
@@ -79,6 +80,23 @@ public class DriverMessageMaintenanceBL implements
                 } else {
                         return new ResultMessage("FAIL");
                 }
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        public ResultMessage showAllDriverMessage() {
+                ResultMessage resultMessage = null;
+                try {
+                        resultMessage = driverMessageMaintenanceDataService.findAll();
+                } catch (RemoteException e) {
+                        e.printStackTrace();
+                        return new ResultMessage("internet error");
+                }
+                ArrayList<DriverMessageVO> driverMessageVOs = new ArrayList<>();
+                for (DriverMessagePO driverMessagePO : (ArrayList<DriverMessagePO>)resultMessage.getValue()) {
+                        driverMessageVOs.add(driverMessagePO.poToVo());
+                }
+                return new ResultMessage("success",driverMessageVOs);
         }
 
 }

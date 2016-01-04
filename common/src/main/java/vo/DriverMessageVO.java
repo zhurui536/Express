@@ -1,5 +1,6 @@
 package vo;
 
+import util.PublicMessage;
 import util.Sex;
 import util.Time;
 
@@ -27,8 +28,10 @@ public class DriverMessageVO {
         
         public int yearsOfLicense;
         
+        public String institutionID;
+        
         public DriverMessageVO() {
-               
+               this.institutionID = PublicMessage.institutionID;
         }
 
         public DriverMessageVO(String driverId, String name, String iD,
@@ -45,6 +48,7 @@ public class DriverMessageVO {
                 this.registrationTime = registrationTime;
                 this.yearsOfLicense = yearsOfLicense;
                 this.terminationTime = registrationTime.add(yearsOfLicense);
+                this.institutionID = PublicMessage.institutionID;
         }
         
         

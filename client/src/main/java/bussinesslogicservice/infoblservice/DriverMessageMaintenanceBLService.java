@@ -34,6 +34,8 @@ public interface DriverMessageMaintenanceBLService {
          * @param driverId 司机的ID
          * @return 包含司机信息的VO的ResultMessage(如果成功找到)
          */
-        public ResultMessage showDriverMessage(String driverId);
+        public ResultMessage getDriverMessage(String driverId);
+        
+        public ResultMessage showAllDriverMessage();
         
 }
