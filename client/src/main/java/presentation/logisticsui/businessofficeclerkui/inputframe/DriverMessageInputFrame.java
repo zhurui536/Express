@@ -195,7 +195,7 @@ public class DriverMessageInputFrame extends InputFrame implements ActionListene
                                 return;
                         }
                         driverMessageVO.driverId = jTextAreas[0].getText();
-                        if(!InputChecker.isIdNum(jTextAreas[3].getText())){
+                        if((!InputChecker.isIdNum(jTextAreas[3].getText()))||jTextAreas[3].getText().length()!=18){
                                 errOutputLabel.setText("不合法的身份证号！");
                                 return;
                         }
