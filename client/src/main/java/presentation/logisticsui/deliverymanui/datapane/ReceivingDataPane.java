@@ -1,8 +1,12 @@
 package presentation.logisticsui.deliverymanui.datapane;
 
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import util.City;
 import util.ExpressType;
 import util.GoodsDeliveryState;
 import util.PackageType;
@@ -34,23 +38,28 @@ public class ReceivingDataPane extends JPanel {
                 number = new JLabel("条形码号：" + sendBillVO.id);
                 number.setSize(200,35);
                 number.setLocation(15,15);
+                number.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 this.add(number);
                 
                 panelForGoods = panelForGoodsVO(sendBillVO.goodsVO);
                 panelForGoods.setLocation(15,65);
+                panelForGoods.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 this.add(panelForGoods);
                 
                 panelForSender = makeFromPeopleVO("寄件人信息：", sendBillVO.senderVO);
                 panelForSender.setLocation(15,245);
+                panelForSender.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 this.add(panelForSender);
                 
                 panelForRec = makeFromPeopleVO("收件人信息：", sendBillVO.recipientVO);
                 panelForRec.setLocation(15,445);
+                panelForRec.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 this.add(panelForRec);
                 
                 this.time = new JLabel("预计用时：" + time + "天");
                 this.time.setSize(200,35);
                 this.time.setLocation(15,645);
+                this.time.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 this.add(this.time);
         }
         
@@ -64,7 +73,7 @@ public class ReceivingDataPane extends JPanel {
                 title.setLocation(15,15);
                 panel.add(title);
                 
-                String[][] nameStrings = {{"名称：" + goodsVO.name, "出发地：" + goodsVO.departurePlace, "目的地：" + goodsVO.destination},
+                String[][] nameStrings = {{"名称：" + goodsVO.name, "出发地：" + City.cityToString(goodsVO.departurePlace), "目的地：" + City.cityToString(goodsVO.destination)},
                                 {"重量：" + goodsVO.weight, "体积：" + goodsVO.volume , "运费：" + goodsVO.price},
                                 {"包装：" + PackageType.typeToString(goodsVO.packageType),
                                         "快递方式：" + ExpressType.typeToString(goodsVO.expressType),
