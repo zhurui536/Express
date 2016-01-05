@@ -27,8 +27,8 @@ public class RMIConfig {
 			try {
 				SAXReader reader = new SAXReader();
 				Document doc = null;
-//				doc = reader.read("../common/" + "ipconfig.xml");
-				doc = reader.read("ipconfig.xml");
+				doc = reader.read("../common/" + "ipconfig.xml");
+//				doc = reader.read("ipconfig.xml");
 				common = doc.getRootElement();
 			} catch (DocumentException e) {
 				e.printStackTrace();

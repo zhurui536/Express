@@ -34,7 +34,7 @@ public class DeliveryInputFrame extends InputFrame implements ActionListener{
                 this.listener = listener;
                 this.setName("收件信息输入");
                 this.setLayout(null);
-                this.setSize(430, 275);
+                this.setSize(430, 300);
                 this.setLocation(400, 250);
                 init();
         }

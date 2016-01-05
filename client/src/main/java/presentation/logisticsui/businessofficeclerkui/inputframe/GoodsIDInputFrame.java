@@ -23,7 +23,7 @@ public class GoodsIDInputFrame extends InputFrame implements ActionListener{
 	public GoodsIDInputFrame(GoodsLoadToolListener tl){
 		this.tl = tl;
 		this.setLayout(null);
-		this.setSize(250, 200);
+		this.setSize(250, 250);
 		this.setLocation(400, 250);
 		
 		this.initialize();

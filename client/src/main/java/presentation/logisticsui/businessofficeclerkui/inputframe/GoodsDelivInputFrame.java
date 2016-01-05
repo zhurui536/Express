@@ -32,7 +32,7 @@ public class GoodsDelivInputFrame extends InputFrame implements ActionListener{
                 this.listener = goodsDelivToolListener;
                 this.setName("快递员ID输入");
                 this.setLayout(null);
-                this.setSize(460, 240);
+                this.setSize(460, 300);
                 this.setLocation(350, 150);
                 init();
         }

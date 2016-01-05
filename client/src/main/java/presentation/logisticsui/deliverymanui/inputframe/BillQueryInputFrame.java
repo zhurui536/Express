@@ -33,7 +33,7 @@ public class BillQueryInputFrame extends InputFrame implements ActionListener{
                 this.listener = listener;
                 this.setName("快递单号输入");
                 this.setLayout(null);
-                this.setSize(430, 275);
+                this.setSize(430, 300);
                 this.setLocation(400, 250);
                 init();
         }

@@ -33,6 +33,7 @@ public class DeliveryToolListener extends ToolListener{
                         DeliveryInputFrame frame = new DeliveryInputFrame(this);
                         frame.setVisible(true);
                 }else{
+                	logisticsBLService.endDelivery();
                         ui.replaceTool(null);
                         ui.paintdata(null);
                 }

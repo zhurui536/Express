@@ -75,7 +75,7 @@ public class DriverMessageInputFrame extends InputFrame implements ActionListene
                 }
                 this.setName("司机信息维护");
                 this.setLayout(null);
-                this.setSize(560, 325);
+                this.setSize(560, 350);
                 this.setLocation(400, 250);
                 
                 labels[0].setBounds(15, 15, 100, 30);

@@ -64,7 +64,7 @@ public class TruckMessageInputFrame extends InputFrame implements ActionListener
                 }
                 this.setName("车辆信息维护");
                 this.setLayout(null);
-                this.setSize(330, 190);
+                this.setSize(330, 250);
                 this.setLocation(400, 250);
 
                 for (int i = 0; i < 3; i++) {

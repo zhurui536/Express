@@ -44,7 +44,7 @@ public class DriverIdInputFrame extends InputFrame implements ActionListener{
                 this.listener = listener;
                 this.setName("司机ID输入");
                 this.setLayout(null);
-                this.setSize(460, 240);
+                this.setSize(460, 300);
                 this.setLocation(350, 150);
                 this.kind = kind;
                 this.ui = listener.getUi();

@@ -47,7 +47,7 @@ public class GoodsLoadInputFrame extends InputFrame implements ActionListener{
                 this.listener = listener;
                 this.setName("装车信息输入");
                 this.setLayout(null);
-                this.setSize(600, 280);
+                this.setSize(600, 310);
                 this.setLocation(350, 150);
                 init();
         }
