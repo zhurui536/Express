@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import util.BillState;
+import util.City;
 import util.ExpressType;
 import util.GoodsDeliveryState;
 import util.PackageType;
@@ -74,7 +75,7 @@ public class BillQueryDataPane extends JPanel {
                 title.setLocation(15,15);
                 panel.add(title);
                 
-                String[][] nameStrings = {{"名称：" + goodsVO.name, "出发地：" + goodsVO.departurePlace, "目的地：" + goodsVO.destination},
+                String[][] nameStrings = {{"名称：" + goodsVO.name, "出发地：" + City.cityToString(goodsVO.departurePlace), "目的地：" + City.cityToString(goodsVO.destination)},
                                 {"重量：" + goodsVO.weight, "体积：" + goodsVO.volume , "运费：" + goodsVO.price},
                                 {"包装：" + PackageType.typeToString(goodsVO.packageType),
                                         "快递方式：" + ExpressType.typeToString(goodsVO.expressType),

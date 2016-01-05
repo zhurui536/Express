@@ -18,7 +18,7 @@ public class VerificationTool extends MyTool{
 		JLabel batch = new JLabel("批次："+df.format(Calendar.getInstance().getTime()));
 		batch.setSize(200, 30);
 		batch.setLocation(145, 30);
-		this.add(batch);
+		this.add(batch, 0);
 	}
 	
 	private static String[] buttonname = {"确定", "返回", "导出表格"};
@@ -27,7 +27,7 @@ public class VerificationTool extends MyTool{
 		this.pihao = new JLabel("批号："+pihao);
 		this.pihao.setSize(120, 60);
 		this.pihao.setLocation(145, 30);
-		this.add(this.pihao);
+		this.add(this.pihao, 0);
 	}
 	
 	private final SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");

@@ -16,6 +16,7 @@ import presentation.financeui.datapanel.StatementPanel;
 import presentation.mainui.ExpressFrame;
 import presentation.mainui.InputFrame;
 import presentation.mainui.component.ToolButton;
+import presentation.managerui.ManagerFrame;
 import util.DateChooser;
 import util.ResultMessage;
 import util.Time;
@@ -32,15 +33,20 @@ public class StatementDialog extends InputFrame {
 	private DateChooser start;
 	private DateChooser end;
     private FinanceBLService financeController;
-    private FinanceFrame ui;
+    private ExpressFrame ui;
     
     private JTable payTable;
     private JTable receiptTable;
     
     public StatementDialog(ExpressFrame ui) {
         super(ui);
-        this.ui = (FinanceFrame) ui;
-        this.financeController = ((FinanceFrame)ui).getFinanceController();
+       
+        this.ui = ui;
+        if (ui instanceof FinanceFrame) {
+        	this.financeController = ((FinanceFrame)ui).getFinanceController();
+        } else {
+        	this.financeController = ((ManagerFrame)ui).getFinanceController();
+        }
         init(ui);
     }
 

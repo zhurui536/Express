@@ -48,7 +48,13 @@ public class StorePlacePO implements Serializable{
 	}
 
 	public StorePlaceVO poToVo() {
-		GoodsVO goodsVO = this.goods.poToVo();
+		GoodsVO goodsVO;
+		if(goods == null){
+			goodsVO = null;
+		}
+		else{
+			goodsVO = this.goods.poToVo();
+		}
 		return new StorePlaceVO(area, row, shelf, place, goodsVO, date);
 	}
 

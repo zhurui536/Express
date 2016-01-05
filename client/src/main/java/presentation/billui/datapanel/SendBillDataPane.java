@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import po.logisticpo.SendBillPO;
+import util.City;
 import util.ExpressType;
 import util.MyJTable;
 import util.PackageType;
@@ -35,9 +36,9 @@ public class SendBillDataPane extends JPanel {
 		rowdata[1][3] = ExpressType.typeToString(vo.goodsVO.expressType);
 		
 		rowdata[2][0] = "出发地";
-		rowdata[2][1] = vo.goodsVO.departurePlace;
+		rowdata[2][1] = City.cityToString(vo.goodsVO.departurePlace);
 		rowdata[2][2] = "目的地";
-		rowdata[2][3] = vo.goodsVO.destination;
+		rowdata[2][3] = City.cityToString(vo.goodsVO.destination);
 		
 		rowdata[3][0] = "货物体积";
 		rowdata[3][1] = vo.goodsVO.volume;
