@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import util.InstitutionType;
 import util.MyJTable;
 import vo.InstitutionMessageVO;
 
@@ -25,7 +26,7 @@ public class InstitutionMessageDataPane extends JPanel {
 		for(int i=0;i<vos.size();i++){
 			rowdata[i][0] = vos.get(i).name;
 			rowdata[i][1] = vos.get(i).id;
-			rowdata[i][2] = vos.get(i).institutionType;
+			rowdata[i][2] = InstitutionType.typeTpString(vos.get(i).institutionType);
 		}
 		
 		MyJTable table = new MyJTable(rowdata, header);

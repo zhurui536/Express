@@ -42,6 +42,7 @@ public class ReportToolListener extends ToolListener {
         if (button == toolPanel.getButton(0)) {
             processProfit();
         } else if (button == toolPanel.getButton(2)) {
+        	System.err.println("akldsjf");
         	dialog = new StatementDialog(ui);
             dialog.setVisible(true);
         } else if (button == toolPanel.getButton(1)) {

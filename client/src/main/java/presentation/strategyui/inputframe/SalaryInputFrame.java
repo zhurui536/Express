@@ -79,11 +79,11 @@ public class SalaryInputFrame extends InputFrame implements ActionListener{
 			type.setSelectedIndex(1);
 		}
 		type.setBounds(20, 170, 100, 30);
-		this.getContentPane().add(type);
+		this.getContentPane().add(type, 0);
 		
 		salary = new JTextArea(vo.salary.getSalary()+"");
 		salary.setBounds(140, 170, 100, 30);
-		this.getContentPane().add(salary);
+		this.getContentPane().add(salary, 0);
 		
 		confirm = new ToolButton(120, 210,"确定");
 		cancle = new ToolButton(200, 210,"取消");
