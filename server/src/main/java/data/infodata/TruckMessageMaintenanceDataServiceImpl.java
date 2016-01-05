@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import dataservice.infodataservice.TruckMessageMaintenanceDataService;
 import po.TruckMessagePO;
 import serialutility.Database;
-import util.PublicMessage;
 import util.ResultMessage;
 
 public class TruckMessageMaintenanceDataServiceImpl extends UnicastRemoteObject implements TruckMessageMaintenanceDataService{

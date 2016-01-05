@@ -29,7 +29,7 @@ public class TruckMessageMaintenanceBL implements TruckMessageMaintenanceBLServi
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
-                        return new ResultMessage("FAIL");
+                        return new ResultMessage("internet error");
                 }
                 return new ResultMessage(resultMessage.getKey());
         }
@@ -43,7 +43,7 @@ public class TruckMessageMaintenanceBL implements TruckMessageMaintenanceBLServi
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
-                        return new ResultMessage("FAIL");
+                        return new ResultMessage("internet error");
                 }
                 return new ResultMessage(resultMessage.getKey());
         }
@@ -58,7 +58,7 @@ public class TruckMessageMaintenanceBL implements TruckMessageMaintenanceBLServi
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
-                        return new ResultMessage("FAIL");
+                        return new ResultMessage("internet error");
                 }
                 return new ResultMessage(resultMessage.getKey());
         }
@@ -72,7 +72,7 @@ public class TruckMessageMaintenanceBL implements TruckMessageMaintenanceBLServi
                 } catch (RemoteException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
-                        return new ResultMessage("FAIL");
+                        return new ResultMessage("internet error");
                 }
                 if (resultMessage.getKey().equals("FOUND")) {
                         return new ResultMessage("SUCCESS",

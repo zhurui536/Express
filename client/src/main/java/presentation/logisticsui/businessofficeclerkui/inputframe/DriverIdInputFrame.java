@@ -130,13 +130,15 @@ public class DriverIdInputFrame extends InputFrame implements ActionListener{
                                         new WarningDialog(ui, resultMessage);
                                 }
                         }
-                        ResultMessage resultMessage = infoBLSerivce.showAllDriverMessage();
-                        if(resultMessage.getKey().equals("success")){
-                                @SuppressWarnings("unchecked")
-                                DriverMessageListPanel driverMessageListPanel = new DriverMessageListPanel((ArrayList<DriverMessageVO>) resultMessage.getValue());
-                                ui.paintdata(driverMessageListPanel);
-                        }else{
-                                new WarningDialog(null, resultMessage);
+                        if(kind != 1){
+                                ResultMessage resultMessage = infoBLSerivce.showAllDriverMessage();
+                                if(resultMessage.getKey().equals("success")){
+                                        @SuppressWarnings("unchecked")
+                                        DriverMessageListPanel driverMessageListPanel = new DriverMessageListPanel((ArrayList<DriverMessageVO>) resultMessage.getValue());
+                                        ui.paintdata(driverMessageListPanel);
+                                }else{
+                                        new WarningDialog(null, resultMessage);
+                                }
                         }
                 }
                 this.setVisible(false);

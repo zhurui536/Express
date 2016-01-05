@@ -117,22 +117,21 @@ public class TruckIdInputFrame extends InputFrame implements ActionListener{
                                         TruckMessageVO truckMessageVO = (TruckMessageVO) resultMessage.getValue();
                                         TruckMessageInputFrame truckMessageInputFrame = new TruckMessageInputFrame(listener, truckMessageVO);
                                         truckMessageInputFrame.setVisible(true);
-                                }
-                                if(resultMessage.getKey().equals("FAIL")){
-                                        new WarningDialog(ui, resultMessage.getKey());
                                 }else if(resultMessage.getKey().equals("FAIL")){
                                         new WarningDialog(ui, "不存在对应信息");
                                 }else{
                                         new WarningDialog(ui, resultMessage);
                                 }
                         }
-                        ResultMessage resultMessage = infoBLSerivce.showAllTruckMessage();
-                        if(resultMessage.getKey().equals("success")){
-                                @SuppressWarnings("unchecked")
-                                TruckMessageListPanel truckMessageListPanel = new TruckMessageListPanel((ArrayList<TruckMessageVO>) resultMessage.getValue());
-                                ui.paintdata(truckMessageListPanel);
-                        }else {
-                                new WarningDialog(null, resultMessage);
+                        if(kind != 1){
+                                ResultMessage resultMessage = infoBLSerivce.showAllTruckMessage();
+                                if(resultMessage.getKey().equals("success")){
+                                        @SuppressWarnings("unchecked")
+                                        TruckMessageListPanel truckMessageListPanel = new TruckMessageListPanel((ArrayList<TruckMessageVO>) resultMessage.getValue());
+                                        ui.paintdata(truckMessageListPanel);
+                                }else {
+                                        new WarningDialog(null, resultMessage);
+                                }
                         }
                 }
                 this.setVisible(false);
