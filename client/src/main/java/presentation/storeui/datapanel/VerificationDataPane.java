@@ -29,7 +29,7 @@ public class VerificationDataPane extends JPanel {
 		ArrayList<String> destination = store.getDestination();
 		
 		Object[] header = {"货物编号", "区号", "排号", "架号", "位号", "入库时间", "目的地"};
-		Object[][] rowdata = new Object[goodsid.size()][7];
+		Object[][] rowdata = new Object[goodsid.size()+1][7];
 		
 		for(int i=0;i<goodsid.size();i++){
 			rowdata[i][0] = goodsid.get(i);
@@ -41,6 +41,11 @@ public class VerificationDataPane extends JPanel {
 			rowdata[i][5] = df.format(time.get(i).getTime());
 			rowdata[i][6] = destination.get(i);
 		}
+		
+		rowdata[goodsid.size()][1] = "批次";
+		rowdata[goodsid.size()][2] = store.pici;
+		rowdata[goodsid.size()][3] = "批号";
+		rowdata[goodsid.size()][4] = store.pihao;
 		
 		table = new MyJTable(rowdata, header);
 		table.setWidth(new int[]{130, 50, 50, 50, 50, 200, 200});
