@@ -139,10 +139,23 @@ public class TruckMessageInputFrame extends InputFrame implements ActionListener
                         InfoBLSerivce infoBLSerivce = ui.getInfoBLSerivce();
                         if(state == frameState.ADD){
                                 ResultMessage resultMessage = infoBLSerivce.addTruckMessage(truckMessageVO);
-                                new WarningDialog(ui, resultMessage.getKey());
+                                if(resultMessage.getKey().equals("SUCCESS")){
+                                        new WarningDialog(ui, "成功添加！");
+                                }else if(resultMessage.getKey().equals("EXIST")){
+                                        new WarningDialog(ui, "相同信息已存在！");
+                                }else{
+                                        new WarningDialog(ui, resultMessage);
+                                }
+                                
                         }else{
                                 ResultMessage resultMessage = infoBLSerivce.modTruckMessage(truckMessageVO);
-                                new WarningDialog(ui, resultMessage.getKey());
+                                if(resultMessage.getKey().equals("SUCCESS")){
+                                        new WarningDialog(ui, "成功修改！");
+                                }else if(resultMessage.getKey().equals("NO_EXIST")){
+                                        new WarningDialog(ui, "不存在该信息！");
+                                }else{
+                                        new WarningDialog(ui, resultMessage);
+                                }
                         }
                         this.setVisible(false);
                         ResultMessage resultMessage = infoBLSerivce.showAllTruckMessage();

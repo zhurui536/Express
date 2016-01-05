@@ -48,21 +48,25 @@ public class MenuListener implements ActionListener{
                 ui.refreshMenu();
                 ui.getButton(i).clicked();
                 if(i == 0){
+                        ui.paintdata(null);
                         GoodsLoadToolListener goodsLoadToolListener = new GoodsLoadToolListener(ui);
                         GoodsLoadTool tool = new GoodsLoadTool(goodsLoadToolListener);
                         goodsLoadToolListener.setTool(tool);
                         ui.replaceTool(tool);
                 }else if(i == 1){
+                        ui.paintdata(null);
                         GoodsRecToolListener goodsRecToolListener = new GoodsRecToolListener(ui);
                         GoodsRecTool tool = new GoodsRecTool(goodsRecToolListener);
                         goodsRecToolListener.setTool(tool);
                         ui.replaceTool(tool);
                 }else if(i == 2){
+                        ui.paintdata(null);
                         GoodsDelivToolListener goodsDelivToolListener = new GoodsDelivToolListener(ui);
                         GoodsDelivTool tool = new GoodsDelivTool(goodsDelivToolListener);
                         goodsDelivToolListener.setTool(tool);
                         ui.replaceTool(tool);
                 }else if(i == 3){
+                        ui.paintdata(null);
                         LogisticsBLService logisticsBLService = ui.getLogisticsBLService();
                         ResultMessage resultMessage = logisticsBLService.produceReceiptBill();
                         if(resultMessage.getKey().equals("SUCCESS")){
@@ -97,6 +101,7 @@ public class MenuListener implements ActionListener{
                         truckMessageToolListener.setTool(tool);
                         ui.replaceTool(tool);
                 }else if(i == 6){
+                        ui.paintdata(null);
                 	BillCheckToolListener billchecktoollistener = new BillCheckToolListener(ui);
                 	BillCheckTool tool = new BillCheckTool(billchecktoollistener);
                 	billchecktoollistener.setTool(tool);

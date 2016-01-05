@@ -38,21 +38,25 @@ public class MenuListener implements ActionListener{
                 ui.refreshMenu();
                 ui.getButton(i).clicked();
                 if(i == 0){
+                        ui.paintdata(null);
                         GoodsRecToolListener goodsRecToolListener = new GoodsRecToolListener(ui);
                         GoodsRecTool tool = new GoodsRecTool(goodsRecToolListener);
                         goodsRecToolListener.setTool(tool);
                         ui.replaceTool(tool);
                 }else if(i == 1){
+                        ui.paintdata(null);
                         GoodsTranToolListener goodsTranToolListener = new GoodsTranToolListener(ui);
                         GoodsTranTool tool = new GoodsTranTool(goodsTranToolListener);
                         goodsTranToolListener.setTool(tool);
                         ui.replaceTool(tool);
                 }else if(i == 2){
+                        ui.paintdata(null);
                         GoodsLoadToolListener goodsLoadToolListener = new GoodsLoadToolListener(ui);
                         GoodsLoadTool tool = new GoodsLoadTool(goodsLoadToolListener);
                         goodsLoadToolListener.setTool(tool);
                         ui.replaceTool(tool);
                 }else if(i == 3){
+                        ui.paintdata(null);
                 	BillCheckToolListener tl = new BillCheckToolListener(ui);
                 	BillCheckTool tool = new BillCheckTool(tl);
                 	tl.setTool(tool);
